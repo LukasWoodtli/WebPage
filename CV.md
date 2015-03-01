@@ -19,11 +19,11 @@ Jarmila Woodtli, Chemist
 
 
 # Education	
-| Years:         |                                                                              |
-|----------------|------------------------------------------------------------------------------|
-| 2004 - 2009    | Study of Electrical Engineering, University of Applied Science Zürich (ZHAW) |
-| 2003 - 2004    | Teacher Training College, PH Zürich                                          |
-| 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                   |
+| Years:         |                                                                                          |
+|----------------|------------------------------------------------------------------------------------------|
+| 2004 - 2009    | Study of Electrical Engineering, Batchelor, University of Applied Science Zürich (ZHAW)  |
+| 2003 - 2004    | Teacher Training College, PH Zürich                                                      |
+| 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
 
 
 # Bachelor Thesis	
@@ -35,11 +35,14 @@ The bachelor thesis was rewarded with a grade of 5.5. More information on the pr
 # Internship at Schiller AG	
 The main task during the internship was to create a computer program that reads and writes XML files. In these files the configuration of different filters for electrocardiogram devices are stored. The software reads the configuration from the file and shows it graphically as connected boxes which represent the filters. It's also possible to create an XML file. For that the filters can be placed on a workspace via drag and drop. They then can be connected with mouse clicks. The software was programmed in C++ mainly with Qt, STL, Boost and the Xerces XML library.
 
+# Actual Job
+Embedded Software/Firmware in C and C++ on 8 bit and 32 bit processors.
+
 # Work Experience	
 
 | Time            | Occupation
 |-----------------|---------------------------------------------------
-| 2010 - now      | Firmware engineer, Kaba AG           
+| 2010 - now      | Senior firmware engineer, Kaba AG, Wetzikon           
 | 2010 (4 monthw) | Software engineer, Codecheck Zürich
 | 2010 (6 months) | Internship as software engineer, Schiller AG Baar
 | 2002 (6 months  | Mechanic, AIM Horgen
@@ -72,4 +75,10 @@ Available on request
 
 
 
+
+<!--- courses: Legic, SMD Soldering, Scrum
+      Online Courses: Udacity: JavaScript ...  --->
+
+<!--- bookshelf
+       Gof, DesPatterns (Head First), C++... --->
 
