@@ -47,6 +47,3 @@ Disney Copter",
 
             "title": "Udacity: JavaScript"...
 
-    "bookshelf" : [
-        {"title" : "", "topic" : "", "progress" : "", "notes" : ""} // Gof, DesPatterns (Head First), C++...
-    ]
