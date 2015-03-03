@@ -15,6 +15,7 @@ Doxygen;Documentation;very good
 Graphviz;Documentation;very good
 Qt;Frameworks;very good
 Boost;Frameworks;good
+STL;Frameworks;good
 Cocoa Touch;Frameworks;basic
 OOP/OOD;Skills;very good
 Design/Architecture Patterns;Skills;very good
@@ -28,6 +29,7 @@ OCLint;Static Analysis;basic
 CppCheck;Static Analysis;good
 Valgrind;Dynamic Analysis;basic
 Instruments (XCode);Dynamic Analysis;basic
-XCode;IDE;basic
-Visual Studio;IDE;very good
-IAR Studio;IDE;very good
+XCode;IDEs;basic
+Visual Studio;IDEs;very good
+IAR Studio;IDEs;very good
+Qt Creator;IDEs;very good
