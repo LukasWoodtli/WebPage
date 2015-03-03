@@ -1,13 +1,6 @@
-Tools:
-Programming Languages:
-- C/C++
-- Objective C
-- Python
-- JavaScript
 
-Unit Tests:
-- Google Test
-- Qt Test
+
+
 
 Test Coverage:
 - gcov & lcov
@@ -20,32 +13,9 @@ Dynamic Analysis
 - valgrind
 - Instruments
 
-Documentation
-- Doxygen
-- Graphviz
-
-Frameworks
-- Qt
-- Boost
-- Cocoa Touch
 
 Build
 - CMake
 - Buildbot
 
-Version Control
-- Git
-- SVN
 
-OS's
-- OS X
-- Linux
-- Win
-
-Skills
-- OOP/OOD
-- Design/Architecture Patterns
-- Regexp
-- UX/UI Design
-- UML
-- Project Management / Scrum / XP
