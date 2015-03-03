@@ -1,21 +1,2 @@
 
 
-
-
-Test Coverage:
-- gcov & lcov
-
-Static Analysis:
-- OCLint
-- CppCheck
-
-Dynamic Analysis
-- valgrind
-- Instruments
-
-
-Build
-- CMake
-- Buildbot
-
-

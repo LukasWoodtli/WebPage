@@ -4,7 +4,8 @@ Objective C; Programming Languages;basic
 Python;Programming Languages;good
 JavaScript;Programming Languages;basic
 Google Test;Unit Tests;basic
-Qt Test;Google Test;good
+Qt Test; Unit Tests;good
+Test Coverage (gcov & lcov);Unit Tests;basic
 Git;Version Control;good
 SVN;Version Control;very good
 OS X;OS's;very good
@@ -21,3 +22,12 @@ Regexp;Skills;basic
 UX/UI Design;Skills;basic
 UML;Skills;good
 Project Management / Scrum / XP;Skills;very good
+CMake;Build Tools;good
+Buildbot;Build Tools;basic
+OCLint;Static Analysis;basic
+CppCheck;Static Analysis;good
+Valgrind;Dynamic Analysis;basic
+Instruments (XCode);Dynamic Analysis;basic
+XCode;IDE;basic
+Visual Studio;IDE;very good
+IAR Studio;IDE;very good
