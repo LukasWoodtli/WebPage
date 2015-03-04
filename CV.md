@@ -18,14 +18,6 @@ Jarmila Woodtli, Chemist
 --->
 
 
-# Education	
-| Years:         |                                                                                          |
-|----------------|------------------------------------------------------------------------------------------|
-| 2004 - 2009    | Bachelor of Electrical Engineering, University of Applied Science Zürich (ZHAW), http://www.zhaw.ch/de/engineering/studium/bachelor/elektrotechnik.html |
-| 2003 - 2004    | Teacher Training College, PH Zürich                                                      |
-| 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
-
-
 # Actual Job
 Embedded Senior Software/Firmware in C and C++ on 8 bit and 32 bit processors.
 
@@ -37,6 +29,14 @@ Embedded Senior Software/Firmware in C and C++ on 8 bit and 32 bit processors.
 | 2010 (4 monthw) | Software engineer, Codecheck Zürich
 | 2010 (6 months) | Internship as software engineer, development with Qt on Windows and Linux, Schiller AG Baar
 | 2002 (6 months  | Mechanic, AIM Horgen
+
+
+# Education	
+| Years:         |                                                                                          |
+|----------------|------------------------------------------------------------------------------------------|
+| 2004 - 2009    | Bachelor of Electrical Engineering, University of Applied Science Zürich (ZHAW), http://www.zhaw.ch/de/engineering/studium/bachelor/elektrotechnik.html |
+| 2003 - 2004    | Teacher Training College, PH Zürich                                                      |
+| 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
 
 # Courses
 - Legic
@@ -73,11 +73,6 @@ Available on request
 * Cooking
 * Reading books
 
-
-
-
-<!--- courses: Legic, SMD Soldering, Scrum
-      Online Courses: Udacity: JavaScript ...  --->
 
 <!--- bookshelf
        Gof, DesPatterns (Head First), C++... --->
