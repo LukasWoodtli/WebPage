@@ -1,4 +1,7 @@
+import os
+import csv
 
+OUT_PATH = "/Users/Boot/projects/yoursite/content/pages/"
 
 class Skill:
     def __init__(self, skill, category, rating):
@@ -12,30 +15,32 @@ class Skill:
         self.rating = cells[2].strip()
 
     def __repr__(self):
-        return self.skill + ": " + self.rating
+        return self.skill + " | " + self.rating
 
 def get_skills(file):
-    with open(file) as skills:
-        for line in skills.readlines():
-            line = line.strip()
-            cells = line.split(";")
-            yield Skill(cells)
+    csv_file  = open(file)
+    return csv.reader(csv_file, delimiter=';')
+
 
 
 def main():
     categories = {}
-    for skill in  get_skills("/Users/Boot/Bewerbung/Skills.csv"):
+    for skill in get_skills("/Users/Boot/Bewerbung/Skills.csv"):
+        skill = Skill(skill)
         if skill.category in categories.keys():
             categories[skill.category].append(skill)
         else:
             categories[skill.category] = [skill]
 
-    with open("skills.md", 'w') as out_file:
+    with open(os.path.join(OUT_PATH, "skills.md"), 'w') as out_file:
         out_file.write("Title: Skills" + "\n")
         for category, skills  in categories.iteritems():
             out_file.write("#" + category + "\n")
+            out_file.write("what | knowledge\n")
+            out_file.write("---|--- :\n")
             for skill in skills:
-                out_file.write(str(skill) + "\n\n")
+                out_file.write(str(skill) + "\n")
+            out_file.write("\n")
 
 
 if __name__ == "__main__":
