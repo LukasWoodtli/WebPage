@@ -6,6 +6,8 @@ THIS_FILES_FOLDER_PATH = os.path.split(THIS_FILES_PATH)[0]
 
 OUT_PATH = "/Users/Boot/projects/yoursite/content/pages/"
 
+COLUMN_WIDTH = 60
+
 class Skill:
     def __init__(self, skill, category, rating):
         self.skill = skill
@@ -24,7 +26,8 @@ def get_skills(file):
     csv_file  = open(file)
     return csv.DictReader(csv_file, ["skill", "category", "rating"], delimiter=';')
 
-
+def create_md_row(first_col, second_col):
+    return first_col + " "*(COLUMN_WIDTH-len(first_col)) + "|" + second_col + " "*(COLUMN_WIDTH-len(second_col)) + "\n"
 
 def main():
     categories = {}
@@ -39,10 +42,10 @@ def main():
         out_file.write("Title: Skills" + "\n")
         for category, skills  in categories.iteritems():
             out_file.write("#" + category + "\n")
-            out_file.write("what | knowledge\n")
-            out_file.write("---|--- :\n")
+            out_file.write(create_md_row("what", "knowledge"))
+            out_file.write(create_md_row("-"*COLUMN_WIDTH,  "-"*COLUMN_WIDTH))
             for skill in skills:
-                out_file.write(skill["skill"].strip() + "|" + skill["rating"].strip() + "\n")
+                out_file.write(create_md_row(skill["skill"].strip(), skill["rating"].strip()))
             out_file.write("\n")
 
 
