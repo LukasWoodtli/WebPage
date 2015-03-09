@@ -14,7 +14,7 @@ THIS_FILES_FOLDER_PATH = os.path.split(THIS_FILES_PATH)[0]
 
 OUT_PATH = "/Users/Boot/projects/yoursite/content/pages/"
 
-COLUMN_WIDTH = 60
+COLUMN_WIDTH = 40
 
 
 def get_skills(file, columns):
@@ -22,7 +22,15 @@ def get_skills(file, columns):
     return csv.DictReader(csv_file, columns, delimiter=';')
 
 def create_md_row(first_col, second_col):
-    return "| " + first_col + " | " + second_col  + " |\n"
+    return "| " + first_col + " "*(COLUMN_WIDTH-len(first_col)) + " | " + second_col + " "*(COLUMN_WIDTH-len(second_col)) + " |\n"
+
+# def create_md_row(columns):
+#     str = "| "
+#     for col in coumns:
+#         str += col + " |"
+#     str += "\n"
+#     return str
+
 
 def main():
 
@@ -32,6 +40,7 @@ def main():
     title = data.Title
     sectionColumn = data.SectionColumn
     allColumns = data.AllColumns
+    remainingColumns = [c for c in allColumns if c is not sectionColumn]
     categories = {}
     for skill in get_skills(os.path.join(THIS_FILES_FOLDER_PATH, fileName), allColumns):
         category = skill[sectionColumn].strip()
@@ -40,7 +49,8 @@ def main():
         else:
             categories[category] = [skill]
 
-    with open(os.path.join(OUT_PATH, "skills.md"), 'w') as out_file:
+
+    with open(os.path.join(THIS_FILES_FOLDER_PATH, fileName.replace(".csv", ".md")), 'w') as out_file:
         out_file.write("Title: " + title + "\n")
         for category, skills  in categories.iteritems():
             out_file.write("#" + category + "\n")
