@@ -1,5 +1,20 @@
 import os
 import csv
+from collections import namedtuple Point = 
+
+namedtuple('Point', 'x y')
+pt1 = Point(1.0, 5.0)
+pt2 = Point(2.5, 1.5)
+
+namedtuple('Page', 'Title SectionColumn AllColumns')
+
+SkillsPage = Page("Skills", "category", ["skill", "category", "rating"])
+BooksPage = Page("Bookshelf", "category", ["name", "category", "authors", "publisher"])
+
+
+Gang of Four;Design Patterns;Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides;Addison-Wesley
+
+
 
 THIS_FILES_PATH = os.path.realpath(__file__)
 THIS_FILES_FOLDER_PATH = os.path.split(THIS_FILES_PATH)[0]
