@@ -1,18 +1,11 @@
 import os
 import csv
-from collections import namedtuple Point = 
+from collections import namedtuple
 
-namedtuple('Point', 'x y')
-pt1 = Point(1.0, 5.0)
-pt2 = Point(2.5, 1.5)
-
-namedtuple('Page', 'Title SectionColumn AllColumns')
+Page = namedtuple('Page', 'Title SectionColumn AllColumns')
 
 SkillsPage = Page("Skills", "category", ["skill", "category", "rating"])
 BooksPage = Page("Bookshelf", "category", ["name", "category", "authors", "publisher"])
-
-
-Gang of Four;Design Patterns;Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides;Addison-Wesley
 
 
 
@@ -23,19 +16,6 @@ OUT_PATH = "/Users/Boot/projects/yoursite/content/pages/"
 
 COLUMN_WIDTH = 60
 
-class Skill:
-    def __init__(self, skill, category, rating):
-        self.skill = skill
-        self.category = category
-        self.rating = rating
-
-    def __init__(self, cells):
-        self.skill = cells[0].strip()
-        self.category = cells[1].strip()
-        self.rating = cells[2].strip()
-
-    def __repr__(self):
-        return self.skill + " | " + self.rating
 
 def get_skills(file):
     csv_file  = open(file)
