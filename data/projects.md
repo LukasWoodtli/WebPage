@@ -1,3 +1,5 @@
+title: Projects
+
 # FeatureTogglesPlusPlus
 This is a small personal project to provide lightweight feature toggles in C++. It should have no dependencies (maybe some STL) and be highly configurable. With writing this library I want to improve my C++ knowledge. Mainly Templates and other "Modern C++" topics.
 
