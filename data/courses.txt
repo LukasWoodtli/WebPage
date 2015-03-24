@@ -1,2 +1,11 @@
 Legic Identification (RFID);Legic Wetzikon
 SMD Soldering;Meili Data
+
+Online Courses:
+JavaScript;Udacity
+Programming Languages;Udacity
+
+iOS Development;
+
+Clojure;
+Emacs Lisp;
