@@ -50,13 +50,14 @@ MENUITEMS = [
     ('CV', '/pages/cv.html'),
     ('Skills', '/pages/skills.html'),
     ('Books', '/pages/books.html'),
+    ('Contact', '/pages/contact.html')
 # ('Archives', [
     #     ('Tags', '/tags.html'),
     #     ('Categories', '/categories.html'),
     #     ('Chronological', '/archives.html'),
     #     ]),
-    ('Social', [
-        ('Email', 'mailto:woodtli.lukas@gmail.com'),
-        ('Github', 'https://github.com/LukasWoodtli'),
-        ]), # LinkedIn, Xing, Stack Overflow....
+    #('Social', [
+    #    ('Email', 'mailto:woodtli.lukas@gmail.com'),
+    #    ('Github', 'https://github.com/LukasWoodtli'),
+    #    ]), # LinkedIn, Xing, Stack Overflow....
     ]
