@@ -6,9 +6,12 @@ AUTHOR = u'Lukas Woodtli'
 SITENAME = u'Woodtli'
 SITEURL = ''
 
+LOAD_CONTENT_CACHE = False # Caching not helpful when developing
+
 PATH = 'content'
 
-TIMEZONE = 'Europe/Paris'
+
+TIMEZONE = 'Europe/Zurich'
 
 DEFAULT_LANG = u'en'
 
@@ -20,16 +23,40 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+#LINKS = (('Pelican', 'http://getpelican.com/'),
+#         ('Python.org', 'http://python.org/'),
+#         ('Jinja2', 'http://jinja.pocoo.org/'),
+#         ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+#SOCIAL = (('You can add links in your config file', '#'),
+#          ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+PLUGIN_PATHS = ["plugins", "/Users/Boot/projects/"]
+PLUGINS = ["pelican-bootstrapify"]
+
+
+THEME = "pelican-chameleon"
+BS3_THEME = "http://bootswatch.com/yeti/bootstrap.min.css"
+
+
+MENUITEMS = [
+    ('Home', '/index.html'),
+    ('CV', '/pages/cv.html'),
+    ('Skills', '/pages/skills.html'),
+    ('Books', '/pages/books.html'),
+# ('Archives', [
+    #     ('Tags', '/tags.html'),
+    #     ('Categories', '/categories.html'),
+    #     ('Chronological', '/archives.html'),
+    #     ]),
+    ('Social', [
+        ('Email', 'mailto:woodtli.lukas@gmail.com'),
+        ('Github', 'https://github.com/LukasWoodtli'),
+        ]), # LinkedIn, Xing, Stack Overflow....
+    ]
