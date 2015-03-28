@@ -1,5 +1,9 @@
 title: Projects
 
+# Markdown Generator for Python
+I started to develop this library for personal use. The aim was to generate some Markdown files for my homepage. At the end I decided not to use it for my homepage (yet).
+But I keep working on the project. It is also a good exercise for doing a complete Python project from start to end.
+
 # FeatureTogglesPlusPlus
 This is a small personal project to provide lightweight feature toggles in C++. It should have no dependencies (maybe some STL) and be highly configurable. With writing this library I want to improve my C++ knowledge. Mainly Templates and other "Modern C++" topics.
 
@@ -12,5 +16,3 @@ The bachelor thesis was rewarded with a grade of 5.5 (of 6). More information on
 
 # Internship at Schiller AG	
 The main task during the internship was to create a computer program that reads and writes XML files. In these files the configuration of different filters for electrocardiogram devices are stored. The software reads the configuration from the file and shows it graphically as connected boxes which represent the filters. It's also possible to create an XML file. For that the filters can be placed on a workspace via drag and drop. They then can be connected with mouse clicks. The software was programmed in C++ mainly with Qt, STL, Boost and the Xerces XML library.
-
-
