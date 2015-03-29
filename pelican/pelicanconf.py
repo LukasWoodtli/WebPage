@@ -51,7 +51,7 @@ MENUITEMS = [
     ('Skills',[
         ('Skills', '/pages/skills.html'),
         ('Books', '/pages/books.html'),
-#        ('Courses', '/pages/courses.html'),
+        ('Courses', '/pages/courses.html'),
         ('Projects', '/pages/projects.html')]),
     ('Contact', '/pages/contact.html')
 # ('Archives', [
