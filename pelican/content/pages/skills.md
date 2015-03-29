@@ -3,7 +3,7 @@ Title: Skills
 
 # Programming Languages
 
-My main (and favourite) programming language is C++. I have also been programming C for several years. For small tasks I like Python. It's a tool I use regularly in my development workflow. I have tried some other languages. But I have not a lot experience in programming with them.
+My main (and favourite) programming language is C++. I have also been programming C for several years. For small tasks I like Python. It's a tool I use regularly in my development workflow. I have tried some other languages. But I have not a lot experience in programming with them. My latest discovery is Clojure. I realy enjoy learning the functional progamming paradigm.
 
 | Language                                 | Knowledge                                |
 |------------------------------------------|------------------------------------------|
@@ -13,6 +13,7 @@ My main (and favourite) programming language is C++. I have also been programmin
 | Python                                   | good                                     |
 | JavaScript                               | basic                                    |
 | Java                                     | basic                                    |
+| Clojure (Lisp)                           | basic                                    |
 
 
 # Frameworks
@@ -108,7 +109,7 @@ Static analysis is one of the important tools to improve code quality.
 # Dynamic Analysis
 Dynamic analysis (profiling) is an very important tool for checking and improving the code. It's something I want to improve in my feature projects.
 
-| what                                     | Knowledge                                |
+| Tool                                     | Knowledge                                |
 |------------------------------------------|------------------------------------------|
 | Valgrind                                 | basic                                    |
 | Instruments (XCode)                      | basic                                    |
