@@ -48,8 +48,11 @@ BS3_THEME = "http://bootswatch.com/yeti/bootstrap.min.css"
 MENUITEMS = [
     ('Home', '/index.html'),
     ('CV', '/pages/cv.html'),
-    ('Skills', '/pages/skills.html'),
-    ('Books', '/pages/books.html'),
+    ('Skills',[
+        ('Skills', '/pages/skills.html'),
+        ('Books', '/pages/books.html'),
+#        ('Courses', '/pages/courses.html'),
+        ('Projects', '/pages/projects.html')]),
     ('Contact', '/pages/contact.html')
 # ('Archives', [
     #     ('Tags', '/tags.html'),

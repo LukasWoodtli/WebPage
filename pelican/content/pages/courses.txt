@@ -1,7 +1,14 @@
-Legic Identification (RFID);Legic Wetzikon
-SMD Soldering;Meili Data
+Traditional Classes
+===================
 
-Online Courses:
+| Course                      | Host                             |
+|-----------------------------|----------------------------------|
+| Legic Identification (RFID) | [Legic Wetzikon](www.legic.com/) |
+| SMD Soldering               | [Meili Data](www.meili-data.ch/) |
+
+Online Courses
+==============
+
 JavaScript;Udacity
 Programming Languages;Udacity
 

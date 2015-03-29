@@ -3,7 +3,8 @@ Title: CV
 
 # Personal Data	
 Lukas Woodtli
-woodtli.lukas@gmail.com
+
+[woodtli.lukas@gmail.com](mailto:woodtli.lukas@gmail.com)
 
 
 # Nationality
@@ -19,7 +20,7 @@ Jarmila Woodtli, Chemist
 
 
 # Actual Job
-Embedded Senior Software/Firmware in C and C++ on 8 bit and 32 bit processors.
+Embedded Senior Software/Firmware Developer. C and C++ on 8 bit and 32 bit processors.
 
 # Work Experience	
 
@@ -28,13 +29,13 @@ Embedded Senior Software/Firmware in C and C++ on 8 bit and 32 bit processors.
 | 2010 - now      | Senior firmware/software engineer, Kaba AG, Wetzikon           
 | 2010 (4 monthw) | Software engineer, Codecheck Zürich
 | 2010 (6 months) | Internship as software engineer, development with Qt on Windows and Linux, Schiller AG Baar
-| 2002 (6 months  | Mechanic, AIM Horgen
+| 2002 (6 months)  | Mechanic, AIM Horgen
 
 
 # Education	
 | Years:         |                                                                                          |
 |----------------|------------------------------------------------------------------------------------------|
-| 2004 - 2009    | Bachelor of Electrical Engineering, University of Applied Science Zürich (ZHAW), http://www.zhaw.ch/de/engineering/studium/bachelor/elektrotechnik.html |
+| 2004 - 2009    | Bachelor of Electrical Engineering, [University of Applied Science Zürich (ZHAW)](http://www.zhaw.ch/de/engineering/studium/bachelor/elektrotechnik.html) |
 | 2003 - 2004    | Teacher Training College, PH Zürich                                                      |
 | 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
 
