@@ -2,10 +2,11 @@ Title: Courses
 
 Traditional Classes
 ===================
-| Topic                       | Course                           |
-|-----------------------------|----------------------------------|
+| Topic                       | Course                                  |
+|-----------------------------|-----------------------------------------|
 | Legic Identification (RFID) | [Legic Wetzikon](http://www.legic.com/) |
 | SMD Soldering               | [Meili Data](http://www.meili-data.ch/) |
+| C++ for Embedded Systems    | [HSR Rapperswil](http://www.hsr.ch/)    |
 
 
 Online Courses
