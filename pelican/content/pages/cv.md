@@ -20,7 +20,7 @@ Jarmila Woodtli, Chemist
 
 
 # Actual Job
-Embedded Senior Software/Firmware Developer. C and C++ on 8 bit and 32 bit processors.
+Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit processors.
 
 # Work Experience	
 
@@ -40,12 +40,7 @@ Embedded Senior Software/Firmware Developer. C and C++ on 8 bit and 32 bit proce
 | 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
 
 # Courses
-- Legic
-- SMD Soldering
-- Scrum
-# Online Courses
-- Udacity: JavaScript
-
+See my page about the [courses](courses.html) I attended.
 
 
 # Stays Abroad

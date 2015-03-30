@@ -3,7 +3,8 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'Lukas Woodtli'
-SITENAME = u'Woodtli'
+AUTHORS = AUTHOR
+SITENAME = u'Lukas Woodtli'
 SITEURL = ''
 
 LOAD_CONTENT_CACHE = False # Caching not helpful when developing
@@ -49,9 +50,9 @@ MENUITEMS = [
     ('Home', '/index.html'),
     ('CV', '/pages/cv.html'),
     ('Skills',[
-        ('Skills', '/pages/skills.html'),
-        ('Books', '/pages/books.html'),
+        ('Hard Skills', '/pages/skills.html'),
         ('Courses', '/pages/courses.html'),
+        ('Books', '/pages/books.html'),
         ('Projects', '/pages/projects.html')]),
     ('Contact', '/pages/contact.html')
 # ('Archives', [

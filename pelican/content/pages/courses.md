@@ -1,16 +1,25 @@
 Title: Courses
 
+It's very important to stay up to date about technological progress and to improve own skills. One of the best way to keep the pace on this fast changig topcs is to attend to courses.
+
+Another one is to read [books](books.html) about the topics.
+
 Traditional Classes
 ===================
+Here is a list of the most important courses I attended in the last few years.
+
+
 | Topic                       | Course                                  |
 |-----------------------------|-----------------------------------------|
 | Legic Identification (RFID) | [Legic Wetzikon](http://www.legic.com/) |
 | SMD Soldering               | [Meili Data](http://www.meili-data.ch/) |
 | C++ for Embedded Systems    | [HSR Rapperswil](http://www.hsr.ch/)    |
+| Agile Development           | [Golo Roden](http://www.goloroden.de/)  |
 
 
 Online Courses
 ==============
+I also like to attend online courses. It's a flexible way to learn new things.
 
 | Topic                           | Course                                                                                       |
 |---------------------------------|----------------------------------------------------------------------------------------------|
