@@ -39,7 +39,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Programming Collective Intelligence               | Toby Segaran                                      | O'Reilly                                          |
 | Hacking mit Python                                | Justin Seitz                                      | dpunkt.verlag                                     |
 | Aus dem Tagebuch eines Bughunters                 | Tobias Klein                                      | dpunkt.verlag                                     |
-
+| UML 2.0                                           | Dan Pilone                                        | O'Reilly                                          |
 
 #Version Control
 
