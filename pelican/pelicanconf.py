@@ -45,6 +45,8 @@ PLUGINS = ["pelican-bootstrapify"]
 THEME = "pelican-chameleon"
 BS3_THEME = "http://bootswatch.com/yeti/bootstrap.min.css"
 
+# Keep the generated blog index but save it under different name
+#INDEX_SAVE_AS = 'blog_index.html'
 
 MENUITEMS = [
     ('Home', '/index.html'),
