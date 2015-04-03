@@ -1,5 +1,6 @@
 Title: Modern OS's
-Date: 2015.04.01
+Date: 2015-04-01
+Modified: 2015-04-03
 
 This page collects some notes about different Operating System approaches.
 
@@ -8,7 +9,7 @@ Most of the information gathered here is from the course [Advanced Operating Sys
 
 Overview of Kernels
 ===================
-
+> Tis overview Table is still work in progress!
 
 | Kernel   | Type                   | Programming Language | Notes                                                                 |
 |----------|------------------------|----------------------|-----------------------------------------------------------------------|
@@ -19,3 +20,26 @@ Overview of Kernels
 | Mach     |                        |                      |                                                                       |
 | Windows  |                        |                      |                                                                       |
 | FreeRTOS |                        |                      |                                                                       |
+
+
+
+Exokernel
+=========
+Allocating resources to library OS's: space (memory), time (CPU)
+
+Library OS's can 'download' code into the kernel. A security management mechanism checks if it is allowed by th library OS.
+
+Memory (TLB)
+------------
+> This section is still work in progress!
+
+CPU-Scheduling
+--------------
+- Linerar vector of "time slots"
+- Each library-OS marks the time slots for own use
+- If OS takes more time than allowed in a time slot it gets less time in the next time slot (penalty)
+- Strand as abstraction of threads
+
+Revoction of Resources
+----------------------
+- Exokernel tells the library OS which resources are revoked (repossesion vector)
