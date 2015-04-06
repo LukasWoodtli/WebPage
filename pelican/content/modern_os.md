@@ -16,10 +16,11 @@ Overview of Kernels
 | SPIN     | Microkernel (Mach-like)| Modula-3             | special approach                                                      |
 | Linux    | Monolithic (modular)   | C (assembler)        | loadable kernel modules allow loading extensions (drivers) at runtime |
 | XNU      | Hybrid                 |                      |                                                                       |
-| BSD      |                        |                      |                                                                       |
-| Mach     |                        |                      |                                                                       |
+| BSD      | Monolithic             |                      |                                                                       |
+| Mach     | Microkernel            |                      |                                                                       |
 | Windows  |                        |                      |                                                                       |
 | FreeRTOS |                        |                      |                                                                       |
+| UNIX     | Monolithic             |                      |                                                                       |
 
 
 
@@ -31,7 +32,9 @@ Library OS's can 'download' code into the kernel. A security management mechanis
 
 Memory (TLB)
 ------------
-> This section is still work in progress!
+TLB: Translation Lookaside Buffer
+Software-TLB is snapshot for the TLB for switching the library OS's.
+
 
 CPU-Scheduling
 --------------
