@@ -46,3 +46,16 @@ CPU-Scheduling
 Revoction of Resources
 ----------------------
 - Exokernel tells the library OS which resources are revoked (repossesion vector)
+
+
+L3
+==
+L3 strikes against microkernel
+------------------------------
+- Kernel-User switches (boarder crossing cost)
+- Address space switches (Protected Procedures Calls for Cross Protection domain calls)
+- Thread switches + IPC (Kernel mediation for PPC)
+- Memory effects (locality loss)
+
+
+
