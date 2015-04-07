@@ -1,6 +1,6 @@
 Title: Books
 
-I really like reading technical books to improve my skills. Usually I try to read them from cover to back. But I didn't manage to finish all of the listed books, yet. Some of them are meant for reference.
+I really like reading technical books to improve my skills. Usually I try to read them from cover to back. But I didn't manage to finish all of the listed books, yet. Some of them are meant primarily for reference.
 
 
 # C and C++
