@@ -38,7 +38,7 @@ Software-TLB is snapshot for the TLB for switching the library OS's.
 
 CPU-Scheduling
 --------------
-- Linerar vector of "time slots"
+- Linear vector of "time slots"
 - Each library-OS marks the time slots for own use
 - If OS takes more time than allowed in a time slot it gets less time in the next time slot (penalty)
 - Strand as abstraction of threads
@@ -58,4 +58,4 @@ L3 strikes against microkernel
 - Memory effects (locality loss)
 
 
-
+L3 is faster than Mach (Microkernel)
