@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = u'Lukas Woodtli'
 AUTHORS = AUTHOR
 SITENAME = u'Lukas Woodtli'
-SITEURL = ''
+SITEURL = 'http://lukaswoodtli.github.io'
 
 LOAD_CONTENT_CACHE = False # Caching not helpful when developing
 
