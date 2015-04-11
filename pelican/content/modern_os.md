@@ -21,6 +21,7 @@ Overview of Kernels
 | Windows  |                        |                      |                                                                       |
 | FreeRTOS |                        |                      |                                                                       |
 | UNIX     | Monolithic             |                      |                                                                       |
+| L3       | Microkernel            | ELAN                 |                                                                       |
 
 
 
@@ -56,6 +57,33 @@ L3 strikes against microkernel
 - Address space switches (Protected Procedures Calls for Cross Protection domain calls)
 - Thread switches + IPC (Kernel mediation for PPC)
 - Memory effects (locality loss)
+
+Thesis of L3 for OS structuring
+-------------------------------
+- Minimal abstractions in microkernel
+- Microkernels are processor specific in implementation => non-portable
+- Right set of microkernel abstractions and processor-specific implementation => efficient processor independent abstractions at higher levels
+
+
+Virtualization
+==============
+Hypervisor: Operation system of operation systems (VMM: Virtal Machine Monitor)
+
+Native Hypervisor (bare metal)
+------------------------------
+Hypervisor runs directly on hardware.  
+Guest OS's running inside the hypervisor
+
+Hosted Hypervisors
+------------------
+Run on top of a Host OS (as an application process).  
+Guest OS's running inside the hypervisor.
+- VMWare Workstation
+- VirtualBox
+
+
+
+
 
 
 
