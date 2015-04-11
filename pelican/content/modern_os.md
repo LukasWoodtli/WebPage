@@ -1,6 +1,6 @@
 Title: Modern OS's
 Date: 2015-04-01
-Modified: 2015-04-03
+Modified: 2015-04-11
 
 This page collects some notes about different Operating System approaches.
 
@@ -39,7 +39,7 @@ Software-TLB is snapshot for the TLB for switching the library OS's.
 
 CPU-Scheduling
 --------------
-- Linerar vector of "time slots"
+- Linear vector of "time slots"
 - Each library-OS marks the time slots for own use
 - If OS takes more time than allowed in a time slot it gets less time in the next time slot (penalty)
 - Strand as abstraction of threads
@@ -48,9 +48,10 @@ Revoction of Resources
 ----------------------
 - Exokernel tells the library OS which resources are revoked (repossesion vector)
 
-
 L3
 ==
+L3 is faster than Mach (Microkernel)
+
 L3 strikes against microkernel
 ------------------------------
 - Kernel-User switches (boarder crossing cost)
