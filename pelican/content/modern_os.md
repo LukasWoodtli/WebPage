@@ -81,9 +81,22 @@ Guest OS's running inside the hypervisor.
 - VMWare Workstation
 - VirtualBox
 
+Full virtualization
+-------------------
+- Guest OS's are not touched (unchanged binaries)
+- They are running as user process in host OS
+- Privileged instructios in guest OS's trigger trap in hypervisor (trap and emulate)
+- i.e. VMWare
 
+Para Virtualization
+-------------------
+- Guest OS is modified to run on an an hypervisor
+- A very small percentage of the guest OS code needs to be changed
+- i.e. Xen
 
-
-
-
-
+Overview
+--------
+Virtualize hardware:
+- memory hierarchy
+- CPU
+- Devices
