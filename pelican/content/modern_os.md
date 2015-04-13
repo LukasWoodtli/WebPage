@@ -59,3 +59,13 @@ L3 strikes against microkernel
 
 
 L3 is faster than Mach (Microkernel)
+
+
+Memory Virtualization
+=====================
+
+Not virtualized:  
+Page Table maps Virtual Page Numbers of processes to Physical Page Number.
+
+
+Virtualized:
