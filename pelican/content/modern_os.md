@@ -1,6 +1,6 @@
 Title: Modern OS's
 Date: 2015-04-01
-Modified: 2015-04-03
+Modified: 2015-04-11
 
 This page collects some notes about different Operating System approaches.
 
@@ -21,6 +21,7 @@ Overview of Kernels
 | Windows  |                        |                      |                                                                       |
 | FreeRTOS |                        |                      |                                                                       |
 | UNIX     | Monolithic             |                      |                                                                       |
+| L3       | Microkernel            | ELAN                 |                                                                       |
 
 
 
@@ -47,9 +48,10 @@ Revoction of Resources
 ----------------------
 - Exokernel tells the library OS which resources are revoked (repossesion vector)
 
-
 L3
 ==
+L3 is faster than Mach (Microkernel)
+
 L3 strikes against microkernel
 ------------------------------
 - Kernel-User switches (boarder crossing cost)
@@ -57,8 +59,51 @@ L3 strikes against microkernel
 - Thread switches + IPC (Kernel mediation for PPC)
 - Memory effects (locality loss)
 
+Thesis of L3 for OS structuring
+-------------------------------
+- Minimal abstractions in microkernel
+- Microkernels are processor specific in implementation => non-portable
+- Right set of microkernel abstractions and processor-specific implementation => efficient processor independent abstractions at higher levels
+
 
 L3 is faster than Mach (Microkernel)
+
+
+Virtualization
+==============
+Hypervisor: Operation system of operation systems (VMM: Virtal Machine Monitor)
+
+Native Hypervisor (bare metal)
+------------------------------
+Hypervisor runs directly on hardware.  
+Guest OS's running inside the hypervisor
+
+Hosted Hypervisors
+------------------
+Run on top of a Host OS (as an application process).  
+Guest OS's running inside the hypervisor.
+- VMWare Workstation
+- VirtualBox
+
+Full virtualization
+-------------------
+- Guest OS's are not touched (unchanged binaries)
+- They are running as user process in host OS
+- Privileged instructios in guest OS's trigger trap in hypervisor (trap and emulate)
+- i.e. VMWare
+
+Para Virtualization
+-------------------
+- Guest OS is modified to run on an an hypervisor
+- A very small percentage of the guest OS code needs to be changed
+- i.e. Xen
+
+Overview
+--------
+Virtualize hardware:
+- memory hierarchy
+- CPU
+- Devices
 
 
 Memory Virtualization
@@ -69,3 +114,4 @@ Page Table maps Virtual Page Numbers of processes to Physical Page Number.
 
 
 Virtualized:
+
