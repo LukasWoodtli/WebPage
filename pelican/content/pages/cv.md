@@ -17,7 +17,7 @@ Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit proce
 | Time             | Occupation
 |------------------|---------------------------------------------------
 | 2010 - now       | Senior firmware/software engineer, Kaba AG, Wetzikon
-| 2010 (4 monthw)  | Software engineer, Codecheck Zürich
+| 2010 (4 months)  | Software engineer, Codecheck Zürich
 | 2010 (6 months)  | Internship as software engineer, development with Qt on Windows and Linux, Schiller AG Baar
 | 2002 (6 months)  | Mechanic, AIM Horgen
 
