@@ -13,6 +13,7 @@ install:
 - pip install pelican
 - pip install Markdown
 - pip install typogrify
+- pip install BeautifulSoup4
 
 before_script:
 - pelican-themes -i ~/pelican-chameleon
