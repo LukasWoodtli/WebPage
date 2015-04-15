@@ -29,7 +29,7 @@ script:
 - cp -r ./output/* ~/github-userpage/
 - cd  ~/github-userpage/
 - git add *
-- git commit -m"Travis CI"
+- git diff-index --quiet HEAD || git commit -m"Travis CI"
 - git push --force --quiet "https://${GH_TOKEN}@github.com/LukasWoodtli/LukasWoodtli.github.io" master
 
 
