@@ -9,11 +9,13 @@ before_install:
 - git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
 - git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
 
+
 install:
 - pip install pelican
 - pip install Markdown
 - pip install typogrify
 - pip install BeautifulSoup4
+- pip install ghp-import
 
 before_script:
 - pelican-themes -i ~/pelican-chameleon
@@ -21,5 +23,4 @@ before_script:
 script:
 - cd pelican
 - make html
-
 
