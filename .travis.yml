@@ -19,8 +19,8 @@ install:
 
 before_script:
 - pelican-themes -i ~/pelican-chameleon
-- git config --global user.name GIT_NAME
-- git config --global user.email GIT_EMAIL
+- git config --global user.name ${GIT_NAME}
+- git config --global user.email ${GIT_EMAIL}
 
 script:
 - cd pelican
