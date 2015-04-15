@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+from os.path import expanduser
+import os
 
 AUTHOR = u'Lukas Woodtli'
 AUTHORS = AUTHOR
@@ -38,7 +40,9 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-PLUGIN_PATHS = ["plugins", "/Users/Boot/projects/"]
+home = expanduser("~")
+
+PLUGIN_PATHS = ["plugins", "/Users/Boot/projects/", os.path.join(home, "pelican-bootstrapify")]
 PLUGINS = ["pelican-bootstrapify"]
 
 

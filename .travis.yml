@@ -7,6 +7,7 @@ branches:
 
 before_install:
 - git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
+- git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
 
 install:
 - pip install pelican
