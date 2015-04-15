@@ -1,5 +1,5 @@
 language: python
-python: "2.7"
+python: '2.7'
 
 branches:
   only:
@@ -8,7 +8,8 @@ branches:
 before_install:
 - git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
 - git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
-
+- git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
+- git clone https://github.com/LukasWoodtli/LukasWoodtli.github.io ~/github-userpage
 
 install:
 - pip install pelican
@@ -19,8 +20,19 @@ install:
 
 before_script:
 - pelican-themes -i ~/pelican-chameleon
+- git config user.name ${GIT_NAME}
+- git config user.email ${GIT_EMAIL}
 
 script:
 - cd pelican
 - make html
+- echo test > ~/github-userpage/test.html
+- git add ~/github-userpage/test.html
+- git commit -m"Travis CI"
+- git push --force --quiet "https://${GH_TOKEN}@https://github.com/LukasWoodtli/LukasWoodtli.github.io" master
 
+
+
+env:
+  global:
+    secure: JNdLq0N//T+PC2ms1PUGT04Udj49VzQhlGORVrjQA2VeJmBEahpBfU7IGYN6sIsvlJqeg0acDxQqb/RIZetifoJAf9Vtf5+BvNEh5M7aRTf1Sw5ECizyeuVOq04eI/sJvsTn5Q3AfmGUchMCrvqE78r5UoEd5aLP8bijYF99Rqo=
