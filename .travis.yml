@@ -6,13 +6,15 @@ branches:
   - master
 
 before_install:
-- git clone https://github.com/yuex/pelican-chameleon
+- git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
 
 install:
 - pip install pelican
 - pip install Markdown
 - pip install typogrify
-- pelican_themes -i pelican-chameleon
+
+before_script:
+- pelican-themes -i ~/pelican-chameleon
 
 script:
 - make pelican/Makefile html
