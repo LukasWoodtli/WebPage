@@ -17,6 +17,7 @@ before_script:
 - pelican-themes -i ~/pelican-chameleon
 
 script:
-- make pelican/Makefile html
+- de pelican
+- make html
 
 
