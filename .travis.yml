@@ -26,11 +26,9 @@ script:
 - cd pelican
 - make html
 
-
-- echo test > ~/github-userpage/test.html
+- cp -r ./output ~/github-userpage/
 - cd  ~/github-userpage/
-- git checkout master
-- git add ~/github-userpage/test.html
+- git add *
 - git commit -m"Travis CI"
 - git push --force --quiet "https://${GH_TOKEN}@github.com/LukasWoodtli/LukasWoodtli.github.io" master
 
