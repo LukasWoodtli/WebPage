@@ -41,8 +41,7 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 
 home = expanduser("~")
-
-PLUGIN_PATHS = ["plugins", "/Users/Boot/projects/", os.path.join(home, "pelican-bootstrapify")]
+PLUGIN_PATHS = ["plugins", home]
 PLUGINS = ["pelican-bootstrapify"]
 
 
