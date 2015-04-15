@@ -60,6 +60,7 @@ IDE's are nice. But often they are not flexible enough. So I prefer a platform i
 |------------------------------------------|------------------------------------------|
 | CMake                                    | good                                     |
 | Buildbot                                 | basic                                    |
+| Travis CI                                | basic                                    |
 
 
 # Unit Tests
