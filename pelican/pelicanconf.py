@@ -11,7 +11,7 @@ SITEURL = 'http://lukaswoodtli.github.io'
 LOAD_CONTENT_CACHE = False # Caching not helpful when developing
 
 PATH = 'content'
-
+STATIC_PATHS = ['images']
 
 TIMEZONE = 'Europe/Zurich'
 
