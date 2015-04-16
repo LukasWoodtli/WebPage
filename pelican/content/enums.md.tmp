@@ -5,7 +5,7 @@ Enums in C and C++ are a very simple construct. It’s just a collection of iden
 By default the values increase by one in the stated order. But the values can defined by the programmer.
 Even if enums are a simple language construct there are special precautions that need to be taken when using them:
 
-- Is a enum continuous (i.e. can I iterate over it)
+- Is a enum continuous (i.e. can I iterate over it?)
 - Have the enum values meaning outside of my software or module
 - what is the size (in Bytes) of an enum variable
 
@@ -34,7 +34,7 @@ For exampe:
       }
     }
 
-my_func is called 11 times with the values 10 to 20. That’s usually not what we want.
+`printf` is called 11 times with the values 10 to 20. That’s usually not what we want.
 
 So what is the solution? Don’t iterate over enums that have fixed values assigned. If you have to do it there is a trick calles X Macros 
 that I’ll cover in another post.
@@ -50,7 +50,7 @@ There is one exception. You can assign a value to the first enum type:
         VAL_NB
     } my_enum_t;
 
-If you call the same loop as above you’ll get calls to my_func with the values:
+If you call the same loop as above you’ll get calls to printf`  with the values:
 
 10 (VAL_1), 11 (VAL_2) and 12 (VAL_3).
 
@@ -77,14 +77,15 @@ There are some language extension in different compilers to address this topic. 
     typedef enum : uint8_t
     { VAL_1, VAL2, /* … */, VAL_NB} my_enum_t;
 
-For platform independent code you can #define ENUM_AS_UINT8 : uint8_t
+For platform independent code you can do: `#define ENUM_AS_UINT8 : uint8_t`
 
 Romable values
 ==============
 Another use of enums is mainly used in embedded systems development. In embedded systems you are often concerned that a constant is stored in the program flash. Otherwise it has to be loaded from RAM at runtime (and even stored there at start time). The usual way is to use defines. 
 But they are not really type safe. So for int-types it’s possible to use enums. If your compiler(s) support it you can even use anonymous enums.
-Advanced enum constructs (C++11, Qt)
 
+Advanced enum constructs (C++11, Qt)
+====================================
 C++11 introduces the enum class. And Qt some extensions for enums (Q_ENUMS) that I’ll not cover here. If you can use one of this advanced enum construct then do it!
 
 Conclusion
