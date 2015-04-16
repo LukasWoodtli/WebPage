@@ -4,31 +4,21 @@ Title: CV
 # Personal Data	
 Lukas Woodtli
 
-[woodtli.lukas@gmail.com](mailto:woodtli.lukas@gmail.com)
-
+Zürich
 
 # Nationality
 Swiss, Czech 
-
-<!---
-Family	
-Parents
-Werner Woodtli, Doctor
-
-Jarmila Woodtli, Chemist
---->
-
 
 # Actual Job
 Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit processors.
 
 # Work Experience	
 
-| Time            | Occupation
-|-----------------|---------------------------------------------------
-| 2010 - now      | Senior firmware/software engineer, Kaba AG, Wetzikon           
-| 2010 (4 monthw) | Software engineer, Codecheck Zürich
-| 2010 (6 months) | Internship as software engineer, development with Qt on Windows and Linux, Schiller AG Baar
+| Time             | Occupation
+|------------------|---------------------------------------------------
+| 2010 - now       | Senior firmware/software engineer, Kaba AG, Wetzikon
+| 2010 (4 months)  | Software engineer, Codecheck Zürich
+| 2010 (6 months)  | Internship as software engineer, development with Qt on Windows and Linux, Schiller AG Baar
 | 2002 (6 months)  | Mechanic, AIM Horgen
 
 
@@ -39,6 +29,7 @@ Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit proce
 | 2003 - 2004    | Teacher Training College, PH Zürich                                                      |
 | 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
 
+
 # Courses
 See my page about the [courses](courses.html) I attended.
 
@@ -48,6 +39,7 @@ See my page about the [courses](courses.html) I attended.
 |-----------|----------------------------------------
 | 1984      | Ten months in Ann Arbor, Michigan (USA)
 | 2002-2003 | Six months in New Zealand
+
 
 # Language Skills
 
@@ -69,7 +61,4 @@ Available on request
 * Cooking
 * Reading books
 
-
-<!--- bookshelf
-       Gof, DesPatterns (Head First), C++... --->
 

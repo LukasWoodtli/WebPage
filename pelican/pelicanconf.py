@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+from os.path import expanduser
 
 AUTHOR = u'Lukas Woodtli'
 AUTHORS = AUTHOR
 SITENAME = u'Lukas Woodtli'
-SITEURL = ''
+SITEURL = 'http://lukaswoodtli.github.io'
 
 LOAD_CONTENT_CACHE = False # Caching not helpful when developing
 
 PATH = 'content'
-
+STATIC_PATHS = ['images']
 
 TIMEZONE = 'Europe/Zurich'
 
@@ -38,7 +39,8 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-PLUGIN_PATHS = ["plugins", "/Users/Boot/projects/"]
+home = expanduser("~")
+PLUGIN_PATHS = ["plugins", home]
 PLUGINS = ["pelican-bootstrapify"]
 
 
