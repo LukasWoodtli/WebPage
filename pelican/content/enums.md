@@ -98,4 +98,4 @@ Conclusion
 References
 ==========
 [Endianness (Wikipedia)](http://en.wikipedia.org/wiki/Endianness)    
-[](http://stackoverflow.com/questions/7147008/the-usage-of-anonymous-enums)  
+[The usage of anonymous enums (Stack Overflow)](http://stackoverflow.com/questions/7147008/the-usage-of-anonymous-enums)  
