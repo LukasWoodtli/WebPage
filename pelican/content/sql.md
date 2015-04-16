@@ -19,4 +19,4 @@ columns: which columns to sort by. Seperated by comas.
 DESC: sort in reverse order (descending).
 
 
-![select where]({filename}/sql_select_where.png)
+![select where]({filename}sql_select_where.png)
