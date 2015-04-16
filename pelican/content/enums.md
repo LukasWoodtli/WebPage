@@ -16,7 +16,6 @@ Be careful if you iterate over an enum. If the enum is not continuously defined 
 For exampe:
 
     :::c
-    <code goes here>
     typedef enum
     {
       VAL_1 = 10,
@@ -36,7 +35,7 @@ For exampe:
 
 `printf` is called 11 times with the values 10 to 20. That’s usually not what we want.
 
-So what is the solution? Don’t iterate over enums that have fixed values assigned. If you have to do it there is a trick calles X Macros 
+So what is the solution? Don’t iterate over enums that have fixed values assigned. If you have to do it there is a trick calles **X Macros** 
 that I’ll cover in another post.
 
 There is one exception. You can assign a value to the first enum type:
@@ -50,9 +49,9 @@ There is one exception. You can assign a value to the first enum type:
         VAL_NB
     } my_enum_t;
 
-If you call the same loop as above you’ll get calls to printf`  with the values:
+If you call the same loop as above you’ll get calls to `printf` with the values:
 
-10 (VAL_1), 11 (VAL_2) and 12 (VAL_3).
+> 10 (VAL_1), 11 (VAL_2) and 12 (VAL_3).
 
 
 Enums with fixed values
@@ -98,5 +97,5 @@ Conclusion
 
 References
 ==========
-http://en.wikipedia.org/wiki/Endianness
-http://stackoverflow.com/questions/7147008/the-usage-of-anonymous-enums
+[http://en.wikipedia.org/wiki/Endianness]  
+[http://stackoverflow.com/questions/7147008/the-usage-of-anonymous-enums]  
