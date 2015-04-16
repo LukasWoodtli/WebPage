@@ -35,7 +35,7 @@ For exampe:
 
 `printf` is called 11 times with the values 10 to 20. That’s usually not what we want.
 
-So what is the solution? Don’t iterate over enums that have fixed values assigned. If you have to do it there is a trick calles **X Macros** 
+So what's the solution? Don’t iterate over enums that have fixed values assigned. If you have to do it there is a trick called **X Macros** 
 that I’ll cover in another post.
 
 There is one exception. You can assign a value to the first enum type:
@@ -97,5 +97,5 @@ Conclusion
 
 References
 ==========
-[http://en.wikipedia.org/wiki/Endianness]  
-[http://stackoverflow.com/questions/7147008/the-usage-of-anonymous-enums]  
+[Endianness (Wikipedia)](http://en.wikipedia.org/wiki/Endianness)    
+[](http://stackoverflow.com/questions/7147008/the-usage-of-anonymous-enums)  
