@@ -59,6 +59,7 @@ L3 strikes against microkernel
 - Thread switches + IPC (Kernel mediation for PPC)
 - Memory effects (locality loss)
 
+
 Thesis of L3 for OS structuring
 -------------------------------
 - Minimal abstractions in microkernel
@@ -112,6 +113,8 @@ Memory Virtualization
 Not virtualized:  
 Page Table maps Virtual Page Numbers of processes to Physical Page Number.
 
-
 Virtualized:
+
+Virtualization
+==============
 
