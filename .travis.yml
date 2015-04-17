@@ -5,11 +5,6 @@ branches:
   only:
   - master
 
-before_install:
-- git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
-- git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
-- git clone https://github.com/LukasWoodtli/LukasWoodtli.github.io ~/github-userpage
-
 install:
 - pip install pelican
 - pip install Markdown
@@ -18,9 +13,15 @@ install:
 - pip install gitpython
 
 before_script:
-- pelican-themes -i ~/pelican-chameleon
 - git config --global user.name ${GIT_NAME}
 - git config --global user.email ${GIT_EMAIL}
+
+- git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
+- git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
+- git clone https://github.com/LukasWoodtli/LukasWoodtli.github.io ~/github-userpage
+
+- pelican-themes -i ~/pelican-chameleon
+
 
 script:
 - cd pelican
