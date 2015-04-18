@@ -16,22 +16,23 @@ before_script:
 - git config --global user.name ${GIT_NAME}
 - git config --global user.email ${GIT_EMAIL}
 
-- git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
-- git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
-- git clone https://github.com/LukasWoodtli/LukasWoodtli.github.io ~/github-userpage
+#- git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
+#- git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
+#- git clone https://github.com/LukasWoodtli/LukasWoodtli.github.io ~/github-userpage
 
-- pelican-themes -i ~/pelican-chameleon
+#- pelican-themes -i ~/pelican-chameleon
 
 
 script:
-- cd pelican
-- make html
+- python generate_page.py
+#- cd pelican
+#- make html
 
-- cp -r ./output/* ~/github-userpage/
-- cd  ~/github-userpage/
-- git add *
-- git diff-index --quiet HEAD || git commit -m"Travis CI"
-- git push --force --quiet "https://${GH_TOKEN}@github.com/LukasWoodtli/LukasWoodtli.github.io" master
+#- cp -r ./output/* ~/github-userpage/
+#- cd  ~/github-userpage/
+#- git add *
+#- git diff-index --quiet HEAD || git commit -m"Travis CI"
+#- git push --force --quiet "https://${GH_TOKEN}@github.com/LukasWoodtli/LukasWoodtli.github.io" master
 
 env:
   global:
