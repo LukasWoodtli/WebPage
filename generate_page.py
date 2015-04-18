@@ -9,9 +9,16 @@ REPO_DIRECTORY = os.path.realpath(__file__)
 REPO_DIRECTORY = os.path.split(REPO_DIRECTORY)[0]
 HOME = expanduser("~")
 
+GITHUB_USERPAGE_REPO = "https://github.com/LukasWoodtli/LukasWoodtli.github.io"
+try:
+    GIT_HUB_TOKEN =  os.environ['GH_TOKEN']
+    GITHUB_USERPAGE_REPO = "https://{}github.com/LukasWoodtli/LukasWoodtli.github.io".format(GIT_HUB_TOKEN + "@")
+except:
+    pass
+
 REPOSITORIES = [("https://github.com/yuex/pelican-chameleon",           "pelican-chameleon"),  # Pelican chameleon theme
                 ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
-                ("https://github.com/LukasWoodtli/LukasWoodtli.github.io", "github-userpage")] # github repo for publishing
+                (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
 
 
 def remove_local_repository(local_path):
@@ -63,11 +70,22 @@ def build_web_page():
             print " Moving file ", src_file, " to ", dst_dir
             shutil.move(src_file, dst_dir)
 
+def publish_web_page():
+     userpage_local_repo = os.path.join(HOME, "github-userpage")
+     repo = Repo(userpage_local_repo)
+     repo.index.add("*")
+     repo.index.commit("Update Github page automated.")
+     repo.remotes.origin.push(repo.head)
+     
 
 if __name__ == "__main__":
     assert len(sys.argv) < 2
     clone_needed_repositories()
     build_web_page()
+    publish_web_page()
+    remove_working_copies_of_repositories()
+
+
 
     
     
