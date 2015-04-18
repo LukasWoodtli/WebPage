@@ -50,7 +50,6 @@ Revoction of Resources
 
 L3
 ==
-L3 is faster than Mach (Microkernel)
 
 L3 strikes against microkernel
 ------------------------------
@@ -83,6 +82,7 @@ Hosted Hypervisors
 ------------------
 Run on top of a Host OS (as an application process).  
 Guest OS's running inside the hypervisor.
+
 - VMWare Workstation
 - VirtualBox
 
@@ -102,6 +102,7 @@ Para Virtualization
 Overview
 --------
 Virtualize hardware:
+
 - memory hierarchy
 - CPU
 - Devices
