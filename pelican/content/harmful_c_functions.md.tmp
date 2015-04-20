@@ -1,0 +1,59 @@
+Title: Harmful C Functions and their replacements
+Date: 2015-04-17
+
+
+References:
+
+Functions:
+
+http://randomascii.wordpress.com/2013/04/03/stop-using-strncpy-already/
+
+http://stackoverflow.com/questions/1253053/cs-bad-functions-vs-their-good-alternatives
+
+https://www.securecoding.cert.org/confluence/plugins/servlet/mobile#content/view/32047151
+
+http://johnwilander.se/research_publications/licentiate_thesis.pdf
+
+GCC:
+
+http://blog.leafsr.com/2013/12/02/gcc-poison/
+
+Visual Studio:
+
+http://www.microsoft.com/en-us/download/details.aspx?id=24817
+
+
+
+1) 15 C functions suffer buffer overflow problems:
+
+gets() cuserid() scanf() fscanf() sscanf() vscanf() vsscanf() vfscanf()
+
+sprintf() strcat() strcpy() streadd() strecpy() vsprintf() strtrns()
+
+
+2) 8 C functions suffer from format string vulnerabilities
+
+printf() fprintf() sprintf() snprintf() vprintf() vfprintf() vsprintf()
+
+vsnprintf()
+
+
+
+memcpy
+
+
+Function
+	
+
+Compiler
+	
+
+Notes
+
+memcpy_s
+	
+
+Visual Studio
+	
+
+Checks if dest buffer has space for copying.

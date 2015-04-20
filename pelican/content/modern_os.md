@@ -9,19 +9,19 @@ Most of the information gathered here is from the course [Advanced Operating Sys
 
 Overview of Kernels
 ===================
-> Tis overview Table is still work in progress!
+> This overview Table is still work in progress!
 
-| Kernel   | Type                   | Programming Language | Notes                                                                 |
-|----------|------------------------|----------------------|-----------------------------------------------------------------------|
-| SPIN     | Microkernel (Mach-like)| Modula-3             | special approach                                                      |
-| Linux    | Monolithic (modular)   | C (assembler)        | loadable kernel modules allow loading extensions (drivers) at runtime |
-| XNU      | Hybrid                 |                      |                                                                       |
-| BSD      | Monolithic             |                      |                                                                       |
-| Mach     | Microkernel            |                      |                                                                       |
-| Windows  |                        |                      |                                                                       |
-| FreeRTOS |                        |                      |                                                                       |
-| UNIX     | Monolithic             |                      |                                                                       |
-| L3       | Microkernel            | ELAN                 |                                                                       |
+| Kernel   | Type                   | Programming Language | Notes                                                                    |
+|----------|------------------------|----------------------|--------------------------------------------------------------------------|
+| SPIN     | Microkernel (Mach-like)| Modula-3             | Special approach.                                                        |
+| Linux    | Monolithic (modular)   | C, Assembly          | Loadable kernel modules allow loading extensions (drivers) at runtime.   |
+| XNU      | Hybrid                 | C, C++               | Kernel of OS X. Mach-3.0 and FreeBSD combined.                           |
+| BSD      | Monolithic             | C                    | FreeBSD, OpenBSD, NetBSD...                                              |
+| Mach     | Microkernel            | C?                   | One of the earlyest mikrokernel. Not all mach versions are mikrokernels. |
+| Windows  | Hybrid                 | C, C++, Assembly     | Win NT: Hybrid, Win 9x and earlyer: Mololithic.                          |
+| FreeRTOS | Microkernel            | C, Assembly          | Real Time OS. Mainly for embedded systems.                               |
+| UNIX     | Monolithic             | C, Assembly          | Original: AT&T Unix.                                                     |
+| L3       | Microkernel            | ELAN                 | Predecessor of L4.                                                       |
 
 
 
@@ -50,7 +50,6 @@ Revoction of Resources
 
 L3
 ==
-L3 is faster than Mach (Microkernel)
 
 L3 strikes against microkernel
 ------------------------------
@@ -58,6 +57,7 @@ L3 strikes against microkernel
 - Address space switches (Protected Procedures Calls for Cross Protection domain calls)
 - Thread switches + IPC (Kernel mediation for PPC)
 - Memory effects (locality loss)
+
 
 Thesis of L3 for OS structuring
 -------------------------------
@@ -82,6 +82,7 @@ Hosted Hypervisors
 ------------------
 Run on top of a Host OS (as an application process).  
 Guest OS's running inside the hypervisor.
+
 - VMWare Workstation
 - VirtualBox
 
@@ -101,6 +102,7 @@ Para Virtualization
 Overview
 --------
 Virtualize hardware:
+
 - memory hierarchy
 - CPU
 - Devices
@@ -112,6 +114,8 @@ Memory Virtualization
 Not virtualized:  
 Page Table maps Virtual Page Numbers of processes to Physical Page Number.
 
-
 Virtualized:
+
+Virtualization
+==============
 

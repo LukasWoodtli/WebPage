@@ -5,14 +5,6 @@ branches:
   only:
   - master
 
-before_install:
-  # clone pelican-chameleon theme 
-- git clone https://github.com/yuex/pelican-chameleon ~/pelican-chameleon
-  # clone pelican-bootstrapify plug in for nice tables with markdown
-- git clone https://github.com/ingwinlu/pelican-bootstrapify ~/pelican-bootstrapify
-  # clone the GitHun user page repository for publishing
-- git clone https://github.com/LukasWoodtli/LukasWoodtli.github.io ~/github-userpage
-
 install:
   # Pelican for generating the web page
 - pip install pelican
@@ -21,32 +13,17 @@ install:
 - pip install typogrify
   # bs4 is used by pelican-bootstrapify plug in
 - pip install BeautifulSoup4
+  # gitpython used for build file
+- pip install gitpython
 
 before_script:
-  # install pelican theme
-- pelican-themes -i ~/pelican-chameleon
-  # set globel git configs
 - git config --global user.name ${GIT_NAME}
 - git config --global user.email ${GIT_EMAIL}
 
 script:
-  # go to pelican folder
-- cd pelican
-  # generate page
-- make html
+- python generate_page.py
 
-  # copy generated output to GitHub user page repository
-- cp -r ./output/* ~/github-userpage/
-  # go to GitHub user page repository
-- cd  ~/github-userpage/
-  # add all the generated data to the repository
-- git add *
-  # commit if there is something to commit
-- git diff-index --quiet HEAD || git commit -m"Travis CI"
-  # push to GitHub for publishing
-- git push --force --quiet "https://${GH_TOKEN}@github.com/LukasWoodtli/LukasWoodtli.github.io" master
-
-# the private data is encrypted
 env:
   global:
     secure: JNdLq0N//T+PC2ms1PUGT04Udj49VzQhlGORVrjQA2VeJmBEahpBfU7IGYN6sIsvlJqeg0acDxQqb/RIZetifoJAf9Vtf5+BvNEh5M7aRTf1Sw5ECizyeuVOq04eI/sJvsTn5Q3AfmGUchMCrvqE78r5UoEd5aLP8bijYF99Rqo=
+
