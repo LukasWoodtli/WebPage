@@ -7,8 +7,6 @@ import string
 AUTHOR = u'Lukas Woodtli'
 AUTHORS = AUTHOR
 
-AUTHOR_URL = 'author/lukas_woodtli'
-AUTHOR_SAVE_AS = 'author/lukas_woodtli.html'
 
 SITENAME = u'Lukas Woodtli'
 SITEURL = 'http://lukaswoodtli.github.io'
@@ -41,9 +39,13 @@ upper_to_lower = zip(list(string.ascii_uppercase), list(string.ascii_lowercase))
 SLUG_SUBSTITUTIONS = [(' ', '_'), ('+', 'p')]
 SLUG_SUBSTITUTIONS.extend(upper_to_lower)
 
-CATEGORY_URL = 'category/{slug}.html'
-TAG_URL = 'tag/{slug}.html'
 
+CATEGORY_URL = 'category/{slug}.html' 	  # The URL to use for a category.
+CATEGORY_SAVE_AS = 'category/{slug}.html' # The location to save a category.
+TAG_URL = 'tag/{slug}.html' 	          # The URL to use for a tag.
+TAG_SAVE_AS = 'tag/{slug}.html' 	  # The location to save the tag page.
+AUTHOR_URL = 'author/{slug}.html' 	  # The URL to use for an author.
+AUTHOR_SAVE_AS = 'author/{slug}.html' 	  # The location to save an author.
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
