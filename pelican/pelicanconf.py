@@ -24,8 +24,12 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+AUTHOR_SAVE_AS = ''
 
 DEFAULT_PAGINATION = 2
+
+SLUG_SUBSTITUTIONS = [(' ', '_'), ('+', 'p')]
+
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
