@@ -6,10 +6,18 @@ import string
 
 AUTHOR = u'Lukas Woodtli'
 AUTHORS = AUTHOR
+
+AUTHOR_URL = 'author/lukas_woodtli'
+AUTHOR_SAVE_AS = 'author/lukas_woodtli.html'
+
 SITENAME = u'Lukas Woodtli'
 SITEURL = 'http://lukaswoodtli.github.io'
 
+# can be useful in development, but set to False when you're ready to publish
+#RELATIVE_URLS = True
+
 LOAD_CONTENT_CACHE = False # Caching not helpful when developing
+DELETE_OUTPUT_DIRECTORY = True
 
 PATH = 'content'
 STATIC_PATHS = ['images']
@@ -32,6 +40,9 @@ DEFAULT_PAGINATION = 2
 upper_to_lower = zip(list(string.ascii_uppercase), list(string.ascii_lowercase)) # [('A', 'a'), ... ('Z', 'z')]
 SLUG_SUBSTITUTIONS = [(' ', '_'), ('+', 'p')]
 SLUG_SUBSTITUTIONS.extend(upper_to_lower)
+
+CATEGORY_URL = 'category/{slug}.html'
+TAG_URL = 'tag/{slug}.html'
 
 
 # Uncomment following line if you want document-relative URLs when developing
