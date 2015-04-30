@@ -24,23 +24,8 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-#LINKS = (('Pelican', 'http://getpelican.com/'),
-#         ('Python.org', 'http://python.org/'),
-#         ('Jinja2', 'http://jinja.pocoo.org/'),
-#         ('You can modify those links in your config file', '#'),)
-
-# Social widget
-#SOCIAL = (('You can add links in your config file', '#'),
-#          ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 2
-#TAG_URL = 'tags/{slug}.html'
-#TAG_SAVE_AS = 'tags/{slug}.html'
-#PAGINATION_PATTERNS = (
-#    (1, '{name}.html', '{name}.html'),
-#    (2, '{name}/page/{number}.html', '{name}/page/{number}.html'),
-#)
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
@@ -64,13 +49,9 @@ MENUITEMS = [
         ('Courses', '/pages/courses.html'),
         ('Books', '/pages/books.html'),
         ('Projects', '/pages/projects.html')]),
-    ('Contact', '/pages/contact.html')
 #    ('Blog', [
 #         ('Tags', '/tags.html'),
 #         ('Categories', '/categories.html'),
-#         ('Chronological', '/archives.html')])
-    #('Social', [
-    #    ('Email', 'mailto:woodtli.lukas@gmail.com'),
-    #    ('Github', 'https://github.com/LukasWoodtli'),
-    #    ]), # LinkedIn, Xing, Stack Overflow....
+#         ('Chronological', '/archives.html')]),
+    ('Contact', '/pages/contact.html')
     ]
