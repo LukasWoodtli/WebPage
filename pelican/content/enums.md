@@ -1,5 +1,6 @@
 Title: Enums in C and C++
 Date: 2015-04-16
+Tags: C, C++
 
 Enums in C and C++ are a very simple construct. It’s just a collection of identifiers that have (usually) distinctive values. 
 By default the values increase by one in the stated order. But the values can defined by the programmer.
@@ -85,7 +86,7 @@ But they are not really type safe. So for int-types it’s possible to use enums
 
 Advanced enum constructs (C++11, Qt)
 ====================================
-C++11 introduces the enum class. And Qt some extensions for enums (Q_ENUMS) that I’ll not cover here. If you can use one of this advanced enum construct then do it!
+C++11 introduces the enum class. And Qt some extensions for enums (Q_ENUMS) that I’ll not cover here. If you can use one of this advanced enum constructs then do it!
 
 Conclusion
 ==========
