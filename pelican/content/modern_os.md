@@ -112,10 +112,7 @@ Memory Virtualization
 =====================
 
 Not virtualized:  
-Page Table maps Virtual Page Numbers of processes to Physical Page Number.
+Page Table (PT) maps Virtual Page Numbers (VPN) of processes to Physical Page Number (PPN).
 
 Virtualized:
-
-Virtualization
-==============
-
+Guest OS translates Virtual Page Number (VPN) to Physical Page Number (PPN) with Page Table (PT). Hypervisor then translates Physical Page Number (PPN) to Machine Page Number (MPN) with Shadow Page Table (S-PT).
