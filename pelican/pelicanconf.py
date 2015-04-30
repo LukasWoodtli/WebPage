@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 from os.path import expanduser
+import string
 
 AUTHOR = u'Lukas Woodtli'
 AUTHORS = AUTHOR
@@ -24,11 +25,13 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-AUTHOR_SAVE_AS = ''
+
 
 DEFAULT_PAGINATION = 2
 
+upper_to_lower = zip(list(string.ascii_uppercase), list(string.ascii_lowercase)) # [('A', 'a'), ... ('Z', 'z')]
 SLUG_SUBSTITUTIONS = [(' ', '_'), ('+', 'p')]
+SLUG_SUBSTITUTIONS.extend(upper_to_lower)
 
 
 # Uncomment following line if you want document-relative URLs when developing
