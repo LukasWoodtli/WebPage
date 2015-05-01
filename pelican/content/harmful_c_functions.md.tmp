@@ -2,6 +2,26 @@ Title: Harmful C Functions and their replacements
 Date: 2015-04-17
 
 
+printf and the prefixes
+=======================
+The `printf` family of function are quite ...
+
+* f: print to a `FILE` stream
+* s: print to a  `char` buffer (string)
+* sn: same as s but checks for buffer size
+* v: takes a `va_list` istead `...`(ellipsis), can be combined with the other prefixes
+
+So we get following functions
+
+|                        | ellipsis   | va_list     |
+|------------------------|------------|-------------|
+| stdout                 | printf     | vprintf     |
+| file                   | fprintf    | vfprintf    |
+| char buffer            | ~sprintf~  | ~vsprintf~  |
+| char buffer with size  | snprintf   | vsnprintf   |
+
+
+
 References:
 
 Functions:
@@ -43,17 +63,17 @@ memcpy
 
 
 Function
-	
+
 
 Compiler
-	
+
 
 Notes
 
 memcpy_s
-	
+
 
 Visual Studio
-	
+
 
 Checks if dest buffer has space for copying.
