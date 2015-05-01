@@ -5,6 +5,9 @@ branches:
   only:
   - master
 
+before_install:
+- pip install --upgrade pip
+
 install:
   # Pelican for generating the web page
 - pip install pelican
