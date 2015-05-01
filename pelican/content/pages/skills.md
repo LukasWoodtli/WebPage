@@ -49,7 +49,7 @@ I really like the Unix/Linux flavoured OS's. The shell is really enjoyable to wo
 |------------------------------------------|------------------------------------------|
 | OS X                                     | very good                                |
 | Linux                                    | good                                     |
-| Win                                      | good                                     |
+| Windows                                  | good                                     |
 
 
 # Build Tools
