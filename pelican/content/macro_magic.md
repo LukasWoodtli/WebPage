@@ -15,7 +15,8 @@ The `#` operator allows to create a string out of a macro parameter. With the st
     #define _stringize(s) stringize(s)
     #define stringize(s) #s
     #define IMPORTANT_CONST 23
-     
+
+
     :::C
     _stringize(IMPORTANT_CONST)
 
