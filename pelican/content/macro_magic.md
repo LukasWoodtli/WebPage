@@ -1,4 +1,4 @@
-Title: Enums in C and C++
+Title: Macro Magic in C and C++
 Date: 2015-05-15
 Category: Programming
 Tags: C, C++
@@ -39,4 +39,9 @@ With the `##` operator in a preprocessor macro it's possible to combine two toke
 
 > ID_IMPORTANT_THING
 
+Links
+-----
+
+There is a good explanation in the GCC online docs:
+[Macros](https://gcc.gnu.org/onlinedocs/cpp/Macros.html#Macros)
 
