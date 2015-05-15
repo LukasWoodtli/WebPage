@@ -14,3 +14,6 @@ Category: Emacs
 | C-c /    |                    | Move (and draw) left-down (south-west)   |
 | C-c <    |                    | Move (and draw) left (west)              |
 | C-c `    |                    | Move (and draw) left-up (north-west)     |
+
+
+![Artis Mode]({filename}/images/artist_mode.svg)
