@@ -27,9 +27,11 @@ Thats why there is an other macro calling the first one:
 
      stringize (IMPORTANT_CONST)
 
-> stringize(4)
-> _stringize(4)
-> "4"
+> stringize(4)  
+
+> _stringize(4)  
+
+> "4"  
 
 Concatenation
 -------------
