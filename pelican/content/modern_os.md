@@ -7,22 +7,36 @@ This page collects some notes about different Operating System approaches.
 
 Most of the information gathered here is from the course [Advanced Operating Systems](https://www.udacity.com/course/ud189).
 
+Some information is from [Wikipedia](wiki/Barrelfish).
+
+The book Modern Operating Systems by Andrew S. Tanenbaum is also a very good resource I'm using for learning about Operating Systems.
+
 
 Overview of Kernels
 ===================
 > This overview Table is still work in progress!
 
-| Kernel   | Type                   | Programming Language | Notes                                                                    |
-|----------|------------------------|----------------------|--------------------------------------------------------------------------|
-| SPIN     | Microkernel (Mach-like)| Modula-3             | Special approach.                                                        |
-| Linux    | Monolithic (modular)   | C, Assembly          | Loadable kernel modules allow loading extensions (drivers) at runtime.   |
-| XNU      | Hybrid                 | C, C++               | Kernel of OS X. Mach-3.0 and FreeBSD combined.                           |
-| BSD      | Monolithic             | C                    | FreeBSD, OpenBSD, NetBSD...                                              |
-| Mach     | Microkernel            | C?                   | One of the earlyest mikrokernel. Not all mach versions are mikrokernels. |
-| Windows  | Hybrid                 | C, C++, Assembly     | Win NT: Hybrid, Win 9x and earlyer: Mololithic.                          |
-| FreeRTOS | Microkernel            | C, Assembly          | Real Time OS. Mainly for embedded systems.                               |
-| UNIX     | Monolithic             | C, Assembly          | Original: AT&T Unix.                                                     |
-| L3       | Microkernel            | ELAN                 | Predecessor of L4.                                                       |
+| Kernel     | Type                       | Programming Language | Notes                                                                    |
+|------------|----------------------------|----------------------|--------------------------------------------------------------------------|
+| SPIN       | Microkernel (Mach-like)    | Modula-3             | Special approach.                                                        |
+| Linux      | Monolithic (modular)       | C, Assembly          | Loadable kernel modules allow loading extensions (drivers) at runtime.   |
+| XNU        | Hybrid                     | C, C++               | Kernel of OS X. Mach-3.0 and FreeBSD combined.                           |
+| BSD        | Monolithic                 | C                    | FreeBSD, OpenBSD, NetBSD...                                              |
+| Mach       | Microkernel                | C?                   | One of the earlyest mikrokernel. Not all mach versions are mikrokernels. |
+| Windows    | Hybrid                     | C, C++, Assembly     | Win NT: Hybrid, Win 9x and earlyer: Mololithic.                          |
+| FreeRTOS   | Microkernel                | C, Assembly          | Real Time OS. Mainly for embedded systems.                               |
+| UNIX       | Monolithic                 | C, Assembly          | Original: AT&T Unix.                                                     |
+| L3         | Microkernel                | ELAN                 | Predecessor of L4.                                                       |
+| Barrelfish |                            |                      | Special aproach.                                                         |
+| Mac OS 9   | Microkernel (Nanokernel)   | ?                    | Legacy                                                                   |
+
+
+
+Sharing Resources
+=================
+One of the most important task of an OS is to share (hardware) resources. There are two posibilities how resources can be shared.
+1. time sharing: i.e CPU, Printer
+2. space sharing: i.e RAM, Hard Disc
 
 
 
