@@ -11,12 +11,12 @@ Stringification
 ---------------
 The `#` operator allows to create a string out of a macro parameter. With the stringize trick any defined constant can be converted into a string literal.
 
-    ::: C
+    :::C
     #define _stringize(s) stringize(s)
     #define stringize(s) #s
     #define IMPORTANT_CONST 23
      
-    ::: C
+    :::C
     _stringize(IMPORTANT_CONST)
 
 > "IMPORTANT_CONST"
@@ -32,7 +32,7 @@ Concatenation
 
 With the `##` operator in a preprocessor macro it's possible to combine two tokens.
 
-    ::: C
+    :::C
     #define CREATE_ID(name) ID_##name
     
     CREATE_ID(IMPORTANT_THING)
