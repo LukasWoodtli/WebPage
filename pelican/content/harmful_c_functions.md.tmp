@@ -21,6 +21,14 @@ So we get following functions
 | char buffer with size  | snprintf   | vsnprintf   |
 
 
+OpenBSD
+=======
+The OpenBSD kernel library defines some additional functions that are safer than their counterparts in the standard library.
+
+|                                 | C standard library | OpenBSD kernel library |
+|---------------------------------|--------------------|------------------------|
+| Copying string                  | strcpy             | strlcpy                |
+| Applying (concatenating) string | strcat             | strlcat                |
 
 References:
 
@@ -42,6 +50,8 @@ Visual Studio:
 
 http://www.microsoft.com/en-us/download/details.aspx?id=24817
 
+OpenBSD:
+http://www.openbsd.org/cgi-bin/man.cgi?query=strlcat
 
 
 1) 15 C functions suffer buffer overflow problems:
