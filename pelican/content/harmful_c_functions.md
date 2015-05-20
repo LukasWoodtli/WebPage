@@ -1,5 +1,8 @@
 Title: Harmful C Functions and their replacements
 Date: 2015-04-17
+Category: Programming
+Tags: C, C++
+
 Status: draft
 
 
@@ -14,12 +17,12 @@ The `printf` family of function are quite ...
 
 So we get following functions
 
-|                        | ellipsis    | va_list      |
-|------------------------|-------------|--------------|
-| stdout                 | printf      | vprintf      |
-| file                   | fprintf     | vfprintf     |
-| char buffer            | ~~sprintf~~ | ~~vsprintf~~ |
-| char buffer with size  | snprintf    | vsnprintf    |
+|                        | ellipsis           | va_list             |
+|------------------------|--------------------|---------------------|
+| stdout                 | printf             | vprintf             |
+| file                   | fprintf            | vfprintf            |
+| char buffer            | <del>sprintf</del> | <del>vsprintf</del> |
+| char buffer with size  | snprintf           | vsnprintf           |
 
 
 OpenBSD
