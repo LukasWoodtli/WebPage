@@ -131,3 +131,24 @@ Page Table (PT) maps Virtual Page Numbers (VPN) of processes to Physical Page Nu
 
 Virtualized:
 Guest OS translates Virtual Page Number (VPN) to Physical Page Number (PPN) with Page Table (PT). Hypervisor then translates Physical Page Number (PPN) to Machine Page Number (MPN) with Shadow Page Table (S-PT).
+
+
+CPU Virtualization
+==================
+
+Events that happen in a task of the Guest OS need to be delivered to the Guest OS by the Hypervisor.
+
+An event can be:
+
+- External Interrupt (HW Interrupt)
+- Exception (HW- and SW-Exception)
+- Page Fault
+- Syscall
+
+The occured events are delivered to the Guest OS wrapped in a SW-Interrupt by the Hypervisor.
+
+Communication from the Guest OS to the CPU hapens generally through traps. So the hypervisor can
+handle it. In para-virtualized environment the Hypervisor can provide an API for the Guest OS instead
+of using traps.
+
+
