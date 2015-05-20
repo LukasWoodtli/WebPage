@@ -34,11 +34,49 @@ The OpenBSD kernel library defines some additional functions that are safer than
 | Applying (concatenating) string | strcat             | strlcat                |
 
 
-gets
-====
-| Original              | Replacement                    |
-|-----------------------|--------------------------------|
-| char *gets(char *str) | fgets(buf, sizeof(buf), stdin) | 
+C Std Library
+=============
+
+Buffer Overflows
+----------------
+
+15 C functions suffer buffer overflow problems:
+
+| Original    | Replacement   | Problem   | Relevant in Embedded |
+|-------------|---------------|-----------|:--------------------:|
+| gets()      | fgets()       |           |         no           |
+| cuserid()   |               |           |                      |
+| scanf()     |               |           |                      |
+| fscanf()    |               |           |                      |
+| sscanf()    |               |           |                      |
+| vscanf()    |               |           |                      |
+| vsscanf()   |               |           |                      |
+| vfscanf()   |               |           |                      |
+| sprintf()   |               |           |                      |
+| strcat()    |               |           |                      |
+| strcpy()    |               |           |                      |
+| streadd()   |               |           |                      |
+| strecpy()   |               |           |                      |
+| vsprintf()  |               |           |                      |
+| strtrns()   |               |           |                      |
+
+
+String Vulnerabilities
+----------------------
+8 C functions suffer from format string vulnerabilities:
+
+| Original    | Replacement   | Problem   | Relevant in Embedded |
+|-------------|---------------|-----------|:--------------------:|
+| printf()    |               |           |                      |
+| fprintf()   |               |           |                      |
+| sprintf()   |               |           |                      |
+| snprintf()  |               |           |                      |
+| vprintf()   |               |           |                      |
+| vfprintf()  |               |           |                      |
+| vsprintf()  |               |           |                      |
+| vsnprintf() |               |           |                      |
+                                                                 
+                                                                 
 
 http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1044652485&id=1043284385
 
@@ -68,18 +106,7 @@ OpenBSD:
 http://www.openbsd.org/cgi-bin/man.cgi?query=strlcat
 
 
-1) 15 C functions suffer buffer overflow problems:
 
-gets() cuserid() scanf() fscanf() sscanf() vscanf() vsscanf() vfscanf()
-
-sprintf() strcat() strcpy() streadd() strecpy() vsprintf() strtrns()
-
-
-2) 8 C functions suffer from format string vulnerabilities
-
-printf() fprintf() sprintf() snprintf() vprintf() vfprintf() vsprintf()
-
-vsnprintf()
 
 
 
