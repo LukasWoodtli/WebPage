@@ -2,7 +2,6 @@ Title: Harmful C Functions and their replacements
 Date: 2015-04-17
 Category: Programming
 Tags: C, C++
-
 Status: draft
 
 
@@ -33,6 +32,17 @@ The OpenBSD kernel library defines some additional functions that are safer than
 |---------------------------------|--------------------|------------------------|
 | Copying string                  | strcpy             | strlcpy                |
 | Applying (concatenating) string | strcat             | strlcat                |
+
+
+gets
+====
+| Original              | Replacement                    |
+|-----------------------|--------------------------------|
+| char *gets(char *str) | fgets(buf, sizeof(buf), stdin) | 
+
+http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1044652485&id=1043284385
+
+
 
 References:
 
