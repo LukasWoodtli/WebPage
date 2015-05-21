@@ -42,23 +42,23 @@ Buffer Overflows
 
 15 C functions suffer buffer overflow problems:
 
-| Original    | Replacement   | Problem   | Relevant in Embedded |
-|-------------|---------------|-----------|:--------------------:|
-| gets()      | fgets()       |           |         no           |
-| cuserid()   |               |           |                      |
-| scanf()     |               |           |                      |
-| fscanf()    |               |           |                      |
-| sscanf()    |               |           |                      |
-| vscanf()    |               |           |                      |
-| vsscanf()   |               |           |                      |
-| vfscanf()   |               |           |                      |
-| sprintf()   |               |           |                      |
-| strcat()    |               |           |                      |
-| strcpy()    |               |           |                      |
-| streadd()   |               |           |                      |
-| strecpy()   |               |           |                      |
-| vsprintf()  |               |           |                      |
-| strtrns()   |               |           |                      |
+| Original    | Replacement               | Problem   | Relevant in Embedded |
+|-------------|---------------------------|-----------|:--------------------:|
+| `gets`      | fgets()                   |           |         no           |
+| cuserid()   | getlogin() or getpwuid()  |           |  Only Unix/Linux     |
+| scanf()     |                           |           |                      |
+| fscanf()    |                           |           |                      |
+| sscanf()    |                           |           |                      |
+| vscanf()    |                           |           |                      |
+| vsscanf()   |                           |           |                      |
+| vfscanf()   |                           |           |                      |
+| sprintf()   |                           |           |                      |
+| strcat()    |                           |           |                      |
+| strcpy()    |                           |           |                      |
+| streadd()   |                           |           |                      |
+| strecpy()   |                           |           |                      |
+| vsprintf()  |                           |           |                      |
+| strtrns()   |                           |           |                      |
 
 
 String Vulnerabilities
