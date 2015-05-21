@@ -18,6 +18,7 @@ except:
 
 REPOSITORIES = [("https://github.com/LukasWoodtli/pelican-chameleon",           "pelican-chameleon"),  # Pelican chameleon theme
                 ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
+                ("https://github.com/barrysteyn/pelican_plugin-render_math", "render_math"),
                 (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
 
 
