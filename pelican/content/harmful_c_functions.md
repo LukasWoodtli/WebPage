@@ -11,7 +11,7 @@ printf and the prefixes
 =======================
 There are quite a lot of functions in the `printf` family. It might not be very clear when to use which of them.
 
-Here is an explanation of the functions in the *Standard C library*.
+Here is an explanation of the functions in the *Standard C Library*.
 
 * f: print to a `FILE` stream
 * s: print to a  `char` buffer (string)
@@ -20,7 +20,7 @@ Here is an explanation of the functions in the *Standard C library*.
 
 So we get following functions:
 
-|                        | ellipsis             | va_list               |
+| Output                 | ellipsis             | va_list               |
 |------------------------|----------------------|-----------------------|
 | stdout                 | `printf`             | `vprintf`             |
 | file                   | `fprintf`            | `vfprintf`            |
