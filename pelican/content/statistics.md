@@ -21,10 +21,28 @@ Independent Events
 
 - Probability of Event: P
 - Probability of opposite Event: 1-P
-- Probability of composit Events: P x P x ... x P
+- Probability of composit Events: P * P * ... * P
 
 
 Dependent Events
 ================
+
+P(A|B): Probability of Event A when B already occured.
+
+
+Bayes Rule
+==========
+
+> Prior Probability  & Test Evidence -> Posterior Probability
+
+* P(A), the prior, is the initial degree of belief in A.
+* P(A | B), the posterior, is the degree of belief having accounted for B.
+* the quotient P(B | A)/P(B) represents the support B provides for A.
+
+
+
+P(A|B) = P(B|A) * P(A) / P(B)
+
+
 
 
