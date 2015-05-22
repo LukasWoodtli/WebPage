@@ -1,20 +1,24 @@
 Title: Harmful C Functions and their replacements
 Date: 2015-04-17
+Modified: 2015-05-22
 Category: Programming
 Tags: C, C++
 Status: draft
 
+> This article is still work in progress!
 
 printf and the prefixes
 =======================
-The `printf` family of function are quite ...
+There are quite a lot of functions in the `printf` family. It might not be very clear when to use which of them.
+
+Here is an explanation of the functions in the *Standard C library*.
 
 * f: print to a `FILE` stream
 * s: print to a  `char` buffer (string)
 * sn: same as s but checks for buffer size
-* v: takes a `va_list` istead `...`(ellipsis), can be combined with the other prefixes
+* v: takes a `va_list` instead `...` (ellipsis), can be combined with the other prefixes
 
-So we get following functions
+So we get following functions:
 
 |                        | ellipsis             | va_list               |
 |------------------------|----------------------|-----------------------|
@@ -22,6 +26,11 @@ So we get following functions
 | file                   | `fprintf`            | `vfprintf`            |
 | char buffer            | <del>`sprintf`</del> | <del>`vsprintf`</del> |
 | char buffer with size  | `snprintf`           | `vsnprintf`           |
+
+The `sprintf` and `vsprintf` functions should not be used since the can result in stack overflow. They are also
+suffer from string vulnerability.
+
+Use `snpritf` or `vsnprintf` instead.
 
 
 OpenBSD
