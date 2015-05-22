@@ -16,12 +16,12 @@ The `printf` family of function are quite ...
 
 So we get following functions
 
-|                        | ellipsis           | va_list             |
-|------------------------|--------------------|---------------------|
-| stdout                 | printf             | vprintf             |
-| file                   | fprintf            | vfprintf            |
-| char buffer            | <del>sprintf</del> | <del>vsprintf</del> |
-| char buffer with size  | snprintf           | vsnprintf           |
+|                        | ellipsis             | va_list               |
+|------------------------|----------------------|-----------------------|
+| stdout                 | `printf`             | `vprintf`             |
+| file                   | `fprintf`            | `vfprintf`            |
+| char buffer            | <del>`sprintf`</del> | <del>`vsprintf`</del> |
+| char buffer with size  | `snprintf`           | `vsnprintf`           |
 
 
 OpenBSD
