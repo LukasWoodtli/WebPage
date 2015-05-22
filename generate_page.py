@@ -18,6 +18,7 @@ except:
 
 REPOSITORIES = [("https://github.com/LukasWoodtli/pelican-chameleon",           "pelican-chameleon"),  # Pelican chameleon theme
                 ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
+                ("https://github.com/getpelican/pelican-plugins", "pelican-plugins"),
                 (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
 
 
@@ -28,7 +29,7 @@ def remove_local_repository(local_path):
 def clone_repository(repo, local_path):
     remove_local_repository(local_path)
     print "Cloning repo to ", local_path
-    Repo.clone_from(repo, local_path)
+    Repo.clone_from(repo, local_path, depth=1)
    
 
 def clone_needed_repositories():

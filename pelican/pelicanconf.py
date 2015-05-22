@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
-from os.path import expanduser
+from os.path import expanduser, join
 import string
 
 AUTHOR = u'Lukas Woodtli'
@@ -45,8 +45,8 @@ AUTHOR_SAVE_AS = 'author/lukas_woodtli.html'  # The location to save an author.
 #RELATIVE_URLS = True
 
 home = expanduser("~")
-PLUGIN_PATHS = ["plugins", home]
-PLUGINS = ["pelican-bootstrapify"]
+PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
+PLUGINS = ["pelican-bootstrapify", "render_math"]
 
 
 THEME = "pelican-chameleon"

@@ -1,4 +1,4 @@
-Title: Introduction to Statisitcs
+Title: Introduction to Statistics
 Date: 2015-05-22
 Modified: 2015-05-22
 Category: Mathematics
@@ -27,7 +27,7 @@ Independent Events
 Dependent Events
 ================
 
-P(A|B): Probability of Event A when B already occured.
+$P(A|B)$: Probability of Event A when B already occured.
 
 
 Bayes Rule
@@ -43,6 +43,7 @@ See also [Wikipedia](http://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' theor
 * the quotient P(B | A)/P(B) represents the support B provides for A.
 
 
-P(A|B) = P(B|A) * P(A) / P(B)
+<!--P(A|B) = P(B|A) * P(A) / P(B)-->
+$$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
 
 
