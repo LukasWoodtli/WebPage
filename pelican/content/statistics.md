@@ -33,6 +33,9 @@ P(A|B): Probability of Event A when B already occured.
 Bayes Rule
 ==========
 
+See also [Wikipedia](http://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' theorem")
+
+
 > Prior Probability  & Test Evidence -> Posterior Probability
 
 * P(A), the prior, is the initial degree of belief in A.
@@ -40,9 +43,6 @@ Bayes Rule
 * the quotient P(B | A)/P(B) represents the support B provides for A.
 
 
-
 P(A|B) = P(B|A) * P(A) / P(B)
-
-
 
 
