@@ -159,13 +159,13 @@ Control Transfer
 
 ### Full virtualization
 
-- implicit (traps) guest -> hypervisor
-- software interrupts (events) hypervisor -> guest
+- implicit (traps) guest &rarr; hypervisor
+- software interrupts (events) hypervisor &rarr; guest
 
 ### Para virtualization
 
-- explicit (hypercalls) guest -> hypervisor
-- software interrupts (events) hypervisor -> guest
+- explicit (hypercalls) guest &rarr; hypervisor
+- software interrupts (events) hypervisor &rarr; guest
 
 > Guest has control via hypercalls on when event notifications
   need to be delivered.
@@ -180,7 +180,7 @@ Data Transfer
 
 ### Para virtualization (e.g. Xen)
 
-- explicit => opportunity to innovate
+- explicit &rArr; opportunity to innovate
 
 #### Xen I/O-Rings
 
@@ -191,6 +191,4 @@ There are 4 pointer to the buffer.
 2. Request consumer (private to Xen)
 3. Response producer (shared, updated by guest)
 4. Response consumer (private to guest)
-
-
 
