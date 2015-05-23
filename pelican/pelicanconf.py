@@ -46,7 +46,7 @@ AUTHOR_SAVE_AS = 'author/lukas_woodtli.html'  # The location to save an author.
 
 home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
-PLUGINS = ["render_math"] #, "pelican-bootstrapify"]
+PLUGINS = ["render_math", "pelican-bootstrapify"]
 
 
 THEME = "pelican-chameleon"
