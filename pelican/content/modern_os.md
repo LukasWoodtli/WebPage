@@ -7,9 +7,9 @@ This page collects some notes about different Operating System approaches.
 
 Most of the information gathered here is from the course [Advanced Operating Systems](https://www.udacity.com/course/ud189).
 
-Some information is from [Wikipedia](wiki/Barrelfish).
+Some information is from [Wikipedia]http://en.wikipedia.org/wiki/Operating_system). And other Wikipedia pages.
 
-The book Modern Operating Systems by Andrew S. Tanenbaum is also a very good resource I'm using for learning about Operating Systems.
+The book *Modern Operating Systems* by Andrew S. Tanenbaum is also a very good resource I'm using for learning about Operating Systems.
 
 
 Overview of Kernels
@@ -27,7 +27,7 @@ Overview of Kernels
 | FreeRTOS   | Microkernel                | C, Assembly          | Real Time OS. Mainly for embedded systems.                               |
 | UNIX       | Monolithic                 | C, Assembly          | Original: AT&T Unix.                                                     |
 | L3         | Microkernel                | ELAN                 | Predecessor of L4.                                                       |
-| Barrelfish |                            |                      | Special aproach.                                                         |
+| Barrelfish |                            | C                    | Special aproach.                                                         |
 | Mac OS 9   | Microkernel (Nanokernel)   | ?                    | Legacy                                                                   |
 
 
@@ -167,8 +167,8 @@ Control Transfer
 - explicit (hypercalls) guest -> hypervisor
 - software interrupts (events) hypervisor -> guest
 
-> Guest has control vie hypercalls on when event notifications
-need to be delivered.
+> Guest has control via hypercalls on when event notifications
+  need to be delivered.
 
 
 Data Transfer
@@ -185,7 +185,7 @@ Data Transfer
 #### Xen I/O-Rings
 
 Xen uses a ring buffer for data transfer with producer-consumer pattern.
-There are 4 pointer to the buffer_
+There are 4 pointer to the buffer.
 
 1. Request producer (shared, updated by guest)
 2. Request consumer (private to Xen)
