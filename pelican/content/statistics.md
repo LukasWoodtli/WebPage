@@ -13,7 +13,7 @@ The notes on this page are from the Udacity course
 Statistics and Probability
 ==========================
 
-![Statistics and Probability]({filename}/images/statistics_probability.svg)
+![Statistics and Probability](/images/statistics_probability.svg)
 
 
 Independent Events
@@ -27,7 +27,7 @@ Independent Events
 Dependent Events
 ================
 
-$P(A\mid B)$: Probability of Event A when B already occured.
+$P(A\mid B)$: Probability of Event $A$ when $B$ already occured.
 
 
 Bayes Rule
