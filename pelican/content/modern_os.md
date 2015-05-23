@@ -151,4 +151,46 @@ Communication from the Guest OS to the CPU hapens generally through traps. So th
 handle it. In para-virtualized environment the Hypervisor can provide an API for the Guest OS instead
 of using traps.
 
+- Full virtualization: "trap and emulate"
+- Para virtualization: more opportunity for innovation
+
+Control Transfer
+----------------
+
+### Full virtualization
+
+- implicit (traps) guest -> hypervisor
+- software interrupts (events) hypervisor -> guest
+
+### Para virtualization
+
+- explicit (hypercalls) guest -> hypervisor
+- software interrupts (events) hypervisor -> guest
+
+> Guest has control vie hypercalls on when event notifications
+need to be delivered.
+
+
+Data Transfer
+-------------
+
+### Full virtualization
+
+- implicit
+
+### Para virtualization (e.g. Xen)
+
+- explicit => opportunity to innovate
+
+#### Xen I/O-Rings
+
+Xen uses a ring buffer for data transfer with producer-consumer pattern.
+There are 4 pointer to the buffer_
+
+1. Request producer (shared, updated by guest)
+2. Request consumer (private to Xen)
+3. Response producer (shared, updated by guest)
+4. Response consumer (private to guest)
+
+
 
