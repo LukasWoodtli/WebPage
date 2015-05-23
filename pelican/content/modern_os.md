@@ -7,7 +7,7 @@ This page collects some notes about different Operating System approaches.
 
 Most of the information gathered here is from the course [Advanced Operating Systems](https://www.udacity.com/course/ud189).
 
-Some information is from [Wikipedia]http://en.wikipedia.org/wiki/Operating_system). And other Wikipedia pages.
+Some information is from [Wikipedia](http://en.wikipedia.org/wiki/Operating_system "Operating System"). And other Wikipedia pages.
 
 The book *Modern Operating Systems* by Andrew S. Tanenbaum is also a very good resource I'm using for learning about Operating Systems.
 
