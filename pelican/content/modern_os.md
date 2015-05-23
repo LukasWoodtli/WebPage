@@ -7,7 +7,7 @@ This page collects some notes about different Operating System approaches.
 
 Most of the information gathered here is from the course [Advanced Operating Systems](https://www.udacity.com/course/ud189).
 
-Some information is from [Wikipedia](http://en.wikipedia.org/wiki/Operating_system "Operating System"). And other Wikipedia pages.
+Some information is from [Operating System](http://en.wikipedia.org/wiki/Operating_system "Wikipedia"). And other Wikipedia pages.
 
 The book *Modern Operating Systems* by Andrew S. Tanenbaum is also a very good resource I'm using for learning about Operating Systems.
 
@@ -35,6 +35,7 @@ Overview of Kernels
 Sharing Resources
 =================
 One of the most important task of an OS is to share (hardware) resources. There are two posibilities how resources can be shared.
+
 1. time sharing: i.e CPU, Printer
 2. space sharing: i.e RAM, Hard Disc
 
@@ -42,13 +43,15 @@ One of the most important task of an OS is to share (hardware) resources. There 
 
 Exokernel
 =========
-Allocating resources to library OS's: space (memory), time (CPU)
+Allocating resources to library OS's: 
+- space (memory)
+- time (CPU)
 
 Library OS's can 'download' code into the kernel. A security management mechanism checks if it is allowed by th library OS.
 
 Memory (TLB)
 ------------
-TLB: Translation Lookaside Buffer
+TLB: Translation Lookaside Buffer.
 Software-TLB is snapshot for the TLB for switching the library OS's.
 
 
@@ -81,17 +84,17 @@ Thesis of L3 for OS structuring
 - Right set of microkernel abstractions and processor-specific implementation => efficient processor independent abstractions at higher levels
 
 
-L3 is faster than Mach (Microkernel)
+L3 is faster than Mach (Microkernel).
 
 
 Virtualization
 ==============
-Hypervisor: Operation system of operation systems (VMM: Virtal Machine Monitor)
+Hypervisor: Operation system of operation systems (VMM: Virtal Machine Monitor).
 
 Native Hypervisor (bare metal)
 ------------------------------
 Hypervisor runs directly on hardware.  
-Guest OS's running inside the hypervisor
+Guest OS's running inside the hypervisor.
 
 Hosted Hypervisors
 ------------------
@@ -126,11 +129,17 @@ Virtualize hardware:
 Memory Virtualization
 =====================
 
-Not virtualized:  
+Not virtualized:
+----------------
+
 Page Table (PT) maps Virtual Page Numbers (VPN) of processes to Physical Page Number (PPN).
 
+
 Virtualized:
+------------
+
 Guest OS translates Virtual Page Number (VPN) to Physical Page Number (PPN) with Page Table (PT). Hypervisor then translates Physical Page Number (PPN) to Machine Page Number (MPN) with Shadow Page Table (S-PT).
+
 
 
 CPU Virtualization
