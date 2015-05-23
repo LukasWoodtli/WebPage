@@ -21,13 +21,13 @@ Independent Events
 
 - Probability of Event: $P$
 - Probability of opposite Event: $1-P$
-- Probability of composit Events: $P * P * ... * P$
+- Probability of composit Events: $P \cdot P \cdot ... \cdot P$
 
 
 Dependent Events
 ================
 
-$P(A|B)$: Probability of Event A when B already occured.
+$P(A\mid B)$: Probability of Event A when B already occured.
 
 
 Bayes Rule
@@ -39,8 +39,8 @@ See also [Wikipedia](http://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' theor
 > Prior Probability  & Test Evidence -> Posterior Probability
 
 * $P(A)$: the prior, is the initial degree of belief in $A$.
-* $P(A | B)$: the posterior, is the degree of belief having accounted for $B$.
-* the quotient $P(B | A)/P(B)$ represents the support B provides for $A$.
+* $P(A \mid B)$: the posterior, is the degree of belief having accounted for $B$.
+* the quotient $\frac{P(B \mid A)}{P(B)}$ represents the support $B$ provides for $A$.
 
 
 $$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
