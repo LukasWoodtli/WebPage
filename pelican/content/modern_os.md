@@ -43,7 +43,8 @@ One of the most important task of an OS is to share (hardware) resources. There 
 
 Exokernel
 =========
-Allocating resources to library OS's: 
+Allocating resources to library OS's:
+
 - space (memory)
 - time (CPU)
 
@@ -66,6 +67,7 @@ Revoction of Resources
 ----------------------
 - Exokernel tells the library OS which resources are revoked (repossesion vector)
 
+
 L3
 ==
 
@@ -82,7 +84,6 @@ Thesis of L3 for OS structuring
 - Minimal abstractions in microkernel
 - Microkernels are processor specific in implementation => non-portable
 - Right set of microkernel abstractions and processor-specific implementation => efficient processor independent abstractions at higher levels
-
 
 L3 is faster than Mach (Microkernel).
 
