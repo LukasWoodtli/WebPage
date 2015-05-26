@@ -202,3 +202,46 @@ There are 4 pointer to the buffer.
 3. Response producer (shared, updated by guest)
 4. Response consumer (private to guest)
 
+
+Memory Models
+=============
+
+- Memory Consistency: What is the Model presented to the Programmer?
+- Cache Coherence: How is the System implementing the Model in presence of private caches?
+
+
+Sequential Consistency (Memory Model)
+-------------------------------------
+
+Access to a shared memory location is performed in sequence by the processors. The accesses can be
+interwoven.
+
+
+Cache Coherence
+---------------
+
+### Non cache coherent shared address space multi processor (NCC shared memory multi processor)
+
+System only gives access to shared address space. System Software maintains chaching.
+
+- Shared address space available for all processors
+- Private caches
+
+> If you modify data it's a problem of the system software to make sure the caches are coherent!
+
+
+### CC shared memory multi processor
+
+- Hardware provides shared address space
+- Maintains cache coherence in hardware
+
+
+#### Write-Invalidate
+
+Hardware ensures that written memory location is invalidated in all caches.
+
+
+#### Write-Update
+
+Hardware ensure that modified memory location is updated in all caches.
+
