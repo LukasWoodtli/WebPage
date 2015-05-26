@@ -245,3 +245,5 @@ Hardware ensures that written memory location is invalidated in all caches.
 
 Hardware ensure that modified memory location is updated in all caches.
 
+
+> "Shared memory machines scale well when you don't share memory.", Chuck Thacker
