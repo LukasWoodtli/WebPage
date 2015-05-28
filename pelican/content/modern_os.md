@@ -262,3 +262,16 @@ Atomic Instruction
 ==================
 
 During the execution of an instruction the processor can not be interrupted.
+
+
+Aquiring a lock needs to be atomic.
+
+Read-Modify-Write (RMW)
+-----------------------
+
+Different aproaches:
+
+- Test-and-Set: Reads a memory location. Then returns the actual value and sets it to 1 atomically.
+- Fetch-and-Inc: Reads a memory location. Then returns the actual value and increments it atomically.
+- Fetch-and-$\Phi$: Generally with any given function ($\Phi$) after fetching and returning the actual value.
+
