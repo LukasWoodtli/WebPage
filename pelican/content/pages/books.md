@@ -15,11 +15,11 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Algorithms in C (Parts 1-5)                       | Robert Sedgewick                                  | Addison-Wesley                                    |
 
 
-#Design Patterns
+# Design Patterns
 
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Gang of Four                                      | Erich Gamma et al.                                | Addison-Wesley                                    |
+| Design Patterns                                | Erich Gamma et al. (Gang of Four)                             | Addison-Wesley                                    |
 | Head First Design Patterns                        | Eric Freeman et al.                               | O'Reilly                                          |
 | Refactoring                                       | Martin Fowler                                     | Addison-Wesley                                    |
 
