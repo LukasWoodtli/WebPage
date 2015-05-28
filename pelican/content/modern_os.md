@@ -247,3 +247,18 @@ Hardware ensure that modified memory location is updated in all caches.
 
 
 > "Shared memory machines scale well when you don't share memory.", Chuck Thacker
+
+Synchronization
+===============
+
+Synchronization Primitives
+--------------------------
+
+- Mutex Locks (single exclusive access to resource)
+- Shared Lock (Multiple reader to one resource)
+- Barriers (Synchronize threads, wait for other threads till all completed their work)
+ 
+Atomic Instruction
+==================
+
+During the execution of an instruction the processor can not be interrupted.
