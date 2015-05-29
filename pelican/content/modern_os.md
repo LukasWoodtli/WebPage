@@ -247,3 +247,31 @@ Hardware ensure that modified memory location is updated in all caches.
 
 
 > "Shared memory machines scale well when you don't share memory.", Chuck Thacker
+
+Synchronization
+===============
+
+Synchronization Primitives
+--------------------------
+
+- Mutex Locks (single exclusive access to resource)
+- Shared Lock (Multiple reader to one resource)
+- Barriers (Synchronize threads, wait for other threads till all completed their work)
+ 
+Atomic Instruction
+==================
+
+During the execution of an instruction the processor can not be interrupted.
+
+
+Aquiring a lock needs to be atomic.
+
+Read-Modify-Write (RMW)
+-----------------------
+
+Different aproaches:
+
+- Test-and-Set: Reads a memory location. Then returns the actual value and sets it to 1 atomically.
+- Fetch-and-Inc: Reads a memory location. Then returns the actual value and increments it atomically.
+- Fetch-and-$\Phi$: Generally with any given function ($\Phi$) after fetching and returning the actual value.
+
