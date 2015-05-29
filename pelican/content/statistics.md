@@ -38,6 +38,12 @@ See also [Wikipedia](http://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' theor
 
 > Prior Probability  & Test Evidence -> Posterior Probability
 
+Prior: $P(C)$
+
+Posterior: $$P(C \mid Pos) = P(C) \cdot P(Pos \mid C)\\
+    P(\lnot C\mid Pos) = P(\lnot C) \cdot P(Pos \mid \lnot C)$$ 
+
+
 * $P(A)$: the prior, is the initial degree of belief in $A$.
 * $P(A \mid B)$: the posterior, is the degree of belief having accounted for $B$.
 * the quotient $\frac{P(B \mid A)}{P(B)}$ represents the support $B$ provides for $A$.
