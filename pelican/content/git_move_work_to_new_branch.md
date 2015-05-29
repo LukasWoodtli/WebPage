@@ -4,6 +4,7 @@ Modified: 2015-05-29
 Category: Git
 Status: draft
 
+
 Suppose you're working on the main branch of a project (called 'master')
 and realise later that what you’ve been doing might have been a bad
 idea, and you would rather it were on a topic branch. If the commit
@@ -39,4 +40,5 @@ Then you separate out your work with the following set of commands
           \
            O---P---Q ("dubious-experiment")
 
-Source: http://longair.net/blog/2009/04/16/git-fetch-and-merge/
+Source:[git: fetch and merge, don’t pull]( http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
+
