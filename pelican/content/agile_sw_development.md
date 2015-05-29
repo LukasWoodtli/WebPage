@@ -168,4 +168,7 @@ Release Burndown
 Literature and Links
 ====================
 
-Scrum & XP from the Trenches
+[Scrum & XP from the Trenches](http://www.infoq.com/minibooks/scrum-xp-from-the-trenches)
+
+[My Notes](/images/scrumidable_notizen.pdf)
+
