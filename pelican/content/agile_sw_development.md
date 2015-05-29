@@ -30,15 +30,15 @@ Scrum Master (SM)
 -----------------
 
 The Scrum Master is responsible that the Scrum process is realized
-properly. He’s also in charge if there are problems in the work progress
+properly. He's also in charge if there are problems in the work progress
 of the Team. He has to solve sozial problems and organize anything that
 helps the Team to work productively. Ideally the Scrum Master isn’t a
-Part of the Team. But often he is a member of the Team...
+Part of the Team. But often he is a member of the Developer-Team.
 
 Team
 ----
 
-The Team is the group of people (usually developpers) that do the work.
+The Team is the group of people (usually developers) that do the work.
 The team is self organizing. That means they decide how they do
 something. Ideally every teammember can do anything needed in the team.
 But sometimes there are special roles like teser, documentation writer
@@ -50,34 +50,35 @@ Other
 There are none other people involved in the productive work cycle than
 the three mentioned above. If someone wants the Team do something he has
 to speak with the Product Owner. At some presentations and meetings
-there are guests allowed. But they can’t decide anything or delegate any
+there are guests allowed. But they can't decide anything or delegate any
 work to the team.
 
 There are two kind of people involved in a project. In Scrum jargon they
-are called Chickens and Pigs. This ... are based on a comic strip...
+are called Chickens and Pigs. This rlles are based on a comic strip:
 
-<http://www.implementingscrum.com/2006/09/11/the-classic-story-of-the-pig-and-chicken/>
+[Pig and Chicken](http://www.implementingscrum.com/2006/09/11/the-classic-story-of-the-pig-and-chicken/)
 
-<http://scrum-master.de/Scrum-Rollen/Scrum-Rollen_Pigs_Chickens>
+
 
 ### Chickens
 
 There are always some people which have ideas, like to criticize, talk a
 lot about the project and try to get the reputation at the end. But they
-don’t do any work or just a little.... They are called the chickens.
+don't do any work or just a little. They are called the Chickens.
 
 ### Pigs
 
 On the other hand there are the kind of people that are highly involved
 in and motivated for a project. They do all the hard work and take some
-amount of rist. In Scrum they are called the Pigs.
+amount of risk. In Scrum they are called the Pigs.
 
 Timeboxes (Rituals)
 ===================
 
 In Scrum all work is donne in timeboxes of defined length. The most
 important one is the Sprint. It is a time span of two to four weeks. In
-this timeAt the end of this time span the team should be able to present
+this time the team works on the tasks they have themselves comitted to
+at the **Scrum Planning Meeting**. At the end of this time span the team should be able to present
 a product that can be potentially delivered to the cusomer. To achieve
 this goal there are several meetings that help to do the work organized
 and on the right time.
@@ -90,18 +91,18 @@ release should be finished and what requirements shoud be included into
 this release. They discuss the time each requirement needs to be
 implemented. And they discuss the urgency of each requirement. Basically
 the team decides the time needed for implementing a requirement and the
-Product Owner decides about tne urgency. All the requirements are stored
-in a list called the Product Backlog. The Release Planning Meeting can
-be merged into the Sprint Planning Meeting if after each Sprint a real
+Product Owner decides about the urgency. All the requirements are stored
+in a list called the **Product Backlog**. The **Release Planning Meeting** can
+be merged into the **Sprint Planning Meeting** if after each Sprint a real
 release is created.
 
 Sprint Planning Meeting
 -----------------------
 
-At the beginning of each Sprint the Team and the Product Owner decide
-which of the requirements of the Product Backlog are going to be
-implemented in the new Sprint. They are put into the so called Sprint
-Backlog.
+At the beginning of each **Sprint** the **Team** and the **Product Owner** decide
+which of the requirements of the **Product Backlog** are going to be
+implemented in the new **Sprint**. They are put into the so called **Sprint
+Backlog**.
 
 Daily Scrum
 -----------
@@ -169,6 +170,8 @@ Literature and Links
 ====================
 
 [Scrum & XP from the Trenches](http://www.infoq.com/minibooks/scrum-xp-from-the-trenches)
+
+[Pigs and Chickens](http://scrum-master.de/Scrum-Rollen/Scrum-Rollen_Pigs_Chickens)
 
 [My Notes](/images/scrumidable_notizen.pdf)
 
