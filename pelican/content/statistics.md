@@ -51,6 +51,8 @@ Posterior: $$P(C \mid Pos) = P(C) \cdot P(Pos \mid C)\\
 
 $$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
 
+[Bayes' rule: Algorithm](/images/bayes_algorithm.pdf)
+
 
 Probablity Distributions
 ========================
