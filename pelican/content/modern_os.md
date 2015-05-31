@@ -1,4 +1,4 @@
-Title: Modern OS's
+OTitle: Modern OS's
 Category: Computer Science
 Date: 2015-04-01
 Modified: 2015-04-11
@@ -274,4 +274,11 @@ Different aproaches:
 - Test-and-Set: Reads a memory location. Then returns the actual value and sets it to 1 atomically.
 - Fetch-and-Inc: Reads a memory location. Then returns the actual value and increments it atomically.
 - Fetch-and-$\Phi$: Generally with any given function ($\Phi$) after fetching and returning the actual value.
+
+Scalability issues with Synchronitation
+---------------------------------------
+
+- Latency: Latency is the time that a thread needs to acquire a lock.
+- Waiting time: The time that a thread needs to wait to get the lock. This time is in the hands of the application developers and not of the OS developers.
+- Contention: If a lock is released and several threads are waiting for it. How long does it take until a thread is chosen from the waiting threads.
 
