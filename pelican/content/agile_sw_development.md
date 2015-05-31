@@ -8,10 +8,7 @@ Tags: Agile, Scrum, XP
 > This page is still work in progress
 
 
-This article is an overview of Scrum and XP. It’s mainly meant for me for
-taking notes. We are going to itroduce Scrum in our company. So I will
-here write down what I read, hear and experience about Scrum and other
-Agile methods.
+This article is an overview of **Scrum** and **XP**.
 
 Roles
 =====
