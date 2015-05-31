@@ -51,4 +51,24 @@ Posterior: $$P(C \mid Pos) = P(C) \cdot P(Pos \mid C)\\
 
 $$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
 
+[Bayes' rule: Algorithm](/images/bayes_algorithm.pdf)
 
+
+Probablity Distributions
+========================
+
+> In **Continous Distributions** every outcome has the **Probability** $0$.
+
+Density
+-------
+
+PDF: Probability Density Function
+
+Probability for continous spaces. Density can be bigger than $1$.
+
+Density:
+
+- always non-negative
+- doesn't need to be continous
+- doesn't need to be smaller or equal than one
+- Integrates to one
