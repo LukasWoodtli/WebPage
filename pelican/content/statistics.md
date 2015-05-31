@@ -30,18 +30,21 @@ Dependent Events
 $P(A\mid B)$: Probability of Event $A$ when $B$ already occured.
 
 
-Bayes Rule
-==========
+Bayes' Rule
+===========
 
 See also [Wikipedia](http://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' theorem")
 
 
+$$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
+
+
 > Prior Probability  & Test Evidence -> Posterior Probability
 
-Prior: $P(C)$
+Prior: $P(A)$
 
-Posterior: $$P(C \mid Pos) = P(C) \cdot P(Pos \mid C)\\
-    P(\lnot C\mid Pos) = P(\lnot C) \cdot P(Pos \mid \lnot C)$$ 
+Posterior: $$P(A \mid B) = P(A) \cdot P(B \mid A)\\
+    P(\lnot A\mid B) = P(\lnot A) \cdot P(B \mid \lnot A)$$ 
 
 
 * $P(A)$: the prior, is the initial degree of belief in $A$.
@@ -49,7 +52,8 @@ Posterior: $$P(C \mid Pos) = P(C) \cdot P(Pos \mid C)\\
 * the quotient $\frac{P(B \mid A)}{P(B)}$ represents the support $B$ provides for $A$.
 
 
-$$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
+Algorithm
+---------
 
 [Bayes' rule: Algorithm](/images/bayes_algorithm.pdf)
 
