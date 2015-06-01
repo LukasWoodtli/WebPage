@@ -72,7 +72,7 @@ The **Selicivity** says how many get a **negative** test if they **don't have th
 
 Imagine someone get's a **positive** test result. How can we calculate the probability that this person has the desease?
 
-![Algorithm to calculate Bayes' rule](/images/(bayes_algorithm.svg)
+![Algorithm to calculate Bayes' rule](/images/bayes_algorithm.svg)
 
 1. Take the **Prior** and multiplicate it with $P(Pos \mid D)$ (Sensitivity) &rarr; $P(Pos, D)$.
 2. Take the **Prior** and multiplicate it with $P(Pos \mid \lnot D)$ &rarr; $P(Pos \lnot D)$.
