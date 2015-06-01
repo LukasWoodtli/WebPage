@@ -22,6 +22,7 @@ Product Owner (PO)
 The **Product Owner** is the connection between the **Team** and the
 stakeholders or clients. He’s the only one who is allowed to give tasks
 to the Team. The Product Owner should not be part of the Team.
+The Product Owner maintains and manages the **Product Backlog**.
 
 Scrum Master (SM)
 -----------------
@@ -155,6 +156,9 @@ requirement has to have several properties when put into the Backlog.
 - Notes / References
 - Source
 - Risk
+
+The **Product Owner** is responsible for the Product Backlog. He has to decide about the significance of
+the Backlog Items. But he is not allowed to estimate the effort of an item. This can be only done by the team.
 
 Sprint Backlog
 --------------
