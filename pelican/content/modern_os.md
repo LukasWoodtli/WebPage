@@ -271,7 +271,7 @@ Read-Modify-Write (RMW)
 
 Different aproaches:
 
-- Test-and-Set: Reads a memory location. Then returns the actual value and sets it to 1 atomically.
+- Test-and-Set (T+S): Reads a memory location. Then returns the actual value and sets it to 1 atomically.
 - Fetch-and-Inc: Reads a memory location. Then returns the actual value and increments it atomically.
 - Fetch-and-$\Phi$: Generally with any given function ($\Phi$) after fetching and returning the actual value.
 
@@ -281,4 +281,23 @@ Scalability issues with Synchronitation
 - Latency: Latency is the time that a thread needs to acquire a lock.
 - Waiting time: The time that a thread needs to wait to get the lock. This time is in the hands of the application developers and not of the OS developers.
 - Contention: If a lock is released and several threads are waiting for it. How long does it take until a thread is chosen from the waiting threads.
+
+Spinlock
+========
+
+Naive Spinlock (spin on T+S)
+----------------------------
+
+A thread or processor waiting for a lock loops (spins) without doing any useful work. 
+
+    LOCK(L):
+        WHILE(T+S(L) == locked);
+        
+
+Problems with this naive spinlock implementation:
+
+- Too much contention: Every processor tries to access lock.
+- Does not exploit caches: Private caches in processor can't contain lock variable (T+S needs to be atomic. That's not possible with cached variables).
+- Disrupts useful work: After releasing a lock a processor usually wants to do some work. But other processors need resources for trying to acquire the lock.
+
 

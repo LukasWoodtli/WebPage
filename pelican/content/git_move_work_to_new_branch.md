@@ -1,9 +1,9 @@
 Title: Move actual work to a new Branch
 Date: 2015-05-29
-Modified: 2015-05-29
+Modified: 2015-06-01
 Category: Git
-Status: draft
 
+This useful description is taken from: [git: fetch and merge, don’t pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 
 Suppose you're working on the main branch of a project (called 'master')
 and realise later that what you’ve been doing might have been a bad
@@ -39,6 +39,4 @@ Then you separate out your work with the following set of commands
       M--N----R---S ("master")
           \
            O---P---Q ("dubious-experiment")
-
-Source:[git: fetch and merge, don’t pull]( http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 
