@@ -1,6 +1,6 @@
 Title: Agile Software Development
 Date: 2015-05-29
-Modified: 2015-05-29
+Modified: 2015-06-01
 Category: Software Development
 Tags: Agile, Scrum, XP
 
@@ -202,6 +202,15 @@ Sprint Burndown
 
 Release Burndown
 ----------------
+
+
+Tools
+=====
+
+Scrum Board
+-----------
+
+The **Scrum Board** helps the Team (and the PO) to have an overview about the actual ongoing work.
 
 Literature and Links
 ====================
