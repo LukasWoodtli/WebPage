@@ -81,6 +81,8 @@ Imagine someone get's a **positive** test result. How can we calculate the proba
 5. Divide the result from 2. $P(Pos, \lnot D)$ by the result of 3. $P(Pos)$ &rarr; $P(\lnot D \mid Pos)$.
 6. Check: add the results of 4. and 5. &rarr; $1$.
 
+Note: $P(A, B) = P(B, A)$
+
 The calculation for a **negative** test result are analogous. Just replace $Pos$ with $Neg$.
 
 Probablity Distributions
