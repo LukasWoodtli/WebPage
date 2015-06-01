@@ -1,6 +1,6 @@
 Title: Introduction to Statistics
 Date: 2015-05-22
-Modified: 2015-05-22
+Modified: 2015-06-01
 Category: Mathematics
 Tags: Statistics
 Status: draft
@@ -75,10 +75,10 @@ Imagine someone get's a **positive** test result. How can we calculate the proba
 ![Algorithm to calculate Bayes' rule](/images/bayes_algorithm.svg)
 
 1. Take the **Prior** and multiplicate it with $P(Pos \mid D)$ (Sensitivity) &rarr; $P(Pos, D)$.
-2. Take the **Prior** and multiplicate it with $P(Pos \mid \lnot D)$ &rarr; $P(Pos \lnot D)$.
+2. Take the **Prior** and multiplicate it with $P(Pos \mid \lnot D)$ &rarr; $P(Pos, \lnot D)$.
 3. Add the results of 1. and 2. up &rarr; $P(Pos)$.
-4. Divide the result from 1. ($P(Pos, D)$) by the result of 3. ($P(Pos)$) &rarr; $P(D \mid Pos)$.
-5. Divide the result from 2. ($P(Pos, \lnot D)$) by the result of 3. ($P(Pos)$) &rarr; $P(\lnot D \mid Pos)$.
+4. Divide the result from 1. $P(Pos, D)$ by the result of 3. $P(Pos)$ &rarr; $P(D \mid Pos)$.
+5. Divide the result from 2. $P(Pos, \lnot D)$ by the result of 3. $P(Pos)$ &rarr; $P(\lnot D \mid Pos)$.
 6. Check: add the results of 4. and 5. &rarr; $1$.
 
 The calculation for a **negative** test result are analogous. Just replace $Pos$ with $Neg$.
@@ -97,7 +97,7 @@ Probability for continous spaces. Density can be bigger than $1$.
 
 Density:
 
-- always non-negative
-- doesn't need to be continous
-- doesn't need to be smaller or equal than one
+- Always non-negative
+- Doesn't need to be continous
+- Doesn't need to be smaller or equal than one
 - Integrates to one
