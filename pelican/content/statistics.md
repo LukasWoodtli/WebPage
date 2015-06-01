@@ -55,8 +55,33 @@ Posterior: $$P(A \mid B) = P(A) \cdot P(B \mid A)\\
 Algorithm
 ---------
 
-[Bayes' rule: Algorithm](/images/bayes_algorithm.pdf)
+Imagine there is a disease. The posibility to get this particular desease is $P(D)$.
 
+There is a test to check if someone has that disease. But the test is not completely reliable.
+
+Prior: $P(D)$
+Sensitivity: $P(Pos \mid D)$
+Specitivity: $P(Neg \mid \lnot D)$
+
+The **Prior** says how many people have the disease.
+
+The **Sensitivity** says how many get a **positive** test if they **have the desease**.
+
+The **Selicivity** says how many get a **negative** test if they **don't have the desease**.
+
+
+Imagine someone get's a **positive** test result. How can we calculate the probability that this person has the desease?
+
+![Algorithm to calculate Bayes' rule](/images/(bayes_algorithm.svg)
+
+1. Take the **Prior** and multiplicate it with $P(Pos \mid D)$ (Sensitivity) &rarr; $P(Pos, D)$.
+2. Take the **Prior** and multiplicate it with $P(Pos \mid \lnot D)$ &rarr; $P(Pos \lnot D)$.
+3. Add the results of 1. and 2. up &rarr; $P(Pos)$.
+4. Divide the result from 1. ($P(Pos, D)$) by the result of 3. ($P(Pos)$) &rarr; $P(D \mid Pos)$.
+5. Divide the result from 2. ($P(Pos, \lnot D)$) by the result of 3. ($P(Pos)$) &rarr; $P(\lnot D \mid Pos)$.
+6. Check: add the results of 4. and 5. &rarr; $1$.
+
+The calculation for a **negative** test result are analogous. Just replace $Pos$ with $Neg$.
 
 Probablity Distributions
 ========================
