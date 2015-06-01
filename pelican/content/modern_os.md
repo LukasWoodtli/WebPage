@@ -288,4 +288,16 @@ Spinlock
 Naive Spinlock (spin on T+S)
 ----------------------------
 
-Thread waiting for lock loops (spins) without doing any useful work. 
+A thread or processor waiting for a lock loops (spins) without doing any useful work. 
+
+    LOCK(L):
+        WHILE(T+S(L) == locked);
+        
+
+Problems with this naive spinlock implementation:
+
+- Too much contention: Every processor tries to access lock.
+- Does not exploit caches: Private caches in processor can't contain lock variable (T+S needs to be atomic. That's not possible with cached variables).
+- Disrupts useful work: After releasing a lock a processor usually wants to do some work. But other processors need resources for trying to acquire the lock.
+
+
