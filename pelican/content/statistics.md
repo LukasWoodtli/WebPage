@@ -67,7 +67,7 @@ The **Prior** says how many people have the disease.
 
 The **Sensitivity** says how many get a **positive** test if they **have the desease**.
 
-The **Selicivity** says how many get a **negative** test if they **don't have the desease**.
+The **Specitivity** says how many get a **negative** test if they **don't have the desease**.
 
 
 Imagine someone get's a **positive** test result. How can we calculate the probability that this person has the desease?
