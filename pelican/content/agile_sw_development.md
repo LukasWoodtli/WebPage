@@ -42,10 +42,18 @@ something. Ideally every teammember can do anything needed in the team.
 But sometimes there are special roles like teser, documentation writer
 or specialists of any kind.
 
+The main tasks of the Team are:
+
+- Development (coding)
+- Unit Tests
+- Definition of Done
+- Development Documentation
+
+
 Other
 -----
 
-There are none other people involved in the productive work cycle than
+There are no other people involved in the productive work cycle than
 the three mentioned above. If someone wants the **Team** do something he has
 to speak with the **Product Owner**. At some presentations and meetings
 there are guests allowed. But they can't decide anything or delegate any
@@ -73,13 +81,25 @@ amount of risk. In Scrum they are called the Pigs.
 Timeboxes (Rituals)
 ===================
 
-In Scrum all work is donne in timeboxes of defined length. The most
-important one is the **Sprint**. It is a time span of two to four weeks. In
+In Scrum all work is donne in timeboxes of defined length.
+
+The Sprint
+----------
+
+The most important timebox is the **Sprint**. It is a time span of two to four weeks. In
 this time the team works on the tasks they have themselves comitted to
 at the **Scrum Planning Meeting**. At the end of this time span the team should be able to present
 a product that can be potentially delivered to the cusomer. To achieve
 this goal there are several meetings that help to do the work organized
 and on the right time.
+
+A Sprint has this pattern:
+
+1. Sprint Planing Meeting
+2. Daily Scrum (every day for 15 minutes)
+3. Sprint Review
+4. Retrospective
+
 
 Release Planning Meeting
 ------------------------
@@ -97,9 +117,18 @@ release is created.
 Sprint Planning Meeting
 -----------------------
 
-At the beginning of each **Sprint** the **Team** and the **Product Owner** decide
+At the beginning of each **Sprint** the **Team**, the **Scrum Master** and the **Product Owner** decide
 which of the requirements of the **Product Backlog** are going to be
 implemented in the new **Sprint**. They are put into the so called **Sprint Backlog**.
+
+> The Planning Meeting takes about **one day** (take the needed time!)
+
+The meeting has three phases:
+
+1. The objective of the sprint (PO, 30 minutes)
+2. Pre-Selection of requirements (PO, 3 hours)
+3. Analyze the requirements and split them to smaller tasks (activities)
+&rarr; put them in the Sprint Backlog (Team, 4 hours) 
 
 Daily Scrum
 -----------
@@ -114,21 +143,22 @@ answers to the following questions:
 > There should be no discussions in this meeting. It’s
 just an information to the coworkers so people with similar interests or some good solutions can connect after the meeting.
 
-Sprint Presentation
--------------------
+Sprint Review (Presentation)
+----------------------------
 
 When a Sprint is finished the **Team** presents the result. Anyone can join
 the presentation. Everybody is allowed to try out the resulting product.
 It should not be a pure presentation but more like a workshop. In this
 meeting the **Product Owner** decides if all the requirements are
 implemented completely. For each requirement this is a pure yes or now
-criteria.
+criteria. The product that is shown at the review is potentially shippable to the users.
 
 Retrospective
 -------------
 
 The **Retrospective** is a very important meeting. All involved people have
-to attend this meeting (PO, SM, Team). The topic of the meeting is to
+to attend this meeting (PO, SM, Team). No other people are allowed in this
+meeting. The topic of the meeting is to
 discuss the Scrum process of the last Sprint. There should be discussed
 what was good and what was bad. There have to be decided what steps will
 be donne to improve the production cycle.
@@ -150,15 +180,19 @@ requirement has to have several properties when put into the Backlog.
 - ID (unambigous)
 - Significance (unambigous, set only by PO)
 - Effort (set only by Team)
-- Name - Label/Topic
+- Name
+- Label/Topic
 - Description (User story / use case)
 - Criteria for aceptance
 - Notes / References
-- Source
+- Source (who added this requirement)
 - Risk
 
 The **Product Owner** is responsible for the Product Backlog. He has to decide about the significance of
 the Backlog Items. But he is not allowed to estimate the effort of an item. This can be only done by the team.
+
+It's a good practice to estimate the most significant backlog items that
+are not estimated yet once a week.
 
 Sprint Backlog
 --------------
@@ -177,4 +211,6 @@ Literature and Links
 [Pigs and Chickens](http://scrum-master.de/Scrum-Rollen/Scrum-Rollen_Pigs_Chickens)
 
 [My Notes](/images/scrumidable_notizen.pdf)
+
+[A good page with Podcasts (German)](http://www.scrumidable.de/)
 
