@@ -315,3 +315,26 @@ of `L` is updated by the cache coherence mechanism of the system.
 - Less traffic on bus.
 - Disruptive.
 
+Spinlocks With Delay
+--------------------
+
+### Delay after lock release
+
+    WHILE((L == locked) or
+          (T+S(L) == locked))
+    {
+        WHILE(L == locked);
+        delay(d[Pi]); // when I get the lock I wait a while
+    }
+
+The delay time is dependent on the Processor.
+
+### Delay with exponential backoff
+
+    WHILE(T+S(L) == locked) // not using chaching at all
+    {
+        delay(d);
+        d = d * 2;
+    }
+    
+This algorithm works also on architecture without chaches (or cache coherent system in HW).
