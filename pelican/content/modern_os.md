@@ -301,3 +301,13 @@ Problems with this naive spinlock implementation:
 - Disrupts useful work: After releasing a lock a processor usually wants to do some work. But other processors need resources for trying to acquire the lock.
 
 
+Caching Spinlock (Spin on read)
+-------------------------------
+
+Waiting processors spin on cached copy of ’L’. So there is no communication to memory. The cached copy
+of ’L’ is updated by the cache coherence mechanism of the system.
+
+    LOCK(L):
+        WHILE(L == locked); // Spinning on cached var. Reading L is atomic.
+            IF(T+S(L) == locked) go back; // Read L from memory. If it fails start spinning on cached L again.
+        

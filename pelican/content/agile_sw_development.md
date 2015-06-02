@@ -59,6 +59,14 @@ to speak with the **Product Owner**. At some presentations and meetings
 there are guests allowed. But they can't decide anything or delegate any
 work to the team.
 
+There are some other people that are indirectly involved in the project. They are generally called **Stakeholder**. The most important ones are:
+
+- Customer
+- User
+- Management
+
+
+
 There are two kind of people involved in a project. In Scrum jargon they
 are called Chickens and Pigs. This roles are based on a comic strip:
 
