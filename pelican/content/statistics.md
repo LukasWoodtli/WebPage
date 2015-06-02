@@ -103,3 +103,31 @@ Density:
 - Doesn't need to be continous
 - Doesn't need to be smaller or equal than one
 - Integrates to one
+
+
+Estimation
+==========
+
+Estimation problem is:
+
+Data &rarr; P
+
+P &rarr; P(Data)
+
+Maximum Likelihood Estimator (MLE):
+-----------------------------------
+
+$$\frac{1}{N} \cdot \sum_{i}^{} X_i$$
+
+The sum is always between $0$ and $1$.
+
+
+Laplace Estimator:
+------------------
+
+$$\frac{1}{N + k} \cdot \left(1 + \sum_{i}^{} X_i \right)$$
+
+$k$: Number of Outcomes
+
+$N$: Number of Experiments
+
