@@ -138,8 +138,17 @@ Averages
 Mean
 ----
 
+$$\frac{1}{n} \sum_{i=1}^n{x_i}$$
+
+Sum up all elements and divide py the number of elements.
+
 Median
 ------
 
+Sort all elements and take the one in the middle.
+
 Mode
 ----
+
+The value of the elements that occure most in the data set.
+
