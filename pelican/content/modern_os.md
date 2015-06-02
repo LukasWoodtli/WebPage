@@ -304,10 +304,10 @@ Problems with this naive spinlock implementation:
 Caching Spinlock (Spin on read)
 -------------------------------
 
-Waiting processors spin on cached copy of ’L’. So there is no communication to memory. The cached copy
-of ’L’ is updated by the cache coherence mechanism of the system.
+Waiting processors spin on cached copy of `L`. So there is no communication to memory. The cached copy
+of `L` is updated by the cache coherence mechanism of the system.
 
     LOCK(L):
         WHILE(L == locked); // Spinning on cached var. Reading L is atomic.
-            IF(T+S(L) == locked) go back; // Read L from memory. If it fails start spinning on cached L again.
+            IF(T+S(L) == locked) go back; // Read L from memory. If it fails spin on cached L again.
         
