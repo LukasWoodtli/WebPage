@@ -10,6 +10,10 @@ Status: draft
 The notes on this page are from the Udacity course
 [Intro to Statistics](https://www.udacity.com/course/intro-to-statistics--st101 "Udacity").
 
+
+[TOC]
+
+
 Statistics and Probability
 ==========================
 

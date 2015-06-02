@@ -48,6 +48,7 @@ home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
 PLUGINS = ["render_math", "pelican-bootstrapify"]
 
+MD_EXTENSIONS = ['codehilite(css_class=highlight)','extra', 'sane_lists', 'toc']
 
 THEME = "pelican-chameleon"
 BS3_THEME = "http://bootswatch.com/yeti/bootstrap.min.css"
