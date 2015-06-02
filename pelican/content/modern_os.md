@@ -309,5 +309,9 @@ of `L` is updated by the cache coherence mechanism of the system.
 
     LOCK(L):
         WHILE(L == locked); // Spinning on cached var. Reading L is atomic.
-            IF(T+S(L) == locked) go back; // Read L from memory. If it fails spin on cached L again.
+            IF(T+S(L) == locked) // Read L from memory (not cache).
+                go back; // If it fails start spinning on cached L again.
         
+- Less traffic on bus.
+- Disruptive.
+
