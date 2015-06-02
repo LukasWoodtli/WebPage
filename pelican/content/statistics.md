@@ -131,3 +131,15 @@ $k$: Number of Outcomes
 
 $N$: Number of Experiments
 
+
+Averages
+========
+
+Mean
+----
+
+Median
+------
+
+Mode
+----
