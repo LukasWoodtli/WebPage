@@ -321,6 +321,8 @@ of `L` is updated by the cache coherence mechanism of the system.
 Spinlocks With Delay
 --------------------
 
+If a lock is released every process waits for a given time before trying to aquire the lock.
+
 ### Delay after lock release
 
     WHILE((L == locked) or
@@ -330,14 +332,16 @@ Spinlocks With Delay
         delay(d[Pi]); // when I get the lock I wait a while
     }
 
-The delay time is dependent on the Processor.
+The delay time is dependent on the processor.
 
 ### Delay with exponential backoff
 
     WHILE(T+S(L) == locked) // not using chaching at all
     {
-        delay(d);
+        delay(d); // d is small at first
         d = d * 2;
     }
-    
+
+Every time when the lock is checked and not free the processor waits a longer time before trying again.
+T+S can be used because we wait before trying to quire the lock again. This reduces the contention.
 This algorithm works also on architecture without chaches (or cache coherent system in HW).
