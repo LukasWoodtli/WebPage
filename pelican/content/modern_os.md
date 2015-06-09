@@ -10,7 +10,7 @@ Most of the information gathered here is from the course [Advanced Operating Sys
 Some information is from [Operating System](http://en.wikipedia.org/wiki/Operating_system "Wikipedia"). And other Wikipedia pages.
 
 The book *Modern Operating Systems* by Andrew S. Tanenbaum is also a very good resource I'm using for learning about Operating Systems.
-
+5
 
 [TOC]
 
@@ -288,7 +288,7 @@ Scalability issues with Synchronitation
 Spinlock
 ========
 
-Naive Spinlock (spin on T+S)
+Naive Spinlock (Spin on T+S)
 ----------------------------
 
 A thread or processor waiting for a lock loops (spins) without doing any useful work. 
@@ -318,7 +318,7 @@ of `L` is updated by the cache coherence mechanism of the system.
 - Less traffic on bus.
 - Disruptive.
 
-Spinlocks With Delay
+Spinlock with Delay
 --------------------
 
 If a lock is released every process waits for a given time before trying to aquire the lock.
@@ -345,3 +345,22 @@ The delay time is dependent on the processor.
 Every time when the lock is checked and not free the processor waits a longer time before trying again.
 T+S can be used because we wait before trying to quire the lock again. This reduces the contention.
 This algorithm works also on architecture without chaches (or cache coherent system in HW).
+
+
+Ticket Lock
+-----------
+
+The process that tries to acquire a lock gets a ticket.
+When the lock is released the process is notified.
+
+This adds fairness to the locking algorithm.
+
+But it causes contention.
+
+Summary
+-------
+
+- Spin on T+S, Spin on read and Spinlock with Delay are not fair
+- Ticket Lock is fair but noisy (contention)
+
+
