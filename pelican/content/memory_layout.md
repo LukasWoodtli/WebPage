@@ -68,6 +68,7 @@ Status: draft
 | Compiler: MPLAB, Processor: PIC32MX | downwards |
 | Compiler: MPLAB, Processor: PIC32MZ | downwards |
 | Compiler: MSVC-MingW | downwards |
+| POSIX | downwards |
 | Compiler: oWatcom, Processor: 16BitDOS (16BitDOS) | downwards |
 | Compiler: oWatcom, Processor: 16BitDOS (16BitDOS) | downwards |
 | Compiler: Paradigm, Processor: Tern_EE (Tern_EE) | downwards |
