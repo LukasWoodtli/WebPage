@@ -63,7 +63,7 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | PIC24_dsPIC | MPLAB | **upwards** |
 | PIC32MX | MPLAB | downwards |
 | PIC32MZ | MPLAB | downwards |
-| PPC  | GCC | downwards |
+| PowerPC  | GCC | downwards |
 | RL78 | GCC, IAR | downwards |
 | RX100 | GCC, IAR, Renesas | downwards |
 | RX200 | Renesas | downwards |
