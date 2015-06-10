@@ -11,26 +11,15 @@ Status: draft
 | POSIX | GCC | downwards |
 | 16BitDOS (16BitDOS) | oWatcom | downwards |
 | Renesas 78K0R | IAR | downwards |
-| ARM7_AT91FR40008 | GCC | downwards |
-| ARM7_AT91SAM7S | GCC | downwards |
-| ARM7_LPC2000 | GCC | downwards |
-| ARM7_LPC21xx | RVDS | downwards |
-| ARM7_LPC23xx | GCC | downwards |
-| ARM_CA5_No_GIC | IAR | downwards |
-| ARM_CA9 | GCC, IAR, RVDS | downwards |
-| ARM_CM0 | GCC, IAR, RVDS | downwards |
-| ARM_CM3 | GCC, IAR, RVDS | downwards |
-| ARM_CM3_MPU | GCC | downwards |
-| ARM_CM4F | GCC, IAR, RVDS, CCS, Tasking | downwards |
-| ARM_CM7 (ARM_CM7) | GCC, IAR, RVDS | downwards |
-| ARM_Cortex-R4 | CCS | downwards |
+| ARM7 (LPC2xxx, AT91SAM7S, AT91FR40008)  | GCC, RVDS | downwards |
+| ARM Cortex (A5, A9, M0, M4, M3, M7, R4 | GCC, IAR, RVDS, CCS, Tasking | downwards |
 | ATMega323 | GCC, IAR | downwards |
 | AVR32_UC3 | GCC, IAR | downwards |
 | AtmelSAM7S64 | IAR | downwards |
 | AtmelSAM9XE | IAR | downwards |
 | CORTUS_APS3 | GCC | downwards |
 | ColdFire | CodeWarrior, GCC | downwards |
-| Cygnal | SDCC | upwards |
+| Cygnal | SDCC | **upwards** |
 | H8S2329 | GCC | downwards |
 | HCS12 | CodeWarrior, GCC | downwards |
 | LPC2000 | IAR | downwards |
@@ -45,8 +34,8 @@ Status: draft
 | MicroBlazeV8 | GCC | downwards |
 | NiosII | GCC | downwards |
 | PIC18 | WizC | downwards |
-| PIC18F | MPLAB | upwards |
-| PIC24_dsPIC | MPLAB | upwards |
+| PIC18F | MPLAB | **upwards** |
+| PIC24_dsPIC | MPLAB | **upwards** |
 | PIC32MX | MPLAB | downwards |
 | PIC32MZ | MPLAB | downwards |
 | PPC405_Xilinx | GCC | downwards |
