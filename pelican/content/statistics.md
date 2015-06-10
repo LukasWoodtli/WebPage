@@ -161,5 +161,10 @@ Variance
 
 Subtract the mean from every item. Then and up the squares of the subtractions.
 
-$$\frac{1}{n} \sum_{i}(x_i - \mu)^2$$
+$$Var(X) = \frac{1}{n} \sum_{i}(x_i - \mu)^2$$
+
+Standard Deviation
+==================
+
+$$\sigma_X = \sqrt{Var(X)}$$
 
