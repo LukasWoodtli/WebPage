@@ -2,8 +2,30 @@ Title: Memory Layout
 Date: 2015-06-09
 Modified: 2015-06-09
 Category: Programming
+Tags: C, C++
 Status: draft
 
+Memory Layout on different Operating Systems
+============================================
+
+The use of the memory for a process is different in each operating system.
+
+This example overwiew is taken from *Secure Coding in C and C++, by Robert Seacord*.
+![Memory layouts on different OS's](/images/memory_layout.png)
+
+
+Stack Growth
+============
+
+Depending on the platform the stack grows in different directions:
+- Downwards: the stack grows from bigger adresses to smaller ones
+- Upwards: it grows from bigger addresses to smaller ones
+
+On most platforms the stack grows downwards. But there are some exeptions.
+
+
+This table is an inclomplete (but hopefully correct) overview. Most data in this
+table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 
 | Architecture | Compiler   | Stack growth  |
 |--------------|-------|----------------|
@@ -53,3 +75,4 @@ Status: draft
 | Tern_EE (Tern_EE) | Paradigm | downwards |
 | TriCore_1782 | GCC | downwards |
 | V850ES | IAR | downwards |
+
