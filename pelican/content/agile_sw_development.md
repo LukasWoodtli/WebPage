@@ -186,15 +186,16 @@ requirements into the Product Backlog is the Product Owner. Each
 requirement has to have several properties when put into the Backlog.
 
 - ID (unambigous)
-- Significance (unambigous, set only by PO)
-- Effort (set only by Team)
+- Significance/Importance (unambigous, set only by PO)
+- Initial Estimate/Effort (set only by Team)
 - Name
 - Label/Topic
-- Description (User story / use case)
+- Description/Notes (User story / use case)
 - Criteria for aceptance
 - Notes / References
 - Source (who added this requirement)
 - Risk
+- How to Demo
 
 The **Product Owner** is responsible for the Product Backlog. He has to decide about the significance of
 the Backlog Items. But he is not allowed to estimate the effort of an item. This can be only done by the team.
