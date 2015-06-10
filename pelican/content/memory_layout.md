@@ -25,6 +25,7 @@ Stack Growth
 ============
 
 Depending on the platform the stack grows in different directions:
+
 - Downwards: the stack grows from high adresses to low ones
 - Upwards: it grows from high addresses to low ones
 
