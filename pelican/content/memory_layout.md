@@ -5,8 +5,8 @@ Category: Programming
 Status: draft
 
 
-| Architacture | Compiler   | Stack growth  |
-|---------------|----------------|
+| Architecture | Compiler   | Stack growth  |
+|--------------|-------|----------------|
 | Windows  | MSVC, MingW | downwards |
 | POSIX | GCC | downwards |
 | 16BitDOS (16BitDOS) | oWatcom | downwards |
