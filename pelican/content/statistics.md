@@ -142,7 +142,7 @@ Averages
 Mean
 ----
 
-$$\frac{1}{n} \sum_{i=1}^n{x_i}$$
+$$\mu = \frac{1}{n} \sum_{i=1}^n{x_i}$$
 
 Sum up all elements and divide py the number of elements.
 
@@ -155,4 +155,11 @@ Mode
 ----
 
 The value of the elements that occure most in the data set.
+
+Variance
+========
+
+Subtract the mean from every item. Then and up the squares of the subtractions.
+
+$$\frac{1}{n} \sum_{i}(x_i - \mu)^2$$
 
