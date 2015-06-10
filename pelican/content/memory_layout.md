@@ -5,88 +5,87 @@ Category: Programming
 Status: draft
 
 
-| Architecture   | Stack growth  |
+| Architacture | Compiler   | Stack growth  |
 |---------------|----------------|
-| Compiler: CCS, Processor: ARM_CM4F | downwards |
-| Compiler: CCS, Processor: ARM_Cortex-R4 | downwards |
-| Compiler: CCS, Processor: MSP430X | downwards |
-| Compiler: CodeWarrior, Processor: ColdFire_V1 | downwards |
-| Compiler: CodeWarrior, Processor: ColdFire_V2 | downwards |
-| Compiler: CodeWarrior, Processor: HCS12 | downwards |
-| Compiler: GCC, Processor: ARM7_AT91FR40008 | downwards |
-| Compiler: GCC, Processor: ARM7_AT91SAM7S | downwards |
-| Compiler: GCC, Processor: ARM7_LPC2000 | downwards |
-| Compiler: GCC, Processor: ARM7_LPC23xx | downwards |
-| Compiler: GCC, Processor: ARM_CA9 | downwards |
-| Compiler: GCC, Processor: ARM_CM0 | downwards |
-| Compiler: GCC, Processor: ARM_CM3 | downwards |
-| Compiler: GCC, Processor: ARM_CM3_MPU | downwards |
-| Compiler: GCC, Processor: ARM_CM4F | downwards |
-| Compiler: GCC, Processor: ARM_CM7 (ARM_CM7) | downwards |
-| Compiler: GCC, Processor: ATMega323 | downwards |
-| Compiler: GCC, Processor: AVR32_UC3 | downwards |
-| Compiler: GCC, Processor: ColdFire_V2 | downwards |
-| Compiler: GCC, Processor: CORTUS_APS3 | downwards |
-| Compiler: GCC, Processor: H8S2329 | downwards |
-| Compiler: GCC, Processor: HCS12 | downwards |
-| Compiler: GCC, Processor: MCF5235 | downwards |
-| Compiler: GCC, Processor: MicroBlaze | downwards |
-| Compiler: GCC, Processor: MicroBlazeV8 | downwards |
-| Compiler: GCC, Processor: MSP430F449 | downwards |
-| Compiler: GCC, Processor: NiosII | downwards |
-| Compiler: GCC, Processor: PPC405_Xilinx | downwards |
-| Compiler: GCC, Processor: PPC440_Xilinx | downwards |
-| Compiler: GCC, Processor: RL78 | downwards |
-| Compiler: GCC, Processor: RX100 | downwards |
-| Compiler: GCC, Processor: RX600 | downwards |
-| Compiler: GCC, Processor: RX600v2 | downwards |
-| Compiler: GCC, Processor: STR75x | downwards |
-| Compiler: GCC, Processor: TriCore_1782 | downwards |
-| Compiler: IAR, Processor: 78K0R | downwards |
-| Compiler: IAR, Processor: ARM_CA5_No_GIC | downwards |
-| Compiler: IAR, Processor: ARM_CA9 | downwards |
-| Compiler: IAR, Processor: ARM_CM0 | downwards |
-| Compiler: IAR, Processor: ARM_CM3 | downwards |
-| Compiler: IAR, Processor: ARM_CM4F | downwards |
-| Compiler: IAR, Processor: ARM_CM7 (ARM_CM7) | downwards |
-| Compiler: IAR, Processor: ATMega323 | downwards |
-| Compiler: IAR, Processor: AtmelSAM7S64 | downwards |
-| Compiler: IAR, Processor: AtmelSAM9XE | downwards |
-| Compiler: IAR, Processor: AVR32_UC3 | downwards |
-| Compiler: IAR, Processor: LPC2000 | downwards |
-| Compiler: IAR, Processor: MSP430 | downwards |
-| Compiler: IAR, Processor: MSP430X | downwards |
-| Compiler: IAR, Processor: RL78 | downwards |
-| Compiler: IAR, Processor: RX100 | downwards |
-| Compiler: IAR, Processor: RX600 | downwards |
-| Compiler: IAR, Processor: STR71x | downwards |
-| Compiler: IAR, Processor: STR75x | downwards |
-| Compiler: IAR, Processor: STR91x | downwards |
-| Compiler: IAR, Processor: V850ES | downwards |
-| Compiler: MPLAB, Processor: PIC18F | upwards |
-| Compiler: MPLAB, Processor: PIC24_dsPIC | upwards |
-| Compiler: MPLAB, Processor: PIC32MX | downwards |
-| Compiler: MPLAB, Processor: PIC32MZ | downwards |
-| Compiler: MSVC-MingW | downwards |
-| POSIX | downwards |
-| Compiler: oWatcom, Processor: 16BitDOS (16BitDOS) | downwards |
-| Compiler: oWatcom, Processor: 16BitDOS (16BitDOS) | downwards |
-| Compiler: Paradigm, Processor: Tern_EE (Tern_EE) | downwards |
-| Compiler: Paradigm, Processor: Tern_EE (Tern_EE) | downwards |
-| Compiler: Renesas, Processor: RX100 | downwards |
-| Compiler: Renesas, Processor: RX200 | downwards |
-| Compiler: Renesas, Processor: RX600 | downwards |
-| Compiler: Renesas, Processor: RX600v2 | downwards |
-| Compiler: Renesas, Processor: SH2A_FPU | downwards |
-| Compiler: Rowley, Processor: MSP430F449 | downwards |
-| Compiler: RVDS, Processor: ARM7_LPC21xx | downwards |
-| Compiler: RVDS, Processor: ARM_CA9 | downwards |
-| Compiler: RVDS, Processor: ARM_CM0 | downwards |
-| Compiler: RVDS, Processor: ARM_CM3 | downwards |
-| Compiler: RVDS, Processor: ARM_CM4F | downwards |
-| Compiler: RVDS, Processor: ARM_CM7 (ARM_CM7) | downwards |
-| Compiler: SDCC, Processor: Cygnal | upwards |
-| Compiler: Softune, Processor: MB91460 | downwards |
-| Compiler: Softune, Processor: MB96340 | downwards |
-| Compiler: Tasking, Processor: ARM_CM4F | downwards |
-| Compiler: WizC, Processor: PIC18 | downwards |
+| Windows  | MSVC, MingW | downwards |
+| POSIX | GCC | downwards |
+| 16BitDOS (16BitDOS) | oWatcom | downwards |
+| 78K0R | IAR | downwards |
+| ARM7_AT91FR40008 | GCC | downwards |
+| ARM7_AT91SAM7S | GCC | downwards |
+| ARM7_LPC2000 | GCC | downwards |
+| ARM7_LPC21xx | RVDS | downwards |
+| ARM7_LPC23xx | GCC | downwards |
+| ARM_CA5_No_GIC | IAR | downwards |
+| ARM_CA9 | GCC | downwards |
+| ARM_CA9 | IAR | downwards |
+| ARM_CA9 | RVDS | downwards |
+| ARM_CM0 | GCC | downwards |
+| ARM_CM0 | IAR | downwards |
+| ARM_CM0 | RVDS | downwards |
+| ARM_CM3 | GCC | downwards |
+| ARM_CM3 | IAR | downwards |
+| ARM_CM3 | RVDS | downwards |
+| ARM_CM3_MPU | GCC | downwards |
+| ARM_CM4F | CCS | downwards |
+| ARM_CM4F | GCC | downwards |
+| ARM_CM4F | IAR | downwards |
+| ARM_CM4F | RVDS | downwards |
+| ARM_CM4F | Tasking | downwards |
+| ARM_CM7 (ARM_CM7) | GCC | downwards |
+| ARM_CM7 (ARM_CM7) | IAR | downwards |
+| ARM_CM7 (ARM_CM7) | RVDS | downwards |
+| ARM_Cortex-R4 | CCS | downwards |
+| ATMega323 | GCC | downwards |
+| ATMega323 | IAR | downwards |
+| AVR32_UC3 | GCC | downwards |
+| AVR32_UC3 | IAR | downwards |
+| AtmelSAM7S64 | IAR | downwards |
+| AtmelSAM9XE | IAR | downwards |
+| CORTUS_APS3 | GCC | downwards |
+| ColdFire_V1 | CodeWarrior | downwards |
+| ColdFire_V2 | CodeWarrior | downwards |
+| ColdFire_V2 | GCC | downwards |
+| Cygnal | SDCC | upwards |
+| H8S2329 | GCC | downwards |
+| HCS12 | CodeWarrior | downwards |
+| HCS12 | GCC | downwards |
+| LPC2000 | IAR | downwards |
+| MB91460 | Softune | downwards |
+| MB96340 | Softune | downwards |
+| MCF5235 | GCC | downwards |
+| MSP430 | IAR | downwards |
+| MSP430F449 | GCC | downwards |
+| MSP430F449 | Rowley | downwards |
+| MSP430X | CCS | downwards |
+| MSP430X | IAR | downwards |
+| MicroBlaze | GCC | downwards |
+| MicroBlazeV8 | GCC | downwards |
+| NiosII | GCC | downwards |
+| PIC18 | WizC | downwards |
+| PIC18F | MPLAB | upwards |
+| PIC24_dsPIC | MPLAB | upwards |
+| PIC32MX | MPLAB | downwards |
+| PIC32MZ | MPLAB | downwards |
+| PPC405_Xilinx | GCC | downwards |
+| PPC440_Xilinx | GCC | downwards |
+| RL78 | GCC | downwards |
+| RL78 | IAR | downwards |
+| RX100 | GCC | downwards |
+| RX100 | IAR | downwards |
+| RX100 | Renesas | downwards |
+| RX200 | Renesas | downwards |
+| RX600 | GCC | downwards |
+| RX600 | IAR | downwards |
+| RX600 | Renesas | downwards |
+| RX600v2 | GCC | downwards |
+| RX600v2 | Renesas | downwards |
+| SH2A_FPU | Renesas | downwards |
+| STR71x | IAR | downwards |
+| STR75x | GCC | downwards |
+| STR75x | IAR | downwards |
+| STR91x | IAR | downwards |
+| Tern_EE (Tern_EE) | Paradigm | downwards |
+| Tern_EE (Tern_EE) | Paradigm | downwards |
+| TriCore_1782 | GCC | downwards |
+| V850ES | IAR | downwards |
