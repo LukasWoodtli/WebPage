@@ -364,3 +364,22 @@ Summary
 - Ticket Lock is fair but noisy (contention)
 
 
+Queuing Lock
+============
+
+Array-based queuing Lock (Anderson Lock)
+----------------------------------------
+
+For each lock there is an array with flags. The size of the 
+array is equal to the number of processors.
+
+Flags:
+
+- has-lock (hl)
+- must-wait (mw)
+
+  Circular buffer
+ +----+----+----+----+   +----+
+ | hl | mw | mw | mw | = | mw |
+ +----+----+----+----+   +----+
+  0                         n-1
