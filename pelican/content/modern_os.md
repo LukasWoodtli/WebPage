@@ -262,15 +262,14 @@ Synchronization Primitives
 - Barriers (Synchronize threads, wait for other threads till all completed their work)
  
 Atomic Instruction
-==================
+------------------
 
 During the execution of an instruction the processor can not be interrupted.
 
 
 Aquiring a lock needs to be atomic.
 
-Read-Modify-Write (RMW)
------------------------
+### Read-Modify-Write (RMW)
 
 Different aproaches:
 
@@ -278,18 +277,17 @@ Different aproaches:
 - Fetch-and-Inc: Reads a memory location. Then returns the actual value and increments it atomically.
 - Fetch-and-$\Phi$: Generally with any given function ($\Phi$) after fetching and returning the actual value.
 
-Scalability issues with Synchronitation
----------------------------------------
+### Scalability issues with Synchronitation
 
 - Latency: Latency is the time that a thread needs to acquire a lock.
 - Waiting time: The time that a thread needs to wait to get the lock. This time is in the hands of the application developers and not of the OS developers.
 - Contention: If a lock is released and several threads are waiting for it. How long does it take until a thread is chosen from the waiting threads.
 
 Spinlock
-========
+--------
 
-Naive Spinlock (Spin on T+S)
-----------------------------
+### Naive Spinlock (Spin on T+S)
+
 
 A thread or processor waiting for a lock loops (spins) without doing any useful work. 
 
@@ -304,8 +302,7 @@ Problems with this naive spinlock implementation:
 - Disrupts useful work: After releasing a lock a processor usually wants to do some work. But other processors need resources for trying to acquire the lock.
 
 
-Caching Spinlock (Spin on read)
--------------------------------
+### Caching Spinlock (Spin on read)
 
 Waiting processors spin on cached copy of `L`. So there is no communication to memory. The cached copy
 of `L` is updated by the cache coherence mechanism of the system.
@@ -318,12 +315,11 @@ of `L` is updated by the cache coherence mechanism of the system.
 - Less traffic on bus.
 - Disruptive.
 
-Spinlock with Delay
---------------------
+### Spinlock with Delay
 
 If a lock is released every process waits for a given time before trying to aquire the lock.
 
-### Delay after lock release
+#### Delay after lock release
 
     WHILE((L == locked) or
           (T+S(L) == locked))
@@ -334,7 +330,7 @@ If a lock is released every process waits for a given time before trying to aqui
 
 The delay time is dependent on the processor.
 
-### Delay with exponential backoff
+#### Delay with exponential backoff
 
     WHILE(T+S(L) == locked) // not using chaching at all
     {
@@ -347,8 +343,7 @@ T+S can be used because we wait before trying to quire the lock again. This redu
 This algorithm works also on architecture without chaches (or cache coherent system in HW).
 
 
-Ticket Lock
------------
+### Ticket Lock
 
 The process that tries to acquire a lock gets a ticket.
 When the lock is released the process is notified.
@@ -357,8 +352,7 @@ This adds fairness to the locking algorithm.
 
 But it causes contention.
 
-Summary
--------
+### Summary
 
 - Spin on T+S, Spin on read and Spinlock with Delay are not fair
 - Ticket Lock is fair but noisy (contention)

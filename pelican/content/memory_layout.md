@@ -25,6 +25,7 @@ Stack Growth
 ============
 
 Depending on the platform the stack grows in different directions:
+
 - Downwards: the stack grows from high adresses to low ones
 - Upwards: it grows from high addresses to low ones
 
@@ -43,10 +44,10 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | ARM7 (LPC2xxx, AT91SAM7S, AT91FR40008)  | GCC, RVDS, IAR | downwards |
 | ARM Cortex (A5, A9, M0, M4, M3, M7, R4 | GCC, IAR, RVDS, CCS, Tasking | downwards |
 | ATMega323 | GCC, IAR | downwards |
-| AVR32_UC3 | GCC, IAR | downwards |
+| AVR32 UC3 | GCC, IAR | downwards |
 | AtmelSAM7S64 | IAR | downwards |
 | AtmelSAM9XE | IAR | downwards |
-| CORTUS_APS3 | GCC | downwards |
+| CORTUS APS3 | GCC | downwards |
 | ColdFire | CodeWarrior, GCC | downwards |
 | Cygnal | SDCC | **upwards** |
 | H8S2329 | GCC | downwards |
@@ -74,7 +75,7 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | STR71x | IAR | downwards |
 | STR75x | GCC, IAR | downwards |
 | STR91x | IAR | downwards |
-| Tern_EE (Tern_EE) | Paradigm | downwards |
-| TriCore_1782 | GCC | downwards |
+| Tern_EE | Paradigm | downwards |
+| TriCore 1782 | GCC | downwards |
 | V850ES | IAR | downwards |
 
