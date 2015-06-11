@@ -42,7 +42,7 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | DOS (16Bit) | Open Watcom | downwards |
 | Renesas 78K0R | IAR | downwards |
 | ARM7 (LPC2xxx, AT91SAM7S, AT91FR40008)  | GCC, RVDS, IAR | downwards |
-| ARM Cortex (A5, A9, M0, M4, M3, M7, R4 | GCC, IAR, RVDS, CCS, Tasking | downwards |
+| ARM Cortex (A5, A9, M0, M4, M3, M7, R4) | GCC, IAR, RVDS, CCS, Tasking | downwards |
 | ATMega323 | GCC, IAR | downwards |
 | AVR32 UC3 | GCC, IAR | downwards |
 | AtmelSAM7S64 | IAR | downwards |
@@ -78,4 +78,3 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | Tern_EE | Paradigm | downwards |
 | TriCore 1782 | GCC | downwards |
 | V850ES | IAR | downwards |
-
