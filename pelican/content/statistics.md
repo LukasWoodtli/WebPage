@@ -165,7 +165,7 @@ $$Var(X) = \sigma^2_X = \frac{1}{n} \sum_{i}(x_i - \mu)^2$$
 
 Alternative Formula:
 
-$$\sigma^2_X = \frac{\sum X_i}{N} - \frac{\left( \sum X_i  \right)2}{N^2}$$
+$$\sigma^2_X = \frac{\sum X_i^2}{N} - \frac{\left( \sum X_i  \right)^2}{N^2}$$
 
 Standard Deviation
 ==================
