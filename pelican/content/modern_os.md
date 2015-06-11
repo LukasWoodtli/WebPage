@@ -383,3 +383,8 @@ Flags:
  | hl | mw | mw | mw | = | mw |
  +----+----+----+----+   +----+
   0                         n-1
+  
+Only one slot can be marked as *hl*.
+ 
+The slots are not statically associated with a particular processor.
+ 
