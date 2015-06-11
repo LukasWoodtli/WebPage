@@ -161,10 +161,15 @@ Variance
 
 Subtract the mean from every item. Then and up the squares of the subtractions.
 
-$$Var(X) = \frac{1}{n} \sum_{i}(x_i - \mu)^2$$
+$$Var(X) \sigmna^2_X = \frac{1}{n} \sum_{i}(x_i - \mu)^2$$
+
+Alternative Formula:
+
+$$\sigmna^2_X = \frac{\sum X_i}{N} - \frac{\left( \sum X_i  \right)2}{N^2}$$
 
 Standard Deviation
 ==================
 
 $$\sigma_X = \sqrt{Var(X)}$$
+
 
