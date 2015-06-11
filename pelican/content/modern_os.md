@@ -359,9 +359,9 @@ But it causes contention.
 
 
 Queuing Lock
-============
+------------
 
-Array-based queuing Lock (Anderson Lock)
+### Array-based queuing Lock (Anderson Lock)
 ----------------------------------------
 
 For each lock there is an array with flags. The size of the 
@@ -369,16 +369,12 @@ array is equal to the number of processors.
 
 Flags:
 
-- has-lock (hl)
-- must-wait (mw)
+- has-lock (**hl**)
+- must-wait (**mw**)
 
-  Circular buffer
- +----+----+----+----+   +----+
- | hl | mw | mw | mw | = | mw |
- +----+----+----+----+   +----+
-  0                         n-1
-  
-Only one slot can be marked as *hl*.
+![The flag array structure](/images/array_based_queuing_lock.png)
+
+Only one slot can be marked as **hl**.
  
 The slots are not statically associated with a particular processor.
  
