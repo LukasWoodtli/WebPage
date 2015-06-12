@@ -97,12 +97,12 @@ Hypervisor: Operation system of operation systems (VMM: Virtal Machine Monitor).
 
 Native Hypervisor (bare metal)
 ------------------------------
-Hypervisor runs directly on hardware.  
+Hypervisor runs directly on hardware.
 Guest OS's running inside the hypervisor.
 
 Hosted Hypervisors
 ------------------
-Run on top of a Host OS (as an application process).  
+Run on top of a Host OS (as an application process).
 Guest OS's running inside the hypervisor.
 
 - VMWare Workstation
@@ -260,7 +260,7 @@ Synchronization Primitives
 - Mutex Locks (single exclusive access to resource)
 - Shared Lock (Multiple reader to one resource)
 - Barriers (Synchronize threads, wait for other threads till all completed their work)
- 
+
 Atomic Instruction
 ------------------
 
@@ -289,11 +289,11 @@ Spinlock
 ### Naive Spinlock (Spin on T+S)
 
 
-A thread or processor waiting for a lock loops (spins) without doing any useful work. 
+A thread or processor waiting for a lock loops (spins) without doing any useful work.
 
     LOCK(L):
         WHILE(T+S(L) == locked);
-        
+
 
 Problems with this naive spinlock implementation:
 
@@ -311,7 +311,7 @@ of `L` is updated by the cache coherence mechanism of the system.
         WHILE(L == locked); // Spinning on cached var. Reading L is atomic.
             IF(T+S(L) == locked) // Read L from memory (not cache).
                 go back; // If it fails start spinning on cached L again.
-        
+
 - Less traffic on bus.
 - Disruptive.
 
@@ -359,26 +359,34 @@ But it causes contention.
 
 
 Queuing Lock
-============
+------------
 
-Array-based queuing Lock (Anderson Lock)
+### Array-based queuing Lock (Anderson Lock)
 ----------------------------------------
 
-For each lock there is an array with flags. The size of the 
+For each lock there is an array with flags. The size of the
 array is equal to the number of processors.
 
 Flags:
 
-- has-lock (hl)
-- must-wait (mw)
+- has-lock (**hl**)
+- must-wait (**mw**)
 
-  Circular buffer
- +----+----+----+----+   +----+
- | hl | mw | mw | mw | = | mw |
- +----+----+----+----+   +----+
-  0                         n-1
-  
-Only one slot can be marked as *hl*.
- 
+![The flag array structure](/images/array_based_queuing_lock.png)
+
+Only one slot can be marked as **hl**.
+
 The slots are not statically associated with a particular processor.
- 
+
+    LOCK(L):
+       myPlace = fetch_and_inc(queuelast);
+       WHILE(flags[myPlace mod N] == mw);
+
+    UNLOCK(L):
+        flags[current mod N] = mw; // release lock for feature use
+        flags[(current+1) mod N] = hl; // next processor in queue gets lock
+
+
+- Only one atomic operation needed per critical section
+- Fairness: first-come, first-served
+- But needs a lot of space. For each lock there is one array with the size of number of processors
