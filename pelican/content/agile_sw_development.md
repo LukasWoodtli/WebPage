@@ -190,12 +190,14 @@ requirement has to have several properties when put into the Backlog.
 - Initial Estimate/Effort (set only by Team)
 - Name
 - Label/Topic
-- Description/Notes (User story / use case)
+- Description/Notes (User story / use case, "As X, I want Y, so that Z")
 - Criteria for aceptance
 - Notes / References
 - Source (who added this requirement)
 - Risk
 - How to Demo
+- Bug tracking ID
+- Components (i,e Database, UI, Business-Logic...)
 
 The **Product Owner** is responsible for the Product Backlog. He has to decide about the significance of
 the Backlog Items. But he is not allowed to estimate the effort of an item. This can be only done by the team.
@@ -223,6 +225,8 @@ The **Scrum Board** helps the Team (and the PO) to have an overview about the ac
 
 Literature and Links
 ====================
+
+[The official Scrum Guide](http://www.scrumguides.org/index.html)
 
 [Scrum & XP from the Trenches](http://www.infoq.com/minibooks/scrum-xp-from-the-trenches)
 
