@@ -7,6 +7,7 @@ Tags: Agile, Scrum, XP
 
 > This page is still work in progress
 
+[TOC]
 
 This article is an overview of **Scrum** and **XP**.
 
@@ -150,7 +151,7 @@ The output of the meeting is:
 - A demo date and place
 
 
-It usualky makes sense that backlog refinement (estimation, story splitting, etc.) is donne in a separate meeting so the Sprint Planning can be more focused.
+It usually makes sense that backlog refinement (estimation, story splitting, etc.) is donne in a separate meeting so the Sprint Planning can be more focused.
 
 
 Daily Scrum
