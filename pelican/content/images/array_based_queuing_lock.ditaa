@@ -1,0 +1,11 @@
+
+     Circular buffer
+  0                                  n-1
+ +----+----+----+----+----+----+-=-+----+
+ | hl | mw | mw | mw | mw | mw |   | mw |
+ +----+----+----+----+----+----+-=-+----+
+   ^    ^     ^    ^    ^
+   |    |     |    |    |
+   |  ahead of me  |   queuelast
+  current         myPlace
+  lock holder
