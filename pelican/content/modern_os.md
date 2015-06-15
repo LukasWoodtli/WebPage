@@ -362,7 +362,6 @@ Queuing Lock
 ------------
 
 ### Array-based queuing Lock (Anderson Lock)
-----------------------------------------
 
 For each lock there is an array with flags. The size of the
 array is equal to the number of processors.
@@ -390,3 +389,12 @@ The slots are not statically associated with a particular processor.
 - Only one atomic operation needed per critical section
 - Fairness: first-come, first-served
 - But needs a lot of space. For each lock there is one array with the size of number of processors
+
+### Link Based queuing Lock
+
+The Locks are stored in a linked list.
+
+Synchronization for adding and removing clients to a lock.
+
+Published by [John M. Mellor-Crummey and Michael L. Scott (MCS)](http://www.cs.rice.edu/~johnmc/papers/tocs91.pdf)
+
