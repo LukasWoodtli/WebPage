@@ -18,6 +18,8 @@ install:
 - pip install BeautifulSoup4
   # gitpython used for build file
 - pip install gitpython
+  # check for broken links
+- pip install linkchecker
 
 before_script:
 - git config --global user.name ${GIT_NAME}
@@ -25,6 +27,7 @@ before_script:
 
 script:
 - python generate_page.py
+- linkchecker http://lukaswoodtli.github.io
 
 env:
   global:

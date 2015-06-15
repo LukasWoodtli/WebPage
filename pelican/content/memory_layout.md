@@ -43,10 +43,7 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | Renesas 78K0R | IAR | downwards |
 | ARM7 (LPC2xxx, AT91SAM7S, AT91FR40008)  | GCC, RVDS, IAR | downwards |
 | ARM Cortex (A5, A9, M0, M4, M3, M7, R4) | GCC, IAR, RVDS, CCS, Tasking | downwards |
-| ATMega323 | GCC, IAR | downwards |
-| AVR32 UC3 | GCC, IAR | downwards |
-| AtmelSAM7S64 | IAR | downwards |
-| AtmelSAM9XE | IAR | downwards |
+| ATMega323, AVR32 UC3, ATSAM7S64, SAM9XE...) | GCC, IAR | downwards |
 | CORTUS APS3 | GCC | downwards |
 | ColdFire | CodeWarrior, GCC | downwards |
 | Cygnal | SDCC | **upwards** |
@@ -56,8 +53,7 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | MB96340 | Softune | downwards |
 | MCF5235 | GCC | downwards |
 | MSP430 | GCC, IAR, Rowley, CCS | downwards |
-| MicroBlaze | GCC | downwards |
-| MicroBlazeV8 | GCC | downwards |
+| MicroBlaze (IP core) | GCC | downwards |
 | NiosII | GCC | downwards |
 | PIC18 | WizC | downwards |
 | PIC18F | MPLAB | **upwards** |
@@ -75,6 +71,6 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | STR71x | IAR | downwards |
 | STR75x | GCC, IAR | downwards |
 | STR91x | IAR | downwards |
-| Tern_EE | Paradigm | downwards |
+| Tern EE | Paradigm | downwards |
 | TriCore 1782 | GCC | downwards |
 | V850ES | IAR | downwards |
