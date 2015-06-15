@@ -64,9 +64,10 @@ MENUITEMS = [
         ('Courses', '/pages/courses.html'),
         ('Books', '/pages/books.html'),
         ('Projects', '/pages/projects.html')]),
-#    ('Blog', [
-#         ('Tags', '/tags.html'),
-#         ('Categories', '/categories.html'),
-#         ('Chronological', '/archives.html')]),
+    ('Blog', [
+         ('Blog', '/pages/blog.html'),
+         ('Tags', '/tags.html'),
+         ('Categories', '/categories.html'),
+         ('Chronological', '/archives.html')]),
     ('Contact', '/pages/contact.html')
     ]
