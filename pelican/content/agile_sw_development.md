@@ -24,6 +24,8 @@ stakeholders or clients. He’s the only one who is allowed to give tasks
 to the Team. The Product Owner should not be part of the Team.
 The Product Owner maintains and manages the **Product Backlog**.
 
+There should be only one Product Owner per product.
+
 Scrum Master (SM)
 -----------------
 
@@ -125,6 +127,8 @@ release is created.
 Sprint Planning Meeting
 -----------------------
 
+> The **Product Backlog** needs to be clean before the Sprint Planning Meeting!
+
 At the beginning of each **Sprint** the **Team**, the **Scrum Master** and the **Product Owner** decide
 which of the requirements of the **Product Backlog** are going to be
 implemented in the new **Sprint**. They are put into the so called **Sprint Backlog**.
@@ -137,6 +141,17 @@ The meeting has three phases:
 2. Pre-Selection of requirements (PO, 3 hours)
 3. Analyze the requirements and split them to smaller tasks (activities)
 &rarr; put them in the Sprint Backlog (Team, 4 hours) 
+
+The output of the meeting is:
+
+- A sprint goal
+- A list of team members (and their time commitment)
+- A sprint backlog
+- A demo date and place
+
+
+It usualky makes sense that backlog refinement (estimation, story splitting, etc.) is donne in a separate meeting so the Sprint Planning can be more focused.
+
 
 Daily Scrum
 -----------
@@ -199,11 +214,13 @@ requirement has to have several properties when put into the Backlog.
 - Bug tracking ID
 - Components (i,e Database, UI, Business-Logic...)
 
-The **Product Owner** is responsible for the Product Backlog. He has to decide about the significance of
-the Backlog Items. But he is not allowed to estimate the effort of an item. This can be only done by the team.
+The **Product Owner** is responsible for the Product Backlog. He has to understand each item and he has to decide about the significance of
+the items. But he is not allowed to estimate the effort of an item. This can be only done by the team.
 
 It's a good practice to estimate the most significant backlog items that
 are not estimated yet once a week.
+
+There should be only one Product Backlog per product.
 
 Sprint Backlog
 --------------
