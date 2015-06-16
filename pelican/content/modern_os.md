@@ -27,11 +27,13 @@ Overview of Kernels
 | BSD        | Monolithic                 | C                    | FreeBSD, OpenBSD, NetBSD...                                              |
 | Mach       | Microkernel                | C?                   | One of the earlyest mikrokernel. Not all mach versions are mikrokernels. |
 | Windows    | Hybrid                     | C, C++, Assembly     | Win NT: Hybrid, Win 9x and earlyer: Mololithic.                          |
-| FreeRTOS   | Microkernel                | C, Assembly          | Real Time OS. Mainly for embedded systems.                               |
+| FreeRTOS   | Microkernel (RTOS)         | C, Assembly          | Real Time OS. Mainly for embedded systems.                               |
 | UNIX       | Monolithic                 | C, Assembly          | Original: AT&T Unix.                                                     |
 | L3         | Microkernel                | ELAN                 | Predecessor of L4.                                                       |
 | Barrelfish |                            | C                    | Special aproach.                                                         |
 | Mac OS 9   | Microkernel (Nanokernel)   | ?                    | Legacy                                                                   |
+| QNX        | Microkernel                | ?                    | CPUs: x86, MIPS, PowerPC, SH-4, ARM, StrongARM und xScale
+| VxWorks    | Monolithic (RTOS)          | ?                    |                                                                          |
 
 
 
