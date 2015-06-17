@@ -92,7 +92,10 @@ amount of risk. In Scrum they are called the Pigs.
 Timeboxes (Rituals)
 ===================
 
-In Scrum all work is donne in timeboxes of defined length.
+In Scrum all work is donne in time-boxes of defined length. The length of any time-box is defined by the involved people in advance! Adjust the times if needed (retrospective).
+
+> Use a timer!
+
 
 The Sprint
 ----------
@@ -151,8 +154,13 @@ The output of the meeting is:
 - A demo date and place
 
 
-It usually makes sense that backlog refinement (estimation, story splitting, etc.) is donne in a separate meeting so the Sprint Planning can be more focused.
+It usually makes sense that **backlog refinement** (estimation, story splitting, etc.) is donne in a separate meeting (one hour per week) so the Sprint Planning can be more focused.
 
+So the needed time for the sprint planning meeting can be reduced. Rule: Number of weeks per sprint * 1 hour
+
+> It's not accepted to reduce the estimate of the story in exchange of quality!
+
+If the Sprint Planning Meeting takes to long the Scrum Master shall cut it short or reschedule it.
 
 Daily Scrum
 -----------
