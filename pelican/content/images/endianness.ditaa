@@ -1,0 +1,32 @@
+
+  Representation of the Number 0x0a0b0c0d (168496141 dec) in the memory
+
+
+
+  Big Endian:
+
+        Address of variable
+             |
+             v
+  +----=-+------+------+------+------+-=----+
+  |      |      |      |      |      |      |
+  : . . .| 0x0a | 0x0b | 0x0c | 0x0d |. . . :
+  |      |      |      |      |      |      |
+  +----=-+------+------+------+------+-=----+
+ <-- smaller addresses    bigger addresses -->
+
+
+
+
+
+  Little Endian:
+
+       Address of variable
+            |
+            v
+  +---=--+------+------+------+------+-=----+
+  |      |      |      |      |      |      |
+  : . . .| 0x0d | 0x0c | 0x0b | 0x0a |. . . :
+  |      |      |      |      |      |      |
+  +---=--+------+------+------+------+-=----+
+ <-- smaller addresses     bigger addresses -->
