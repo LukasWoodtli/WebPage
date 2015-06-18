@@ -162,6 +162,17 @@ So the needed time for the sprint planning meeting can be reduced. Rule: Number 
 
 If the Sprint Planning Meeting takes to long the Scrum Master shall cut it short or reschedule it.
 
+
+Sprint Goal
+===========
+It's difficult to define a sprint goal. But it should be donne!
+
+Just ask the question: "Why are we doing this sprint? We could do something else."
+
+
+The sprint goal should be in business terms, not technical terms
+
+
 Daily Scrum
 -----------
 
