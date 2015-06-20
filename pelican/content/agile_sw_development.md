@@ -153,6 +153,9 @@ The output of the meeting is:
 - A sprint backlog
 - A demo date and place
 
+If the Sprint Planning Meeting takes to long the Scrum Master shall cut it short or reschedule it.
+
+### Product Backlog Refinement
 
 It usually makes sense that **backlog refinement** (estimation, story splitting, etc.) is donne in a separate meeting (one hour per week) so the Sprint Planning can be more focused.
 
@@ -160,8 +163,35 @@ So the needed time for the sprint planning meeting can be reduced. Rule: Number 
 
 > It's not accepted to reduce the estimate of the story in exchange of quality!
 
-If the Sprint Planning Meeting takes to long the Scrum Master shall cut it short or reschedule it.
 
+### Estimation
+
+The effort of each user story has to be estimated by the team (only by the team!).
+
+It is one of the most difficult parts of Scrum. But there are some techniques for doing the estimation.
+
+Storypoints
+The user stories are estimated in story points. Don't bother at first about how much work exactly a story point is. It depends on the team. And after a few sprints it becomes clear how many story points can be acomplished in one sprint. 
+
+So how to define story points? Just chose a really small task (maybe just find the smallest user story in the backlog) and assign it the amount of one story point.
+
+Now it makes sense to define a range for the possible story points. The fibonacci numbers are a commonly used range:
+
+> 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ...
+ For really small tasks the value of *1/2* can be added. 
+
+If a user story is too big it should be split in smaller tasks.
+
+When the range is defined the estimation can be done. There are quite a lot of possibilities to do the estimations.
+
+#### Planning poker
+The planning poker is a very good tool for the estimation of story points: [Planning Poker]( https://en.m.wikipedia.org/wiki/Planning_poker)
+
+#### Gut feeling
+It's a good practice to ask the team if they have a good feeling about the estimation. Ask it at least at the end of the estimation meeting (Product Backlog Refinement or Sprint Planning).
+
+#### Experience of previous Sprints
+After a few Sprints the team gets some experience in estimating User Stories.
 
 Sprint Goal
 ===========
