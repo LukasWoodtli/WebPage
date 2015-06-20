@@ -47,7 +47,7 @@ The endianness means the representation of a variable (if it is bigger than one 
 
 - PowerPC (some models)
 - IA-64 (Hewlett-Packard and Intel)
-- ARM (and XScale)
+- ARM (and XScale, little-endian as default)
 
 
 # Uses
