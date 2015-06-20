@@ -178,7 +178,8 @@ So how to define story points? Just chose a really small task (maybe just find t
 Now it makes sense to define a range for the possible story points. The fibonacci numbers are a commonly used range:
 
 > 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ...
- For really small tasks the value of *1/2* can be added. 
+
+For really small tasks the value of *1/2* can be added. 
 
 If a user story is too big it should be split in smaller tasks.
 
