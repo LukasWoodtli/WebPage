@@ -2,8 +2,11 @@ Title: Intel Architecture
 Category: Computer Science
 Tags: Assembler
 Date: 2015-06-22
-Modified: 2015-06-22
-Status: draft
+Modified: 2015-06-23
+
+On this page I write down some notes about the Intel architecture (x86) that I learned in school. I'ts mainly for Intel 80186. But I'll extend it with informations about modern Intel processors.
+
+[TOC]
 
 
 # Addressing
