@@ -16,6 +16,7 @@ The operand (constant) is given with the command. i.e:
 
 <pre>MOV CL, <strong>42</strong>; move the value 42 to register CL</pre>
 
+
 ## Implicit
 
 Some commands work always with the same register/address. i.e:
@@ -26,7 +27,7 @@ Some commands work always with the same register/address. i.e:
 
 The operand is held in a register
 
-<pre>INC <strong>CH**</strong>; Increment value in CH register</pre>
+<pre>INC <strong>CH</strong>; Increment value in CH register</pre>
 
 
 ## Direct
