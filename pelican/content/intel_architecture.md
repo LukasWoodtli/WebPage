@@ -45,8 +45,9 @@ The operand is given indirectly by one or two registers. i.e:
 ### Offset Address
 To calculate the address offset with immediate addressing  mode the following scheme is used:
 
-$$Offset := \begin{Bmatrix}CS:\\DS:\\SS:\\ES:\end{Bmatrix}\begin{bmatrix}\begin{Bmatrix}-\\BX\\BP\end{Bmatrix}\end{bmatrix} +\begin{bmatrix}\begin{Bmatrix}-\\SI\\DI\end{Bmatrix}\end{bmatrix} + \begin{bmatrix}-\\displacement_8\\displacement_16\end{bmatrix}$$
+$$Offset := \begin{Bmatrix}-\\CS:\\DS:\\SS:\\ES:\end{Bmatrix}\begin{bmatrix}\begin{Bmatrix}-\\BX\\BP\end{Bmatrix}\end{bmatrix} +\begin{bmatrix}\begin{Bmatrix}-\\SI\\DI\end{Bmatrix}\end{bmatrix} + \begin{bmatrix}-\\displacement_8\\displacement_{16}\end{bmatrix}$$
 
+$-$: means that this element is not used.
 
 ## Addressing Memory
  For addressing the memory the immediate, direct and indirect method can be used.
