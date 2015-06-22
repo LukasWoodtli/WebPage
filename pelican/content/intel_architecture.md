@@ -76,7 +76,12 @@ Each of the *GPRs* can be accessed as two 8 bit registers. i. e:
 
 ## FLAGS Register
 
-| Bit      |     15   |     14      |     13 and 12       |     11   |     10    |     9            |     8    |    7   |    6   |     5    |    4   |     3    |    2   |     1    |   0   |
-|----------|:--------:|:-----------:|:-------------------:|:--------:|:---------:|:----------------:|:--------:|:------:|:------:|:--------:|:------:|:--------:|:------:|:--------:|:-----:|
-| Mnemonic |  -       |  NT         | IOPL                |  OF      | DF        |  IF              |  TF      |  SF    |  ZF    |  -       | AF     |  -       |  PF    |  -       |  CF   |
-| Meaning  | Reserved | Nested Task | I/O Privilege Level | Overflow | Direction | Interrupt Enable |  Trap    | Sign   | Zero   | Reserved | Adjust | Reserved | Parity | Reserved | Carry |
+| Bit      |     15   |     14      |     13 and 12       |     11   |     10    |     9            |     8    |
+|----------|:--------:|:-----------:|:-------------------:|:--------:|:---------:|:----------------:|:--------:|
+| Mnemonic |  -       |  NT         | IOPL                |  OF      | DF        |  IF              |  TF      |
+| Meaning  | Reserved | Nested Task | I/O Privilege Level | Overflow | Direction | Interrupt Enable |  Trap    |
+
+| Bit      |    7   |    6   |     5    |    4   |     3    |    2   |     1    |   0   | 
+|----------|:------:|:------:|:--------:|:------:|:--------:|:------:|:--------:|:-----:| 
+| Mnemonic |  SF    |  ZF    |  -       | AF     |  -       |  PF    |  -       |  CF   | 
+| Meaning  | Sign   | Zero   | Reserved | Adjust | Reserved | Parity | Reserved | Carry | 
