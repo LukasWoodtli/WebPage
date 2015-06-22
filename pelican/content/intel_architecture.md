@@ -14,32 +14,32 @@ Intel processors have 5 different addressing modes.
 
 The operand (constant) is given with the command. i.e:
 
-    MOV CL, 42; move the value 42 to register CL
+<pre>MOV CL, <em>42</em>; move the value 42 to register CL</pre>
 
 ## Implicit
 
 Some commands work always with the same register/address. i.e:
 
-PUSH/POP work. always with SP register
+`PUSH`/`POP` work always with SP register.
 
 ## Register
 
 The operand is held in a register
 
-    INC CH;
+`INC **CH**; Increment value in CH register`
 
 
 ## Direct
 
 The address of the operand value comes directly after the command. i. e:
 
-MOV CX, counter;
+`MOV CX, **counter**; counter holds the address of the value`
 
 ## Register-Indirect
 
 The operand is given indirectly by one or two registers. i.e:
 
-MOV [BX + DI], CH;
+`MOV **[BX + DI]**, CH; calculate the operand with the values from BX and DI`
 
 ### Offset Address
 To calculate the address offset with immediate addressing  mode the following scheme is used:
