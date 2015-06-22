@@ -289,7 +289,26 @@ Tools
 Scrum Board
 -----------
 
-The **Scrum Board** helps the Team (and the PO) to have an overview about the actual ongoing work.
+The **Scrum Board** helps the Team (and the PO) to have an overview about the actual ongoing work. It's inspired by Kanban.
+Each team has a slightly different Scrum board but they have similarities.
+
+There are three main sections on the Scrum Board:
+
+- Backlog
+- In Progress
+- Donne
+
+A backlog items moves from *Backlog* to *In Progress* when someone has started to work on it. After it's finished it moves to the section *Donne* (see *Definition of Donne*).
+
+Index Cards
+
+
+All the Backlog items should be printed (or written) on index cards. So it's easier to handle them on the Scrum Board.
+
+Handling items on index cards can also simplify the Sprint Planning Meeting or the Backlog Refinement.
+
+Definition of Donne
+-------------------
 
 Literature and Links
 ====================

@@ -31,8 +31,7 @@ ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
 link += (key.charAt(ltr))
 }
 }
-document.write("<a href='mailto:"+link+"'>e-mail</a>")
+document.write("<a href='mailto:"+link+"'>e-mail</a>.")
 }
 //-->
 </script><noscript>Sorry, you need Javascript on to email me.</noscript>
-.
