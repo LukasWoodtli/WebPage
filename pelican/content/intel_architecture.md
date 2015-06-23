@@ -54,7 +54,7 @@ $-$ means that this element is not used.
 
 The three possible address parts are:
 
-1. Basis Register (BX or BP): Contains usually the start address of a data structure.
+1. Basis Register (BX or BP): Contains usually the start address of a data structure. A segment prefix can be given.
 2. Index Register (SI or DI): Can contain an index (i.e Array index) that can be calculated at runtime. It's 16-bit unsigned.
 3. Displacement: A *signed* constant value (8-bit or 16-bit) that gives an offset.
 
@@ -63,6 +63,12 @@ This addressing scheme gives a total of 27 addressing combinations. But only *24
 - No address at all: <pre><strike>MOV AX, [];</strike></pre> or <pre><strike>MOV AX, ;</strike></pre>
 - Only 8-bit displacement: Only memory 0-255 could be addressed.
 - Only BP: BP points to stack. No practical use. <pre><strike>MOV AX, [BP];</strike></pre>
+
+#### Segment Prefix
+
+A segment prefix (CS:, DS:, ES: or SS:) defines which segment will be used for calculating the address.
+Default for most registers is DS. But for BP the default is SS.
+
 
 #### Examples
 
