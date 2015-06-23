@@ -4,7 +4,9 @@ Tags: Assembler
 Date: 2015-06-22
 Modified: 2015-06-23
 
-On this page I write down some notes about the Intel architecture (x86) that I learned in school. I'ts mainly for Intel 80186. But I'll extend it with informations about modern Intel processors ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
+On this page I write down some notes about the Intel architecture (x86). I learned most of it in school few years ago.
+
+I'ts mainly for Intel 80186. But I'll extend it with informations about modern Intel processors ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
 
 [TOC]
 
@@ -66,7 +68,7 @@ This addressing scheme gives a total of 27 addressing combinations. But only *24
 
 #### Segment Prefix
 
-A segment prefix (CS:, DS:, ES: or SS:) defines which segment will be used for calculating the address.
+A segment prefix (**CS:**, **DS:**, **ES:** or **SS:**) defines which segment register will be used for calculating the address.
 Default for most registers is DS. But for BP the default is SS.
 
 
@@ -155,6 +157,6 @@ Port address needs to be written to DX before calling the IN-/OUT-Command. As sp
     IN AX, 42h;
     OUT 16h, AL;
 
-It's not possible communicate directly between memory and ports. For this a DMA (Direct Memory Access) Hardware is needed.
+It's not possible communicate directly between memory and ports. For this a DMA (Direct Memory Access) Hardware would be needed.
 
 
