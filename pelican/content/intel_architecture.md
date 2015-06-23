@@ -83,10 +83,10 @@ This are the 16 bit registers of Intel 8086, 8088,  80186 and 80188.
 
 | Register          | Purpose                         | Notes                                                            |
 |-------------------|---------------------------------|------------------------------------------------------------------|
-| AX                | General-Purpose Register (GPR)  |                                                                  |
+| AX                | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL).                                      |
 | BX                | General-Purpose Register (GPR)  |                                                                  |
 | CX                | General-Purpose Register (GPR)  | Only register that can be used for `loop`.                       |
-| DX                | General-Purpose Register (GPR)  |                                                                  |
+| DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`.                                                              |
 | SP                | Stack Pointer                   | Points to the "top" of the stack.                                |
 | BP                | Base Pointer                    | Often used as Frame Pointer.                                     |
 | SI, DI, BX and BP | Address Registers               | May also be used for array indexing.                             |
@@ -141,6 +141,14 @@ For reading and writing data to/from ports
 
 Input/Output can only be done with accumulator register (AX/AL).
 
-Port address needs to be written to DX before calling the IN-/OUT-Command. As special case a 8-bit address can be given directly.
+Port address needs to be written to DX before calling the IN-/OUT-Command. As special case a 8-bit port address can be given directly.
+
+    :::nasm
+    IN AL, DX;
+    OUT DX, AX;
+    IN AX, 42h;
+    OUT 16h, AL;
+
+It's not possible communicate directly between memory and ports. For this a DMA (Direct Memory Access) Hardware is needed.
 
 
