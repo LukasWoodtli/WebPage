@@ -4,7 +4,7 @@ Tags: Assembler
 Date: 2015-06-22
 Modified: 2015-06-23
 
-On this page I write down some notes about the Intel architecture (x86) that I learned in school. I'ts mainly for Intel 80186. But I'll extend it with informations about modern Intel processors.
+On this page I write down some notes about the Intel architecture (x86) that I learned in school. I'ts mainly for Intel 80186. But I'll extend it with informations about modern Intel processors ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
 
 [TOC]
 
@@ -60,9 +60,9 @@ The three possible address parts are:
 
 This addressing scheme gives a total of 27 addressing combinations. But only *24* combinations are allowed. The following three are not allowed:
 
-- No address at all: MOV AX, []; or MOV AX, ;.
+- No address at all: ~~`MOV AX, [];`~~ or ~~`MOV AX, ;`~~.
 - Only 8-bit displacement: Only memory 0-255 could be addressed.
-- Only BP: BP points to stack. No practical use. MOV AX, [BP];
+- Only BP: BP points to stack. No practical use. ~`MOV AX, [BP];`~~~.
 
 #### Examples
 
