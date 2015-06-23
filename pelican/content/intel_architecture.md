@@ -45,12 +45,34 @@ The operand is given indirectly by one or two registers. i.e:
 
 <pre>MOV <strong>[BX + DI]</strong>, CH; calculate the operand with the values from BX and DI</pre>
 
-### Offset Address
-To calculate the address offset with immediate addressing  mode the following scheme is used:
+### Address
+To calculate the address with immediate addressing  mode the following scheme is used:
 
 $$Offset := \begin{Bmatrix}-\\CS:\\DS:\\SS:\\ES:\end{Bmatrix}\begin{Bmatrix}-\\BX\\BP\end{Bmatrix} +\begin{Bmatrix}-\\SI\\DI\end{Bmatrix} + \begin{Bmatrix}-\\displacement_8\\displacement_{16}\end{Bmatrix}$$
 
 $-$ means that this element is not used.
+
+The three possible address parts are:
+
+1. Basis Register (BX or BP): Contains usually the start address of a data structure.
+2. Index Register (SI or DI): Can contain an index (i.e Array index) that can be calculated at runtime. It's 16-bit unsigned.
+3. Displacement: A *signed* constant value (8-bit or 16-bit) that gives an offset.
+
+This addressing scheme gives a total of 27 addressing combinations. But only *24* combinations are allowed. The following three are not allowed:
+
+- No address at all: MOV AX, []; or MOV AX, ;.
+- Only 8-bit displacement: Only memory 0-255 could be addressed.
+- Only BP: BP points to stack. No practical use. MOV AX, [BP];
+
+#### Examples
+
+    :::nasm
+    MOV DX, [BX];
+    MOV AL, [BX+4];
+    MOV CX, [BX+SI];
+    MOV ES, [BX+DI+2];
+
+
 
 ## Addressing Memory
  For addressing the memory the immediate, direct and indirect method can be used.
