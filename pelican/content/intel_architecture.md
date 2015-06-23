@@ -110,3 +110,37 @@ Each of the *GPRs* can be accessed as two 8 bit registers. i. e:
 |----------|:------:|:------:|:--------:|:------:|:--------:|:------:|:--------:|:-----:| 
 | Mnemonic |  SF    |  ZF    |  -       | AF     |  -       |  PF    |  -       |  CF   | 
 | Meaning  | Sign   | Zero   | Reserved | Adjust | Reserved | Parity | Reserved | Carry | 
+
+# Data Transfer Commands
+
+## Move Command (`MOV`)
+
+Moves (copies) a value from a source to a destination.
+
+    :::nasm
+    MOV dest, src;
+    
+- `dest` can be a memory variable or a register (but not CS or IP).
+- `src` can be a memory variable, a register or a constant.
+- Only one memory operand can be used. Then the other one needs to be a register or a constant.
+
+
+## Exchange Command (`XCHG`)
+
+Exchanges the values of the two operands (memory/registers).
+
+    :::nasm
+    XCHG op1, op2
+
+- Addressing memory/register is same as with `MOV`.
+- Segment Register and Immediate addressing is not possible.
+
+## Input-/Output Commands (`IN`/`OUT`)
+
+For reading and writing data to/from ports
+
+Input/Output can only be done with accumulator register (AX/AL).
+
+Port address needs to be written to DX before calling the IN-/OUT-Command. As special case a 8-bit address can be given directly.
+
+
