@@ -8,6 +8,8 @@ On this page I write down some notes about the Intel architecture (x86). I learn
 
 I'ts mainly for Intel 80186. But I'll extend it with informations about modern Intel processors ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
 
+I'm trying to keep all code examples in [NASM](www.nasm.us) syntax.
+
 [TOC]
 
 
@@ -43,12 +45,16 @@ The address of the operand value comes directly after the command. i. e:
 
 ## Register-Indirect
 
-The operand is given indirectly by one or two registers. i.e:
+The operand is given indirectly by one or two registers. A segment register and a constant offset value can be supplied.
+
+The calculated value acts as a pointer (address to a memory location).
+
+i.e:
 
 <pre>MOV <strong>[BX + DI]</strong>, CH; calculate the operand with the values from BX and DI</pre>
 
 ### Address
-To calculate the address with immediate addressing  mode the following scheme is used:
+To calculate an address the following scheme is used:
 
 $$Offset := \begin{Bmatrix}-\\CS:\\DS:\\SS:\\ES:\end{Bmatrix}\begin{Bmatrix}-\\BX\\BP\end{Bmatrix} +\begin{Bmatrix}-\\SI\\DI\end{Bmatrix} + \begin{Bmatrix}-\\displacement_8\\displacement_{16}\end{Bmatrix}$$
 
@@ -71,14 +77,21 @@ This addressing scheme gives a total of 27 addressing combinations. But only *24
 A segment prefix (**CS:**, **DS:**, **ES:** or **SS:**) defines which segment register will be used for calculating the address.
 Default for most registers is DS. But for BP the default is SS.
 
+#### Operand Size (`WORD`, `DWORD`...)
+
+In some cases the size of an operand can be given (for some cases it is even mandatory). Size types:
+
+
+`BYTE`, `WORD`, `DWORD`, `QWORD`, `TBYTE`, `FAR`...
 
 #### Examples
 
     :::nasm
     MOV DX, [BX];
     MOV AL, [BX+4];
-    MOV CX, [BX+SI];
+    MOV CX, [CS:BX+SI];
     MOV ES, [BX+DI+2];
+    MOV WORD [ES:BX+DI+8], AX;
 
 
 
@@ -93,7 +106,7 @@ This are the 16 bit registers of Intel 8086, 8088,  80186 and 80188.
 |-------------------|---------------------------------|------------------------------------------------------------------|
 | AX                | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL).                                      |
 | BX                | General-Purpose Register (GPR)  |                                                                  |
-| CX                | General-Purpose Register (GPR)  | Only register that can be used for `loop`.                       |
+| CX                | General-Purpose Register (GPR)  | Only register that can be used for `LOOP`.                       |
 | DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`.                                                              |
 | SP                | Stack Pointer                   | Points to the "top" of the stack.                                |
 | BP                | Base Pointer                    | Often used as Frame Pointer.                                     |
