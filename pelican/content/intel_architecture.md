@@ -21,8 +21,7 @@ This are the 16-bit registers of Intel 8086, 8088,  80186 and 80188.
 | AX                | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL). Can be used as 8-bit registers (AH/AL).     |
 | BX                | General-Purpose Register (GPR)  | Base index (array). Can be used as 8-bit registers (BH/BL).                        |
 | CX                | General-Purpose Register (GPR)  | Only register that can be used for `LOOP`. Can be used as 8-bit registers (CH/CL). |
-| DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`. Extend precision of accumulator.
-                                                           Can be used as 8-bit registers (DH/DL).                                         |
+| DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`. Extend precision of accumulator. Can be used as 8-bit registers (DH/DL). |
 | DI                | Destination Index               | Destination for string operations.                                                 |
 | SI                | Source Index                    | Source for string operations.                                                      |
 | BP                | Base Pointer                    | Often used as Frame Pointer (pointing to current stack frame).                     |
