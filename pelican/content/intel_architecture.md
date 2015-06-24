@@ -127,10 +127,10 @@ Each of the *GPRs* can be accessed as two 8 bit registers. i. e:
 | Mnemonic |  -       |  NT                | IOPL                       |  OF      | DF        |  IF              |  TF      |
 | Meaning  | Reserved | Nested Task (286+) | I/O Privilege Level (286+) | Overflow | Direction | Interrupt Enable |  Trap    |
 
-| Bit      |    7   |    6   |     5    |    4   |     3    |    2   |     1    |   0   | 
-|----------|:------:|:------:|:--------:|:------:|:--------:|:------:|:--------:|:-----:| 
-| Mnemonic |  SF    |  ZF    |  -       | AF     |  -       |  PF    |  -       |  CF   | 
-| Meaning  | Sign   | Zero   | Reserved | Adjust | Reserved | Parity | Reserved | Carry | 
+| Bit      |    7   |    6   |     5    |    4   |     3    |    2   |     1    |   0   |
+|----------|:------:|:------:|:--------:|:------:|:--------:|:------:|:--------:|:-----:|
+| Mnemonic |  SF    |  ZF    |  -       | AF     |  -       |  PF    |  -       |  CF   |
+| Meaning  | Sign   | Zero   | Reserved | Adjust | Reserved | Parity | Reserved | Carry |
 
 # Data Transfer Commands
 
@@ -140,7 +140,7 @@ Moves (copies) a value from a source to a destination.
 
     :::nasm
     MOV dest, src;
-    
+
 - `dest` can be a memory variable or a register (but not CS or IP).
 - `src` can be a memory variable, a register or a constant.
 - Only one memory operand can be used. Then the other one needs to be a register or a constant.
@@ -194,7 +194,7 @@ Adds the two operands and writes the result into the first one. The first operan
 
 Adds the two operands and the carry flag. The result is written into the first operand. The first operand can not be a constant.
 
-> Addition of big signed operands can be splitted in several `ADC` commands.
+> Addition of big signed operands can be splitted into several `ADC` commands.
 
 ### Affected Flags
 
@@ -219,3 +219,56 @@ Adds one to the operand. The result is saved in the given operand.
 > The carry-flag is not affected! An overflow can be recognized with the zero-flag.
 
 > `INC` can be used to increment a control variable in a loop without affecting the carry-flag.
+
+## Subtraction (`SUB`)
+
+Subtracts the second operand from the first. The result is written into the first operand. The first operand can not be a constant.
+
+### Affected Flags
+
+- Carry: with unsigned operands
+- Overflow: with signed operands
+- Zero: if result is zero
+- Sign: if signed result is negative
+- Parity: if parity is even
+
+## Subtraction with Borrow (`SBB`)
+
+Subtracts the second operand and the carry-flag (borrow) from the first operand. The result is written into the first operand. The first operand can not be a constant.
+
+### Affected Flags
+
+- Carry: with unsigned operands
+- Overflow: with signed operands
+- Zero: if result is zero
+- Sign: if signed result is negative
+- Parity: if parity is even
+
+> Subtraction of big signed operands can be splitted into several `SBB` commands.
+
+## Decrement (`DEC`)
+
+Subtracts one from the given operand.
+
+### Affected Flags
+
+- Overflow: with signed operands
+- Zero: if result is zero
+- Sign: if signed result is negative
+- Parity: if parity is even
+
+> The carry-flag is not affected! An overflow can be only recognized with checking the result for 0xFF.
+
+> `DEC` can be used to decrement a control variable in a loop without affecting the carry-flag.
+
+## Negate a signed Number (`NEG`)
+
+Changes a negative into a positive number and vice versa. It's basically subtracting the operand from zero (0).
+
+### Affected Flags
+
+- Carry: set if operand wasn't zero (not very useful)
+- Overflow: if no positive representation exist (operand was biggest negative number)
+- Zero: if result is zero
+- Sign: if signed result is negative
+- Parity: if parity is even
