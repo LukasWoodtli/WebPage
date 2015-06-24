@@ -172,4 +172,50 @@ Port address needs to be written to DX before calling the IN-/OUT-Command. As sp
 
 It's not possible communicate directly between memory and ports. For this a DMA (Direct Memory Access) Hardware would be needed.
 
+# Arithmetic Commands
 
+- The result of arithmetic commands is written to the first operand (the original value is lost).
+- Both operands (of binary arithmetic commands) need to be of same size.
+- Only one operand is allowed to be a memory operand.
+
+## Addition (`ADD`)
+
+Adds the two operands and writes the result into the first one. The first operand can not be a constant.
+
+### Affected Flags
+
+- Carry: with unsigned operands
+- Overflow: with signed operands
+- Zero: if result is zero
+- Sign: if signed result is negative
+- Parity: if parity is even
+
+## Addition with Carry (`ADC`)
+
+Adds the two operands and the carry flag. The result is written into the first operand. The first operand can not be a constant.
+
+> Addition of big signed operands can be splitted in several `ADC` commands.
+
+### Affected Flags
+
+- Carry: with unsigned operands
+- Overflow: with signed operands
+- Zero: if result is zero
+- Sign: if signed result is negative
+- Parity: if parity is even
+
+
+## Increment (`INC`)
+
+Adds one to the operand. The result is saved in the given operand.
+
+### Affected Flags
+
+- Overflow: with signed operands
+- Zero: if result is zero
+- Sign: if signed result is negative
+- Parity: if parity is even
+
+> The carry-flag is not affected! An overflow can be recognized with the zero-flag.
+
+> `INC` can be used to increment a control variable in a loop without affecting the carry-flag.
