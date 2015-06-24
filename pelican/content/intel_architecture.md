@@ -8,7 +8,7 @@ On this page I write down some notes about the Intel architecture (x86). I learn
 
 I'ts mainly for Intel 80186. But I'll extend it with informations about modern [Intel processors](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html) ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
 
-I'm trying to keep all code examples in [NASM](www.nasm.us) syntax.
+I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
 [TOC]
 
