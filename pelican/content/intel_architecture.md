@@ -6,7 +6,7 @@ Modified: 2015-06-23
 
 On this page I write down some notes about the Intel architecture (x86). I learned most of it in school few years ago.
 
-I'ts mainly for Intel 80186. But I'll extend it with informations about modern Intel processors ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
+I'ts mainly for Intel 80186. But I'll extend it with informations about modern [Intel processors][1] ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
 
 I'm trying to keep all code examples in [NASM](www.nasm.us) syntax.
 
@@ -289,3 +289,8 @@ Changes a negative into a positive number and vice versa. It's basically subtrac
 - Zero: if result is zero
 - Sign: if signed result is negative
 - Parity: if parity is even
+
+
+# References
+
+[1]: http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
