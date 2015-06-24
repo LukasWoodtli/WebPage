@@ -12,6 +12,58 @@ I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
 [TOC]
 
+# Registers
+
+This are the 16 bit registers of Intel 8086, 8088,  80186 and 80188.
+
+| Register          | Purpose                         | Notes                                                                          |
+|-------------------|---------------------------------|--------------------------------------------------------------------------------|
+| AX                | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL).                                         |
+| BX                | General-Purpose Register (GPR)  | Base index (array).                                                            |
+| CX                | General-Purpose Register (GPR)  | Only register that can be used for `LOOP`.                                     |
+| DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`. Extend precision of accumulator. |
+| DI                | Destination Index               | Destination for string operations.                                             |
+| SI                | Source Index                    | Source for string operations.                                                  |
+| BP                | Base Pointer                    | Often used as Frame Pointer (pointing to current stack frame).                 |
+| SP                | Stack Pointer                   | Points to the top of the stack.                                                |
+| CS                | Segment Register                | Code Segment.                                                                  |
+| DS                | Segment Register                | Data Segment.                                                                  |
+| SS                | Segment Register                | Stack Segment.                                                                 |
+| ES                | Segment Register                | Extra Segment.                                                                 |
+| FLAGS             | Status Register                 | Carry Flag, Overflow Flag, Zero flag...                                        |
+| IP                | Instruction Pointer             | Points to the *next* instruction (cannot be directly accessed).                |
+
+
+## 8-bit Registers
+Each of the *GPRs* can be accessed as two 8 bit registers. i. e:
+*BX's* high byte can be accessed as *BH* and low byte as *BL*.
+
+## Values after Reset
+
+| Register | Value  |
+|----------|--------|
+| IP       | 0x0000 |
+| CS       | 0xffff |
+| DS       | 0x0000 |
+| ES       | 0x0000 |
+| SS       | 0x0000 |
+
+All other registers have a random value after reset.
+
+
+## FLAGS Register
+
+| Bit      |     15   |     14             |     13 and 12              |     11   |     10    |     9            |     8    |
+|----------|:--------:|:------------------:|:--------------------------:|:--------:|:---------:|:----------------:|:--------:|
+| Mnemonic |  -       |  NT                | IOPL                       |  OF      | DF        |  IF              |  TF      |
+| Meaning  | Reserved | Nested Task (286+) | I/O Privilege Level (286+) | Overflow | Direction | Interrupt Enable |  Trap    |
+
+| Bit      |    7   |    6   |     5    |    4   |     3    |    2   |     1    |   0   |
+|----------|:------:|:------:|:--------:|:------:|:--------:|:------:|:--------:|:-----:|
+| Mnemonic |  SF    |  ZF    |  -       | AF     |  -       |  PF    |  -       |  CF   |
+| Meaning  | Sign   | Zero   | Reserved | Adjust | Reserved | Parity | Reserved | Carry |
+
+
 # Segmentation
 
 To allow access to 20-bit addresses with 16-bit registers the 8086 uses segmentation.
@@ -113,56 +165,6 @@ In some cases the size of an operand can be given (for some cases it is even man
 ## Addressing Memory
  For addressing the memory the immediate, direct and indirect method can be used.
 
-# Registers
-
-This are the 16 bit registers of Intel 8086, 8088,  80186 and 80188.
-
-| Register          | Purpose                         | Notes                                                                          |
-|-------------------|---------------------------------|--------------------------------------------------------------------------------|
-| AX                | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL).                                         |
-| BX                | General-Purpose Register (GPR)  | Base index (array).                                                            |
-| CX                | General-Purpose Register (GPR)  | Only register that can be used for `LOOP`.                                     |
-| DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`. Extend precision of accumulator. |
-| DI                | Destination Index               | Destination for string operations.                                             |
-| SI                | Source Index                    | Source for string operations.                                                  |
-| BP                | Base Pointer                    | Often used as Frame Pointer (pointing to current stack frame).                 |
-| SP                | Stack Pointer                   | Points to the top of the stack.                                                |
-| CS                | Segment Register                | Code Segment.                                                                  |
-| DS                | Segment Register                | Data Segment.                                                                  |
-| SS                | Segment Register                | Stack Segment.                                                                 |
-| ES                | Segment Register                | Extra Segment.                                                                 |
-| FLAGS             | Status Register                 | Carry Flag, Overflow Flag, Zero flag...                                        |
-| IP                | Instruction Pointer             | Points to the *next* instruction (cannot be directly accessed).                |
-
-
-## 8-bit Registers
-Each of the *GPRs* can be accessed as two 8 bit registers. i. e:
-*BX's* high byte can be accessed as *BH* and low byte as *BL*.
-
-## Values after Reset
-
-| Register | Value  |
-|----------|--------|
-| IP       | 0x0000 |
-| CS       | 0xffff |
-| DS       | 0x0000 |
-| ES       | 0x0000 |
-| SS       | 0x0000 |
-
-All other registers have a random value after reset.
-
-
-## FLAGS Register
-
-| Bit      |     15   |     14             |     13 and 12              |     11   |     10    |     9            |     8    |
-|----------|:--------:|:------------------:|:--------------------------:|:--------:|:---------:|:----------------:|:--------:|
-| Mnemonic |  -       |  NT                | IOPL                       |  OF      | DF        |  IF              |  TF      |
-| Meaning  | Reserved | Nested Task (286+) | I/O Privilege Level (286+) | Overflow | Direction | Interrupt Enable |  Trap    |
-
-| Bit      |    7   |    6   |     5    |    4   |     3    |    2   |     1    |   0   |
-|----------|:------:|:------:|:--------:|:------:|:--------:|:------:|:--------:|:-----:|
-| Mnemonic |  SF    |  ZF    |  -       | AF     |  -       |  PF    |  -       |  CF   |
-| Meaning  | Sign   | Zero   | Reserved | Adjust | Reserved | Parity | Reserved | Carry |
 
 # Data Transfer Commands
 
