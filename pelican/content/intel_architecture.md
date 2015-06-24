@@ -16,9 +16,10 @@ I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
 To allow access to 20-bit addresses with 16-bit registers the 8086 uses segmentation.
 
-$$physical\_ address = segment\_ register \cdot 10_{hex} + offset$$
+$$physical\_ address = segment\_ register \times 10_{hex} + offset$$
 
-$\cdot 10_{hex}$ means a 4-bit shift to left
+
+$\timnes 10_{hex}$ means a 4-bit shift to left
 
 Each addressable segment is 64 kB big.
 
