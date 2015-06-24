@@ -14,24 +14,25 @@ I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
 # Registers
 
-This are the 16 bit registers of Intel 8086, 8088,  80186 and 80188.
+This are the 16-bit registers of Intel 8086, 8088,  80186 and 80188.
 
-| Register          | Purpose                         | Notes                                                                          |
-|-------------------|---------------------------------|--------------------------------------------------------------------------------|
-| AX                | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL).                                         |
-| BX                | General-Purpose Register (GPR)  | Base index (array).                                                            |
-| CX                | General-Purpose Register (GPR)  | Only register that can be used for `LOOP`.                                     |
-| DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`. Extend precision of accumulator. |
-| DI                | Destination Index               | Destination for string operations.                                             |
-| SI                | Source Index                    | Source for string operations.                                                  |
-| BP                | Base Pointer                    | Often used as Frame Pointer (pointing to current stack frame).                 |
-| SP                | Stack Pointer                   | Points to the top of the stack.                                                |
-| CS                | Segment Register                | Code Segment.                                                                  |
-| DS                | Segment Register                | Data Segment.                                                                  |
-| SS                | Segment Register                | Stack Segment.                                                                 |
-| ES                | Segment Register                | Extra Segment.                                                                 |
-| FLAGS             | Status Register                 | Carry Flag, Overflow Flag, Zero flag...                                        |
-| IP                | Instruction Pointer             | Points to the *next* instruction (cannot be directly accessed).                |
+| Register          | Purpose                         | Notes                                                                              |
+|-------------------|---------------------------------|------------------------------------------------------------------------------------|
+| AX                | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL). Can be used as 8-bit registers (AH/AL).     |
+| BX                | General-Purpose Register (GPR)  | Base index (array). Can be used as 8-bit registers (BH/BL).                        |
+| CX                | General-Purpose Register (GPR)  | Only register that can be used for `LOOP`. Can be used as 8-bit registers (CH/CL). |
+| DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`. Extend precision of accumulator.
+                                                           Can be used as 8-bit registers (DH/DL).                                         |
+| DI                | Destination Index               | Destination for string operations.                                                 |
+| SI                | Source Index                    | Source for string operations.                                                      |
+| BP                | Base Pointer                    | Often used as Frame Pointer (pointing to current stack frame).                     |
+| SP                | Stack Pointer                   | Points to the top of the stack.                                                    |
+| CS                | Segment Register                | Code Segment.                                                                      |
+| DS                | Segment Register                | Data Segment.                                                                      |
+| SS                | Segment Register                | Stack Segment.                                                                     |
+| ES                | Segment Register                | Extra Segment.                                                                     |
+| FLAGS             | Status Register                 | Carry Flag, Overflow Flag, Zero flag...                                            |
+| IP                | Instruction Pointer             | Points to the *next* instruction (cannot be directly accessed).                    |
 
 
 ## 8-bit Registers
@@ -71,8 +72,7 @@ To allow access to 20-bit addresses with 16-bit registers the 8086 uses segmenta
 $$physical\_ address = segment\_ register \times 10_{hex} + offset$$
 
 
-$\timnes 10_{hex}$ means a 4-bit shift to left
-
+- $\times 10_{hex}$ means a 4-bit shift to left
 - Each addressable segment is 64 kB big.
 - 20-bit address bus: Total $2^{20}$ bytes addressable (1'048'576 bytes = 1 MB).
 - 16-bit offset: $2^{16}$ bytes addressable (65'536 bytes = 64 kB) per segment.
@@ -306,4 +306,3 @@ Changes a negative into a positive number and vice versa. It's basically subtrac
 - Zero: if result is zero
 - Sign: if signed result is negative
 - Parity: if parity is even
-
