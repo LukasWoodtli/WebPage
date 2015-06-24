@@ -20,7 +20,22 @@ $$physical\_ address = segment\_ register \cdot 10_{hex} + offset$$
 
 $\cdot 10_{hex}$ means a 4-bit shift to left
 
-Each addressable segment is 46 KB big.
+Each addressable segment is 64 kB big.
+
+
+20-bit address bus:
+
+Total $2^{20}$ bytes addressable (1'048'576 bytes = 1 MB).
+
+16-bit offset:
+
+$2^{16}$ bytes addressable (65'536 bytes = 64 kB) per segment.
+
+Needed segments:
+
+$2^{20}/2^{16} = 2^4 = 16$ segments needed to access complete address space.
+
+
 
 # Addressing
 
