@@ -4,7 +4,7 @@ Tags: Assembler
 Date: 2015-06-22
 Modified: 2015-06-23
 
-On this page I write down some notes about the Intel architecture (x86). I learned most of it in [school](http://www.vdf.ethz.ch/vdf.asp?page=themen/Informatikdissertationen.html) few years ago.
+On this page I write down some notes about the Intel architecture (x86). I learned most of it in [school](http://www.vdf.ethz.ch/info/showDetails.asp?isbnNr=3255) few years ago.
 
 I'ts mainly for Intel 80186. But I'll extend it with informations about modern [Intel processors](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html) ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
 
