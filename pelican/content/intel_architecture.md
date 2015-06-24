@@ -40,13 +40,13 @@ Each of the *GPRs* can be accessed as two 8 bit registers. i. e:
 
 ## Values after Reset
 
-| Register | Value  |
-|----------|--------|
-| IP       | 0x0000 |
-| CS       | 0xffff |
-| DS       | 0x0000 |
-| ES       | 0x0000 |
-| SS       | 0x0000 |
+| Register | Value    |
+|----------|----------|
+| IP       | `0x0000` |
+| CS       | `0xffff` |
+| DS       | `0x0000` |
+| ES       | `0x0000` |
+| SS       | `0x0000` |
 
 All other registers have a random value after reset.
 
