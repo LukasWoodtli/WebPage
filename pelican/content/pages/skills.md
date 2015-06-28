@@ -9,10 +9,11 @@ My main (and favourite) programming language is C++. I have also been programmin
 |------------------------------------------|------------------------------------------|
 | C                                        | very good                                |
 | C++                                      | very good                                |
-| Objective C                              | basic                                    |
 | Python                                   | good                                     |
+| Objective C                              | basic                                    |
 | JavaScript                               | basic                                    |
 | Java                                     | basic                                    |
+| Assembler (x86)                          | basic                                    |
 | Clojure (Lisp)                           | basic                                    |
 
 
