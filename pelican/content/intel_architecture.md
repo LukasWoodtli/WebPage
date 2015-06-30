@@ -358,3 +358,52 @@ The result (quotient) is saved either in *AX* or *AL*. The remainder is saved in
 The commands *convert byte to word* (`CBW`) and *convert word to doubleword* (`CWD`) convert a *signed*
 number to a number of the same value but twice the size. This is needed to keep the
 [two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) format.
+
+# Logical Commands
+
+## And (`AND`)
+
+Bitwise **and** operation. The first operand can be a register or a memory address. The second operand can
+be a register, a memory address or a constant.
+
+The first operand is overwritten with the result.
+
+### Affected Flags
+
+- Carry and Overflow: are always reset (0)
+- Zero and Sign: are set according to the result
+
+
+## Or (`OR`)
+
+Bitwise **or** operation. The first operand can be a register or a memory address. The second operand can
+be a register, a memory address or a constant.
+
+The first operand is overwritten with the result.
+
+### Affected Flags
+
+- Carry and Overflow: are always reset (0)
+- Zero and Sign: are set according to the result
+
+## Xor (`XOR`)
+
+Bitwise **xor** operation. The first operand can be a register or a memory address. The second operand can
+be a register, a memory address or a constant.
+
+The first operand is overwritten with the result.
+
+### Affected Flags
+
+- Carry and Overflow: are always reset (0)
+- Zero and Sign: are set according to the result
+
+## Not (`NOT`)
+
+Bitwise **not** (inverse) operation. The operand can be a register or a memory address.
+
+The operand is overwritten with the result.
+
+### Affected Flags
+
+- **No** flags are changed
