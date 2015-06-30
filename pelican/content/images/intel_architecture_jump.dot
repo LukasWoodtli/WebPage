@@ -1,0 +1,35 @@
+digraph DoorStates {
+
+node [shape=record];  
+edge [arrowhead=none];
+
+JUMP [label="{Jump (branch)}"];
+
+CONDITIONAL [label="{Conditional | Jcc\nJCxz\nLOOPcc\n | - short\n- direct\n - relative (to IP)}"];
+UNCONDITIONAL [label = "{Unconditional | JMP}"];
+
+DIRECT [label = "{Direct}"];
+DIRECT_SHORT [label = "{Short | - relative (to IP)\n8-bit}"];
+DIRECT_NEAR [label = "{Near | - relative (to IP)\n16-bit}"];
+DIRECT_FAR [label = "{Far | - absolute\n32-bit}"];
+
+INDIRECT [label = "Indirect"];
+INDIRECT_NEAR [label = "{Near | - absolute\n16-bit}"];
+INDIRECT_FAR [label = "{Far | - absolute\n32-bit}"];
+
+
+JUMP           -> CONDITIONAL;
+JUMP           -> UNCONDITIONAL;
+
+UNCONDITIONAL  -> DIRECT;
+UNCONDITIONAL  -> INDIRECT;
+
+DIRECT         -> DIRECT_SHORT;
+DIRECT         -> DIRECT_NEAR;
+DIRECT         -> DIRECT_FAR;
+
+INDIRECT       -> INDIRECT_NEAR;
+INDIRECT       -> INDIRECT_FAR;
+
+
+}
