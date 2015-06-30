@@ -361,9 +361,9 @@ number to a number of the same value but twice the size. This is needed to keep 
 
 # Logical Commands
 
-## And (`AND`)
+## And, Or and Xor (`AND`, `OR`, `XOR`)
 
-Bitwise **and** operation. The first operand can be a register or a memory address. The second operand can
+Bitwise **and**, **or** or **xor**  operation. The first operand can be a register or a memory address. The second operand can
 be a register, a memory address or a constant.
 
 The first operand is overwritten with the result.
@@ -373,30 +373,6 @@ The first operand is overwritten with the result.
 - Carry and Overflow: are always reset (0)
 - Zero and Sign: are set according to the result
 
-
-## Or (`OR`)
-
-Bitwise **or** operation. The first operand can be a register or a memory address. The second operand can
-be a register, a memory address or a constant.
-
-The first operand is overwritten with the result.
-
-### Affected Flags
-
-- Carry and Overflow: are always reset (0)
-- Zero and Sign: are set according to the result
-
-## Xor (`XOR`)
-
-Bitwise **xor** operation. The first operand can be a register or a memory address. The second operand can
-be a register, a memory address or a constant.
-
-The first operand is overwritten with the result.
-
-### Affected Flags
-
-- Carry and Overflow: are always reset (0)
-- Zero and Sign: are set according to the result
 
 ## Not (`NOT`)
 
