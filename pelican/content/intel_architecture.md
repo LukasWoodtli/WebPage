@@ -305,3 +305,50 @@ Changes a negative into a positive number and vice versa. It's basically subtrac
 - Zero: if result is zero
 - Sign: if signed result is negative
 - Parity: if parity is even
+
+## Multiplication (`MUL`, `IMUL`)
+
+Multiplicates unsigned (`MUL`) or signed (`IMUL`) numbers.
+
+There is a explicit operand given after the command and an implicit operand in the AX or AL register.
+
+The explicit operand sets the size and defines the used implicit register. It can be either a register or a memory location.
+
+The result is always twice as big as the operands. It's either the accumulator (*AX*)
+or the **extended accumulator** (*DX/AX*).
+
+    ::nasm
+    MUL 0x0 ; Use AL as implicit operand. Result is saved in AX.
+    IMUL BX ; Use AX as implicit operand. Result is saved in DX/AX.
+
+### Affected Flags
+
+- Carry: set if operand extended acumulator is needed for saving result (*DX/AX*)
+- Zero: changed (undefined)
+- Sign: changed (undefined)
+- Parity: changed (undefined)
+
+> The 8086 can not multiply with constants (immediate).
+
+## Division (`DIV`, `IDIV`)
+
+There are different division operations for unsigned (`DIV`) and signed (`IDIV`) numbers.
+
+The explicit operand (given directly after the command) defines the size of the operands.
+It can be a register or a memory location.
+
+The implicit operand is the accumulator (*AX*) or the extended accumulator (*DX/AX*), dependant on
+the size of the explicit operator.
+
+The result (quotient) is saved either in *AX* or *AL*. The remainder is saved in either *DX* or *AH*.
+
+    ::nasm
+    DIV BX ; Use DX/AX  as implicit operand. Result is saved in AX. Remainder is saved in DX.
+    IDIV 0x34 ; Use AX as implicit operand. Result is saved in AL. Remainder is saved in AH.
+
+### Affected Flags
+
+- **All** flags are changed to *undefined*!
+
+> If the result is too big for the register *AL* resp. *AX* a interrupt (*division error*) is caused.
+> If it is not handled the **program can crash** (undefined behaviour).
