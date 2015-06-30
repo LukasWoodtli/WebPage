@@ -352,3 +352,9 @@ The result (quotient) is saved either in *AX* or *AL*. The remainder is saved in
 
 > If the result is too big for the register *AL* resp. *AX* a interrupt (*division error*) is caused.
 > If it is not handled the **program can crash** (undefined behaviour).
+
+## Convert Operand Size (`CBW`, `CWD`)
+
+The commands *convert byte to word* (`CBW`) and *convert word to doubleword* (`CWD`) convert a *signed*
+number to a number of the same value but twice the size. This is needed to keep the
+[two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) format.
