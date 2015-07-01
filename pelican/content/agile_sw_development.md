@@ -194,6 +194,15 @@ It's a good practice to ask the team if they have a good feeling about the estim
 #### Experience of previous Sprints
 After a few Sprints the team gets some experience in estimating User Stories.
 
+### Stories and Tasks
+
+Each story can be divided into smaller tasks by the team. This makes estimation
+easier. And it helps the team when implementing the story.
+
+The tasks don't need to be represented in the backlog. It's too detailed
+and they can change often.
+
+
 Sprint Goal
 ===========
 It's difficult to define a sprint goal. But it should be donne!
