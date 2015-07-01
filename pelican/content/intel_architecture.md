@@ -472,3 +472,32 @@ constant **1** or the register *CL*.
 - ZF
 - SF
 - (OF)
+
+# Jump Commands
+
+Jump commands can be divided by different topics.
+
+## Conditional/Unconditional Jumps
+
+Unconditional jumps are always performed. Conditional jumps are only
+performed if a check gives an expected result (i.e flags).
+
+## Short, Near and Far Jumps
+
+- Short: signed 8-bit distance
+- Near: unsigned 16-bit distance
+- Far: 32-bit (Segment and Offset)
+
+## Direct and Indirect Jumps
+
+- Direct: The target address is given directly after the command
+- Indirect: The position is given indirectly by a register or a memory position
+
+## Absolute and Relative Jumps
+
+- Absolute jumps: The target address is an absolute address
+- Relative jumps: The target address is given relative to the actual position (*IP*)
+
+The 8086 has following possible jump commands:
+
+![The Intel x86 jump commands](/images/intel_architecture_jump.svg)
