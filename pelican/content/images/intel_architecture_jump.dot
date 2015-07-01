@@ -5,8 +5,8 @@ edge [arrowhead=none];
 
 JUMP [label="{Jump (branch)}"];
 
-CONDITIONAL [label="{Conditional | Jcc\nJCxz\nLOOPcc\n | - short\n- direct\n - relative (to IP)}"];
-UNCONDITIONAL [label = "{Unconditional | JMP}"];
+CONDITIONAL [label="{Conditional | - short\n- direct\n - relative (to IP)}"];
+UNCONDITIONAL [label = "{Unconditional (JMP)}"];
 
 DIRECT [label = "{Direct}"];
 DIRECT_SHORT [label = "{Short | - relative (to IP)\n8-bit}"];
