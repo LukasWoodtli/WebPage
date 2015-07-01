@@ -383,3 +383,92 @@ The operand is overwritten with the result.
 ### Affected Flags
 
 - **No** flags are changed
+
+# Rotation Commands
+
+## Roatate (`ROL`, `ROR`)
+
+Rotate left (`ROL`) or right (`ROR`).
+
+Rotates the first operand (memory or register) by the constant **1** (immediate) or by the value given in *CL*.
+
+    ::::nasm
+    ROL 0x34, 1; Rotate by one.
+    ROR AX, CL; Rotate by value in CL.
+
+### Affected Flags
+
+- Overflow:
+    * For one-bit rotation: Overflow set if MSB is changed by the rotation. Otherwise it's not set.
+    * For other cases: Overflow is undefined
+- Carry has the value of the bit that was shifted from one end to the other.
+
+## Rotate with Carry (`RCL`, `RCR`)
+
+Rotate left (`RCL`) or right (`RCR`) with carry as MSB.
+
+The first operand (memory or register) is extended with the carry bit as the MSB.
+It is then rotated by the constant **1** (immediate) or by the value given in *CL*.
+
+
+### Affected Flags
+
+- Overflow:
+    * For one-bit rotation: Overflow set if MSB is changed by the rotation. Otherwise it's not set.
+    * For other cases: Overflow is undefined
+- Carry has the value of the bit that was shifted from one end to the other.
+
+# Manipulate the Carry Flag (`CLC`, `STC`, `CMC`)
+
+Clear Carry Flag (`CLC`): CF = 0.
+
+Set Carry Flage (`STC`): CF = 1.
+
+Complement Carry Flag (`CMC`): CF = !CF.
+
+# Shift Commands
+
+The shift commands can be used to multiply with or divide by a
+power of two (2, 5, 8, ...).
+
+For a multiplication or a division of a *unsigned* number the *logical
+shift operators* need to be used.
+
+For a multiplication or a division of a *signed* number the *arithmetic
+shift operators* need to be used.
+
+## Left Shift Commands (`SHL`, `SAL`)
+
+Both left shift operators are functional identical. They muliplicate
+the operator by *2* or by $2^{CL}$.
+
+Shifts the given operator (memory or register) left by
+the constant **1** (immediate) or by the value given in *CL*.
+
+### Affected Flags
+
+- Zero
+- Sign
+- Offset
+-  For one-bit shift:
+    * Carry: For unsigned Operands a set carry flag means *overflow*
+    * Overflow: For signed Operands a set overflow flag means *overflow*
+
+## Right  Shift Commands (`SHR`, `SAR`)
+
+
+The *logical shift right* (`SHR`) divides a unsigned value by *2* or by $2^{CL}$.
+
+The *arithmetic shift right* (`SHR`) divides a unsigned value by *2* or by $2^{CL}$.
+The sign stays unchanged.
+
+
+The first operand is a memory location or a register. The second operand is the
+constant **1** or the register *CL*.
+
+### Affected Flags
+
+- CF: For one-bit shifts the carry flag holds the remainder of the division
+- ZF
+- SF
+- (OF)
