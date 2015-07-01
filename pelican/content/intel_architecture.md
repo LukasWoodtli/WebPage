@@ -501,3 +501,29 @@ performed if a check gives an expected result (i.e flags).
 The 8086 has following possible jump commands:
 
 ![The Intel x86 jump commands](/images/intel_architecture_jump.svg)
+
+## Intra- and Inter-Segment Jumps
+
+All jumps change the *IP* register.
+
+Far jumps also change the *CS* register.
+
+### Intra-Segment Jump
+
+Short- and Near-Jumps change only the *IP* register. The target
+is always inside the actual code segment (*CS*).
+
+#### Near Jump
+
+- Direct Near-Jumps are always relative to *IP*.
+- Indirect Near-Jumps are always absolute to the actual code segment.
+
+#### Short Jump
+
+Short Jumps are always relative to *IP*.
+
+### Inter-Segment Jump
+
+Far jumps change *CS* and *IP*.
+
+All far jumps are absolute.
