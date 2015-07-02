@@ -545,3 +545,77 @@ All far jumps are absolute.
 - *IP* is loaded with the value of the register:<pre><strong>JMP</strong> reg16</pre>
 - *IP* is loaded with the value given by the memory position:<pre><strong>JMP</strong> mem16</pre>
 - *CS* and *IP* are loaded with the value at the memory position:<pre><strong>JMP</strong> mem32</pre>
+
+## Conditional Jumps
+
+Conditional jumps check one or more flags and jump to a given address if a condition is met.
+
+Before the jump can be performed the flags need to be set by a logical or arithmetic command.
+Alternatively the commands `CMP` and `TEST` can be used.
+
+Conditional jumps can be divided into following groups:
+
+- Arithmetic jumps: The jump depends on size difference of two operands. The two operands have to be *divided* in advance.
+                    One or more flags have to be checked.
+- Flag oriented jumps: A jump is performed if *one* given flag is set or deleted.
+
+### Arithmetic Jumps
+
+The jump is performed if the size relation between two given operands is as expected.
+
+The relation is expressed differently for signed and unsigned operands:
+
+| Relation | unsigned | signed  |
+|----------|----------|---------|
+|  $=$     | equal    | equal   |
+|  $<$     | below    | less    |
+|  $>$     | above    | greater |
+
+#### Arithmetic *"unsigned"* Jumps
+
+| Relation    | Command | Explanation                | Condition             |
+|-------------|---------|----------------------------|-----------------------|
+| $=$         | `JE`    | Jump if equal              | ZF $=$ 1              |
+| $\neq$      | `JNE`   | Jump if not equal          | ZF $=$ 0              |
+| $<$         | `JB`    | Jump if below              | CF $=$ 1              |
+| $\ngeq$     | `JNAE`  | Jump if not above or equal | CF $=$ 1              |
+| $\ge$       | `JAE`   | Jump if above or equal     | CF $=$ 0              |
+| $\not<$     | `JNB`   | Jump if not below          | CF $=$ 0              |
+| $\le$       | `JBE`   | Jump if below or equal     | CF $=$ 1 or ZF $=$ 1  |
+| $\not>$     | `JNA`   | Jump if not above          | CF $=$ 1 or ZF $=$ 1  |
+| $>$         | `JA`    | Jump if above              | CF $=$ 0 and ZF $=$ 0 |
+| $\not\le$   | `JNBE`  | Jump if not below or equal | CF $=$ 0 and ZF $=$ 0 |
+
+
+#### Arithmetic *"signed"* Jumps
+
+| Relation    | Command | Explanation                  | Condition                |
+|-------------|---------|------------------------------|--------------------------|
+| $=$         | `JE`    | Jump if equal                | ZF $=$ 1                 |
+| $\neq$      | `JNE`   | Jump if not equal            | ZF $=$ 0                 |
+| $<$         | `JL`    | Jump if less                 | OF $\neq$ SF             |
+| $\ngeq$     | `JNGE`  | Jump if not greater or equal | OF $\neq$ SF             |
+| $\ge$       | `JGE`   | Jump if greater or equal     | OF $=$ SF                |
+| $\not<$     | `JNL`   | Jump if not less             | OF $=$ SF                |
+| $\le$       | `JLE`   | Jump if less or equal        | OF $\neq$ SF or ZF $=$ 1 |
+| $\not>$     | `JNG`   | Jump if not greater          | OF $\neq$ SF or ZF $=$ 1 |
+| $>$         | `JG`    | Jump if greater              | OF $=$ SF and ZF $=$ 0   |
+| $\not\le$   | `JNLE`  | Jump if not less or equal    | OF $=$ SF and ZF $=$ 0   |
+
+
+### Flag oriented Jumps
+
+| Command | Explanation         | Condition  |
+|---------|---------------------|------------|
+| `JZ`    | Jump if zero        | ZF $=$ 1   |
+| `JNZ`   | Jump if not zero    | ZF $=$ 0   |
+| `JC`    | Jump if carry       | CF $=$ 1   |
+| `JNC`   | Jump if no carry    | CF $=$ 0   |
+| `JS`    | Jump if sign        | SF $=$ 1   |
+| `JNS`   | Jump if no sign     | SF $=$ 0   |
+| `JO`    | Jump if overflow    | OF $=$ 1   |
+| `JNO`   | Jump if no overflow | OF $=$ 0   |
+| `JP`    | Jump if parity      | PF $=$ 1   |
+| `JNP`   | Jump if no parity   | PF $=$ 0   |
+| `JPE`   | Jump if parity even | PF $=$ 1   |
+| `JPO`   | Jump if parity odd  | PF $=$ 0   |
