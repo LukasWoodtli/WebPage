@@ -21,6 +21,16 @@ I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 | Type          | [Register-memory](https://en.wikipedia.org/wiki/Register_memory_architecture) |
 
 
+# Operation Modes
+
+| Mode              | Introduced in |
+|-------------------|---------------|
+| Real Mode         | 8086          |
+| Protected Mode    | 80286         |
+| Virtual 8086 mode | 80386         |
+| Long Mode         | x86-64        |
+
+
 # Registers
 
 This are the 16-bit registers of Intel 8086, 8088,  80186 and 80188.

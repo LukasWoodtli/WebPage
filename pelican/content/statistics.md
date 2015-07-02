@@ -3,7 +3,6 @@ Date: 2015-05-22
 Modified: 2015-06-01
 Category: Mathematics
 Tags: Statistics
-Status: draft
 
 > This article is still work in progress!
 
