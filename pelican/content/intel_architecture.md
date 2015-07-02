@@ -12,6 +12,15 @@ I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
 [TOC]
 
+# General
+
+|               |                                                                               |
+|---------------|-------------------------------------------------------------------------------|
+| CPU Design    | [CISC](https://en.wikipedia.org/wiki/Complex_instruction_set_computing)       |
+| Endianness    | [little](https://en.wikipedia.org/wiki/Endianness)                            |
+| Type          | [Register-memory](https://en.wikipedia.org/wiki/Register_memory_architecture) |
+
+
 # Registers
 
 This are the 16-bit registers of Intel 8086, 8088,  80186 and 80188.
@@ -536,4 +545,3 @@ All far jumps are absolute.
 - *IP* is loaded with the value of the register:<pre><strong>JMP</strong> reg16</pre>
 - *IP* is loaded with the value given by the memory position:<pre><strong>JMP</strong> mem16</pre>
 - *CS* and *IP* are loaded with the value at the memory position:<pre><strong>JMP</strong> mem32</pre>
-
