@@ -153,6 +153,8 @@ The output of the meeting is:
 - A sprint backlog
 - A demo date and place
 
+5 - 15 Stories per Sprint is usually a good number.
+
 If the Sprint Planning Meeting takes to long the Scrum Master shall cut it short or reschedule it.
 
 ### Product Backlog Refinement
@@ -181,7 +183,7 @@ Now it makes sense to define a range for the possible story points. The fibonacc
 
 For really small tasks the value of *1/2* can be added. 
 
-If a user story is too big it should be split in smaller tasks.
+If a user story is too big it should be split in smaller stories or tasks.
 
 When the range is defined the estimation can be done. There are quite a lot of possibilities to do the estimations.
 
@@ -318,6 +320,20 @@ Handling items on index cards can also simplify the Sprint Planning Meeting or t
 
 Definition of Donne
 -------------------
+The team with the PO need to decide what requirements need to be fulfiled
+for a story to be marked as *done*.
+
+The best approach is to define a checklist for the stories. i.e:
+
+- Feature/Bug is completely implemented
+- Unit Tests are written
+- Developer documentation is written
+- Customer documentation is written
+- ...
+
+Maybe for different kind of stories (features, bugs, ...) a different
+checklist is needed.
+
 
 Literature and Links
 ====================
