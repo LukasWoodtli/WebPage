@@ -173,3 +173,11 @@ Standard Deviation
 $$\sigma_X = \sqrt{Var(X)}$$
 
 
+Binomial Coefficients
+=====================
+
+Choose $k$ elements from $n$ possible elements (without putting 
+back elements and without caring about the order of the chosen 
+elements):
+
+$$\binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}$$
