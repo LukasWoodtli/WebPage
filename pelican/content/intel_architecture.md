@@ -530,10 +530,10 @@ All far jumps are absolute.
 
 ## Unconditional Jumps
 
-- <pre><strong>JMP</strong> displ8</pre>: 8-bit displacement is added to *IP* as signed number.
-- <pre><strong>JMP</strong> displ16</pre>: 16-bit displacement is added to *IP* as unsigned number.
-- <pre><strong>JMP</strong> const32</pre>: The constant is the absolute 32-bit FAR-addresd.
-- <pre><strong>JMP</strong> reg16</pre>: *IP* is loaded with the value of the register.
-- <pre><strong>JMP</strong> mem16</pre>: *IP* is loaded with the value given by the memory position.
-- <pre><strong>JMP</strong> mem32</pre>: *CS* and *IP* are loaded with the value at the memory position.
+- 8-bit displacement is added to *IP* as signed number:<pre><strong>JMP</strong> displ8</pre>
+- 16-bit displacement is added to *IP* as unsigned number:<pre><strong>JMP</strong> displ16</pre>
+- The constant is the absolute 32-bit FAR-addresd:<pre><strong>JMP</strong> const32</pre>
+- *IP* is loaded with the value of the register:<pre><strong>JMP</strong> reg16</pre>
+- *IP* is loaded with the value given by the memory position:<pre><strong>JMP</strong> mem16</pre>
+- *CS* and *IP* are loaded with the value at the memory position:<pre><strong>JMP</strong> mem32</pre>
 
