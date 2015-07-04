@@ -125,3 +125,4 @@ memory address. Thus it's easy to access it in C/C++ code.
 
 
 
+![The ARM Cortex-M3 Modes and Levels](/images/arm_cortex_m3_modes_levels.svg)

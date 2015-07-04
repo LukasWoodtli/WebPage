@@ -1,0 +1,22 @@
+digraph ModesAndLevels {
+
+graph [rankdir="LR"];
+//node [shape=circle];
+
+PRIVILEGED_THREAD [label="Thread\n(privileged)"];
+USER_THREAD [label="Thread\n(user)"];
+
+PRIVILEGED_HANDLER [label="Handler\n(privileged)"];
+
+START [shape="point"];
+START -> PRIVILEGED_THREAD [label="reset"];
+
+USER_THREAD -> PRIVILEGED_HANDLER [label="exception"];
+PRIVILEGED_HANDLER -> USER_THREAD [label="exception\nend"];
+
+PRIVILEGED_THREAD -> PRIVILEGED_HANDLER [label="exception"];
+PRIVILEGED_HANDLER -> PRIVILEGED_THREAD [label="exception\nend"];
+
+PRIVILEGED_THREAD -> USER_THREAD [label="Program CONTROL\nregister"];
+
+}
