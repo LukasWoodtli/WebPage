@@ -71,3 +71,25 @@ execution status and current executing IRQ number.
 ### Control Register
 
 Define privileged status and select stack pointer.
+
+# Modes
+
+The Cortex-M3 has two modes:
+
+- Thread Mode
+- Handler Mode
+
+In Thread Mode the processor can run in two privilege levels:
+
+- User Level
+- Privileged Level
+
+In Handler Mode only the Privileged Level is available.
+
+|                  | Application Code | Exception Handler |
+|------------------|------------------|-------------------|
+| User Level       | Thread Mode      |       -           |
+| Privileged Level | Thread Mode      | Handler Mode      |
+
+
+
