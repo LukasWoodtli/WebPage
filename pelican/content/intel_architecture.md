@@ -363,6 +363,8 @@ the size of the explicit operator.
 
 The result (quotient) is saved either in *AX* or *AL*. The remainder is saved in either *DX* or *AH*.
 
+![The x86 MUL/IMUL commands](/images/intel_div.svg)
+
     ::nasm
     DIV BX ; Use DX/AX  as implicit operand. Result is saved in AX. Remainder is saved in DX.
     IDIV 0x34 ; Use AX as implicit operand. Result is saved in AL. Remainder is saved in AH.
