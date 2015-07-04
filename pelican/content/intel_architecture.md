@@ -336,6 +336,8 @@ The explicit operand sets the size and defines the used implicit register. It ca
 The result is always twice as big as the operands. It's either the accumulator (*AX*)
 or the **extended accumulator** (*DX/AX*).
 
+![The x86 MUL/IMUL commands](/images/intel_mul.svg)
+
     ::nasm
     MUL 0x0 ; Use AL as implicit operand. Result is saved in AX.
     IMUL BX ; Use AX as implicit operand. Result is saved in DX/AX.
