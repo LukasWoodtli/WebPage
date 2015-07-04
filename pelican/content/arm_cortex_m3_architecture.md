@@ -93,3 +93,4 @@ In Handler Mode only the Privileged Level is available.
 
 
 
+![The ARM Cortex-M3 Modes and Levels](/images/arm_cortex_m3_modes_levels.svg)
