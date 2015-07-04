@@ -92,5 +92,37 @@ In Handler Mode only the Privileged Level is available.
 | Privileged Level | Thread Mode      | Handler Mode      |
 
 
+# Nested Vectored Interrupt Controller (NVIC)
+
+## Nested
+
+All external and some system interrupts can be assigned to different priority levels. Current
+handled interrupts can only be disruppted by interrupts of higher priority.
+
+## Vectored
+
+The addresses of the interrupt service routines (ISRs) are stored in a vector. If an interrupt
+occures the lookup of the routine is fast and the handling of the interrupt is not delayed by lookup
+code.
+
+## Dynamic Priority Setting
+
+The priority of an interrupt can be changed at run time.
+
+# Memory Layout
+
+The Cortex-M3 has a defined memory map. So most built in peripherals are accessible by their
+memory address. Thus it's easy to access it in C/C++ code.
+
+| Address Range           | Use                  | Description                                          |
+|-------------------------|----------------------|------------------------------------------------------|
+| 0x00000000 - 0x1FFFFFFF | CODE                 | Program Code. Exception vector table after start up. |
+| 0x20000000 - 0x3FFFFFFF | SRAM                 | Used as static RAM.                                  |
+| 0x40000000 - 0x5FFFFFFF | Peripherals          | For integrated peripherals.                          |
+| 0x60000000 - 0x9FFFFFFF | External RAM         | For external connected RAM.                          |
+| 0xA0000000 - 0xDFFFFFFF | External Peripherals | For external connected peripherals.                  |
+| 0xE0000000 - 0xFFFFFFFF | System               | NVIC, MPU, Debug...                                  |
+
+
 
 ![The ARM Cortex-M3 Modes and Levels](/images/arm_cortex_m3_modes_levels.svg)
