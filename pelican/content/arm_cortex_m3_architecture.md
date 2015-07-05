@@ -91,6 +91,8 @@ In Handler Mode only the Privileged Level is available.
 | User Level       | Thread Mode      |       -           |
 | Privileged Level | Thread Mode      | Handler Mode      |
 
+![The ARM Cortex-M3 Modes and Levels](/images/arm_cortex_m3_modes_levels.svg)
+
 
 # Nested Vectored Interrupt Controller (NVIC)
 
@@ -124,5 +126,13 @@ memory address. Thus it's easy to access it in C/C++ code.
 | 0xE0000000 - 0xFFFFFFFF | System               | NVIC, MPU, Debug...                                  |
 
 
+# Bus Interfaces
 
-![The ARM Cortex-M3 Modes and Levels](/images/arm_cortex_m3_modes_levels.svg)
+The Cortex-M3 has multiple bus interfaces:
+
+- Code Memory Bus: For fetching instructions from code memory.
+- System Bus: For static RAM and peripherals.
+- Private Peripheral Bus: For access to a part of the system memory and for debugging.
+
+
+
