@@ -86,10 +86,10 @@ In Thread Mode the processor can run in two privilege levels:
 
 In Handler Mode only the Privileged Level is available.
 
-|                  | Application Code | Exception Handler |
-|------------------|------------------|-------------------|
-| User Level       | Thread Mode      |       -           |
-| Privileged Level | Thread Mode      | Handler Mode      |
+|                           | Application Code | Exception Handler |
+|---------------------------|------------------|-------------------|
+| Unprivileged (user) Level | Thread Mode      |       -           |
+| Privileged Level          | Thread Mode      | Handler Mode      |
 
 ![The ARM Cortex-M3 Modes and Levels](/images/arm_cortex_m3_modes_levels.svg)
 
@@ -136,3 +136,20 @@ The Cortex-M3 has multiple bus interfaces:
 
 
 
+# Data Types
+
+Following data types are supported in memory:
+
+- Byte: 8 bits.
+- Halfword: 16 bits.
+- Word: 32 bits.
+
+The registers are 32 bit wide. The instruction set supports following data types in the registers:
+
+- 32-bit pointers.
+- Unsigned and signed 32-bit integers.
+- Unsigned 16-bit and 8-bit integers in zero-extended form.
+- Signed 16-bit and 8-bit integers in sign-extended form.
+- Unsigned and signed 64-bit integers held in two registers (limited direct support).
+
+Signed data is represented using two's complement format.
