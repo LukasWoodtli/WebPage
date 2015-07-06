@@ -72,23 +72,23 @@ All other registers have a random value after reset.
 
 ## FLAGS Register
 
-|    Bit    | Mnemonic |           Meaning            |
-|-----------|----------|------------------------------|
-|     15    |    -     |        Reserved              |
-|     14    |    NT    |   Nested Task (286+)         |
-| 13 and 12 |   IOPL   |  I/O Privilege Level (286+)  |
-|     11    |    OF    |           Overflow           |
-|     10    |    DF    |          Direction           |
-|     9     |    IF    |       Interrupt Enable       |
-|     8     |    TF    |             Trap             |
-|     7     |    SF    |             Sign             |
-|     6     |    ZF    |             Zero             |
-|     5     |    -     |           Reserved           |
-|     4     |    AF    |            Adjust            |
-|     3     |    -     |           Reserved           |
-|     2     |    PF    |            Parity            |
-|     1     |    -     |           Reserved           |
-|     0     |    CF    |            Carry             |
+|    Bit    | Mnemonic |           Meaning          |
+|-----------|----------|----------------------------|
+|     15    |    -     |  Reserved                  |
+|     14    |    NT    |  Nested Task Flag (286+)   |
+| 13 and 12 |   IOPL   |  I/O Privilege Level (286+)|
+|     11    |    OF    |  Overflow Flag             |
+|     10    |    DF    |  Direction Flag            |
+|     9     |    IF    |  Interrupt Enable Flag     |
+|     8     |    TF    |  Trap Flag (single step)   |
+|     7     |    SF    |  Sign Flag                 |
+|     6     |    ZF    |  Zero Flag                 |
+|     5     |    -     |  Reserved                  |
+|     4     |    AF    |  Adjust Flag               |
+|     3     |    -     |  Reserved                  |
+|     2     |    PF    |  Parity Flag               |
+|     1     |    -     |  Reserved                  |
+|     0     |    CF    |  Carry Flag                |
 
 
 
