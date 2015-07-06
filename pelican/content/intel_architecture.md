@@ -633,3 +633,18 @@ The relation is expressed differently for signed and unsigned operands:
 | `JNP`   | Jump if no parity   | PF $=$ 0   |
 | `JPE`   | Jump if parity even | PF $=$ 1   |
 | `JPO`   | Jump if parity odd  | PF $=$ 0   |
+
+
+## Compairing Commands (`CMP`, `TEST`)
+
+Since the different jump commands depend on flags set or not there
+are special commands that only affect the flags.
+
+- `CMP` is a subtraction of the operands (8-bit or 16-bit) but it only changes the flags.
+   The result is not written anywhere.
+- `TEST` is a *AND* operation of the operands (8-bit or 16-bit) that only changes the flags.
+   The result is not written anywhere.
+
+Both commands accept a register or a memory location as first operand and a register, a memory location
+or a constant as second operator.
+
