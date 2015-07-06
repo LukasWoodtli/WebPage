@@ -32,6 +32,8 @@ All registers are 32-bit wide.
 
 Some 16-bit Thumb instruction can only access R0 - R7.
 
+The reset values of R0 - R12 are random.
+
 ## Stack Pointers
 The  Cortex-M3  contains  two  stack  pointers:
 
