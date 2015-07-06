@@ -72,15 +72,24 @@ All other registers have a random value after reset.
 
 ## FLAGS Register
 
-| Bit      |     15   |     14             |     13 and 12              |     11   |     10    |     9            |     8    |
-|----------|:--------:|:------------------:|:--------------------------:|:--------:|:---------:|:----------------:|:--------:|
-| Mnemonic |  -       |  NT                | IOPL                       |  OF      | DF        |  IF              |  TF      |
-| Meaning  | Reserved | Nested Task (286+) | I/O Privilege Level (286+) | Overflow | Direction | Interrupt Enable |  Trap    |
+|    Bit    | Mnemonic |           Meaning            |
+|-----------|----------|------------------------------|
+|     15    |    -     |        Reserved              |
+|     14    |    NT    |   Nested Task (286+)         |
+| 13 and 12 |   IOPL   |  I/O Privilege Level (286+)  |
+|     11    |    OF    |           Overflow           |
+|     10    |    DF    |          Direction           |
+|     9     |    IF    |       Interrupt Enable       |
+|     8     |    TF    |             Trap             |
+|     7     |    SF    |             Sign             |
+|     6     |    ZF    |             Zero             |
+|     5     |    -     |           Reserved           |
+|     4     |    AF    |            Adjust            |
+|     3     |    -     |           Reserved           |
+|     2     |    PF    |            Parity            |
+|     1     |    -     |           Reserved           |
+|     0     |    CF    |            Carry             |
 
-| Bit      |    7   |    6   |     5    |    4   |     3    |    2   |     1    |   0   |
-|----------|:------:|:------:|:--------:|:------:|:--------:|:------:|:--------:|:-----:|
-| Mnemonic |  SF    |  ZF    |  -       | AF     |  -       |  PF    |  -       |  CF   |
-| Meaning  | Sign   | Zero   | Reserved | Adjust | Reserved | Parity | Reserved | Carry |
 
 
 # Segmentation
