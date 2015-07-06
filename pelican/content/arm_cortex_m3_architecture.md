@@ -17,12 +17,12 @@ Modified: 2015-07-03
 
 All registers are 32-bit wide.
 
-| Register   | Use                       |
-|------------|---------------------------|
-| R0 - R12   | General Purpose Registers |
-| R13        | Stack Pointers (MSP, PSP) |
-| R14        | Link Register (LR)        |
-| R15        | Program Counter (PC)      |
+| Register   | Use                                  |
+|------------|--------------------------------------|
+| R0 - R12   | General Purpose Registers            |
+| R13        | Stack Pointers (SP_main, SP_process) |
+| R14        | Link Register (LR)                   |
+| R15        | Program Counter (PC)                 |
 
 ## General Purpose Registers
 
@@ -31,10 +31,10 @@ Some 16-bit Thumb instruction can only access R0 - R7.
 ## Stack Pointers
 The  Cortex-M3  contains  two  stack  pointers:
 
-- Main Stack Pointer (MSP): The default stack pointer, used by the operating system and exception handlers
-- Process Stack Pointer (PSP): Used by application code
+- Main Stack Pointer (SP_main): The default stack pointer, used by the operating system and exception handlers
+- Process Stack Pointer (SP_process): Used by application code
 
-The two Stack Pointers are banked. Only one is visible at a time.
+The two Stack Pointers are banked. Only one is visible at a time (R13).
 
 The lowest 2 bits of the stack pointers are always 0. So they are always word aligned.
 
@@ -44,7 +44,7 @@ The Link Register contains the return address of a subroutine/function.
 
 ## Program Counter
 
-This register holds the current program position. It can be written to for 
+This register holds the current program position. It can be written to for
 controlling the program flow (jumps).
 
 ## Special Registers
@@ -59,10 +59,61 @@ controlling the program flow (jumps).
 
 ### Program Status Registers
 
-The *xPSR* provide arithmethic and logic flags (zero and carry flag),
+
+The special-purpose program status registers (*xPSR*) provide arithmethic and logic flags (zero and carry flag),
 execution status and current executing IRQ number.
 
-### Interrupt Mask Registers
+
+| Bit   | APSR    |  IPSR            | EPSR   |
+|-------|---------|------------------|--------|
+| 31    |  N      |   -              |  -     |
+| 30    |  Z      |   -              |  -     |
+| 29    |  C      |   -              |  -     |
+| 28    |  V      |   -              |  -     |
+| 27    |  Q      |   -              |  -     |
+| 25-26 |  -      |   -              | ICI/IT |
+| 24    |  -      |   -              |   T    |
+| 20-23 |  -      |   -              |   -    |
+| 16-19 | GE[3:0] |   -              |   -    |
+| 9-15  |  -      |   -              | ICI/IT |
+| 0-8   |  -      | Exception Number |   -    |
+
+
+#### Application Program Status Register (APSR)
+
+Flags that can be set by application code (unprivileged mode).
+
+- **N (bit[31])**: Negative condition flag. Set if result of instruction is negative.
+- **Z (bit[30])**: Zero condition flag. Set if result of instuction is zero (0).
+- **C (bit[29])**: Carry condition flag. Set if instrucion results in a carry condition (i.e unsigned overflow on addition)
+- **V (bit[28])**: Overflow condition flag. Set if the instuction results in a an overflow condition (i.e. signed overflow on addition)
+- **Q (bit[27])**: Set if a `SSAT` or `USAT` instruction changes the input value for the signed/unsigned range of the result (saturation).
+- **GE[3:0] (bits[19:16])**: DSP extension only. Otherwise reserved.
+
+#### Interrupt Program Status Register (IPSR)
+
+- Handler Mode: This register holds the exception number of the exception that is currently processed.
+- Thread Mode: If no exception is processed the value is zero (0).
+
+#### Execution Program Status Register (EPSR)
+
+- **T bit[24]**: Defines the instuction set. The Cortex-M3 supports only Thumb-2. So the processor can execute instructions only if the T bit is set.
+- **ICI/IT**: TBD
+
+#### Composite views of the xPSR registers
+
+The commands `MSR` and `MRS` can use the mnemonics APSR, IPSR, and EPSR directly or combined mnemonics for the Program Status Registers.
+
+| Mnemonic| Registers                  |
+|---------|----------------------------|
+| IAPSR   | IPSR and APSR              |
+| EAPSR   | EPSR and APSR              |
+| IEPSR   | IPSR and EPSR              |
+| XPSR    | All three xPSR registers   |
+
+
+
+### Special-Purpose Mask Registers
 
 - *PRIMASK*: Disable interrupts except nonmaskable interrupt (NMI) and hard fault.
 - *FAULTMASK*: Disable interrupts except nonmaskable interrupt (NMI).
