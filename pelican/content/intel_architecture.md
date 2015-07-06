@@ -648,3 +648,34 @@ are special commands that only affect the flags.
 Both commands accept a register or a memory location as first operand and a register, a memory location
 or a constant as second operator.
 
+# Loop Commands (`LOOPx`, `JCXZ`)
+
+All loop commands accept an displacement operator (8-bit).
+
+None of the loop commands affects any flags!
+
+## Loop (`LOOP`)
+
+Decremets *CX* by one (1). If *CX* is not zero (*CX* $\neq$ 0) it performs the jump.
+
+## Loop while equal and Loop while zero (`LOOPE`, `LOOPZ`)
+
+`LOOPE` and `LOOPZ` are different mnemonics for the same command.
+
+Decrements *CX* by one (1). Performs the jump if if Zero Flag is set and *CX* is not zero (0).
+
+Jump if: ZF $=$ 1 and CX $\neq$ 0
+
+## Loop while not equal and Loop while not zero (`LOOPNE`, `LOOPNZ`)
+
+`LOOPNE` and `LOOPNZ` are different mnemonics for the same command.
+
+Decrements *CX* by one (1). Performs the jump if if Zero Flag is not set and *CX* is not zero (0).
+
+Jump if: ZF $=$ 0 and CX $\neq$ 0
+
+## Jump if *CX* zero (`JCXZ`)
+Performs the jump if *CX* is zero.
+
+Jump if: CX $=$ 0
+
