@@ -2,7 +2,7 @@ Title: Intel Architecture
 Category: Computer Science
 Tags: Assembler
 Date: 2015-06-22
-Modified: 2015-06-23
+Modified: 2015-07-06
 
 On this page I write down some notes about the Intel architecture (x86). I learned most of it in [school](http://www.vdf.ethz.ch/info/showDetails.asp?isbnNr=3255) few years ago.
 
@@ -679,3 +679,41 @@ Performs the jump if *CX* is zero.
 
 Jump if: CX $=$ 0
 
+# Stack and Function calls
+
+The stack on x86 is always addressed by the Stack Segment (*SS*).
+
+Stack operations are word aligned (16-bit). So `PUSH` decrements *SP* by *2* and
+`POP` increments *SP* by *2*.
+
+*SP* points to the *last written* word.
+
+# Push and Pop (`PUSH`, `PUSHF`, `PUSHA`, `POP`, `POPF`, `POPA`)
+
+The different push and pop commands save/restore 16-bit words to/from the stack.
+
+`PUSH` can be called with all registers as as operands or a memory operand. Immediate addressing
+is not possible with `PUSH`.
+
+The registers that can be pushed are: *AX*, *BX*, *CX*, *DX*, *SP*, *BP*, *SI*, *DI*, *ES*, *SS*, *DS* and *CS*.
+
+`POP` can use the same operands as `PUSH` with the exception of *CS*. Memory operands are also possible.
+
+The registers that can be poped are: *AX*, *BX*, *CX*, *DX*, *SP*, *BP*, *SI*, *DI*, *ES*, *SS* and *DS*.
+
+
+With the commands `PUSHA` and `POPA` (introduced with 80186) the 8 working registers are pushed to the stack and
+poped in the reversed order:
+
+*AX*, *CX*, *DX*, *BX*, *SP+*, *BP*, *SI*, *DI*
+
+*SP+* is the *SP* before the first push to the stack. With `POPA` *SP* is not poped. Is is just decremented (by 2) at
+the end of all the pop operations.
+
+`PUSHF` and `POPF` push and pop the flag register to/from the stack.
+
+    :::nasm
+    PUSH result   ; variable result
+    PUSH [BX+7]   ; memory word at address [BX+7]
+    PUSH tab[SI]  ; memory word at address tab[SI]
+    POP AX        ; value from stack to AX
