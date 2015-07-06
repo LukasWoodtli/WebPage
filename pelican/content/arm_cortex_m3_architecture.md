@@ -5,6 +5,9 @@ Date: 2015-07-03
 Modified: 2015-07-03
 
 
+[TOC]
+
+
 # General
 
 |            |                                                                                               |
@@ -12,6 +15,7 @@ Modified: 2015-07-03
 | CPU Design | [RISC](https://en.m.wikipedia.org/wiki/Reduced_instruction_set_computer)                      |
 | Endianness | [bi-endian (little as default)](https://en.m.wikipedia.org/wiki/Bi-endian#Bi-endian_hardware) |
 | Type       | [Load/Store](https://en.m.wikipedia.org/wiki/Load/store_architecture)                         |
+
 
 # Registers
 
@@ -47,17 +51,8 @@ The Link Register contains the return address of a subroutine/function.
 This register holds the current program position. It can be written to for
 controlling the program flow (jumps).
 
-## Special Registers
 
-| Register  | Use                                    |
-|-----------|----------------------------------------|
-| xPSR      | Program Status Registers               |
-| PRIMASK   | Disable IRQs except NMI and hard fault |
-| FAULTMASK | Disable IRQs except NMI                |
-| BASEPRI   | Disable IRQs of given priority         |
-| CONTROL   | Control resgister                      |
-
-### Program Status Registers
+## Program Status Registers
 
 
 The special-purpose program status registers (*xPSR*) provide arithmethic and logic flags (zero and carry flag),
@@ -79,7 +74,7 @@ execution status and current executing IRQ number.
 | 0-8   |  -      | Exception Number |   -    |
 
 
-#### Application Program Status Register (APSR)
+### Application Program Status Register (APSR)
 
 Flags that can be set by application code (unprivileged mode).
 
@@ -90,17 +85,17 @@ Flags that can be set by application code (unprivileged mode).
 - **Q (bit[27])**: Set if a `SSAT` or `USAT` instruction changes the input value for the signed/unsigned range of the result (saturation).
 - **GE[3:0] (bits[19:16])**: DSP extension only. Otherwise reserved.
 
-#### Interrupt Program Status Register (IPSR)
+### Interrupt Program Status Register (IPSR)
 
 - Handler Mode: This register holds the exception number of the exception that is currently processed.
 - Thread Mode: If no exception is processed the value is zero (0).
 
-#### Execution Program Status Register (EPSR)
+### Execution Program Status Register (EPSR)
 
 - **T bit[24]**: Defines the instuction set. The Cortex-M3 supports only Thumb-2. So the processor can execute instructions only if the T bit is set.
 - **ICI/IT**: TBD
 
-#### Composite views of the xPSR registers
+### Composite views of the xPSR registers
 
 The commands `MSR` and `MRS` can use the mnemonics APSR, IPSR, and EPSR directly or combined mnemonics for the Program Status Registers.
 
@@ -112,14 +107,15 @@ The commands `MSR` and `MRS` can use the mnemonics APSR, IPSR, and EPSR directly
 | XPSR    | All three xPSR registers   |
 
 
+## Special-Purpose Mask Registers
 
-### Special-Purpose Mask Registers
+## Special Registers
 
 - *PRIMASK*: Disable interrupts except nonmaskable interrupt (NMI) and hard fault.
 - *FAULTMASK*: Disable interrupts except nonmaskable interrupt (NMI).
 - *BASEPRI*: Disable interrupts of given priority level or lower priority level.
 
-### Control Register
+## Control Register
 
 Define privileged status and select stack pointer.
 
