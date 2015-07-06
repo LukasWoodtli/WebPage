@@ -1,6 +1,6 @@
 Title: Memory Layout
 Date: 2015-06-09
-Modified: 2015-06-19
+Modified: 2015-07-06
 Category: Programming
 Tags: C, C++
 
@@ -40,6 +40,7 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | Windows                                    | MSVC, MingW                  | downwards    |
 | POSIX                                      | GCC                          | downwards    |
 | DOS (16Bit)                                | Open Watcom                  | downwards    |
+| [x86](/intel_architecture.md)               | any                          | downwards    |
 | Renesas 78K0R                              | IAR                          | downwards    |
 | ARM7 (LPC2xxx, AT91SAM7S, AT91FR40008)     | GCC, RVDS, IAR               | downwards    |
 | ARM Cortex (A5, A9, M0, M4, M3, M7, R4)    | GCC, IAR, RVDS, CCS, Tasking | downwards    |
