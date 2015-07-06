@@ -26,11 +26,19 @@ Stack Growth
 
 Depending on the platform the stack grows in different directions:
 
-- Downwards: the stack grows from high adresses to low ones
-- Upwards: it grows from high addresses to low ones
+- Downwards (descending): the stack grows from high adresses to low ones
+- Upwards (ascending): it grows from high addresses to low ones
+
+There is also a distinction on where a stack pointer points to:
+
+- Full: on the last written position.
+- Empty: on the position where the next value is going to be written...
+
+So for example ARM has (usually) a full descending stack.
+
+[Here](http://stackoverflow.com/a/3844164) is a short explanation.
 
 On most platforms the stack grows downwards. But there are some exeptions.
-
 
 This table is an inclomplete (but hopefully correct) overview. Most data in this
 table is taken from the [FreeRTOS](http://www.freertos.org/) code.
@@ -41,6 +49,7 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | POSIX                                      | GCC                          | downwards    |
 | DOS (16Bit)                                | Open Watcom                  | downwards    |
 | [x86]({filename}/intel_architecture.md)    | any                          | downwards    |
+| [ARM] ({filename}/arm_cortex_m3_architecture.md) | any                    | downwards    |
 | Renesas 78K0R                              | IAR                          | downwards    |
 | ARM7 (LPC2xxx, AT91SAM7S, AT91FR40008)     | GCC, RVDS, IAR               | downwards    |
 | ARM Cortex (A5, A9, M0, M4, M3, M7, R4)    | GCC, IAR, RVDS, CCS, Tasking | downwards    |
