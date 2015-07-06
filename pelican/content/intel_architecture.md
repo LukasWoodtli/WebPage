@@ -688,20 +688,23 @@ Stack operations are word aligned (16-bit). So `PUSH` decrements *SP* by *2* and
 
 *SP* points to the *last written* word.
 
-# Push and Pop (`PUSH`, `PUSHF`, `PUSHA`, `POP`, `POPF`, `POPA`)
+## Push and Pop (`PUSH`, `PUSHF`, `PUSHA`, `POP`, `POPF`, `POPA`)
 
 The different push and pop commands save/restore 16-bit words to/from the stack.
+
+### `PUSH`
 
 `PUSH` can be called with all registers as as operands or a memory operand. Immediate addressing
 is not possible with `PUSH`.
 
 The registers that can be pushed are: *AX*, *BX*, *CX*, *DX*, *SP*, *BP*, *SI*, *DI*, *ES*, *SS*, *DS* and *CS*.
 
+### `POP`
 `POP` can use the same operands as `PUSH` with the exception of *CS*. Memory operands are also possible.
 
 The registers that can be poped are: *AX*, *BX*, *CX*, *DX*, *SP*, *BP*, *SI*, *DI*, *ES*, *SS* and *DS*.
 
-
+### `PUSHA` and `POPA`
 With the commands `PUSHA` and `POPA` (introduced with 80186) the 8 working registers are pushed to the stack and
 poped in the reversed order:
 
@@ -710,7 +713,10 @@ poped in the reversed order:
 *SP+* is the *SP* before the first push to the stack. With `POPA` *SP* is not poped. Is is just decremented (by 2) at
 the end of all the pop operations.
 
+### `PUSHF` and `POPF`
 `PUSHF` and `POPF` push and pop the flag register to/from the stack.
+
+### Examples
 
     :::nasm
     PUSH result   ; variable result
