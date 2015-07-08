@@ -732,3 +732,47 @@ the end of all the pop operations.
     PUSH [BX+7]   ; memory word at address [BX+7]
     PUSH tab[SI]  ; memory word at address tab[SI]
     POP AX        ; value from stack to AX
+
+## `CALL` and `RET`
+
+`CALL` stores the return address (address of the instruction after `CALL`) on the stack, increments *SP* (by 2)
+and calls the function.
+
+`RET` returns from the function by loading the stored address in to *IP* and decrements *SP* (by 2).
+
+## Defining a Function
+
+In [NASM](http://left404.com/2011/01/04/converting-x86-assembly-from-masm-to-nasm-3/) a function is defined as follows:
+
+    :::nasm
+    my_func:
+    
+    ; code of the function...
+
+    ret
+
+For calling the function:
+
+    :::nasm
+    call far my_func ; 
+
+The pseudo commands `PROC and `ENDP` (as in MASM/TASM) are not supported by NASM.
+
+### Function Prologue
+
+At the beginning of each function some registers have to be saved. This code is called
+[function prologue](https://en.wikipedia.org/wiki/Function_prologue).
+
+The usual tasks in a function prologue are:
+
+- Save old *BP* (push it on the stack).
+- Assign *SP* to *BP* (*PB* = *SP*). So the *BP* points the the old *BP*.
+- Save regisister contents to stack. So the registers can be used in the fuction.
+- Allocate memory on stack for use in function.
+
+The the actual code of the function can run.
+
+Before the function ends it has to undo most of the things that were done in the prologue (i.e restoring registers,
+adjusting *SP*...).
+This code is called function epilogue.
+
