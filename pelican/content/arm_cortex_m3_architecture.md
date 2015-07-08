@@ -34,25 +34,59 @@ Some 16-bit Thumb instruction can only access R0 - R7.
 
 The reset values of R0 - R12 are random.
 
-## Stack Pointers
+## Stack Pointers (SP, R13, MSP, PSP)
 The  Cortex-M3  contains  two  stack  pointers:
 
 - Main Stack Pointer (SP_main): The default stack pointer, used by the operating system and exception handlers
 - Process Stack Pointer (SP_process): Used by application code
 
-The two Stack Pointers are banked. Only one is visible at a time (R13).
+The two Stack Pointers are banked. Only one is visible at a time throu R13.
 
 The lowest 2 bits of the stack pointers are always 0. So they are always word aligned.
 
-## Link Register
+It's not nessecary to use both stack pointers (SP_main and SP_process). Simple applications use only SP_main.
+
+PUSH and POP work with the actual *SP* (R13). The stack is 32-bit aligned.
+
+    :::nasm
+    PUSH {R3}  ; R13 = R13-4, memory[R13] = R3
+    POP {R3}   ; R3 = memory[R13], R13 = R13+4
+    
+It's also possible to to push and pop multiple registers in one instruction.
+
+    :::nasm
+    my_function
+        PUSH {R0-R3, R3, R7} ; Save registers
+        ...
+        POP {R0-R3, R3, R7}  ; Restore registers
+        BX R7                ; Return to caller
+
+It's possible to use *SP* instead of *R13* for accessing the actual Stack Pointer.
+For accessing a particular Stack Pointer the mnemonic MSP (for SP_main) or PSP (for SP_process) exist.
+
+## Link Register (R14, LR)
 
 The Link Register contains the return address of a subroutine/function.
 
-## Program Counter
+    :::nasm
+    main
+       BL my_func ; call function with branch and link. PC=my_func, LR=next instr in main
+       
+    ...
+    
+    my_func
+        ...
+        BX LR ; return to address in LR
 
-This register holds the current program position. It can be written to for
-controlling the program flow (jumps).
 
+## Program Counter (R15, PC)
+
+This register holds the current program position.
+
+It can be written to for controlling the program flow (jumps). But then *LR* is not updated.
+
+Since the Cortex-M3 has a piplelined architecture the PC can be ahead of the actual executed
+instruction (normally by 4).
 
 ## Program Status Registers
 
@@ -82,7 +116,7 @@ Flags that can be set by application code (unprivileged mode).
 
 - **N (bit[31])**: Negative condition flag. Set if result of instruction is negative.
 - **Z (bit[30])**: Zero condition flag. Set if result of instuction is zero (0).
-- **C (bit[29])**: Carry condition flag. Set if instrucion results in a carry condition (i.e unsigned overflow on addition)
+- **C (bit[29])**: Carry (or borrow) condition flag. Set if instrucion results in a carry condition (i.e unsigned overflow on addition)
 - **V (bit[28])**: Overflow condition flag. Set if the instuction results in a an overflow condition (i.e. signed overflow on addition)
 - **Q (bit[27])**: Set if a `SSAT` or `USAT` instruction changes the input value for the signed/unsigned range of the result (saturation).
 - **GE[3:0] (bits[19:16])**: DSP extension only. Otherwise reserved.
@@ -173,6 +207,7 @@ memory address. Thus it's easy to access it in C/C++ code.
 | 0x60000000 - 0x9FFFFFFF | External RAM         | For external connected RAM.                          |
 | 0xA0000000 - 0xDFFFFFFF | External Peripherals | For external connected peripherals.                  |
 | 0xE0000000 - 0xFFFFFFFF | System               | NVIC, MPU, Debug...                                  |
+
 
 
 # Bus Interfaces
