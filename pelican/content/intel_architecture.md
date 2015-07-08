@@ -10,6 +10,8 @@ I'ts mainly for Intel 80186. But I'll extend it with informations about modern [
 
 I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
+There is a good overview of the [x86 instructions](https://en.wikipedia.org/wiki/X86_instruction_listings) on Wikipedia.
+
 [TOC]
 
 # General
@@ -746,7 +748,7 @@ In [NASM](http://left404.com/2011/01/04/converting-x86-assembly-from-masm-to-nas
 
     :::nasm
     my_func:
-    
+
     ; code of the function...
 
     ret
@@ -754,7 +756,7 @@ In [NASM](http://left404.com/2011/01/04/converting-x86-assembly-from-masm-to-nas
 For calling the function:
 
     :::nasm
-    call far my_func ; 
+    call far my_func ;
 
 The pseudo commands `PROC and `ENDP` (as in MASM/TASM) are not supported by NASM.
 
@@ -775,4 +777,49 @@ The the actual code of the function can run.
 Before the function ends it has to undo most of the things that were done in the prologue (i.e restoring registers,
 adjusting *SP*...).
 This code is called function epilogue.
+
+# String Operations
+
+The x86 architecture contains some commands that can be executed on consecutive memory location (strings, arrays...).
+
+This commands are powerful but not so easy to understand. [Here](http://www.oocities.org/codeteacher/x86asm/asml1013.html) is a good explanation.
+
+## Commands
+
+Moslty *SI* is used for addressing the source operator and *DI* is used for addressing the destination operator. Hence the names.
+For some commands the accumulator (*AL*/*AX*) is used as operator.
+*SI* is *DS*-relative by default. But the segment can be overridden.
+*DI* is *ES*-relative by default. The segment can **not** be overridden.
+
+
+
+| Command | Purpose                                                                                                               |
+|---------|-----------------------------------------------------------------------------------------------------------------------|
+| `MOVSx` | Move (copy) data addressed by *SI* to position addressed by *DI*.                                                     |
+| `STOSx` | Load data from accumulator to position addressed by *DI*.                                                             |
+| `LODSx` | Load data addressed by *SI* into accumulator.                                                                         |
+| `CMPSx` | Compare data addressed by *SI* with data addressed by *DI*. Flags are set according to result of [*SI*] - [*DI*].     |
+| `SCASx` | Compare data from accumulator  with data addressed by *DI*. Flags are set according to result of accumulator - [*DI*].|
+
+In the commands listed above *x* can be *B* for operation on bytes or *W* for operation on words (16-bit).
+
+Processors 80186 and newer have also the commands: `INS` and `OUTS` for string input and output from/to ports.
+
+## Direction
+
+The direction of the string commands can be controlled by the direction flag:
+
+- `CLD`: Clear direction flag. Index registers are incremented.
+- `STD`: Set direction flag. Index registers are decremented.
+
+## Repeat Prefix
+
+- `REP`: Repeat the string command as long as *CX* $\neq$ 0. Decrement *CX* in each iteration.
+- `REPE`: Repeat while operands are equal.
+- `REPZ`: Repeat while zero (ZF = 1).
+- `REPNE`: Repeat while operands are *not* equal.
+- `REPNZ`: Repeat while *not* zero (ZF = 0).
+ 
+> There is now practical use for `LODSx` with `REP`.
+
 
