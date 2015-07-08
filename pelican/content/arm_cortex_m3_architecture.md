@@ -128,7 +128,7 @@ Flags that can be set by application code (unprivileged mode).
 
 ### Execution Program Status Register (EPSR)
 
-- **T bit[24]**: Defines the instuction set. The Cortex-M3 supports only Thumb-2. So the processor can execute instructions only if the T bit is set.
+- **T bit[24]**: Defines the instuction set. The Cortex-M3 supports only Thumb-2. So it must be 0. An fault is caused if this bit is set to 0.
 - **ICI/IT**: TBD
 
 ### Composite views of the xPSR registers
@@ -145,7 +145,9 @@ The commands `MSR` and `MRS` can use the mnemonics APSR, IPSR, and EPSR directly
 
 ## Special-Purpose Mask Registers
 
-## Special Registers
+This registers are set to 0 at reset.
+
+They can only be written if in privileged level.
 
 - *PRIMASK*: Disable interrupts except nonmaskable interrupt (NMI) and hard fault.
 - *FAULTMASK*: Disable interrupts except nonmaskable interrupt (NMI).
@@ -154,6 +156,33 @@ The commands `MSR` and `MRS` can use the mnemonics APSR, IPSR, and EPSR directly
 ## Control Register
 
 Define privileged status and select stack pointer.
+
+### Control bit[0] (privilege level)
+This bit has only a meaning in thread mode.
+
+- 0: Privileged Level
+- 1: Unprivileged (user) Level
+
+In handler mode the processor operates in privileged mode.
+
+This bit is only writable with privileged level.
+
+### Control bit[1] (stack status)
+
+This bit makes only sense in thread mode.
+
+- 0: Use SP_process
+- 1: Use SP_main
+
+In handler mode this bit must be 0 (SP_main is used).
+
+This bit is only writable if in thread mode with privileged level.
+
+### Switching Privilege Level
+
+To switch from privileged level to user level the *Control bit[0]* can be written directly.
+
+The switch from user level to privilege level heeds to be performed within an exeption handler.
 
 # Modes
 
