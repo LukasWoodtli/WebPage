@@ -332,3 +332,15 @@ The reporting of the following UsageFaults can be activated:
 This fault can be disabled by software. Then a UsageFault escalates to a HardFault.
 
 The priority can be configured.
+
+## DebugMonitor
+
+The DebugMonitor is a fault and it's a synchronous exception.
+It occurs when halting debug is disabled and the DebugMonitor is enabled.
+
+The priority is configurable.
+
+> A debug watchpoint is asynchronous and behaves as an interrupt.
+
+## SVCall
+tbd
