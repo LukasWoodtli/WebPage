@@ -4,6 +4,8 @@ Tags: Assembler
 Date: 2015-07-03
 Modified: 2015-07-03
 
+This page collects my notes about the Cortex-M3 architecture.
+In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit ba Energy Micro.
 
 [TOC]
 
