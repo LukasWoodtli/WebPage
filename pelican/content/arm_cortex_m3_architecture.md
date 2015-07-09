@@ -7,6 +7,13 @@ Modified: 2015-07-03
 This page collects my notes about the Cortex-M3 architecture.
 In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit ba Energy Micro.
 
+
+The EFM32TG has:
+- Number of interrupts: 23
+- No Memory Protection Unit (MPU)
+- No Embedded Trace Macrocell (ETM)
+
+
 [TOC]
 
 
@@ -41,6 +48,11 @@ The  Cortex-M3  contains  two  stack  pointers:
 
 - Main Stack Pointer (SP_main): The default stack pointer, used by the operating system and exception handlers
 - Process Stack Pointer (SP_process): Used by application code
+
+In thread mode CONTROL bit[1] indicates the used stack pointed:
+
+- 0: MSP
+- 1: PSP
 
 The two Stack Pointers are banked. Only one is visible at a time throu R13.
 
@@ -90,6 +102,7 @@ It can be written to for controlling the program flow (jumps). But then *LR* is 
 Since the Cortex-M3 has a piplelined architecture the PC can be ahead of the actual executed
 instruction (normally by 4).
 
+On reset, the processor loads the PC with the value of the reset vector, which is at address 0x00000004.
 ## Program Status Registers
 
 The special-purpose program status registers (*xPSR*) provide arithmethic and logic flags (zero and carry flag),
@@ -190,10 +203,10 @@ The switch from user level to privilege level heeds to be performed within an ex
 | Name      | Read/Write | Required privilege | Reset value |
 |-----------|------------|--------------------|-------------|
 | R0-R12    | RW         | Both               | Undef       |
-| MSP (R13) | RW         | Privileged         |  ...        |
+| MSP (R13) | RW         | Privileged         | value from address 0x00000000|
 | PSP (R13) | RW         | Both               | Undef       |
 | LR  (R14) | RW         | Both               | 0xFFFFFFFF  |
-| PC  (R15) | RW         | Both               |  ...        |
+| PC  (R15) | RW         | Both               | value of the reset vector |
 | ASPR      | RW         | Both               | 0x00000000  |
 | IPSR      | R          | Privileged         | 0x00000000  |
 | EPSR      | R          | Privileged         | 0x01000000  |
