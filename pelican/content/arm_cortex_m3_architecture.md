@@ -90,7 +90,6 @@ instruction (normally by 4).
 
 ## Program Status Registers
 
-
 The special-purpose program status registers (*xPSR*) provide arithmethic and logic flags (zero and carry flag),
 execution status and current executing IRQ number.
 
@@ -140,7 +139,7 @@ The commands `MSR` and `MRS` can use the mnemonics APSR, IPSR, and EPSR directly
 | IAPSR   | IPSR and APSR              |
 | EAPSR   | EPSR and APSR              |
 | IEPSR   | IPSR and EPSR              |
-| XPSR    | All three xPSR registers   |
+|  PSR    | All three xPSR registers   |
 
 
 ## Special-Purpose Mask Registers
@@ -189,10 +188,10 @@ The switch from user level to privilege level heeds to be performed within an ex
 | Name      | Read/Write | Required privilege | Reset value |
 |-----------|------------|--------------------|-------------|
 | R0-R12    | RW         | Both               | Undef       |
-| MSP       | RW         | Privileged         |  ...        |
-| PSP       | RW         | Both               | Undef       |
-| LR        | RW         | Both               | 0xFFFFFFFF  |
-| PC        | RW         | Both               |  ...        |
+| MSP (R13) | RW         | Privileged         |  ...        |
+| PSP (R13) | RW         | Both               | Undef       |
+| LR  (R14) | RW         | Both               | 0xFFFFFFFF  |
+| PC  (R15) | RW         | Both               |  ...        |
 | ASPR      | RW         | Both               | 0x00000000  |
 | IPSR      | R          | Privileged         | 0x00000000  |
 | EPSR      | R          | Privileged         | 0x01000000  |
