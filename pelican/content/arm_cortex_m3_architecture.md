@@ -2,13 +2,14 @@ Title: ARM Cortex-M3 Architecture
 Category: Computer Science
 Tags: Assembler
 Date: 2015-07-03
-Modified: 2015-07-03
+Modified: 2015-07-10
 
 This page collects my notes about the Cortex-M3 architecture.
 In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by Energy Micro.
 
 
 The EFM32TG has:
+
 - Number of interrupts: 23
 - No Memory Protection Unit (MPU)
 - No Embedded Trace Macrocell (ETM)
@@ -54,7 +55,7 @@ In thread mode CONTROL bit[1] indicates the used stack pointed:
 - 0: MSP
 - 1: PSP
 
-The two Stack Pointers are banked. Only one is visible at a time throu R13.
+The two Stack Pointers are banked. Only one is visible at a time through R13.
 
 The lowest 2 bits of the stack pointers are always 0. So they are always word aligned.
 
@@ -84,7 +85,7 @@ The Link Register contains the return address of a subroutine/function.
 
     :::nasm
     main
-       BL my_func ; call function with branch and link. PC=my_func, LR=next instr in main
+       BL my_func; call funct. with branch and link. PC=my_func, LR=next instr in main
 
     ...
 
