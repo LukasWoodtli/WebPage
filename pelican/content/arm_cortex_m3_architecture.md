@@ -310,7 +310,7 @@ Signed data is represented using two's complement format.
 | 4                 | MemManage |
 | 5                 | BusFault  |
 | 6                 | UsageFault|
-| 7-10              | Reserved  |
+| 7 - 10            | Reserved  |
 | 11                | SVCall    |
 | 12                | DebugMonitor |
 | 13                | Reserved  |
@@ -421,3 +421,13 @@ SysTick is permanently enabled, and is controlled using the ICSR.PENDSTSET and I
 
 > Software can suppress hardware generation of the SysTick event.
 
+# The Vector Table
+
+The Vector Table contains the reset value of SP_main and the addresses of each exception handler function.
+
+| Offset in Table (32-bit words) | Description                  |
+|--------------------------------|------------------------------|
+| 0                              | Reset value of SP_main       |
+| Exception Number               | Address of exception handler |
+
+Ths position of the *Vector Table* is defined by the *Vector Table Offset Register (VTOR)*.
