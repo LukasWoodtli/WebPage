@@ -8,11 +8,6 @@ This page collects my notes about the Cortex-M3 architecture.
 In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by Energy Micro.
 
 
-The EFM32TG has:
-
-- Number of interrupts: 23
-- No Memory Protection Unit (MPU)
-- No Embedded Trace Macrocell (ETM)
 
 
 [TOC]
@@ -25,6 +20,26 @@ The EFM32TG has:
 | CPU Design | [RISC](https://en.m.wikipedia.org/wiki/Reduced_instruction_set_computer)                      |
 | Endianness | [bi-endian (little as default)](https://en.m.wikipedia.org/wiki/Bi-endian#Bi-endian_hardware) |
 | Type       | [Load/Store](https://en.m.wikipedia.org/wiki/Load/store_architecture)                         |
+
+# EFM32TG Overview
+
+| Feature  |                      |
+|----------|----------------------|
+| CPU      | 32 MHz ARM Cortex-M3 (r2p1)|
+| Flash    | 32 kB                |
+| RAM      | 4 kB                 |
+| SPI      | 1                    |
+| I2C      | 1                    |
+| USART    | 2                    |
+| I2S      | 1                    |
+| Dig. Pins| 56                   |
+| ADC      | 12-bit, 8 ch, 1 Msps |
+| DAC      | 12-bit, 2 ch         |
+| IRQs     | 23                   |
+| LCD      | Yes                  |
+| MPU      | No                   |
+| ETM      | No                   |
+| Package  | QFN64 9x9 mm         |
 
 
 # Registers
@@ -82,6 +97,7 @@ For accessing a particular Stack Pointer the mnemonic MSP (for SP_main) or PSP (
 ## Link Register (R14, LR)
 
 The Link Register contains the return address of a subroutine/function.
+On function entry (BL) the return address is automatically saved on LR.
 
     :::nasm
     main
@@ -104,6 +120,10 @@ Since the Cortex-M3 has a piplelined architecture the PC can be ahead of the act
 instruction (normally by 4).
 
 On reset, the processor loads the PC with the value of the reset vector, which is at address 0x00000004.
+
+> The least-significant bit of each address loaded into *PC* must be 1 (indicating thumb mode).
+> Otherwise an exception will occure on the Cortex-M3.
+
 ## Program Status Registers
 
 The special-purpose program status registers (*xPSR*) provide arithmethic and logic flags (zero and carry flag),
@@ -303,21 +323,21 @@ Signed data is represented using two's complement format.
 # Exceptions
 
 
-| Exception number  | Exception |
-|-------------------|-----------|
-| 1                 | Reset     |
-| 2                 | NMI       |
-| 3                 | Hard Fault|
-| 4                 | MemManage |
-| 5                 | BusFault  |
-| 6                 | UsageFault|
-| 7 - 10            | Reserved  |
-| 11                | SVCall    |
-| 12                | DebugMonitor |
-| 13                | Reserved  |
-| 14                | PendSV    |
-| 15                | SysTick   |
-| 16 - 16+N         | External interrupt 0 .. N |
+| Exception number  | Exception | Priority |
+|-------------------|-----------|----------|
+| 1                 | Reset     | -3       |
+| 2                 | NMI       | -2       |
+| 3                 | Hard Fault| -1       |
+| 4                 | MemManage | configurable |
+| 5                 | BusFault  | configurable |
+| 6                 | UsageFault| configurable |
+| 7 - 10            | Reserved  |   -          |
+| 11                | SVCall    | configurable |
+| 12                | DebugMonitor | configurable |
+| 13                | Reserved  |   -           |
+| 14                | PendSV    | configurable |
+| 15                | SysTick   | configurable |
+| 16 - 16+N         | External interrupt 0 .. N | configurable |
 
 
 ## Reset
@@ -431,4 +451,6 @@ The Vector Table contains the reset value of SP_main and the addresses of each e
 | 0                              | Reset value of SP_main       |
 | Exception Number               | Address of exception handler |
 
-Ths position of the *Vector Table* is defined by the *Vector Table Offset Register (VTOR)*.
+> The least-significant bit of each exception handler address (vector) must be 1, indicating that the exception handler is in Thumb code.
+
+The position of the *Vector Table* is defined by the *Vector Table Offset Register (VTOR)*.
