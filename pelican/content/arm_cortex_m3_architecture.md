@@ -444,7 +444,7 @@ SysTick is permanently enabled, and is controlled using the ICSR.PENDSTSET and I
 
 # The Vector Table
 
-The Vector Table contains the reset value of SP_main and the addresses of each exception handler function.
+The Vector Table contains the reset value of *SP_main* and the addresses of each exception handler function.
 
 | Offset in Table (32-bit words) | Description                  |
 |--------------------------------|------------------------------|
@@ -454,3 +454,20 @@ The Vector Table contains the reset value of SP_main and the addresses of each e
 > The least-significant bit of each exception handler address (vector) must be 1, indicating that the exception handler is in Thumb code.
 
 The position of the *Vector Table* is defined by the *Vector Table Offset Register (VTOR)*.
+
+# Reset Sequence
+
+At start up the *Vector Table* is located at memory position 0 (flash).
+It can later be relocated to an other memory position by software.
+
+After reset the processor does:
+
+1. Set main Stack Pointer
+    - Load 32-bit value from address 0x00000000
+    - Save that value to *SP_main*
+2. Run start up code
+    - Read the next entry in the *Vector Table* (0x00000004, reset vector)
+    - Jump to that address and start running code there
+    
+> Since the Cortex-M4 has a full descending stack the initial stack address
+has to be 0x04 bigger the the beginning of the stack.
