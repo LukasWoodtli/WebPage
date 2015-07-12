@@ -471,3 +471,22 @@ After reset the processor does:
     
 > Since the Cortex-M4 has a full descending stack the initial stack address
 has to be 0x04 bigger the the beginning of the stack.
+
+
+# Assembler
+
+Most assembler examples use the [GCC Assembler (gas)](https://sourceware.org/binutils/docs-2.25/as/index.html).
+
+## Addressing Modes
+
+`addr`: Absolute addressing mode (memory address of operator is given directly).
+
+`%Rn`: Register direct (the value given in the register is used as operator).
+
+`[%Rn]`: Register indirect or indexed (the value given in the register is used as address to the operator).
+
+`[%Rn,#n]`: Register based with offset (the address of the operand is calculated by the content of the register plus a constant).
+
+`#imm`: Immediate data (the operator is given directly as a constant).
+
+*Rn* can be any of the numbered registers.
