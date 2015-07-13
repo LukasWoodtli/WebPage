@@ -562,7 +562,7 @@ the `MOV` commands are aliases for the shifting commands.
     MOV<c> <Rd>,#<imm8>   /* Inside IT block */
     MOV{S}<c>.W <Rd>,#<const>
     MOVW<c> <Rd>,#<imm16>
-    
+
 #### Register
 
     :::nasm
@@ -585,6 +585,21 @@ bottom half of the register is not written.
     MOVT<c><q> <Rd>, #<imm16>
 
 
+#### Move Special Register to Register (`MRS`)
+
+
+    :::nasm
+    MRS<c> <Rd>,<spec_reg>
+
+`MRS` is a system level instruction except when accessing the *APSR* or *CONTROL* register.
+
+
+#### Move Register to Special Register (`MSR`)
+
+    :::nasm
+    MSR<c> <spec_reg>,<Rn>
+
+`MRS` is a system level instruction except when accessing the *APSR* or *CONTROL* register. 
 
 <!---### Move Data between Register and Memory
 
@@ -598,5 +613,12 @@ There are commands for storing or loading multiple registers at once.
 --->
 
 
+## Other Commands
 
+### No Operation (`NOP`)
 
+The NOP does nothing.
+
+    :::nasm
+    NOP<c>
+    NOP<c>.W
