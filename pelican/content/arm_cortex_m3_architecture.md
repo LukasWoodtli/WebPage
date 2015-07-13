@@ -23,23 +23,23 @@ In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by En
 
 # EFM32TG Overview
 
-| Feature  |                      |
-|----------|----------------------|
+| Feature  |                            |
+|----------|----------------------------|
 | CPU      | 32 MHz ARM Cortex-M3 (r2p1)|
-| Flash    | 32 kB                |
-| RAM      | 4 kB                 |
-| SPI      | 1                    |
-| I2C      | 1                    |
-| USART    | 2                    |
-| I2S      | 1                    |
-| Dig. Pins| 56                   |
-| ADC      | 12-bit, 8 ch, 1 Msps |
-| DAC      | 12-bit, 2 ch         |
-| IRQs     | 23                   |
-| LCD      | Yes                  |
-| MPU      | No                   |
-| ETM      | No                   |
-| Package  | QFN64 9x9 mm         |
+| Flash    | 32 kB                      |
+| RAM      | 4 kB                       |
+| SPI      | 1                          |
+| I2C      | 1                          |
+| USART    | 2                          |
+| I2S      | 1                          |
+| Dig. Pins| 56                         |
+| ADC      | 12-bit, 8 ch, 1 Msps       |
+| DAC      | 12-bit, 2 ch               |
+| IRQs     | 23                         |
+| LCD      | Yes                        |
+| MPU      | No                         |
+| ETM      | No                         |
+| Package  | QFN64 9x9 mm               |
 
 
 # Registers
@@ -221,20 +221,20 @@ The switch from user level to privilege level heeds to be performed within an ex
 
 ## Reset Values and Required Access Privileges
 
-| Name      | Read/Write | Required privilege | Reset value |
-|-----------|------------|--------------------|-------------|
-| R0-R12    | RW         | Both               | Undef       |
-| MSP (R13) | RW         | Privileged         | value from address 0x00000000|
-| PSP (R13) | RW         | Both               | Undef       |
-| LR  (R14) | RW         | Both               | 0xFFFFFFFF  |
-| PC  (R15) | RW         | Both               | value of the reset vector |
-| ASPR      | RW         | Both               | 0x00000000  |
-| IPSR      | R          | Privileged         | 0x00000000  |
-| EPSR      | R          | Privileged         | 0x01000000  |
-| PRIMASK   | RW         | Privileged         | 0x00000000  |
-| FAULTMASK | RW         | Privileged         | 0x00000000  |
-| BASEPRI   | RW         | Privileged         | 0x00000000  |
-| CONTROL   | RW         | Privileged         | 0x00000000  |
+| Name      | Read/Write | Required privilege | Reset value                   |
+|-----------|------------|--------------------|-------------------------------|
+| R0-R12    | RW         | Both               | Undef                         |
+| MSP (R13) | RW         | Privileged         | value from address 0x00000000 |
+| PSP (R13) | RW         | Both               | Undef                         |
+| LR  (R14) | RW         | Both               | 0xFFFFFFFF                    |
+| PC  (R15) | RW         | Both               | value of the reset vector     |
+| ASPR      | RW         | Both               | 0x00000000                    |
+| IPSR      | R          | Privileged         | 0x00000000                    |
+| EPSR      | R          | Privileged         | 0x01000000                    |
+| PRIMASK   | RW         | Privileged         | 0x00000000                    |
+| FAULTMASK | RW         | Privileged         | 0x00000000                    |
+| BASEPRI   | RW         | Privileged         | 0x00000000                    |
+| CONTROL   | RW         | Privileged         | 0x00000000                    |
 
 
 # Modes
@@ -523,6 +523,10 @@ This suffixes can be used for branching instructions but also for conditional ex
 | `LE`              | Signed less than or equal           | (Z$=$1) OR (N$\neq$V)  |
 | `AL` (or omitted) | Always executed                     |  None                  |
 
+
+In the instruction examples `<c>` is used to indicate that one of the conditional
+suffixes can be used.
+
 ## Instruction Width Qualifier
 
 This assembler qualifier is used to select a 16-bit
@@ -537,4 +541,62 @@ assembler prroduces an error.
 
 If no qualifier is given the assembler selects the 16-bit encoding if it
 is available.
+
+In the instruction examples `<q>` is used to indicate that `.N` or `.W` can be used.
+
+## Data Transfer Commands
+
+### Move Data between Registers (`MOV`, `MVN`)
+
+Moves a value (or it's negated value) from one register to an other.
+
+Moving immediate value directly into a register is also possible.
+
+There are also command for movig shifted data. In this case
+the `MOV` commands are aliases for the shifting commands.
+
+#### Immediate
+
+    :::nasm
+    MOVS <Rd>,#<imm8>     /* Outside IT block */
+    MOV<c> <Rd>,#<imm8>   /* Inside IT block */
+    MOV{S}<c>.W <Rd>,#<const>
+    MOVW<c> <Rd>,#<imm16>
+    
+#### Register
+
+    :::nasm
+    MOV<c> <Rd>,<Rm>
+    MOVS <Rd>,<Rm>
+    MOV{S}<c>.W <Rd>,<Rm>
+
+Examples:
+
+    :::nasm
+    MOV R3, R2; /* Move the value from R2 to R3 */
+    MVN R5, R6; /* Move the negated value of R6 to R5 */
+
+#### Move to top halfword of Register (`MOVT`)
+
+Moves an immediate value to the top half of the given register. The
+bottom half of the register is not written.
+
+    :::nasm
+    MOVT<c><q> <Rd>, #<imm16>
+
+
+
+<!---### Move Data between Register and Memory
+
+The basic commands for moving data to and from memory are store and load.
+They exist with different operand sizes (byte, half word, word and double word).
+
+With some commands a register operand can be updated after the operation with `!`. If it's
+available it is optional.
+
+There are commands for storing or loading multiple registers at once.
+--->
+
+
+
 
