@@ -522,3 +522,19 @@ This suffixes can be used for branching instructions but also for conditional ex
 | `GT`              | Signed greater than                 | (Z$=$0) AND (N$=$V)    |
 | `LE`              | Signed less than or equal           | (Z$=$1) OR (N$\neq$V)  |
 | `AL` (or omitted) | Always executed                     |  None                  |
+
+## Instruction Width Qualifier
+
+This assembler qualifier is used to select a 16-bit
+or 32-bit instruction encoding.
+
+`.N`: Narrow: Assembler must select a 16-bit istruction.
+
+`.W`: Wide: Assembler must select a 32-bit istruction.
+
+If the instruction is not available in the requested encoding the
+assembler prroduces an error.
+
+If no qualifier is given the assembler selects the 16-bit encoding if it
+is available.
+
