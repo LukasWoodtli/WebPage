@@ -612,6 +612,77 @@ available it is optional.
 There are commands for storing or loading multiple registers at once.
 --->
 
+## Arithmetic Commands
+
+### Addition (`ADD`)
+
+Adds two values.
+
+#### Immediate
+
+    :::nasm
+    ADDS <Rd>,<Rn>,#<imm3>         /* Outside IT block */
+    ADD<c> <Rd>,<Rn>,#<imm3>       /* Inside IT block */
+    ADDS <Rdn>,#<imm8>             /* Outside IT block */
+    ADD<c> <Rdn>,#<imm8>           /* Inside IT block */
+    ADD{S}<c>.W <Rd>,<Rn>,#<const>
+    ADDW<c> <Rd>,<Rn>,#<imm12>
+    ADD{S}<c><q> {<Rd>,} <Rn>,  #<const>
+    ADDW<c><q> {<Rd>,} <Rn>,  #<const>
+
+
+#### Register
+
+The second regisyer operand can be shifted.
+ 
+    :::nasm
+    ADDS <Rd>,<Rn>,<Rm>     /* Outside IT block */
+    ADD<c> <Rd>,<Rn>,<Rm>   /* Inside IT block */
+    ADD<c> <Rdn>,<Rm>
+    ADD{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+    ADD{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
+
+#### *SP* plus Immediate
+Adds an immediate value to the *SP*, writes the result to the destination register.
+
+    :::nasm
+    ADD<c> <Rd>,SP,#<imm8>
+    ADD<c> SP,SP,#<imm7>
+    ADD{S}<c>.W <Rd>,SP,#<const>
+    ADDW<c> <Rd>,SP,#<imm12>
+    ADD{S}<c><q> {<Rd>,} SP, #<const>
+    ADDW<c><q> {<Rd>,} SP, #<const>
+    
+#### *SP* plus Register
+
+Adds an (optionally-shifted) register value to the *SP*,
+writes the result to the destination register.
+
+    :::nasm
+    ADD<c> <Rdm>, SP, <Rdm>
+    ADD<c> SP,<Rm>
+    ADD{S}<c>.W <Rd>,SP,<Rm>{,<shift>}
+    ADD{S}<c><q> {<Rd>,} SP, <Rm>{, <shift>}
+
+
+### Addition with Carry (`ADC`)
+
+Adds values with carry.
+
+#### Immediate
+
+    :::nasm
+    ADC{S}<c>  <Rd>,<Rn>,#<const>
+    
+#### Register
+
+The register operand can be shifted.
+
+    :::nasm
+    ADCS <Rdn>,<Rm>     /* Outside IT block */
+    ADC<c> <Rdn>,<Rm>   /* Inside IT block */
+    ADC{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+    ADC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
 
 ## Other Commands
 
