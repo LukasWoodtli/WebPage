@@ -693,7 +693,7 @@ The register operand can be shifted.
 
 Bitwise *AND* of register and immediate value.
 
-    :::
+    :::nasm
     AND{S}<c>  <Rd>,<Rn>,#<const>
     AND{S}<c><q> {<Rd>,} <Rn>,  #<const>
 
@@ -702,11 +702,42 @@ Bitwise *AND* of register and immediate value.
 Bitwise *AND* of a register and a second (optionally-shifted) register.
 The flags can be updated based on the result.
 
-    :::
+    :::nasm
     ANDS<Rdn>,<Rm>                       /* Outside IT block */
     AND<c> <Rdn>,<Rm>                    /* Inside IT block */
     AND{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
     AND{S}<c><q> {<Rd>,} <Rn>, <Rm> {,<shift>}
+
+
+## Shift and Rotate Commands
+
+### Arithmetic Shift Right (`ASR`)
+
+#### Immediate
+Shifts a register right by an immediate value. Shifts in copies
+of it's *sign bit*.
+
+Can update flags.
+
+    :::nasm
+    ASRS <Rd>,<Rm>,#<imm5>    /* Outside IT block */
+    ASR<c> <Rd>,<Rm>,#<imm5>  /*Inside IT block */
+    ASR{S}<c>.W <Rd>,<Rm>,#<imm5>
+    ASR{S}<c><q> <Rd>, <Rm>,  #<imm5>
+    
+#### Register
+Shifts a register by a variable number of bits, shifting in copies
+of it's sing flag. The number of bits
+to shift is read from the *bottom byte* of a register.
+
+Flags can be set.
+
+    :::
+    ASRS<Rdn>,<Rm>             /* Outside IT block */
+    ASR<c> <Rdn>,<Rm>          /* Inside IT block */
+    ASR{S}<c>.W <Rd>,<Rn>,<Rm>
+    ASR{S}<c><q> <Rd>, <Rn>, <Rm>
+
 
 ## Other Commands
 
@@ -716,7 +747,7 @@ Calculate *PC* relative address.
 
 Add immediate value to *PC* and store result in register.
 
-    :::
+    :::nasm
     ADR<c> <Rd>,<label>
     ADR<c>.W <Rd>,<label> /* <label> before current instruction */
     SUB <Rd>,PC,#0.       /* Special case for zero offset */
