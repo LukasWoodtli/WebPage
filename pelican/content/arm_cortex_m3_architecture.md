@@ -732,7 +732,7 @@ to shift is read from the *bottom byte* of a register.
 
 Flags can be set.
 
-    :::
+    :::nasm
     ASRS<Rdn>,<Rm>             /* Outside IT block */
     ASR<c> <Rdn>,<Rm>          /* Inside IT block */
     ASR{S}<c>.W <Rd>,<Rn>,<Rm>
