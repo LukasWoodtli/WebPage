@@ -684,7 +684,45 @@ The register operand can be shifted.
     ADC{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
     ADC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
 
+
+## Logical Commands
+
+### And (`AND`)
+
+#### Immediate
+
+Bitwise *AND* of register and immediate value.
+
+    :::
+    AND{S}<c>  <Rd>,<Rn>,#<const>
+    AND{S}<c><q> {<Rd>,} <Rn>,  #<const>
+
+#### Register
+
+Bitwise *AND* of a register and a second (optionally-shifted) register.
+The flags can be updated based on the result.
+
+    :::
+    ANDS<Rdn>,<Rm>                       /* Outside IT block */
+    AND<c> <Rdn>,<Rm>                    /* Inside IT block */
+    AND{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+    AND{S}<c><q> {<Rd>,} <Rn>, <Rm> {,<shift>}
+
 ## Other Commands
+
+### Calculate Address (`ADR`)
+
+Calculate *PC* relative address.
+
+Add immediate value to *PC* and store result in register.
+
+    :::
+    ADR<c> <Rd>,<label>
+    ADR<c>.W <Rd>,<label> /* <label> before current instruction */
+    SUB <Rd>,PC,#0.       /* Special case for zero offset */
+    ADR<c><q> <Rd>, <label> 
+    ADD<c><q> <Rd>, PC,  #<const> 
+    SUB<c><q> <Rd>, PC,  #<const> /* Special case */
 
 ### No Operation (`NOP`)
 
