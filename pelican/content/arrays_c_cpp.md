@@ -17,7 +17,7 @@ them very efficiently.
     //        v  v   
     char data[3][2]={{0,1},
                      {2,3},
-                    {4,5}};
+                     {4,5}};
 
 The values of the array `data` are stored row for row in memory:
 
@@ -30,12 +30,4 @@ So `data` is like an array (with size *3*) of arrays of char (with size *2*).
 
 [Here](http://stackoverflow.com/a/2565310) is a good explanation.
 
-The same applies to more than 2 dimensions:
-
-    :::cpp
-    //     rows  columns
-    //        |  |   
-    //        v  v   
-    char data[2][3]={{0,1},
-                     {2,3},
-                    {4,5}};
+The same applies to more than 2 dimensions.
