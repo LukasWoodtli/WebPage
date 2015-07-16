@@ -708,6 +708,60 @@ The flags can be updated based on the result.
     AND{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
     AND{S}<c><q> {<Rd>,} <Rn>, <Rm> {,<shift>}
 
+## Bit Commands
+
+### Bit Field Clear (`BFC`)
+
+Clear a number of adjacent bits in a register.
+
+    :::nasm
+    BFC<c><q> <Rd>, #<lsb>, #<width>
+    
+Where:
+
+`<lsb>`: The least significant bit that is cleared (Range: 0-31).
+
+`<width>`: Number of bits to clear.
+
+
+### Bit Field Insert (`BFI`)
+
+Insert given number of the lowest bits from source register to
+a given position in the destination register.
+
+    :::nasm
+    BFI<c><q><Rd>, <Rn>, #<lsb>, #<width>
+
+`<lsb>`: The least significant bit in destinatin where bits are copied to (Range: 0-31).
+
+`<width>`: Number of bits to copy from source.
+
+### Bit Clear (`BIC`)
+
+#### Immediate
+
+Performs a bitwise *AND* of register and the complement of the immediate
+value.
+
+The flags can be updated.
+
+    :::nasm
+    BIC{S}<c>  <Rd>,<Rn>,#<const>
+    BIC{S}<c><q> {<Rd>,} <Rn>,  #<const>
+    
+#### Register
+
+Performs a bitwise *AND* one register and the complement of a second register.
+The second register can be shifted.
+
+The flags can be updated.
+
+    :::nasm
+    BICS<Rdn>,<Rm>    /* Outside IT block */
+    BIC<c> <Rdn>,<Rm> /* Inside IT block */
+    BIC{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+    BIC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
+
 
 ## Shift and Rotate Commands
 
@@ -738,6 +792,16 @@ Flags can be set.
     ASR{S}<c>.W <Rd>,<Rn>,<Rm>
     ASR{S}<c><q> <Rd>, <Rn>, <Rm>
 
+## Branching and Jumping Commands
+
+### Branch (`B`)
+
+Branch to a target addresd.
+
+    :::nasm
+    B<c> <label>
+    B<c>.W <label>
+    B<c><q> <label>
 
 ## Other Commands
 
