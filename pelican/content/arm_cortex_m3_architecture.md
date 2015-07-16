@@ -813,6 +813,36 @@ Calls a function at PC-relative address.
 `<label>`: The label to jump to. The assembler calculates the offset
 of the `BL` instruction and the label.
 
+### Branch with Link and Exchange (`BLX`)
+
+Calls a function at an address and instruction set specified in a register.
+
+It saves the next instruction (after `BLX`) in *LR*.
+
+> Be aware that the Cortex-M3 only supports Thumb! An attempt to change to ARM Mode will
+> cause an *UsageFault* exception.
+
+    :::nasm
+    BLX<c> <Rm>          /* Outside or last in IT block */BLX<c><q> <Rm>
+
+Exceptions: UsageFault
+
+### Branch and Exchange (`BX`)
+
+Calls a function at an address and instruction set specified in a register.
+
+It's the same as `BXL` but it **doesn't save** the next instruction in *LR*.
+
+> Be aware that the Cortex-M3 only supports Thumb! (see `BLX`)
+
+    :::nasm
+    BX<c> <Rm>   /* Outside or last in IT block */
+    BX<c><q> <Rm>
+
+
+Exceptions: UsageFault
+
+
 ## Other Commands
 
 ### Calculate Address (`ADR`)
