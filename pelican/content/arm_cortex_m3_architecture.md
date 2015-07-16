@@ -842,6 +842,18 @@ It's the same as `BXL` but it **doesn't save** the next instruction in *LR*.
 
 Exceptions: UsageFault
 
+### Compare and Branch on Non-Zero ans Compare and Branch on Zero (`CBNZ`,`CBZ`)
+Compares the value in register with zero, and conditionally branches *forward* a constant value.
+The condition flags are not affected.
+
+    :::nasm
+    CB{N}Z <Rn>,<label>    /* Not permitted in IT block */
+    CB{N}Z<q> <Rn>, <label>
+
+`<label>`: The assembler calculates the offset from the `CB{N}Z` instruction to the label.
+Permitted offsets are even numbers in the range 0 to 126.
+
+
 
 ## Other Commands
 
