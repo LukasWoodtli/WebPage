@@ -803,6 +803,16 @@ Branch to a target addresd.
     B<c>.W <label>
     B<c><q> <label>
 
+### Branch with Link (`BL`)
+
+Calls a function at PC-relative address.
+
+    :::nasm
+    BL<c><q> <label>
+    
+`<label>`: The label to jump to. The assembler calculates the offset
+of the `BL` instruction and the label.
+
 ## Other Commands
 
 ### Calculate Address (`ADR`)
@@ -818,6 +828,22 @@ Add immediate value to *PC* and store result in register.
     ADR<c><q> <Rd>, <label> 
     ADD<c><q> <Rd>, PC,  #<const> 
     SUB<c><q> <Rd>, PC,  #<const> /* Special case */
+
+### Breakpoint (`BKPT`)
+
+Causes a *DebugMonitor* exception or a debug halt.
+
+It is a unconditional instruction and can be executed inside or
+outside an *TI* block.
+
+    :::nasm
+    BKPT<q>#<imm8>
+    
+`<imm8>` is a 8-bit value that is ignored by the hardware
+but can be used to store some information by a debugger.
+
+Exceptions: *DebugMonitor*
+
 
 ### No Operation (`NOP`)
 
