@@ -811,7 +811,7 @@ The `BL` and `BLX` instructions write the address of the next instruction to *LR
 
 > The `BX` and `BLX` instructions result in a *UsageFault* exception if bit[0] of the target address is 0.
 
-`B is the only conditional instruction that can be inside or outside an *IT* block.
+`B` is the only conditional instruction that can be inside or outside an *IT* block.
 All other branch instructions can only be conditional inside an *IT* block, and are always unconditional otherwise.
 
 
@@ -866,15 +866,20 @@ It saves the next instruction (after `BLX`) in *LR*.
 Exceptions: UsageFault
 
 
-## Conditional Branch Commands
+## Compare and Branch Commands
 
-### Compare and Branch on Non-Zero ans Compare and Branch on Zero (`CBNZ`,`CBZ`)
+### Compare and Branch on Non-Zero and Compare and Branch on Zero (`CBNZ`,`CBZ`)
+
 Compares the value in register with zero, and conditionally branches *forward* a constant value.
 The condition flags are not affected.
+
+> these instructions are not allowed inside an *IT* block.
 
     :::nasm
     CB{N}Z <Rn>,<label>    /* Not permitted in IT block */
     CB{N}Z<q> <Rn>, <label>
+
+`<Rn>`: Register must be in range *R0* - *R7*.
 
 `<label>`: The assembler calculates the offset from the `CB{N}Z` instruction to the label.
 Permitted offsets are even numbers in the range 0 to 126.
