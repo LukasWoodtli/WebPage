@@ -7,6 +7,9 @@ Modified: 2015-07-10
 This page collects my notes about the Cortex-M3 architecture.
 In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by Energy Micro.
 
+Most information on this page is taken from the
+[documentation from ARM](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.subset.cortexm.m3/index.html).
+
 
 
 
@@ -121,7 +124,9 @@ instruction (normally by 4).
 
 On reset, the processor loads the PC with the value of the reset vector, which is at address 0x00000004.
 
-> The least-significant bit of each address loaded into *PC* must be 1 (indicating thumb mode).
+> The least-significant bit of each address loaded into *PC* (with `BX`, `BLX`, `LDM`, `LDR`, or `POP`)
+> must be 1 (indicating thumb mode).
+>
 > Otherwise an exception will occure on the Cortex-M3.
 
 ## Program Status Registers
@@ -599,7 +604,7 @@ bottom half of the register is not written.
     :::nasm
     MSR<c> <spec_reg>,<Rn>
 
-`MRS` is a system level instruction except when accessing the *APSR* or *CONTROL* register. 
+`MRS` is a system level instruction except when accessing the *APSR* or *CONTROL* register.
 
 <!---### Move Data between Register and Memory
 
@@ -634,7 +639,7 @@ Adds two values.
 #### Register
 
 The second regisyer operand can be shifted.
- 
+
     :::nasm
     ADDS <Rd>,<Rn>,<Rm>     /* Outside IT block */
     ADD<c> <Rd>,<Rn>,<Rm>   /* Inside IT block */
@@ -652,7 +657,7 @@ Adds an immediate value to the *SP*, writes the result to the destination regist
     ADDW<c> <Rd>,SP,#<imm12>
     ADD{S}<c><q> {<Rd>,} SP, #<const>
     ADDW<c><q> {<Rd>,} SP, #<const>
-    
+
 #### *SP* plus Register
 
 Adds an (optionally-shifted) register value to the *SP*,
@@ -673,7 +678,7 @@ Adds values with carry.
 
     :::nasm
     ADC{S}<c>  <Rd>,<Rn>,#<const>
-    
+
 #### Register
 
 The register operand can be shifted.
@@ -716,7 +721,7 @@ Clear a number of adjacent bits in a register.
 
     :::nasm
     BFC<c><q> <Rd>, #<lsb>, #<width>
-    
+
 Where:
 
 `<lsb>`: The least significant bit that is cleared (Range: 0-31).
@@ -748,7 +753,7 @@ The flags can be updated.
     :::nasm
     BIC{S}<c>  <Rd>,<Rn>,#<const>
     BIC{S}<c><q> {<Rd>,} <Rn>,  #<const>
-    
+
 #### Register
 
 Performs a bitwise *AND* one register and the complement of a second register.
@@ -778,7 +783,7 @@ Can update flags.
     ASR<c> <Rd>,<Rm>,#<imm5>  /*Inside IT block */
     ASR{S}<c>.W <Rd>,<Rm>,#<imm5>
     ASR{S}<c><q> <Rd>, <Rm>,  #<imm5>
-    
+
 #### Register
 Shifts a register by a variable number of bits, shifting in copies
 of it's sing flag. The number of bits
@@ -792,7 +797,23 @@ Flags can be set.
     ASR{S}<c>.W <Rd>,<Rn>,<Rm>
     ASR{S}<c><q> <Rd>, <Rn>, <Rm>
 
-## Branching and Jumping Commands
+##  Branch Commands
+
+- `B`: Branch (immediate)
+- `BL`: Branch with link (immediate)
+- `BX`: Branch indirect (register)
+- `BLX`: Branch indirect with link (register)
+
+All these branch to a label, or to an address given by the operand.
+
+In addition:
+The `BL` and `BLX` instructions write the address of the next instruction to *LR*.
+
+> The `BX` and `BLX` instructions result in a *UsageFault* exception if bit[0] of the target address is 0.
+
+`B is the only conditional instruction that can be inside or outside an *IT* block.
+All other branch instructions can only be conditional inside an *IT* block, and are always unconditional otherwise.
+
 
 ### Branch (`B`)
 
@@ -809,7 +830,7 @@ Calls a function at PC-relative address.
 
     :::nasm
     BL<c><q> <label>
-    
+
 `<label>`: The label to jump to. The assembler calculates the offset
 of the `BL` instruction and the label.
 
@@ -842,6 +863,8 @@ It's the same as `BXL` but it **doesn't save** the next instruction in *LR*.
 
 Exceptions: UsageFault
 
+## Conditional Branch Commands
+
 ### Compare and Branch on Non-Zero ans Compare and Branch on Zero (`CBNZ`,`CBZ`)
 Compares the value in register with zero, and conditionally branches *forward* a constant value.
 The condition flags are not affected.
@@ -867,8 +890,8 @@ Add immediate value to *PC* and store result in register.
     ADR<c> <Rd>,<label>
     ADR<c>.W <Rd>,<label> /* <label> before current instruction */
     SUB <Rd>,PC,#0.       /* Special case for zero offset */
-    ADR<c><q> <Rd>, <label> 
-    ADD<c><q> <Rd>, PC,  #<const> 
+    ADR<c><q> <Rd>, <label>
+    ADD<c><q> <Rd>, PC,  #<const>
     SUB<c><q> <Rd>, PC,  #<const> /* Special case */
 
 ### Breakpoint (`BKPT`)
@@ -880,7 +903,7 @@ outside an *TI* block.
 
     :::nasm
     BKPT<q>#<imm8>
-    
+
 `<imm8>` is a 8-bit value that is ignored by the hardware
 but can be used to store some information by a debugger.
 
