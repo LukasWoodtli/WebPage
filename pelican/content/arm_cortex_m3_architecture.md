@@ -317,16 +317,13 @@ There are two bit-band region. One for memory and the other for peripherals.
 
 To access one bit through the bit-banding alias the mapping is performed by this code:
 
-    :::C
-    #define BIT_BANDING_ALIAS_OFFSET(byteOffsetInBitBandRegion, bitNumber) \
-                                      ((byteOffsetInBitBandRegion * 32) + (bitNumber * 4))
+    :::c
+    #define BIT_BANDING_ALIAS_OFFSET(byteOffsetInBitBandRegion, bitNumber)  ((byteOffsetInBitBandRegion * 32) + (bitNumber * 4))
     #define BIT_BANDING_MEMORY_ALIAS_BASE    0x20000000
     #define BIT_BANDING_PERIPERAL_ALIAS_BASE 0x22000000
 
-    #define BIT_BANDING_MEMORY_TO_ALIAS(byte, bit)   \
-                               (BIT_BANDING_MEMORY_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
-    #define BIT_BANDING_PERIPHERAL_TO_ALIAS(byte, bit) \
-                               (BIT_BANDING_PERIPHERAL_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
+    #define BIT_BANDING_MEMORY_TO_ALIAS(byte, bit)  (BIT_BANDING_MEMORY_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
+    #define BIT_BANDING_PERIPHERAL_TO_ALIAS(byte, bit) (BIT_BANDING_PERIPHERAL_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
 
 It's also possible to calculate the address in the other direction from the alias region to the bit-banding region.
 But it's usually not nessecary to do the address translation in this direction.
