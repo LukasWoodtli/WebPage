@@ -814,6 +814,13 @@ The flags can be updated.
     BIC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
 
 
+### Count Leading Zeros (`CLZ`)
+
+Returns the number of leading zero bits of a register.
+
+    :::nasm
+    CLZ<c><q> <Rd>, <Rm>
+
 ## Shift and Rotate Commands
 
 ### Arithmetic Shift Right (`ASR`)
@@ -842,6 +849,32 @@ Flags can be set.
     ASR<c> <Rdn>,<Rm>          /* Inside IT block */
     ASR{S}<c>.W <Rd>,<Rn>,<Rm>
     ASR{S}<c><q> <Rd>, <Rn>, <Rm>
+
+## Compare Commands
+
+### Compare Negative (`CMN`)
+
+#### Immediate
+Compare values by **adding** a register and an immediate value.
+
+Updates the flags but discards result.
+
+    :::nasm
+    CMN<c> <Rn>,#<const>
+    CMN<c><q> <Rn>, #<const>
+    
+#### Register
+
+Compare values by **adding** to registers. The second register
+can be shifted.
+
+Updates the flags but discards result.
+
+    :::nasm
+    CMN<c> <Rn>, <Rm>
+    CMN<c>.W <Rn>, <Rm>{, <shift>}
+    CMN<c><q> <Rn>, <Rm> {,<shift>}
+    
 
 ##  Branch Commands
 
@@ -971,3 +1004,12 @@ The NOP does nothing.
     :::nasm
     NOP<c>
     NOP<c>.W
+    
+    
+
+
+<!-- TBD: Instructions have to be described later
+
+- CLREX 
+
+-->
