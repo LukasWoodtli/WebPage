@@ -348,3 +348,4 @@ Literature and Links
 
 [A good page with Podcasts (German)](http://www.scrumidable.de/)
 
+[Cheat Sheet](http://media.agile42.com/content/Scrum_in_a_nutshell.pdf)
