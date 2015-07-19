@@ -297,21 +297,39 @@ memory address. Thus it's easy to access it in C/C++ code.
 | 0xE0000000 - 0xFFFFFFFF | System               | NVIC, MPU, Debug...                                  |
 
 
-<!-- ## Bit-Banding
+## Bit-Banding
 
 Bit-Banding is a feature that allows to access certain bits individually. The access to the bits are atomically.
 
 The access to the individual bits are accomplished by mapping each bit from the bit-banding region to an address
-in a region called bit-band alias.
+in a region called bit-banding alias.
+
+- Each bit-banding region is 1 MB big.
+- The bit-banding alias regions are 32 MB big (but it addresses in total only the 1 MB of the bit-banding region).
 
 There are two bit-band region. One for memory and the other for peripherals.
 
 |                     | Bit-Band region         | Bit-Band alias region       |
 |---------------------|-------------------------|-----------------------------|
-| Memory              | 0x20000000 - 0x200FFFFC | 0x22000000 - 0x23FFFFC      |
-| Peripherals         | 0x40000000 - 0x400FFFFC | 0x42000000 - 0x43FFFFC      |
+| Memory              | 0x20000000 - 0x200FFFFF | 0x22000000 - 0x23FFFFF      |
+| Peripherals         | 0x40000000 - 0x400FFFFF | 0x42000000 - 0x43FFFFF      |
 
--->
+
+To access one bit through the bit-banding alias the mapping is performed by this code:
+
+    :::C
+    #define BIT_BANDING_ALIAS_OFFSET(byteOffsetInBitBandRegion, bitNumber) \
+                                      ((byteOffsetInBitBandRegion * 32) + (bitNumber * 4))
+    #define BIT_BANDING_MEMORY_ALIAS_BASE    0x20000000
+    #define BIT_BANDING_PERIPERAL_ALIAS_BASE 0x22000000
+
+    #define BIT_BANDING_MEMORY_TO_ALIAS(byte, bit)   \
+                               (BIT_BANDING_MEMORY_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
+    #define BIT_BANDING_PERIPHERAL_TO_ALIAS(byte, bit) \
+                               (BIT_BANDING_PERIPHERAL_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
+
+It's also possible to calculate the address in the other direction from the alias region to the bit-banding region.
+But it's usually not nessecary to do the address translation in this direction.
 
 # Bus Interfaces
 
