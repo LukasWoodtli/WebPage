@@ -2,7 +2,7 @@ Title: ARM Cortex-M3 Architecture
 Category: Computer Science
 Tags: Assembler
 Date: 2015-07-03
-Modified: 2015-07-10
+Modified: 2015-07-19
 
 This page collects my notes about the Cortex-M3 architecture.
 In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by
@@ -319,14 +319,29 @@ To access one bit through the bit-banding alias the mapping is performed by this
 
     :::c
     #define BIT_BANDING_ALIAS_OFFSET(byteOffsetInBitBandRegion, bitNumber)  ((byteOffsetInBitBandRegion * 32) + (bitNumber * 4))
-    #define BIT_BANDING_MEMORY_ALIAS_BASE    0x20000000
-    #define BIT_BANDING_PERIPERAL_ALIAS_BASE 0x22000000
+    #define BIT_BANDING_MEMORY_ALIAS_BASE    0x22000000
+    #define BIT_BANDING_PERIPERAL_ALIAS_BASE 0x42000000
 
     #define BIT_BANDING_MEMORY_TO_ALIAS(byte, bit)  (BIT_BANDING_MEMORY_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
     #define BIT_BANDING_PERIPHERAL_TO_ALIAS(byte, bit) (BIT_BANDING_PERIPHERAL_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
 
 It's also possible to calculate the address in the other direction from the alias region to the bit-banding region.
 But it's usually not nessecary to do the address translation in this direction.
+
+Here is a small example:
+
+    :::c
+    // Set pI to point to the first 32-bit value in the memory bit-banding region
+    uint32_t * pI = (uint32_t *)(0x20000000);
+    // Set the value where pI is pointing to 0
+	*pI = 0;
+
+    // Get the bit-banding alias address of bit 2 of the first byte in the bit-banding region
+	uint32_t * pIAlias = (uint32_t *)BIT_BANDING_MEMORY_TO_ALIAS(0, 2);
+    // Seet this bit to one
+	*pIAlias = 1;
+
+    // *pI == 4. The bit two ot *pI is now set
 
 # Bus Interfaces
 
