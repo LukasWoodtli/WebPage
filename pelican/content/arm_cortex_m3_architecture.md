@@ -5,10 +5,11 @@ Date: 2015-07-03
 Modified: 2015-07-10
 
 This page collects my notes about the Cortex-M3 architecture.
-In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by Energy Micro.
+In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by
+[Silicon Labs](https://www.silabs.com/).
 
 Most information on this page is taken from the
-[documentation from ARM](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.subset.cortexm.m3/index.html).
+[documentation by ARM](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.subset.cortexm.m3/index.html).
 
 
 
@@ -77,7 +78,7 @@ The two Stack Pointers are banked. Only one is visible at a time through R13.
 
 The lowest 2 bits of the stack pointers are always 0. So they are always word aligned.
 
-It's not nessecary to use both stack pointers (SP_main and SP_process). Simple applications use only SP_main.
+It's not necessary to use both stack pointers (SP_main and SP_process). Simple applications use only SP_main.
 
 PUSH and POP work with the actual *SP* (R13). The stack is 32-bit aligned.
 
@@ -119,7 +120,7 @@ This register holds the current program position.
 
 It can be written to for controlling the program flow (jumps). But then *LR* is not updated.
 
-Since the Cortex-M3 has a piplelined architecture the PC can be ahead of the actual executed
+Since the Cortex-M3 has a pipelined architecture the PC can be ahead of the actual executed
 instruction (normally by 4).
 
 On reset, the processor loads the PC with the value of the reset vector, which is at address 0x00000004.
@@ -127,11 +128,11 @@ On reset, the processor loads the PC with the value of the reset vector, which i
 > The least-significant bit of each address loaded into *PC* (with `BX`, `BLX`, `LDM`, `LDR`, or `POP`)
 > must be 1 (indicating thumb mode).
 >
-> Otherwise an exception will occure on the Cortex-M3.
+> Otherwise an exception will occur on the Cortex-M3.
 
 ## Program Status Registers
 
-The special-purpose program status registers (*xPSR*) provide arithmethic and logic flags (zero and carry flag),
+The special-purpose program status registers (*xPSR*) provide arithmetic and logic flags (zero and carry flag),
 execution status and current executing IRQ number.
 
 
@@ -155,9 +156,9 @@ execution status and current executing IRQ number.
 Flags that can be set by application code (unprivileged mode).
 
 - **N (bit[31])**: Negative condition flag. Set if result of instruction is negative.
-- **Z (bit[30])**: Zero condition flag. Set if result of instuction is zero (0).
-- **C (bit[29])**: Carry (or borrow) condition flag. Set if instrucion results in a carry condition (i.e unsigned overflow on addition)
-- **V (bit[28])**: Overflow condition flag. Set if the instuction results in a an overflow condition (i.e. signed overflow on addition)
+- **Z (bit[30])**: Zero condition flag. Set if result of instruction is zero (0).
+- **C (bit[29])**: Carry (or borrow) condition flag. Set if instruction results in a carry condition (i.e unsigned overflow on addition)
+- **V (bit[28])**: Overflow condition flag. Set if the instruction results in a an overflow condition (i.e. signed overflow on addition)
 - **Q (bit[27])**: Set if a `SSAT` or `USAT` instruction changes the input value for the signed/unsigned range of the result (saturation).
 - **GE[3:0] (bits[19:16])**: DSP extension only. Otherwise reserved.
 
@@ -168,7 +169,7 @@ Flags that can be set by application code (unprivileged mode).
 
 ### Execution Program Status Register (EPSR)
 
-- **T bit[24]**: Defines the instuction set. The Cortex-M3 supports only Thumb-2. So it must be 0. An fault is caused if this bit is set to 0.
+- **T bit[24]**: Defines the instruction set. The Cortex-M3 supports only Thumb-2. So it must be 0. An fault is caused if this bit is set to 0.
 - **ICI/IT**: TBD
 
 ### Composite views of the xPSR registers
@@ -222,7 +223,7 @@ This bit is only writable if in thread mode with privileged level.
 
 To switch from privileged level to user level the *Control bit[0]* can be written directly.
 
-The switch from user level to privilege level heeds to be performed within an exeption handler.
+The switch from user level to privilege level heeds to be performed within an exception handler.
 
 ## Reset Values and Required Access Privileges
 
@@ -269,12 +270,12 @@ In Handler Mode only the Privileged Level is available.
 ## Nested
 
 All external and some system interrupts can be assigned to different priority levels. Current
-handled interrupts can only be disruppted by interrupts of higher priority.
+handled interrupts can only be disrupted by interrupts of higher priority.
 
 ## Vectored
 
 The addresses of the interrupt service routines (ISRs) are stored in a vector. If an interrupt
-occures the lookup of the routine is fast and the handling of the interrupt is not delayed by lookup
+occurs the look-up of the routine is fast and the handling of the interrupt is not delayed by look-up
 code.
 
 ## Dynamic Priority Setting
@@ -296,6 +297,21 @@ memory address. Thus it's easy to access it in C/C++ code.
 | 0xE0000000 - 0xFFFFFFFF | System               | NVIC, MPU, Debug...                                  |
 
 
+<!-- ## Bit-Banding
+
+Bit-Banding is a feature that allows to access certain bits individually. The access to the bits are atomically.
+
+The access to the individual bits are accomplished by mapping each bit from the bit-banding region to an address
+in a region called bit-band alias.
+
+There are two bit-band region. One for memory and the other for peripherals.
+
+|                     | Bit-Band region         | Bit-Band alias region       |
+|---------------------|-------------------------|-----------------------------|
+| Memory              | 0x20000000 - 0x200FFFFC | 0x22000000 - 0x23FFFFC      |
+| Peripherals         | 0x40000000 - 0x400FFFFC | 0x42000000 - 0x43FFFFC      |
+
+-->
 
 # Bus Interfaces
 
@@ -312,7 +328,7 @@ The Cortex-M3 has multiple bus interfaces:
 Following data types are supported in memory:
 
 - Byte: 8 bits.
-- Halfword: 16 bits.
+- Half-word: 16 bits.
 - Word: 32 bits.
 
 The registers are 32 bit wide. The instruction set supports following data types in the registers:
@@ -382,9 +398,9 @@ The priority can be configured.
 
 ## BusFault
 
-This are memory faults other than MemManage faults. They can occure
+This are memory faults other than MemManage faults. They can occur
 for data and instruction transactions.
-They can occur synchronous or asynchronous and araise usually by errors
+They can occur synchronous or asynchronous and arise usually by errors
 on system buses.
 
 This fault can be disabled by software. Then a BusFault escalates to a HardFault.
@@ -398,11 +414,11 @@ UsageFaults can have different causes:
 - Undefined instruction.
 - Invalid state when executing instruction.
 - Error on exception return.
-- Attempt to access coprocessor when it's unsvailable (or disabled).
+- Attempt to access co-processor when it's unavailable (or disabled).
 
 The reporting of the following UsageFaults can be activated:
 
-- Word/halfword access on unaligned memory address.
+- Word/half-word access on unaligned memory address.
 - Division by zero.
 
 This fault can be disabled by software. Then a UsageFault escalates to a HardFault.
@@ -416,7 +432,7 @@ It occurs when halting debug is disabled and the DebugMonitor is enabled.
 
 The priority is configurable.
 
-> A debug watchpoint is asynchronous and behaves as an interrupt.
+> A debug watch-point is asynchronous and behaves as an interrupt.
 
 ## SVCall
 
@@ -537,12 +553,12 @@ suffixes can be used.
 This assembler qualifier is used to select a 16-bit
 or 32-bit instruction encoding.
 
-`.N`: Narrow: Assembler must select a 16-bit istruction.
+`.N`: Narrow: Assembler must select a 16-bit instruction.
 
-`.W`: Wide: Assembler must select a 32-bit istruction.
+`.W`: Wide: Assembler must select a 32-bit instruction.
 
 If the instruction is not available in the requested encoding the
-assembler prroduces an error.
+assembler produces an error.
 
 If no qualifier is given the assembler selects the 16-bit encoding if it
 is available.
@@ -557,7 +573,7 @@ Moves a value (or it's negated value) from one register to an other.
 
 Moving immediate value directly into a register is also possible.
 
-There are also command for movig shifted data. In this case
+There are also command for moving shifted data. In this case
 the `MOV` commands are aliases for the shifting commands.
 
 #### Immediate
@@ -581,7 +597,7 @@ Examples:
     MOV R3, R2; /* Move the value from R2 to R3 */
     MVN R5, R6; /* Move the negated value of R6 to R5 */
 
-#### Move to top halfword of Register (`MOVT`)
+#### Move to top half-word of Register (`MOVT`)
 
 Moves an immediate value to the top half of the given register. The
 bottom half of the register is not written.
@@ -638,7 +654,7 @@ Adds two values.
 
 #### Register
 
-The second regisyer operand can be shifted.
+The second register operand can be shifted.
 
     :::nasm
     ADDS <Rd>,<Rn>,<Rm>     /* Outside IT block */
@@ -696,7 +712,7 @@ The register operand can be shifted.
 
 #### Immediate
 
-Bitwise *AND* of register and immediate value.
+Bit-wise *AND* of register and immediate value.
 
     :::nasm
     AND{S}<c>  <Rd>,<Rn>,#<const>
@@ -704,7 +720,7 @@ Bitwise *AND* of register and immediate value.
 
 #### Register
 
-Bitwise *AND* of a register and a second (optionally-shifted) register.
+Bit-wise *AND* of a register and a second (optionally-shifted) register.
 The flags can be updated based on the result.
 
     :::nasm
@@ -737,7 +753,7 @@ a given position in the destination register.
     :::nasm
     BFI<c><q><Rd>, <Rn>, #<lsb>, #<width>
 
-`<lsb>`: The least significant bit in destinatin where bits are copied to (Range: 0-31).
+`<lsb>`: The least significant bit in destination where bits are copied to (Range: 0-31).
 
 `<width>`: Number of bits to copy from source.
 
@@ -745,7 +761,7 @@ a given position in the destination register.
 
 #### Immediate
 
-Performs a bitwise *AND* of register and the complement of the immediate
+Performs a bit-wise *AND* of register and the complement of the immediate
 value.
 
 The flags can be updated.
@@ -756,7 +772,7 @@ The flags can be updated.
 
 #### Register
 
-Performs a bitwise *AND* one register and the complement of a second register.
+Performs a bit-wise *AND* one register and the complement of a second register.
 The second register can be shifted.
 
 The flags can be updated.
@@ -817,7 +833,7 @@ All other branch instructions can only be conditional inside an *IT* block, and 
 
 ### Branch (`B`)
 
-Branch to a target addresd.
+Branch to a target addressed.
 
     :::nasm
     B<c> <label>
@@ -902,7 +918,7 @@ Add immediate value to *PC* and store result in register.
     ADD<c><q> <Rd>, PC,  #<const>
     SUB<c><q> <Rd>, PC,  #<const> /* Special case */
 
-### Breakpoint (`BKPT`)
+### Break-point (`BKPT`)
 
 Causes a *DebugMonitor* exception or a debug halt.
 
