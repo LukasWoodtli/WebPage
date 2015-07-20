@@ -2,11 +2,11 @@ Title: Intel Architecture
 Category: Computer Science
 Tags: Assembler
 Date: 2015-06-22
-Modified: 2015-07-06
+Modified: 2015-07-20
 
 On this page I write down some notes about the Intel architecture (x86). I learned most of it in [school](http://www.vdf.ethz.ch/info/showDetails.asp?isbnNr=3255) few years ago.
 
-I'ts mainly for Intel 80186. But I'll extend it with informations about modern [Intel processors](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html) ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
+It's mainly for Intel 80186. But I'll extend it with information about modern [Intel processors](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html) ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
 
 I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
@@ -113,7 +113,7 @@ $$physical\_ address = segment\_ register \times 10_{hex} + offset$$
 
 Intel processors have 5 different addressing modes.
 
-## Imediate
+## Immediate
 
 The operand (constant) is given with the command. i.e:
 
@@ -159,7 +159,7 @@ $-$ means that this element is not used.
 The three possible address parts are:
 
 1. Basis Register (BX or BP): Contains usually the start address of a data structure. A segment prefix can be given.
-2. Index Register (SI or DI): Can contain an index (i.e Array index) that can be calculated at runtime. It's 16-bit unsigned.
+2. Index Register (SI or DI): Can contain an index (i.e Array index) that can be calculated at run-time. It's 16-bit unsigned.
 3. Displacement: A *signed* constant value (8-bit or 16-bit) that gives an offset.
 
 This addressing scheme gives a total of 27 addressing combinations. But only *24* combinations are allowed. The following three are **not allowed**:
@@ -355,7 +355,7 @@ or the **extended accumulator** (*DX/AX*).
 
 ### Affected Flags
 
-- Carry: set if operand extended acumulator is needed for saving result (*DX/AX*)
+- Carry: set if operand extended accumulator is needed for saving result (*DX/AX*)
 - Zero: changed (undefined)
 - Sign: changed (undefined)
 - Parity: changed (undefined)
@@ -389,7 +389,7 @@ The result (quotient) is saved either in *AX* or *AL*. The remainder is saved in
 
 ## Convert Operand Size (`CBW`, `CWD`)
 
-The commands *convert byte to word* (`CBW`) and *convert word to doubleword* (`CWD`) convert a *signed*
+The commands *convert byte to word* (`CBW`) and *convert word to double-word* (`CWD`) convert a *signed*
 number to a number of the same value but twice the size. This is needed to keep the
 [two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) format.
 
@@ -397,7 +397,7 @@ number to a number of the same value but twice the size. This is needed to keep 
 
 ## And, Or and Xor (`AND`, `OR`, `XOR`)
 
-Bitwise **and**, **or** or **xor**  operation. The first operand can be a register or a memory address. The second operand can
+Bit-wise **and**, **or** or **xor**  operation. The first operand can be a register or a memory address. The second operand can
 be a register, a memory address or a constant.
 
 The first operand is overwritten with the result.
@@ -410,7 +410,7 @@ The first operand is overwritten with the result.
 
 ## Not (`NOT`)
 
-Bitwise **not** (inverse) operation. The operand can be a register or a memory address.
+Bit-wise **not** (inverse) operation. The operand can be a register or a memory address.
 
 The operand is overwritten with the result.
 
@@ -420,7 +420,7 @@ The operand is overwritten with the result.
 
 # Rotation Commands
 
-## Roatate (`ROL`, `ROR`)
+## Rotate (`ROL`, `ROR`)
 
 Rotate left (`ROL`) or right (`ROR`).
 
@@ -456,7 +456,7 @@ It is then rotated by the constant **1** (immediate) or by the value given in *C
 
 Clear Carry Flag (`CLC`): CF = 0.
 
-Set Carry Flage (`STC`): CF = 1.
+Set Carry Flag (`STC`): CF = 1.
 
 Complement Carry Flag (`CMC`): CF = !CF.
 
@@ -566,7 +566,7 @@ All far jumps are absolute.
 
 - 8-bit displacement is added to *IP* as signed number:<pre><strong>JMP</strong> displ8</pre>
 - 16-bit displacement is added to *IP* as unsigned number:<pre><strong>JMP</strong> displ16</pre>
-- The constant is the absolute 32-bit FAR-addresd:<pre><strong>JMP</strong> const32</pre>
+- The constant is the absolute 32-bit FAR-addressed:<pre><strong>JMP</strong> const32</pre>
 - *IP* is loaded with the value of the register:<pre><strong>JMP</strong> reg16</pre>
 - *IP* is loaded with the value given by the memory position:<pre><strong>JMP</strong> mem16</pre>
 - *CS* and *IP* are loaded with the value at the memory position:<pre><strong>JMP</strong> mem32</pre>
@@ -646,7 +646,7 @@ The relation is expressed differently for signed and unsigned operands:
 | `JPO`   | Jump if parity odd  | PF $=$ 0   |
 
 
-## Compairing Commands (`CMP`, `TEST`)
+## Comparing Commands (`CMP`, `TEST`)
 
 Since the different jump commands depend on flags set or not there
 are special commands that only affect the flags.
@@ -667,7 +667,7 @@ None of the loop commands affects any flags!
 
 ## Loop (`LOOP`)
 
-Decremets *CX* by one (1). If *CX* is not zero (*CX* $\neq$ 0) it performs the jump.
+Decrements *CX* by one (1). If *CX* is not zero (*CX* $\neq$ 0) it performs the jump.
 
 ## Loop while equal and Loop while zero (`LOOPE`, `LOOPZ`)
 
@@ -769,7 +769,7 @@ The usual tasks in a function prologue are:
 
 - Save old *BP* (push it on the stack).
 - Assign *SP* to *BP* (*PB* = *SP*). So the *BP* points the the old *BP*.
-- Save regisister contents to stack. So the registers can be used in the fuction.
+- Save register contents to stack. So the registers can be used in the function.
 - Allocate memory on stack for use in function.
 
 The the actual code of the function can run.
@@ -786,7 +786,7 @@ This commands are powerful but not so easy to understand. [Here](http://www.ooci
 
 ## Commands
 
-Moslty *SI* is used for addressing the source operator and *DI* is used for addressing the destination operator. Hence the names.
+Mostly *SI* is used for addressing the source operator and *DI* is used for addressing the destination operator. Hence the names.
 For some commands the accumulator (*AL*/*AX*) is used as operator.
 *SI* is *DS*-relative by default. But the segment can be overridden.
 *DI* is *ES*-relative by default. The segment can **not** be overridden.
