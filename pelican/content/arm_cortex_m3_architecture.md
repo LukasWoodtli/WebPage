@@ -332,12 +332,12 @@ Here is a small example:
 
     :::c
     // Set pI to point to the first 32-bit value in the memory bit-banding region
-    uint32_t * pI = (uint32_t *)(0x20000000);
+    volatile uint32_t * pI = (uint32_t *)(0x20000000);
     // Set the value where pI is pointing to 0
 	*pI = 0;
 
     // Get the bit-banding alias address of bit 2 of the first byte in the bit-banding region
-	uint32_t * pIAlias = (uint32_t *)BIT_BANDING_MEMORY_TO_ALIAS(0, 2);
+	volatile uint32_t * pIAlias = (uint32_t *)BIT_BANDING_MEMORY_TO_ALIAS(0, 2);
     // Seet this bit to one
 	*pIAlias = 1;
 
