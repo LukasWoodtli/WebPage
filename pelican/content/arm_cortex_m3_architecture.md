@@ -852,6 +852,29 @@ Flags can be set.
 
 ## Compare Commands
 
+### Compare (`CMP`)
+
+#### Immediate
+Compare values by subtracting an immediate value from a register.
+
+Updates the flags but discards result.
+
+    :::nasm
+    CMP<c> <Rn>,#<imm8>
+    CMP<c>.W <Rn>,#<const>
+    CMP<c><q> <Rn>, #<const>
+    
+#### Register
+Compare values by subtracting an (optionally shifted) register
+from an other register.
+
+Updates the flags but discards result.
+
+    :::nasm
+    CMP<c> <Rn>,<Rm>    /* <Rn> and <Rm> both from R0-R7 */
+    CMP<c>.W <Rn>, <Rm> {,<shift>}
+    CMP<c><q> <Rn>, <Rm> {,<shift>}
+
 ### Compare Negative (`CMN`)
 
 #### Immediate
@@ -996,7 +1019,17 @@ but can be used to store some information by a debugger.
 
 Exceptions: *DebugMonitor*
 
+### Debug Hint (`DBG`)
 
+Provides a hint to debug and trace systems.
+The debug architecture defines the use (if any).
+
+    :::nasm
+    DBG<c><q>#<option>
+    // Any decoding of 'option' is specified by the debug system
+    
+    
+    
 ### No Operation (`NOP`)
 
 The NOP does nothing.
@@ -1011,5 +1044,6 @@ The NOP does nothing.
 <!-- TBD: Instructions have to be described later
 
 - CLREX 
+- CPS
 
 -->
