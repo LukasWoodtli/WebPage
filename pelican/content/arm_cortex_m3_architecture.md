@@ -735,6 +735,21 @@ The register operand can be shifted.
     ADC{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
     ADC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
 
+### Multiply (`MUL`)
+
+Multiplies two registers. The least significant 32-bits
+are copied to the destination register.
+
+Can update flags.
+
+> Writing flags can reduce performance!
+
+    :::nasm
+    MULS <Rdm>,<Rn>,<Rdm>    /* Outside IT block */
+    MUL<c> <Rdm>,<Rn>,<Rdm>  /* Inside IT block */
+    MUL<c> <Rd>,<Rn>,<Rm>
+    MUL{S}<c><q> {<Rd>,} <Rn>,  <Rm>
+
 
 ## Logical Commands
 
