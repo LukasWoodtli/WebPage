@@ -75,3 +75,39 @@ objects of supertypes are expected
 - Extend these objecs (fields and methods)
 - Behaviour of specialized objects need to be compliant to more general objects! (Substitution Principle)
 - Progam parts that work for the genral objects work also for specialized objects
+
+
+# Types and Subtyping
+
+## Types
+
+### Weak and Strong Type Systems
+
+#### Untyped Languages
+
+- Not classifying values into types
+- i.e. Assembler
+
+#### Weakly Typed Languages
+
+- Classifying values into types
+- No strict enforcement of restrictions
+- i.e. C, C++
+
+#### Strongly Typed Languages
+
+- Enforcing that all operations are applied to values of appropriate type
+- Strongly-typed languages prevent certain erroneous or undesirable program behavior
+- i.e. Java, Python, Scala, Smalltalk, Eiffel, C#
+
+### Nominal and Structural Types
+
+#### Nominal Types
+
+- Based on type names
+- i.e. C++, Java, Eiffel, Scala
+
+#### Structural Types
+
+- Based on available methods and fields
+- i.e. Python, Ruby, Smalltals
