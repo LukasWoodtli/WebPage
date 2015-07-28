@@ -131,9 +131,9 @@ objects of supertypes are expected
 
 ### Overview of Type Systems in OO-Languages
 
-           | Static                              | Dynamic                                        |
------------|-------------------------------------|------------------------------------------------|
-Nominal    | C++, Java, Eiffel, Scala, C#        | certain features of statically-typed languages |
-Structural | Research languages: O'Caml, Moby... | Python, JavaScript, Ruby, Smalltalk            |
+|            | Static                              | Dynamic                                        |
+|------------|-------------------------------------|------------------------------------------------|
+| Nominal    | C++, Java, Eiffel, Scala, C#        | certain features of statically-typed languages |
+| Structural | Research languages: O'Caml, Moby... | Python, JavaScript, Ruby, Smalltalk            |
 
 Dynamic and Structural is often called "duck typing".
