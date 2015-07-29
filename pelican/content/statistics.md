@@ -192,4 +192,4 @@ Flip coin $n$ times.
 
 $P(\#heads = k)$: Expectation to get $k$ heads from all the flips.
 
-$$P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k}$$
+$$P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k} = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}$$
