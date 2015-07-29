@@ -137,3 +137,4 @@ objects of supertypes are expected
 | Structural | Research languages: O'Caml, Moby... | Python, JavaScript, Ruby, Smalltalk            |
 
 Dynamic and Structural is often called "duck typing".
+
