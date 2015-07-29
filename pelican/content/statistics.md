@@ -190,6 +190,6 @@ $p = P(heads)$: Probabilty to get a head from one coin flip.
 
 Flip coin $n$ times.
 
-$P(#heads = k)$: Expectation to get $k$ heads from all the flips.
+$P(\#heads = k)$: Expectation to get $k$ heads from all the flips.
 
-$$P(#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k}$$
+$$P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k}$$
