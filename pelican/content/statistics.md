@@ -47,7 +47,7 @@ $$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
 Prior: $P(A)$
 
 Posterior: $$P(A \mid B) = P(A) \cdot P(B \mid A)\\
-    P(\lnot A\mid B) = P(\lnot A) \cdot P(B \mid \lnot A)$$ 
+    P(\lnot A\mid B) = P(\lnot A) \cdot P(B \mid \lnot A)$$
 
 
 * $P(A)$: the prior, is the initial degree of belief in $A$.
@@ -175,8 +175,21 @@ $$\sigma_X = \sqrt{Var(X)}$$
 Binomial Coefficients
 =====================
 
-Choose $k$ elements from $n$ possible elements (without putting 
-back elements and without caring about the order of the chosen 
+Choose $k$ elements from $n$ possible elements (without putting
+back elements and without caring about the order of the chosen
 elements):
 
 $$\binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}$$
+
+Binomial Distribution
+---------------------
+
+i.e. Flip a loaded coin:
+
+$p = P(heads)$: Probabilty to get a head from one coin flip.
+
+Flip coin $n$ times.
+
+$P(#heads = k)$: Expectation to get $k$ heads from all the flips.
+
+$$P(#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k}$$
