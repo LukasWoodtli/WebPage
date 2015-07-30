@@ -33,27 +33,31 @@ There is a good overview of the [x86 instructions](https://en.wikipedia.org/wiki
 | Long Mode         | x86-64        |
 
 
-# Memory Models (Real Mode)
+# Memory Models 
 
-## Tiny
+## Real Mode Memory Models (16-bit)
+
+This memory models are used in DOS for example.
+
+### Tiny
 
 Code and data in the same segment (64 kB). Code starts at
 `0x100` relative to segment.
 
 Executable has ending *.com* (instead of *.exe*).
 
-## Small
+### Small
 
 One segment for code and one segment for data and stack.
 Both segments have max. size of 64 kB.
 
-## Medium
+### Medium
 
 The code can exceed 64 kB (multiple segments). *Far* function calls are needed.
 
 One segment (of max. 64 kB) for data and stack.
 
-## Compact
+### Compact
 
 Code is limited to one segment (64 kB).
 
@@ -61,7 +65,7 @@ Stack is limited to one segment (64 kB).
 
 Data can exceed 64 kB. *Far* pointers are needed for data.
 
-## Large
+### Large
 Code can exceed 64 kB.
 
 Data can exceed 64 kB.
@@ -70,12 +74,30 @@ Stack is limited to one segment (64 kB).
 
 *Far* pointers are needed for code and data.
 
-## Huge
+### Huge
 
 Same as large. A data structure can exceed 64 kB by
 modifying segment and offset when a pointer is incremented.
 
+## Protected Mode Memory Models (16-bit)
 
+Win 3.x uses *Protected Mode* and similar memory models as in Real Mode.
+
+Segment registers contain *Segment Selectors* instead of physical 
+addresses.
+
+To access data structures bigger than 64 kB the *8* has to be 
+added tonthe segment descriptor for each 64 kB increment.
+
+On a 32-bit processor a 32-bit offset is used.
+
+## 32-bit Memory Models
+
+32-bit OS's (Windows, Linux, BSD, Intel-Mac) use the *Flat* memory
+model. Application code uses only one (max. 32 GB) segment.
+
+Pointers are 32-bit *signed* addresses. Negative addresses are
+reseved for kernel and drivers.
 
 # Registers
 
