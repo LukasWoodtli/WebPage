@@ -33,6 +33,50 @@ There is a good overview of the [x86 instructions](https://en.wikipedia.org/wiki
 | Long Mode         | x86-64        |
 
 
+# Memory Models (Real Mode)
+
+## Tiny
+
+Code and data in the same segment (64 kB). Code starts at
+`0x100` relative to segment.
+
+Executable has ending *.com* (instead of *.exe*).
+
+## Small
+
+One segment for code and one segment for data and stack.
+Both segments have max. size of 64 kB.
+
+## Medium
+
+The code can exceed 64 kB (multiple segments). *Far* function calls are needed.
+
+One segment (of max. 64 kB) for data and stack.
+
+## Compact
+
+Code is limited to one segment (64 kB).
+
+Stack is limited to one segment (64 kB).
+
+Data can exceed 64 kB. *Far* pointers are needed for data.
+
+## Large
+Code can exceed 64 kB.
+
+Data can exceed 64 kB.
+
+Stack is limited to one segment (64 kB).
+
+*Far* pointers are needed for code and data.
+
+## Huge
+
+Same as large. A data structure can exceed 64 kB by
+modifying segment and offset when a pointer is incremented.
+
+
+
 # Registers
 
 This are the 16-bit registers of Intel 8086, 8088,  80186 and 80188.
