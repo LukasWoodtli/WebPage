@@ -83,6 +83,9 @@ objects of supertypes are expected
 
 ### Weak and Strong Type Systems
 
+How strongly or weakly typed a language is concerns casting (implicit and explicit).
+It's mainly used to compare languages to each other about the possible castings, type safety and information loss.
+
 #### Untyped Languages
 
 - Not classifying values into types
@@ -146,3 +149,49 @@ Dynamic and Structural is often called "duck typing".
 - Syntactic classification: Subtypes understand *at least the messages* of their supertypes.
 
 - Semantic classification: Subtypes provide *at least the behaviour* of their supertypes.
+
+### Variance (Covariance, Contravariance and Invariance)
+
+Based on substitution principle.
+
+- Covariance: Ordering of types from more specific to more generic (in direction of inheritance hierarchy)
+
+- Contravariance: Ordering of types from more generic to more specific (in oposite direction of inheritance hierarchy)
+
+
+For OOP:
+
+- Contravariance: Input Arguments
+- Covariance: Return Values and Exceptions
+- Invariance: In- and Output Arguments (Reference Arguments)
+
+
+| Programming Language    | Argument Type  | Return Type  |
+|-------------------------|----------------|--------------|
+| C++, Java, Scala, D...  | Invariant      | Covariant    |
+| Eiffel                  | Covariant      | Covariant    |
+| C#                      | Invariant      | Invariant    |
+
+
+In Java and C# arrays are covariant!
+
+
+### Behavioral Subtyping (Contracts)
+
+What are the *properties* shared by the values of a type?
+
+*Properties* should also include the behavior of the object.
+This is expressed as interface specifications (contracts)
+
+- Precondition: Have to hold before the method is executed
+- Postcondition: Have to hold after the method has terminated
+- Old-expressons: Can be used to refer to prestate values from the postcondition
+- Invariant: Have to hold in al states in which an object can be accessed by other objects
+
+#### Subtyping and Contracs
+
+- Subtypes must fulfill contracts of supertypes
+- Overriding method of subtypes may have *weaker preconditions* than the supertype method
+- Overriding method of subtypes may have *stronger postconditions* than the supertype method
+- Subtypes may have *stronger invariants* than supertypes
+- Subtypes may have *stronger history constrains* than supertype
