@@ -128,6 +128,7 @@ objects of supertypes are expected
 - Variables, methods, and expressions of a program are typically not typed
 - Every object and value has a type
 - Run-time system checks that operations are applied to expected arguments
+- Static languages need to performe some checks dynamically at run-time (i.e type-casting)
 
 ### Overview of Type Systems in OO-Languages
 
@@ -138,3 +139,10 @@ objects of supertypes are expected
 
 Dynamic and Structural is often called "duck typing".
 
+## Subtyping
+
+> Substitution  principle Objects of subtypes can be used wherever objects of supertypes are expected
+
+- Syntactic classification: Subtypes understand *at least the messages* of their supertypes.
+
+- Semantic classification: Subtypes provide *at least the behaviour* of their supertypes.
