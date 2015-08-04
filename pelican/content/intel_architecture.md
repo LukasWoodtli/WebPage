@@ -87,17 +87,66 @@ Segment registers contain *Segment Selectors* instead of physical
 addresses.
 
 To access data structures bigger than 64 kB the *8* has to be 
-added tonthe segment descriptor for each 64 kB increment.
+added to the segment descriptor for each 64 kB increment.
 
 On a 32-bit processor a 32-bit offset is used.
 
 ## 32-bit Memory Models
 
 32-bit OS's (Windows, Linux, BSD, Intel-Mac) use the *Flat* memory
-model. Application code uses only one (max. 32 GB) segment.
+model. Application code uses only one (max. 2 GB) segment.
 
 Pointers are 32-bit *signed* addresses. Negative addresses are
 reseved for kernel and drivers.
+
+
+## 64-bit Memory Models
+
+### Windows
+
+The size of code and static data together is limited to 2 GB.
+So it's possible to use RIP-relative addresses.
+The image base of an executable binary is usually below $2^{31}$.
+Absolute 32-bit addresses are not often used.
+
+Stack and dynamically allocated data (data on heap) can exceed 2 GB.
+
+Pointers are usually 64 bits (sometimes 32 bits).
+
+Negative addresses are reserved for the kernel.
+
+### Linux snd BSD
+
+#### Small
+
+Code an static data is limited to 2 GB and stored at addresses below $2^{31}$.
+The compiler can use absolte signed 32-bit addresses.
+
+Stack and dynamically allocated data can exceed 2 GB.
+
+Pointers are 64 bits.
+
+Default memory model in Linux (x64) and BSD.
+
+#### Medium
+
+Static data bigger than the 'large-data-threshold' is stored in a
+data section that can exceed 2 GB.
+
+Code and smaller static data are limited to addresses below 
+$2^{31}$.
+
+#### Large
+
+Code and data can exceed 2 GB. Addresses are 64 bits.
+
+#### Kernel
+
+Used to compile the kernel and device drivers.
+
+Addresses must be negative between $-2^{31}$ and $0$.
+
+
 
 # Registers
 
