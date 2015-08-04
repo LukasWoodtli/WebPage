@@ -205,7 +205,7 @@ $\sigma^2$: Variance
 $\sigma$: Standard Deviation
 
 
-$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{(-\frac{1}{2}\cdot\frac{(x-\mu)^2}{\sigma^2})}$$
+$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right)}$$
 
 Normalizer
 ----------
