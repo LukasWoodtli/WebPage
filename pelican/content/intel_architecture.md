@@ -146,6 +146,24 @@ Used to compile the kernel and device drivers.
 
 Addresses must be negative between $-2^{31}$ and $0$.
 
+### OS X (Darwin)
+
+The defaukt memory model of the darwin kernel limits code
+and static data together to 2 GB.
+So 32-bit RIP-relative addresses can be used.
+
+Code is loaded to addresses above $2^{32}$ by default.
+Addresses below $2^{32}$ are blocked (pagezero).
+
+Stack and dynamically allocated data can exceed 2 GB.
+
+Pointers are 64 bits. Pointer tables can use 32-bit
+signed addresses relative to any reference point.
+
+Certain system functions can be accessed in the *commpage*.
+
+It's possible to reduce the size of *pagezero* to place
+code below $2{31}$ so that absolute 32-bit addresses can be used.
 
 
 # Registers
