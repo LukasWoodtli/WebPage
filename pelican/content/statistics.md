@@ -210,5 +210,5 @@ $$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{\left(-\frac{1}{2}\cdot\frac{\lef
 Normalizer
 ----------
 
-The expression $\frac{1}{\sqrt{2\pi\sigma^2}}$ is needed to normalize the area underneath the rest of
-the formula. Otherwise it would not add up to $1$.
+The expression $\frac{1}{\sqrt{2\pi\sigma^2}}$ is needed to normalize the area underneath curve given by the rest of
+the formula ($e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right$). Otherwise it would not add up to $1$.
