@@ -182,7 +182,7 @@ elements):
 $$\binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}$$
 
 Binomial Distribution
----------------------
+=====================
 
 i.e. Flip a loaded coin:
 
@@ -193,3 +193,22 @@ Flip coin $n$ times.
 $P(\#heads = k)$: Expectation to get $k$ heads from all the flips.
 
 $$P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k} = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}$$
+
+
+The Normal Distribution
+=======================
+
+$\mu$: Mean
+
+$\sigma^2$: Variance
+
+$\sigma$: Standard Deviation
+
+
+$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{(-\frac{1}{2}\cdot\frac{(x-\mu)^2}{\sigma^2})}$$
+
+Normalizer
+----------
+
+The expression $\frac{1}{\sqrt{2\pi\sigma^2}}$ is needed to normalize the area underneath the rest of
+the formula. Otherwise it would not add up to $1$.
