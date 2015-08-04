@@ -148,8 +148,8 @@ Addresses must be negative between $-2^{31}$ and $0$.
 
 ### OS X (Darwin)
 
-The defaukt memory model of the darwin kernel limits code
-and static data together to 2 GB.
+The defaukt memory model of the intel-based darwin kernel 
+limits code and static data together to 2 GB.
 So 32-bit RIP-relative addresses can be used.
 
 Code is loaded to addresses above $2^{32}$ by default.
@@ -163,7 +163,7 @@ signed addresses relative to any reference point.
 Certain system functions can be accessed in the *commpage*.
 
 It's possible to reduce the size of *pagezero* to place
-code below $2{31}$ so that absolute 32-bit addresses can be used.
+code below $2^{31}$ so that absolute 32-bit addresses can be used.
 
 
 # Registers
