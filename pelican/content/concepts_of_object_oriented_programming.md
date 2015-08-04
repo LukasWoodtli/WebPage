@@ -200,11 +200,14 @@ This is expressed as interface specifications (contracts)
 
 ### Difference between inheritance and subtyping
 
-Inheritance allows to reuse the code inside a class 
+Inheritance allows to reuse the code (specialization) inside a class 
 (member variables and method definitions).
 
 Subtyping supports reuse externally. It's used for polymorphism
 in form of the substitution principle.
+
+Subtyping expresses classification.
+
 Subtypeing depends only on the interface of objects and not on their
 implementations.
 
@@ -216,4 +219,26 @@ without inheritance (no reuse of code from parent class).
 Usually the term "inherit from an interface" is used even if it's
 not correct.
 
+> Subclassing = Subtyping + Inheritance
+
+Inheritance is *not* a core concept of OOP.
+
+OOP can do without inheritance, but not without subtyping!
+
+
+## Aggregation vs. Private Inheritance (C++)
+
+- Both solutions allow code reuse without establishing a subtype relation
+- No subtype polymorphism
+- No behavioral subtyping  equirements
+
+Aggregation causes more overhead 
+
+- Two objects at run-time
+- Boilerplate code for delegation
+- Access methods for protected fields
+
+Private inheritance may lead to unnecessary multiple inheritance
+
+<!-- ## Dynamic Method Binding -->
 
