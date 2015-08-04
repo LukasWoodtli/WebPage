@@ -24,7 +24,7 @@ Independent Events
 
 - Probability of Event: $P$
 - Probability of opposite Event: $1-P$
-- Probability of composit Events: $P \cdot P \cdot ... \cdot P$
+- Probability of composite Events: $P \cdot P \cdot ... \cdot P$
 
 
 Dependent Events
@@ -58,22 +58,22 @@ Posterior: $$P(A \mid B) = P(A) \cdot P(B \mid A)\\
 Algorithm
 ---------
 
-Imagine there is a disease. The posibility to get this particular desease is $P(D)$.
+Imagine there is a disease. The possibility to get this particular disease is $P(D)$.
 
 There is a test to check if someone has that disease. But the test is not completely reliable.
 
 Prior: $P(D)$
 Sensitivity: $P(Pos \mid D)$
-Specitivity: $P(Neg \mid \lnot D)$
+Specificity: $P(Neg \mid \lnot D)$
 
 The **Prior** says how many people have the disease.
 
-The **Sensitivity** says how many get a **positive** test if they **have the desease**.
+The **Sensitivity** says how many get a **positive** test if they **have the disease**.
 
-The **Specitivity** says how many get a **negative** test if they **don't have the desease**.
+The **Sensitivity** says how many get a **negative** test if they **don't have the disease**.
 
 
-Imagine someone get's a **positive** test result. How can we calculate the probability that this person has the desease?
+Imagine someone get's a **positive** test result. How can we calculate the probability that this person has the disease?
 
 ![Algorithm to calculate Bayes' rule](/images/bayes_algorithm.svg)
 
@@ -88,22 +88,22 @@ Note: $P(A, B) = P(B, A)$
 
 The calculation for a **negative** test result are analogous. Just replace $Pos$ with $Neg$.
 
-Probablity Distributions
-========================
+Probability Distributions
+=========================
 
-> In **Continous Distributions** every outcome has the **Probability** $0$.
+> In **Continuous Distributions** every outcome has the **Probability** $0$.
 
 Density
 -------
 
 PDF: Probability Density Function
 
-Probability for continous spaces. Density can be bigger than $1$.
+Probability for continuous spaces. Density can be bigger than $1$.
 
 Density:
 
 - Always non-negative
-- Doesn't need to be continous
+- Doesn't need to be continuous
 - Doesn't need to be smaller or equal than one
 - Integrates to one
 
@@ -143,7 +143,7 @@ Mean
 
 $$\mu = \frac{1}{n} \sum_{i=1}^n{x_i}$$
 
-Sum up all elements and divide py the number of elements.
+Sum up all elements and divide by the number of elements.
 
 Median
 ------
@@ -153,7 +153,7 @@ Sort all elements and take the one in the middle.
 Mode
 ----
 
-The value of the elements that occure most in the data set.
+The value of the elements that occur most in the data set.
 
 Variance
 ========
@@ -182,14 +182,33 @@ elements):
 $$\binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}$$
 
 Binomial Distribution
----------------------
+=====================
 
 i.e. Flip a loaded coin:
 
-$p = P(heads)$: Probabilty to get a head from one coin flip.
+$p = P(heads)$: Probability to get a head from one coin flip.
 
 Flip coin $n$ times.
 
 $P(\#heads = k)$: Expectation to get $k$ heads from all the flips.
 
 $$P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k} = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}$$
+
+
+The Normal Distribution
+=======================
+
+$\mu$: Mean
+
+$\sigma^2$: Variance
+
+$\sigma$: Standard Deviation
+
+
+$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right)}$$
+
+Normaliser
+----------
+
+The expression $\frac{1}{\sqrt{2\pi\sigma^2}}$ is needed to normalise the area underneath curve given by the rest of
+the formula ($e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right)}$). Otherwise it would not add up to $1$.
