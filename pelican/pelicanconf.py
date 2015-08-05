@@ -50,6 +50,8 @@ PLUGINS = ["render_math", "pelican-bootstrapify"]
 
 MD_EXTENSIONS = ['codehilite(css_class=highlight)','extra', 'sane_lists', 'toc']
 
+DOCUTILS_SETTINGS = {'table-style' : 'borderless'} # 'math_output': 'mathjax'
+
 THEME = "pelican-chameleon"
 BS3_THEME = "http://bootswatch.com/yeti/bootstrap.min.css"
 
