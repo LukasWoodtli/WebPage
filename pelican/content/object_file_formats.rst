@@ -1,5 +1,5 @@
-Object File Format
-##################
+Object File Formats
+###################
 
 :date: 2015-08-05
 :modified: 2015-08-05
@@ -12,6 +12,9 @@ Most information of this page is taken from
 Overview
 ========
 
+.. table::
+   :class: table table-hover table-striped
+   
 =============      ===================================
 Object Format      Platform
 =============      ===================================
