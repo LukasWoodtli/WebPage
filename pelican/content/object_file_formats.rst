@@ -7,14 +7,14 @@ Object File Formats
 :tags: Assembler, C, C++
 
 Most information of this page is taken from
-[Calling conventions for different C++ compilers and operating systems](http://www.agner.org/optimize/#manuals).
+`Calling conventions for different C++ compilers and operating systems <http://www.agner.org/optimize/#manuals>`_.
 
 Overview
 ========
 
 .. table::
    :class: table table-hover table-striped
-   
+
 =============      ===================================
 Object Format      Platform
 =============      ===================================
