@@ -12,9 +12,6 @@ Most information of this page is taken from
 Overview
 ========
 
-.. table::
-   :class: table table-hover table-striped
-
 =============      ===================================
 Object Format      Platform
 =============      ===================================
@@ -23,3 +20,4 @@ ELF                Linux, UNIX, BSD...
 Mach-O             OS X (Darwin)
 a.out              Older versions of UNIX
 =============      ===================================
+
