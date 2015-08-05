@@ -12,9 +12,6 @@ Most information of this page is taken from
 Overview
 ========
 
-.. table::
-   :class: table table-hover table-striped
-
 =============      ===================================
 Object Format      Platform
 =============      ===================================
