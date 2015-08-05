@@ -33,7 +33,15 @@ There is a good overview of the [x86 instructions](https://en.wikipedia.org/wiki
 | Long Mode         | x86-64        |
 
 
-# Memory Models 
+# Memory Models
+
+The memory models define how data and code is manged in memory.
+
+Most information in this section is from
+[Calling conventions for different C++ compilers and operating systems](http://www.agner.org/optimize/#manuals).
+
+There is also a good [Wikipedia page](https://en.m.wikipedia.org/wiki/Intel_Memory_Model).
+
 
 ## Real Mode Memory Models (16-bit)
 
