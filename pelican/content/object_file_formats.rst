@@ -5,6 +5,8 @@ Object File Formats
 :modified: 2015-08-05
 :category: Programming
 :tags: Assembler, C, C++
+:slug: object_file_formats_rst
+:status: draft
 
 Most information of this page is taken from
 `Calling conventions for different C++ compilers and operating systems <http://www.agner.org/optimize/#manuals>`_.
