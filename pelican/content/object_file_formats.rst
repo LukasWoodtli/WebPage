@@ -16,7 +16,7 @@ Overview
 
 =============      ===================================
 Object Format      Platform
--------------      -----------------------------------
+=============      ===================================
 COFF               Windows 32 (PE), Windows 64 (PE32+)
 ELF                Linux, UNIX, BSD...
 Mach-O             OS X (Darwin)
