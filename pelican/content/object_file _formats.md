@@ -35,7 +35,7 @@ Compilers that use COFF / PE:
 - GCC (Win)
 
 COFF uses many different data structures. This makes it difficult to handle.
-Alignment handlin of the data structures can be difficult.
+Alignment handling of the data structures can be difficult.
 
 
 Properties: 
@@ -53,3 +53,24 @@ Limitations:
 - Max library size: 4 GB.
 
 
+Executable and Linkable Format (ELF)
+------------------------------------
+
+Replaced older formats like a.out and COFF in Linux and BSD.
+
+Compilers:
+
+- GCC (Linux, BSD, Win...)
+
+Clear and robust design.
+
+Limitations:
+
+
+- Segment word size: 32 or 64 bits.
+- Max number of sections: 64k.
+- Max file size: 4 GB for 32 bits, $2^{64}$ for 64 bits.
+- Max section size: 4 GB for 32 bits, $2^{64}$ for 64 bits.
+- String table size: 4 GB.
+- Max number of symbols: 16M for 32 bits, 4G for 64 bits.
+- Max library size: 4 GB.
