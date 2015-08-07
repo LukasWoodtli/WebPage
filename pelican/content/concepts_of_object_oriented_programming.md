@@ -240,5 +240,26 @@ Aggregation causes more overhead
 
 Private inheritance may lead to unnecessary multiple inheritance
 
-<!-- ## Dynamic Method Binding -->
+
+## Static and Dynamic Method Binding
+
+- Static binding: Methods are selected based on the *static type* of the 
+receiver *at compile time*
+- Dynamic binding: Methods are selected based on the *dynamic type* of the
+receiver object *at run time*
+
+
+Dynamic method binding enables specialization and subtype polymorphism
+
+Drawbacks
+
+- Performance: Overhead of method look-up at run-time
+- Versioning: Dynamic binding makes it harder to evolve code
+ without breaking subclasses
+ 
+Defaults
+
+- Dynamic binding: Eiffel, Java, Scala, dynamically-typed languages
+- Static  binding: C++, C# 
+
 
