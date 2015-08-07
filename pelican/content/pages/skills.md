@@ -78,14 +78,15 @@ Unit tests are of great importance for bug free software. Which tool to use is n
 # Skills
 There are a lot of skills and tools that a developer needs to do his work.
 
-| Skill                                    | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| OOP/OOD                                  | very good                                |
-| Design/Architecture Patterns             | very good                                |
-| Regexp                                   | basic                                    |
-| UX/UI Design                             | basic                                    |
-| UML                                      | good                                     |
-| Project Management / Scrum / XP          | very good                                |
+| Skill                                            | Knowledge                                |
+|--------------------------------------------------|------------------------------------------|
+| OOP/OOD                                          | very good                                |
+| Design/Architecture Patterns                     | very good                                |
+| Regexp                                           | basic                                    |
+| UX/UI Design                                     | basic                                    |
+| UML                                              | good                                     |
+| Project Management / Scrum / XP                  | very good                                |
+| Legacy Code (refactoring, testing, improving...) | very good                                |
 
 
 # Documentation
