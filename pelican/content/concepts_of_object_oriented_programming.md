@@ -263,3 +263,13 @@ Defaults
 - Static  binding: C++, C# 
 
 
+
+## Rules for proper Subclassing
+
+- Use subclassing only if there is an *'is-a'* relation 
+    - Syntactic and behavioral subtypes
+- Do not rely on implementation details
+- Use precise documentation (*contracts* where possible)
+- When evolving superclasses, *do not mess around with dynamically-bound methods*
+- Do not add or remove calls, or change order of calls
+- Do not specialize superclasses that are expected to change often 
