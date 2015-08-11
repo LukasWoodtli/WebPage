@@ -99,25 +99,25 @@ OS
 --
 | OS                                          | Define         |
 |---------------------------------------------|----------------|
-| Android                                      `Q_OS_ANDROID`  |
-| BSD 4.4                                      `Q_OS_BSD4`     |
-| Cygwin                                       `Q_OS_CYGWIN`   |
-| OS X, iOS, Darwin                            `Q_OS_DARWIN`   |
-| FreeBSD                                      `Q_OS_FREEBSD`  |
-| iOS                                          `Q_OS_IOS`      |
-| Linux                                        `Q_OS_LINUX`    |
-| OS X, iOS (not OSS Darwin)                   `Q_OS_MAC`      |
-| NetDSB                                       `Q_OS_NETBSD`   |
-| OpenDSB                                      `Q_OS_OPENBSD`  |
-| OS X                                         `Q_OS_OSX`      |
-| QNX Neutrino                                 `Q_OS_QNX`      |
-| Any UNIX BSD/SYSV system                     `Q_OS_UNIX`     |
-| 32-bit and 64-bit Windows (not Windows CE)   `Q_OS_WIN32`    |
-| 64-bit Windows                               `Q_OS_WIN64`    |
-| All supported Windows                        `Q_OS_WIN`      |
-| Windows CE                                   `Q_OS_WINCE`    |
-| Windows Phone 8                              `Q_OS_WINPHONE` |
-| Windows Runtime                              `Q_OS_WINRT`    |
+| Android                                     |`Q_OS_ANDROID`  |
+| BSD 4.4                                     |`Q_OS_BSD4`     |
+| Cygwin                                      |`Q_OS_CYGWIN`   |
+| OS X, iOS, Darwin                           |`Q_OS_DARWIN`   |
+| FreeBSD                                     |`Q_OS_FREEBSD`  |
+| iOS                                         |`Q_OS_IOS`      |
+| Linux                                       |`Q_OS_LINUX`    |
+| OS X, iOS (not OSS Darwin)                  |`Q_OS_MAC`      |
+| NetDSB                                      |`Q_OS_NETBSD`   |
+| OpenDSB                                     |`Q_OS_OPENBSD`  |
+| OS X                                        |`Q_OS_OSX`      |
+| QNX Neutrino                                |`Q_OS_QNX`      |
+| Any UNIX BSD/SYSV system                    |`Q_OS_UNIX`     |
+| 32-bit and 64-bit Windows (not Windows CE)  |`Q_OS_WIN32`    |
+| 64-bit Windows                              |`Q_OS_WIN64`    |
+| All supported Windows                       |`Q_OS_WIN`      |
+| Windows CE                                  |`Q_OS_WINCE`    |     .
+| Windows Phone 8                             |`Q_OS_WINPHONE` |
+| Windows Runtime                             |`Q_OS_WINRT`    |
 
 
 There are a lot more defines for supported OS's by Qt.
@@ -134,7 +134,7 @@ Processors
 | ARM (V5, V6, V7)               | `Q_PROCESSOR_ARM` (defined on all ARM architectures)            |
 | ARMv5                          | `Q_PROCESSOR_ARM_V5`                                            |
 | ARMv6                          | `Q_PROCESSOR_ARM_V6`, `Q_PROCESSOR_ARM_V5`                      |
-| ARMv7                          | `Q_QPROCESSOR_ARM_V7, `Q_PROCESSOR_ARM_V6`, `Q_PROCESSOR_ARM_V5`|
+| ARMv7                          | `Q_QPROCESSOR_ARM_V7`.`Q_PROCESSOR_ARM_V6`, `Q_PROCESSOR_ARM_V5`|
 | AVR 32                         | `Q_PROCESSOR_AVR32`                                             |
 
 There are a lot more defines for supported processors by Qt.
