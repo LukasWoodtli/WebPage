@@ -4,6 +4,8 @@ Tags: C++, Python
 Date: 2015-07-27
 Modified: 2015-07-27
 
+[TOC]
+
 
 # The Object Model
 
@@ -273,3 +275,27 @@ Defaults
 - When evolving superclasses, *do not mess around with dynamically-bound methods*
 - Do not add or remove calls, or change order of calls
 - Do not specialize superclasses that are expected to change often 
+
+
+# Binary Methods
+
+Binary methods take one explicit argument and receiver (this)
+
+Often behavior should be specialized depending on the dynamic types
+of *both* arguments.
+
+Recall that covariant parameter types are not statically type-safe! (?)
+
+- Dynamic binding for specialization based on dynamic type of *receiver*
+- How to specialize on the dynamic type of the *explicit argument*?
+- Visitor Pattern: tedious to write, requires modification of superclass
+
+Some Languages Support Multiple Dispatch:
+
+Method calls are bound on dynamic types of several arguments.
+
+- Performance overhead
+- Extra requirements are needed to ensure there is a “unique best method” for every call 
+
+
+
