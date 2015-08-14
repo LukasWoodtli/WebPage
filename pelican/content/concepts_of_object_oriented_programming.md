@@ -298,4 +298,29 @@ Method calls are bound on dynamic types of several arguments.
 - Extra requirements are needed to ensure there is a “unique best method” for every call 
 
 
+# Multiple Inheritance
+
+All OOP languages support multiple subtyping:
+
+- One type can have several supertypes
+- Subtype relation forms a DAG
+
+Some languages support multiple inheritance.
+
+## Problems with multiple inheritance
+
+
+Ambiguities:
+
+- Superclasses may contain fields and methods with identical names and signatures
+- Which version should be available in the subclass?
+
+Repeated inheritance (diamonds):
+
+- A class may inherit from a superclass more than once
+- How many copies of the superclass members are there?
+- How are the superclass fields initialized? 
+
+
+# Mixins and Traits
 
