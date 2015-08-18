@@ -9,13 +9,13 @@ Some other good information sources are:
 
 [Linkers and Loaders](http://www.iecc.com/linker/)
 
-[https://en.wikipedia.org/wiki/Linker_%28computing%29](Wikipedia:Linker)
+[Wikipedia:Linker](https://en.wikipedia.org/wiki/Linker_%28computing%29)
 
-[https://en.wikipedia.org/wiki/Loader_%28computing%29](Wikipedia:Loader)
+[Wikipedia:Loader](https://en.wikipedia.org/wiki/Loader_%28computing%29)
 
-[https://en.wikipedia.org/wiki/Relocation_%28computing%29](Wikipedia:Relocation)
+[Wikipedia:Relocation](https://en.wikipedia.org/wiki/Relocation_%28computing%29)
 
-Most explanations on this page are for the x86 platform!
+> Most explanations on this page are for the x86 platform!
 
 Modern OS's allow to load executable code at runtime. This can be
 complete programms or (dynamic) libraries.
