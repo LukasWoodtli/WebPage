@@ -2,7 +2,17 @@ Title: Executable Loader
 Date: 2015-08-11
 Category: Computer Science
 
-This explanation concerns the x86 platform!
+Most information of this page is taken from
+[Calling conventions for different C++ compilers and operating systems](http://www.agner.org/optimize/#manuals).
+
+Some other good information sources are:
+
+http://www.iecc.com/linker/
+https://en.wikipedia.org/wiki/Linker_%28computing%29
+https://en.wikipedia.org/wiki/Loader_%28computing%29
+https://en.wikipedia.org/wiki/Relocation_%28computing%29
+
+Most explanations on this page are for the x86 platform!
 
 Modern OS's allow to load executable code at runtime. This can be
 complete programms or (dynamic) libraries.
