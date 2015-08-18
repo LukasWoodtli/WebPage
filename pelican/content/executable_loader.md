@@ -7,10 +7,13 @@ Most information of this page is taken from
 
 Some other good information sources are:
 
-http://www.iecc.com/linker/
-https://en.wikipedia.org/wiki/Linker_%28computing%29
-https://en.wikipedia.org/wiki/Loader_%28computing%29
-https://en.wikipedia.org/wiki/Relocation_%28computing%29
+[Linkers and Loaders](http://www.iecc.com/linker/)
+
+[https://en.wikipedia.org/wiki/Linker_%28computing%29](Wikipedia:Linker)
+
+[https://en.wikipedia.org/wiki/Loader_%28computing%29](Wikipedia:Loader)
+
+[https://en.wikipedia.org/wiki/Relocation_%28computing%29](Wikipedia:Relocation)
 
 Most explanations on this page are for the x86 platform!
 
