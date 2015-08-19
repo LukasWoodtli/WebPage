@@ -60,4 +60,35 @@ There are three aproaches for loading executables without fixed image base:
    
    This aproach is used on OS X (Intel)
    
-3. ...
+3. The shared object contains a Global Offset Table (GOT). In the GOT
+   are the addressrs of static objects stored. The addresses in the GOT
+   are afjusted by the loader according to the base address.
+   Code that accesses static data points to the GOT and the GOT 
+   then points to the data.
+   
+   This aproach is often used in Linux (32-bit) and BSD
+   
+   
+# Difference between Relocation Table and Global Offset Table (GOT)
+
+## Relocation Table
+
+Relocation table is not changed when shared object is loaded.
+The relocation table points to data references in the code.
+These references are modified in place.
+
+## Global Offset Table (GOT)
+
+The GOT is changed by the loader. So the entries in the GOT point
+to the new (relocated) addresses. Static data references in the
+code still point to the GOT but the entries in the GOT were updated.
+
+
+# Function calls across shared objects (DLLs)
+
+Shared objects can have references to functions in other shared objects.
+Usually calls to these functions go through an import table in the
+executable (shared object) file.
+
+Either the loader fills the import table at load time or it is lazy
+initialized for each function when it is called the first time.
