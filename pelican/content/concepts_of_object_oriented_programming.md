@@ -160,6 +160,7 @@ Based on substitution principle.
 
 - Contravariance: Ordering of types from more generic to more specific (in oposite direction of inheritance hierarchy)
 
+[Coursera:Scala](https://class.coursera.org/progfun-005/lecture/83)
 
 For OOP:
 
@@ -202,7 +203,7 @@ This is expressed as interface specifications (contracts)
 
 ### Difference between inheritance and subtyping
 
-Inheritance allows to reuse the code (specialization) inside a class 
+Inheritance allows to reuse the code (specialization) inside a class
 (member variables and method definitions).
 
 Subtyping supports reuse externally. It's used for polymorphism
@@ -234,7 +235,7 @@ OOP can do without inheritance, but not without subtyping!
 - No subtype polymorphism
 - No behavioral subtyping  equirements
 
-Aggregation causes more overhead 
+Aggregation causes more overhead
 
 - Two objects at run-time
 - Boilerplate code for delegation
@@ -245,7 +246,7 @@ Private inheritance may lead to unnecessary multiple inheritance
 
 ## Static and Dynamic Method Binding
 
-- Static binding: Methods are selected based on the *static type* of the 
+- Static binding: Methods are selected based on the *static type* of the
 receiver *at compile time*
 - Dynamic binding: Methods are selected based on the *dynamic type* of the
 receiver object *at run time*
@@ -258,23 +259,23 @@ Drawbacks
 - Performance: Overhead of method look-up at run-time
 - Versioning: Dynamic binding makes it harder to evolve code
  without breaking subclasses
- 
+
 Defaults
 
 - Dynamic binding: Eiffel, Java, Scala, dynamically-typed languages
-- Static  binding: C++, C# 
+- Static  binding: C++, C#
 
 
 
 ## Rules for proper Subclassing
 
-- Use subclassing only if there is an *'is-a'* relation 
+- Use subclassing only if there is an *'is-a'* relation
     - Syntactic and behavioral subtypes
 - Do not rely on implementation details
 - Use precise documentation (*contracts* where possible)
 - When evolving superclasses, *do not mess around with dynamically-bound methods*
 - Do not add or remove calls, or change order of calls
-- Do not specialize superclasses that are expected to change often 
+- Do not specialize superclasses that are expected to change often
 
 
 # Binary Methods
@@ -295,7 +296,7 @@ Some Languages Support Multiple Dispatch:
 Method calls are bound on dynamic types of several arguments.
 
 - Performance overhead
-- Extra requirements are needed to ensure there is a “unique best method” for every call 
+- Extra requirements are needed to ensure there is a “unique best method” for every call
 
 
 # Multiple Inheritance
@@ -319,8 +320,7 @@ Repeated inheritance (diamonds):
 
 - A class may inherit from a superclass more than once
 - How many copies of the superclass members are there?
-- How are the superclass fields initialized? 
+- How are the superclass fields initialized?
 
 
 # Mixins and Traits
-
