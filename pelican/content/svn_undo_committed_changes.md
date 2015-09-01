@@ -1,8 +1,8 @@
-Title: Undo Committed with SVN
+Title: Undo Committed Changes with SVN
 Date: 2015-05-29
 Modified: 2015-06-01
-Category: SVN
-Tags: Version Control
+Category: Version Control
+Tags: SVN
 
 To undo changes that are already committed in Subversion a back-merge can be applied:
 

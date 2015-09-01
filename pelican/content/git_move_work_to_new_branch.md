@@ -1,8 +1,8 @@
 Title: Move actual work to a new Branch
 Date: 2015-05-29
 Modified: 2015-06-01
-Category: Git
-Tags: Version Control
+Category: Version Control
+Tags: Git
 
 This useful description is taken from: [git: fetch and merge, don’t pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 
