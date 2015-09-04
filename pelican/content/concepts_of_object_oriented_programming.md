@@ -156,13 +156,23 @@ Dynamic and Structural is often called "duck typing".
 
 Based on substitution principle.
 
-- Covariance: Ordering of types from more specific to more generic (in direction of inheritance hierarchy)
+#### Covariance
 
-- Contravariance: Ordering of types from more generic to more specific (in oposite direction of inheritance hierarchy)
+Ordering of types from more specific to more generic (in direction of inheritance hierarchy)
+
+![Covariance](/images/covariance.svg)
+
+#### Contravariance
+
+Ordering of types from more generic to more specific (in oposite direction of inheritance hierarchy)
+
+![Contravariance](/images/contravariance.svg)
+
+
+#### Variance for OOP 
 
 [Coursera:Scala](https://class.coursera.org/progfun-005/lecture/83)
 
-For OOP:
 
 - Contravariance: Input Arguments
 - Covariance: Return Values and Exceptions
