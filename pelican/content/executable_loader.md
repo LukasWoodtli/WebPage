@@ -15,6 +15,8 @@ Some other good information sources are:
 
 [Wikipedia:Relocation](https://en.wikipedia.org/wiki/Relocation_%28computing%29)
 
+Book: Computer Systems: A Programmer's Perspective, Randal E. Bryant, David R. O'Hallarom
+
 > Most explanations on this page are for the x86 platform!
 
 Modern OS's allow to load executable code at runtime. This can be
