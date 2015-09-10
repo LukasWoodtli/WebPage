@@ -334,6 +334,25 @@ The best approach is to define a checklist for the stories. i.e:
 Maybe for different kind of stories (features, bugs, ...) a different
 checklist is needed.
 
+General Notes
+=============
+
+Tools Day
+---------
+
+Plan a fixed timebox each Sprint (i.e each Friday Afternoon) for working on tools and internal tasks.
+This allows to improve and fix internal tools that otherwise would be postponed regurarly (even endlessly).
+
+This doesn't mean nobody is allowed to work on tools in the usual working time. But it's not allowed
+to work on stories on Tools Day.
+
+Knowledge Sync-Up
+-----------------
+
+Take regularly some time to synchronize internal knowledge between team members. Imagine for each team member
+what knowledge he/she has that wold be lost/missed if that memer leaves the company. Then try to share this
+knowledge with as many other team members as possible.
+
 
 Literature and Links
 ====================
