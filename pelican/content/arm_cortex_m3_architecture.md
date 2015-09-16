@@ -924,6 +924,7 @@ Updates the flags but discards result.
 All these branch to a label, or to an address given by the operand.
 
 In addition:
+
 - The `BL` and `BLX` instructions write the address of the next instruction to *LR*.
 - The `BX` and `BLX` instructions can change the instruction set (ARM &harr; Thumb).
 
