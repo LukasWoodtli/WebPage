@@ -924,9 +924,11 @@ Updates the flags but discards result.
 All these branch to a label, or to an address given by the operand.
 
 In addition:
-The `BL` and `BLX` instructions write the address of the next instruction to *LR*.
+- The `BL` and `BLX` instructions write the address of the next instruction to *LR*.
+- The `BX` and `BLX` instructions can change the instruction set (ARM &harr; Thumb).
 
-> The `BX` and `BLX` instructions result in a *UsageFault* exception if bit[0] of the target address is 0.
+
+> The `BX` and `BLX` instructions result in a *UsageFault* exception on the M3 if bit[0] of the target address is 0.
 
 `B` is the only conditional instruction that can be inside or outside an *IT* block.
 All other branch instructions can only be conditional inside an *IT* block, and are always unconditional otherwise.
@@ -954,7 +956,7 @@ of the `BL` instruction and the label.
 
 ### Branch and Exchange (`BX`)
 
-Calls a function at an address and instruction set specified in a register.
+Calls a function at an address and instruction set (ARM/Thumb) specified in a register.
 
 It's the same as `BXL` but it **doesn't save** the next instruction in *LR*.
 
@@ -970,7 +972,7 @@ Exceptions: UsageFault
 
 ### Branch with Link and Exchange (`BLX`)
 
-Calls a function at an address and instruction set specified in a register.
+Calls a function at an address and instruction set (ARM/Thumb) specified in a register.
 
 It saves the next instruction (after `BLX`) in *LR*.
 
@@ -978,7 +980,8 @@ It saves the next instruction (after `BLX`) in *LR*.
 > cause an *UsageFault* exception.
 
     :::nasm
-    BLX<c> <Rm>          /* Outside or last in IT block */BLX<c><q> <Rm>
+    BLX<c> <Rm>          /* Outside or last in IT block */
+    BLX<c><q> <Rm>
 
 Exceptions: UsageFault
 
