@@ -1,6 +1,6 @@
 Title: List of Design Patterns
-Date: 2015-17-09
-Modified: 2015-17-09
+Date: 2015-09-17
+Modified: 2015-09-17
 Category: Programming
 Tags: C++, Python, OOP
 
