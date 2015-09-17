@@ -39,4 +39,4 @@ OO-Prinzipien:
 - Auf Abstraktionen Stützen anstelle auf konkrete Klassen.
 - Objekte sollten nur mit 'Freunden' (Objekte in ihrer Umgebung) kommunizieren.
 - Versuchen Sie nicht, uns anzurufen, wir rufen Sie an!
-- Eine Klasse sollte nur einen Grund haben, sich zu ändern.
+- Eine Klasse sollte nur einen Grund haben, sich zu ändern (Single-Responibility-Principle).
