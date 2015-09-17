@@ -11,7 +11,7 @@ Tags: C++, Python, OOP
 |------------------------------------|-|--------------------------|-|---------------------------------------------|-|------------------------------------------|-|
 | Abstract Factory (Abstrakte Fabrik)|2|Adapter                   |2|Chain of Responsibility (Zuständigkeitskette)| |Business Delegate                         | |
 | Builder (Erbauer)                  | |Composite (Kompositum)    |2|Command (Kommando)                           |2|Data Access Object                        | |
-| Factory Method (Fabrikmethode)     |2|Bridge (Brücke)           | |Interpreter                                  | |Data Transfer Object (Datentransferobjekt)| |
+| Factory Method (Fabrikmethode)[^2] |2|Bridge (Brücke)           | |Interpreter                                  | |Data Transfer Object (Datentransferobjekt)| |
 | Prototype (Prototyp)               | |Decorator (Dekorierer)    |2|Iterator                                     |2|Dependency Injection                      | |
 | Singleton (Einzelstück)            |2|Facade (Fassade)          |2|Mediator (Vermittler)                        | |Inversion of Control                      | |
 |                                    | |Flyweight (Fliegengewicht)| |Memento                                      | |Model View Controller                     |2|
@@ -23,7 +23,8 @@ Tags: C++, Python, OOP
 |                                    | |                          | |Visitor (Besucher)                           | |                                          | |
 
 
-1: GoF, 2: Entwurfsmuster von Kopf bis Fuss (Head First)
+1: GoF
+[^2]: Entwurfsmuster von Kopf bis Fuss (Head First)
 
 OO-Prinzipien:
 
