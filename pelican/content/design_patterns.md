@@ -11,11 +11,11 @@ Tags: C++, Python, OOP
 |------------------------------------|-----------------------|------------------------------|----------------------------|
 | Abstract Factory[^1][^2]           | Adapter[^1][^2]       | Chain of Responsibility[^1]  | Business Delegate          |
 | Builder[^1]                        | Composite[^1][^2]     | Command[^1][^2]              | Data Access Object         |
-| Factory Method [^1][^2]            | Bridge[^1]            | Interpreter[^1]              | Data Transfer Object       |
+| Factory Method[^1][^2]             | Bridge[^1]            | Interpreter[^1]              | Data Transfer Object       |
 | Prototype[^1]                      | Decorator[^1][^2]     | Iterator[^1][^2]             | Dependency Injection       |
 | Singleton[^1][^2]                  | Facade[^1]            | Mediator[^1]                 | Inversion of Control       |
 |                                    | Flyweight[^1]         | Memento[^1]                  | Model View Controller[^2]  |
-|                                    | Proxy[^1][^2]         | Null Object (Nullobjekt)     | Model View Presenter       |
+|                                    | Proxy[^1][^2]         | Null Object                  | Model View Presenter       |
 |                                    |                       | Observer[^1][^2]             | Plugin                     |
 |                                    |                       | State[^1][^2]                | Fluent Interface           |
 |                                    |                       | Strategy[^1][^2]             |                            |
