@@ -6,8 +6,11 @@ Tags: C++, Python, OOP
 
 > Work in Progress!
 
+Overview of Design Patterns
+---------------------------
 
-| Erzeugende Muster                  | Strukturelle Muster   | Verhaltensmuster             | Weitere Muster             |
+
+| Creational Patterns                | Structural Patterns   | Behavioral Patterns          | Other Patterns             |
 |------------------------------------|-----------------------|------------------------------|----------------------------|
 | Abstract Factory[^1] [^2]          | Adapter[^1] [^2]      | Chain of Responsibility[^1]  | Business Delegate          |
 | Builder[^1]                        | Composite[^1] [^2]    | Command[^1] [^2]             | Data Access Object         |
@@ -23,13 +26,14 @@ Tags: C++, Python, OOP
 |                                    |                       | Visitor[^1]                  |                            |
 
 
-[^1]: GoF
-[^2]: Entwurfsmuster von Kopf bis Fuss (Head First)
+[^1]: [Design Patterns (GoF)](https://en.m.wikipedia.org/wiki/Design_Patterns_(book))
+[^2]: [Head First Design Patterns](http://www.headfirstlabs.com/books/hfdp/)
 
 ///Footnotes Go Here///
 
 
-OO-Prinzipien:
+OO-Prinzipien
+-------------
 
 - Kapseln, was variiert.
 - Komposition der Verebung vorziehen.
