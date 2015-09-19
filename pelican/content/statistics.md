@@ -158,7 +158,10 @@ The value of the elements that occur most in the data set.
 Variance
 ========
 
-Subtract the mean from every item. Then and up the squares of the subtractions.
+The variance is a measure how disperse a data set is.
+
+Subtract the *mean* from every item. Then sum up the *squares* of the subtractions
+and devide the result by the number of data items.
 
 $$Var(X) = \sigma^2_X = \frac{1}{n} \sum_{i}(x_i - \mu)^2$$
 
@@ -169,6 +172,7 @@ $$\sigma^2_X = \frac{\sum X_i^2}{N} - \frac{\left( \sum X_i  \right)^2}{N^2}$$
 Standard Deviation
 ==================
 
+The standard deviation is giving a sense how far away the items in a data set are from the mean.
 $$\sigma_X = \sqrt{Var(X)}$$
 
 
