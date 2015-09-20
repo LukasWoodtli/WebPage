@@ -35,8 +35,7 @@ General Notes
 - Stack is Full-Descending:
     - `SP` points to the last filled location
     - Stack grows downwards (from higher to lower addresses)
-- `PUSH`/`POP`: `STMFD`/`LDMFD` (Store multiple Full-Descent, Load multiple Full-Descent)
-
+`PUSH`/`POP`: `STMFD`/`LDMFD` (Store multiple Full-Descent, Load multiple Full-Descent)
 
     :::nasm
     LDMFD SP, {R0-R3}
@@ -49,14 +48,12 @@ is equvalent to:
     LDR R2, [SP, #8]
     LDR R3, [SP, #12]
 
-- To alter (update) `SP`:
-
+To alter (update) `SP`:
 
     :::nasm
     LDMFD SP!, {R0-R3}
 
-- `LR` needs to be saved on stack for *non*-leaf functions
-
+`LR` needs to be saved on stack for *non*-leaf functions
 
     ::: nasm
     _func:
