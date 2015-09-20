@@ -35,6 +35,7 @@ General Notes
 - Stack is Full-Descending:
     - `SP` points to the last filled location
     - Stack grows downwards (from higher to lower addresses)
+
 `PUSH`/`POP`: `STMFD`/`LDMFD` (Store multiple Full-Descent, Load multiple Full-Descent)
 
     :::nasm
