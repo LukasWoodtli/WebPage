@@ -37,6 +37,7 @@ General Notes
     - Stack grows downwards (from higher to lower addresses)
 - `PUSH`/`POP`: `STMFD`/`LDMFD` (Store multiple Full-Descent, Load multiple Full-Descent)
 
+
     :::nasm
     LDMFD SP, {R0-R3}
 
@@ -50,10 +51,12 @@ is equvalent to:
 
 - To alter (update) `SP`:
 
+
     :::nasm
     LDMFD SP!, {R0-R3}
 
 - `LR` needs to be saved on stack for *non*-leaf functions
+
 
     ::: nasm
     _func:
