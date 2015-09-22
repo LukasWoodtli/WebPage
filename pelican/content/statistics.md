@@ -187,6 +187,13 @@ This notes are taken from [Khan Academy](https://www.khanacademy.org/math/probab
 | Variance | $\sigma^2 = \frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2$ | $s^2 = \frac{1}{n-1} \sum_{i=1}^{N} (x_i - \bar{x})^2$ |
 | Standard Deviation | $\sigma = \sqrt{\sigma^2}$                  | $s = \sqrt{s^2}$                                       |
 
+$N$: Number of items in Population
+$n$: Number of items in sample set taken from the population
+
+> For an unbiased estimator (Variance of samples) the sum is divided by $n-1$!
+
+$s = \sqrt{s^2}$: is not an unbiased estmator due to the non-linear nature of the square root.
+
 
 Binomial Coefficients
 =====================
