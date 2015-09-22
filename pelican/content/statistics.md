@@ -176,6 +176,16 @@ The standard deviation is giving a sense how far away the items in a data set ar
 $$\sigma_X = \sqrt{Var(X)}$$
 
 
+Overwiev of Mean, Variance and Standard Deviation
+=================================================
+
+This notes are taken from [Khan Academy](https://www.khanacademy.org/math/probability/descriptive-statistics/variance_std_deviation/v/statistics-standard-deviation)
+
+| Concept          | Population                           | Samples                                   |
+|------------------|--------------------------------------|-------------------------------------------|
+| Mean             | $\mu = \frac{1}{N}\sum_{i=1}^{N} x_i |  $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i | 
+| Variance         | \sigma^2 = \frac{1}{N} \sum_{i=1}`{N} (x_i - \mu)^2 |                            |
+
 Binomial Coefficients
 =====================
 
