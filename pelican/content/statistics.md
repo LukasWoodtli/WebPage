@@ -188,11 +188,12 @@ This notes are taken from [Khan Academy](https://www.khanacademy.org/math/probab
 | Standard Deviation | $\sigma = \sqrt{\sigma^2}$                  | $s = \sqrt{s^2}$                                       |
 
 $N$: Number of items in Population
+
 $n$: Number of items in sample set taken from the population
 
 > For an unbiased estimator (Variance of samples) the sum is divided by $n-1$!
 
-$s = \sqrt{s^2}$: is not an unbiased estmator due to the non-linear nature of the square root.
+$s = \sqrt{s^2}$: is not an unbiased estimator due to the non-linear nature of the square root.
 
 
 Binomial Coefficients
