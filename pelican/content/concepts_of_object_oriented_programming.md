@@ -1,6 +1,6 @@
 Title: Concepts of Object Oriented Programming
 Category: Programming
-Tags: C++, Python
+Tags: C++, Python, OOP
 Date: 2015-07-27
 Modified: 2015-07-27
 
@@ -186,11 +186,10 @@ Ordering of types from more generic to more specific (in oposite direction of in
 - Invariance: In- and Output Arguments (Mutable Reference Arguments)
 
     :::cpp
-    SuperReturnType Super::foo(SubParamType p); |         ^ contra-
-    //   ..                       ^             |         | variant
-    //   v                        ..            | co-     |
-    SubReturnType   Sub::foo(SuperParamType p); v variant |
-
+    SuperReturnType Super::foo(SubParamType p); // |         ^ contra-
+    //  ..                        ^             // |         | variant
+    //   v                        ..            // | co-     |
+    SubReturnType   Sub::foo(SuperParamType p); // v variant |
 
 *Super* is more general than *Sub*.
 
