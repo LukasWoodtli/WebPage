@@ -175,15 +175,16 @@ Ordering of types from more generic to more specific (in oposite direction of in
 ![Contravariance](/images/contravariance.svg)
 
 
-#### Variance for OOP 
+#### Variance for OOP
 
 [Coursera:Scala](https://class.coursera.org/progfun-005/lecture/83)
 
 
-
-- Contravariance: Input Arguments
-- Covariance: Return Values and Exceptions
-- Invariance: In- and Output Arguments (Mutable Reference Arguments)
+|                                                        | Variance      |
+|--------------------------------------------------------|---------------|
+| Input Arguments                                        | Contravariant |
+| Return Values and Exceptions                           | Covariant     |
+| In- and Output Arguments (Mutable Reference Arguments) | Nonvariant    |
 
     :::cpp
     SuperReturnType Super::foo(SubParamType p); // |         ^ contra-
@@ -191,9 +192,9 @@ Ordering of types from more generic to more specific (in oposite direction of in
     //   v                        ..            // | co-     |
     SubReturnType   Sub::foo(SuperParamType p); // v variant |
 
-*Super* is more general than *Sub*.
+*Super* is more **general** than *Sub*.
 
-*Sub* is more specific than *Super*.
+*Sub* is more **specific** than *Super*.
 
 
 
