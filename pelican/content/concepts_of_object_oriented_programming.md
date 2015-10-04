@@ -180,9 +180,22 @@ Ordering of types from more generic to more specific (in oposite direction of in
 [Coursera:Scala](https://class.coursera.org/progfun-005/lecture/83)
 
 
+
 - Contravariance: Input Arguments
 - Covariance: Return Values and Exceptions
-- Invariance: In- and Output Arguments (Reference Arguments)
+- Invariance: In- and Output Arguments (Mutable Reference Arguments)
+
+
+    :::CPP
+    SuperReturnType Super::foo(SubParamType p); |         ^ contra-
+    //   ..                       ^             |         | variant
+    //   v                        ..            | co-     |
+    SubReturnType   Sub::foo(SuperParamType p); v variant |
+
+*Super* is more general than *Sub*.
+
+*Sub* is more specific than *Super*.
+
 
 
 | Programming Language    | Argument Type  | Return Type  |
