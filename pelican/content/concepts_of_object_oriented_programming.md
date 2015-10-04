@@ -185,12 +185,12 @@ Ordering of types from more generic to more specific (in oposite direction of in
 - Covariance: Return Values and Exceptions
 - Invariance: In- and Output Arguments (Mutable Reference Arguments)
 
-
-    :::CPP
+    :::cpp
     SuperReturnType Super::foo(SubParamType p); |         ^ contra-
     //   ..                       ^             |         | variant
     //   v                        ..            | co-     |
     SubReturnType   Sub::foo(SuperParamType p); v variant |
+
 
 *Super* is more general than *Sub*.
 
