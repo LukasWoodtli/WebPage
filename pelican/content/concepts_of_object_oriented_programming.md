@@ -83,6 +83,12 @@ objects of supertypes are expected
 
 ## Types
 
+Type systems can be analyzed in three dimensions:
+
+1. Weak and Strong Type Systems
+2. Nominal and Structural Types
+3. Static and Dynamic Type Checking
+
 ### Weak and Strong Type Systems
 
 How strongly or weakly typed a language is concerns casting (implicit and explicit).
