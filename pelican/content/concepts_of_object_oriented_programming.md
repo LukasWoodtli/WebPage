@@ -228,6 +228,24 @@ This is expressed as interface specifications (contracts)
 - Subtypes may have *stronger invariants* than supertypes
 - Subtypes may have *stronger history constrains* than supertype
 
+
+### Types as Contracts
+
+Types can be seen as a kind of contracts.
+
+Overriding Methods must:
+
+| Behavioral Subtyping (contracts) | Nominal/Structural Subtyping (variance) |
+|----------------------------------|-----------------------------------------|
+| Weaker Preconditions             | Covariant Parameters                    |
+| Stronger Postconditions          | Covariant Results                       |
+| Stronger Invariants              | Nonvariant fields                       |
+
+This doesn't apply exactlty to:
+
+- Invariants/Fields
+- History constraints
+
 ## Inheritance
 
 ### Difference between inheritance and subtyping
