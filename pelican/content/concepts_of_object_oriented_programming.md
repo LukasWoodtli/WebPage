@@ -241,7 +241,7 @@ Overriding Methods must:
 | Stronger Postconditions          | Covariant Results                       |
 | Stronger Invariants              | Nonvariant fields                       |
 
-This doesn't apply exactlty to:
+This doesn't apply exactly to:
 
 - Invariants/Fields
 - History constraints
