@@ -41,9 +41,18 @@ $$\nabla f = \frac{\partial f}{\partial x_1}\mathbf{e}_1 + \cdots + \frac{\parti
 $e_i$: The orthogonal unit vectors pointing in the coordinate directions
 
 
-<!-- Divergence ($\operatorname{div}$) -->
+Divergence ($\operatorname{div}$)
+=================================
+
+The divergence is a vector operator that measures the **magnitude** of a vector field's source or sink. It is a
+scalar field with signed components (positive values for sources, negative values for sinks). 
+
+Input: A [Vector field](https://en.wikipedia.org/wiki/Vector_field)
+
+Output: A [Scalar field](https://en.wikipedia.org/wiki/Scalar_field)
 
 
+The divergence is the *scalar product* between the Nabla operator $\nabla=(\tfrac{\partial}{\partial x_1},\ldots,\tfrac{\partial}{\partial x_n})$ and the vector $\vec F = (F_1, \ldots,F_n)$.
 
 
-
+$$\operatorname{div}\,\vec F = \nabla\cdot\vec F =\frac{\partial F_1}{\partial x_1}+\frac{\partial F_2}{\partial x_2}+\cdots +\frac{\partial F_n}{\partial x_n} = \sum_{i=1}^n\frac{\partial F_i}{\partial x_i}$$
