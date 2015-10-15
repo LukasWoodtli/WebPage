@@ -229,6 +229,7 @@ This is expressed as interface specifications (contracts)
 - Subtypes may have *stronger history constrains* than supertype
 
 
+
 ### Types as Contracts
 
 Types can be seen as a kind of contracts.
@@ -312,6 +313,13 @@ Defaults
 - Dynamic binding: Eiffel, Java, Scala, dynamically-typed languages
 - Static  binding: C++, C#
 
+### Static Method binding in Java
+
+Java binds methods statically in 3 cases:
+
+1. Static Methods
+2. Private Methods
+3. Method calls on `super`
 
 
 ## Rules for proper Subclassing
