@@ -9,14 +9,25 @@ Zürich
 # Nationality
 Swiss, Czech 
 
-# Actual Job
+# Actual Education
+[Certificate Program in Computer Science (CAS-INFK)](https://www.inf.ethz.ch/continuing-education/certificate-program.html)
+
+## Courses
+
+- Concepts of Object-Oriented Programming
+- System Construction
+- Hardware/Software Codesign
+- Data Mining
+
+
+# Latest Job
 Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit processors.
 
 # Work Experience	
 
 | Time             | Occupation
 |------------------|---------------------------------------------------
-| 2010 - now       | Senior firmware/software engineer, Kaba AG, Wetzikon
+| 2010 - 2015      | Senior firmware/software engineer, Kaba AG, Wetzikon
 | 2010 (4 months)  | Software engineer, Codecheck Zürich
 | 2010 (6 months)  | Internship as software engineer, development with Qt on Windows and Linux, Schiller AG Baar
 | 2002 (6 months)  | Mechanic, AIM Horgen
