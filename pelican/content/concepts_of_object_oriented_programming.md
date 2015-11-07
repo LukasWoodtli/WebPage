@@ -184,7 +184,7 @@ Ordering of types from more generic to more specific (in oposite direction of in
 |--------------------------------------------------------|---------------|
 | Input Arguments                                        | Contravariant |
 | Return Values and Exceptions                           | Covariant     |
-| In- and Output Arguments (Mutable Reference Arguments) | Nonvariant    |
+| In- and Output Arguments (Mutable Reference Arguments) | Invariant     |
 
     :::cpp
     SuperReturnType Super::foo(SubParamType p); // |         ^ contra-
@@ -240,7 +240,7 @@ Overriding Methods must:
 |----------------------------------|-----------------------------------------|
 | Weaker Preconditions             | Covariant Parameters                    |
 | Stronger Postconditions          | Covariant Results                       |
-| Stronger Invariants              | Nonvariant fields                       |
+| Stronger Invariants              | Invariant fields                        |
 
 This doesn't apply exactly to:
 
