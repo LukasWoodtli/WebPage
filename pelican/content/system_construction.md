@@ -37,8 +37,8 @@ find the right documents.
 6. Exception Generation
 
 - Load-/Store: No memory operands (not as x86)
-- Multiple-Data-Transfer commands ('stmdb sp!,{fp,lr}', '!': Write-Back)
-- Link Register: 'bl': Branch-and-Link (stores PC in link register)
+- Multiple-Data-Transfer commands (`stmdb sp!,{fp,lr}`, `!`: Write-Back)
+- Link Register: `bl`: Branch-and-Link (stores PC in link register)
 - PC-Relative Addressing: Loading large constants (that have no soace in instruction encoding) form code
 
 ### Execution Modes
@@ -64,17 +64,17 @@ find the right documents.
 
 - Caller
     - Pushes parmams
-    - 'BL #address': Stores PC of next instuction in LR
+    - `BL #address`: Stores PC of next instuction in LR
 
 - Callee
-    - Save LR and FP on stack: 'stmdb sp!, {fp, lr}'
-    - Set new FP: 'mov fp, sp'
+    - Save LR and FP on stack: `stmdb sp!, {fp, lr}`
+    - Set new FP: `mov fp, sp`
     - Execute procedure content
-    - Reset stack pointer: 'mov lr, sp'
-    - Restore FP and jump back to caller address: 'ldmia sp!, {fp, pc}'
+    - Reset stack pointer: `mov lr, sp`
+    - Restore FP and jump back to caller address: `ldmia sp!, {fp, pc}`
 
 - Caller
-    - Clean up parameters from stack: 'add sp,sp, #n'
+    - Clean up parameters from stack: `add sp,sp, #n`
 
 ### Misc
 
@@ -91,11 +91,11 @@ find the right documents.
 
 ### Booting
 
-- Kernel is copied to address: '0x8000h' and branches there (instead to '0x00')
+- Kernel is copied to address: `0x8000h` and branches there (instead to `0x00`)
 - MMU is disabled
 - Only one core is running
 
 ### MMU
 
 - Memory translation is complicated due to two different MMU's
-- ARM's memory mapped registers sart from '0x3f000000', opposed to '0x7e000000' in BMC manual
+- ARM's memory mapped registers sart from `0x3f000000`, opposed to `0x7e000000` in BMC manual
