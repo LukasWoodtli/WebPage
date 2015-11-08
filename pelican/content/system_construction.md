@@ -1,6 +1,6 @@
 Title: System Construction
 Category: Programming
-Tags: 
+Tags:
 Date: 2015-11-07
 Modified: 2015-11-07
 
@@ -87,6 +87,13 @@ find the right documents.
 - Caller
     - Clean up parameters from stack: `add sp,sp, #n`
 
+### Exceptions
+
+- Interrupt: asynchronous event triggered by a device signal
+- Trap / Syscall: intentional exception
+- Fault: error condition that a handler might be able to correct
+- Abort: error condition that cannot be corrected
+
 ### Misc
 
 - FIRQ is about having more stacked registers
@@ -112,6 +119,40 @@ find the right documents.
 - ARM's memory mapped registers sart from `0x3f000000`, opposed to `0x7e000000` in BMC manual
 
 
-## Minos and Modula
+### GPIO
 
+- Some GPIO Registers need Read-Modify-Write (i.e GPFSELn)
+- Other Registers support setting or clearing single bits:
+    - i.e Set GPIO Pin: GPSETn
+    - i.e Clear GPIO Pin: GPCLRn
+
+## Minos and Oberon
+
+### History of Oberon
 ![Oberon Language and OS Family](/images/oberon_history.png)
+
+### Oberon
+
+- Modules can be compiled separately
+- Strongly typed
+    - Compiletime and runtime checks
+- High Level (minimal Assembler code)
+- Special low level functions in `SYSTEM` pseudo module (compiler directives)
+
+#### Modules
+
+- `PROCEDURE Write* ...`: Exported (`*`)
+- Module body is executed first and only once
+- Module can be loaded only once (keeps state, can be unloaded)
+- Procedures without params can be executed as commands
+- Comments: `(* ... *)`
+- Special Type: `SET` contains ints up to CPU bit size: i.e 1..32 (`{12, 5}`)
+- `SYSTEM` Pseudo Module
+    - Unsafe!
+    - Memory Access
+    - `SYSTEM.BYTE`: raw binary data (with length and bound checks)
+    - Type Casts: can be unsafe!
+- Procedure Flags:
+    - `INTERRUPT`: for ISR's
+    - `PCOFFSET=k`: offset for returning from ISR
+- Unsafe Pointer: can write to memory address
