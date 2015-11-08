@@ -46,7 +46,18 @@ find the right documents.
 - 7 Modes
 - for exception handling
 - Processor starts in supervisor mode
+- Registers are shadowed (banked) in different modes
 - System Mode: priviledged but same registers as user mode
+
+| Privilege Level | Mode  | Description/Cause          | Exception/Normal Execution |
+|-----------------|-------|----------------------------|-----------------------------|
+|priviledged | Supervisor | Reset / Software Interrupt | exception |
+|priviledged | FIQ        | Fast Interrupt             | exception |
+|priviledged | IRQ        | Normal Interrupt           | exception |
+|priviledged | Abort      | Memory Access Violation    | exception |
+|priviledged | Undef      | Undefined Instruction      | exception |
+|priviledged | System     | Privileged Mode with same registers as in User Mode  | normal execution |
+|**un**priviledged | User | Regular Application Mode                            | normal execution |
 
 ### Special Registers
 
@@ -99,3 +110,8 @@ find the right documents.
 
 - Memory translation is complicated due to two different MMU's
 - ARM's memory mapped registers sart from `0x3f000000`, opposed to `0x7e000000` in BMC manual
+
+
+## Minos and Modula
+
+![Oberon Language and OS Family](/images/oberon_history.png)
