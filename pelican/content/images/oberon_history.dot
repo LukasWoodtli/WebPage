@@ -1,0 +1,29 @@
+digraph OberonHistory {
+
+rankdir=LR;
+
+node [shape=none];
+
+Languages[label="Languages:"];
+OberonLang[label="Oberon"];
+
+Languages -> Modula [style=invis];
+Modula -> OberonLang;
+
+OberonLang -> ActiveOberon;
+OberonLang -> Oberon07;
+
+
+OberonOs[label="Oberon"];
+OS[label="OS/Runtime System:"];
+
+OS -> Medos [style=invis];
+
+Medos -> OberonOs;
+OberonOs -> AOS;
+AOS -> A2;
+OberonOs -> HeliOs;
+HeliOs -> Minos;
+
+
+}
