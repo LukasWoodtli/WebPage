@@ -135,9 +135,65 @@ find the right documents.
 
 - Modules can be compiled separately
 - Strongly typed
-    - Compiletime and runtime checks
+    - Static type checking at compile time
+    - Runtime support for type guards / tests
 - High Level (minimal Assembler code)
 - Special low level functions in `SYSTEM` pseudo module (compiler directives)
+
+#### Oberon07
+
+- Minimal
+- No type `OBJECT*` no member functions (methods)
+
+#### Language Constructs
+
+##### Program Units
+
+- `MODULE`
+- `PROCEDURE`
+    - Value, `VAR` (in-out) and `CONST` parmaeters
+
+##### Data Types
+
+- `BOOLEAN`, `CHAR`, `SHORTINT`, `INTEGER`, `LONGINT`, `HUGEINT`, `REAL`, `LONGREAL`, `SET`, `ADDRESS`, `SIZE`
+
+##### Structured Types
+
+- `ARRAY`, `POINTER TO ARRAY`
+- `RECORD` (with type extension), `POINTER TO RECORD`
+
+##### Control Structures
+
+###### `IF`
+
+    :::modula2
+    IF a = 0 THEN
+        (* statement sequence *)
+    END;
+
+
+###### `WHILE`
+
+    :::modula2
+    WHILE x<n DO
+        (* statement sequence *)
+    END;
+
+###### `REPEAT`
+
+    :::modula2
+    REPEAT
+        (* statement sequence *)
+    UNTIL x=n;
+
+
+###### `FOR`
+
+    :::modula2
+    FOR i := 0 TO 100 DO
+        (* statement seq *)
+    END;
+
 
 #### Modules
 
