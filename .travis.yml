@@ -22,7 +22,6 @@ install:
 - pip install linkchecker
 
 before_script:
-- echo ${GIT_NAME}
 - git config --global user.name ${GIT_NAME}
 - git config --global user.email ${GIT_EMAIL}
 
