@@ -4,6 +4,8 @@ Modified: 2015-11-15
 Category: Computer Science
 Tags: ETH
 
+[TOC]
+
 # 0. Overview
 
 - Specification and Models of Computation
@@ -49,11 +51,11 @@ Tags: ETH
 
 
 ### Levels of abstraction (from higher to lower)
-    - Transistors
-    - Gates
-    - Processor (Memory, Register, ALU, ...)
-    - Architecture (CPU, ASIC, FPGA, LAN, ...)
-    - Distributed System
+- Transistors
+- Gates
+- Processor (Memory, Register, ALU, ...)
+- Architecture (CPU, ASIC, FPGA, LAN, ...)
+- Distributed System
 
 ### Design
 - Design aspects look similar in every level
@@ -82,7 +84,7 @@ Tags: ETH
 
 > Doing things right is difficult!
 
-- Observer Oattern is not save!
+- Observer Pattern is not save!
     - Race conditions
     - Dead-Locks
     - Use non-locking algorithms!
