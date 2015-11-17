@@ -212,3 +212,19 @@ find the right documents.
     - `INTERRUPT`: for ISR's
     - `PCOFFSET=k`: offset for returning from ISR
 - Unsafe Pointer: can write to memory address
+
+
+
+<!-- Week 8 -->
+
+## Compare-And-Swap (CAS)
+
+Atomic operation implemented in processor.
+
+Compares memory location with an value. If it's same a new (given) value is written at the
+memory address. Returns the previous value at memory positin in any case.
+
+`int CAS(int* a, int old, int new)`
+
+- If value `old` is at memory location of `a`: safe `new` at `a`
+- Return previous value at `a` in any case
