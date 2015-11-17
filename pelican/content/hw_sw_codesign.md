@@ -114,7 +114,7 @@ Tags: ETH
     - Hierarchy
     - Difference of Control-Path and Data-Path
 
-$$Control-Path \xtofrom[\text{action}]{\text{condition}} Data-Path$$
+$$Control-Path \rightleftharpoons[\text{action}]{\text{condition}} Data-Path$$
 
 - Events, Conditions, Actions
 
