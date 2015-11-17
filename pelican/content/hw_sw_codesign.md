@@ -65,6 +65,7 @@ Tags: ETH
     - Interfaces
 
 ### Estimation
+- Reason about solution
 - Different solutions for a specific task
 - Precision of estimation is different on each level
     - Higher level estimation usually less precise than lower level
@@ -87,6 +88,49 @@ Tags: ETH
     - Use non-locking algorithms!
 
 
+# 2. Models of Computation
+
+- Hierarchy
+    - Behavioural
+    - Structural
+- Timing
+- State oriented behaviour (micro controller, FPGA)
+- Dataflow oriented behavour (DSP)
+
+...
+
+## State Charts
+
+- Classical automata (Moore/Mealy): FSM
+- State: **Information** needed to get (determin) the output form the input
+- State Charts introduce hierarchy
+    - Combining States with Sub-States in Super-States
+    - Active States
+    - Basic States (no Sub-States)
+    - Super-States (ancestor states): OR-Super-States (hierarchy)
+    - Default State, History State (can be combined)
+    - AND-Super-States (concurrency)
+- 2 distinct features form FSM
+    - Hierarchy
+    - Difference of Control-Path and Data-Path
+
+$$Control-Path \xtofrom[\text{action}]{\text{condition}} Data-Path$$
+
+- Events, Conditions, Actions
+
+$$\underrightarrow{event [condtition] / action}$$
+
+- No storage of events (only available for next step)
+- Events are global
+
+### Evaluation of State Charts
+
+- Evaluation is **not** trivial!
+- Three phases
+    1. Event is emitted
+    2. Transition is selected
+    3. Simultaniously makte transition and apply the actions
+        - Execute the right hand side of action simultaniously and assign then after
 
 
 
