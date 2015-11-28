@@ -379,3 +379,35 @@ Repeated inheritance (diamonds):
 
 
 # Mixins and Traits
+TODO
+ 
+...
+
+# Parametric Polymorphism
+<!-- 4.2 29.10.15 -->
+
+- Subtype relation not always desiderable
+- Generics (Java, Scala, C#)
+- Upper bounds (`extends`): Subtype of upper bound required
+    - Guarantees that a specific method can be called
+    - Modular check of implementation
+- Generics (in Java, C#) are non-variant
+    - Covariance is unsafe when client **writes** to generic type argument ('input')
+        - Mutable fields
+        - Method arguments
+    - Contravariance is unsafe when client **reads** from generic type argument ('output')
+        - Fields
+        - Method results
+        
+    - Non-variance is sometimes too restrictive
+- Scala allows variance-annotation
+    - Positive positions ('output',covariant): `+`
+        - Result type
+        - Type of immutable fields
+    - Negative positions ('input', contravariant): `-`
+        - Parameter type
+    - C# uses keywords `in` and `out`
+
+
+<!-- 4.2 76 Working  with Non-Variant  Generics; Notes Week 8 -->
+
