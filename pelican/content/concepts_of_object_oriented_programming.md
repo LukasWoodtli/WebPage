@@ -380,7 +380,7 @@ Repeated inheritance (diamonds):
 
 # Mixins and Traits
 TODO
- 
+
 ...
 
 # Parametric Polymorphism
@@ -398,16 +398,14 @@ TODO
     - Contravariance is unsafe when client **reads** from generic type argument ('output')
         - Fields
         - Method results
-        
     - Non-variance is sometimes too restrictive
 - Scala allows variance-annotation
-    - Positive positions ('output',covariant): `+`
+    - Positive positions ('output', *covariant*): `+`
         - Result type
         - Type of immutable fields
-    - Negative positions ('input', contravariant): `-`
+    - Negative positions ('input', *contravariant*): `-`
         - Parameter type
     - C# uses keywords `in` and `out`
 
 
 <!-- 4.2 76 Working  with Non-Variant  Generics; Notes Week 8 -->
-
