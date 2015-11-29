@@ -390,7 +390,7 @@ TODO
 - Generics (Java, Scala, C#)
 - Upper bounds (`extends`): Subtype of upper bound required
     - Guarantees that a specific method can be called
-    - Modular check of implementation
+    - Modular check of implementation of Generic code
 - Generics (in Java, C#) are non-variant
     - Covariance is unsafe when client **writes** to generic type argument ('input')
         - Mutable fields
@@ -407,5 +407,21 @@ TODO
         - Parameter type
     - C# uses keywords `in` and `out`
 
+<!-- 4.2 p 76 Working with Non-Variant Generics; Notes Week 8 -->
 
-<!-- 4.2 76 Working  with Non-Variant  Generics; Notes Week 8 -->
+- Methods can also have type arguments (i.e `static <T> void printAll(Collection<T> c) {...}`)
+- Wildcards
+    - Existential Type:
+
+    :::java
+    static void printAll(Collection<?> c) {
+        for (Object e : c) {System.out.println(e);
+        }
+    }
+
+> There exits a type argument `T` such that `c` has type `collection<T>`
+
+- Wildcards can have a *upper bounds* and *lower bounds*
+
+
+
