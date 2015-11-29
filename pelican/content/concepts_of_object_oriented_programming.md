@@ -411,7 +411,9 @@ TODO
 
 - Methods can also have type arguments (i.e `static <T> void printAll(Collection<T> c) {...}`)
 - Wildcards
-    - Existential Type:
+
+Wildcards can be seen as an *Existential Type*:
+
 
     :::java
     static void printAll(Collection<?> c) {
@@ -422,6 +424,25 @@ TODO
 > There exits a type argument `T` such that `c` has type `collection<T>`
 
 - Wildcards can have a *upper bounds* and *lower bounds*
+    - upper bound for *reading* and method invocation: `extends`
+    - lower bound *writing*: `super` 
+
+- lower bounds are not supported on type parameters (only on wildcards) in Java
+
+Instantiation of wildcards can change over time:
+
+    :::java
+    class Wrapper {
+        Cell<?> data;
+    }
+    
+    // client code:
+    Wrapper w = new Wrapper();
+    w.data = new Cell<String>(); // w.data has type Cell<String>
+    w.data = new Call<Object>(); // now w.data has type Cell<Object>!
+    
+
+<!-- 4.2 p 97 Working with Non-Variant Generics; Notes Week 8 p 3 -->
 
 
 
