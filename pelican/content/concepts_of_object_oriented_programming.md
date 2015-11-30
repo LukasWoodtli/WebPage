@@ -383,6 +383,9 @@ TODO
 
 ...
 
+<!-- Beginning of Slides 4.2 Parametric Polymorphism p. 61 (29) -->
+<!-- Beginning of Notes Week 7 p. 8 -->
+
 # Parametric Polymorphism
 
 ## Java, C#, ...
@@ -408,11 +411,16 @@ TODO
         - Parameter type
     - C# uses keywords `in` and `out`
 
+<!-- End of Notes Week 7 -->
+
+<!-- Beginning of Notes Week 8 -->
+
 
 - Methods can also have type arguments (i.e `static <T> void printAll(Collection<T> c) {...}`)
-- Wildcards
 
-Wildcards can be seen as an *Existential Type*:
+### Wildcards
+
+Wildcards can be seen as an [Existential Type](https://en.wikipedia.org/wiki/Type_system#Existential_types):
 
     :::java
     static void printAll(Collection<?> c) {
@@ -458,7 +466,6 @@ Instantiation of wildcards can change over time:
     - Run-type type information is available
     - Arrays of generic types are possible
 
-<!-- 4.2 p 105 (64) C++ Templates; Notes Week 8 p 5 -->
 
 ## C++ Templates
 
@@ -473,5 +480,8 @@ Instantiation of wildcards can change over time:
 - No run-time support needed (templates are a compilation concept)
 - Improvement for feature C++ standard (C++17): [Concepts Lite](https://en.wikipedia.org/wiki/Concepts_%28C%2B%2B%29)
     - *Structural* upper bounds (C++ type system is nominal)
-- Template Meta Programming
-    - Is touring-complete
+- [Template Meta Programming](https://en.wikipedia.org/wiki/Template_metaprogramming)
+    - Is touring-complete!
+
+<!-- End of Slides 4.2 -->
+<!-- End of Notes Week 8 -->
