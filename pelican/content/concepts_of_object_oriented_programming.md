@@ -384,7 +384,8 @@ TODO
 ...
 
 # Parametric Polymorphism
-<!-- 4.2 29.10.15 -->
+
+## Java, C#, ...
 
 - Subtype relation not always desiderable
 - Generics (Java, Scala, C#)
@@ -407,13 +408,11 @@ TODO
         - Parameter type
     - C# uses keywords `in` and `out`
 
-<!-- 4.2 p 76 Working with Non-Variant Generics; Notes Week 8 -->
 
 - Methods can also have type arguments (i.e `static <T> void printAll(Collection<T> c) {...}`)
 - Wildcards
 
 Wildcards can be seen as an *Existential Type*:
-
 
     :::java
     static void printAll(Collection<?> c) {
@@ -441,11 +440,10 @@ Instantiation of wildcards can change over time:
     w.data = new Cell<String>(); // w.data has type Cell<String>
     w.data = new Call<Object>(); // now w.data has type Cell<Object>!
 
-
 - Generics with wildcards (and possibly with bounds) have a subtype relation if the type parameters have a relation
     - See [Java documentation](https://docs.oracle.com/javase/tutorial/java/generics/subtyping.html)
 
-- Type Erasure (Java)
+- Type Erasure (Java, Scala)
     - For backwards compatibility (in JVM)
     - Generic type information is erased in compiler (not available in bytecode anymore)
         - `C<T>` is translated to `C`
@@ -462,3 +460,18 @@ Instantiation of wildcards can change over time:
 
 <!-- 4.2 p 105 (64) C++ Templates; Notes Week 8 p 5 -->
 
+## C++ Templates
+
+- Classes and Methods (Functions) can be parametrized
+- Also value types can be used as templates paramters
+- Instantiation generates (internally) a new class
+- Type checking is done on of the generated class, not on the template (different to Java, C#, ...)
+    - Type check only of the parts of code that are used
+    - Type errors are not detectes before instantination
+    - No bounds needed
+- No subtype releation between instantiations of a template
+- No run-time support needed (templates are a compilation concept)
+- Improvement for feature C++ standard (C++17): [Concepts Lite](https://en.wikipedia.org/wiki/Concepts_%28C%2B%2B%29)
+    - *Structural* upper bounds (C++ type system is nominal)
+- Template Meta Programming
+    - Is touring-complete
