@@ -423,9 +423,9 @@ Wildcards can be seen as an *Existential Type*:
 
 > There exits a type argument `T` such that `c` has type `collection<T>`
 
-- Wildcards can have a *upper bounds* and *lower bounds*
+- Wildcards can have a *upper bounds* and *lower bounds* (correspond to *co- and contravariance*)
     - upper bound for *reading* and method invocation: `extends`
-    - lower bound *writing*: `super` 
+    - lower bound *writing*: `super`
 
 - lower bounds are not supported on type parameters (only on wildcards) in Java
 
@@ -435,14 +435,30 @@ Instantiation of wildcards can change over time:
     class Wrapper {
         Cell<?> data;
     }
-    
+
     // client code:
     Wrapper w = new Wrapper();
     w.data = new Cell<String>(); // w.data has type Cell<String>
     w.data = new Call<Object>(); // now w.data has type Cell<Object>!
-    
-
-<!-- 4.2 p 97 Working with Non-Variant Generics; Notes Week 8 p 3 -->
 
 
+- Generics with wildcards (and possibly with bounds) have a subtype relation if the type parameters have a relation
+    - See [Java documentation](https://docs.oracle.com/javase/tutorial/java/generics/subtyping.html)
+
+- Type Erasure (Java)
+    - For backwards compatibility (in JVM)
+    - Generic type information is erased in compiler (not available in bytecode anymore)
+        - `C<T>` is translated to `C`
+        - `T` is translated to its *upper bound*
+        - Casts are added wher nessecary (i.e reading values from generic type)
+        - Only one classfile and one class object for all instantiations of a generic class
+        - Run-time type information (`instanceof`, `List<String>.class`) is *missing*
+        - Arrays of generic types are *not possible* (`new List<String>[10]`)
+        - Static fields are shared by all instantiations of a generic class
+        - Lower bounds for type parameters would require support in JVM (bytecode verification)
+- No Type Erasure in C#
+    - Run-type type information is available
+    - Arrays of generic types are possible
+
+<!-- 4.2 p 105 (64) C++ Templates; Notes Week 8 p 5 -->
 
