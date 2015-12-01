@@ -485,3 +485,62 @@ Instantiation of wildcards can change over time:
 
 <!-- End of Slides 4.2 -->
 <!-- End of Notes Week 8 -->
+
+...
+
+
+<!-- Beginning of Slides 7 -->
+<!-- Beginning of Notes Week 11 p. 6 -->
+
+# Initialization and Null-References
+
+- Main Usages of Null-References
+    - Terminate recursion, list, ...
+    - Initialization (i.e lazy initialization)
+    - 'Result not found' as a return value of a function (absence of an object)
+- Most (80%) of all variables in an OOP programm are *non-null* after initalization
+- Real need for null value is rare
+- Theoretical type system:
+    - Non-null tye: `T!` (references to `T`-Object)
+    - Possibly-null type: `T?` (references to `T`-Object plus **null**)
+    - Subtype relations (S <: T)
+        - S! <: T!
+        - S? <: T?
+        - T! <: T?
+        - Dereferencing only possible with non-null type (`T!`)
+        - Possible casts:
+            - Implicit: From non-null to possibly-null (`T! nn = ...; T? pn = nn;`)
+            - Downcasts (explicit) are possible but need *run-time* checks (`T? pn = ...; T! nn = (T!)pn;` Shortcut for `(T!)`: `(!)`)
+            - Additional type rules (compared to Java): Expressions whose value gets dereferenced need *non-null* type
+                - Receiver of: field access, array access, method call
+                - Expressions of a `throw` statement
+            - Dataflow Analysis
+                - Check if a value at a given position in code can or can't be *null*
+                - Tracks values of local variables but not of objects on the *heap*
+                    - Tracking heap locations is non-moduler
+                    - Other threads could modify heap locations
+
+## Object Initialization
+
+- All fields are initialized to null (Java, C#, ...)
+- Invariant of non-null types is violated at beginning of constructor (it's initialized to `null` by default)
+    - Make sure that all non-null fields are initialized when constructor terminates
+        - Similar to *Definite Assignment Rule* that check that local variables are assigned before first use (Java, C#)
+        - Needes checks:
+            - Dereferces
+            - non-null fields have non-null types
+            - non-null arguments are passed non-null method parameters
+        - Not possible to check for all cases: *escaping the constructor*
+            - The simple *Definite Assignement Rule* is only sound if *partly-initialized object do not escape* from constructor
+            - Overly restrictive: on *partly-initialzed objects*
+                - Dont call methods
+                - Don't pass as argument to methods
+                - Dont's store in fields or an array
+        - Better type-system: track initialization
+            - Initialization Phases (3 types per class/interface)
+                - *free type*: objects under construction (free to violate invariants, free to have null in non-null variables)
+                - *committed type*: object construction is completed (type of object is chaged at run-time when object is fully constructed)
+                - *unclassified type*: super-type of *free type* and *committed type*
+
+<!-- End Notes Week 11 -->
+<!-- Slides 7.2 p. 71 -->
