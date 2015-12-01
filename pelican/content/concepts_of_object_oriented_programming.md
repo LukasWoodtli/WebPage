@@ -478,6 +478,7 @@ Instantiation of wildcards can change over time:
     - No bounds needed
 - No subtype releation between instantiations of a template
 - No run-time support needed (templates are a compilation concept)
+- Templates can be specialized
 - Improvement for feature C++ standard (C++17): [Concepts Lite](https://en.wikipedia.org/wiki/Concepts_%28C%2B%2B%29)
     - *Structural* upper bounds (C++ type system is nominal)
 - [Template Meta Programming](https://en.wikipedia.org/wiki/Template_metaprogramming)
@@ -486,7 +487,80 @@ Instantiation of wildcards can change over time:
 <!-- End of Slides 4.2 -->
 <!-- End of Notes Week 8 -->
 
-...
+
+# Information Hiding and Encapsulation
+<!-- Beginning of Slides 5 -->
+<!-- Beginning of Notes Week 9 -->
+
+## Information Hiding
+
+> Information hiding is used to reduce dependencies between modules. The client is
+> provided only the information needed.
+
+- Concerns static parts of program (code)
+- Syntactic and semantic: Contracts are part of the exported interfaces
+- Reduce dependencies
+    - Classes can be studied in isolation
+    - Classes only interact in well-defined ways
+
+### Client Interface of a Class
+
+- Class Name
+- Type parameters (Generics) and their bounds
+- Super-interfaces
+- Signatures of exported methonds and fields
+- Client interface of *direct* superclass
+
+### Other Interfaces
+
+- Subclass interface (i.e `protected`)
+- Friend interface (`friend` in C++, default access in Java)
+- Inner classes
+- ...
+
+### Java Access Modifiers
+
+- `public`: client interface
+- `protected`: subclass and *friend* interface
+- default access: friend interface
+- `private`: implementation
+
+
+### Safe Changes
+
+- Renaming of hidden elements
+- Modification of hidden implementation (functionally needs to be preserved)
+- Access modifiers specify what classes might be affected by a change
+
+### Exchanging Implementation
+
+- Behaviour needs to be preserved
+- Exported fields limit modification
+    - Use getters and setters
+    - Uniform access (Eiffel, Scala)
+- Modification is critical: Fragile baseclass problem!
+- Object structures
+
+### Bug: Method Selection in Java
+
+- Bug was present in JSL1. It's fixed now!
+
+- Compile time:
+    1. Determin static declaration (find the method in the receiver class, method can be inherited)
+    2. Check accessibility
+    3. Determine invocation mode (virtual / non-virtual)
+- At run-time:
+    4. Compute receiver reference
+    5. Locate method to invoke (based on dynamic type of receiver object) that overwrites 
+
+- Rules for overriding
+    - Access modifier of overriding method must provide at least as much access as the overridden method
+    - default access &rarr; `protected` &rarr; `public`
+    - `private` methods can't be overridden &rarr; Hiding
+
+
+<!-- Slides 5.1 p. 15 -->
+<!-- Notes Week 9 39:55 -->
 
 
 <!-- Beginning of Slides 7 -->
@@ -541,6 +615,21 @@ Instantiation of wildcards can change over time:
                 - *free type*: objects under construction (free to violate invariants, free to have null in non-null variables)
                 - *committed type*: object construction is completed (type of object is chaged at run-time when object is fully constructed)
                 - *unclassified type*: super-type of *free type* and *committed type*
+
+<!--
+Initialization Phases:
+
+    :::
+    Object created          Object constructed completely
+        |                     |
+        v                     v
+        |---------------------|----------------->
+                                        time
+        \--------------------/\-----------------...
+             free type             committed type
+        \---------------------------------------...
+                         unclassified type
+-->
 
 <!-- End Notes Week 11 -->
 <!-- Slides 7.2 p. 71 -->
