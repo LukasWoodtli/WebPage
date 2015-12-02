@@ -750,14 +750,59 @@ is determined by type combinator: &#9658;
 | &#9658;| rw T | ro T |
 |--------|------|------|
 | rw S   | rw T | ro T |
-| r0 S   | r0 T | ro T |
+| ro S   | ro T | ro T |
 
 
 #### Type Rules: Readonly Access
 
+Readonly types can't be receiver of:
+
+- Field update
+- Array update
+- Invocation of pure method
+
+Readonly types must not be cast to readwrite types.
+
+- Leaking can be prevented
+- Capturing can still occure
 
 
+## Ownership Types
 
+Prevents capturing.
+
+### Object Topologies
+
+Distinguish *internal" references from other references.
+
+#### Roles in Object Structures
+
+- Interface objects: used to access the structure
+- Internal representation: must not be exposed to outside (clients)
+- *Arguments* of the object structure: must not be modified by the structure (i.e entries in a list)
+
+#### Ownership Model
+
+- Each object has one (or zero) owner
+- An object belongs to the internal representation of the owner
+- Ownership relation is acyclic (forrest of ownership trees)
+- Context: all objects that have the same owner
+
+#### Ownership Types
+
+- **peer**: in the same context, same owner as *this*
+- **rep**: references to objects owned by *this* (in the context of *this*)
+- **any**: in any context (not known)
+
+Traversing hierarchy:
+
+- **rep**: go down in herarchy
+- **peer**: go across on same level in hierarchy
+- **any**: jump somewhere, could even be outside of hierarchy
+
+<!-- Slides 6.4 p. 55; Notes Week 10 01:09:33 -->
+
+<!-- #### Type Safety -->
 ....
 
 <!-- Beginning of Slides 7 -->
