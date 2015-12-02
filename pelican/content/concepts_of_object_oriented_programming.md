@@ -604,7 +604,96 @@ Hiding fields are useful for:
 
 <!-- End of Slides 5 -->
 
-<!-- Notes Week 9 01:26:41 -->
+# Object Structures
+
+<!-- Beginnning of Slides 6 -->
+
+> An object structure is a set of objects that are connected via references.
+
+## Examples
+
+- Array-Based Lists
+- Doubly-Linked Lists (`java.util`)
+
+## Aliasing
+
+- A reference to memory location
+     - Aliasing occures if more than one variable allows access to the same memory location
+
+- Static/Dynamic Aliases
+    - Static alias: all involved variables are in the heap
+    - Dynamic aliasing: some involved variables are stack-allocated (others can be in the heap)
+
+### Intended Aliasing
+
+- Efficiency
+    - Objects need not to be copied, when passed or modified
+- Sharing
+    - Share the same object between different places
+    - Consequence of objects identity
+
+### Unintended Aliasing
+
+#### Capturing
+
+- Get a reference from outside and store it
+    - Often in constructors that take reference arguments
+
+#### Leaking
+
+- Passing a reference to an (internal) data structure to the outside
+
+- More frequent then capturing
+
+#### Problems with Aliasing
+
+- Aliases can be used to by-pass interface
+- Interfaces and contracts remains unchanged but observable behaviour can change!
+
+#### Consistency of Object Structures
+
+- Consistency of object structures debend on several fields (not only one)
+- Checking invariance on beginning and end of method is not enough
+    - State can be changed in between by an alias
+
+#### Other Problems with Aliasing
+
+- Synchronization in concurrent programs
+    - Lock protects data structure
+    - Locking a reference dosen't lock aliases
+- Distributed programming
+    - i.e Remote Method Invocation
+    - References (intended aliases) are lost
+- Optimizations
+    - i.e Inlining is not possible for aliased objects
+
+#### Alias Control in Java
+
+##### `LinkedList`:
+
+- All fields are `private`
+- `Entry` is *private inner class* of `LinkedList`
+    - References are not passed out
+    - Subclasses cannot manipulate or leak `Entry` objects
+- `ListItr` is *private inner class* of `LinkedList`
+    - Interface `ListIterator` provides controlled access to `ListItr` objects
+    - `ListItr`objects are passed out in a controlled way
+    - Subclasses cannot manipulate or lead `ListItr` objects
+- Subclassing is restricted!
+
+##### `String`
+
+- All fields are `private`
+- References to internal char-array are not passed out
+- Subclassing is prohibited (`final`)
+
+
+<!-- End Notes Week 9 -->
+
+## Readonly Types
+
+<!-- Beginning of Notes Week 10 -->
+
 
 ....
 
