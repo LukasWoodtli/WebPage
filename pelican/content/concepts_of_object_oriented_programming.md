@@ -745,14 +745,15 @@ The type of
 - Array access
 - Method invocation
 
-is determined by type combinator: &#9658
+is determined by type combinator: &#9658;
 
-| &#9658 | rw T | ro T |
+| &#9658;| rw T | ro T |
 |--------|------|------|
 | rw S   | rw T | ro T |
 | r0 S   | r0 T | ro T |
 
-<!-- #### Type Rules: Readonly Access -->
+
+#### Type Rules: Readonly Access
 
 
 
