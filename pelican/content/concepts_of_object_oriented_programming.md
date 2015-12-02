@@ -492,6 +492,9 @@ Instantiation of wildcards can change over time:
 <!-- Beginning of Slides 5 -->
 <!-- Beginning of Notes Week 9 -->
 
+In the literature Information Hiding and Encapsulation are often used synonymously.
+But they are distinct but related.
+
 ## Information Hiding
 
 > Information hiding is used to reduce dependencies between modules. The client is
@@ -556,12 +559,54 @@ Instantiation of wildcards can change over time:
 - Rules for overriding
     - Access modifier of overriding method must provide at least as much access as the overridden method
     - default access &rarr; `protected` &rarr; `public`
-    - `private` methods can't be overridden &rarr; Hiding
+    - `private` methods can't be overridden: Hiding
+
+## Encapsulation
+
+> Encapsulation is used to guarantee that data and structural consistency by capsules with well defined interfaces.
+
+- Data consistency: i.e value is not negatice, ...
+- Structural consistency: i.e tree is balanced, list is doubly linked, ...
+
+- Concerns dynamic parts of code (execution)
+- Context of a module can be changed but module behaves same
+
+### Levels of Encapsulation
+
+Capsules can be:
+
+- Individual objects
+- Object structures: i.e doubly-linked list
+- A class (with all its objects): i.e all threads in Java
+- All classes of a subtype hierarchy
+- A package with all of its classes and their objects)
+- Several packages
+
+Internal representation of capsule that needs to be proteced:
+
+- invariant
+- or history constraint
+
+Hiding fields are useful for:
+
+- Information Hiding
+- Encapsulation
+
+### Achieving Consistency of Objects
+
+1. Apply information hiding wherever possible
+2. Make consistency criteria explicit
+    - Contracts
+    - Informal documentation
+3. Check interfaces (also subclass methods, i.e `protected`)
+    - Make sure they preserve documented consistency criteria
 
 
-<!-- Slides 5.1 p. 15 -->
-<!-- Notes Week 9 39:55 -->
+<!-- End of Slides 5 -->
 
+<!-- Notes Week 9 01:26:41 -->
+
+....
 
 <!-- Beginning of Slides 7 -->
 <!-- Beginning of Notes Week 11 p. 6 -->
