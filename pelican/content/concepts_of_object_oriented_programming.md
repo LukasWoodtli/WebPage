@@ -554,7 +554,7 @@ But they are distinct but related.
     3. Determine invocation mode (virtual / non-virtual)
 - At run-time:
     4. Compute receiver reference
-    5. Locate method to invoke (based on dynamic type of receiver object) that overwrites 
+    5. Locate method to invoke (based on dynamic type of receiver object) that overwrites
 
 - Rules for overriding
     - Access modifier of overriding method must provide at least as much access as the overridden method
@@ -773,7 +773,7 @@ Prevents capturing.
 
 ### Object Topologies
 
-Distinguish *internal" references from other references.
+Distinguish *internal* references from other references.
 
 #### Roles in Object Structures
 
@@ -787,12 +787,16 @@ Distinguish *internal" references from other references.
 - An object belongs to the internal representation of the owner
 - Ownership relation is acyclic (forrest of ownership trees)
 - Context: all objects that have the same owner
+- Ownership relation is *not* transitive
 
 #### Ownership Types
 
-- **peer**: in the same context, same owner as *this*
+- **peer**: in the same context, same owner as owner of *this*
 - **rep**: references to objects owned by *this* (in the context of *this*)
-- **any**: in any context (not known)
+- **any**: in any context (I don't care)
+- **lost**: specific owner but not known (I care but don't know)
+
+**lost** and **self** are internal (hidden) tyoe modifiers. No keywords.
 
 Traversing hierarchy:
 
@@ -800,10 +804,61 @@ Traversing hierarchy:
 - **peer**: go across on same level in hierarchy
 - **any**: jump somewhere, could even be outside of hierarchy
 
+
+#### Type Safety
+
+- RTTI contains:
+    - The class of each object
+    - The *owner* of *each object*
+- Type invariant:
+    - static ownership reflects run-time owner
+
+> *any* and *lost* are extistential types.
+
+    :::java
+    any T o;
+
+There exitst an owner such that o ist an istance of T and has that owner.
+
+#### Subtyp Relation between Ownership Types
+
+**rep** types and **peer** types are subtypes of corresponsing **any** types.
+
+- **rep** T <: **any** T
+- **peer** T <: **any** T
+
+Casts:
+
+- **any** can be cast to **rep** or **peer** (with runtime checks)
+
+#### Viewpoint Adaption
+
+- Ownership relation is expressed relative to *this*.
+- If *this* object (viewpoint) changes, the ownership changes.
+- When creating an object the ownership has to be set
+    - `new rep Entry()`
+    - `new peer Entry()`
+    - **any** is not allowed for `new`
+    - Ownership can't be changed later
+
+| &#9658; | peer T | rep T  | any T |
+|---------|--------|--------|-------|
+| peer S  | peer T | lost T | any T |
+| rep S   | rep T  | lost T | any T |
+| any S   | lost T | lost T | any T |
+| lost S  | lost T | lost T | any T |
+| self S  | peer T | rep T  | any T |
+
+
+![Ownership Types Hierarchy](/images/coop_ownership_types_hierarchy.svg)
+
+
+#### Read vs. Write Access
+
+
+
 <!-- Slides 6.4 p. 55; Notes Week 10 01:09:33 -->
 
-<!-- #### Type Safety -->
-....
 
 <!-- Beginning of Slides 7 -->
 <!-- Beginning of Notes Week 11 p. 6 -->
@@ -865,7 +920,7 @@ Initialization Phases:
     Object created          Object constructed completely
         |                     |
         v                     v
-        |---------------------|----------------->
+        |---------------------|---------------- ->
                                         time
         \--------------------/\-----------------...
              free type             committed type
