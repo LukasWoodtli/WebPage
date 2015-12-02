@@ -1,6 +1,6 @@
 Title: Concepts of Object Oriented Programming
 Category: Programming
-Tags: C++, Python, OOP
+Tags: C++, Python, OOP, ETH
 Date: 2015-07-27
 Modified: 2015-07-27
 
@@ -667,9 +667,9 @@ Hiding fields are useful for:
 - Optimizations
     - i.e Inlining is not possible for aliased objects
 
-#### Alias Control in Java
+### Alias Control in Java
 
-##### `LinkedList`:
+#### `LinkedList`:
 
 - All fields are `private`
 - `Entry` is *private inner class* of `LinkedList`
@@ -681,7 +681,7 @@ Hiding fields are useful for:
     - Subclasses cannot manipulate or lead `ListItr` objects
 - Subclassing is restricted!
 
-##### `String`
+#### `String`
 
 - All fields are `private`
 - References to internal char-array are not passed out
@@ -693,6 +693,68 @@ Hiding fields are useful for:
 ## Readonly Types
 
 <!-- Beginning of Notes Week 10 -->
+
+- Restrict access to shared objects
+- Common: grant read-only access
+- Cloning can prevent aliasing in some cases (but is inefficient)
+
+### Requirements for Readonly Access
+
+- Mutabla objects
+    - Only some clients can mutate object
+    - Access restrictions apply to references (not whole objects)
+- Prevent field updates, calls of mutating objects
+- Transitivity
+
+- Possible solution: wrap objects in readonly objects or use a readonly interface
+    - Not practical
+    - Not safe: no compiler checks, readwrite alias can still occur, ...
+
+> Readonly access in C++ is not transitive
+
+### Pure Methods
+
+Pure methods are side-effect free.
+
+- Must not contain field updates
+- Must not invoke non-pure methods
+- Must not create objects (on heap)
+- Can be only overridden by pure methods
+- Stronger constraints than const methods in C++
+
+Pure methods are very restrictive:
+
+1. Not possible to get an iterator (which is created on heap) to iterate over collection
+2. Caches can't be implemented
+3. Lazy initialization is not possible
+
+### Readwrite and Readonly Types
+
+- Concerns only reference type (object type is always mutable)
+- Readwrite type: `T`
+- Readonly type: `readonly T`
+- Subtype relation: `T` <: `readonly T`
+- Not same as relation between mutable and non-mutable types (which have no relation)
+- Readonly is transitive
+
+### Transitivity of Readonly Types
+
+The type of
+
+- Field access
+- Array access
+- Method invocation
+
+is determined by type combinator: &#9658
+
+| &#9658 | rw T | ro T |
+|--------|------|------|
+| rw S   | rw T | ro T |
+| r0 S   | r0 T | ro T |
+
+<!-- #### Type Rules: Readonly Access -->
+
+
 
 
 ....
