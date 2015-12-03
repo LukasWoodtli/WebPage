@@ -710,7 +710,7 @@ Hiding fields are useful for:
     - Not practical
     - Not safe: no compiler checks, readwrite alias can still occur, ...
 
-> Readonly access in C++ is not transitive
+> Readonly access in C++ (`const`) is not transitive
 
 ### Pure Methods
 
@@ -795,8 +795,9 @@ Distinguish *internal* references from other references.
 - **rep**: references to objects owned by *this* (in the context of *this*)
 - **any**: in any context (I don't care)
 - **lost**: specific owner but not known (I care but don't know)
+- **self**: only for the `this` literal (special because ownership relative to `this`)
 
-**lost** and **self** are internal (hidden) tyoe modifiers. No keywords.
+**lost** and **self** are internal (hidden) type modifiers. No keywords.
 
 Traversing hierarchy:
 
@@ -852,13 +853,38 @@ Casts:
 
 ![Ownership Types Hierarchy](/images/coop_ownership_types_hierarchy.svg)
 
+#### Aliasing
 
-#### Read vs. Write Access
+- **rep**: internal representation
+    - no unwanted sharing
+    - leaking as **rep**: viewpoint-adaptation in client gets **lost**
+    - method argument **rep**
+    - capturing as **rep**: gets **lost**, can't assign to **lost**
+
+Example:
+
+    ::java
+    class Person {
+      private rep Address addr; // part of internal representation
+      public rep Address getAddr() {
+        return addr; // clients get lost-reference
+      }
+      public void setAddr(rep Address a) {
+        addr = a; // cannot be called by clients (lost) only by this bject
+      }
+      public void setAddr(any Address a) {
+        addr = new rep Address(a); // cloning necessary, can't assign any to rep
+      }
+    }
+
+<!-- End of Notes Week 10 -->
 
 
+<!-- Slides 6.4 p. 64 !!! repeat -->
 
-<!-- Slides 6.4 p. 55; Notes Week 10 01:09:33 -->
+<!-- Beginning of Notes Week 11 -->
 
+....
 
 <!-- Beginning of Slides 7 -->
 <!-- Beginning of Notes Week 11 p. 6 -->
