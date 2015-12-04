@@ -700,7 +700,7 @@ Hiding fields are useful for:
 
 ### Requirements for Readonly Access
 
-- Mutabla objects
+- Mutable objects
     - Only some clients can mutate object
     - Access restrictions apply to references (not whole objects)
 - Prevent field updates, calls of mutating objects
@@ -853,6 +853,27 @@ Casts:
 
 ![Ownership Types Hierarchy](/images/coop_ownership_types_hierarchy.svg)
 
+#### Field Access and Method Invocation (Type Rules)
+
+$\tau(a)$: Type of a
+
+Field **Read** or Method **Parameters**:
+
+    :::java
+    v = e.f;
+Is correctly typed if:
+
+$$\tau(v) :> \tau(e) \blacktriangleright \tau(f)$$
+
+Field **Write** or Method ***Result**:
+
+    :::java
+    e.f = v;
+    
+$$\tau(e) \blacktriangleright \tau(f) :> \tau(v)$$
+
+And $\tau(e) \blacktriangleright \tau(f)$ is **not lost**.
+
 #### Aliasing
 
 - **rep**: internal representation
@@ -879,8 +900,6 @@ Example:
 
 <!-- End of Notes Week 10 -->
 
-
-<!-- Slides 6.4 p. 64 !!! repeat -->
 
 <!-- Beginning of Notes Week 11 -->
 
