@@ -697,6 +697,8 @@ Hiding fields are useful for:
 - Restrict access to shared objects
 - Common: grant read-only access
 - Cloning can prevent aliasing in some cases (but is inefficient)
+- The reference can be marked as readonly
+    - The object itself is not readonly
 
 ### Requirements for Readonly Access
 
@@ -861,6 +863,7 @@ Field **Read** or Method **Parameters**:
 
     :::java
     v = e.f;
+
 Is correctly typed if:
 
 $$\tau(v) :> \tau(e) \blacktriangleright \tau(f)$$
@@ -908,7 +911,25 @@ Example:
 
 <!-- Beginning of Notes Week 11 -->
 
-....
+## Owner-as-Modifier
+
+- Readonly Typesystem: leaking is safe (only readonly leaking)
+- Ownership Typesystem: capturing is safe (declaring internal references as **rep**)
+    - leaking can happen only as **any** or **lost**
+- Combining both Typesystem
+
+- **any** and **lost**: Readonly
+
+Additional enforced rules:
+
+- Field write `e.f = v;` is valid *only* if $\tau(e)$ is **self**, **peer** or **rep**
+- Method call `e.m(...);` is valid *only* if $\tau(e)$ is **self**, **peer** or **rep**, or called method is **pure**
+
+
+<!-- Slides 6.4 p.71 -->
+<!-- Notes Week 11 24:00 -->
+
+...
 
 <!-- Beginning of Slides 7 -->
 <!-- Beginning of Notes Week 11 p. 6 -->
