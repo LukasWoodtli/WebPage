@@ -865,14 +865,19 @@ Is correctly typed if:
 
 $$\tau(v) :> \tau(e) \blacktriangleright \tau(f)$$
 
-Field **Write** or Method ***Result**:
+Field **Write** or Method **Result**:
 
     :::java
     e.f = v;
     
 $$\tau(e) \blacktriangleright \tau(f) :> \tau(v)$$
 
-And $\tau(e) \blacktriangleright \tau(f)$ is **not lost**.
+And
+
+$$\tau(e) \blacktriangleright \tau(f)$$
+
+is **not lost**.
+
 
 #### Aliasing
 
