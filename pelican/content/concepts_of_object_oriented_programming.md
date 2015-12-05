@@ -925,14 +925,33 @@ Additional enforced rules:
 - Field write `e.f = v;` is valid *only* if $\tau(e)$ is **self**, **peer** or **rep**
 - Method call `e.m(...);` is valid *only* if $\tau(e)$ is **self**, **peer** or **rep**, or called method is **pure**
 
+> A method can modify directly at most all the objects that have the same owner as `this`. Everything further down in the hierarchy can only be changed indirectly (via method calls).
 
-<!-- Slides 6.4 p.71 -->
-<!-- Notes Week 11 24:00 -->
+- When debugging: if an object changes the changing method is going to be on the call stack
+    - Changing methods need to go through all the owners transitively
+    - Owner is like a *gate keeper* (interface object)
 
-...
+- Stronger concept for encapsulation than private-protected-public
+
+- leaking only happens as readonly ('something' &#9658; **rep**: **lost**)
+- Standard (Java): default modifier would be **peer**, flat datastructures
+- 'shared ownership' is not possible. i.e List owns nodes and modifying Iterator would need readwrite access to nodes.
+    - List would need
+- The system can be combined with Generics: `rep List<peer Address>`
+- Also possible: merge *entire contexts* to new owner. i.e concat two lists.
+
+### Achievements
+
+- Encapsulate whole object structures
+- Can not be violated
+- Subclassing is no restriction
+- Invariants of object *o* can depend on:
+    - Encapsulated fields of *o* (as usual)
+    - Fields of objects transitively owned by *o*
+    
+<!-- End of Slides 6 -->
 
 <!-- Beginning of Slides 7 -->
-<!-- Beginning of Notes Week 11 p. 6 -->
 
 # Initialization and Null-References
 
