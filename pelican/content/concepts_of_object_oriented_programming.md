@@ -879,7 +879,7 @@ Field **Write** or Method **Result**:
 
     :::java
     e.f = v;
-    
+
 $$\tau(e) \blacktriangleright \tau(f) :> \tau(v)$$
 
 And
@@ -955,7 +955,7 @@ Additional enforced rules:
 - Invariants of object *o* can depend on:
     - Encapsulated fields of *o* (as usual)
     - Fields of objects transitively owned by *o*
-    
+
 <!-- End of Slides 6 -->
 
 <!-- Beginning of Slides 7 -->
@@ -1004,26 +1004,73 @@ Additional enforced rules:
                 - Dont call methods
                 - Don't pass as argument to methods
                 - Dont's store in fields or an array
-        - Better type-system: track initialization
+        - Better type-system: track initialization (construction types)
             - Initialization Phases (3 types per class/interface)
                 - *free type*: objects under construction (free to violate invariants, free to have null in non-null variables)
                 - *committed type*: object construction is completed (type of object is chaged at run-time when object is fully constructed)
                 - *unclassified type*: super-type of *free type* and *committed type*
 
-<!--
-Initialization Phases:
-
-    :::
-    Object created          Object constructed completely
-        |                     |
-        v                     v
-        |---------------------|---------------- ->
-                                        time
-        \--------------------/\-----------------...
-             free type             committed type
-        \---------------------------------------...
-                         unclassified type
--->
-
 <!-- End Notes Week 11 -->
+
+<!-- Beginning Notes Week 12 -->
+
+## Type Rules
+
+- Most type rules of Java remain unchanged
+- Additional requirement: dereferencing needs a non-null type
+    - Receiver of field access
+    - Receiver of array access
+    - Receiver of method call
+    - Expression of a `throw` statement
+- Dereferencing of a non-null type can be checked statically (compile time)
+- Escaping constructor is an issue
+- Combining non-null type system with construction types
+    - 6 types
+
+|              | non-null  | possibly-null |
+|--------------|-----------|---------------|
+| comitted     | `T!`      | `T?`          |
+| free         | `free T!` | `free T?`     |
+| unclassified | `unc T!`  | `unc T?`      |
+
+No downcasts from unclassified to free or committed (no reasonable run-time checks).
+
+## Local Initialization
+
+- An object is locally initialized: all non-null fields have non-null values
+- Static type *committed*: locally initialized at run-time
+
+    :::java
+    e.f
+
+| Field access |  f: `!` | f: `?` |
+|--------------|---------|--------|
+| e: `commited`|   `!`   |  `?`   |
+| e: `free`    |   `?`   |  `?`   |
+| e: `unc`     |   `?`   |  `?`   |
+
+## Transitive Initialization
+
+- *Committed* has to be transitive
+- An object is *transitively initialized* if all reachable objecs are *localy initialized*
+- static type *committed*: transitively initialized at run-time
+
+## Cyclic Structures
+
+- In initialization code (i.e constructor) it's allowed to assign *committed* types to *free* types
+
+## Field Write
+
+- A field write `a.f = b` is well-typed if
+    - `a` and `b` are well-typed
+    - `a`'s type is a non-null type (`!`)
+    - `b`'s class and non-null type conforms to `a.f`
+    - **`a`'s type is *free* or `b`'s type is *committed***
+
+| type of `a` \ type of `b` | committed | free     | unc      |
+|---------------------------|-----------|----------|----------|
+| committed                 | &#10003;  | &#10008; | &#10008; |
+| free                      | &#10003;  | &#10003; | &#10003; |
+| unc                       | &#10003;  | &#10008; | &#10008; |
+
 <!-- Slides 7.2 p. 71 -->
