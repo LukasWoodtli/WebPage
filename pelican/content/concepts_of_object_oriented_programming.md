@@ -1092,7 +1092,7 @@ Field access:
     - `e` is well-typed
     - `e`'s type is a non-null type (`!`)
     - Field (`f`) has no construction-type modifier
-    
+
 The type of `e.f` is:
 
 | type of e \ type of f | `T!`     | `T?`     |
@@ -1147,5 +1147,3 @@ Construction-type for `this`:
 
 <!-- Sides 7.2 p. 160 -->
 <!-- Notes Week 12 p. 6, 01:49:00 -->
-
-
