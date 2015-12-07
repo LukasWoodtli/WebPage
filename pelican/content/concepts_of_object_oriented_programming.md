@@ -1106,6 +1106,7 @@ The type of `e.f` is:
 - Constructor signatures: each parameter has declared construction-type (default: *committed*) and null-ness type
 - `this` in cunstruction has implicitly: *free non-null*
 - Definite assignment check for complete constructor
+- Constructors are *free* by default
 
 ### Method Calls
 
@@ -1120,4 +1121,31 @@ Construction-type for `this`:
     }
 
 - Overriding requires usual co- and contravariant rules
+    - The receiver (`this`) counts as parameter
+
+### Object Construction
+
+- At the end of a constructor the object is not nessecary fully initialized (i.e constructors of deriving classes are not run yet)
+- End of a `new` expression: constructed object might not yet be fully constructed
+- `new` expressions can have only references to committed objects outside of the `new` expression
+    - committed reference to the `new` expression is not possible
+        - `new` not yet finished (not *committed*, *free*)
+        - But committed objects can't have pointers to *free*
+- Nested `new` expression:
+  - if the 'inner' `new` expression is fully (transitively) initialized reference *to* and *from* the outside
+  - the 'outer' `new` expression can point to the 'inner' `new` expression
+
+#### `new` Expression
+
+> After 'outer' `new` expression (only committed arguments) finishes all 'inner' `new` expressions have references to locally initialized objects.
+> All references inside the 'outer' `new` expression point to transitively initialized objects.
+
+- The type of a `new` expression is *committed* if the static types of all arguments of the constuctor are *committed*
+    - Otherwise it's *free*
+    - It's not relevant what the declared types of the constructor arguments are! It depends on the `new` expression
+- It's almost not possible to create uninitialized objects
+
+<!-- Sides 7.2 p. 160 -->
+<!-- Notes Week 12 p. 6, 01:49:00 -->
+
 
