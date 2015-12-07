@@ -899,7 +899,7 @@ is **not lost**.
 
 Example:
 
-    ::java
+    :::java
     class Person {
       private rep Address addr; // part of internal representation
       public rep Address getAddr() {
@@ -1040,6 +1040,8 @@ No downcasts from unclassified to free or committed (no reasonable run-time chec
 - An object is locally initialized: all non-null fields have non-null values
 - Static type *committed*: locally initialized at run-time
 
+Field access:
+
     :::java
     e.f
 
@@ -1059,13 +1061,24 @@ No downcasts from unclassified to free or committed (no reasonable run-time chec
 
 - In initialization code (i.e constructor) it's allowed to assign *committed* types to *free* types
 
-## Field Write
+## Type Rules
+
+- Field declaration has no consturction-type modifier
+    - non-null (`!`) or possibly-null (`?`) modifiers are possible
+    - It's determined if it's *free* or *committed* when dereferencing (`e.f`)
+    - Field declaration is the only place in a programm that has not construction-type modifier
+- *committed* is transitive!
+- It's not allowed to have a *committed* and a *free* reference to the same object (no cross-type aliases)
+    - The *free* reference could assign a pointer in the object to an uninitialized field
+- It's critical when an reference changes from *free* to *committed*
+
+### Field Write
 
 - A field write `a.f = b` is well-typed if
     - `a` and `b` are well-typed
     - `a`'s type is a non-null type (`!`)
     - `b`'s class and non-null type conforms to `a.f`
-    - **`a`'s type is *free* or `b`'s type is *committed***
+    - **`a`'s type is *free* or `b`'s type is *committed* **
 
 | type of `a` \ type of `b` | committed | free     | unc      |
 |---------------------------|-----------|----------|----------|
@@ -1073,4 +1086,38 @@ No downcasts from unclassified to free or committed (no reasonable run-time chec
 | free                      | &#10003;  | &#10003; | &#10003; |
 | unc                       | &#10003;  | &#10008; | &#10008; |
 
-<!-- Slides 7.2 p. 71 -->
+### Field Read
+
+- A field read `e.f`is well-typed if:
+    - `e` is well-typed
+    - `e`'s type is a non-null type (`!`)
+    - Field (`f`) has no construction-type modifier
+    
+The type of `e.f` is:
+
+| type of e \ type of f | `T!`     | `T?`     |
+|-----------------------|----------|----------|
+| `S!`                  |  `T!`    | `T?`     |
+| `free S!`             | `unc T?` | `unc T?` |
+| `unc S!`              | `unc T?` | `unc T?` |
+
+### Consturctors
+
+- Constructor signatures: each parameter has declared construction-type (default: *committed*) and null-ness type
+- `this` in cunstruction has implicitly: *free non-null*
+- Definite assignment check for complete constructor
+
+### Method Calls
+
+- Method signatures: each parameter has declared construction-type (and null-ness type)
+- Method signatures can contain construction-type for `this`
+
+Construction-type for `this`:
+
+    :::java
+    String! free getId(String! n) {
+      return ...;
+    }
+
+- Overriding requires usual co- and contravariant rules
+
