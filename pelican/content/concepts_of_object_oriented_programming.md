@@ -1145,5 +1145,60 @@ Construction-type for `this`:
     - It's not relevant what the declared types of the constructor arguments are! It depends on the `new` expression
 - It's almost not possible to create uninitialized objects
 
-<!-- Sides 7.2 p. 160 -->
-<!-- Notes Week 12 p. 6, 01:49:00 -->
+
+### Lazy Initialization
+
+- Access lazy initialized field always through getter method
+
+i.e
+
+    :::java
+    class Demo {
+      private Vector? data; // possibly-null
+      public Vector! getData() { // getter guarantees for non-null
+        Vectror? d = data; // needed for data flow analysis
+        if (d == null) {
+          d = new Vector(); data = d;
+        }
+        return d;
+      }
+    }
+
+
+## Arrays
+
+    :::java
+    // Elements
+    //    |
+    //    v
+    Person! []! a; // Non-null array with non-null elements
+    Person? []! b; // Non-null array with possibly-null elements
+    Person! []? c; // Possibly-null array with non-null elements
+    Person? []? d; // Possibly-null array with possibly-null elements (default in Java)
+    //        ^
+    //        |
+    //      Array
+
+- Arrays have no constructors
+- Problem: Array initialization is often done with loops
+    - Definite assignment cannot be checked by compiler
+- Possible solutions:
+    - Array initializers (`String! []! s = {"Array", "of", "non-null", "Strings"};`)
+    - Eiffel: pre-filling array (default objects not better than `null`)
+    - Run time assert provided by programmer (Spec#)
+        - `NonNullType.AssertInitialized(arr);` (run time assert function)
+        - Only committed elements can be stored in array
+        - Data flow analysis knows semantic of run time assert function
+        - Run time assert function changes type from **free** to **committed**
+
+## Summary
+
+- Can be combined with Generics
+- Invariant: non-nullness
+- Avoid calling virtual methods on this in uninitialized objects (constructors, init methods)
+- Don't let escape uninitialized objects
+- At end of constructor: object might not yet be constructed (i.e subclass constructors)
+
+<!-- End of Notes Week 12 -->
+<!-- Slides 7.3 p. 194 (~53) -->
+
