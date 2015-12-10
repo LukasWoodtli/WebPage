@@ -6,6 +6,12 @@ Modified: 2015-07-27
 
 [TOC]
 
+# Core Requirements to OOP Languages
+
+- Highly dynamic execution model
+- Cooperating program parts with well defined interfaces
+- Classification (hierarchy) and specialisation (reuse)
+- Quality/Correctness
 
 # The Object Model
 
@@ -21,6 +27,10 @@ Objects have:
 - Location
 - Behavior
 
+> Objects are different form values!
+
+Values don't have the above properties.
+
 ## Interfaces and Encapsulation
 
 - Objects have well-defined interfaces
@@ -34,9 +44,10 @@ Objects have:
 
 ## Classification and Polymorphism
 
-- Classification: Hierarchical structuring of objects
+- Classification: Hierarchical structuring of objects ('is-a'-Relation)
 - Objects belong to different classes simultaneously
 - *Substitution principle*: Subtype objects can be used wherever supertype objects are expected
+
 
 ### Classification
 
@@ -63,12 +74,12 @@ objects of supertypes are expected
 - Uses *type parameters*
 - One implementation can be used for different types
 - Type missmatch detected at compile time
-- i.e C++ Templates
+- C++ Templates, Generics (Java, C#)
 
 #### Method Overloading
 
 - Ad-Hoc Polymorphism
-- Methods with same name but different arguments
+- Overloading: Methods with same name but different arguments 
 
 
 ### Spezialization
@@ -77,7 +88,7 @@ objects of supertypes are expected
 - Extend these objecs (fields and methods)
 - Behaviour of specialized objects need to be compliant to more general objects! (Substitution Principle)
 - Progam parts that work for the genral objects work also for specialized objects
-
+- Methods can be *overridden*
 
 # Types and Subtyping
 
