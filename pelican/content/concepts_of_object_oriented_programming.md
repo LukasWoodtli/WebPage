@@ -100,6 +100,12 @@ Type systems can be analyzed in three dimensions:
 2. Nominal and Structural Types
 3. Static and Dynamic Type Checking
 
+Definition:
+
+> A type is a set of values sharing some properties. A value *v* has type *T* if *v* is an element of *T*.
+
+*T* is a set that contains all possible values *v*.
+
 ### Weak and Strong Type Systems
 
 How strongly or weakly typed a language is concerns casting (implicit and explicit).
@@ -139,20 +145,40 @@ It's mainly used to compare languages to each other about the possible castings,
 
 ### Type Checking
 
+Type checking prevents certain errors in programm.
+
+When happens the type checking?
+
+- Static: Compile time
+- Dynamic: Run time
+
 #### Static Type Checking
 
 - Types of variables and methods are declared explicitly or inferred
 - Types of expressions can be derived from the types of their constituents
-- Type rules are used at compile time to check whether a program is correctly typed
+- Type rules are used at *compile time* to check whether a program is correctly typed
 
 > A programming language is called type-safe if its design prevents type errors
 
+Pros:
+
+- Static safety
+- Readability (type annotations are a good documentation)
+- Efficiency
+
 #### Dynamic Type Checking
 
-- Variables, methods, and expressions of a program are typically not typed
+- Variables, methods, and expressions of a program are typically not typed (types not declared)
 - Every object and value has a type
-- Run-time system checks that operations are applied to expected arguments
-- Static languages need to performe some checks dynamically at run-time (i.e type-casting)
+- *Run-time system checks* that operations are applied to expected arguments
+- Also static languages need to performe some checks dynamically at run-time (i.e type-casting)
+- Dynamic languages are usually more expressive (no type annotations)
+
+Pros:
+
+- Expressiveness
+- Low overhead (no type annotations)
+- Much simpler
 
 ### Overview of Type Systems in OO-Languages
 
@@ -163,9 +189,10 @@ It's mainly used to compare languages to each other about the possible castings,
 
 Dynamic and Structural is often called "duck typing".
 
+
 ## Subtyping
 
-> Substitution  principle Objects of subtypes can be used wherever objects of supertypes are expected
+> Substitution principle Objects of subtypes can be used wherever objects of supertypes are expected
 
 - Syntactic classification: Subtypes understand *at least the messages* of their supertypes.
 
