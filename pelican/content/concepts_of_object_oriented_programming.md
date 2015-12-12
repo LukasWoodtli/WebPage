@@ -230,7 +230,6 @@ Ordering of types from more generic to more specific (in oposite direction of in
 
 [Coursera:Scala](https://class.coursera.org/progfun-005/lecture/83)
 
-
 |                                                        | Variance      |
 |--------------------------------------------------------|---------------|
 | Input Arguments                                        | Contravariant |
@@ -255,6 +254,8 @@ Ordering of types from more generic to more specific (in oposite direction of in
 | Eiffel                  | Covariant      | Covariant    |
 | C#                      | Nonvariant     | Nonvariant   |
 
+
+<!-- End of Notes Week 2 -->
 
 In Java and C# arrays are covariant!
 
@@ -849,6 +850,11 @@ Distinguish *internal* references from other references.
 - Context: all objects that have the same owner
 - Ownership relation is *not* transitive
 
+Type Invariant:
+ 
+> The *static* ownership information (declared in code) reflects the *run-time* ownership of the referenced object
+
+
 #### Ownership Types
 
 - **peer**: in the same context, same owner as owner of *this*
@@ -1061,6 +1067,12 @@ Additional enforced rules:
                 - *committed type*: object construction is completed (type of object is chaged at run-time when object is fully constructed)
                 - *unclassified type*: super-type of *free type* and *committed type*
 
+Type Invariant:
+
+> An object is initialized if all fields have non-null values (transitively).
+
+There could also be other invariants that have to hold after object is initialized, but can be broken before the object is fully initialized.
+
 <!-- End Notes Week 11 -->
 
 <!-- Beginning Notes Week 12 -->
@@ -1251,5 +1263,10 @@ i.e
 - At end of constructor: object might not yet be constructed (i.e subclass constructors)
 
 <!-- End of Notes Week 12 -->
-<!-- Slides 7.3 p. 194 (~53) -->
+
+<!-- Beginning of Notes Week 13 -->
+
+<!-- Slides 7.3 p. 194 (~53)
+## Initialization of Global Data  -->
+
 
