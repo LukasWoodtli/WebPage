@@ -195,8 +195,19 @@ Dynamic and Structural is often called "duck typing".
 > Substitution principle Objects of subtypes can be used wherever objects of supertypes are expected
 
 - Syntactic classification: Subtypes understand *at least the messages* of their supertypes.
-
+    - Nominal languages: Subtype has a *wider* (or same) interface as supertype
+    - Overriding methods must not be less accessible
 - Semantic classification: Subtypes provide *at least the behaviour* of their supertypes.
+
+A type is a *set* of values. *Subtype relation* corresponds to *subset relation*.
+
+![Subtyping and Sets](/images/coop_subtyping_and_sets.svg)
+
+
+- In *nominal* programming languages the *programmer* decides about subtype relation
+- In *structural* programming languages the *type checker* decides about subtype relation
+
+
 
 ### Variance (Covariance, Contravariance and Invariance)
 
@@ -224,7 +235,7 @@ Ordering of types from more generic to more specific (in oposite direction of in
 |--------------------------------------------------------|---------------|
 | Input Arguments                                        | Contravariant |
 | Return Values and Exceptions                           | Covariant     |
-| In- and Output Arguments (Mutable Reference Arguments) | Invariant     |
+| In- and Output Arguments (Mutable Reference Arguments) | Nonvariant    |
 
     :::cpp
     SuperReturnType Super::foo(SubParamType p); // |         ^ contra-
@@ -240,9 +251,9 @@ Ordering of types from more generic to more specific (in oposite direction of in
 
 | Programming Language    | Argument Type  | Return Type  |
 |-------------------------|----------------|--------------|
-| C++, Java, Scala, D...  | Invariant      | Covariant    |
+| C++, Java, Scala, D...  | Nonvariant     | Covariant    |
 | Eiffel                  | Covariant      | Covariant    |
-| C#                      | Invariant      | Invariant    |
+| C#                      | Nonvariant     | Nonvariant   |
 
 
 In Java and C# arrays are covariant!
