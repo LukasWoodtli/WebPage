@@ -107,20 +107,22 @@ It's mainly used to compare languages to each other about the possible castings,
 
 #### Untyped Languages
 
-- Not classifying values into types
+- Not classifying values into types, just bit patterns
 - i.e. Assembler
 
 #### Weakly Typed Languages
 
 - Classifying values into types
-- No strict enforcement of restrictions
+- No strict enforcement of restrictions, i.e Multiplying two pointers is possible
 - i.e. C, C++
 
 #### Strongly Typed Languages
 
+- Classify values into types
 - Enforcing that all operations are applied to values of appropriate type
 - Strongly-typed languages prevent certain erroneous or undesirable program behavior
 - i.e. Java, Python, Scala, Smalltalk, Eiffel, C#
+- Most Dynamic Languages (i.e Python, JavaScript) are Strongly Typed
 
 ### Nominal and Structural Types
 
