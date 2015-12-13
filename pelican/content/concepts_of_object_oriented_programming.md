@@ -280,6 +280,19 @@ This is expressed as interface specifications (contracts)
 - Subtypes may have *stronger invariants* than supertypes
 - Subtypes may have *stronger history constrains* than supertype
 
+#### Behavioral Subtyping
+
+- Subtype needs to satisfy the contract of the supertype (inheriting contracts)
+- *Invariant* inheritance: Conjunction (AND) of own contract and contracts of all supertypes
+- *History* inheritance: same as for *invariants*
+- *Precondition* inheritance: Disjunctions (OR) of own contract and contracts of all supertypes
+
+$$PreEff_{S.m} = Pre_{S.m} || Pre_{T.m} || Pre_{T’.m} || ...$$
+
+- *Postcondition* inheritance: Satisfy *each* postcondition for which the corresponding precondition holds
+    - Precondition needs to be evaluated with *old* state
+
+$$PostEff_{S.m} = (old(Pre_{S.m}) => Post_{S.m}) && (old(Pre_{T.m}) => Post_{T.m}) ...$$
 
 
 ### Types as Contracts
