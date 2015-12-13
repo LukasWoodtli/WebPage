@@ -1137,7 +1137,7 @@ Field access:
 
 ## Cyclic Structures
 
-- In initialization code (i.e constructor) it's allowed to assign *committed* types to *free* types
+- In initialization code (i.e constructor) it's allowed to assign *committed* types to **fields** of  *free* types
 
 ## Type Rules
 
@@ -1152,11 +1152,17 @@ Field access:
 
 ### Field Write
 
-- A field write `a.f = b` is well-typed if
-    - `a` and `b` are well-typed
-    - `a`'s type is a non-null type (`!`)
-    - `b`'s class and non-null type conforms to `a.f`
-    - **`a`'s type is *free* or `b`'s type is *committed* **
+A field write
+
+    :::java
+    a.f = b
+
+is well-typed if
+- `a` and `b` are well-typed
+- `a`'s type is a non-null type (`!`)
+- `b`'s class and non-null type conforms to `a.f`
+- **`a`'s type is *free* or `b`'s type is *committed* **
+
 
 | type of `a` \ type of `b` | committed | free     | unc      |
 |---------------------------|-----------|----------|----------|
