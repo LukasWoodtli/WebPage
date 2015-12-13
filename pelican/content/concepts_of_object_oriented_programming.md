@@ -294,7 +294,7 @@ $$PreEff_{S.m} = Pre_{S.m} || Pre_{T.m} || Pre_{T’.m} || ...$$
 - *Postcondition* inheritance: Satisfy *each* postcondition for which the corresponding precondition holds
     - Precondition needs to be evaluated with *old* state
 
-$$PostEff_{S.m} = (old(Pre_{S.m}) => Post_{S.m}) \&\& (old(Pre_{T.m}) => Post_{T.m}) ...$$
+$$PostEff_{S.m} = (old(Pre_{S.m}) => Post_{S.m}) \&\& (old(Pre_{T.m}) => Post_{T.m}) \&\& ...$$
 
 
 ### Types as Contracts
