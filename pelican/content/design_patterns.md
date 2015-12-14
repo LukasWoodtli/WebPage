@@ -20,8 +20,8 @@ Overview of Design Patterns
 |                            | Proxy[^1] [^2]      | Null Object                  | Model View Presenter       |
 |                            |                     | Observer[^1] [^2]            | Plugin                     |
 |                            |                     | State[^1] [^2]               | Fluent Interface           |
-|                            |                     | Strategy[^1] [^2]            |                            |
-|                            |                     | Template Method[^1] [^2]     |                            |
+|                            |                     | Strategy[^1] [^2]            | Functor                    |
+|                            |                     | Template Method[^1] [^2]     | Filter-Pipe                |
 |                            |                     | Visitor[^1]                  |                            |
 
 [^1]: [Design Patterns (GoF)](https://en.m.wikipedia.org/wiki/Design_Patterns_(book))
@@ -29,11 +29,6 @@ Overview of Design Patterns
 
 ///Footnotes Go Here///
 
-Other Patterns
---------------
-
-- Functor
-- Filter-Pipe
 
 OO-Principles
 -------------
