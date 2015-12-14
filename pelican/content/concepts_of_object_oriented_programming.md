@@ -1328,6 +1328,22 @@ i.e
 
 <!-- End of Slides 7 -->
 
-<!-- Beginning of Slides 8 # Reflections -->
+<!-- Beginning of Slides 8 -->
+
+# Reflections
+
+- Program can observe and modify its structure and behavioral at run-time
+- Simples form: RTTI (i.e for casting)
+
+## Introspection
+
+- Get methods, fields... from classes (or individual objects)
+- Checks are done at run-time instead of compile-time (exceptions)
+    - Type checking
+    - Accessibility checks
+- Accessibity / information hiding can be weakend (security issue)
+- Helpful for debugging
+- JUnit's test driver works with introspection
+- Visitor pattern is much simpler with introspection
 
 
