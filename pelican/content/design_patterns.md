@@ -24,12 +24,16 @@ Overview of Design Patterns
 |                            |                     | Template Method[^1] [^2]     |                            |
 |                            |                     | Visitor[^1]                  |                            |
 
-
 [^1]: [Design Patterns (GoF)](https://en.m.wikipedia.org/wiki/Design_Patterns_(book))
 [^2]: [Head First Design Patterns](http://www.headfirstlabs.com/books/hfdp/)
 
 ///Footnotes Go Here///
 
+Other Patterns
+--------------
+
+- Functor
+- Filter-Pipe
 
 OO-Principles
 -------------
