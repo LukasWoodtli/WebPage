@@ -1374,3 +1374,33 @@ Examples:
     - Can be compiled at run-time with `Compile` method
     - Generation and compilation of code at run-time is expensive but pays if generated code is called often
 
+## Dynamic Code Manipulation
+
+- Usually only available in dynamically typed languages (Python, Lisp...)
+- Makes code difficult to understand
+
+
+## Summary
+
+- Very flexible (plug-ins)
+- Serialization / persistance
+- Design Patterns
+- Dynamic code generation
+- Not staticially safe!
+- Information hiding can be compromized
+- Hard to understand and debug
+- Performance can be wery bad
+
+
+Reflection and Typechecking:
+
+| Degree of Reflection       | Type Checking                                |
+|----------------------------|----------------------------------------------|
+| Introspection              | Code can be checked once, when compiled      |
+| Reflective Code Generation | Code can be checked once, when generated     |
+| Dynamic Code Manipulation  | Requires typically dynamic type checking     |
+
+<!-- End of Slides 8 -->
+<!-- End of Notes Week 13 -->
+<!-- End of Course! -->
+
