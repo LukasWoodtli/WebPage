@@ -1287,7 +1287,47 @@ i.e
 
 <!-- Beginning of Notes Week 13 -->
 
-<!-- Slides 7.3 p. 194 (~53)
-## Initialization of Global Data  -->
+## Initialization of Global Data
+
+- OO-Programs have also global data
+- i.e Flightweight-Pattern, Singleton, Caches...
+
+### Requirements
+
+- Must be initialized before first use (non-nullness)
+- Handle mutual dependencies
+- Lazy initialization
+
+### C++
+
+- Global vars can have initializers
+- Initializers are executed before `main` function
+    - Implicitely called by run-time system
+    - No support for lazy initialization
+- Order of execution as in apearance in code
+- No mechanism for dependancies (has to be donne by programmer)
+
+### Java (similar in C#)
+
+- Static initializer for static fields
+- Lazy initialized
+- No mechanism for mutual dependencies (call to not initialized reference possible)
+- Static initializer can have side effects (no modular reasoning about initialization)
+
+### Scala
+
+- Language support for singletons
+- Singletons can extend classes and traits but *can't be specialized*
+- Internally translated to Java initialization
+
+### Summary
+
+- No solution really guarantees that global data is initialized before use
+- No solution handles dependancies
+- Carefull with global data (as programmer)!
+
+<!-- End of Slides 7 -->
+
+<!-- Beginning of Slides 8 # Reflections -->
 
 
