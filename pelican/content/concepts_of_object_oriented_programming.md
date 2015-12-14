@@ -1345,5 +1345,32 @@ i.e
 - Helpful for debugging
 - JUnit's test driver works with introspection
 - Visitor pattern is much simpler with introspection
+- Reflection API defines (and throws) *checked exceptions*
+    - If underlying code (i.e throws an exception it is transformed into a *unchecked exception*
 
+Example:
+
+    :::java
+    public T newInstance( ) throws InstantiationException, IllegalAccessException;
+
+If the constructor called internally by `newInstance` throws an exception (even a checked exception)
+it gets swalowed and rethrown as an unchecked exception.
+
+- Visitor Pattern (Double Invocation) can be implemented much simpler with reflections
+    - Second dynamic dispatch is implemented via reflection
+    - `accept` methods in element classes
+    - Flexible
+    - Not statically safe: error handling code needed
+    - Slower than 'traditional' implementation
+
+## Reflective Code Generation
+
+Examples:
+
+- Java class loading
+- Expression tree in C#
+    - Represents Abstract Syntax Tree of C#
+    - AST can be created like any other data structure at run-time
+    - Can be compiled at run-time with `Compile` method
+    - Generation and compilation of code at run-time is expensive but pays if generated code is called often
 
