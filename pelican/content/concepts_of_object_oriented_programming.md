@@ -1113,6 +1113,8 @@ There could also be other invariants that have to hold after object is initializ
 
 No downcasts from unclassified to free or committed (no reasonable run-time checks).
 
+![Construction types hierarchy](/images/coop_non-null_and_construction_types.png)
+
 ## Local Initialization
 
 - An object is locally initialized: all non-null fields have non-null values
