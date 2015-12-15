@@ -315,7 +315,11 @@ This doesn't apply exactly to:
 - Invariants/Fields
 - History constraints
 
+<!-- End of Slides 2 -->
+
 ## Inheritance
+
+<!-- Notes Week 4 01:18:05  p. 4 -->
 
 ### Difference between inheritance and subtyping
 
