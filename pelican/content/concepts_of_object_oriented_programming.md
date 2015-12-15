@@ -48,6 +48,7 @@ Values don't have the above properties.
 - Objects belong to different classes simultaneously
 - *Substitution principle*: Subtype objects can be used wherever supertype objects are expected
 
+> Child <: Parent
 
 ### Classification
 
