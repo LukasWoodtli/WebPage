@@ -248,11 +248,11 @@ Ordering of types from more generic to more specific (in oposite direction of in
 
 
 
-| Programming Language    | Argument Type  | Return Type  |
-|-------------------------|----------------|--------------|
-| C++, Java, Scala, D...  | Nonvariant     | Covariant    |
-| Eiffel                  | Covariant      | Covariant    |
-| C#                      | Nonvariant     | Nonvariant   |
+| Programming Language    | Return Type  | Argument Type  |
+|-------------------------|--------------| ---------------|
+| C++, Java, Scala, D...  | Covariant    | Nonvariant     |
+| Eiffel                  | Covariant    | Covariant      |
+| C#                      | Nonvariant   | Nonvariant     |
 
 
 <!-- End of Notes Week 2 -->
