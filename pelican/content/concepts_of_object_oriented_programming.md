@@ -1198,6 +1198,8 @@ The type of `e.f` is:
 - `this` in cunstruction has implicitly: *free non-null*
 - Definite assignment check for complete constructor
 - Constructors are *free* by default
+- The most permessive type for *arguments in a constructor* declaration is *unc*
+    - This should be chosen if possible
 
 ### Method Calls
 
@@ -1213,6 +1215,8 @@ Construction-type for `this`:
 
 - Overriding requires usual co- and contravariant rules
     - The receiver (`this`) counts as parameter
+    - Method arguments should not be declared as *unclassified* if possible
+        - otherwise overriding methods need to cope with *unclassified* too
 
 ### Object Construction
 
