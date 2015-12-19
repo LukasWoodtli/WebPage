@@ -338,6 +338,54 @@ Floating Point
     SYSTEM.NULL(x);
     SYSTEM.MULD(a,b,c);
 
+
+#####  Interrupt Procedures
+
+    :::modula2
+    PROCEDURE Handler {INTERRUPT, PCOFFSET=k};
+    BEGIN (* k is the offset to the next instruction
+             cf. table of exceptions *)
+    END Handler;
+
+##### Special Flags and Features
+
+
+Procedure without activation frame
+
+    :::modula2
+    PROCEDURE {NOTAG}
+
+Procedure that is linked to the beginning of a kernel
+
+    :::modula2
+    PROCEDURE {INITIAL}
+
+Inline assembler block
+
+    :::modula2
+    CODE ... END
+
+Alignment of a symbol (i. e variable)
+
+    :::modula2
+    symbol {ALIGNED(32)}
+
+
+Pinning of a symbol
+
+    :::modula2
+    symbol {FIXED(0x8000))
+
+Unsafe pointer that is assignment compatible with type `ADDRESS`
+
+    :::modula2
+    POINTER {UNSAFE} TO ...
+
+Symbol that is invisible to a Garbage Collector
+
+    :::modula2
+    symbol {UNTRACED}
+
 <!-- Week 8 -->
 
 ## Compare-And-Swap (CAS)
