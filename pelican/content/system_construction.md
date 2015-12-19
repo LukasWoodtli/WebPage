@@ -1,6 +1,6 @@
 Title: System Construction
 Category: Programming
-Tags:
+Tags: ETH, Assembler
 Date: 2015-11-07
 Modified: 2015-11-07
 
@@ -194,6 +194,72 @@ find the right documents.
         (* statement seq *)
     END;
 
+##### Builtin Functions
+
+Increment and decrement
+
+    :::modula2
+    INC(x);
+    DEC(x);
+    INC(x,n);
+    DEC(x,n);
+
+Sets
+
+    :::modula2
+    INCL(set, element);
+    EXCL(set, element);
+
+Assert and Halt
+
+    :::modula2
+    ASSERT(b<0);
+    HALT(100);
+
+Allocation
+
+    :::modula2
+    NEW(x, ...);
+
+Shifts
+
+    :::modula2
+    ASH(x,y);
+    LSH(x,y);
+    ROT(x,y);
+
+Conversion
+
+    :::modula2
+    SHORT(x);
+    LONG(x);
+    ORD(ch);
+    CHR(i);
+    ENTIER(r);
+
+Arrays
+
+    :::modula2
+    LEN(x);
+    LEN(x,y);
+    DIM(t);
+
+Misc
+
+    :::modula2
+    ABS(x);
+    MAX(type);
+    MIN(type);
+    ODD(i);
+    CAP(c);
+
+Addresses and Sizes
+
+    :::modula2
+    ADDRESS OF x;
+    ADDRESSOF(x);
+    SIZE OF t;
+    SIZEOF(t);
 
 #### Modules
 
