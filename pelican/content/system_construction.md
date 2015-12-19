@@ -280,6 +280,63 @@ Addresses and Sizes
 - Unsafe Pointer: can write to memory address
 
 
+#### Pseudo Module `SYSTEM`
+
+Direct Memory Access Functions
+
+    :::modula2
+    SYSTEM.PUT (a, x);
+    SYSTEM.GET (a, x);
+    SYSTEM.PUT8|16|32|64(a, x);
+    x := SYSTEM.GET8|16|32|64(a);
+    SYSTEM.MOVE(src, dest, length);
+
+Data Type
+
+    :::modula2
+    SYSTEM.BYTE
+
+Type Cast
+
+    :::modula2
+    b := SYSTEM.VAL(a, t);
+
+
+Example of Low-Level access
+
+    :::modula2
+    IMPORT SYSTEM;
+
+    PROCEDURE LetThereBeLight;
+    CONST GPSET0 = 03F20001CH;
+    BEGIN
+        SYSTEM.PUT(GPSET0, {21});
+    END LetThereBeLight;
+
+##### `SYSTEM`: ARM Specific
+
+Register Access
+
+    :::modula2
+    SYSTEM.SP();
+    SYSTEM.FP();
+    SYSTEM.LNK();
+
+    SYSTEM.SETSP(x);
+    SYSTEM.SETFP(x);
+    SYSTEM.SETLR(x);
+
+    SYSTEM.LDPSR(b,x);
+    SYSTEM.STPSR(b,x);
+    SYSTEM.LDCPR(a,b,c);
+    SYSTEM.STCPR(a,b,c);
+    SYSTEM.FLUSH(x);
+
+Floating Point
+
+    :::modula2
+    SYSTEM.NULL(x);
+    SYSTEM.MULD(a,b,c);
 
 <!-- Week 8 -->
 
