@@ -129,7 +129,7 @@ find the right documents.
 ## Minos and Oberon
 
 ### History of Oberon
-![Oberon Language and OS Family](/images/oberon_history.png)
+![Oberon Language and OS Family](/images/syscon_oberon_history.png)
 
 ### Oberon
 
@@ -385,6 +385,125 @@ Symbol that is invisible to a Garbage Collector
 
     :::modula2
     symbol {UNTRACED}
+
+
+##### Type Declarations
+
+    :::modula2
+    TYPE
+
+    Device* = POINTER TO DeviceDesc;  (* Pointer to record (reference type)*)
+    DeviceDesc* = RECORD              (* Record: Value type *)
+        id*: INTEGER;
+        Open*: PROCEDURE(dev: Device);
+        Close*: PROCEDURE(dev: Device);
+        next*: Device;
+    END;
+
+    (* Procedure type with signature *)
+    TrapHandler* = PROCEDURE(type, addr, fp: INTEGER; VAR res: INTEGER);
+
+    NumberType* = REAL; (* Type alias *)
+
+    DeviceName* ARRAY DeviceNameLength OF CHAR; (* Array Type *)
+
+    Data* POINTER TO ARRAY OF CHAR; (* Dynamic array type *)
+
+##### Inheritance
+
+    :::modula2
+    Task* = POINTER TO TaskDesc;
+    TaskDesc* = RECORD
+        task task task
+        task task
+        proc:PROCEDURE(me:Task); (* This procedure is executed in the task *)
+        next: Task;              (* The next task in the list of tasks *)
+    END;
+
+    PeriodicTask* = POINTER TO PeriodicTaskDesc;
+    PeriodicTaskDesc* = RECORD (TaskDesc) (* inherits TaskDesc *)
+        priority: LONGINT; (* The priority determines the execution order *)
+        interval: LONGINT; (* The task is executed every "interval" msecs *)
+    END;
+
+Type Test
+
+    :::modula2
+    IF task IS PeriodicTask THEN ... END;
+
+Type Guard (cast)
+
+    :::modula2
+    IF task(PeriodicTask).priority = 1 THEN ... END;
+
+Type Test and Guard
+
+    :::modula2
+    WITH task: PeriodicTask DO ... END;
+
+##### Runtime Support for Inheritance
+
+- RTTI is supported
+- Each type gets an unique type descriptor (`LONGINT`)
+- The variables contain an array of up to 3 tags
+- The tags point to the type descriptors
+- Inheritance level is restricted to 3
+
+
+#### Module Loading and Commands
+
+- Modules are loaded on demand (first use)
+- Statically linked modules are loaded at boot-time
+- Exported Procedures without parameters act as commands
+- Modification of modules needs reloading
+- Unloading possible, if no other loaded module (static or dynamic) depends on it
+- If a command of a not loaded module is executed the module is loaded first
+
+#### Compilation and Linknig
+
+- A module (.mod) is compiled to an executable file / object file (.arm) and a symbol file (.smb)
+- The executable file contains a fingerprint
+- The linker adds fingerprint to dependant object files (fixup)
+
+#### Object File Format
+
+Compiler flags:
+
+    :::
+    Compiler.Compile -b=ARM --objectFile=Minos
+
+- The object file is very compact
+- Key: Fingerprint
+- Fixups &rarr; Fixup-root (relocation table) linked list to fixups
+- Downsides:
+    - Module file is limited
+    - Not very maintainable
+
+![Minos Object Files](/images/syscon_minos_object_file.png)
+
+This image is taken from the lecture slides provided by Felix Friedrich
+
+#### Bootfile
+
+- Linked Modules of Kernel files (hierarchy)
+- Predefined loading address and entry point (0x8000 for RPI2)
+
+
+Boot-Linking command in host system
+
+    :::
+    MinosLinker.Link minimalinit.img 108000H kernel.img OFSRamVolumes SerialLog Minos  ~
+
+Image header: `minimalinit.img`
+Start address: `108000H`
+Image file name: `kernel.img`
+Object file names (compiled): `OFSRamVolumes SerialLog Minos  ~`
+
+
+
+<!-- Beginning of Slides Week 3 -->
+
+
 
 <!-- Week 8 -->
 
