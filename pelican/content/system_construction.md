@@ -503,6 +503,36 @@ Object file names (compiled): `OFSRamVolumes SerialLog Minos  ~`
 
 <!-- Beginning of Slides Week 3 -->
 
+### Minos Kernel
+
+#### System Startup
+
+- Firmware (RPI2, GPU)
+    1. Initialize HW
+    2. Copy boot image to RAM
+    3. Jump to boot image (initializer)
+
+- Initializer
+    1. Set *stack registers* for all processor modes
+    2. Setup *free heap* and *module* list
+    3. Initialize *MMU* and *page table*
+    4. Setup *interrupt handler* and *vectors*
+    5. Start *timer* and *enable interrupts*
+    6. Initialize UARTs, RAM disks, ...
+    7. Enter scheduling loop on OS
+
+
+The Minos Kernal is modular:
+
+- Minos: Command interpreter and scheduler
+- Modules: Module loader, dynamic linker
+- File System: RamVolumes, OFS, ...
+- Kernel: Memory management, device drivers
+- I/O: Kernel logging, ...
+- Runtime: Memory allocation (heaps), FPU emulation, ...
+
+
+<!-- Slides Week 3 09-29 p. 84 (6) -->
 
 
 <!-- Week 8 -->
