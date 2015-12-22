@@ -534,6 +534,61 @@ The Minos Kernal is modular:
 
 <!-- Slides Week 3 09-29 p. 84 (6) -->
 
+...
+
+<!-- Slides and Notes Week 4 -->
+
+#### Initialization of Interrupts
+
+1. Set handlers of IRQ's
+    - Write handlers for needed interrupts
+    - Put jumps to handlers into interrupt table
+2. Enable IRQ's
+
+Usually Interrupts need to be configured in 3 parts:
+
+- CPU (enable, masking...)
+- Interrupt Controller
+- Device
+
+The RPI2 has 3 memory-mapped IRQ registers (32-bit):
+
+- *Pending Bits* indicate which interrupts are pending
+- Need to be checked in the *IRQ Trap Handler* (1st level handler)
+- Call *IRQ Handler* (2nd level) depending on pending bits
+
+#### Task Scheduling (Minos)
+
+3 Task types:
+
+- High Priority (every 5 ms)
+- Low Priority (every 20 ms)
+- Background tasks
+
+Preemption:
+
+- High priority tasks preempt low priority and background tasks
+- Low priority tasks preempt only low priority tasks
+- Background tasks don't preempt any tasks
+
+Task Descriptors for
+
+- Synchronous (periodic) tasks
+- Asynchronous (background) tasks
+
+
+##### Stack (Minos)
+
+- One stack for all processes
+- Every task needs to run to completion
+- Preemtion is possible
+    - Preemting task needs to be completed before returning
+
+
+<!-- Notes Week 4 49:00 -->
+
+
+
 
 <!-- Week 8 -->
 
