@@ -608,6 +608,79 @@ Assumptions for scheduler
 
 <!-- End of Week 4 -->
 
+<!-- Beginning of Week 5 -->
+
+## Serial Communtication
+
+- Directionally
+    - Simplex
+    - Half duplex
+    - Full duplex
+- Synchrony
+    - Synchronous
+    - Asynchronous
+
+Examples:
+
+- RS-232
+- RS-458
+- SPI (SSP, Microwire)
+- I$^2$C
+- 1-Wire
+- USB
+
+### SPI
+
+- Very simple
+- 4 Wires:
+    - SCLK: Serial bit-rate Clock
+    - MOSI: Master data Output, Slave data Input
+    - MISO: Master data Input, Slave data Output
+    - SS: Slave Select
+- Configurations:
+    - Single slave mode: 1 Master, 1 Slave
+    - multiple slave mode: 1 Master, N Slaves
+- Synchronous bidirectional data transfer
+- Data transfer initiated by master
+- Bandwidth some KBits/s up to several MBits/s
+- Simple implementation in software possible (bit-banging)
+- Master and Slave have shift registers for data (in and output)
+    - During communicaion data 'circles arround' between the two shift registers
+
+Communication
+
+1. Master pulls SS to low
+2. Master pushed data out of shift register
+3. Slave pushes data out of shift register at the same time
+4. Sampling happens at SCLK
+5. To finish communication master stops SCLK
+
+- No acknowledgement mechanism
+- No device interrupts
+
+#### Setup
+
+- Polarity (SCLK):
+    - 0: Sampling happens on rising SCLK edge
+    - 1: Sampling gappens on falling SCLK edge
+- Phase (SCLK):
+    - 0: Rising SCLK edge in the middle of data
+    - 1: Rising SCLK enge on beginning of data
+
+### UART
+
+- Serial transmission (least significant bit first)
+- Configurable
+    - Number of data bits: 5, 6, 7, 8
+    - Parity: odd, even, none
+    - Stopbits: 1, 1.5, 2
+    - Transfer rate (bits per second): 75, 110, 300, ..., 115200
+    - Flow control exists in some implementations
+
+<!-- End of Week 5 -->
+
+<!-- Beginning of Week 6 -->
+
 <!-- Week 8 -->
 
 ## Compare-And-Swap (CAS)
