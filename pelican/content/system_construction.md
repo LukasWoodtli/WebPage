@@ -37,6 +37,8 @@ find the right documents.
 6. Exception Generation
 
 - Load-/Store: No memory operands (not as x86)
+    - Load: from memory to register
+    - Store: from register to memory
 - Multiple-Data-Transfer commands (`stmdb sp!,{fp,lr}`, `!`: Write-Back)
 - Link Register: `bl`: Branch-and-Link (stores PC in link register)
 - PC-Relative Addressing: Loading large constants (that have no soace in instruction encoding) form code
@@ -61,10 +63,10 @@ find the right documents.
 
 ### Special Registers
 
-- R15: PC
-- R14: LR
-- R13: SP
-- R12: FP (by convention)
+- R15: PC (Programm Counter)
+- R14: LR (Return address for procedure)
+- R13: SP ('top' of the stack)
+- R12: FP (by convention, stored SP before procedure call)
 - CPSR (Processor Status Register)
     - Mode Bits
     - IRQ Disable
@@ -585,10 +587,26 @@ Task Descriptors for
     - Preemting task needs to be completed before returning
 
 
-<!-- Notes Week 4 49:00 -->
+##### Scheduler (Minos)
+
+Recursive interrupt procedure
+
+- Prolog: Interrupts masked
+- Scheduling: Interrupts allowed
+- Epilog: Interrupts masked
+
+Scheduler procedure must be *reentrant*
+
+- Register values on stack
+- Private variables
 
 
+Assumptions for scheduler
 
+- Linked list stores tasks sorted by period and priority
+- Tasks run to completion within given period
+
+<!-- End of Week 4 -->
 
 <!-- Week 8 -->
 
