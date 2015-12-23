@@ -681,6 +681,97 @@ Communication
 
 <!-- Beginning of Week 6 -->
 
+# A2 (Case Study 2)
+
+## Intel x86
+
+- Shared Memory (for all processors)
+- Symmetrical Multiple Processors (SMP)
+
+### Resources (x86 compatible HW)
+
+[osdev.org](http://wiki.osdev.org)
+
+- SDM: Intel® 64 and IA-32 Architectures Software Developer’s Manual (4000 p., 3 volumes)
+    1. Architecture
+    2. Instruction Set Reference
+    3. System Programming Guide
+- MP Spec: Intel Multiprocessor Specification, version 1.4 (100 p.)
+- ACPI Spec: Advanced Configuration and Power Interface Specification (1000 p.)
+- PCI Spec: PCI Local Bus Specification Rev. 2.2 (322 p.)
+
+### Interrupt System (x86)
+
+- External IRQ's (asynchronous)
+    - I/O Devices
+    - Timer
+    - Inter-processor interrupts
+- Software IRQ's (synchronous)
+    - Traps/Syscall: special instructions
+- Processor exceptions (synchronous)
+    - Faults (restartable): i.e page fault
+    - Aborts (Fatal): i.e machine check
+
+#### APIC
+
+- Each CPU has local APIC (local interrupts)
+- I/O APIC for all CPU's (external interrupts)
+
+- Messages to processors
+    - Start Processor: Activation and Initialization of individual processors
+    - Halt Processor: Deactivation of individual processors
+    - Halt Process, schedule new process: Interrupt in order to transfer control to scheduler
+- Local timers
+    - Periodical interrupts
+
+#### MultiProcessor Specification
+
+- Standard by Intel (MP Spec 1.4)
+- Hardware Specification
+    - Memory Map
+    - APIC
+    - Interrupt Modes
+- MP Configuration Table
+    - Processor, Bus, I/O APIC
+    - Table address searched via "floating pointer structure"
+
+#### Exception Numbers
+| Vector # | Description                | Source                    |
+|----------|----------------------------|---------------------------|
+| 0        | Div error                  | div / idiv instruction    |
+| 1        | Debug                      | Code / data reference     |
+| 2        | NMI                        | Non maskable external IRQ |
+| 3        | Breakpoint                 | int 3 instruction         |
+| 4 – 19   | Other processor exceptions | E.g. page fault etc.      |
+| 20-31    | reserved                   |                           |
+| 32-255   | Maskable Interrupts        | External Interrupts from `INTR` pin `INT` n instruction |
+
+#### Configuring APIC
+
+- Local Vector Table (for local interrupt sources)
+    - Vector Number, Trigger Mode, Status, Interrupt Vector Mask
+    - Timer Mode (one shot / periodic)
+- Command Register: Inter Processor Interrupt with
+    - vector number,
+    - delivery mode: fixed, nmi, init, startup (..)
+    - logical / physical destination (including self and broadcasts with / without self
+
+### PCI Local Bus
+
+- Connect Peripheral Components
+- Standardized Configuration Address Space for all PCI Devices
+- Interrupt Routing Configuration
+
+Access mechanism
+
+- PCI BIOS – offers functionality such as "find device by classcode". Presence determined by floating data structure in BIOS ROM
+- Addressable via in / out instructions operating on separate I/O memory address space
+- PCI Express now Memory Mapped I/O
+
+
+<!-- Notes Week 6 35:10 -->
+
+
 <!-- Week 8 -->
 
 ## Compare-And-Swap (CAS)
