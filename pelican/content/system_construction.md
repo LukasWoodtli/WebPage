@@ -764,24 +764,146 @@ Communication
 
 Access mechanism
 
-- PCI BIOS – offers functionality such as "find device by classcode". Presence determined by floating data structure in BIOS ROM
+- PCI BIOS: offers functionality such as "find device by classcode". Presence determined by floating data structure in BIOS ROM
 - Addressable via in / out instructions operating on separate I/O memory address space
 - PCI Express now Memory Mapped I/O
 
+## Active Oberon Language
 
-<!-- Notes Week 6 35:10 -->
+### Locks vs. Monitors
+
+- Lock based
+    - shared data
+    - protected from concurrent access by locks
+- Monitor based
+    - locks code (methods) that access shared data
+    - No direct locking of datastructures needes
+
+### Threads vs. Active Objects
+
+- Threads
+    - Concurrently running code
+- Active Objects
+    - Objects that contain threads
+    - Threads in form of Monitors
+
+### Object Model (Active Oberon)
+
+- `EXCLUSIVE`: Protection (mutual exclusion)
+    - *Methods* tagged `EXCLUSIVE` run under *mutual exclusion*
+    - As `synchronized` in Java
+
+-  `AWAIT`: Synchronisation
+    - Wait until condition of `AWAIT` becomes true
+
+- `ACTIVE`: Parallelism
+    - Body marked `ACTIVE` *executed as thread* for each instance
+
+### Signal-Wait Implementations
+
+- Signal-and-Continue
+    - Java uses this
+    - Race conditions can occure
+- Signal-and-Exit
+    - Active oberon uses this
+    - Can be achieved in Java by looping on wait condition
+
+Active Oberon:
+
+    :::modula2
+    Semaphore = object
+        number := 1: longint;
+
+        procedure enter;
+        begin{exclusive}
+            await number > 0;
+            dec(number)
+        end enter;
+
+        procedure exit;
+        begin{exclusive}
+            inc(number)
+        end exit;
+
+    end Semaphore;
 
 
-<!-- Week 8 -->
+Equivalent Java code:
 
-## Compare-And-Swap (CAS)
+    :::java
+    class Semaphore{
+        int number = 1;
+        synchronized void enter() {
+            while (number <= 0)  // while needed!
+                try { wait();}
+                catch (InterruptedException e) { };
+            number--;
+        }
+
+        synchronized void exit() {
+            number++;
+            if (number > 0)
+                notify();  /* notifyAll() needed if different threads
+                              evaluate different conditions */
+        }
+}
+
+## Active Object System (A2)
+
+### Atomic Operations (HW Support)
+
+The supported operations are typically a lot slower than simple read and write operations.
+
+#### Intel (x86): `CMPXCHG mem, reg`
+
+From AMD64 Architecture Programmer’s Manual:
+
+"compares the value in Register A with the value in a memory location If the two values are equal,
+the instruction copies the value in the second operand to the first operand and sets the ZF flag
+in the flag regsiters to 1. Otherwise it copies the value in the first operand to A register and
+clears ZF flag to 0"
+
+"The lock prefix causes certain kinds of memory read-modify- write instructions to occur atomically"
+
+#### ARM
+
+From ARM Architecture Reference Manual
+
+- `LDREX <rd>, <rn>`
+
+"Loads a register from memory and if the address has the shared memory attribute, mark the physical
+address as exclusive access for the executing processor in a shared monitor"
+
+- `STREX <rd>, <rm>, <rn>`
+
+"performs a conditional store to memory. The store only occurs if the executing processor has
+exclusive access to the memory addressed"
+
+#### Overview
+
+Some typical instructions for atomic operations and implementation examples.
+
+- Test-And-Set (TAS)
+    - `TSL register, flag` (Motorola 68000)
+- Compare-And-Swap (CAS)
+    - `LOCK CMPXCHG` (Intel x86)
+    - `CASA` (Sparc)
+- Load Linked / Store Conditional
+    - `LDREX` / `STREX` (ARM)
+    - `LL` / `SC` (MIPS)
+
+
+#### Compare-And-Swap (CAS)
 
 Atomic operation implemented in processor.
 
 Compares memory location with an value. If it's same a new (given) value is written at the
 memory address. Returns the previous value at memory positin in any case.
 
-`int CAS(int* a, int old, int new)`
+    :::c
+    int CAS(int* a, int old, int new)
 
 - If value `old` is at memory location of `a`: safe `new` at `a`
 - Return previous value at `a` in any case
+
+<!-- Notes Week 6 01:10:00 -->
