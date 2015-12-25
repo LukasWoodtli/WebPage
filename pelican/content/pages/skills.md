@@ -9,13 +9,15 @@ My main (and favourite) programming language is C++. I have also been programmin
 |------------------------------------------|------------------------------------------|
 | C                                        | very good                                |
 | C++                                      | very good                                |
-| Python                                   | good                                     |
+| Python                                   | very good                                |
+| Assembler (x86, ARM)                     | basic                                    |
+| Java                                     | good                                     |
+| Scala                                    | basic                                    |
 | Objective C                              | basic                                    |
 | JavaScript                               | basic                                    |
-| Java                                     | basic                                    |
-| Assembler (x86)                          | basic                                    |
 | Clojure (Lisp)                           | basic                                    |
-
+| Matlab/Simulink                          | basic                                    |
+| VHDL                                     | basic                                    |
 
 # Frameworks
 
@@ -24,9 +26,18 @@ I'm a big fan of the Qt framework. For bigger projects Boost is a must. And of c
 | Framework                                | Knowledge                                |
 |------------------------------------------|------------------------------------------|
 | Qt                                       | very good                                |
-| Boost                                    | good                                     |
 | STL                                      | good                                     |
+| Boost                                    | basic                                    |
 | Cocoa Touch                              | basic                                    |
+
+# Electronic and Control
+
+| Skill                                   | Level |
+|-----------------------------------------|-------|
+| Regelungstechnik                        | good  |
+| Digital Signal Processing               | basic |
+| Hardware Entwicklung (Analog & Digital) | basic |
+| RFID                                    | basic |
 
 
 # IDE's
@@ -51,7 +62,6 @@ I really like the Unix/Linux flavoured OS's. The shell is really enjoyable to wo
 | OS X                                     | very good                                |
 | Linux                                    | good                                     |
 | Windows                                  | good                                     |
-
 
 # Build Tools
 
@@ -100,7 +110,7 @@ Documenting the code is very important. Generally I use the de facto standard Do
 | MediaWiki                                | good                                     |
 
 
-#Static Analysis
+# Static Analysis
 Static analysis is one of the important tools to improve code quality.
 
 | Analysis Tool                            | Knowledge                                |
@@ -125,4 +135,3 @@ I really like Git. It's the version control system I use for all my projects. SV
 |------------------------------------------|------------------------------------------|
 | Git                                      | good                                     |
 | SVN                                      | very good                                |
-
