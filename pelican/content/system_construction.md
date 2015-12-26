@@ -811,21 +811,21 @@ Access mechanism
 Active Oberon:
 
     :::modula2
-    Semaphore = object
+    Semaphore = OBJECT
         number := 1: longint;
 
-        procedure enter;
-        begin{exclusive}
-            await number > 0;
-            dec(number)
-        end enter;
+        PROCEDURE enter;
+        BEGIN{EXCLUSIVE}
+            AWAIT number > 0;
+            DEC(number)
+        END enter;
 
-        procedure exit;
-        begin{exclusive}
-            inc(number)
-        end exit;
+        PROCEDURE exit;
+        BEGIN{EXCLUSIVE}
+            INC(number)
+        END exit;
 
-    end Semaphore;
+    END Semaphore;
 
 
 Equivalent Java code:
@@ -932,18 +932,19 @@ memory address. Returns the previous value at memory positin in any case.
 
 #### Implementation of a spinlock using CAS
 
-    :::MODULA2
+    :::modula2
+    (* Initialization *)
     Init(lock)
         lock = 0;
 
 
-    :::modula2
+    (* Aquire Lock *)
     Acquire (var lock: word)
         repeat
             res := CAS(lock, 0, 1);
         until res = 0;
 
-    :::modula2
+    (* Release Lock *)
     Release (var lock: word)
         CAS(lock, 1, 0); (* atomicy not needed but visibility/ordering *)
 
