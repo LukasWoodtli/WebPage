@@ -846,28 +846,48 @@ Equivalent Java code:
                 notify();  /* notifyAll() needed if different threads
                               evaluate different conditions */
         }
-}
+    }
+
+
+### Monitors in Active Oberon
+
+- No *notify()* (or *notifyAll()*): Every `EXCLUSIVE` procedure triggers reevaluation of `AWAIT` when it returns
+- Downsides of Monitors:
+    - Wasting of processor time on looping on 'locks'
+    - Ordering can not be influenced
+
 
 ## Active Object System (A2)
+
+### Modular Kernel Structure
+
+- Cover: Kernel
+- Activity Scheduler: Objects
+- Module Loader (Memory Management): Modules, Heaps
+- Hardware Abstraction: Machine
 
 ### Atomic Operations (HW Support)
 
 The supported operations are typically a lot slower than simple read and write operations.
 
-#### Intel (x86): `CMPXCHG mem, reg`
+#### Intel (x86)
 
 From AMD64 Architecture Programmer’s Manual:
+
+- `CMPXCHG mem, reg`
 
 "compares the value in Register A with the value in a memory location If the two values are equal,
 the instruction copies the value in the second operand to the first operand and sets the ZF flag
 in the flag regsiters to 1. Otherwise it copies the value in the first operand to A register and
 clears ZF flag to 0"
 
+- Lock Prefix
+
 "The lock prefix causes certain kinds of memory read-modify- write instructions to occur atomically"
 
 #### ARM
 
-From ARM Architecture Reference Manual
+From ARM Architecture Reference Manual:
 
 - `LDREX <rd>, <rn>`
 
@@ -892,6 +912,10 @@ Some typical instructions for atomic operations and implementation examples.
     - `LDREX` / `STREX` (ARM)
     - `LL` / `SC` (MIPS)
 
+> These hardware instructions are often much slower than simple read and write.
+> Caches can't be exploited (direct access to memory)!
+
+- Compare-And-Swap is the most universal instruction
 
 #### Compare-And-Swap (CAS)
 
@@ -906,4 +930,23 @@ memory address. Returns the previous value at memory positin in any case.
 - If value `old` is at memory location of `a`: safe `new` at `a`
 - Return previous value at `a` in any case
 
-<!-- Notes Week 6 01:10:00 -->
+#### Implementation of a spinlock using CAS
+
+    :::MODULA2
+    Init(lock)
+        lock = 0;
+
+
+    :::modula2
+    Acquire (var lock: word)
+        repeat
+            res := CAS(lock, 0, 1);
+        until res = 0;
+
+    :::modula2
+    Release (var lock: word)
+        CAS(lock, 1, 0); (* atomicy not needed but visibility/ordering *)
+
+<!-- End of Notes Week 6 -->
+
+<!-- Beginning of Notes Week 7 -->
