@@ -951,3 +951,71 @@ memory address. Returns the previous value at memory positin in any case.
 <!-- End of Notes Week 6 -->
 
 <!-- Beginning of Notes Week 7 -->
+
+### Boot Procedure (A2)
+
+- Start BIOS Firmware
+- Load A2 Bootfile
+- Initialize modules
+    - Module *Machine*
+    - Module *Heaps*
+    - ...
+    - Module *Objects*
+        - Setup scheduler and self process
+    - Module *Kernel*
+        - Start all processors
+    - ...
+    - Module Bootconsole
+        - read configuration and execute boot commands
+
+> This all happens on the Boot Processor (BP)
+
+#### Processor Startup
+
+- Start processor **P** (Bootprocessor)
+    1. Setup boot program (`Machine.InitProcessors`)
+    2. Enter processor IDs into table (`Machine.InitBootPage`)
+    3. Send *startup* message to **P** via APIC (`Machine.ParseMPConfig`)
+    4. Wait with timeout on *started* flag by P (`Machine.StartProcessor`)
+- Boot program (For each processor)
+    1. Set 32-bit runtime environment (`Machine.EnterMP`)
+    2. Initialize control registers, memory management, interrupt handling, APIC
+    3. Set *started* flag (`Machine.StartMP`)
+    4. Setup Scheduler (`Objects.Start`)
+    5. Bootprocessor proceeds with boot console
+
+### A2 Activities States
+
+- Ready: ready to be scheduled
+- Running: currently scheduled
+- Waiting
+    - Condition (`AWAIT`): waiting until condition is met
+    - Lock (`EXCLUSIVE`): waiting to enter monitor
+- Terminated: Activity finished executing
+
+
+> Java doesn't make difference between waiting on a condition or a lock.
+
+![A2 Activities States](/images/syscon_a2_activieties_states.png)
+
+### Runtime Data Structures
+
+- Running Array
+    - One entry for each processor
+    - Index: id of processor
+- Object header
+    - List of condtitions
+    - List of locks
+- Ready Queues Array
+    - Idle
+    - Low
+    - Medium
+    - High
+    - Garbage Collector (GC)
+    - Realtime (RT)
+- Interrupt Array
+    - Index: IRQ number
+
+<!-- Notes Week 7 18:30 -->
+
+

@@ -1,0 +1,38 @@
+digraph ActivitiesStates {
+
+rankdir=LR;
+
+NIL[shape=plaintext];
+
+Awaiting_Cond[label="Awaiting Condition"];
+
+Running;
+
+Awaiting_Lock[label="Awaiting Lock"];
+
+Ready;
+
+Terminated;
+
+
+NIL -> Ready;
+
+Running -> Awaiting_Cond;
+
+Ready -> Running;
+Running -> Ready;
+
+Awaiting_Cond -> Ready; 
+Awaiting_Lock -> Ready;
+
+
+Running -> Awaiting_Lock;
+
+Running -> Terminated; 
+
+{rank=same Awaiting_Cond Running}
+
+{rank=same Ready Awaiting_Lock}
+
+}
+
