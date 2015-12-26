@@ -1036,7 +1036,7 @@ memory address. Returns the previous value at memory positin in any case.
     - 4 GB address space
     - 4 kB pages
     - 1024 pages per process
-    - &#21B3; ~ 8'000 processes
+    - &#x21B3; ~ 8'000 processes
 
 ### Context Switch
 
