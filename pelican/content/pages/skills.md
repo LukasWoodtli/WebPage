@@ -32,12 +32,13 @@ I'm a big fan of the Qt framework. For bigger projects Boost is a must. And of c
 
 # Electronic and Control
 
-| Skill                                   | Level |
-|-----------------------------------------|-------|
-| Regelungstechnik                        | good  |
-| Digital Signal Processing               | basic |
-| Hardware Entwicklung (Analog & Digital) | basic |
-| RFID                                    | basic |
+| Skill                                   | Level     |
+|-----------------------------------------|-----------|
+| Embedded Systems and Micro Controllers  | very good |
+| Control Systems Engeneering             | good      |
+| Digital Signal Processing               | basic     |
+| Hardware Development (Analog & Digital) | basic     |
+| RFID                                    | basic     |
 
 
 # IDE's
