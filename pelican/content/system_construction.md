@@ -1000,22 +1000,56 @@ memory address. Returns the previous value at memory positin in any case.
 
 ### Runtime Data Structures
 
-- Running Array
+- Running Array/List
     - One entry for each processor
     - Index: id of processor
-- Object header
-    - List of condtitions
-    - List of locks
-- Ready Queues Array
+- Object header (for each object)
+    - List of condtitions (for each condition)
+    - List of locks (for each monitor)
+- Ready Queues/Heap
     - Idle
     - Low
     - Medium
     - High
     - Garbage Collector (GC)
     - Realtime (RT)
-- Interrupt Array
+- Interrupt Array (first level IRQ's)
     - Index: IRQ number
 
-<!-- Notes Week 7 18:30 -->
+### Stack Management
 
+- Virtual addressing
+- Allocation in page units
+- Page fault for detecting stack overflow
+- Deallocate process stack via garbage collector (in process finalizer)
+- Life cycle:
+    - CreateProcess: Allocate first frame
+    - Page fault: Allocate another frame
+    - Finalize: Deallocate all frames
 
+> Active Oberon has one shared memory for all processes!
+
+- One Heap for all processes (no heavy-weight processes)
+- Each proces has own stack
+- All processes share same address space
+- 8'000 processes can be allocated
+    - 4 GB address space
+    - 4 kB pages
+    - 1024 pages per process
+    - &#21B3; ~ 8'000 processes
+
+### Context Switch
+
+- Synchronous
+    - Explicit
+        - A process terminates
+        - `Yield` 
+    - Implicit
+        - Mutual exclusion
+        - `Await`
+- Asynchronous
+    - Preemption
+        - Priority handling
+        - Timeslicing
+
+<!-- Notes Week 7 36:00 -->
