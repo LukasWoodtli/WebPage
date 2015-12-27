@@ -23,9 +23,9 @@ find the right documents.
 
 | Document                                     | Main Content |
 |----------------------------------------------|------------|
-| ARM Architecture Referense Manual (ARMv7-AR, ARM ARM) | Possibility of implementing the processor. For compilers and tools. Partly used for system programming |
-| ARM Technical System Reference (ARM Cortex-A7MPCore Family) | Perticular Implementation. Some endundant information to ARM ARM. |
-| System On Chip Implementation Manual (BCM 2835) | How the core is embedded on the chip with periperals. Address map. Peripheral information. |
+| ARM Architecture Reference Manual (ARMv7-AR, ARM ARM) | Possibility of implementing the processor. For compilers and tools. Partly used for system programming |
+| ARM Technical System Reference (ARM Cortex-A7MPCore Family) | Particular Implementation. Some redundant information to ARM ARM. |
+| System On Chip Implementation Manual (BCM 2835) | How the core is embedded on the chip with peripherals. Address map. Peripheral information. |
 
 ### 6 Kinds Of Instructions
 
@@ -41,7 +41,7 @@ find the right documents.
     - Store: from register to memory
 - Multiple-Data-Transfer commands (`stmdb sp!,{fp,lr}`, `!`: Write-Back)
 - Link Register: `bl`: Branch-and-Link (stores PC in link register)
-- PC-Relative Addressing: Loading large constants (that have no soace in instruction encoding) form code
+- PC-Relative Addressing: Loading large constants (that have no space in instruction encoding) form code
 
 ### Execution Modes
 
@@ -49,21 +49,21 @@ find the right documents.
 - for exception handling
 - Processor starts in supervisor mode
 - Registers are shadowed (banked) in different modes
-- System Mode: priviledged but same registers as user mode
+- System Mode: privileged but same registers as user mode
 
 | Privilege Level | Mode  | Description/Cause          | Exception/Normal Execution |
 |-----------------|-------|----------------------------|-----------------------------|
-|priviledged | Supervisor | Reset / Software Interrupt | exception |
-|priviledged | FIQ        | Fast Interrupt             | exception |
-|priviledged | IRQ        | Normal Interrupt           | exception |
-|priviledged | Abort      | Memory Access Violation    | exception |
-|priviledged | Undef      | Undefined Instruction      | exception |
-|priviledged | System     | Privileged Mode with same registers as in User Mode  | normal execution |
-|**un**priviledged | User | Regular Application Mode                            | normal execution |
+|privileged | Supervisor | Reset / Software Interrupt | exception |
+|privileged | FIQ        | Fast Interrupt             | exception |
+|privileged | IRQ        | Normal Interrupt           | exception |
+|privileged | Abort      | Memory Access Violation    | exception |
+|privileged | Undef      | Undefined Instruction      | exception |
+|privileged | System     | Privileged Mode with same registers as in User Mode  | normal execution |
+|**un**privileged | User | Regular Application Mode                            | normal execution |
 
 ### Special Registers
 
-- R15: PC (Programm Counter)
+- R15: PC (Program Counter)
 - R14: LR (Return address for procedure)
 - R13: SP ('top' of the stack)
 - R12: FP (by convention, stored SP before procedure call)
@@ -76,8 +76,8 @@ find the right documents.
 ### Typical Procedure Call
 
 - Caller
-    - Pushes parmams
-    - `BL #address`: Stores PC of next instuction in LR
+    - Pushes params
+    - `BL #address`: Stores PC of next instruction in LR
 
 - Callee
     - Save LR and FP on stack: `stmdb sp!, {fp, lr}`
@@ -118,7 +118,7 @@ find the right documents.
 ### MMU
 
 - Memory translation is complicated due to two different MMU's
-- ARM's memory mapped registers sart from `0x3f000000`, opposed to `0x7e000000` in BMC manual
+- ARM's memory mapped registers start from `0x3f000000`, opposed to `0x7e000000` in BMC manual
 
 
 ### GPIO
@@ -138,7 +138,7 @@ find the right documents.
 - Modules can be compiled separately
 - Strongly typed
     - Static type checking at compile time
-    - Runtime support for type guards / tests
+    - Run-time support for type guards / tests
 - High Level (minimal Assembler code)
 - Special low level functions in `SYSTEM` pseudo module (compiler directives)
 
@@ -153,7 +153,7 @@ find the right documents.
 
 - `MODULE`
 - `PROCEDURE`
-    - Value, `VAR` (in-out) and `CONST` parmaeters
+    - Value, `VAR` (in-out) and `CONST` parameters
 
 ##### Data Types
 
@@ -196,7 +196,7 @@ find the right documents.
         (* statement seq *)
     END;
 
-##### Builtin Functions
+##### Built-in Functions
 
 Increment and decrement
 
@@ -443,7 +443,7 @@ Type Test and Guard
     :::modula2
     WITH task: PeriodicTask DO ... END;
 
-##### Runtime Support for Inheritance
+##### Run-time Support for Inheritance
 
 - RTTI is supported
 - Each type gets an unique type descriptor (`LONGINT`)
@@ -461,11 +461,11 @@ Type Test and Guard
 - Unloading possible, if no other loaded module (static or dynamic) depends on it
 - If a command of a not loaded module is executed the module is loaded first
 
-#### Compilation and Linknig
+#### Compilation and Linking
 
 - A module (.mod) is compiled to an executable file / object file (.arm) and a symbol file (.smb)
 - The executable file contains a fingerprint
-- The linker adds fingerprint to dependant object files (fixup)
+- The linker adds fingerprint to dependant object files (fix-up)
 
 #### Object File Format
 
@@ -476,7 +476,7 @@ Compiler flags:
 
 - The object file is very compact
 - Key: Fingerprint
-- Fixups &rarr; Fixup-root (relocation table) linked list to fixups
+- Fix-ups &rarr; Fix-up-root (relocation table) linked list to fix-ups
 - Downsides:
     - Module file is limited
     - Not very maintainable
@@ -485,7 +485,7 @@ Compiler flags:
 
 This image is taken from the lecture slides provided by Felix Friedrich
 
-#### Bootfile
+#### Boot-file
 
 - Linked Modules of Kernel files (hierarchy)
 - Predefined loading address and entry point (0x8000 for RPI2)
@@ -507,31 +507,31 @@ Object file names (compiled): `OFSRamVolumes SerialLog Minos  ~`
 
 ### Minos Kernel
 
-#### System Startup
+#### System Start-up
 
 - Firmware (RPI2, GPU)
-    1. Initialize HW
+    1. Initialise HW
     2. Copy boot image to RAM
     3. Jump to boot image (initializer)
 
 - Initializer
     1. Set *stack registers* for all processor modes
     2. Setup *free heap* and *module* list
-    3. Initialize *MMU* and *page table*
+    3. Initialise *MMU* and *page table*
     4. Setup *interrupt handler* and *vectors*
     5. Start *timer* and *enable interrupts*
-    6. Initialize UARTs, RAM disks, ...
+    6. Initializer UARTs, RAM disks, ...
     7. Enter scheduling loop on OS
 
 
-The Minos Kernal is modular:
+The Minos Kernel is modular:
 
 - Minos: Command interpreter and scheduler
 - Modules: Module loader, dynamic linker
 - File System: RamVolumes, OFS, ...
 - Kernel: Memory management, device drivers
 - I/O: Kernel logging, ...
-- Runtime: Memory allocation (heaps), FPU emulation, ...
+- Run-time: Memory allocation (heaps), FPU emulation, ...
 
 
 <!-- Slides Week 3 09-29 p. 84 (6) -->
@@ -540,7 +540,7 @@ The Minos Kernal is modular:
 
 <!-- Slides and Notes Week 4 -->
 
-#### Initialization of Interrupts
+#### Initialisation of Interrupts
 
 1. Set handlers of IRQ's
     - Write handlers for needed interrupts
@@ -583,8 +583,8 @@ Task Descriptors for
 
 - One stack for all processes
 - Every task needs to run to completion
-- Preemtion is possible
-    - Preemting task needs to be completed before returning
+- Preemption is possible
+    - Preempting task needs to be completed before returning
 
 
 ##### Scheduler (Minos)
@@ -593,7 +593,7 @@ Recursive interrupt procedure
 
 - Prolog: Interrupts masked
 - Scheduling: Interrupts allowed
-- Epilog: Interrupts masked
+- Epilogue: Interrupts masked
 
 Scheduler procedure must be *reentrant*
 
@@ -610,7 +610,7 @@ Assumptions for scheduler
 
 <!-- Beginning of Week 5 -->
 
-## Serial Communtication
+## Serial Communication
 
 - Directionally
     - Simplex
@@ -645,7 +645,7 @@ Examples:
 - Bandwidth some KBits/s up to several MBits/s
 - Simple implementation in software possible (bit-banging)
 - Master and Slave have shift registers for data (in and output)
-    - During communicaion data 'circles arround' between the two shift registers
+    - During communication data 'circles around' between the two shift registers
 
 Communication
 
@@ -662,10 +662,10 @@ Communication
 
 - Polarity (SCLK):
     - 0: Sampling happens on rising SCLK edge
-    - 1: Sampling gappens on falling SCLK edge
+    - 1: Sampling happens on falling SCLK edge
 - Phase (SCLK):
     - 0: Rising SCLK edge in the middle of data
-    - 1: Rising SCLK enge on beginning of data
+    - 1: Rising SCLK edge on beginning of data
 
 ### UART
 
@@ -673,7 +673,7 @@ Communication
 - Configurable
     - Number of data bits: 5, 6, 7, 8
     - Parity: odd, even, none
-    - Stopbits: 1, 1.5, 2
+    - Stop-bits: 1, 1.5, 2
     - Transfer rate (bits per second): 75, 110, 300, ..., 115200
     - Flow control exists in some implementations
 
@@ -718,7 +718,7 @@ Communication
 - I/O APIC for all CPU's (external interrupts)
 
 - Messages to processors
-    - Start Processor: Activation and Initialization of individual processors
+    - Start Processor: Activation and Initialisation of individual processors
     - Halt Processor: Deactivation of individual processors
     - Halt Process, schedule new process: Interrupt in order to transfer control to scheduler
 - Local timers
@@ -759,7 +759,7 @@ Communication
 ### PCI Local Bus
 
 - Connect Peripheral Components
-- Standardized Configuration Address Space for all PCI Devices
+- Standardised Configuration Address Space for all PCI Devices
 - Interrupt Routing Configuration
 
 Access mechanism
@@ -777,7 +777,7 @@ Access mechanism
     - protected from concurrent access by locks
 - Monitor based
     - locks code (methods) that access shared data
-    - No direct locking of datastructures needes
+    - No direct locking of data structures needed
 
 ### Threads vs. Active Objects
 
@@ -803,16 +803,16 @@ Access mechanism
 
 - Signal-and-Continue
     - Java uses this
-    - Race conditions can occure
+    - Race conditions can occur
 - Signal-and-Exit
-    - Active oberon uses this
+    - Active Oberon uses this
     - Can be achieved in Java by looping on wait condition
 
 Active Oberon:
 
     :::modula2
     Semaphore = OBJECT
-        number := 1: longint;
+        number := 1: LONGINT;
 
         PROCEDURE enter;
         BEGIN{EXCLUSIVE}
@@ -878,7 +878,7 @@ From AMD64 Architecture Programmer’s Manual:
 
 "compares the value in Register A with the value in a memory location If the two values are equal,
 the instruction copies the value in the second operand to the first operand and sets the ZF flag
-in the flag regsiters to 1. Otherwise it copies the value in the first operand to A register and
+in the flag registers to 1. Otherwise it copies the value in the first operand to A register and
 clears ZF flag to 0"
 
 - Lock Prefix
@@ -922,7 +922,7 @@ Some typical instructions for atomic operations and implementation examples.
 Atomic operation implemented in processor.
 
 Compares memory location with an value. If it's same a new (given) value is written at the
-memory address. Returns the previous value at memory positin in any case.
+memory address. Returns the previous value at memory position in any case.
 
     :::c
     int CAS(int* a, int old, int new)
@@ -930,15 +930,15 @@ memory address. Returns the previous value at memory positin in any case.
 - If value `old` is at memory location of `a`: safe `new` at `a`
 - Return previous value at `a` in any case
 
-#### Implementation of a spinlock using CAS
+#### Implementation of a spinal using CAS
 
     :::modula2
-    (* Initialization *)
+    (* Initialisation *)
     Init(lock)
         lock = 0;
 
 
-    (* Aquire Lock *)
+    (* Acquire Lock *)
     Acquire (var lock: word)
         repeat
             res := CAS(lock, 0, 1);
@@ -955,8 +955,8 @@ memory address. Returns the previous value at memory positin in any case.
 ### Boot Procedure (A2)
 
 - Start BIOS Firmware
-- Load A2 Bootfile
-- Initialize modules
+- Load A2 Boot-file
+- Initialise modules
     - Module *Machine*
     - Module *Heaps*
     - ...
@@ -965,24 +965,24 @@ memory address. Returns the previous value at memory positin in any case.
     - Module *Kernel*
         - Start all processors
     - ...
-    - Module Bootconsole
+    - Module Boot-console
         - read configuration and execute boot commands
 
 > This all happens on the Boot Processor (BP)
 
 #### Processor Startup
 
-- Start processor **P** (Bootprocessor)
+- Start processor **P** (Boot-processor)
     1. Setup boot program (`Machine.InitProcessors`)
     2. Enter processor IDs into table (`Machine.InitBootPage`)
     3. Send *startup* message to **P** via APIC (`Machine.ParseMPConfig`)
     4. Wait with timeout on *started* flag by P (`Machine.StartProcessor`)
 - Boot program (For each processor)
-    1. Set 32-bit runtime environment (`Machine.EnterMP`)
-    2. Initialize control registers, memory management, interrupt handling, APIC
+    1. Set 32-bit run-time environment (`Machine.EnterMP`)
+    2. Initializer control registers, memory management, interrupt handling, APIC
     3. Set *started* flag (`Machine.StartMP`)
     4. Setup Scheduler (`Objects.Start`)
-    5. Bootprocessor proceeds with boot console
+    5. Boot-processor proceeds with boot console
 
 ### A2 Activities States
 
@@ -998,13 +998,13 @@ memory address. Returns the previous value at memory positin in any case.
 
 ![A2 Activities States](/images/syscon_a2_activieties_states.png)
 
-### Runtime Data Structures
+### Runtier Data Structures
 
 - Running Array/List
     - One entry for each processor
     - Index: id of processor
 - Object header (for each object)
-    - List of condtitions (for each condition)
+    - List of conditions (for each condition)
     - List of locks (for each monitor)
 - Ready Queues/Heap
     - Idle
@@ -1012,7 +1012,7 @@ memory address. Returns the previous value at memory positin in any case.
     - Medium
     - High
     - Garbage Collector (GC)
-    - Realtime (RT)
+    - Real-time (RT)
 - Interrupt Array (first level IRQ's)
     - Index: IRQ number
 
@@ -1030,7 +1030,7 @@ memory address. Returns the previous value at memory positin in any case.
 > Active Oberon has one shared memory for all processes!
 
 - One Heap for all processes (no heavy-weight processes)
-- Each proces has own stack
+- Each process has own stack
 - All processes share same address space
 - 8'000 processes can be allocated
     - 4 GB address space
@@ -1050,13 +1050,13 @@ memory address. Returns the previous value at memory positin in any case.
 - Asynchronous
     - Preemption
         - Priority handling
-        - Timeslicing
+        - Time-slicing
 
 
 #### Coroutines (Synchronous)
 
 - Synchronous context switch
-- Contex switch:
+- Context switch:
     - Replace *SP* and *FP* of old process with *SP* and *FP* of new process
     - *PC* needs also to be adjusted
 - Stack can be used to identify process
@@ -1066,7 +1066,7 @@ memory address. Returns the previous value at memory positin in any case.
 - Needs to save much more than for a synchronous context switch
 - Save *all registers* (copy state)
 
-### Synchronization
+### Synchronisation
 
 #### Object Locking
 
@@ -1079,18 +1079,18 @@ memory address. Returns the previous value at memory positin in any case.
 - Locking (Procedure `Lock`)
     - Try to acquire object
         - when we have it, we can change the data structure
-        - if we don't have it (we need to give up controll)
+        - if we don't have it (we need to give up control)
             - Synchronous switching to an other process
             - `Select` and `SwitchTo`
 - Unlocking (Procedure `Unlock`)
     - When giving up a lock all conditions need to be evaluated again (signal-and-exit)
-    - Otherwise the oposite of locking
+    - Otherwise the opposite of locking
 - Wait Conditions (`AWAIT`)
     - Internally boxed into a procedure (`PROCEDURE $Condition(fp: ADDRESS): BOOLEAN;`)
     - Stack frame is needed in condition: *FP*
     - `AWAIT` code: put condition on await queue
 
-> Sideeffects in `AWAIT` conditions are dangerous!
+> Side-effects in `AWAIT` conditions are dangerous!
 
 
 #### Priority Inversion
@@ -1158,7 +1158,7 @@ Progress Conditions:
 | Everyone makes progress | Starvation-free | Wait-free    |
 
 
-- Lock-free programming basically makes loop arround CAS
+- Lock-free programming basically makes loop around CAS
 
 #### A2
 
@@ -1176,7 +1176,7 @@ Progress Conditions:
 - Use *implicit cooperative multitasking*
 - no virtual memory
 - possible optmizations are limited
-- Codesign of OS, Compiler and Programming Language
+- Co-design of OS, Compiler and Programming Language
 
 ##### Lock-Free Kernel
 
