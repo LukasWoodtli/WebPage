@@ -1043,7 +1043,7 @@ memory address. Returns the previous value at memory positin in any case.
 - Synchronous
     - Explicit
         - A process terminates
-        - `Yield` 
+        - `Yield`
     - Implicit
         - Mutual exclusion
         - `AWAIT`
@@ -1087,7 +1087,7 @@ memory address. Returns the previous value at memory positin in any case.
     - Otherwise the oposite of locking
 - Wait Conditions (`AWAIT`)
     - Internally boxed into a procedure (`PROCEDURE $Condition(fp: ADDRESS): BOOLEAN;`)
-    - Stack frame is needed in condigion: *FP* 
+    - Stack frame is needed in condition: *FP*
     - `AWAIT` code: put condition on await queue
 
 > Sideeffects in `AWAIT` conditions are dangerous!
@@ -1120,3 +1120,82 @@ This image is taken from the lecture slides provided by Felix Friedrich
 
 <!-- End of Notes Week 7 -->
 
+<!-- Beginning of Notes Week 8 -->
+
+### Lock-Free Programming
+
+Problems with Locks
+
+- Deadlocks
+- Livelocks
+- Starvation
+
+Different Goals
+
+- Parallelism
+- Progress Guarantees
+- Reentrancy
+- Granularity
+- Fault Tolerance
+
+Definition of Lock-Freedom
+
+> At least one algorithm (process, thread) makes progress, even if others run concurrently, fail or get suspended.
+
+- Starvation can still happen
+
+Definition of Wait-Freedom
+
+> Each algorithm makes eventually progress.
+
+- Implies freedom from starvation
+
+Progress Conditions:
+
+|                         | Blocking        | Non-Blocking |
+|-------------------------|-----------------|--------------|
+| Someone make progress   | Deadlock-free   | Lock-free    |
+| Everyone makes progress | Starvation-free | Wait-free    |
+
+
+- Lock-free programming basically makes loop arround CAS
+
+#### A2
+
+##### Goals
+
+- Lock Freedom
+    - Progress Guarantees
+    - Reentrant Algorithms
+- Portability
+    - Hardware Independence
+    - Simplicity, Maintenance
+
+##### Guiding Principles
+
+- Use *implicit cooperative multitasking*
+- no virtual memory
+- possible optmizations are limited
+- Codesign of OS, Compiler and Programming Language
+
+##### Lock-Free Kernel
+
+- Needs lock-free queue
+- Compare-And-Swap (CAS) is implemented *wait-free* in hardware
+
+##### Memory Model for Lock-Free Active Oberon
+
+1. Data shared between two or more activities at the same time has to be either
+    - protected by `EXCLISIVE` blocks or 
+    - read or modified using the *compare-and-swap* operation
+2. Changed shared data is visible to other activities after
+    - leaving an `EXCLUSIVE` block or
+    - executing a *compare-and-swap* operation
+
+- `CAS` is an operation in the programming language
+
+    :::modula2
+    PROCEDURE CAS(variable, old, new: BaseType): BaseType
+
+
+<!-- Notes Week 8 24:58 -->
