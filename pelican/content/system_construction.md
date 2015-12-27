@@ -1046,10 +1046,77 @@ memory address. Returns the previous value at memory positin in any case.
         - `Yield` 
     - Implicit
         - Mutual exclusion
-        - `Await`
+        - `AWAIT`
 - Asynchronous
     - Preemption
         - Priority handling
         - Timeslicing
 
-<!-- Notes Week 7 36:00 -->
+
+#### Coroutines (Synchronous)
+
+- Synchronous context switch
+- Contex switch:
+    - Replace *SP* and *FP* of old process with *SP* and *FP* of new process
+    - *PC* needs also to be adjusted
+- Stack can be used to identify process
+
+#### Asynchronous Context Switch
+
+- Needs to save much more than for a synchronous context switch
+- Save *all registers* (copy state)
+
+### Synchronization
+
+#### Object Locking
+
+- Object descriptors (added by system): Object with mutual exclusion contain additional fields
+    - `headerLock: BOOLEAN;`
+    - `lockedBy: Process;`
+    - `awaitingLock: ProcessQueue;`
+    - `awaitingCondition: ProcessQueue;`
+
+- Locking (Procedure `Lock`)
+    - Try to acquire object
+        - when we have it, we can change the data structure
+        - if we don't have it (we need to give up controll)
+            - Synchronous switching to an other process
+            - `Select` and `SwitchTo`
+- Unlocking (Procedure `Unlock`)
+    - When giving up a lock all conditions need to be evaluated again (signal-and-exit)
+    - Otherwise the oposite of locking
+- Wait Conditions (`AWAIT`)
+    - Internally boxed into a procedure (`PROCEDURE $Condition(fp: ADDRESS): BOOLEAN;`)
+    - Stack frame is needed in condigion: *FP* 
+    - `AWAIT` code: put condition on await queue
+
+> Sideeffects in `AWAIT` conditions are dangerous!
+
+
+#### Priority Inversion
+
+Example:
+
+- 3 processes, 1 shared resource
+    - P1: low
+    - P2: high
+    - P3: medium
+    - R: shared resource
+- P1 locks R
+- P2 tries to lock R (needs to wait)
+- P3 preempts P1
+    - P1 can't release R
+    - P2 can't continue until P1 releases R
+
+![Priority Inversion](/images/syscon_priority_inversion.png)
+
+This image is taken from the lecture slides provided by Felix Friedrich
+
+#### Priority Inheritance
+
+- One possibility to cope with priority inversion
+- The priority of each process holding a lock to a resource is increased to the highest priority of all waiting processes (for the lock)
+- Need to walk the graph of locks and processes
+
+<!-- End of Notes Week 7 -->
+
