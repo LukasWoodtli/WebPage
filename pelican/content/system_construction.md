@@ -1159,6 +1159,7 @@ Progress Conditions:
 
 
 - Lock-free programming basically makes loop around CAS
+- Overflows (i.e INTEGER) is critical
 
 #### A2
 
@@ -1186,7 +1187,7 @@ Progress Conditions:
 ##### Memory Model for Lock-Free Active Oberon
 
 1. Data shared between two or more activities at the same time has to be either
-    - protected by `EXCLISIVE` blocks or 
+    - protected by `EXCLUSIVE` blocks or 
     - read or modified using the *compare-and-swap* operation
 2. Changed shared data is visible to other activities after
     - leaving an `EXCLUSIVE` block or
@@ -1198,4 +1199,34 @@ Progress Conditions:
     PROCEDURE CAS(variable, old, new: BaseType): BaseType
 
 
-<!-- Notes Week 8 24:58 -->
+- Performance of `CAS`
+    - On the HW level `CAS` triggers a memory barrier
+    - Performance suffers with increasing number of contenders (contention)
+
+#### ABA Problem
+
+The [ABA Problem](https://en.wikipedia.org/wiki/ABA_problem) occurs when one thread
+fails to recognise that a memory location was
+modified temporarily by another thread and therefore erroneously assumes
+that the overal state has not been changed.
+
+![ABA Problem](/images/syscon_aba_problem.png)
+
+This image is taken from the lecture slides provided by Felix Friedrich
+
+
+- The ABA Problem makes it difficult to reuse nodes in a stack structure
+    - Possible to allocate always new memory, but it's expensive
+- Solution: hazard pointers
+
+##### Hazard Pointers
+
+- ABA Problem because of reuse of pointers
+    - Pointer *P* that has been read by one thread *X* but not yet written by same thread
+    - Pointer *P* is written by other thread *Y* between reading and writing of first thread *X*
+- [Hazard pointers](https://en.wikipedia.org/wiki/Hazard_pointer:
+    - Each lock-free datastructure has an array (hazard array) of the size of number of threads (n=number of threads)
+    - Before *X* reads *P*, it marks it hazarduous in the hazard array of data structure (e.g. the stack)
+    - When finished (after the `CAS`), process *X* removes *P* from the hazard array
+    - Before a process *Y* tries to reuse *P*, it checks all entries of the hazard array
+
