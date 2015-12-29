@@ -14,7 +14,7 @@ LOAD_CONTENT_CACHE = False # Caching not helpful when developing
 DELETE_OUTPUT_DIRECTORY = True
 
 PATH = 'content'
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'documents']
 
 TIMEZONE = 'Europe/Zurich'
 

@@ -1240,7 +1240,8 @@ This image is taken from the lecture slides provided by Felix Friedrich
 
 - Compiler automatically inserts code for cooperatice multitasking (implicit)
 - Each process has a quantum
-    - At regular intervals, the compiler inserts code to decrease the quantum and calls the scheduler if necessary
+
+At regular intervals, the compiler inserts code to decrease the quantum and calls the scheduler if necessary
 
     :::nasm
        sub    [rcx + 88], 10   ; decrement quantum by 10
@@ -1267,4 +1268,41 @@ This image is taken from the lecture slides provided by Felix Friedrich
 
 <!-- End of Week 8 -->
 
+<!-- Beginning of Week 9 -->
 
+#### Queue Data Structures
+
+
+![Queue Datat Structures](/images/syscon_queue_data_structure.png)
+
+This image is taken from the lecture slides provided by Felix Friedrich
+
+
+- Hazard Pointers: in use (writing)
+- Pool: Reuse nodes that are not used anymore
+- Lock-free but not wait-free (starvation possible)
+- if not possible to en-/dequeue: help other threads (processors)
+
+##### Task Switch Finalizer
+
+Finest granular protection makes **races** possible that did not occur previously:
+
+    :::modula2
+    current := GetCurrentTask()
+    next := Dequeue(readyqueue)
+    Enqueue(current, readyqueue)
+    (* Here an other thread can dequeue and run (on the stack of)
+       the currently executing thread! *)
+    SwitchTo(next)
+
+- When switching to new thread
+    - Enqueue runs on new thread
+    - Call finalizer of previous thread
+
+#### Stack Management
+
+- Stacks organized as Heap Blocks
+- Stack check instrumented at beginning of procedure
+- Stack expansion is possible
+
+<!-- Notes Week 9 00:30:00 -->
