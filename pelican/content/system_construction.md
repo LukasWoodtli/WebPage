@@ -998,7 +998,7 @@ memory address. Returns the previous value at memory position in any case.
 
 ![A2 Activities States](/images/syscon_a2_activieties_states.png)
 
-### Runtier Data Structures
+### Run-Time Data Structures
 
 - Running Array/List
     - One entry for each processor
@@ -1187,7 +1187,7 @@ Progress Conditions:
 ##### Memory Model for Lock-Free Active Oberon
 
 1. Data shared between two or more activities at the same time has to be either
-    - protected by `EXCLUSIVE` blocks or 
+    - protected by `EXCLUSIVE` blocks or
     - read or modified using the *compare-and-swap* operation
 2. Changed shared data is visible to other activities after
     - leaving an `EXCLUSIVE` block or
@@ -1229,4 +1229,42 @@ This image is taken from the lecture slides provided by Felix Friedrich
     - Before *X* reads *P*, it marks it hazarduous in the hazard array of data structure (e.g. the stack)
     - When finished (after the `CAS`), process *X* removes *P* from the hazard array
     - Before a process *Y* tries to reuse *P*, it checks all entries of the hazard array
+- Hazard pointers don't solve problem when several pointers need to be changed at same time
+    - i.e Enqueue/Dequeue
+    - Solution: use *sentinel*
+        - Notion of helping other threads
+        - Employ Hazard pointers
+<!-- See Notes Week 8 p. 3 45:00 -->
+
+### Cooperative Multitasking (implicit)
+
+- Compiler automatically inserts code for cooperatice multitasking (implicit)
+- Each process has a quantum
+    - At regular intervals, the compiler inserts code to decrease the quantum and calls the scheduler if necessary
+
+    :::nasm
+       sub    [rcx + 88], 10   ; decrement quantum by 10
+       jge    skip             ; check if it is negative (jump if greater)
+       call   Switch           ; perform task switch
+    skip:
+       ; ...
+
+- Uncooperative block (`UNCOOPERATIVE`): Guarantee that no scheduling happens
+    - Not like a *lock* different processors can execute the code in parallel
+    - like disabling interrupts
+- Cons
+    - Small overhead of inserted code
+    - Sacrifice register (`rcx`)
+- Guarantees
+    - Max number of parallel execution of uncooperative code is number of processors
+    - Hazard pointer can be associated with processor (instead of processes)
+    - Search time constant: thread-local storage &rarr; processor local storage
+
+#### Interrupts
+
+- Interrupt handlers are moddeled as *virtual* processors
+- M = # of physical processors + # of potentially concurrent interrupts
+
+<!-- End of Week 8 -->
+
 
