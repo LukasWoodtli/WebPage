@@ -1283,9 +1283,24 @@ This image is taken from the lecture slides provided by Felix Friedrich
 - Lock-free but not wait-free (starvation possible)
 - if not possible to en-/dequeue: help other threads (processors)
 
+
+##### Scheduling (Activities)
+
+    :::modula2
+    TYPE Activity* = OBJECT {DISPOSABLE} (Queues.Item) (* Queues.Item accessed via activity register *)
+    VAR
+        (* access to current processor *)
+        (* stack management *)
+        (* quantum and scheduling *)
+        (* active object *)
+    END Activity;
+
+
 ##### Task Switch Finalizer
 
 Finest granular protection makes **races** possible that did not occur previously:
+
+Need to pass information to the new thread.
 
     :::modula2
     current := GetCurrentTask()
@@ -1299,10 +1314,84 @@ Finest granular protection makes **races** possible that did not occur previousl
     - Enqueue runs on new thread
     - Call finalizer of previous thread
 
+Solution with finalizer:
+
+    :::modula2
+    SwitchTo (nextActivity, Enqueue,  (* Enqueue runs on new thread *)
+              ADDRESS OF readyQueue[currentActivity.priority]);
+    FinalizeSwitch; (* Calls finalizer of previous thread *)
+
+
 #### Stack Management
 
 - Stacks organized as Heap Blocks
 - Stack check instrumented at beginning of procedure
 - Stack expansion is possible
+- Possiblities to expand stack:
+    1. Allocate more memory for stack, copy old stack to beginning of new (pointers to stack need to be updated `VAR` parameters)
+    2. Manage stack in a linked list, link to new portion of stack from the old one: `ReturnToStackSegment` funtion needed to go back to previous stack segment
 
-<!-- Notes Week 9 00:30:00 -->
+##### Interrupts
+
+- First Level IRQ by non-portable CPU module
+- Second level IRQ handling with activities
+
+Wait for interrupt:
+
+    :::modula2
+    Interrupts.Await(interrupt);
+
+First level IRQ code affecting scheduler queues runs on a virtual processor
+
+    :::modula2
+    PROCEDURE Handle (index: SIZE);
+    BEGIN {UNCOOPERATIVE, UNCHECKED}
+        IF previousHandlers[index] # NIL THEN
+            previousHandlers[index] (index)
+        END;
+        Activities.CallVirtual(NotifyNext,
+    END Handle;
+
+- Very powerful to write IRQ handlers in to levels
+- Possible with cooperative multi tasking
+
+##### Lock-Free Memory Management
+
+- Allocation/Deallocation by lock-free algorithms
+- Buddy system: old apporach but simple when returning blocks and merging them in free memory
+- Mark-and-sweep
+    1. Traverse heap and mark used blocks
+    2. Remove all unmarked blocks
+- Multiple garbage collectors can run in parallel
+- Precise: doesn't delete used blocks by accident (can happen in GC with heuristics)
+- Optional
+- Incremental: Possible to run on a subset all blocks (on different parts of heap)
+- Concurrent: GC can run in concurrency of a mutating thread
+- Parallel: Several instances of the GC can run at once
+
+Data Structures:
+
+|                | Global            | Per Object      |
+|----------------|-------------------|-----------------|
+| Mark Bit       | Cycle Count       | Cycle Count     |
+| Marklist       | Marked First      | Next Marked     |
+| Watchlist      | Watched First     | Next Watched    |
+| Root Set       | Global References | Local Refcount  |
+
+- Cycle Count: used to mark visited objects
+- Mark List: all objects that were marked previously
+- Watch List: all candidates that could be garbage collected
+- Root Set: where to start to find all reachable object
+
+### Portability
+
+- Lock-free A2 kernel written exclusively in a high-level language
+- No timer interrupt required (cooperative multitasking): scheduler hardware independent
+- No virtual memory
+    - no separate address spaces
+    - everything runs in user mode, all the time
+- Hardware-dependent functions (CAS) are pushed into the language
+- Almost completely portable:
+    - Some minimal stub written in assembly code to initialize memory mappings and initialize all processors
+
+<!-- End of Notes Week 9 -->
