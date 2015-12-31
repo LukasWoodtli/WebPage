@@ -1395,3 +1395,104 @@ Data Structures:
     - Some minimal stub written in assembly code to initialize memory mappings and initialize all processors
 
 <!-- End of Notes Week 9 -->
+
+<!-- Beginning of Notes Week 10 -->
+
+# Oberon System (RISC)
+
+[Project Oberon](http://www.projectoberon.com/)
+
+- RISC architecture
+- Oberon OS
+- Motivation: Build system from scratch
+- Understanding a big amount of details
+- Commercial systems are far from perfect
+- Need good tools for programming
+- Competence for building from Scratch: HW, application, how it really works
+- 'lean systems' aproach
+- Build from scratch
+    - reduce complexity: ne 'baggage'
+    - choices of different implementation
+    - design based only on problem domain and experience
+    - less surprises!
+    - flexible solutions
+    - more than customer needs
+    - competitve advantages
+- Why not build from scratch
+    - re-inventing the wheel
+    - fundamental knowledge required
+    - more actual work (the first time)
+    - restricted component choices
+    - not for short-term!
+    - team work: communication!
+- Configurable Hardware
+    - PAL's / GAL's / CPLD's
+    - LUT and interconnect
+    - Current: FPGA
+    - loadable configuration (not like ASIC/VLSI)
+- Introduction to HDL:
+    - Simulation / Synthesis
+    - Verilog / VHDL
+    - Developed at ETH: Lola, ActiveCells
+    - Verry different from Programming Languages
+    - Things happen in parallel (not serial)!
+    - Very difficult for high frequencies
+- RISC architecture (overview)
+    - [Documentation](https://www.inf.ethz.ch/personal/wirth/FPGA-relatedWork/RISC-Arch.pdf)
+    - Developed by N. Wirth
+    - Used for book "Compiler Construction" by N. Wirth
+    - RISC vs. CISC
+    - Harward vs. Von Neumann
+    - Registers vs. Stack Machine
+    - FPU
+    - ALU
+    - Shifter (Barell-Shifter)
+    - Implemented in Verilog
+    - 3 kinds of instructions
+            - arithmetic/logic
+            - load/store
+            - floating-point
+    - RISC processor executes SW
+    - RISC0:
+        - Memory addressed as words
+    - RISC5:
+        - Memory can be addressed as bytes
+        - Adds external static RAM
+        - FPU
+        - SPI, PS/2, GPIO, RS-233, 1 ms timer
+    - Top of stack: -64
+    - Flags:
+        - Not equal
+        - Zero
+        - Carry/Borrow
+        - Overflow
+
+<!-- End of Notes Week 10 -->
+<!-- Beginning of Notes Week 11 -->
+- Codesign: OS/HW/Compiler
+- Minimalistic
+- Best practices from CS
+- Architecture/Features
+    - Fast file system, module loader, garbage collector
+    - High-level, type-save language
+    - files
+    - `Module.Command[params]` execution from any visual text
+    - self hosted, small (~200kB)
+- User Interface
+    - Mous oriented, three buttons, "interclicking"
+- Oberon Core System
+    - Inner/Outer core
+    - File system: FileDir, File
+    - Networking
+    - Outer core: input, viewers, fonts, text, ...
+    - Compiler: recursive descent, singel pass
+    - RS-232, SCC, Net
+    - no memory protection
+    - possible to draw over other windows
+    - no auto save
+- Boot loader
+    - loads boot file (inner core) form SD-card (or serial port)
+- Simple to build own tools build on Oberon System
+- [RISC emulator](https://github.com/pdewacht/oberon-risc-emu) available
+
+<!-- End of Notes Week 11 -->
