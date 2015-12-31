@@ -465,7 +465,7 @@ Type Test and Guard
 
 - A module (.mod) is compiled to an executable file / object file (.arm) and a symbol file (.smb)
 - The executable file contains a fingerprint
-- The linker adds fingerprint to dependant object files (fix-up)
+- The linker adds fingerprint to dependent object files (fix-up)
 
 #### Object File Format
 
@@ -655,7 +655,7 @@ Communication
 4. Sampling happens at SCLK
 5. To finish communication master stops SCLK
 
-- No acknowledgement mechanism
+- No acknowledgment mechanism
 - No device interrupts
 
 #### Setup
@@ -1208,7 +1208,7 @@ Progress Conditions:
 The [ABA Problem](https://en.wikipedia.org/wiki/ABA_problem) occurs when one thread
 fails to recognise that a memory location was
 modified temporarily by another thread and therefore erroneously assumes
-that the overal state has not been changed.
+that the overall state has not been changed.
 
 ![ABA Problem](/images/syscon_aba_problem.png)
 
@@ -1225,8 +1225,8 @@ This image is taken from the lecture slides provided by Felix Friedrich
     - Pointer *P* that has been read by one thread *X* but not yet written by same thread
     - Pointer *P* is written by other thread *Y* between reading and writing of first thread *X*
 - [Hazard pointers](https://en.wikipedia.org/wiki/Hazard_pointer:
-    - Each lock-free datastructure has an array (hazard array) of the size of number of threads (n=number of threads)
-    - Before *X* reads *P*, it marks it hazarduous in the hazard array of data structure (e.g. the stack)
+    - Each lock-free data structure has an array (hazard array) of the size of number of threads (n=number of threads)
+    - Before *X* reads *P*, it marks it hazardous in the hazard array of data structure (e.g. the stack)
     - When finished (after the `CAS`), process *X* removes *P* from the hazard array
     - Before a process *Y* tries to reuse *P*, it checks all entries of the hazard array
 - Hazard pointers don't solve problem when several pointers need to be changed at same time
@@ -1238,7 +1238,7 @@ This image is taken from the lecture slides provided by Felix Friedrich
 
 ### Cooperative Multitasking (implicit)
 
-- Compiler automatically inserts code for cooperatice multitasking (implicit)
+- Compiler automatically inserts code for cooperative multitasking (implicit)
 - Each process has a quantum
 
 At regular intervals, the compiler inserts code to decrease the quantum and calls the scheduler if necessary
@@ -1263,7 +1263,7 @@ At regular intervals, the compiler inserts code to decrease the quantum and call
 
 #### Interrupts
 
-- Interrupt handlers are moddeled as *virtual* processors
+- Interrupt handlers are modeled as *virtual* processors
 - M = # of physical processors + # of potentially concurrent interrupts
 
 <!-- End of Week 8 -->
@@ -1273,7 +1273,7 @@ At regular intervals, the compiler inserts code to decrease the quantum and call
 #### Queue Data Structures
 
 
-![Queue Datat Structures](/images/syscon_queue_data_structure.png)
+![Queue Data Structures](/images/syscon_queue_data_structure.png)
 
 This image is taken from the lecture slides provided by Felix Friedrich
 
@@ -1327,9 +1327,9 @@ Solution with finalizer:
 - Stacks organized as Heap Blocks
 - Stack check instrumented at beginning of procedure
 - Stack expansion is possible
-- Possiblities to expand stack:
+- Possibilities to expand stack:
     1. Allocate more memory for stack, copy old stack to beginning of new (pointers to stack need to be updated `VAR` parameters)
-    2. Manage stack in a linked list, link to new portion of stack from the old one: `ReturnToStackSegment` funtion needed to go back to previous stack segment
+    2. Manage stack in a linked list, link to new portion of stack from the old one: `ReturnToStackSegment` function needed to go back to previous stack segment
 
 ##### Interrupts
 
@@ -1350,15 +1350,17 @@ First level IRQ code affecting scheduler queues runs on a virtual processor
             previousHandlers[index] (index)
         END;
         Activities.CallVirtual(NotifyNext,
+                               ADDRESS OF awaitingQueues[index],
+                               processors[index]);
     END Handle;
 
 - Very powerful to write IRQ handlers in to levels
-- Possible with cooperative multi tasking
+- Possible with cooperative multitasking
 
 ##### Lock-Free Memory Management
 
 - Allocation/Deallocation by lock-free algorithms
-- Buddy system: old apporach but simple when returning blocks and merging them in free memory
+- Buddy system: old approach but simple when returning blocks and merging them in free memory
 - Mark-and-sweep
     1. Traverse heap and mark used blocks
     2. Remove all unmarked blocks
@@ -1398,7 +1400,7 @@ Data Structures:
 
 <!-- Beginning of Notes Week 10 -->
 
-# Oberon System (RISC)
+# Oberon RISC (Case Study 3)
 
 [Project Oberon](http://www.projectoberon.com/)
 
@@ -1409,15 +1411,15 @@ Data Structures:
 - Commercial systems are far from perfect
 - Need good tools for programming
 - Competence for building from Scratch: HW, application, how it really works
-- 'lean systems' aproach
+- 'lean systems' approach
 - Build from scratch
-    - reduce complexity: ne 'baggage'
+    - reduce complexity: no 'baggage'
     - choices of different implementation
     - design based only on problem domain and experience
     - less surprises!
     - flexible solutions
     - more than customer needs
-    - competitve advantages
+    - competitive advantages
 - Why not build from scratch
     - re-inventing the wheel
     - fundamental knowledge required
@@ -1434,7 +1436,7 @@ Data Structures:
     - Simulation / Synthesis
     - Verilog / VHDL
     - Developed at ETH: Lola, ActiveCells
-    - Verry different from Programming Languages
+    - Very different from Programming Languages
     - Things happen in parallel (not serial)!
     - Very difficult for high frequencies
 - RISC architecture (overview)
@@ -1446,7 +1448,7 @@ Data Structures:
     - Registers vs. Stack Machine
     - FPU
     - ALU
-    - Shifter (Barell-Shifter)
+    - Shifter (Barrel-Shifter)
     - Implemented in Verilog
     - 3 kinds of instructions
             - arithmetic/logic
@@ -1469,7 +1471,7 @@ Data Structures:
 
 <!-- End of Notes Week 10 -->
 <!-- Beginning of Notes Week 11 -->
-- Codesign: OS/HW/Compiler
+- Co-design: OS/HW/Compiler
 - Minimalistic
 - Best practices from CS
 - Architecture/Features
@@ -1479,13 +1481,13 @@ Data Structures:
     - `Module.Command[params]` execution from any visual text
     - self hosted, small (~200kB)
 - User Interface
-    - Mous oriented, three buttons, "interclicking"
+    - Mouse oriented, three buttons, "interclicking"
 - Oberon Core System
     - Inner/Outer core
     - File system: FileDir, File
     - Networking
     - Outer core: input, viewers, fonts, text, ...
-    - Compiler: recursive descent, singel pass
+    - Compiler: recursive descent, single pass
     - RS-232, SCC, Net
     - no memory protection
     - possible to draw over other windows
@@ -1496,3 +1498,83 @@ Data Structures:
 - [RISC emulator](https://github.com/pdewacht/oberon-risc-emu) available
 
 <!-- End of Notes Week 11 -->
+
+<!-- Beginning of Notes Week 12 -->
+
+# Active Cells (Case Study 4)
+
+- Custom design of Multi-Processor System
+    - Cores
+    - Caches
+    - Bus
+    - Memory
+
+- Each process owns it's core
+    - Scheduling unnecessary
+    - Caches unnecessary
+    - some restrictions / some improvements
+
+- Tiny Register Machines (TRM)
+    - TRM interconnects
+    - SW/HW Co-design
+    - Active Cells Tool-chain
+- Multi-core Systems Challenges
+    - Cache coherence
+    - Shared memory communication bottleneck
+    - Thread synchronization overhead
+    - Difficult to predict behaviour and timing
+    - Hard to scale
+    - [Partitioned Global Address Space](https://de.wikipedia.org/wiki/Partitioned_Global_Address_Space)
+- Operating System Challenges
+    - Processor Time Sharing
+        - Interrupts
+        - Context Switches
+        - Thread Synchronisation
+    - Memory Sharing
+        - Inter-process: Paging
+        - Intra-process, Inter-Thread: Monitors
+- Project Supercomputer in the Pocket
+    - Focus: Streaming Applications (i.e ECG)
+    - Stream Parallelism (pipelining)
+    - Task parallelism / data parallelism
+- On-chip distributed system
+    - Replace shared memory by local memory
+        - Message passing for interaction between processes
+    - Separate processor for each process
+        - Very simple processors
+        - No scheduling, no interrupts
+        - Application-aware processors
+    - Minimal operating system
+    - Conceptually no memory bottleneck
+    - Higher reliability and predictability by design
+
+## Tiny Register Machine (TRM)
+
+- Extremely simple porcessor on FPGA
+- Hardware architecture
+- Two-stage pipeline
+- Each TRM contains
+    - ALU and shifter
+    - 32-bit operands and results stored in a bonak of 2 * 8 registers
+    - Local data memory: d * 512 words of 32 bits
+    - Local program memory: i * 1024 instructions with 32 bits 
+    - 7 general purpose registers
+    - Register *H* for storing the high 32 bits of a product
+    - 4 conditional registers: *C*, *N*, *V*, *Z*
+    - no chaches
+TRM Machine Language
+- Machine language: binary representation of instructions
+- 18-bit instructions
+- Three instruction types:
+    1. Type a: arithmetical and logical operations
+    2. Type b: load and store instructions
+    3. Type c: branch instructions (for jumping)
+- Variants of TRMs
+    - FTRM: includes FPU
+    - VTRM: includes vector processing unit
+        - 8 x 8-words registers
+        - available with/without FPU
+    - TRM with SW configurable instruction width
+
+<!-- Notes Week 12 30:00 -->
+
