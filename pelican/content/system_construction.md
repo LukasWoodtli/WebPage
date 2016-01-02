@@ -1753,5 +1753,232 @@ Synchronous execution (register transfer):
         c <= a+b;  // of the clock
     end;
 
-<!-- Notes Week 13 20:00 -->
+## Single/Czcle Datapath (TRM)
 
+### Instruction Fetch
+
+- Get value of *PC*
+- Get data from instruction memory (36-bit)
+    - keep only upper or lower part (16-bit)
+    - depending on value of *PC*
+- On clock
+    - if reset: *PC* := 0
+    - if stall: *PC* := *PC*
+    - else: *PC* := *pcmux* (set new *PC*)
+
+### Register Read
+
+Read source operands from register file
+
+    :::verilog
+    wire [2:0] rd, rs;
+    wire regWr;
+    wire [31:0] rdOut, rsOut;
+    source register
+
+    // register file
+    // ...
+
+    assign irs = IR[2:0];      // source register
+    assign ird = IR[13:11];
+    assign dst = (BL)? 7: ird; // destination register
+
+- For `BL` the destination register is always the link register (7)
+- Otherwise the registers are read from the instuction register (*IR*)
+
+
+### ALU
+
+Compute the result via ALU
+
+    :::verilog
+    wire [31:0] AA, A, B, imm;
+    wire [32:0] aluRes;
+
+    assign A = (IR[10])? AA: {22’b0, imm}; // bit 10: immediate or register
+
+    assign minusA = {1‘b0, ~A} + 33‘d1;
+    assign aluRes =
+    (MOV)? A:
+    (ADD)? {1‘b0, B} + {1‘b0, A} :
+    (SUB)? {1‘b0, B} + minusA :
+    (AND)? B & A :
+    (BIC)? B & ~A :
+    (OR)? B | A :
+    (XOR)? B ^ A :
+    ~A;
+
+### Control Path
+
+    :::verilog
+    Control Path
+    assign vector = IR[10] & IR[9] & ~IR[8] & ~IR[7];
+    assign op = IR[17:14];
+
+    assign MOV = (op == 0);
+    assign NOT = (op == 1);
+    assign ADD = (op == 2);
+    assign SUB = (op == 3);
+    assign AND = (op == 4);
+    assign BIC = (op == 5);
+    assign OR = (op == 6);
+    assign XOR = (op == 7);
+    assign MUL = (op == 8) & (~IR[10] | ~IR[9]); assign ROR = (op == 10);
+    assign BR = (op == 11) & IR[10] & ~IR[9]; assign LDR = (op == 12);
+    assign ST = (op == 13);
+    assign Bc = (op == 14);
+    assign BL = (op == 15);
+    assign LDH = MOV & IR[10] & IR[3]; assign BLR = (op == 11) & IR[10] & IR[9];
+
+
+| IR[17:14] | Function    |
+|-----------|-------------|
+| 0000      | B := A      |
+| 0001      | B := ~A     |
+| 0010      | B := B + A  |
+| 0011      | B := B – A  |
+| 0100      | B := B & A  |
+| 0101      | B := B & ~A |
+| 0110      | B := B | A  |
+| 0111      | B := B ^ A  |
+
+
+### Write Result Back to `Rd`
+
+    :::verilog
+    wire [31:0] regmux; wire regwr;
+
+    // ...
+
+    assign regwr = (BL | BLR | LDR & ~IR[10] |
+        ~(IR[17] & IR[16]) & ~BR & ~vector)) & ~stall0;
+
+    assign regmux =
+    (BL | BLR) ? {{{32-PAW}{1'b0}}, nxpc}:
+    (LDR & ~IoenbReg) ? dmout:  // data memory out
+    (LDR & IoenbReg)? InbusReg: //f rom IO
+    (MUL) ? mulRes[31:0]:
+    (ROR) ? s3:
+    (LDH) ? H:
+    aluRes;
+
+### TRM Stalling
+
+- Stop fetching next instruction, *pcmux* keeps the current value
+- Disable register file write enable and memory write enable signals to avoid changing the state of the processor
+- Only `LD` and `MUL` instructions stall the processor
+- *dmwe* signal is not affected
+- *regwr* signal is affected
+
+
+### Laod (`LD`)
+
+    :::verilog
+    wire [31:0] dmout;
+    wire [DAW:0] dmadr;
+    wire [6:0] offset;
+    reg IoenbReg;
+
+    // register file
+    // ...
+                   // src register = lr (7) ignored: harward architecture
+    Assign dmadr = (irs == 7) ? {{{DAW-6}{1'b0}}, offset} :
+                      (AA[DAW:0] + {{{DAW-6}{1'b0}}, offset});
+    assign ioenb = &(dmadr[DAW:6]); // I/O space: uppermost 2^6 bytes in data memory
+    assign rfWd = ...
+        (LDR & ~IoenbReg)? dmout:
+        (LDR & IoenbReg)? InbusReg: //from IO
+        ...;
+
+    always @(posedge clk)
+        IoenbReg <= ioenb;
+
+
+### Store (`ST`)
+
+    :::verilog
+    wire [31:0] dmin;
+    wire dmwr;
+    // register file
+    // ...
+
+    DM #(.BN(DMB)) dmx (.clk(clk),
+        .wrDat(dmin),
+            .wrAdr({{{31-DAW}{1'b0}},dmadr}),
+            .rdAdr({{{31-DAW}{1'b0}},dmadr}),
+            .wrEnb(dmwe),
+            .rdDat(dmout));
+
+    assign dmwe = ST & ~IR[10] & ~ioenb;
+    assign dmin = B;
+
+
+### Set Flag Registers
+
+
+    :::verilog
+    always @ (posedge clk, negedge rst) begin // flags handling
+    if (~rst) begin N <= 0; Z <= 0; C <= 0; V <= 0; end
+    else begin
+        if (regwr) begin
+            N <= aluRes[31];
+            Z <= (aluRes[31:0] == 0);
+            C <= (ROR & s3[0]) | (~ROR & aluRes[32]);
+            V <= ADD & ((~A[31] & ~B[31] & aluRes[31])
+                | (A[31] & B[31] & ~aluRes[31]))
+                | SUB & ((~B[31] & A[31] & aluRes[31])
+                | (B[31] & ~A[31] & ~aluRes[31]));
+        end
+    end
+    end
+
+### Branch instructions
+
+- *PC* <= *PC* + 1 + off
+- *PC* <= *Rs*
+- *PC* <= *PC* + 1 (by default)
+- *PC* <= *PC* (if stall)
+- *PC* <= 0 (reset)
+
+Code:
+
+    :::verilog
+    // pcmux logic
+    assign pcmux =
+        (~rst) ? 0 :
+        (stall0) ? PC:
+        (BL)? {{10{IR[BLS-1]}},IR[BLS-1: 0]}+ nxpc :
+        (Bc & cond) ? {{{PAW-10}{IR[9]}}, IR[9:0]} + nxpc : (BLR | BR ) ? A[PAW-1:0] :
+        nxpc;
+
+### Separate Compilation (TRM)
+
+- Development environment with separate compilation
+    - important for commercial products
+    - state of the art
+- Very limited architecture
+    - 18-bit instructions
+    - 10-bit immediates
+    - 7-bit memory offset
+    - 10bit (signed) conditional branch offset
+    - 14-bit (+/- 8k) Branch&Link
+    - long jumps (chained)
+    - immediates -> expressed by several instructions or put to memory (fixups)
+    - fixups, problematic if large global variables are allocated
+    -far procedure calls
+- Solution: Compilation to Intermediate Code, backend application at link time
+
+
+#### Compilation Steps
+
+1. Scanner & Parser
+2. Checker
+3. Intermediate Backend
+4. Intermediate Object File
+5. Active Cells Backend
+6. Active Cells Specification, Intermediate Assembler
+7. Target Backend
+8. Generic Object File Linker
+
+
+<!-- End Notes Week 13 -->
