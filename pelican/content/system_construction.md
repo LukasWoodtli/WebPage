@@ -1650,13 +1650,13 @@ Cells can be parametrized with capabilities or non-default values:
 
     :::modula2
     TYPE
-         (* Cell is a VectorTRM with 2k of Data Memory and has access to DDR2 memory *)
-        Filter = cell {Vector, DataMemory(2048), DDR2} (in: port in (64); result: port out);
-                                                  (* in port is implemented with width of 64 bits *)
-        VAR ...
-        BEGIN
-            (* ... filter action ... *)
-        END Filter;
+      (* Cell is a VectorTRM with 2k of Data Memory and has access to DDR2 memory *)
+      Filter = cell {Vector, DataMemory(2048), DDR2} (in: port in (64); result: port out);
+                                             (* in port is implemented with width of 64 bits *)
+      VAR ...
+      BEGIN
+          (* ... filter action ... *)
+      END Filter;
 
 - Hierarchic Composition: Cell Nets
     - Allocation of cells: `new` statement
@@ -1666,6 +1666,7 @@ Cells can be parametrized with capabilities or non-default values:
 
 
 Terminal Cellnet Example
+
     :::modula2
     cellnet Example;
     import RS232;
@@ -1712,3 +1713,45 @@ Terminal Cellnet Example
         - VGA, DVI controller
 
 <!-- End of Notes Week 12 -->
+
+<!-- Beginning of Notes Week 13 -->
+
+## Programming Language vs. HDL
+
+### Programming Language
+
+- Sequential execution
+- No notion of time
+
+Example:
+    :::modula2
+    VAR a,b,c: INTEGER;
+    a := 1;      (* unknown *)
+    b := 2;      (* mapping to *)
+    c := a + b;  (* machine cycles *)
+
+
+### Hardware Description Language
+
+Continuous execution (combinational logic):
+
+    :::verilog
+    wire [31:0] a,b,c;
+    assign c=a+b; // no
+    assign a=1;   // memory
+    assign b=2;   // associated
+
+Synchronous execution (register transfer):
+
+    :::verilog
+    reg [31:0] a,b,c;
+
+    always @ (posedge clk)
+    begin
+        a <= 1;    // synchronous at
+        b <= 2;    // rising edge
+        c <= a+b;  // of the clock
+    end;
+
+<!-- Notes Week 13 20:00 -->
+
