@@ -1557,7 +1557,7 @@ Data Structures:
     - ALU and shifter
     - 32-bit operands and results stored in a bonak of 2 * 8 registers
     - Local data memory: d * 512 words of 32 bits
-    - Local program memory: i * 1024 instructions with 32 bits 
+    - Local program memory: i * 1024 instructions with 32 bits
     - 7 general purpose registers
     - Register *H* for storing the high 32 bits of a product
     - 4 conditional registers: *C*, *N*, *V*, *Z*
@@ -1569,12 +1569,146 @@ TRM Machine Language
     1. Type a: arithmetical and logical operations
     2. Type b: load and store instructions
     3. Type c: branch instructions (for jumping)
+- Instruction Encoding: Offset and Immediate values have restricted width
+    - Long jumps constructed from chains
+    - Immediate store/load with shifts
 - Variants of TRMs
     - FTRM: includes FPU
     - VTRM: includes vector processing unit
         - 8 x 8-words registers
         - available with/without FPU
     - TRM with SW configurable instruction width
+- First Experiment: TRM12
+    - Message passing architecture
+    - Bus based on chip interconnect
+    - Not scalable
+- Second Experiment: Ring of 12 TRMs
+    - TRM &harr; Adapter &harr; Ring
+    - Not scalable
+    - Large delays
 
-<!-- Notes Week 12 30:00 -->
+## Active Cells
 
+- Computing model, programming language
+- Compiler, synthesizer, hardware library, simulator
+- Programmable HW (FPGA)
+- One toolchain for SW and HW
+- Consequences
+    - No global memory
+    - No processor sharing
+    - No pecularites of specific processor
+    - No predefined topology (NoC)
+    - No interrupts
+    - No operation system
+- Computation units: *Cells*
+- Different parallelism levels:
+    - Communication Structure (Pipelining, Parallel Execution)
+    - Cell Capabilities (Vector Computing, Simultaneous Execution)
+- Inspired by: Kahn Process Networks, Dataflow Programming, CSP
+- Active Cell Component
+    - Active Cell
+        - Object with private state space
+        - Integrated control thread(s)
+        - Connected via channels
+    - Cell Net
+        - Network of communication cells
+- Active Cells
+    - Scope and environment for a running isolated process
+    - Cells do not share memory
+    - Defined as types with port parameters
+
+Example:
+
+    :::modula2
+    TYPE
+        Adder = cell (in1, in2: port in; result: port out); (* communication ports *)
+        VAR summand1, summand2: integer;
+        BEGIN
+            in1 ? summand1; (* blocking receive *)
+            in2 ? summand2;
+            result ! summand1 + summand2; (* non-blocking send *)
+        END Adder;
+
+Cell Constructors to parameterize cells during allocation time:
+
+    :::modula2
+    TYPE
+        Filter = cell (in: port in; result: port out);
+        VAR ...; filterLength: integer;
+        PROCEDURE & Init(filterLength: integer)  (* constructor *)
+        BEGIN self.filterLength := filterLength
+        END Init;
+    BEGIN
+        (* ... filter action ... *)
+    END Filter;
+
+    VAR filter: Filter;
+    BEGIN
+        .... new(filter, 32); (* initialization parameter filterlength = 32 *)
+
+Cells can be parametrized with capabilities or non-default values:
+
+    :::modula2
+    TYPE
+         (* Cell is a VectorTRM with 2k of Data Memory and has access to DDR2 memory *)
+        Filter = cell {Vector, DataMemory(2048), DDR2} (in: port in (64); result: port out);
+                                                  (* in port is implemented with width of 64 bits *)
+        VAR ...
+        BEGIN
+            (* ... filter action ... *)
+        END Filter;
+
+- Hierarchic Composition: Cell Nets
+    - Allocation of cells: `new` statement
+    - Connection of cells: `connect` statement
+    - Ports of cells can be delegated to the ports of the net: `delegate` statement
+    - Terminal or closed Cellnets (i.e Cellnets witout ports) can be deployed to hardware
+
+
+Terminal Cellnet Example
+    :::modula2
+    cellnet Example;
+    import RS232;
+    TYPE
+        UserInterface = cell {RS232}(out1, out2: port out; in: port in)
+        (* ... *)
+        END UserInterface;
+
+        Adder = cell(in1, in2: port in; out: port out)
+        (* ... *)
+        END Adder;
+        VAR interface: UserInterface; adder: Adder
+        BEGIN
+            new(interface);
+            new(adder);
+            connect(interface.out1, adder.in1);
+            connect(interface.out2, adder.in2);
+            connect(adder.result, interface.in);
+    END Example.
+
+- Communication between cells (CSP)
+    - Receiving is blocking (`?`)
+    - Sending is non-blocking (`!`)
+- Engine Cell Made From Hardware (in HW library for FPGA)
+
+
+-Hardware Library
+    - Computation Components
+        - General purpose minimal machine: TRM, FTRM
+        - Vector machine: VTRM
+        - MAC, Filters etc.
+    - Communication Components (FIFOs)
+        - 32 * 128
+        - 512 * 128
+        - 32, 64, 128, 1k * 32
+    - Storage Components
+        - DDR2 controller
+        - configurable BRAMs
+        - CF controller
+    - I/O Components
+        - UART controller
+        - LCD, LED controller
+        - SPI, I2C controller
+        - VGA, DVI controller
+
+<!-- End of Notes Week 12 -->
