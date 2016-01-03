@@ -99,8 +99,6 @@ Tags: ETH
 - State oriented behaviour (micro controller, FPGA)
 - Dataflow oriented behavour (DSP)
 
-...
-
 ## State Charts
 
 - Classical automata (Moore/Mealy): FSM
@@ -136,10 +134,126 @@ $$\underrightarrow{event [condtition] / action}$$
     3. Simultaniously makte transition and apply the actions
         - Execute the right hand side of action simultaniously and assign then after
 
+## Specification and Description Language (SDL)
+
+- Targeted at unambiguous specification and despription of systems
+- *Asynchrnous* message passing
+- Appropriate also for distributed systems
+- Communication between FSMs (or processes)
+    - meassge passing with FIFO queues
+    - FIFOs can be indefinitely large
+- Each process fetches entry from FIFO
+    - if input enables transition it takes place
+    - otherwise discard input
+- All orders of events are legal: different correct behaviour in simulators (not deterministic)
+
+## Dataflow Languages
+
+- Imperative language style (*program counter*)
+- Movement of data is priority
+- Scheduling: responsibility of the system (not the programmer)
+
+- Basic characteristics:
+    - all processes run 'simultaneously'
+    - Processes can be described with imperative code
+    - Processes can **only** communicate through buffers
+    - Sequence of read tokens is same as of read tokens
+- Useful for applications that deal with streams of data
+    - Concurrent: maps to parallel hardware
+    - Perfect for block-diagram specifications (control systems, signal processing)
+
+### Kahn Process Networks
+
+- General-purpose scheme for parallel programming
+    - *read*: destructive and blocking (reading empty channel blocks until data is available)
+    - *write*: non-blocking
+    - *FIFO*: infinite size
+- Unique attribute: *determinate*
+
+#### Determinacy
+
+- Random: knowing about system and inputs is not sufficient to determin output
+- Determinate: the histories of *all channels* depend only on the histories of the *input channels*
+- Importence
+    - Functional behaviour is independent of timing (scheduling, communication time, execution time of processes)
+    - Separation of functional properties and timing
+
+#### Adding Non-Determinacy
+
+- Several possibilities
+    - Allow processes to test for empty queues
+    - Allow multiple processes to write to or read from one channel
+    - Allow processes to share a variable (memory)
+
+### Synchronous Dataflow (SDF)
+
+- Restriction of Kahn Networks to allow compile-time scheduling
+- Each process reads and writes a *fixed number of tokens* each time it fires
+- Firing is an atomic process
+- Schedule can be determined completely at compile-time
+- Steps:
+    1. Establish relative execution rates (solving a system of linar blancing equations)
+    2. Determine periodic schedule by simulating system for a single round
 
 
 <!-- Week 05 - 14.10.15 -->
 
+<!-- Beginning of Notes Week 5 -->
+<!-- Beginning of Slides 3 -->
+
+# 3. Mapping Application to Architecture
+
+System synthesis from specification
+
+- Allocation: Select components (HW)
+- Binding: Bind SW (Application) to HW (Components)
+- Scheduling: Executing code
+
 > Mapping = Binding + Scheduling
 
-Binding: Bind SW (Application) to HW (Components)
+## Specification Examples
+
+### Data-Flow Graph (DFG)
+
+    :::c
+    x = *3a + B*b - c;
+    y = a + b*x;
+    z = b - c*(a + b);
+
+- no loops
+- parallelism
+
+### Control-Flow Graph (CFG)
+
+    :::c
+    what_is_this {
+        read(a, b);
+        done = FALSE;
+        repeat {
+            if (a>b)
+                a = a-b;
+            else if (b>a)
+                b = b-a;
+            else done = TRUE;
+        } until done;
+        write(a);
+    }
+
+- State machine
+- Contional branches
+
+
+## Architecture Specification
+
+- Reflects structure and properties of underlying platform
+- Can be done at different abstraction levels
+
+## Mapping Specification
+
+Mapping: application and architecture specification
+
+- *binds* processes to proressors
+- *binds* communication between processes to architecture communication paths
+- specifies *resource sharing* and *scheduling*
+
+<!-- 10:00 -->
