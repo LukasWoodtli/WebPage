@@ -136,3 +136,13 @@ I really like Git. It's the version control system I use for all my projects. SV
 |------------------------------------------|------------------------------------------|
 | Git                                      | good                                     |
 | SVN                                      | very good                                |
+
+
+# Mechanics
+
+| Skill                                                    | Knowledge         |
+|----------------------------------------------------------|-------------------|
+| Production Engineering (milling, turning, drilling, ...) | good              |
+| Assembly                                                 | good              |
+| CNC Programming (G-Code)                                 | basic             |
+| CAD and CAM                                              | basic             |
