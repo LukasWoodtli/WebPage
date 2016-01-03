@@ -2,7 +2,7 @@ Title: System Construction
 Category: Programming
 Tags: ETH, Assembler
 Date: 2015-11-07
-Modified: 2015-11-07
+Modified: 2016-01-03
 
 
 > My Notes for the *System Construction* Course at ETH
@@ -1550,12 +1550,12 @@ Data Structures:
 
 ## Tiny Register Machine (TRM)
 
-- Extremely simple porcessor on FPGA
+- Extremely simple processor on FPGA
 - Hardware architecture
 - Two-stage pipeline
 - Each TRM contains
     - ALU and shifter
-    - 32-bit operands and results stored in a bonak of 2 * 8 registers
+    - 32-bit operands and results stored in a bank of 2 * 8 registers
     - Local data memory: d * 512 words of 32 bits
     - Local program memory: i * 1024 instructions with 32 bits
     - 7 general purpose registers
@@ -1592,11 +1592,11 @@ TRM Machine Language
 - Computing model, programming language
 - Compiler, synthesizer, hardware library, simulator
 - Programmable HW (FPGA)
-- One toolchain for SW and HW
+- One tool-chain for SW and HW
 - Consequences
     - No global memory
     - No processor sharing
-    - No pecularites of specific processor
+    - No peculiarities of specific processor
     - No predefined topology (NoC)
     - No interrupts
     - No operation system
@@ -1662,7 +1662,7 @@ Cells can be parametrized with capabilities or non-default values:
     - Allocation of cells: `new` statement
     - Connection of cells: `connect` statement
     - Ports of cells can be delegated to the ports of the net: `delegate` statement
-    - Terminal or closed Cellnets (i.e Cellnets witout ports) can be deployed to hardware
+    - Terminal or closed Cellnets (i.e Cellnets without ports) can be deployed to hardware
 
 
 Terminal Cellnet Example
@@ -1704,7 +1704,7 @@ Terminal Cellnet Example
         - 32, 64, 128, 1k * 32
     - Storage Components
         - DDR2 controller
-        - configurable BRAMs
+        - configurable DRAMs
         - CF controller
     - I/O Components
         - UART controller
@@ -1753,7 +1753,7 @@ Synchronous execution (register transfer):
         c <= a+b;  // of the clock
     end;
 
-## Single/Czcle Datapath (TRM)
+## Single/Cycle Datapath (TRM)
 
 ### Instruction Fetch
 
@@ -1856,7 +1856,7 @@ Compute the result via ALU
     assign regmux =
     (BL | BLR) ? {{{32-PAW}{1'b0}}, nxpc}:
     (LDR & ~IoenbReg) ? dmout:  // data memory out
-    (LDR & IoenbReg)? InbusReg: //f rom IO
+    (LDR & IoenbReg)? InbusReg: // from IO
     (MUL) ? mulRes[31:0]:
     (ROR) ? s3:
     (LDH) ? H:
@@ -1871,7 +1871,7 @@ Compute the result via ALU
 - *regwr* signal is affected
 
 
-### Laod (`LD`)
+### Load (`LD`)
 
     :::verilog
     wire [31:0] dmout;
@@ -1966,19 +1966,55 @@ Code:
     - immediates -> expressed by several instructions or put to memory (fixups)
     - fixups, problematic if large global variables are allocated
     -far procedure calls
-- Solution: Compilation to Intermediate Code, backend application at link time
+- Solution: Compilation to Intermediate Code, back-end application at link time
 
 
 #### Compilation Steps
 
 1. Scanner & Parser
 2. Checker
-3. Intermediate Backend
+3. Intermediate Back-end
 4. Intermediate Object File
-5. Active Cells Backend
+5. Active Cells Back-end
 6. Active Cells Specification, Intermediate Assembler
-7. Target Backend
+7. Target Back-end
 8. Generic Object File Linker
 
-
 <!-- End Notes Week 13 -->
+<!-- Beginning of Notes Week 14 -->
+
+## Problems with Active Cells 1
+
+- What if several same HW components available?
+- How to extend HW without rewriting compiler each time?
+
+### Generic Communication Interface
+
+- Peer-to-Peer
+- Use of *AXI4 Stream* interconnect standard from ARM
+- Generic, flexible
+- Non-redundant
+
+## Active Cells 2
+
+- Flexible parameterization of the components using interpreted code in the component specification
+- XML-based specification (object persistency)
+
+## Active Cells 3
+
+- Parameterization and Description of Hardware completely in one programming language
+
+1. Platform specific settings clock sources, pin locations etc
+2. Component specific settings:
+    - dependencies (Verilog-Files) parameters
+    - port names
+    - Can be made very generic with plugins
+
+
+![Active Cells 3 Toolchain](/images/syscon_active_cells_3_toolchain.png)
+
+This image is taken from the lecture slides provided by Felix Friedrich
+
+<!-- End of Notes Week 14 -->
+<!-- End of Course -->
+
