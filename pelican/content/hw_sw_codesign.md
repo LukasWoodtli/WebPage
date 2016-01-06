@@ -223,6 +223,8 @@ System synthesis from specification
 - no loops
 - parallelism
 
+[Data Flow Graph on Wikipeida](https://en.wikipedia.org/wiki/Data_flow_diagram)
+
 ### Control-Flow Graph (CFG)
 
     :::c
@@ -242,6 +244,7 @@ System synthesis from specification
 - State machine
 - Contional branches
 
+[Control Flow Graph on Wikipedia](https://en.wikipedia.org/wiki/Control_flow_graph)
 
 ## Architecture Specification
 
@@ -256,4 +259,58 @@ Mapping: application and architecture specification
 - *binds* communication between processes to architecture communication paths
 - specifies *resource sharing* and *scheduling*
 
-<!-- 10:00 -->
+
+![Partitioning and Mapping](/images/hscd_partitioning_mapping.svg)
+
+<!-- TODO: Repeat Slides 3-10 to 3-14 -->
+
+
+# 4. System Partitioning
+
+## Mapping at different Levels
+
+### Low Level
+
+- Register Transfer Level (RTL) or Netlist Level
+- Split a digital circuit and map it to several devices (FPGAs, ASICs)
+- System parameters (e.g., area, delay) relatively easy to determine
+
+### High Level
+
+- System Level
+- Comparison of design alternatives for optimality (design space exploration)
+- System parameters are unknown and difficult to determine
+    - to be estimated via analysis, simulation, (rapid) prototyping
+
+## Cost Functions
+
+- system cost (*C[$]*)
+- latency (*L[sec]*)
+- power consumption (*P[W]*)
+- ...
+
+
+### Estimation
+
+Estimation is required to find *C*, *L*, *P* values, for each design point
+
+i.e
+
+$$f(C,L,P)= k_1 \cdot h_C(C,C_{max})+ k_2 \cdot h_L(L,L_{max})+ k_3 \cdot h_P(P,P_{max})$$
+
+- $h_C$, $h_L$, $h_P$: denote how strong $C$, $L$, $P$ violate design constraints $C_{max}$, $L_{max}$, $P_{max}$
+- $k_1$, $k_2$, $k_3$: weighting and normalization
+
+<!-- Slides 4-8
+     Notes Week 5 48:00 -->
+
+
+<!--
+
+Topics
+------
+- Architecture Graph (problem Graph)
+- Specification Graph
+- Closeness Function
+
+-->

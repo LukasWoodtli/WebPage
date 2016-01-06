@@ -1,0 +1,20 @@
+digraph DoorStates {
+
+node [shape=record];  
+edge [arrowhead=none];
+
+PARTITIONING [label="{Partitioning}"];
+MAPPING [label="{Mapping}"];
+
+ALLOCATION [label="{Allocation | Select HW\n components}"];
+
+BINDING [label="{Binding | Assign functions (SW) to\n components (HW)}"];
+
+SCHEDULING [label="{Scheduling | Determine execution order\n of code}"];
+
+PARTITIONING -> ALLOCATION;
+PARTITIONING -> BINDING;
+
+MAPPING -> BINDING;
+MAPPING -> SCHEDULING;
+}
