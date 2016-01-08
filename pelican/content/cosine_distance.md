@@ -15,9 +15,6 @@ Modified: 2016-01-08
 
 - The angle will be between $0^{\circ}$ and $180^{\circ}$ regardless of *how many dimensions* the space has
 
-$$d_{cos}(\vec a, \vec b) = arcos  \left ( \frac{\vec a \cdot \vec b}{\left \| \vec a \right \|_2 \cdot \left \| \vec b \right \|_2}  \right )  = arcos  \left ( \frac{\sum_{i=1}^na_i \cdot b_i}{\left \| \vec a \right \| \cdot \left \| \vec b \right \|} \right )$$
-
-
-
+$$d_{cos}(\vec a, \vec b) = arcos  \left ( \frac{\vec a \cdot \vec b}{\| \vec a \|_2 \cdot \| \vec b \|_2}  \right )  = arcos  \left ( \frac{\sum_{i=1}^na_i \cdot b_i}{\| \vec a \|_2 \cdot \| \vec b \|_2} \right )$$
 
 
