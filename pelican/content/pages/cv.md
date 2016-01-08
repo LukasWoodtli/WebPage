@@ -59,9 +59,6 @@ See my page about the [courses](courses.html) I attended.
 - English: Good writing and speaking knowledge
 - French: Some basic knowledge
 
-# References	
-Available on request
-
 # Hobbies	
 
 * Sports:
@@ -72,4 +69,14 @@ Available on request
 * Cooking
 * Reading books
 
+# References	
+Available on request
+
+
+# Application Documents
+
+|         | Compact                   | Full       |
+|---------|---------------------------|------------|
+| English | [Application Documents (compact)](/documents/Application_Documents_Lukas_Woodtli.zip) | [Application_Documents (full)](/documents/Application_Documents_full_Lukas_Woodtli.zip) |
+| Deutsch | [Bewerbungsunterlagen (kompakt)](/documents/Bewerbungsunterlagen_Lukas_Woodtli.zip) | [Bewerbungsunterlagen (vollständig)](/documents/Bewerbungsunterlagen_alle_Lukas_Woodtli.zip) |
 
