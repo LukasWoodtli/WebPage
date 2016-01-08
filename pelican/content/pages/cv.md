@@ -1,4 +1,4 @@
-Title: CV
+Title: Resume
 		
 
 # Personal Data	
@@ -77,6 +77,6 @@ Available on request
 
 |         | Compact                   | Full       |
 |---------|---------------------------|------------|
-| English | [Application Documents (compact)](/documents/Application_Documents_Lukas_Woodtli.zip) | [Application_Documents (full)](/documents/Application_Documents_full_Lukas_Woodtli.zip) |
+| English | [Application Documents (compact)](/documents/Application_Documents_Lukas_Woodtli.zip) | [Application Documents (full)](/documents/Application_Documents_full_Lukas_Woodtli.zip) |
 | Deutsch | [Bewerbungsunterlagen (kompakt)](/documents/Bewerbungsunterlagen_Lukas_Woodtli.zip) | [Bewerbungsunterlagen (vollständig)](/documents/Bewerbungsunterlagen_alle_Lukas_Woodtli.zip) |
 

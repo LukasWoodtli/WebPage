@@ -60,7 +60,7 @@ INDEX_SAVE_AS = 'blog_index.html'
 
 MENUITEMS = [
     ('Home', '/index.html'),
-    ('CV', '/pages/cv.html'),
+    ('Resume', '/pages/cv.html'),
     ('Skills',[
         ('Hard Skills', '/pages/skills.html'),
         ('Courses', '/pages/courses.html'),
