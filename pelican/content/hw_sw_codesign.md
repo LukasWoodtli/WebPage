@@ -301,9 +301,49 @@ $$f(C,L,P)= k_1 \cdot h_C(C,C_{max})+ k_2 \cdot h_L(L,L_{max})+ k_3 \cdot h_P(P,
 - $h_C$, $h_L$, $h_P$: denote how strong $C$, $L$, $P$ violate design constraints $C_{max}$, $L_{max}$, $P_{max}$
 - $k_1$, $k_2$, $k_3$: weighting and normalization
 
-<!-- Slides 4-8
-     Notes Week 5 48:00 -->
+### The Formal Partitioning Problem
 
+Assign $n$ objects $O= \{  o_1, \cdots , o_n \}$ to $m$ blocks (also called partitions)
+$P= \{  p_1, \cdots , p_m \}$, such that
+
+- $p_1 \cup p_2 \cup \cdots \cup p_m = O$ (all objects are assigned - mapped)
+- $p_i \cap p_j = \{ \}\; \forall i,j:i\neq j$ (an object is not assigend or mapped twice)
+- and costs $c(P)$ are minimized
+
+### Exact vs. Heuristic Methods
+
+- Exact provides optimal solution (or set of solutions)
+- Heuristic provides a 'good' solution but not best
+
+### Integer Linear Programming (ILP)
+
+- Exact method
+- Objective function
+- Constraints
+
+Objective:
+
+$$C = \sum_{x_i\in X}a_ix_i\; with\; a_i \in \mathbb{R}, x_i \in \mathbb{N}$$
+
+Constraints:
+
+$$\forall j \in J: \sum_{x_i \in X}b_{i,j}x_i \geq c_j \; with \; b_{i,j}, c_j \in \mathbb{R}$$
+
+Integer programming problem:
+- Minimize objective function subject to constraints
+
+### Constructive Methods
+
+- Heuristic
+
+#### Hierarchical Clustering
+
+- Combine always 2 nodes
+- Then recalculate
+- Repeat until goal achieved
+- Steps can be visualized in a tree diagram
+
+<!-- End of Notes Week 5 -->
 
 <!--
 
@@ -312,5 +352,6 @@ Topics
 - Architecture Graph (problem Graph)
 - Specification Graph
 - Closeness Function
+
 
 -->
