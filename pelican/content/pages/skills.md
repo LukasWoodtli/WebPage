@@ -36,6 +36,7 @@ I'm a big fan of the Qt framework. For bigger projects Boost is a must. And of c
 |-----------------------------------------|-----------|
 | Embedded Systems and Micro Controllers  | very good |
 | Control Systems Engeneering             | good      |
+| Signals and Systems                     | good      |
 | Digital Signal Processing               | basic     |
 | Hardware Development (Analog & Digital) | basic     |
 | RFID                                    | basic     |
@@ -146,3 +147,4 @@ I really like Git. It's the version control system I use for all my projects. SV
 | Assembly                                                 | good              |
 | CNC Programming (G-Code)                                 | basic             |
 | CAD and CAM                                              | basic             |
+| PLC/SPS (Simatic)                                        | basic             |
