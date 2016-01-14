@@ -267,6 +267,12 @@ Mapping: application and architecture specification
 
 # 4. System Partitioning
 
+
+> Partitioning: Given a set of objects: Partition this set in subsets.
+
+> Mapping: Subset is mapped to specific resource.
+
+
 ## Mapping at different Levels
 
 ### Low Level
@@ -344,6 +350,52 @@ Integer programming problem:
 - Steps can be visualized in a tree diagram
 
 <!-- End of Notes Week 5 -->
+
+<!-- Beginning of Notes Week 6 -->
+
+### Example for Partitioning
+
+- optimize for a load balanced system
+
+Scheduling:
+
+| Task       | t0 | t1 | t2 | t3 |
+|------------|----|----|----|----|
+| Processor0 | 1  | 1  | 0  | 0  |
+| Processor1 | 0  | 0  | 1  | 1  |
+
+
+Run Times:
+
+| Run time   | t0 | t1 | t2 | t3 |
+|------------|----|----|----|----|
+| Processor0 | 5  | 15 | 01 | 30 |
+| Processor1 | 10 | 20 | 10 | 10 |
+
+Cost $c_{i,k}:
+
+$$\left.\begin{matrix}
+c_{0,0} = 5\\
+c_{0,1} = 10\\
+\cdots
+\end{matrix}\right\}
+\begin{matrix}
+0 \leq i \leq 3\\
+0 \leq k \leq 1
+\end{matrix}$$
+
+Binary variables $x_{i,k}$:
+
+$$\left.\begin{matrix}
+x_{0,0} + x_{0,1} = 1\\
+x_{1,0} + x_{1,1} = 1\\
+\cdots
+\end{matrix}\right\}
+\sum_{k=0}^1 x_{k,i} = 1\; \forall\; 0 \leq i \leq 3$$
+
+
+
+
 
 <!--
 
