@@ -326,6 +326,7 @@ Exact vs. Heuristic Methods:
 
 Overview:
 
+
 - Exact Methods
     - Enumeration
     - Integer linear programs (ILP)
@@ -337,6 +338,7 @@ Overview:
         - Kerninghan-Lin algorithm
         - Simulated annealing
         - Evolutionary algorithm
+
 
 #### Hierarchical Clustering
 
@@ -451,7 +453,7 @@ l_1 = \sum_{(i)}  c_{i,1} x_{i,1}
 \end{matrix}$$
 
 
-$$min{B}$$
+$$min \{ B \}$$
 
 $$\begin{matrix}
 B \geq l_0 \\
