@@ -423,11 +423,11 @@ This is not a linear problem!
 
 #### Solutions
 
-1. Solution:
+1\. Solution:
 
 Solving 2 linear problems: split aproach 2 into 2 linear problems:
 
-$$min \{ | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \underbrace{\sum_{i=0}^3 c_{i,1} x_{i,1}}_{l_2} | \}$$
+$$min \left \{ \left | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \underbrace{\sum_{i=0}^3 c_{i,1} x_{i,1}}_{l_2} \right | \right \}$$
 
 Becomes:
 
