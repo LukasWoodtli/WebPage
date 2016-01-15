@@ -415,7 +415,7 @@ x_{1,0} + x_{1,1} = 1\\
 
 $$min\left \{ \sum_{i=0}^3 \sum_{k=0}^1 c_{i,k} x_{i,k} \right \}$$
 
-2. Aproach:
+2\. Aproach:
 
 $$min\left \{ \left | \sum_{i=0}^3  c_{i,0} x_{i,0} - \sum_{i=0}^3 c_{i,1} x_{i,1} \right |\right \}$$
 
@@ -427,7 +427,7 @@ This is not a linear problem!
 
 Solving 2 linear problems: split aproach 2 into 2 linear problems:
 
-$$min\left \{ \left | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \underbrace{\sum_{i=0}^3 c_{i,1} x_{i,1}}_{l_2} \right |\right \}$$
+$$min \{ | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \underbrace{\sum_{i=0}^3 c_{i,1} x_{i,1}}_{l_2} | \}$$
 
 Becomes:
 
@@ -437,7 +437,7 @@ l_1 \geq l_0: min\left \{ l_1 - l_0 \right \}
 \end{matrix}$$
 
 
-2. Solution:
+2\. Solution:
 
 Empirical aproach: Run code and measure execution time and try to minimize it.
 
