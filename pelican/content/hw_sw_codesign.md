@@ -17,7 +17,7 @@ Tags: ETH
     - Multi-Criteria Optimization
 - Performance Estimation
     - Simulation-based Methods
-    - Worst-Case Execution Time Analyis
+    - Worst-Case Execution Time Analysis
     - Performance Analysis of Distributed Systems
     - Thermal-aware Design
 
@@ -44,7 +44,7 @@ Tags: ETH
 
 | Embedded Systems                       | General Purpose Computing   |
 |----------------------------------------|-----------------------------|
-| Few Applications, knonw at design-time | Broad class of applications |
+| Few Applications, known at design-time | Broad class of applications |
 | Not programmable by end user           | Programmable by end user    |
 | Fixed run-time requirement             | Faster is better            |
 
@@ -93,16 +93,16 @@ Tags: ETH
 # 2. Models of Computation
 
 - Hierarchy
-    - Behavioural
+    - Behavioral
     - Structural
 - Timing
 - State oriented behaviour (micro controller, FPGA)
-- Dataflow oriented behavour (DSP)
+- Dataflow oriented behaviour (DSP)
 
 ## State Charts
 
 - Classical automata (Moore/Mealy): FSM
-- State: **Information** needed to get (determin) the output form the input
+- State: **Information** needed to get (determine) the output form the input
 - State Charts introduce hierarchy
     - Combining States with Sub-States in Super-States
     - Active States
@@ -131,16 +131,16 @@ $$\underrightarrow{event [condtition] / action}$$
 - Three phases
     1. Event is emitted
     2. Transition is selected
-    3. Simultaniously makte transition and apply the actions
-        - Execute the right hand side of action simultaniously and assign then after
+    3. Simultaneously make transition and apply the actions
+        - Execute the right hand side of action simultaneously and assign then after
 
 ## Specification and Description Language (SDL)
 
-- Targeted at unambiguous specification and despription of systems
-- *Asynchrnous* message passing
+- Targeted at unambiguous specification and description of systems
+- *Asynchronous* message passing
 - Appropriate also for distributed systems
 - Communication between FSMs (or processes)
-    - meassge passing with FIFO queues
+    - message passing with FIFO queues
     - FIFOs can be indefinitely large
 - Each process fetches entry from FIFO
     - if input enables transition it takes place
@@ -172,9 +172,9 @@ $$\underrightarrow{event [condtition] / action}$$
 
 #### Determinacy
 
-- Random: knowing about system and inputs is not sufficient to determin output
+- Random: knowing about system and inputs is not sufficient to determine output
 - Determinate: the histories of *all channels* depend only on the histories of the *input channels*
-- Importence
+- Importance
     - Functional behaviour is independent of timing (scheduling, communication time, execution time of processes)
     - Separation of functional properties and timing
 
@@ -192,7 +192,7 @@ $$\underrightarrow{event [condtition] / action}$$
 - Firing is an atomic process
 - Schedule can be determined completely at compile-time
 - Steps:
-    1. Establish relative execution rates (solving a system of linar blancing equations)
+    1. Establish relative execution rates (solving a system of linear balancing equations)
     2. Determine periodic schedule by simulating system for a single round
 
 
@@ -223,7 +223,7 @@ System synthesis from specification
 - no loops
 - parallelism
 
-[Data Flow Graph on Wikipeida](https://en.wikipedia.org/wiki/Data_flow_diagram)
+[Data Flow Graph on Wikipedia](https://en.wikipedia.org/wiki/Data_flow_diagram)
 
 ### Control-Flow Graph (CFG)
 
@@ -242,7 +242,7 @@ System synthesis from specification
     }
 
 - State machine
-- Contional branches
+- Conditional branches
 
 [Control Flow Graph on Wikipedia](https://en.wikipedia.org/wiki/Control_flow_graph)
 
@@ -255,7 +255,7 @@ System synthesis from specification
 
 Mapping: application and architecture specification
 
-- *binds* processes to proressors
+- *binds* processes to processors
 - *binds* communication between processes to architecture communication paths
 - specifies *resource sharing* and *scheduling*
 
@@ -313,7 +313,7 @@ Assign $n$ objects $O= \{  o_1, \cdots , o_n \}$ to $m$ blocks (also called part
 $P= \{  p_1, \cdots , p_m \}$, such that
 
 - $p_1 \cup p_2 \cup \cdots \cup p_m = O$ (all objects are assigned - mapped)
-- $p_i \cap p_j = \{ \}\; \forall i,j:i\neq j$ (an object is not assigend or mapped twice)
+- $p_i \cap p_j = \{ \}\; \forall i,j:i\neq j$ (an object is not assigned or mapped twice)
 - and costs $c(P)$ are minimized
 
 
@@ -324,7 +324,8 @@ Exact vs. Heuristic Methods:
 - Exact provides optimal solution (or set of solutions)
 - Heuristic provides a 'good' solution but not best
 
-Overview: 
+Overview:
+
 - Exact Methods
     - Enumeration
     - Integer linear programs (ILP)
@@ -360,6 +361,7 @@ Constraints:
 $$\forall j \in J: \sum_{x_i \in X}b_{i,j}x_i \geq c_j \; with \; b_{i,j}, c_j \in \mathbb{R}$$
 
 Integer programming problem:
+
 - Minimize objective function subject to constraints
 
 
@@ -409,13 +411,13 @@ x_{1,0} + x_{1,1} = 1\\
 \sum_{k=0}^1 x_{k,i} = 1\; \forall\; 0 \leq i \leq 3$$
 
 
-#### Aproaches
+#### Approaches
 
-1. Aproach:
+1. Approach:
 
 $$min\left \{ \sum_{i=0}^3 \sum_{k=0}^1 c_{i,k} x_{i,k} \right \}$$
 
-2\. Aproach:
+2\. Approach:
 
 $$min\left \{ \left | \sum_{i=0}^3  c_{i,0} x_{i,0} - \sum_{i=0}^3 c_{i,1} x_{i,1} \right |\right \}$$
 
@@ -425,7 +427,7 @@ This is not a linear problem!
 
 1\. Solution:
 
-Solving 2 linear problems: split aproach 2 into 2 linear problems:
+Solving 2 linear problems: split approach 2 into 2 linear problems:
 
 $$min \left \{ \left | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \underbrace{\sum_{i=0}^3 c_{i,1} x_{i,1}}_{l_2} \right | \right \}$$
 
@@ -433,18 +435,18 @@ Becomes:
 
 $$\begin{matrix}
 l_0 \geq l_1: min\left \{ l_0 - l_1 \right \} \\
-l_1 \geq l_0: min\left \{ l_1 - l_0 \right \} 
+l_1 \geq l_0: min\left \{ l_1 - l_0 \right \}
 \end{matrix}$$
 
 
 2\. Solution:
 
-Empirical aproach: Run code and measure execution time and try to minimize it.
+Empirical approach: Run code and measure execution time and try to minimize it.
 
 Move tasks to different processors.
 
 $$\begin{matrix}
-l_0 = \sum_{(i)}  c_{i,0} x_{i,0}\\ 
+l_0 = \sum_{(i)}  c_{i,0} x_{i,0}\\
 l_1 = \sum_{(i)}  c_{i,1} x_{i,1}
 \end{matrix}$$
 
@@ -452,7 +454,7 @@ l_1 = \sum_{(i)}  c_{i,1} x_{i,1}
 $$min{B}$$
 
 $$\begin{matrix}
-B \geq l_0 \\ 
+B \geq l_0 \\
 B \geq l_1
 \end{matrix}
 $$
