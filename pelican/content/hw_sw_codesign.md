@@ -316,10 +316,34 @@ $P= \{  p_1, \cdots , p_m \}$, such that
 - $p_i \cap p_j = \{ \}\; \forall i,j:i\neq j$ (an object is not assigend or mapped twice)
 - and costs $c(P)$ are minimized
 
-### Exact vs. Heuristic Methods
+
+### Partitioning Methods
+
+Exact vs. Heuristic Methods:
 
 - Exact provides optimal solution (or set of solutions)
 - Heuristic provides a 'good' solution but not best
+
+Overview: 
+- Exact Methods
+    - Enumeration
+    - Integer linear programs (ILP)
+- Heuristic
+    - Constructive Methods
+        - Random mapping
+        - Hierarchical clustering
+    - Iterative methods
+        - Kerninghan-Lin algorithm
+        - Simulated annealing
+        - Evolutionary algorithm
+
+#### Hierarchical Clustering
+
+- Combine always 2 nodes
+- Then recalculate
+- Repeat until goal achieved
+- Steps can be visualized in a tree diagram
+
 
 ### Integer Linear Programming (ILP)
 
@@ -338,22 +362,13 @@ $$\forall j \in J: \sum_{x_i \in X}b_{i,j}x_i \geq c_j \; with \; b_{i,j}, c_j \
 Integer programming problem:
 - Minimize objective function subject to constraints
 
-### Constructive Methods
-
-- Heuristic
-
-#### Hierarchical Clustering
-
-- Combine always 2 nodes
-- Then recalculate
-- Repeat until goal achieved
-- Steps can be visualized in a tree diagram
 
 <!-- End of Notes Week 5 -->
 
 <!-- Beginning of Notes Week 6 -->
 
-### Example for Partitioning
+
+#### Example for Partitioning
 
 - optimize for a load balanced system
 
@@ -369,10 +384,10 @@ Run Times:
 
 | Run time   | t0 | t1 | t2 | t3 |
 |------------|----|----|----|----|
-| Processor0 | 5  | 15 | 01 | 30 |
+| Processor0 | 5  | 15 | 10 | 30 |
 | Processor1 | 10 | 20 | 10 | 10 |
 
-Cost $c_{i,k}:
+Cost $c_{i,k}$:
 
 $$\left.\begin{matrix}
 c_{0,0} = 5\\
@@ -394,7 +409,56 @@ x_{1,0} + x_{1,1} = 1\\
 \sum_{k=0}^1 x_{k,i} = 1\; \forall\; 0 \leq i \leq 3$$
 
 
+#### Aproaches
 
+1. Aproach:
+
+$$min\left \{ \sum_{i=0}^3 \sum_{k=0}^1 c_{i,k} x_{i,k} \right \}$$
+
+2. Aproach:
+
+$$min\left \{ \left | \sum_{i=0}^3  c_{i,0} x_{i,0} - \sum_{i=0}^3 c_{i,1} x_{i,1} \right |\right \}$$
+
+This is not a linear problem!
+
+#### Solutions
+
+1. Solution:
+
+Solving 2 linear problems: split aproach 2 into 2 linear problems:
+
+$$min\left \{ \left | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \underbrace{\sum_{i=0}^3 c_{i,1} x_{i,1}}_{l_2} \right |\right \}$$
+
+Becomes:
+
+$$\begin{matrix}
+l_0 \geq l_1: min\left \{ l_0 - l_1 \right \} \\
+l_1 \geq l_0: min\left \{ l_1 - l_0 \right \} 
+\end{matrix}$$
+
+
+2. Solution:
+
+Empirical aproach: Run code and measure execution time and try to minimize it.
+
+Move tasks to different processors.
+
+$$\begin{matrix}
+l_0 = \sum_{(i)}  c_{i,0} x_{i,0}\\ 
+l_1 = \sum_{(i)}  c_{i,1} x_{i,1}
+\end{matrix}$$
+
+
+$$min{B}$$
+
+$$\begin{matrix}
+B \geq l_0 \\ 
+B \geq l_1
+\end{matrix}
+$$
+
+
+<!-- Notes Week 6 30:00 -->
 
 
 <!--
