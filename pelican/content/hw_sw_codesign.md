@@ -462,6 +462,50 @@ B \geq l_1
 $$
 
 
+### Iterative Methods
+
+Often used principle:
+
+- Start with some initial configuration (partitioning)
+- search neighborhood (similar partitions)
+    - select a neghbor as candidate
+- evaluate *fitness* (cost) function of candidate
+    - accepr candidate using acceptance rule
+    - if not, select another neighbor
+- Stop if:
+    - Quality is sufficient or
+    - no improvement can be found or
+    - after a fixed time
+
+Ingredients:
+
+- initial configuration
+- function to find a neighbor as candidate
+- cost function
+- acceptance rule
+- stop criterion
+
+Disadvantages:
+
+- local optimum as best result
+- local optimum depends on initial configuration
+- generally no upper bound on iteration length
+
+#### Kernighan-Lin
+
+- as long as a better partition is found
+    - from all possible pairs of objects: *virtually* re-group the 'best' (lowest cost of resultion partition)
+    - from the remaining (not yet touched) objects: *virtually* re-group the 'best' pair
+    - continue until all objects have been re-grouped
+    - from these n/2 partitions, take the one with smallest cost and *actually* perform the corresponding re-group operation
+
+<!-- Notes Week 6 40:00 --> 
+
+
+
+    
+
+
 <!-- Notes Week 6 30:00 -->
 
 
