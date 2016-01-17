@@ -1,0 +1,27 @@
+digraph EvolutionaryAlgorithm {
+
+rankdir=TD;
+
+
+parent_set[label="initial/parent set"];
+mated_set[label=""];
+crossed_over_set[label=""];
+children_set[label="children set"];
+union_set[label=""]
+
+
+
+parent_set -> mated_set [label="1. mating selection\n(select best)"];
+
+union_set -> parent_set [label="5. environmental selection\n(kill bad solutions)"];
+
+
+mated_set -> crossed_over_set [label="2. cross over operator\n(small variations)"];
+
+
+crossed_over_set -> children_set [label="3. mutation operator\n(small variations)"];
+
+children_set -> union_set [label="4. combine parents and children"];
+
+
+}

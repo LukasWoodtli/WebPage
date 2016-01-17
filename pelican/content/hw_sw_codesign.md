@@ -576,7 +576,64 @@ Network processor: High-performance, programmable device designed to efficiently
     1. Memory constraint
     2. Delay constraint
 
+## Basic Definition
 
+- We intend to minimize a *vector-valued* ***objective function***
+
+$$f= (f_1; f_2; ... ; f_n): X \rightarrow R^n$$
+
+- $X$ denotes the **decision space**. i.e the feasible set of alternatives for the optimization problem
+- The image of the decision space $X$ using the objective function $f$ is denoted as the **objective space** $Z \subset R^n$ with
+
+$$Z = \{f(x) |x \in X  \}$$
+
+- A single alternative $x \in X$ is (sometimes) named *solution* and the corresponding object value $z = f(x) \in Z$ is named *objective vector*
+
+Basic question:
+
+How do we define the minimum of a vector-valued function?
+
+## Pareto Dominance
+
+Definition:
+
+A solution $a \in X$ weakly *Pareto-dominates* a solution $b \in X$, denoted as $a \preceq  b$, if it is at least as good in
+all objectives, i.e:
+
+$$f_i(a) \leq f_i(b)\; \forall 1 \leq i \leq n$$
+
+
+- Dominance is transitive
+- A solution is named *Pareto-optimal*, if it's not Pareto-dominated by any other solution in $X$
+
+### Optimization Alternatives
+
+- Classical single objective optimization methods
+    - Simulated annealing
+    - Integer linear program
+    - other costructive or iterative heuristic methods
+
+&rarr; Decision making is done before the optimization
+
+
+- Population based optimization methods
+    - Evolutionary / genetic algorithms
+
+&rarr; Decision making is done after the optimization
+
+### Evolutionary Algorithms
+
+Basic scheme (many variations exist):
+1. A set of initial solution (initial population is chosen (usually at random). This set is called *parent* set.
+2. Solutions form *parent* set are selected (*mating selection*)
+3. Solutions from *mating selection* are changed using neighborhood operators (*cross-over* and *mutation* operators). The resulting set is called *children* set.
+4. Determine union of the *parent* and the *children* sets
+5. Solutions of the set from 4. are selected based on their merit to construct the new *parent* set (*environmental selection*).
+6. continue at 2.
+
+
+
+![Evolutionary Algorithm](/images/hscd_evolutionary_algorithm.svg)
 
 
 <!--
