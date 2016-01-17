@@ -555,6 +555,28 @@ Complexity:
 
 <!-- End of Slides 4 -->
 
+<!-- Beginning of Slides 5 -->
+
+# 5. Multi-Criteria Optimization
+
+## Example: Network Processors
+
+Network processor: High-performance, programmable device designed to efficiently execute communication workloads
+
+
+- Given:
+    1. Specification of the task structure (task model): tasks to be executed for each flow
+    2. Different usage scenarios (flow model): sets of flows
+- Sought:
+    - Network processor implementation: architecture + task mapping + scheduling
+- Objectives:
+    1. Maximize performance
+    2. Minimize cost
+- Subject to:
+    1. Memory constraint
+    2. Delay constraint
+
+
 
 
 <!--
