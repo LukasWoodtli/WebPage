@@ -624,6 +624,7 @@ $$f_i(a) \leq f_i(b)\; \forall 1 \leq i \leq n$$
 ### Evolutionary Algorithms
 
 Basic scheme (many variations exist):
+
 1. A set of initial solution (initial population is chosen (usually at random). This set is called *parent* set.
 2. Solutions form *parent* set are selected (*mating selection*)
 3. Solutions from *mating selection* are changed using neighborhood operators (*cross-over* and *mutation* operators). The resulting set is called *children* set.
@@ -632,9 +633,11 @@ Basic scheme (many variations exist):
 6. continue at 2.
 
 
+![Evolutionary Algorithm](/images/hscd_evolutionary_algorithm.svg){: style="float:right"}
 
-![Evolutionary Algorithm](/images/hscd_evolutionary_algorithm.svg)
 
+- Cross-over operator: Take best parts of two solutions
+- Mutation operator: same as in simulated annealing (make small variations)
 
 <!--
 
