@@ -12,7 +12,7 @@ I also write casually some small [blog]({filename}/pages/blog.md) articles.
 Feel free to [contact]({filename}/pages/contact.md) me.
 
 
-<script src="wordcloud2.js"></script>
+<script src="scripts/wordcloud2.js"></script>
 
 <canvas id="myCanvas" width="600" height="500";">
 </canvas>
