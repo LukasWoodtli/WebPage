@@ -499,14 +499,62 @@ Disadvantages:
     - continue until all objects have been re-grouped
     - from these n/2 partitions, take the one with smallest cost and *actually* perform the corresponding re-group operation
 
-<!-- Notes Week 6 40:00 --> 
+#### Simulated Annealing
+
+- inspired by physical process
+- replace existing solutiony by (random) new feasible solutions form neighborhood
+- always accept better solutions but allow for a guided acceptance for worse neighbors
+- gradually cooling: gradually decrease the probability of accepting worse solutions
+
+Advantage:
+- Allowance for 'uphill' moves potentially avoids local optima
+
+Possible implementation:
+
+    :::python
+    temp = temp_start
+    cost = c(P)
+    while Frozen() == False:
+        while Equilibrium() == False:
+            P_new = RandomMove(P)
+            cost_new = c(P_new)
+            deltacost = cost_new - cost
+            if Accept(deltacost, temp) > random(0,1)
+                P = P_new
+                cost = cost_new
+            temp = DecreaseTemp(temp)
 
 
+Functions:
 
-    
+`RandomMove(P)`:
 
+- Choose a random solution in the neighborhood of `P`
 
-<!-- Notes Week 6 30:00 -->
+`DecreaseTemp()`, `Frozen()`:
+
+- Cooling down. There are different choices. For example:
+    - initially: `temp := 1.0`
+    - in any iteration: `temp := alpha * temp` (typically: 0.8 $\leq$ `alpha` $\leq$ 0.99)
+- Frozen
+    - after a given time or
+    - if there is not further improvement
+
+`Equilibrium()`:
+
+- Usually after a defined number of iterations
+
+`Accept(deltacost, temp)`:
+
+- $e^{- \frac{deltacost}{k \cdot temp}}$
+
+Complexity:
+
+- From exponential to constant depending on
+`Equilibrium()`, `DecreaseTemp()` and `Frozen()`.
+
+<!-- End of Slides 4 -->
+
 
 
 <!--
