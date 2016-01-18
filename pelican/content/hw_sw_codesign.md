@@ -638,6 +638,64 @@ Basic scheme (many variations exist):
 
 - Cross-over operator: Take best parts of two solutions
 - Mutation operator: same as in simulated annealing (make small variations)
+- How to choose solutions that should be removed from the population
+    - Solutions should be 'close' to the (unknown) Pareto-optimal front (optimality)
+    - Solutions should cover large parts of the objective space (diversity)
+
+#### Hypervolume Indicator
+
+- Environmental selection:
+    - Select subset of solutions that *maximizes hypervolume indicator*
+
+Given a set of solutions $A \subseteq X$ and a set of *reference points* $R \subset \mathbb{R}^n$. Then the
+*hypervolume indicator* $I_H(A,R)$ of $A$ with respect to $R$ is defined as
+
+$$I_H(A,R) = \int_{z \in H(A,R)} dz$$
+
+where $H(A,R)$ id the dominated space of $A$ regarding $R$:
+
+$$H(A,R) = \{ z \in \mathbb{R}^n | \exists a \in A : \exists r \in R : (f(a) \leq z \leq r) \}$$
+
+$z$: Objective
+
+- The hypervolume indicator leads to *diversity* and *optimality*
+
+#### Representation and Neigborhood
+
+- A *representation* corresponds to an *abstract data* that encodes a *solution*
+- *Neighborhood operators* work on *representations*
+
+Issues:
+
+- Each solution has an encoding (completeness)
+- All solutions are represented equally often (uniformity)
+- Each encoding maps to a feasible solution (feasibility)
+
+
+<!-- End of Notes Week 7 -->
+
+
+#### Handling Constraints
+
+Constraint: $g(x) \geq 0$
+
+- Feasible: $g \geq 0$
+- Infeasible: $g < 0$
+
+Approaches:
+
+1. Representation is chosen such that decoding always yields a feasible solution
+2. Construct initialization and neighborhood operators such that infeaslible solutions are not generated
+3. Add only feasible solutions to children population
+4. Preferably select feasible solutions in environmental selection
+5. Penalty function:
+    - Calculate constraint violation $g(x)$ and incorporate it into objective function
+    - $penalty(x) > 0 if g(x) < 0, penalty(x) = 0 if g(x) \geq 0
+    - i.e add penalty function to every objective
+6. Include the constraints as new objectives
+
+
+
 
 <!--
 
