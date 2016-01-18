@@ -1195,6 +1195,8 @@ Progress Conditions:
 
 - `CAS` is an operation in the programming language
 
+Declaration:
+
     :::modula2
     PROCEDURE CAS(variable, old, new: BaseType): BaseType
 
