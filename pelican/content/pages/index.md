@@ -14,11 +14,18 @@ Feel free to [contact]({filename}/pages/contact.md) me.
 
 <script src="scripts/wordcloud2.js"></script>
 
-<canvas id="myCanvas" width="600" height="500";">
+<div id="sourrounding_div" style="width:80%;height:500px">
+<canvas id="myCanvas">
 </canvas>
+</div>
 
 <script>
 
+// size of canvas: http://stackoverflow.com/a/25083938/1272072
+var div = document.getElementById("sourrounding_div");
+var canvas = document.getElementById("myCanvas");
+canvas.height = div.offsetHeight;
+canvas.width  = div.offsetWidth;
 
 function TagInfos(name, url, size) {
   this.name = name;
