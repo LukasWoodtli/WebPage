@@ -690,7 +690,7 @@ Approaches:
 4. Preferably select feasible solutions in environmental selection
 5. Penalty function:
     - Calculate constraint violation $g(x)$ and incorporate it into objective function
-    - $penalty(x) > 0 if g(x) < 0, penalty(x) = 0 if g(x) \geq 0
+    - $penalty(x) > 0 if g(x) < 0, penalty(x) = 0 if g(x) \geq 0$
     - i.e add penalty function to every objective
 6. Include the constraints as new objectives
 
