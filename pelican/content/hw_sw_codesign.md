@@ -559,6 +559,10 @@ Complexity:
 
 # 5. Multi-Criteria Optimization
 
+Part of system synthesis.
+
+> *Exploration* of different solutions.
+
 ## Example: Network Processors
 
 Network processor: High-performance, programmable device designed to efficiently execute communication workloads
@@ -588,6 +592,8 @@ $$f= (f_1; f_2; ... ; f_n): X \rightarrow R^n$$
 $$Z = \{f(x) |x \in X  \}$$
 
 - A single alternative $x \in X$ is (sometimes) named *solution* and the corresponding object value $z = f(x) \in Z$ is named *objective vector*
+
+> decision space &rarr; objective space
 
 Basic question:
 
@@ -671,8 +677,19 @@ Issues:
 - All solutions are represented equally often (uniformity)
 - Each encoding maps to a feasible solution (feasibility)
 
+Encoding: i.e order of tasks executing to explore scheduling.
 
 <!-- End of Notes Week 7 -->
+
+#### Tree Representation
+
+- Solutions can be represented as tree structures
+- Mutation:
+    - Grow subtree
+    - Shrink subtree
+    - Switch two subtrees
+    - Replace subtree
+    - Subtrees can be single nodes
 
 
 #### Handling Constraints
@@ -690,11 +707,122 @@ Approaches:
 4. Preferably select feasible solutions in environmental selection
 5. Penalty function:
     - Calculate constraint violation $g(x)$ and incorporate it into objective function
-    - $penalty(x) > 0 if g(x) < 0, penalty(x) = 0 if g(x) \geq 0$
-    - i.e add penalty function to every objective
+    - $penalty(x) > 0\; if g(x) < 0,\; penalty(x) = 0\; if g(x) \geq 0$
+    - i.e add penalty function to every objective (increase 'price' for infeasible solutions)
 6. Include the constraints as new objectives
 
 
+# 6. System Simulation
+
+Estimation with simulation.
+
+Estimation: find out if a solution is good or bad.
+
+## System and Model
+
+- System: Combination of components that act together
+- Model: Formal description of the system (covers selected information)
+
+## State
+
+- Contains all information of the system at $t_0$ that is nessecary to determine the output (for $t \geq t_0$) from the input (at (at $t \geq t_0$).
+
+> Input + State = Output
+
+- The set $X$ of all possible states of a system is called it's *state space*
+
+## Discrete/Continuous Systems
+
+Examples:
+
+- Continuous state systems:
+    - Physical processes (usually)
+    - Electrical networks
+    - Mechanical systems
+- Discrete state systems
+    - Finite state machines
+    - Queuing systems
+    - Computer systems
+- Continuous time systems
+    - Physical processes (usually)
+    - Electrical circuits
+    - Asynchronous systems
+- Discrete time systems
+    - Digital clocked system
+    - Equidistant sampling (z-transform)
+    - Sysnchronous system models
+
+### Discrete Event Systems (DES)
+
+- Driven by events
+- Event: $e = (v, t)$ is a touple of a value $v$ and a tag $t$
+    - Tags are usually totally ordered
+    - If the tag denotes *time*, then the event is a *timed event*
+    - If the tag (only) denotes a *sequence number*, the event is an *untimed event*
+
+- DES is an event-driven system
+    - Depends entirely on occurence of discrete events
+    - Does *not* depent on evolution of time
+- Can be defined in *continuous* of *discrete time*
+- The *state space* $X$ can be either discrete or continuous
+
+
+- *Signals* or *streams* represent ordering/timing of events
+- *Processes* are represented as functions acting on signals or streams
+
+#### Simulation
+
+- Discrete-time, time-driven
+    - Simulated time is partitioned into equidistant time intervals
+    - Length of time intervals determined by
+        - The simulated system (i.e clock period)
+        - The intended precision (dicretization loss)
+        - The simulation effort
+    - A simulation step is performed *even if nothing happens*
+
+- Event-driven simulation
+    - State change only at events
+    - Analysis and simulation possible in *discrete* or *continuous* time
+
+#### Discrete-Event Modeling and Simulation
+
+- Concurrent processes are modeled using modules
+    - *Behaviour* described as logic/algebraic expressions
+    - *State* described using persistent variables (inside module)
+    - *Communication* between modules throug ports, via signals
+    - *Synchrnization* throug abstract events
+- Modules can be hierarchical
+- Event-Driven
+
+##### Components of Discrete-Event Simulation
+
+- Simultion time
+    - Simulation clock represents the current value of simulation time
+    - In discrete-event simulations the clock advances to the *next event start-time* during simulation
+- Event list
+    - Events are processed in order
+    - Event list is typically organized as priority queue
+    - Event lists may include simulation times when events will happen
+- System modules
+    - Model subsystems of simulated system
+    - Are called by simulation engine if a relevent event is scheduled
+
+##### Simuletion Engine
+
+1. Initialization routine
+    - Initialize the simulation model;
+        - Set initial states of subsystem modules
+        - Fill the event queue with initial events
+2. Timing routine
+    - Determine *next event* from the event queue
+    - Advance the simulation clock to the time when the event occurs
+3. Event routine
+    - Update *system state* when event occurs
+
+- In a simulation cycle 'cause' and 'effect' can share the same time of occurence
+    - Use *zero duration virtual time interval* called **delte cycle* ($\delta$)
+
+<!-- End of Notes Week 8 (morning) -->
 
 
 <!--
