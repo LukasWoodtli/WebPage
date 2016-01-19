@@ -9,15 +9,17 @@ There is an overview about my [resume]({filename}/pages/resume.md) and my main [
 
 I also write casually some small [blog]({filename}/pages/blog.md) articles.
 
+
+<div id="sourrounding_div" style="height:500px">
+<canvas id="myCanvas">
+</canvas>
+</div>
+
+
 Feel free to [contact]({filename}/pages/contact.md) me.
 
 
 <script src="scripts/wordcloud2.js"></script>
-
-<div id="sourrounding_div" style="width:80%;height:500px">
-<canvas id="myCanvas">
-</canvas>
-</div>
 
 <script>
 
@@ -44,6 +46,7 @@ var tagList = [new TagInfos("C", "/tag/c.html", 70),
                new TagInfos("ETH", "/tag/eth.html", 10),
                new TagInfos("Git", "/tag/git.html", 50),
                new TagInfos("OOP", "/tag/oop.html", 60),
+               new TagInfos("Design Patterns", "/tag/oop.html", 70),
                new TagInfos("Scrum", "/tag/scrum.html", 20),
                new TagInfos("Statistics", "/tag/statistics.html", 15),
                new TagInfos("SVN", "/tag/svn.html", 20),
