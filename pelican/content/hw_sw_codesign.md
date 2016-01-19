@@ -96,8 +96,8 @@ Tags: ETH
     - Behavioral
     - Structural
 - Timing
-- State oriented behaviour (micro controller, FPGA)
-- Dataflow oriented behaviour (DSP)
+- State oriented behavior (micro controller, FPGA)
+- Dataflow oriented behavior (DSP)
 
 ## State Charts
 
@@ -145,7 +145,7 @@ $$\underrightarrow{event [condtition] / action}$$
 - Each process fetches entry from FIFO
     - if input enables transition it takes place
     - otherwise discard input
-- All orders of events are legal: different correct behaviour in simulators (not deterministic)
+- All orders of events are legal: different correct behavior in simulators (not deterministic)
 
 ## Dataflow Languages
 
@@ -175,7 +175,7 @@ $$\underrightarrow{event [condtition] / action}$$
 - Random: knowing about system and inputs is not sufficient to determine output
 - Determinate: the histories of *all channels* depend only on the histories of the *input channels*
 - Importance
-    - Functional behaviour is independent of timing (scheduling, communication time, execution time of processes)
+    - Functional behavior is independent of timing (scheduling, communication time, execution time of processes)
     - Separation of functional properties and timing
 
 #### Adding Non-Determinacy
@@ -468,9 +468,9 @@ Often used principle:
 
 - Start with some initial configuration (partitioning)
 - search neighborhood (similar partitions)
-    - select a neghbor as candidate
+    - select a neighbor as candidate
 - evaluate *fitness* (cost) function of candidate
-    - accepr candidate using acceptance rule
+    - accept candidate using acceptance rule
     - if not, select another neighbor
 - Stop if:
     - Quality is sufficient or
@@ -494,7 +494,7 @@ Disadvantages:
 #### Kernighan-Lin
 
 - as long as a better partition is found
-    - from all possible pairs of objects: *virtually* re-group the 'best' (lowest cost of resultion partition)
+    - from all possible pairs of objects: *virtually* re-group the 'best' (lowest cost of resulting partition)
     - from the remaining (not yet touched) objects: *virtually* re-group the 'best' pair
     - continue until all objects have been re-grouped
     - from these n/2 partitions, take the one with smallest cost and *actually* perform the corresponding re-group operation
@@ -502,7 +502,7 @@ Disadvantages:
 #### Simulated Annealing
 
 - inspired by physical process
-- replace existing solutiony by (random) new feasible solutions form neighborhood
+- replace existing solutions by (random) new feasible solutions form neighborhood
 - always accept better solutions but allow for a guided acceptance for worse neighbors
 - gradually cooling: gradually decrease the probability of accepting worse solutions
 
@@ -617,7 +617,7 @@ $$f_i(a) \leq f_i(b)\; \forall 1 \leq i \leq n$$
 - Classical single objective optimization methods
     - Simulated annealing
     - Integer linear program
-    - other costructive or iterative heuristic methods
+    - other constructive or iterative heuristic methods
 
 &rarr; Decision making is done before the optimization
 
@@ -666,7 +666,7 @@ $z$: Objective
 
 - The hypervolume indicator leads to *diversity* and *optimality*
 
-#### Representation and Neigborhood
+#### Representation and Neighborhood
 
 - A *representation* corresponds to an *abstract data* that encodes a *solution*
 - *Neighborhood operators* work on *representations*
@@ -702,13 +702,13 @@ Constraint: $g(x) \geq 0$
 Approaches:
 
 1. Representation is chosen such that decoding always yields a feasible solution
-2. Construct initialization and neighborhood operators such that infeaslible solutions are not generated
+2. Construct initialization and neighborhood operators such that Infeasible solutions are not generated
 3. Add only feasible solutions to children population
 4. Preferably select feasible solutions in environmental selection
 5. Penalty function:
     - Calculate constraint violation $g(x)$ and incorporate it into objective function
     - $penalty(x) > 0\; if g(x) < 0,\; penalty(x) = 0\; if g(x) \geq 0$
-    - i.e add penalty function to every objective (increase 'price' for infeasible solutions)
+    - i.e add penalty function to every objective (increase 'price' for Infeasible solutions)
 6. Include the constraints as new objectives
 
 
@@ -725,7 +725,7 @@ Estimation: find out if a solution is good or bad.
 
 ## State
 
-- Contains all information of the system at $t_0$ that is nessecary to determine the output (for $t \geq t_0$) from the input (at (at $t \geq t_0$).
+- Contains all information of the system at $t_0$ that is necessary to determine the output (for $t \geq t_0$) from the input (at (at $t \geq t_0$).
 
 > Input + State = Output
 
@@ -750,7 +750,7 @@ Examples:
 - Discrete time systems
     - Digital clocked system
     - Equidistant sampling (z-transform)
-    - Sysnchronous system models
+    - Synchronous system models
 
 ### Discrete Event Systems (DES)
 
@@ -761,8 +761,8 @@ Examples:
     - If the tag (only) denotes a *sequence number*, the event is an *untimed event*
 
 - DES is an event-driven system
-    - Depends entirely on occurence of discrete events
-    - Does *not* depent on evolution of time
+    - Depends entirely on occurrence of discrete events
+    - Does *not* depend on evolution of time
 - Can be defined in *continuous* of *discrete time*
 - The *state space* $X$ can be either discrete or continuous
 
@@ -787,16 +787,16 @@ Examples:
 #### Discrete-Event Modeling and Simulation
 
 - Concurrent processes are modeled using modules
-    - *Behaviour* described as logic/algebraic expressions
+    - *Behavior* described as logic/algebraic expressions
     - *State* described using persistent variables (inside module)
-    - *Communication* between modules throug ports, via signals
-    - *Synchrnization* throug abstract events
+    - *Communication* between modules through ports, via signals
+    - *Synchronization* through abstract events
 - Modules can be hierarchical
 - Event-Driven
 
 ##### Components of Discrete-Event Simulation
 
-- Simultion time
+- Simulation time
     - Simulation clock represents the current value of simulation time
     - In discrete-event simulations the clock advances to the *next event start-time* during simulation
 - Event list
@@ -805,9 +805,9 @@ Examples:
     - Event lists may include simulation times when events will happen
 - System modules
     - Model subsystems of simulated system
-    - Are called by simulation engine if a relevent event is scheduled
+    - Are called by simulation engine if a relevant event is scheduled
 
-##### Simuletion Engine
+##### Simulation Engine
 
 1. Initialization routine
     - Initialize the simulation model;
@@ -819,8 +819,8 @@ Examples:
 3. Event routine
     - Update *system state* when event occurs
 
-- In a simulation cycle 'cause' and 'effect' can share the same time of occurence
-    - Use *zero duration virtual time interval* called **delte cycle* ($\delta$)
+- In a simulation cycle 'cause' and 'effect' can share the same time of occurrence
+    - Use *zero duration virtual time interval* called **delta cycle** ($\delta$)
 
 <!-- End of Notes Week 8 (morning) -->
 
