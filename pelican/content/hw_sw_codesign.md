@@ -824,6 +824,108 @@ Examples:
 
 <!-- End of Notes Week 8 (morning) -->
 
+<!-- Beginning of Notes Week 8 (afternoon) -->
+
+## SystemC
+
+- System-level modeling language
+    - Several levels of abstractions
+        - from purely functional
+        - to cycle-accurate/pin-accurate
+    - Special attention to systems with embedded software
+- C++ library for modeling concurrent systems
+    - HW-oriented data types
+    - Communication mechanisms
+    - Concurrency modeling
+- *Event-driven* simulation kernel for executing models
+- Free (open source)
+- For Windows, Linux, OS X...
+
+### Language Architecture
+
+- Core language
+    - Minimal set of modeling constructs
+        - structural description
+        - concurrency
+        - communication
+        - synchronization
+- Data types (separated from core language)
+- On top of core language
+    - Cummunication mechanism (signals, FIFO...)
+    - Models of Computation (MoCs)
+- Layer (tier) architecture
+
+### Processes
+
+Processes are the basic units of functionality.
+
+- `SC_THREAD`s
+    - Typically called once, run forever (ina `while(true)` loop)
+    - Can be suspended by calling `wait()`
+    - Keep the state of execution implicitly
+- `SC_METHOD`s
+    - Execute repeatedly from the beginning to end
+    - Simulate faster
+    - Do *not* keep the state of execution implicitely
+- Processes must be contained in a module
+    - Bun not every member function is a process
+
+### Modules
+
+- Building blocks of models
+    - Hierarchy
+    - Abstraction
+    - IP reuse
+
+### Inter Process Communication
+
+- Processes can communicate directly trough *signals*
+- *Events*: Flexible, low-level synchronization primitive
+- *Channel*:
+    - Container for *communication* and *synchronization*
+        - can have state (private data), transport data, transport events
+    - Implement one or more *interfaces*
+- *Interface*:
+    - Set of access methods to the channel
+    - Interface methods need to be implemented
+
+### Wait and Notify
+
+- `wait`: halt process until an exent is raised
+    - `wait()` with arguments &rarr; dynamic sensitivity
+        - `wait(sc_event)`
+        - `wait(time)`
+        - `wait(timeout, sc_event)`
+- `notify`: rise an event
+    - `notify()` with arguments &rarr; delayed notification
+        - `my_event.notify();`: notify immediately
+        - `my_event.notify(SC_ZERO_TIME);`: notify next delta cycle
+        - `my_event.notify(time);`: notify after 'time'
+
+## Levels of Abstractions
+
+Simulation can be done on different levels of abstraction.
+
+- Functional level (untimed/timed)
+    - Use: Model (un-)timed functionality
+    - Communication: shared variables, messages
+    - Typical languages: C/C++, Matlab
+- Transaction level
+    - Use:
+        - MPSoC architecture analyis
+        - Early SW development
+        - Timing estimation
+    - Communication: method calls to channels
+    - Typical languages: SystemC
+- Register transfer level / Pin level
+    - Use: HW design and verification
+    - Communication: wires and registers
+    - Typical languages: Verilog, VHDL
+
+
+<!-- Notes Week 8 (afternoon) 44:00 -->
+
+
 
 <!--
 
