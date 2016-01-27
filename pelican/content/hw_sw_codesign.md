@@ -92,6 +92,8 @@ Tags: ETH
 
 # 2. Models of Computation
 
+> Model of computation = Components + Communication
+
 - Hierarchy
     - Behavioral
     - Structural
@@ -923,16 +925,105 @@ Simulation can be done on different levels of abstraction.
     - Typical languages: Verilog, VHDL
 
 
-<!-- Notes Week 8 (afternoon) 44:00 -->
+# 7. Design Space Exploration
 
+## Example: Network Processor (NP)
+
+- Different processing units: ARM9, DSP, ...
+- Streams: ordered sequence of tasks
+
+### Optimal Design of Network Processor
+
+$T$: Tasks
+$w$: Requests
+$M$: Mapping
+$R$: Resources
+$c$: Cost
+
+- Mappings: $M \subseteq T \times R$ all possible bindings of tasks
+    - i.e if $(t,r) \in M$ then task $t$ could be executed on resource $r$
+- Request $w(r,t) \geq 0$
+    - i.e execution of one packet in $t$ would use $w$ computing units of $r$
+- Resource allocation cost $c(r) \geq 0$
+- Binding $Z$ of tasks to resources $Z \subseteq M$
+    - leading to actual implementation
+    - Subset of mappings $M$ s.t every task $t \in T$ is bound to *exactly one* allocated resource
+        - $e \in R alloc(r) = 1$ and
+        - $r = bind(t)$
+
+#### Design constraints
+
+- Delay constraints: e.g max time a packet is processed within network processor
+- Throughput maximization: e.g packets per second
+- Cost minimization: implementing with small amount of resources (processing units, memory, networks...)
+- And conflicting usage scenarios ...
+
+### NP Design Space Exploration
+
+- Allocation: determine HW components
+- Binding: For each SW process choose allocated HW unit
+- Scheduling: For tasks on specific resources choose scheduling policy
+
+## Performance Estimation
+
+Global Picture
+
+### Metric
+
+- Time
+- Power
+- Area (integration on silicon)
+- Cost
+- Quality
+- SNR
+- ...
+
+### Method
+
+- Analytic
+- Simulation
+- Statistic
+
+### Abstraction Level
+
+- Low-level: Register Transfer Level, Instruction Set Architecture
+- Intermediary-level: Transaction Level-Model, Operating System, already linked to HW
+- High-level: Functional, High-level language, independant of HW
+
+### Subsystem to Analyze
+
+- HW subsystem
+- CPU subsystem
+- Interconnect subsystem
+- Multiprocessor System-on-Chip (MPSoC)
+
+## Performance Estimation in Design Flow
+
+- High-level
+    - Advantages:
+        - Short estimation time (fast)
+        - Implementation details not necessary
+    - Drawbacks:
+        - Limited accuracy
+        - e.g no information about timing
+- Low-level
+    - Advantages:
+        - Higher accuracy
+    - Drawbacks:
+        - Long estimation time (slow)
+        - Many implementation details need to be known
+
+
+<!--  Notes Week 10 46:15 -->
 
 
 <!--
 
 Topics
 ------
-- Architecture Graph (problem Graph)
 - Specification Graph
+    - Architecture Graph (problem Graph)
+    - Dataflow Graph
 - Closeness Function
 
 
