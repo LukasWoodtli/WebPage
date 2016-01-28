@@ -1247,7 +1247,7 @@ $$\begin{align*}
 A \equiv \; & if \; B \\
  & then \; A1 \\
  & else \; A2
-\end{align}$$
+\end{align*}$$
 
 Constituents of $A$:
 
