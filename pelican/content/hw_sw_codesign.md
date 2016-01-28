@@ -853,7 +853,7 @@ Examples:
         - synchronization
 - Data types (separated from core language)
 - On top of core language
-    - Cummunication mechanism (signals, FIFO...)
+    - Communication mechanism (signals, FIFO...)
     - Models of Computation (MoCs)
 - Layer (tier) architecture
 
@@ -862,13 +862,13 @@ Examples:
 Processes are the basic units of functionality.
 
 - `SC_THREAD`s
-    - Typically called once, run forever (ina `while(true)` loop)
+    - Typically called once, run forever (in a `while(true)` loop)
     - Can be suspended by calling `wait()`
     - Keep the state of execution implicitly
 - `SC_METHOD`s
     - Execute repeatedly from the beginning to end
     - Simulate faster
-    - Do *not* keep the state of execution implicitely
+    - Do *not* keep the state of execution implicitly
 - Processes must be contained in a module
     - Bun not every member function is a process
 
@@ -893,7 +893,7 @@ Processes are the basic units of functionality.
 
 ### Wait and Notify
 
-- `wait`: halt process until an exent is raised
+- `wait`: halt process until an extent is raised
     - `wait()` with arguments &rarr; dynamic sensitivity
         - `wait(sc_event)`
         - `wait(time)`
@@ -914,7 +914,7 @@ Simulation can be done on different levels of abstraction.
     - Typical languages: C/C++, Matlab
 - Transaction level
     - Use:
-        - MPSoC architecture analyis
+        - MPSoC architecture analysis
         - Early SW development
         - Timing estimation
     - Communication: method calls to channels
@@ -988,7 +988,7 @@ Global Picture
 
 - Low-level: Register Transfer Level, Instruction Set Architecture
 - Intermediary-level: Transaction Level-Model, Operating System, already linked to HW
-- High-level: Functional, High-level language, independant of HW
+- High-level: Functional, High-level language, independent of HW
 
 ### Subsystem to Analyze
 
@@ -1014,7 +1014,178 @@ Global Picture
         - Many implementation details need to be known
 
 
-<!--  Notes Week 10 46:15 -->
+## Multi-Processor System-on-Chip
+
+Simulation should be divided in to independent modules.
+So they can be exchanged.
+
+Composable in terms of:
+
+- Subsystems
+- Interactions
+- Computation
+- Communication
+- Memory
+- Scheduling
+
+Estimation should cover different metrics e.g:
+
+- Delays
+- Throughput
+- Memory consumption
+- Power
+- Energy
+- Temperature
+- Cost
+- ...
+
+### Communication
+
+- Bus
+- Network
+- Hierarchical Bus
+
+### Computation and Memory
+
+- DRAM
+- SDRAM
+- DSP
+- RISC
+- FPGA
+- muC
+- HW
+
+### Scheduling and Arbitration
+
+- TDMA
+- EDF
+- FCFS
+- proportional share
+- fixed priority
+- static
+
+### Difficulty
+
+Why is MPSoC performance estimation difficult?
+
+- Computation, communication and memory
+    - Non-deterministic computation in processing nodes
+    - Non-deterministic communication delays
+    - Non-deterministic memory access
+    - Complex resource interaction via scheduling/arbitration
+- Cyclic timing dependencies
+    - Internal data streams interact on computation and communication resources
+    - Interaction determines stream characteristics
+- Uncertain environment
+    - Different load scenarios
+    - Unknown, worst case inputs
+
+> Making one component faster can make the complete system slower!
+
+If a component is replaced with a faster one it could block shared resources (e.g bus)
+for other components.
+
+## Abstraction
+
+- Technology: transistors, layouts
+- Signal: gate, schematic, RTL
+- Transaction: SW, HW systems
+- Tokens: SW tasks, comm. backbones, IPs
+- Simulators:
+    - SPICE
+    - VHDL
+    - SystemC / Instruction Set Simulator
+    - ...
+
+## Performance Estimation Methods
+
+How to evaluate a system?
+
+- Measurements
+    - Use existing instance of the system to measure performance
+- Simulation
+    - Develop a program which implements a model of the system and evaluate performance by running the program
+- Statistics
+    - Develop a statistical abstraction of the system and derive statistic performance via analysis or simulation
+- Formal analysis
+    - Develop a mathematical abstraction of the system and compute formulas which describe the system performance
+
+### Static Analysis Models
+
+- Describe computing, communication and memory resources by *algebraic equations*
+- Describe system properties by *parameters* (e.g data rate)
+- Combine relations
+
+$$comm\_delay= \left \lceil \frac{\# words}{burst\_size}  \right \rceil \cdot comm\_time$$
+
+- Fast and simple estimation
+- But generally inaccurate modeling (e.g resource sharing not modeled)
+
+### Dynamic Analytic Models
+
+- Combination between
+    - *Static models* possibly extended by non-determinism in run-time and event processing
+    - *Dynamic models* for describing e.g resource sharing mechanism (scheduling and arbitration)
+- Existing approaches
+    - Classical real-time scheduling theory
+    - Stochastic queuing theory (statistical bounds)
+    - Analytic (non-deterministic) queuing theory (worst-/best-case bounds)
+
+#### Stochastic Queuing Systems
+
+- A stochastic model for queuing systems is described by probability density functions (distributions) of
+    - Arrival rates
+    - Service mechanisms
+    - Queuing disciplines
+- Performance measures are stochastic values (functions)
+    - Average delays in queue
+    - Time-average number of customers in queue
+    - Proportion of time servers is busy
+
+[Markovian (exponential) distribution](Markov property)
+
+#### Worst-Case/Best-Case Queuing Systems
+
+- A worst-/best-case queuing system is described by worst-/best-case bounds on system properties
+    - worst-/best-case bounds on arrival times
+    - worst-/best-case on server behavior
+    - resource interaction
+- Performance measures
+    - worst-/best-case delay in queue
+    - worst-/best-case number of customers in queue
+    - worst-/best-case system delay
+
+### Simulation
+
+- Model
+    - Program implementing a model of the system (application, hardware, platform, mapping)
+    - Performance is evaluated by running the program
+- Simulation
+    - Considers HW platform and mapping of application on that platform (virtual platform)
+    - Combines functional simulation and performance data
+    - Evaluates behavior for one simulation scenario
+- Typically complex set-up and extensive run-times
+- Accurate results and good debugging possibilities
+
+#### Trace-Based Simulation
+
+- Abstract system-level simulation (without timing)
+    - Faster than low-level simulation
+    - But still based on a single input trace
+- Abstraction
+    - Application: abstract execution traces
+        - &rarr; Graph of events: **read**, **write** and **execute**
+    - Architecture: 'virtual machines' and 'virtual channels'
+        -  &rarr; Calibrated with non-functional properties (timing, power, energy)
+- Trace-based simulation steps
+    - Build application abstract model
+        -  &rarr; execution trace determined by functional application simulation
+    - Extending abstract model with architecture and mapping
+        -  &rarr; Event graph extended by non-functional properties of virtual architecture elements
+    - Simulation of extended model
+
+<!-- End of Slides 8 -->
+
 
 
 <!--
