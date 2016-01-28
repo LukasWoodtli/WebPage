@@ -1233,7 +1233,7 @@ $ub(s)$: Upper bound for statement $s$
 
 #### Sequence of Statements
 
-$$A \equiv A1;A2$
+$$A \equiv A1;A2$$
 
 Constituents of $A$: $A1$ and $A2$
 
@@ -1244,9 +1244,9 @@ $$ub(A) = ub(A1) + ub(A2)$$
 #### Conditional Statement
 
 $$\begin{align*}
-A \equiv\; & if \; B \\
- & then \;A1 \\
- & else\; A2
+A \equiv \; & if \; B \\
+ & then \; A1 \\
+ & else \; A2
 \end{align}$$
 
 Constituents of $A$:
@@ -1330,13 +1330,15 @@ This image is taken from the lecture slides provided by Lothar Thiele.
 
 Flow Equations (sum of incomming edges equals summ of outgoing edges)
 
-$d1 = d2 = x_1$
-$d2 + d8 = d3 + d9 = x_2$
-$d3 = d4 + d5 = x_3$
-$d4 = d6 = x_4$
-$d5 = d7 = x_5$
-$d6 + d7 = d8 = x_6$
-$d9 = d10 = x_7$
+$$\begin{align*}
+d1 = d2 = x_1 \\
+d2 + d8 = d3 + d9 = x_2 \\
+d3 = d4 + d5 = x_3 \\
+d4 = d6 = x_4 \\
+d5 = d7 = x_5 \\
+d6 + d7 = d8 = x_6 \\
+d9 = d10 = x_7
+\end{align*}$$
 
 Additional Constraints
 
