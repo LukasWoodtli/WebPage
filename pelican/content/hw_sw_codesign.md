@@ -1355,7 +1355,27 @@ ILP with structural and additional constraings
 $$WCET = max\left \{ \sum_{i=1}^N c_i \cdot x_i | \underbrace{d_1=1}_{\text{program is executed once}} \land \underbrace{\sum_{j\in in(B_i)} d_j = \sum_{k\in out(B_i)}d_k=x_i, i=1\ldots N}_{structural constraints} \;\land \;\text{additional constraints} \right \}$$
 
 
+### Abstact Interpretation (AI)
 
+- Semantics-based method for static program analysis
+- Basic idea
+    - Perform programs comutations using value descriptions (or abstract values)
+    - Start with the description of all possible inputs
+- AI supports crrrectness proofs
+
+Ingredients:
+
+- Abstract domain: related to concrete domain (by abstraction and concretizstion functions)
+    - e.g $L \rightarrow \text{Intervals}$
+    - where: $\text{Intervals} = LB \times UB, LB = UB = Int \cup \{-\infty, \infty\}$
+    - instead of: $L \rightarrow Int$
+- Abstract transfer functions: for each statement type (abstract versions of their semantics)
+    - e.g $+ : Invervals \times Intervals \rightarrow Intervals$
+    - where: $[a,b] + [c,d] = [a+c,b+d]$
+    - with: $+$ extends to $-\infty, \infty$
+- A join functin combining abstract values from different control-flow paths
+    - e.g $\cup : Interval \times Interval \rightarrow Interval$
+    - where: $[a,b] \cup [c,d] = [min(a,c),max(b,d)]$
 
 
 
