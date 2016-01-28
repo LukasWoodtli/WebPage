@@ -1352,7 +1352,7 @@ The more information the better the result
 
 ILP with structural and additional constraings
 
-$$WCET = max\left \{ \sum_{i=1}^N c_i \cdot x_i | \underbrace{d_1=1}_{\text{program is executed once}} \land \underbrace{\sum_{j\in in(B_i)} d_j = \sum_{k\in out(B_i)}d_k=x_i, i=1\ldots N}_{structural constraints} \;\land \;\text{additional constraints} \right \}$$
+$$WCET = max\left \{ \sum_{i=1}^N c_i \cdot x_i | \underbrace{d_1=1}_{\text{program is executed once}} \land \underbrace{\sum_{j\in in(B_i)} d_j = \sum_{k\in out(B_i)}d_k=x_i, i=1\ldots N}_{\text{structural constraints}} \;\land \;\text{additional constraints} \right \}$$
 
 
 ### Abstact Interpretation (AI)
@@ -1376,6 +1376,21 @@ Ingredients:
 - A join functin combining abstract values from different control-flow paths
     - e.g $\cup : Interval \times Interval \rightarrow Interval$
     - where: $[a,b] \cup [c,d] = [min(a,c),max(b,d)]$
+
+#### Value Analysis
+
+Motivation:
+- Provide access information to data-cache/pipeline analysis
+- Detect infeasible paths
+- Derive loop bounds
+
+Method:
+
+Calculate intervals at all program points. Lower and upper bounds for the set of possible values
+occuring in ther programm (addresses, register contents, local and global variables).
+
+<!-- End of Notes Week 11 -->
+
 
 
 
