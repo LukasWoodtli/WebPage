@@ -1142,7 +1142,7 @@ $$comm\_delay= \left \lceil \frac{\# words}{burst\_size}  \right \rceil \cdot co
     - Time-average number of customers in queue
     - Proportion of time servers is busy
 
-[Markovian (exponential) distribution](Markov property)
+[Markovian (exponential) distribution](https://en.wikipedia.org/wiki/Markov_chain)
 
 #### Worst-Case/Best-Case Queuing Systems
 
@@ -1185,6 +1185,175 @@ $$comm\_delay= \left \lceil \frac{\# words}{burst\_size}  \right \rceil \cdot co
     - Simulation of extended model
 
 <!-- End of Slides 8 -->
+<!-- End of Notes Week 10 -->
+
+<!-- Beginning of Slides 9 -->
+<!-- Beginning of Notes Week 11 -->
+
+# 9. Worst Case Execution Time Analysis
+
+- Calculation not simulation
+- Measurement of running task
+- Simulation would need accurate model
+- Worst case formal analysis
+- Program path analysis
+
+## Hard Real-Time Systems
+
+- Often in safety-critical applications
+    - Aeronautics
+    - Automotive
+    - Train industries
+    - Manufacturing control
+- Embedded controllers are expected to finish tasks reliably within time bounds
+- Task scheduling must be performed
+- Execution time bounds
+    - Worst-Case Execution Time (**WCET**)
+    - Best-Case Execution Time (**BCET**)
+- Works if:
+    - Worst-case input can be determined or
+    - Exhaustive measurement is performed
+- Otherwise:
+    - Determine upper bound from execution times of instructions
+
+## Industry's Best Practice
+
+- Mesurements: determine execution times directly by observing the execution of a simulation on a set of inputs
+    - Does not guarantee an upper bound to all executions in general
+    - Exhaustive execution in general not possible
+        - Too large space: 'Input Domain' $\times$ 'Initial execution states'
+- Compute upper bounds along the structure of the program
+    - Programs are hierarchically structured
+    - Statements are nested inside statements
+    - So compute upper bound of a statements from the upper bounds of its constituents
+
+### Calculating Upper Bounds
+
+$ub(s)$: Upper bound for statement $s$
+
+#### Sequence of Statements
+
+$$A \equiv A1;A2$
+
+Constituents of $A$: $A1$ and $A2$
+
+Upper bound for $A$ is the sum of the upper bounds for $A1$ and $A2$
+
+$$ub(A) = ub(A1) + ub(A2)$$
+
+#### Conditional Statement
+
+$$\begin{align*}
+A \equiv\; & if \; B \\
+ & then \;A1 \\
+ & else\; A2
+\end{align}$$
+
+Constituents of $A$:
+
+1. Condition $B$
+2. Statements $A1$ and $A2$
+
+$$ub(A) = ub(b) + \mathbf{max}(ub(A1), ub(A2))$$
+
+#### Loops
+
+$$\begin{align*}
+ A \equiv for\; & i \leftarrow 1\; to\; 100\; do \\
+ & A1
+\end{align*}$$
+
+Precondition: Nuber of loops needs to be known (e.g 100)
+
+$$ub(A) = ub(i \leftarrow) + 100 \times (ub(i \leq 100) + ub(A1))+ ub(i\leq100)$$
+
+### Modern Hardware Features
+
+- Modern processors increase performance by using
+    - Caches
+    - Pipelines
+    - Branch prediction
+    - Speculation
+- These features make **WCET** computation difficult (execution times of instructions vary widely)
+    - Best case: everything goes right: no chache miss, operands ready, resources free, branch predicted correctly
+    - Worst case: everything goes wrong: all loads miss cache, resources occupied operands not ready
+- Span may be several hundert (even thousand) cycles
+
+
+### Program Path Analysis
+
+- Which sequence of instructions is executed in the worst-case (longest run time)?
+- Probelm: The number of possible program paths grow with the length of the program
+- Number of loop iteration must be bounded
+- Must be done at machine code instruction level
+
+
+#### Basic Blocks
+
+A basic block is a sequence of instruction where the control flow enters at the beginning
+and exits at the end, without stopping in-between or branching (except at the end).
+
+The branch instruction at the end of a basic block belongs to that block!
+
+    :::c
+    t1 := c - d
+    t2 := e * t1
+    t3 := b * t1
+    t4 := t2 + t3
+    if t4 < 10 goto L
+
+Determine basic blocks of a program
+
+1. Determine the first instructions of blocks:
+    - The first instruction
+    - Targets of jumps (conditional/unconditional)
+    - Instructions that *follow* jumps (conditional/unconditional)
+2. Determine the basic blocks
+    - There is a basic block for each block beginning
+    - The basic block consists of the block beginning and runs until the next block beginning (exclusive) or until the end of the program
+
+#### Calculation of the **WCET**
+
+ A program consists of $N$ basic blocks, where each basic block $B_i$ has a worst-case execution time $c_i$ and is
+ executed for exactly $x_i$ times:
+
+$$WCET = \sum_{i=1}^N c_i \cdot x_i$$
+
+- The $c_i$ values are determined using the static analysis
+- Determine $x_i$
+    - Structural constraint given by the program structure
+    - Additional constraints provided by the programmer (e.g bounds for loop counters...)
+
+![WCET Calculation](/images/hscd_wcet_calculation.png)
+
+This image is taken from the lecture slides provided by Lothar Thiele.
+
+Flow Equations (sum of incomming edges equals summ of outgoing edges)
+
+$d1 = d2 = x_1$
+$d2 + d8 = d3 + d9 = x_2$
+$d3 = d4 + d5 = x_3$
+$d4 = d6 = x_4$
+$d5 = d7 = x_5$
+$d6 + d7 = d8 = x_6$
+$d9 = d10 = x_7$
+
+Additional Constraints
+
+- Execute the program only once: $d1 = 1$
+- loop is executed at most 10 times: $x_3 \leq 10 \cdot x_1$
+- Block 5 is executed at most one time: $x_5 <leq 1 \cdot x_1$
+
+The more information the better the result
+
+##### Integer Linear Program for **WCET** Calculation
+
+ILP with structural and additional constraings
+
+$$WCET = max\left \{ \sum_{i=1}^N c_i \cdot x_i | \underbrace{d_1=1}_{\text{program is executed once}} \land \underbrace{\sum_{j\in in(B_i)} d_j = \sum_{k\in out(B_i)}d_k=x_i, i=1\ldots N}_{structural constraints} \;\land \;\text{additional constraints} \right \}$$
+
+
+
 
 
 
