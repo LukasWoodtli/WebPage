@@ -1535,17 +1535,55 @@ Reference to variable **s** in loop body (max $n$ iterations):
 - Set of elements $S$
     - One ore more operators defined on elements of this set
 - Algebraic structures with *two operators*: $\boxplus$, $\boxdot$
-    - plus-times: $(S, \boxplus, \boxdot) = (R, +, \times)$
-    - min-plus: $(S, \boxplus, \boxdot) = (R \cup \{ + \infty \}, inf, +)$
+    - plus-times:
+        - $(S, \boxplus, \boxdot) = (R, +, \times)$
+        - Our 'normal' algebra
+    - min-plus:
+        - $(S, \boxplus, \boxdot) = (R \cup \{ + \infty \}, inf, +)$
+        - Used for Real-Time calculus
 - **Infimum**
     - The infimum of a subset (of some set) is the greates element (not necessary in the subset)
       that is less than or equal to all other elements of the subset
-    - $\begin{matrix}S_1 \subseteq S \\  inf(S_1) = \underset{i}{max}\{i \in S : i \leq s\; \forall s \in S_1\}\end{matrix}S$
+    - $$\begin{matrix}S_1 \subseteq S \\  inf(S_1) = \underset{i}{max}\{i \in S : i \leq s\; \forall s \in S_1\}\end{matrix}$$
     - Examples:
         - $inf\{[3,4]\}=3$ and $min\{[3,4]\}=3$
         - $inf\{(3,4]\}=3$ but $min\{(3,4]\} \text{not defined}$
+- Joint properties of $\boxdot$:
+    - Closure: $a \boxdot b \in S$
+    - Associativity: $a \boxdot (b \boxdot c) = (a \boxdot b) \boxdot c$
+    - Commutativity $a \boxdot b = b \boxdot a$
+    - Existence of identity element: $\exists v: a \boxdot v = a$
+    - Existence of negative element: $\exists a^{-1}: a \boxdot a^{-1} = v$
+    - Identity element of $\boxplus$ absorbing for $\boxdot$: $a\boxdot \epsilon = \epsilon$
+    - Distributivity of $\boxdot$ w.r.t. $\boxplus$: $a \boxdot (b \boxplus c) = (a\boxdot b) \boxplus (a \boxdot c)$
+
+- Joint properties of $\boxplus$:
+    - Closure: $a \boxplus b \in S$
+    - Associativity: $a \boxplus (b  \boxplus c) = (a  \boxplus b)  \boxplus c$
+    - Commutativity: $a \boxplus b = b \boxplus a$
+    - Existence of identity element: $\exists \epsilon : a  \boxplus \epsilon = a$
+
+- Differences $\boxplus$:
+    - *plus-times*: Existence of negative element for $\boxplus$: $\exists (-a): a \boxplus (-a) = \epsilon$
+    - *min-plus*: Idempotency: $a \boxplus a = a$
+
+- Example:
+    - plus-times: $a \times (b + c) = a \times b + a \times c$
+    - min-plus: $a + inf\{b,c\} = inf\{a+b,a+c\}$
 
 
+### System Theories
+
+- Plus-times system theory:
+    - signals, impulse response, convolution, time-domain
+
+
+$$h(t) = \underbrace{(f*g)}_{\text{convolution}}\underbrace{(t)}_{\text{time-domain}}= \int_0^t f(t-s)\cdot g(s) \;ds$$
+
+- Min-plus system theory
+    - streams, variability curves, time-interval domain, convolution
+
+$$R'(t)\geq \underbrace{(R\otimes g)}_{\text{convolution}}(t)= \underset{0\leq \lambda\leq t}{inf}\{R(t-\lambda)+g(\lambda) \}$$
 
 <!--
 
