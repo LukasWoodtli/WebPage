@@ -1391,6 +1391,159 @@ occuring in ther programm (addresses, register contents, local and global variab
 
 <!-- End of Notes Week 11 -->
 
+<!-- Beginning of Notes Week 12 -->
+
+#### Caches
+
+- Main memory to slow
+- Speed gap between CPU and memory too large (and increasing)
+- Caches work well in the average case:
+    - Programs access data locally (many hits)
+    - Programs reuse items (instructions, data)
+    - Access patterns are distributet evenly across the cache
+
+- Caches: fast, small, expensive
+- Memory: relatively slow (bottle neck), large, cheap
+- Access cycles:
+    - CPU &harr; Cache: ~1 cycle
+    - Cache &harr; Memory: ~100 cycles
+
+How caches work:
+
+- CPU wants to access (read/write) at memory address **a**
+- Caches:
+    - Block **m** containing **a** is in the cache (*hit*):
+        - Request for **a** is served in next cycle
+    - Block **m** is not in the chache(*miss*):
+        - **m** is transfered from main memory to the cache
+        - **m** may replace some block in the cache
+        - Request for **a** is served as soon as possible (while tranfer still continues)
+    - Several replacement strategies:
+        - LRU: Least Recently Used
+        - PLRU: Pseudo-LRU
+        - FIFO
+        - ...
+
+#### Cache Analysis
+
+Statically precompute cache contents:
+
+    - Must Analysis
+        - For each program point (and calling context) find out which blocks *are in the cache*
+        - Determines safe information about cache hits
+        - Predicted cache hit *reduces* **WCET**
+    - May Analysis
+        - For each program point (and calling context) find out which blocks *may be in the cache*
+        - *Complement* says what is **not** in the cache
+        - Determines safe information about cache misses
+        - Each predicted cache miss *increases* **BCET**
+
+##### Must Cache
+
+- Only variables that are in all caches
+- Order: worst age (oldest)
+- Number of variables in cache $\leq$ numbers of places in cache
+
+- Join
+    - Intersection + maximal age
+    - Interpretation:
+        - Memory block **a** is definitely in the cache
+        - Always a hit
+
+##### May Cache
+
+- All variables that *could be in cache*
+- Minimal age
+- Join
+    - Union
+    - Minimal age
+    - Interpretation:
+        - All block may be in cache
+        - None is definitely *not* in cache
+
+##### Cache Contribution to **WCET**
+
+Reference to variable **s** in code:
+
+- if **s** is in *must-cache*:
+    - $t_{WCET} = t_{hit}$
+- otherwise
+    - $t_{WCET} = t_{miss}$
+- if **s** is in *may-cache*:
+    - $t_{BCET} = t_{hit}$
+- otherwise
+    - $t_{BCET} = t_{miss}$
+
+Reference to variable **s** in loop body (max $n$ iterations):
+
+- First time miss, then always hit
+- Loop unfolding
+
+- within loop
+    - $n \cdot t_{miss}$
+    - $n \cdot t_{hit}$
+    - $t_{miss} + (n - 1) \cdot t_{hit}$
+    - $t_{hit}  + (n - 1) \cdot t_{miss}$
+
+#### Pipelines
+
+- Different stages in parallel
+    - Fetch
+    - Decode
+    - Execute
+    - ...
+- Pipeline hazards
+    - Data hazard: Operands not yet available
+    - Resource hazard: Consecutive instructions use same resource
+    - Control hazard: Conditional branch
+    - Instuction-cache hazard: Instruction fetch causes cache miss
+- CPU as State Machine: Abstract Pipeline for basic blocks
+
+<!-- End of Slides 9 -->
+
+<!-- Beginning of Slides 10 -->
+
+# 10 Performance Analysis of Distributed Embedded Systems
+
+> Embedded System = Computation + Communication + Resource Interaction
+
+- Analysis &harr; Design
+    - Analysis: infer system properties from subsystem properties
+    - Design: build system from subsystems while meeting requirements
+
+- Abstract model
+
+| Concrete instance (real world) | Abstract representation (model) |
+|--------------------------------|---------------------------------|
+| Input stream                   | Load model                      |
+| Processor                      | Service model                   |
+| Task(s) running on processor   | Processing model                |
+
+- System view
+    - Modular Performance Analysis (MPA)
+- Mathematical view
+    - Real-Time Calculus (RTC)
+    - Min-Plus Calculus, Max-Plus Calculus
+
+## Real-Time Calculus
+
+- Real-Time Calculus can be regarded as a worst-/best-case variant of classical queuing theory
+- It's a formal method for the analysis of distributed real-time (embedded) systems
+
+### Algebraic Structure
+
+- Set of elements $S$
+    - One ore more operators defined on elements of this set
+- Algebraic structures with *two operators*: $\boxplus$, $\boxdot$
+    - plus-times: $(S, \boxplus, \boxdot) = (R, +, \times)$
+    - min-plus: $(S, \boxplus, \boxdot) = (R \cup \{ + \infty \}, inf, +)$
+- **Infimum**
+    - The infimum of a subset (of some set) is the greates element (not necessary in the subset)
+      that is less than or equal to all other elements of the subset
+    - $\begin{matrix}S_1 \subseteq S \\  inf(S_1) = \underset{i}{max}\{i \in S : i \leq s\; \forall s \in S_1\}\end{matrix}S$
+    - Examples:
+        - $inf\{[3,4]\}=3$ and $min\{[3,4]\}=3$
+        - $inf\{(3,4]\}=3$ but $min\{(3,4]\} \text{not defined}$
 
 
 
