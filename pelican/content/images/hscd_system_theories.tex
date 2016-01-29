@@ -1,0 +1,44 @@
+% Based on diagram: http://www.texample.net/tikz/examples/noise-shaper/
+\documentclass[tikz,14pt,border=10pt]{standalone}
+\usepackage{textcomp}
+\usetikzlibrary{shapes,arrows}
+\begin{document}
+% Definition of blocks:
+\tikzset{%
+  block/.style    = {draw, thick, rectangle, minimum height = 3em,
+    minimum width = 3em},
+  sum/.style      = {draw, circle, node distance = 2cm}, % Adder
+  input/.style    = {coordinate}, % Input
+  output/.style   = {coordinate} % Output
+}
+% Defining string as labels of certain blocks.
+\newcommand{\suma}{\Large$+$}
+\newcommand{\inte}{$\displaystyle \int$}
+\newcommand{\derv}{\huge$\frac{d}{dt}$}
+
+%\begin{tikzpicture}[auto, thick, node distance=2cm, >=triangle 45]
+%\draw
+%	% Drawing the blocks of first filter :
+%	node at (0,0)[right=-3mm]{\Large}
+%	node [input, name=input1] {} 
+%	node [block, right of=input1] (inte1) {$g(t)$}
+%    node [output, right of=inte1] (outp1){}
+%;
+%	\draw[->](input1) -- node {$f(t)$}(inte1);
+%	\draw[->](inte1) -- node {$h(t)$}(outp1);
+%\end{tikzpicture}
+
+\begin{tikzpicture}[auto, thick, node distance=2cm, >=triangle 45]
+\draw
+	% Drawing the blocks of first filter :
+	node at (0,0)[right=-3mm]{\Large}
+	node [input, name=input1] {} 
+	node [block, right of=input1] (inte1) {$g(\Delta)$}
+    node [output, right of=inte1] (outp1){}
+;
+	\draw[->](input1) -- node {$R(t)$}(inte1);
+	\draw[->](inte1) -- node {$R'(t)$}(outp1);
+\end{tikzpicture}
+
+
+\end{document}
