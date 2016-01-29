@@ -1577,27 +1577,31 @@ Reference to variable **s** in loop body (max $n$ iterations):
 - Plus-times system theory:
     - signals, impulse response, convolution, time-domain
 
+
 ![Plus-times calculus](/images/hscd_plus_times.svg)
+
 
 $$h(t) = \underbrace{(f*g)}_{\text{convolution}}\underbrace{(t)}_{\text{time-domain}}= \int_0^t f(t-s)\cdot g(s) \;ds$$
 
 
-- $f(t)$: Signals
-- $g(t)$: Impulse response
-- $(f*g)$: Convolution
-- $t$: Time domain
+    - $f(t)$: Signals
+    - $g(t)$: Impulse response
+    - $(f*g)$: Convolution
+    - $t$: Time domain
 
 - Min-plus system theory
     - streams, variability curves, time-interval domain, convolution
 
+
 ![Min-plus calculus](/images/hscd_min_plus.svg)
+
 
 $$R'(t)\geq \underbrace{(R\otimes g)}_{\text{convolution}}(t)= \underset{0\leq \lambda\leq t}{inf}\{R(t-\lambda)+g(\lambda) \}$$
 
-- $R(t)$: Streams
-- $g(\Delta)$: Variability curves
-- $\Delta$: Time-interval domain
-- $(R\otimes g)$: Convolution
+    - $R(t)$: Streams
+    - $g(\Delta)$: Variability curves
+    - $\Delta$: Time-interval domain
+    - $(R\otimes g)$: Convolution
 
 
 
