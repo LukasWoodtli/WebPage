@@ -14,6 +14,7 @@ My main (and favourite) programming language is C++. I have also been programmin
 | Java                                     | good                                     |
 | Scala                                    | basic                                    |
 | Objective C                              | basic                                    |
+| Oberon                                   | basic                                    |
 | JavaScript                               | basic                                    |
 | Clojure (Lisp)                           | basic                                    |
 | Matlab/Simulink                          | basic                                    |
