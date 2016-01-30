@@ -1604,6 +1604,21 @@ $$h(t) = \underbrace{(f*g)}_{\text{convolution}}\underbrace{(t)}_{\text{time-dom
 
 $$R'(t)\geq \underbrace{(R\otimes g)}_{\text{convolution}}(t)= \underset{0\leq \lambda\leq t}{inf}\{R(t-\lambda)+g(\lambda) \}$$
 
+<!-- End of Notes Week 12 -->
+<!-- Beginning of Notes Week 13 -->
+
+### From Streams to Cumulative Functions
+
+- Event streams &rarr; **Arrival Curves** ($t \rightarrow \Delta$)
+    - Event stream: number of events in $t=[0 .. T]$
+    - Arrival Curves $\alpha = [\alpha', \alpha^u]$: maximum and minimum arriving events in **any interval** of length $t$
+- Resources &rarr; **Service Curves** ($t \rightarrow \Delta$)
+    - Resource Availibility: available servise in $t=[0 .. T]$
+    - Service Curves $\beta = [\beta', \beta^u]$: maximum and minimum available service in **any interval** of length $t$
+
+
+
+
 
 
 
