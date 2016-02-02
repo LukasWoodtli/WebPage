@@ -1218,7 +1218,7 @@ $$comm\_delay= \left \lceil \frac{\# words}{burst\_size}  \right \rceil \cdot co
 
 ## Industry's Best Practice
 
-- Mesurements: determine execution times directly by observing the execution of a simulation on a set of inputs
+- Measurements: determine execution times directly by observing the execution of a simulation on a set of inputs
     - Does not guarantee an upper bound to all executions in general
     - Exhaustive execution in general not possible
         - Too large space: 'Input Domain' $\times$ 'Initial execution states'
@@ -1263,7 +1263,7 @@ $$\begin{align*}
  & A1
 \end{align*}$$
 
-Precondition: Nuber of loops needs to be known (e.g 100)
+Precondition: Number of loops needs to be known (e.g 100)
 
 $$ub(A) = ub(i \leftarrow) + 100 \times (ub(i \leq 100) + ub(A1))+ ub(i\leq100)$$
 
@@ -1275,15 +1275,15 @@ $$ub(A) = ub(i \leftarrow) + 100 \times (ub(i \leq 100) + ub(A1))+ ub(i\leq100)$
     - Branch prediction
     - Speculation
 - These features make **WCET** computation difficult (execution times of instructions vary widely)
-    - Best case: everything goes right: no chache miss, operands ready, resources free, branch predicted correctly
+    - Best case: everything goes right: no cache miss, operands ready, resources free, branch predicted correctly
     - Worst case: everything goes wrong: all loads miss cache, resources occupied operands not ready
-- Span may be several hundert (even thousand) cycles
+- Span may be several hundred (even thousand) cycles
 
 
 ### Program Path Analysis
 
 - Which sequence of instructions is executed in the worst-case (longest run time)?
-- Probelm: The number of possible program paths grow with the length of the program
+- Problem: The number of possible program paths grow with the length of the program
 - Number of loop iteration must be bounded
 - Must be done at machine code instruction level
 
@@ -1328,7 +1328,7 @@ $$WCET = \sum_{i=1}^N c_i \cdot x_i$$
 
 This image is taken from the lecture slides provided by Lothar Thiele.
 
-Flow Equations (sum of incomming edges equals summ of outgoing edges)
+Flow Equations (sum of incoming edges equals sum of outgoing edges)
 
 $$\begin{align*}
 d1 = d2 = x_1 \\
@@ -1350,30 +1350,30 @@ The more information the better the result
 
 ##### Integer Linear Program for **WCET** Calculation
 
-ILP with structural and additional constraings
+ILP with structural and additional constraints
 
 $$WCET = max\left \{ \sum_{i=1}^N c_i \cdot x_i | \underbrace{d_1=1}_{\text{program is executed once}} \land \underbrace{\sum_{j\in in(B_i)} d_j = \sum_{k\in out(B_i)}d_k=x_i, i=1\ldots N}_{\text{structural constraints}} \;\land \;\text{additional constraints} \right \}$$
 
 
-### Abstact Interpretation (AI)
+### Abstract Interpretation (AI)
 
 - Semantics-based method for static program analysis
 - Basic idea
-    - Perform programs comutations using value descriptions (or abstract values)
+    - Perform programs computations using value descriptions (or abstract values)
     - Start with the description of all possible inputs
-- AI supports crrrectness proofs
+- AI supports correctness proofs
 
 Ingredients:
 
-- Abstract domain: related to concrete domain (by abstraction and concretizstion functions)
+- Abstract domain: related to concrete domain (by abstraction and concretization functions)
     - e.g $L \rightarrow \text{Intervals}$
     - where: $\text{Intervals} = LB \times UB, LB = UB = Int \cup \{-\infty, \infty\}$
     - instead of: $L \rightarrow Int$
 - Abstract transfer functions: for each statement type (abstract versions of their semantics)
-    - e.g $+ : Invervals \times Intervals \rightarrow Intervals$
+    - e.g $+ : Intervals \times Intervals \rightarrow Intervals$
     - where: $[a,b] + [c,d] = [a+c,b+d]$
     - with: $+$ extends to $-\infty, \infty$
-- A join functin combining abstract values from different control-flow paths
+- A join function combining abstract values from different control-flow paths
     - e.g $\cup : Interval \times Interval \rightarrow Interval$
     - where: $[a,b] \cup [c,d] = [min(a,c),max(b,d)]$
 
@@ -1381,13 +1381,13 @@ Ingredients:
 
 Motivation:
 - Provide access information to data-cache/pipeline analysis
-- Detect infeasible paths
+- Detect Infeasible paths
 - Derive loop bounds
 
 Method:
 
 Calculate intervals at all program points. Lower and upper bounds for the set of possible values
-occuring in ther programm (addresses, register contents, local and global variables).
+occurring in the program (addresses, register contents, local and global variables).
 
 <!-- End of Notes Week 11 -->
 
@@ -1400,7 +1400,7 @@ occuring in ther programm (addresses, register contents, local and global variab
 - Caches work well in the average case:
     - Programs access data locally (many hits)
     - Programs reuse items (instructions, data)
-    - Access patterns are distributet evenly across the cache
+    - Access patterns are distributed evenly across the cache
 
 - Caches: fast, small, expensive
 - Memory: relatively slow (bottle neck), large, cheap
@@ -1414,10 +1414,10 @@ How caches work:
 - Caches:
     - Block **m** containing **a** is in the cache (*hit*):
         - Request for **a** is served in next cycle
-    - Block **m** is not in the chache(*miss*):
-        - **m** is transfered from main memory to the cache
+    - Block **m** is not in the cache(*miss*):
+        - **m** is transferred from main memory to the cache
         - **m** may replace some block in the cache
-        - Request for **a** is served as soon as possible (while tranfer still continues)
+        - Request for **a** is served as soon as possible (while transfer still continues)
     - Several replacement strategies:
         - LRU: Least Recently Used
         - PLRU: Pseudo-LRU
@@ -1496,7 +1496,7 @@ Reference to variable **s** in loop body (max $n$ iterations):
     - Data hazard: Operands not yet available
     - Resource hazard: Consecutive instructions use same resource
     - Control hazard: Conditional branch
-    - Instuction-cache hazard: Instruction fetch causes cache miss
+    - Instruction-cache hazard: Instruction fetch causes cache miss
 - CPU as State Machine: Abstract Pipeline for basic blocks
 
 <!-- End of Slides 9 -->
@@ -1542,7 +1542,7 @@ Reference to variable **s** in loop body (max $n$ iterations):
         - $(S, \boxplus, \boxdot) = (R \cup \{ + \infty \}, inf, +)$
         - Used for Real-Time calculus
 - **Infimum**
-    - The infimum of a subset (of some set) is the greates element (not necessary in the subset)
+    - The infimum of a subset (of some set) is the greatest element (not necessary in the subset)
       that is less than or equal to all other elements of the subset
     - $$\begin{matrix}S_1 \subseteq S \\  inf(S_1) = \underset{i}{max}\{i \in S : i \leq s\; \forall s \in S_1\}\end{matrix}$$
     - Examples:
@@ -1613,23 +1613,22 @@ $$R'(t)\geq \underbrace{(R\otimes g)}_{\text{convolution}}(t)= \underset{0\leq \
     - Event stream: number of events in $t=[0 .. T]$
     - Arrival Curves $\alpha = [\alpha', \alpha^u]$: maximum and minimum arriving events in **any interval** of length $t$
 - Resources &rarr; **Service Curves** ($t \rightarrow \Delta$)
-    - Resource Availibility: available servise in $t=[0 .. T]$
+    - Resource Availability: available service in $t=[0 .. T]$
     - Service Curves $\beta = [\beta', \beta^u]$: maximum and minimum available service in **any interval** of length $t$
+- Arrival and Service Curves work on *time intervals* as domain ($\Delta$)
 
 
 
 
+# Overview of Methods and Algorithms
 
 
-
-<!--
-
-Topics
-------
-- Specification Graph
-    - Architecture Graph (problem Graph)
-    - Dataflow Graph
-- Closeness Function
-
-
--->
+|                            | Domain                | Notes                        |
+|----------------------------|-----------------------|------------------------------|
+| Hierarchical Clustering    | Partitioning          |                              |
+| Integer Linear Programming | Partitioning          |                              |
+| Simulated Annealing        | Partitioning          |                              |
+| Trace Based Simulation     | Estimation            |                              |
+| Evolutionary Algorithms    | Partitioning          | Multi Objective Optimization |
+| Tom Parks Algorithm        | Kahn Process Networks |                              |
+| Kerninghan Lin             | Partitioning          |                              |
