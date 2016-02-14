@@ -42,6 +42,13 @@ I'm a big fan of the Qt framework. For bigger projects Boost is a must. And of c
 | Hardware Development (Analog & Digital) | basic     |
 | RFID                                    | basic     |
 
+# Processor Architectures
+
+- Intel x86
+- ARM Cortex-M3 (Silicon Labs, STMicroelectronics)
+- ARM Cortex-A7 (Raspberry Pi 2)
+- Atmel Atmega
+- Freescale ColdFire
 
 # IDE's
 
