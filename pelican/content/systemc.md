@@ -2,20 +2,40 @@ Title: SystemC
 Category: Computer Science
 Tags: C++, Embedded Systems
 Date: 2016-02-15
-Modified: 2016-02-15
+Modified: 2016-02-16
 
-> This page is work in progress!
+SystemC is a system-level modeling language. It's implemented as a C++ library.
 
-SystemC is a system-level modeling language.
-
-It's implemented as a C++ library.
-
-It's open source and platform independent.
+The library is open source and platform independent.
 
 It contains an event-driven simulation kernel for executing models.
 
-(Accellera)[http://accellera.org/] is the main resource for SystemC.
+[Accellera](http://accellera.org/) is the main resource for SystemC.
 
+# Simulation
+
+SystemC is a discrete-event driven simulation.
+
+The simulation clock represents the current value of the simulation time.
+
+
+![Simulation Engine](/images/systemc_simulation_engine.svg){: style="float:right"}
+
+
+- Initialization of simulation model
+    - Set initial states of subsystem modules
+    - Fill event queue with initial events
+- Timing routine
+    - Determine *next* event from event queue
+    - Advance simulation clock to the time when the event is to occur
+- Event routine
+    - Update the system state when a particular type of event occurs
+
+## Delta Cycle
+
+Within the same simulation cycle *cause* and *effect* events may share the same time of occurrence.
+
+The simulator uses a zero duration *virtual time interval*: delta cycle
 
 
 # Constructs
@@ -31,7 +51,6 @@ Building blocks of SystemC models.
 Modules are called by the simulation engine if an relevant event is scheduled.
 
 Modules process events, manipulate the event queue and contain (and manipulate) the system state.
-
 
 ## Processes
 
@@ -84,32 +103,6 @@ based on these primitives.
 - Separating communication from behavior
 - Interfaces define access to channel
 - Ports are used to access the channel
-
-# Simulation
-
-SystemC is a discrete-event driven simulation.
-
-The simulation clock represents the current value of the simulation time.
-
-
-
-![Simulation Engine](/images/systemc_simulation_engine.svg){: style="float:right"}
-
-
-- Initialization of simulation model
-    - Set initial states of subsystem modules
-    - Fill event queue with initial events
-- Timing routine
-    - Determine *next* event from event queue
-    - Advance simulation clock to the time when the event is to occur
-- Event routine
-    - Update the system state when a particular type of event occurs
-
-# Delta Cycle
-
-Within the same simulation cycle *cause* and *effect* events may share the same time of occurrence.
-
-The simulator uses a zero duration *virtual time interval*: delta cycle
 
 
 
