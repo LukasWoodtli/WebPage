@@ -6,15 +6,32 @@ Modified: 2016-02-15
 
 > This page is work in progress!
 
-SystemC is a C++ library that is used to evaluate and simulate systems.
+SystemC is a system-level modeling language.
+
+It's implemented as a C++ library.
 
 It's open source and platform independent.
 
-(Accellera)[http://accellera.org/] is the main resource about SystemC.
+It contains an event-driven simulation kernel for executing models.
+
+(Accellera)[http://accellera.org/] is the main resource for SystemC.
 
 
 
 # Constructs
+
+## Modules
+
+Building blocks of SystemC models.
+
+- Hierarchy (subsystems)
+- Abstraction
+- IP reuse
+
+Modules are called by the simulation engine if an relevant event is scheduled.
+
+Modules process events, manipulate the event queue and contain (and manipulate) the system state.
+
 
 ## Processes
 
@@ -29,13 +46,19 @@ Processes must be contained in a module.
     - Simulate *faster*
     - Do *not* keep state of execution implicitly
 
-## Modules
+### Wait and Notify
 
-Building blocks of SystemC models.
-
-- Hierarchy
-- Abstraction
-- IP reuse
+- wait: halt process execution until an event is raised
+    - `wait()`
+    - wait with arguments: dynamic sensitivity
+        - `wait(sc_event)`
+        - `wait(time)`
+        - `wait(time_out, sc_event)`
+- notify: raise an event
+    - `my_event.notify()`
+    - notify with arguments: delayed notification
+        - `my_event.notify(SC_ZERO_TIME)`: notify next delta cycle
+        - `my_event.notify(time)`: notify after *time*
 
 ## Communication
 
@@ -54,6 +77,41 @@ Building blocks of SystemC models.
 
 Other communication and synchronization models can be built
 based on these primitives.
+
+
+### Channels
+
+- Separating communication from behavior
+- Interfaces define access to channel
+- Ports are used to access the channel
+
+# Simulation
+
+SystemC is a discrete-event driven simulation.
+
+The simulation clock represents the current value of the simulation time.
+
+
+
+![Simulation Engine](/images/systemc_simulation_engine.svg){: style="float:right"}
+
+
+- Initialization of simulation model
+    - Set initial states of subsystem modules
+    - Fill event queue with initial events
+- Timing routine
+    - Determine *next* event from event queue
+    - Advance simulation clock to the time when the event is to occur
+- Event routine
+    - Update the system state when a particular type of event occurs
+
+# Delta Cycle
+
+Within the same simulation cycle *cause* and *effect* events may share the same time of occurrence.
+
+The simulator uses a zero duration *virtual time interval*: delta cycle
+
+
 
 
 
