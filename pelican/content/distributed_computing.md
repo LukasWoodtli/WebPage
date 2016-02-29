@@ -23,7 +23,7 @@ Definitions:
 - $m$: Number of edges
 - $\delta$: Degree, number of edges for a node
 - $\Delta$: max $\delta$
-- $\Chi(G)$: Chromatic number, min number of colors needed to color the graph
+- $\chi (G)$: Chromatic number, min number of colors needed to color the graph
 
 
 ## Synchronous Model
@@ -45,4 +45,4 @@ Tree: Graph with no cycles
 
 Root trees: one 'starting' node
 
-> $\Chi(G) = 2$
+> $\chi (G) = 2$
