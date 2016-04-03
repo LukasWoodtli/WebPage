@@ -1,13 +1,13 @@
 Title: Resume
-		
 
-# Personal Data	
+
+# Personal Data
 Lukas Woodtli
 
 Zürich
 
 # Nationality
-Swiss, Czech 
+Swiss, Czech
 
 # Actual Education
 [Certificate Program in Computer Science (CAS-INFK)](https://www.inf.ethz.ch/continuing-education/certificate-program.html)
@@ -17,13 +17,15 @@ Swiss, Czech
 - Concepts of Object-Oriented Programming
 - System Construction
 - Hardware/Software Codesign
-- Data Mining
+- Principles of Distributed Computing
+- Object Databases
+- Models of Computation
 
 
 # Latest Job
 Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit processors.
 
-# Work Experience	
+# Work Experience
 
 | Time             | Occupation
 |------------------|---------------------------------------------------
@@ -33,7 +35,7 @@ Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit proce
 | 2002 (6 months)  | Mechanic, AIM Horgen
 
 
-# Education	
+# Education
 | Years:         |                                                                                          |
 |----------------|------------------------------------------------------------------------------------------|
 | 2004 - 2009    | Bachelor of Electrical Engineering, [University of Applied Science Zürich (ZHAW)](http://www.zhaw.ch/de/engineering/studium/bachelor/elektrotechnik.html) |
@@ -54,12 +56,12 @@ See my page about the [courses](courses.html) I attended.
 
 # Language Skills
 
-- German (Mother tongue): Very good writing and speaking knowledge 
+- German (Mother tongue): Very good writing and speaking knowledge
 - Czech (Mother tongue): Very good speaking and basic writing knowledge
 - English: Good writing and speaking knowledge
 - French: Some basic knowledge
 
-# Hobbies	
+# Hobbies
 
 * Sports:
     * Mountain Climbing
@@ -69,7 +71,7 @@ See my page about the [courses](courses.html) I attended.
 * Cooking
 * Reading books
 
-# References	
+# References
 Available on request
 
 
@@ -79,4 +81,3 @@ Available on request
 |---------|---------------------------|------------|
 | English | [Application Documents (compact)](/documents/Application_Documents_Lukas_Woodtli.zip) | [Application Documents (full)](/documents/Application_Documents_full_Lukas_Woodtli.zip) |
 | Deutsch | [Bewerbungsunterlagen (kompakt)](/documents/Bewerbungsunterlagen_Lukas_Woodtli.zip) | [Bewerbungsunterlagen (vollständig)](/documents/Bewerbungsunterlagen_alle_Lukas_Woodtli.zip) |
-
