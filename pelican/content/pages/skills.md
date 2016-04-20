@@ -104,9 +104,11 @@ There are a lot of skills and tools that a developer needs to do his work.
 | Design/Architecture Patterns                     | very good                                |
 | Regexp                                           | basic                                    |
 | UX/UI Design                                     | basic                                    |
-| UML                                              | good                                     |
+| UML                                              | very good                                |
 | Project Management / Scrum / XP                  | very good                                |
 | Legacy Code (refactoring, testing, improving...) | very good                                |
+| XML                                              | good                                     |
+| JSON                                             | good                                     |
 
 
 # Documentation
