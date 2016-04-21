@@ -53,3 +53,57 @@ General of **XOR**:
 <!-- Notes Week 1 40:00 -->
 
 
+
+
+<!-- TODO -->
+
+
+<!-- Notes Week 7 Start -->
+
+# Lambda Calculus
+
+- Meta-Mathematics
+- Turing Machines simulate a person that calculate (State: Mind, Tape: Paper)
+- Lambda Calculus: about functions
+
+## Syntax
+
+Traditional Syntax:
+
+$$f(x) = \frac{e^x - sin(x)}{x+3}$$
+
+Lambda Syntax:
+
+$$\lambda x.  \frac{e^x - sin(x)}{x+3}$$
+
+- Functions in lambda calculus don't have names
+    - Just put the function completely, where it is used
+    - Anomunous functions
+
+- Functions: 'Plugging in' arguments
+- Functions return other functions (Currying)
+
+For example:
+
+$$((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7$$
+
+- Can get rid of
+    - function names
+    - multi-argument functions
+
+## Chruch Numerals
+
+Numbers can be encoded as functions
+
+0: $\lambda fx. x$
+1: $\lambda fx. f x$
+2: $\lambda fx. f f x$
+3: $\lambda fx. f f f x$
+...
+
+- What can be done with this numbers?
+
+
+<!-- Notes Week 7 30:00 -->
+
+
