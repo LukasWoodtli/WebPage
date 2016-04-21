@@ -1,8 +1,8 @@
-Title: Models of Comutation
+Title: Models of Computation
 Category: Computer Science
 Tags: ETH
 Date: 2016-02-29
-Modified: 2016-02-29
+Modified: 2016-04-21
 
 # Boolean Circuits
 
@@ -95,11 +95,14 @@ $$((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7$$
 
 Numbers can be encoded as functions
 
-0: $\lambda fx. x$
-1: $\lambda fx. f x$
-2: $\lambda fx. f f x$
-3: $\lambda fx. f f f x$
-...
+$$\begin{align*}
+0 :&= \lambda f.\lambda x. x\\ 
+1 :&= \lambda f.\lambda x. f x\\ 
+2 :&= \lambda f.\lambda x. f (f x)\\ 
+3 :&= \lambda f.\lambda x. f (f (f x))\\ 
+\cdots \\
+n :&= \lambda f.\lambda x. f^n x
+\end{align*}$$
 
 - What can be done with this numbers?
 
