@@ -1,0 +1,14 @@
+![](/images/lambda_calculus/addition.png)
+![](/images/lambda_calculus/boolean_logic.png)
+![](/images/lambda_calculus/church_numerals.png)
+![](/images/lambda_calculus/function_application.png)
+![](/images/lambda_calculus/function_creation.png)
+![](/images/lambda_calculus/function_evaluation.png)
+![](/images/lambda_calculus/function_evaluation_example.png)
+![](/images/lambda_calculus/if_then_else.png)
+![](/images/lambda_calculus/increment.png)
+![](/images/lambda_calculus/multiplication.png)
+![](/images/lambda_calculus/pair.png)
+![](/images/lambda_calculus/pair_shifting.png)
+
+
