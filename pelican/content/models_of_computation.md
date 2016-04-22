@@ -193,3 +193,12 @@ $$
 ![Pair](/images/lambda_calculus/pair.png)
 
 ![Shift Pair](/images/lambda_calculus/pair_shifting.png)
+
+
+## Conclusion
+
+- No distinction between code and data: everything is code!
+- No structure is safe from substitution (safety issue)
+- Data has to be run, can't be examined
+
+<!-- Notes Week 7 End -->
