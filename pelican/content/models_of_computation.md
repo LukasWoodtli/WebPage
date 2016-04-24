@@ -91,6 +91,13 @@ $$((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7$$
     - function names
     - multi-argument functions
 
+
+## Main Operations
+
+- $\beta$-reduction: apply a function to an argument using substitution
+- $\alpha$-conversion: changing a functions 'argument symbol' ($\lambda x.x \equiv \lambda y.y$)
+- $\eta$-conversion: $\lambda v. f v \equiv f$ because $(\lambda v. f v) a \equiv f a$
+
 ## Chruch Numerals
 
 - Numbers can be encoded as functions
@@ -202,3 +209,39 @@ $$
 - Data has to be run, can't be examined
 
 <!-- Notes Week 7 End -->
+
+## Recursion
+
+- in $\lambda$-calculus a function can't reference (call) itself since there are no names for functions
+- [Tail-call](https://en.wikipedia.org/wiki/Tail_call) recursion: in some cases the same stack frame can be reused for recursive functions
+
+- How can we build an infinite loop (recursion)?
+
+This structure rebuilds itself infinitely:
+
+$$\Omega = (\lambda w. w w) (\lambda w. w w)$$
+
+
+### Y-Combinator
+
+See [Wikipedia](https://en.wikipedia.org/wiki/Fixed-point_combinator#Fixed_point_combinators_in_lambda_calculus)
+
+and [The Y Combinator (no, not that one)](https://medium.com/@ayanonagon/the-y-combinator-no-not-that-one-7268d8d9c46#.c11j5arpk).
+
+$$Y = \lambda f. (\lambda x. f (x x))(\lambda x. f (x x))$$
+
+Beta recursion gives:
+
+$$\begin{align*}
+Y g &= \lambda f. (\lambda x. f (x x))(\lambda x. f (x x)) g \\
+ &= (\lambda x. g (x x)) (\lambda x. g (x x)) \\ 
+ &= g ((\lambda x. g (x x)) (\lambda x. g (x x)))  \\ 
+ &= g (Y g)
+\end{align*}$$
+
+- Only way to do a loop if you don't know in advance how many iterations the loop needs to be done
+- Functions can't see their own structure
+    - Needs to be provided as argument so the function can reproduce itself: 'twin'-functions
+
+<!-- Notes Week 8 40:00 -->
+
