@@ -20,11 +20,20 @@ Modified: 2016-02-20
 
 Data has to outlive the execution of the program
 
-<!-- TODO!!!! Lecture Notes Week 1 01:15 -->
 
 - **Independence** of longelivety of data
+    - How much code needs to be written for persistence
+        - None at all would be nice but not realistic (GUI objects usually don't need storing...)
+    - Data is stored automatically
 - **Data Type Orthogonality** all data objects should be allowed to be persistent (long-lived, transient)
+    - The data types do not need to be modified (implicitly or explicitly) to allow persistence
+    - e.g Serializable interface in Java does not satisfy this criteria (classes that don't implement the interface can't be stored)
 - **Identification**: mechanism for identifying persistent object not related to the type system
+    - Transfering data from persistence storage to memory
+    - e.g specify which classes/objects should be stored persistence
+    - separation of concerns
+
+> No commercial DB system fully satisfies the above criteria
 
 ## Impedance Missmatch
 
@@ -57,6 +66,7 @@ Data has to outlive the execution of the program
 ## Develop own Database
 
 - Support application development (programming language)
+    - Clients of the DB system are developers (not end user)
 - Support persistent data management
 - One data model (OOP)
 - One language (Java?)
@@ -102,11 +112,18 @@ Retrieval of data
     - Join
     - Select
 
-## DDL, DML and QL in Java
+## DDL, DML and QL in SQL and Java
 
 DD, DM supported in Java. Querying is very limited.
 
 ### DD
+
+SQL
+
+    :::SqlLexer
+    CREATE TABLE name ...
+
+Java
 
     :::java
     class Person {
@@ -116,11 +133,24 @@ DD, DM supported in Java. Querying is very limited.
 
 ## DM
 
+SQL
+
+    :::SqlLexer
+    UPDATE name ...
+
+Java
     :::java
     new Person()
     p.name = "Bill Stinnet"
 
 ## Querying
+
+SQL
+
+    :::SqlLexer
+    SELECT col_name ...
+
+Java
 
     :::java
     ... = p.name
@@ -163,14 +193,13 @@ LINQ is a powerful and compile time safe support for querying.
 
 
 <!-- Lecture 1 Slides End -->
-
+<!-- Lecture 1 Notes End -->
 
 # Object Database Systems
 
-| System                               | db4o | ... | Objectivity  |
-|--------------------------------------|------|-----|--------------|
-| Data-type Orthogonality               |      |     |              |
-| Orthogonal Persistence (independence) |      |     |              |
-| Programming Languages                |      |     |              |
-| OSs                                  |      |     |              |
-
+| System                                | db4o | Object Store | Versant | Objectivity  |
+|---------------------------------------|------|--------------|---------|--------------|
+| Data-type Orthogonality               |      |              |         |              |
+| Orthogonal Persistence (independence) |      |              |         |              |
+| Programming Languages                 |      |              |         |              |
+| OSs                                   |      |              |         |              |
