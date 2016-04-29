@@ -29,7 +29,7 @@ Data has to outlive the execution of the program
     - The data types do not need to be modified (implicitly or explicitly) to allow persistence
     - e.g Serializable interface in Java does not satisfy this criteria (classes that don't implement the interface can't be stored)
 - **Identification**: mechanism for identifying persistent object not related to the type system
-    - Transfering data from persistence storage to memory
+    - Transferring data from persistence storage to memory
     - e.g specify which classes/objects should be stored persistence
     - separation of concerns
 
@@ -155,6 +155,7 @@ Java
     :::java
     ... = p.name
 
+
 LINQ is a powerful and compile time safe support for querying.
 
 
@@ -195,6 +196,7 @@ LINQ is a powerful and compile time safe support for querying.
 <!-- Lecture 1 Slides End -->
 <!-- Lecture 1 Notes End -->
 
+
 # Object Database Systems
 
 | System                                | db4o | Object Store | Versant | Objectivity  |
@@ -203,3 +205,125 @@ LINQ is a powerful and compile time safe support for querying.
 | Orthogonal Persistence (independence) |      |              |         |              |
 | Programming Languages                 |      |              |         |              |
 | OSs                                   |      |              |         |              |
+
+
+<!-- Lecture 2 Slides Start -->
+<!-- Lecture 2 Notes Start -->
+
+# ODMG Standard
+
+- What is an object?
+    - Something that can be pointed to?
+    - Can be passed on as a reference?
+    - Distinct from single values
+
+Examples in Java:
+
+|           | Simple    | Complex  |
+|-----------|-----------|----------|
+| Reference | `Integer` | `Object` |
+| Value     | `int`     |  N/A     |
+
+In some languages (PHP, JavaScript, ...) Objects and Associative Arrays are the same (or similar).
+
+- Some constructs can be extended over time
+    - possible with map (add key/value)
+    - *not* possible with *class* in Java
+
+- Object Orientation needs a broader definition!
+    - not coupled to a specific programming language
+
+- Most database systems often independent of programming languages
+    - e.g SQL very different from the language where the DB is used (independent of language)
+- Object database systems are more coupled to one (or multiple) programming language
+
+
+## Object Data Management Group (ODMG)
+
+### Object Model
+
+- Based on [OMG](https://en.wikipedia.org/wiki/Object_Management_Group) object model
+- Basic modeling primitives
+    - **object**: unique identifier (identity)
+    - **literal**: no identifier
+- Object state defined by the values (properties)
+    - attributes
+    - relationships
+- Object behavior
+    - set of operations (can be executed)
+
+- Objects and literals are categorized by their type
+    - A type defines common properties and common behavior
+
+#### Types
+
+- Specification
+    - properties
+        - attributes
+        - relationships
+    - operations
+    - exceptions
+- Implementation
+    - language binding
+    - a specification can have more than one implementation
+- Similar to C++
+    - Header-File: Specification
+    - Source-File: Implementation
+
+#### Type Specifications
+- Interface
+    - defines only abstract behavior
+    - `interface Employee {...};`
+- Class
+    - defines both abstract behavior and abstract state
+    - `class Person {...};`
+- Literal
+    - defines abstract state
+    - `struct Complex { float real; float imaginary; };`
+
+#### Type Implementation
+
+- Representation
+    - data structure
+    - derived from type's abstract state by the language binding
+    - for each property contained in the abstract state there is an instance variable of an appropriate type defined
+- Methods
+    - procedure bodies
+    - derived from type's abstract behavior by the language binding
+    - also private methods with no counterpart in specification
+
+#### Subtyping and Inheritance
+
+- Two types of inheritance relationships
+    1. IS-A relationship
+        - inheritance of behaviour
+        - multiple inheritance, name overloading disallowed
+        - `interface Professor : Employee {...};`
+    2. **EXTENDS** relationship
+        - inheritance of state and behaviour
+        - single inheritance
+        - `class EmplPers extends Person : Employee {...};`
+
+- Co- and Contravariant rules must hold
+    - Input Arguments: Contravariant
+    - Return Values (and Exceptions): Covariant
+
+### Object Definition Language (ODL)
+
+...
+
+### Object Query Language (OQL)
+
+Based on ODMG Object Model and SQL-92
+
+    :::SqlLexer
+    select  list_of_values
+    from    list_of_collections_and_typical_members
+    where   condition
+
+### Language Bindings
+
+- C++
+- Java
+- Smalltalk
+- ...
