@@ -19,7 +19,7 @@ install:
   # gitpython used for build file
 - pip install gitpython
   # needed for linkchecker
-- pip install requests
+- pip install requests==2.2.0
   # check for broken links
 - pip install linkchecker
 
