@@ -300,21 +300,17 @@ In some languages (PHP, JavaScript, ...) Objects and Associative Arrays are the 
 
 - Two types of inheritance relationships
     1. IS-A relationship
-        - inheritance of behaviour
+        - inheritance of behavior
         - multiple inheritance, name overloading disallowed
         - `interface Professor : Employee {...};`
     2. **EXTENDS** relationship
-        - inheritance of state and behaviour
+        - inheritance of state and behavior
         - single inheritance
         - `class EmplPers extends Person : Employee {...};`
 
 - Co- and Contravariant rules must hold
     - Input Arguments: Contravariant
     - Return Values (and Exceptions): Covariant
-
-### Object Definition Language (ODL)
-
-...
 
 ### Object Query Language (OQL)
 
@@ -325,7 +321,110 @@ Based on ODMG Object Model and SQL-92
     from    list_of_collections_and_typical_members
     where   condition
 
-<!-- Lecture Notes Week 2 40:00 -->
+
+- `SELECT`: Get attributes
+- `FROM`: The base population of potential results to search in
+- `WHERE`: Predicates (conditions) that have to be true so that the results are selected as result
+
+Mapping to OOP not obvious.
+
+Table in relational DBs has tow roles:
+1. Defining Type
+2. Container of all values (of that type)
+
+In OOP 2. is missing. A class just defines a type but is not a container of all instances of that class.
+
+ODMG defines Extents.
+
+#### Extents
+
+- Extent of a type is the set (collection) of all active instances
+    - `class Person`: extent of class Person would be the set of all person objects in the data management system
+- Extents can be maintained automatically
+
+### Collections
+
+OMDG supports collections:
+
+
+
+ - set: un-ordered, no duplicates
+ - bag: un-ordered, duplicates
+ - list: ordered, elements can be inserted
+ - array: ordered, elements can be replaced
+ - dictionary: maps keys to values
+
+|            | Single elements | Duplicates  |
+|------------|-----------------|-------------|
+| Ordered    | ? (heap)        | list        |
+| Un-ordered | set             | bag         |
+
+Support for objects and literals:
+
+- Collection objects: `Set<t>`, `Bag<t>`, `List<t>`, `Array<t>`, `Dictionary<t,v>`
+- Collection literals: `set<t>`, `bag<t>`, `list<t>`, `array<t>`, `dictionary<t,v>`
+
+#### Sub-collections
+
+OMDG supports sub-collections
+
+### Relationships
+
+- All relationships are binary
+    - many-to-many
+    - many-to-one
+    - one-to-one
+- No support for ternary (or higher) relationships
+    - can be simulated by creating classes to represent relationship touple
+- System maintains referential integrity!
+
+- Keywords for attributes and relationships
+    - `attribute`: for normal class attributes
+    - `relationship`: for relationship references (integrity checks can be performed)
+
+### Persistence
+- Persistence by reachability
+    - not necessary the best option
+- Database gives access to global names
+    - explicitly named root objects
+    - types defined in schema
+    - named extents of types
+
+
+### Other Concepts Supported
+- Database operations
+- Locking and concurrency control
+- Transactions
+- Access to metadata
+- Built-in structured literals and objects
+    - dates
+    - times
+    - timestamps
+    - intervals
+    - ...
+
+### Object Definition Language (ODL)
+
+- programming language independent, extensible and practical
+- compatible to OMG Interface Definition Language (IDL)
+
+    :::java
+    class name [ ( extent name, key name ) ] {
+      { exception name { { type name } } }
+      { attribute type name }
+      { relationship type name inverse relationship }
+      { type name({ (in|out|inout) type name })[raises ({ exception })] }
+    }
+
+
+- extent and key of a class can be specified optionally
+- relationships specify inverse to maintain referential integrity
+- methodS signatures are implemented by language binding
+
+<!-- Lecture Notes Week 2 01:28::00 Object Query Language -->
+
+
+
 
 ### Language Bindings
 
