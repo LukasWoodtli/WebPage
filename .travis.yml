@@ -18,6 +18,8 @@ install:
 - pip install BeautifulSoup4
   # gitpython used for build file
 - pip install gitpython
+  # needed for linkchecker
+- pip install requests
   # check for broken links
 - pip install linkchecker
 
