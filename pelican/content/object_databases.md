@@ -138,10 +138,14 @@ SQL
     :::SqlLexer
     UPDATE name ...
 
+
 Java
+
+
     :::java
     new Person()
     p.name = "Bill Stinnet"
+
 
 ## Querying
 
@@ -320,6 +324,8 @@ Based on ODMG Object Model and SQL-92
     select  list_of_values
     from    list_of_collections_and_typical_members
     where   condition
+
+<!-- Lecture Notes Week 2 40:00 -->
 
 ### Language Bindings
 

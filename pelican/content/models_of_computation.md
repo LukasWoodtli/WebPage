@@ -4,6 +4,8 @@ Tags: ETH
 Date: 2016-02-29
 Modified: 2016-04-21
 
+[TOC]
+
 # Boolean Circuits
 
 - AND/OR/NOT gates
@@ -78,7 +80,7 @@ $$\lambda x.  \frac{e^x - sin(x)}{x+3}$$
 
 - Functions in lambda calculus don't have names
     - Just put the function completely, where it is used
-    - Anomunous functions
+    - Anonymous functions
 
 - Functions: 'Plugging in' arguments
 - Functions return other functions (Currying)
@@ -95,120 +97,7 @@ $$((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7$$
 ## Main Operations
 
 - $\beta$-reduction: apply a function to an argument using substitution
-- $\alpha$-conversion: changing a functions 'argument symbol' ($\lambda x.x \equiv \lambda y.y$)
-- $\eta$-conversion: $\lambda v. f v \equiv f$ because $(\lambda v. f v) a \equiv f a$
-
-## Chruch Numerals
-
-- Numbers can be encoded as functions
-- Arbitary encoding of numbers suggested by church
-
-Each number is a function that takes 2 arguments: $f$ and $x$:
-
-$$\begin{align*}
-0 :&= \lambda f.\lambda x. x\\
-1 :&= \lambda f.\lambda x. f x\\
-2 :&= \lambda f.\lambda x. f (f x)\\
-3 :&= \lambda f.\lambda x. f (f (f x))\\
-\cdots \\
-n :&= \lambda f.\lambda x. f^n x
-\end{align*}$$
-
-
-> The number $n$ is a function that takes a function $f$ as argument and applies it $n$-times to the second argument $x$
-
-Example: $(5 inc) x$: apply function $inc$ $5$-times to $x$
-
-![Church Numerals](/images/lambda_calculus/church_numerals.png)
-
-
-## Lambda Calculus Expressions
-
-- Using just *substitution step* to calculate
-    - seems complex, but only one operation needed: substitution
-
-### Variables
-
-- $a$, $b$, $c$ ...
-- representing functions
-
-### Function Application
-
-$(a b)$: $a$ applied to $b$
-
-![Function Application](/images/lambda_calculus/function_application.png)
-
-### Function Creation
-
-$\lambda a. aa$
-
-![Function Creation](/images/lambda_calculus/function_creation.png)
-
-### Evaluation
-
-![Evaluation](/images/lambda_calculus/function_evaluation.png)
-
-Example:
-
-![Evaluation Example](/images/lambda_calculus/function_evaluation_example.png)
-
-
-### Examples
-
-#### Increment
-
-$$\lambda k f x. f ( k f x)$$
-
-Example:
-
-increment $2$
-
-$$
-\begin{align*}
-\underbrace{(\lambda k f x. f ( k f x))}_{inc}\underbrace{(\lambda f x. f ( f x))}_{2} &= \\
-(\lambda f x. f ( (\lambda f x. f ( f x)) f x)) &= \\
-(\lambda f x. f ( f ( f x)))
-\end{align*}
-$$
-
-![Increment](/images/lambda_calculus/increment.png)
-
-
-#### Addition
-
-![Addition](/images/lambda_calculus/addition.png)
-
-
-#### Multiplication
-
-![Multiplication](/images/lambda_calculus/multiplication.png)
-
-
-#### Boolean Logic
-
-![Boolean Logic](/images/lambda_calculus/boolean_logic.png)
-
-
-#### If-Then-Else
-
-![If Then Else](/images/lambda_calculus/if_then_else.png)
-
-
-
-#### Pair
-
-![Pair](/images/lambda_calculus/pair.png)
-
-![Shift Pair](/images/lambda_calculus/pair_shifting.png)
-
-
-## Conclusion
-
-- No distinction between code and data: everything is code!
-- No structure is safe from substitution (safety issue)
-- Data has to be run, can't be examined
-
-<!-- Notes Week 7 End -->
+    - Reduction is an optimistic term since the result of the $\beta$-reduction can be bigger then the expression before<!-- Notes Week 8 Start -->
 
 ## Recursion
 
@@ -228,20 +117,43 @@ See [Wikipedia](https://en.wikipedia.org/wiki/Fixed-point_combinator#Fixed_point
 
 and [The Y Combinator (no, not that one)](https://medium.com/@ayanonagon/the-y-combinator-no-not-that-one-7268d8d9c46#.c11j5arpk).
 
-$$Y = \lambda f. (\lambda x. f (x x))(\lambda x. f (x x))$$
+$$Y = \lambda f. (\lambda x. f (x\; x))(\lambda x. f (x \;x))$$
 
 Beta recursion gives:
 
 $$\begin{align*}
-Y g &= \lambda f. (\lambda x. f (x x))(\lambda x. f (x x)) g \\
- &= (\lambda x. g (x x)) (\lambda x. g (x x)) \\ 
- &= g ((\lambda x. g (x x)) (\lambda x. g (x x)))  \\ 
- &= g (Y g)
+Y g &= \lambda f. (\lambda x. f (x\; x))(\lambda x. f (x\; x)) g \\
+ &= (\lambda x. g (x\; x)) (\lambda x. g (x\; x)) \\ 
+ &= g ((\lambda x. g (x\; x)) (\lambda x. g (x\; x)))  \\ 
+ &= g (Y\; g)
 \end{align*}$$
 
 - Only way to do a loop if you don't know in advance how many iterations the loop needs to be done
 - Functions can't see their own structure
     - Needs to be provided as argument so the function can reproduce itself: 'twin'-functions
 
-<!-- Notes Week 8 40:00 -->
+# Numbers
+
+- Numbers are an abstract concept
+- It's only possible to manipulate *representations* of numbers
+
+There Are a lot of different representations of numbers.
+
+Each representation has it's pros and cons.
+
+- Decimal
+- Roman Numerals
+- Binary
+- [Two's complement](https://en.wikipedia.org/wiki/Two's_complement)
+- [Binary with digits up to 2](Redundant binary representation)
+    - Addition can be faster
+    - Logical operation are slower
+- Ternary
+- Church Numerals
+- Prime Factorization: $1, 2, 3, 2^2, 5, 2\cdot 3, 7, 2^3, 3^2, \ldots$
+    - Multiplication and Factorization is easy
+    - Increment by one is hard
+- [Chinese remainder theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem)
+    - Comparing two numbers is hard
+
 
