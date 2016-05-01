@@ -336,6 +336,54 @@ In OOP 2. is missing. A class just defines a type but is not a container of all 
 
 ODMG defines Extents.
 
+
+#### Difference to SQL
+
+This is illegal as the “dot” operator cannot be applied to a collection of objects:
+    :::SqlLexer
+    select a.authors.title
+    from   Authors a
+    where  a.name = "Tilmann Zaeschke"
+
+Correct solution based on *correlated* variables:
+
+    :::SqlLexer
+    select p.title
+    from Authors a, a.authors p
+    where a.name = "Tilmann Zaeschke"
+
+#### Return Types
+
+- Queries return sets, bags or lists
+
+As a default, queries return a *bag*
+
+    :::SqlLexer
+    select first: p.authored_by[1], p.title, p.year
+    from   Publications p
+
+    :::java
+    Bag<Struct { Author first, string title, integer year }>
+
+Queries with `DISTINCT` return a *set*
+
+    :::SqlLexer
+    select distinct a.name
+    from   Authors a
+
+    :::java
+    Set<Struct { string name }>
+
+Queries with `ORDER BY` return a *list*
+
+    :::SqlLexer
+    select p.title
+    from Publications s order by p.year desc
+
+    :::java
+    List<Struct { string name }>
+
+
 #### Extents
 
 - Extent of a type is the set (collection) of all active instances
@@ -395,11 +443,11 @@ OMDG supports sub-collections
 - Database operations
 - Locking and concurrency control
 - Transactions
-- Access to metadata
+- Access to meta-data
 - Built-in structured literals and objects
     - dates
     - times
-    - timestamps
+    - time-stamps
     - intervals
     - ...
 
@@ -407,6 +455,8 @@ OMDG supports sub-collections
 
 - programming language independent, extensible and practical
 - compatible to OMG Interface Definition Language (IDL)
+
+ODL Syntax:
 
     :::java
     class name [ ( extent name, key name ) ] {
@@ -419,11 +469,19 @@ OMDG supports sub-collections
 
 - extent and key of a class can be specified optionally
 - relationships specify inverse to maintain referential integrity
-- methodS signatures are implemented by language binding
-
-<!-- Lecture Notes Week 2 01:28::00 Object Query Language -->
+- method signatures are implemented by language binding
 
 
+### Collection Expressions
+- Aggregate operators
+    - `AVG`, `SUM`, `MIN`, `MAX`, and `COUNT` apply to collections that have a compatible member type
+- Operations for sets and bags
+    - `UNION`, `INTERSECTION` and `EXCEPT`
+    - inclusion tests (subset, super-set)
+- Special operations for lists
+    - Simple coercions
+    - a collection of one element can be coerced to that element using the `ELEMENT` operator
+- Flattening a collection of collections
 
 
 ### Language Bindings
