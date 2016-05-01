@@ -52,13 +52,13 @@ General of **XOR**:
 
 - for $n$ inputs $2^{n-1}+1$ gates needed
 
-<!-- Notes Week 1 40:00 -->
+<!-- Notes Week 1 End -->
 
 
 
 
 <!-- TODO -->
-
+<!-- Notes Week 2 Start -->
 
 <!-- Notes Week 7 Start -->
 
@@ -97,7 +97,10 @@ $$((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7$$
 ## Main Operations
 
 - $\beta$-reduction: apply a function to an argument using substitution
-    - Reduction is an optimistic term since the result of the $\beta$-reduction can be bigger then the expression before<!-- Notes Week 8 Start -->
+    - Reduction is an optimistic term since the result of the $\beta$-reduction can be bigger then the expression before
+
+<!-- Notes Week 7 End -->
+<!-- Notes Week 8 Start -->
 
 ## Recursion
 
@@ -155,5 +158,8 @@ Each representation has it's pros and cons.
     - Increment by one is hard
 - [Chinese remainder theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem)
     - Comparing two numbers is hard
+- [p-adic number](https://en.wikipedia.org/wiki/P-adic_number)
+    - related to two's complement
 
 
+<!-- Notes Week 8 End -->
