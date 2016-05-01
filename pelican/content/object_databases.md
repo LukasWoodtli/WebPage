@@ -116,7 +116,7 @@ Retrieval of data
 
 DD, DM supported in Java. Querying is very limited.
 
-### DD
+- DD
 
 SQL
 
@@ -131,7 +131,7 @@ Java
         String email;
     }
 
-## DM
+- DM
 
 SQL
 
@@ -146,8 +146,7 @@ Java
     new Person()
     p.name = "Bill Stinnet"
 
-
-## Querying
+- Querying
 
 SQL
 
