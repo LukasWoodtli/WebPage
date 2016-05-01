@@ -489,3 +489,104 @@ ODL Syntax:
 - Java
 - Smalltalk
 - ...
+
+# Hibernate
+
+- Example of a [Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping) tool
+- Challenges
+    - Data has to outlive the execution of the program
+    - The program is written in an OOP language
+
+![Mappings](/images/object_databases/db_mappings.svg)
+
+- Problems of Object Identity
+    - Two object graphs can point to same objects
+    - Douplicates can be created When deserialized
+    - Programmer must take care to avoid multiplicity!
+- Object Identity
+    - Multiple models
+    - Impedance mismatch
+    - Transformation must be implemented (Design Time)
+    - Transformation must be carried out (Run Time)
+    - Must be implemented for each application
+- Possible use of SQL
+    - Integrating a relational database at the level of SQL (e.g. JDBC, Google Android, PHP mysqli)
+        - OK for simple application domains (e.g. few classes with base type attributes)
+        - Not OK for complex application domains (e.g. many classes with reference type attributes, multi-valued attributes, associations, inheritance)
+
+## Object-Relational Mappings
+
+- Map object-oriented domain model to relational database
+    - Hibernate
+        - Free implementation for Java
+        - maps Java types to SQL types
+        - transparent persistence for classes meeting certain requirements
+        - generates SQL for more than 25 dialects behind the scenes
+        - provides data query and retrieval using either HQL or SQL
+        - can be used stand-alone with Java SE or in Java EE applications
+    - Java Persistence API (JPA)
+        - Defines interface (and annotations) to use y other systems
+        - Enterprise Java Beans Standard 3.0
+        - introduced annotations to define mapping
+        - javax.persistence package
+
+## Main Concepts
+
+- Configuration
+    - Connection to database (hibernate.properties or hibernate.cfg.xml)
+    - Which DBMS? (MySQL, HSQL, ...)
+    - Which DB Instance? (Database Name)
+    - Mappings
+- SessionFactory
+    - Using the configuration, a SessionFactory is created
+    - Using this SessionFactory, Session objects can be created
+
+Example:
+
+    :::java
+    SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
+- Session
+    - Connection to a database instance
+    - Created when we want to work with a database
+    - Using a Session object, we can store and retrieve application data
+    - Methods:
+        - save
+        - createQuery
+        - update
+        - delete
+
+Example:
+
+    :::java
+    Session session = factory.openSession();
+    ...
+    session.save(person);
+    ...
+    session.close();
+
+- Transaction
+    - Opened with a Session object `beginTransaction()` and closed using `commit()`
+
+Example:
+
+    :::java
+    Transaction tx = session.beginTransaction();
+    ...
+    tx.commit();
+
+- Query
+    - Represents a query (e.g. `SELECT * FROM PERSONS`, HQL).
+    - Result is a list
+
+Example:
+
+    :::java
+    List persons = session.createQuery(“FROM Persons”).list();
+    for (Object p: persons)
+      { ... }
+
+- Criteria
+    - An object-oriented representation of query criteria
+
+<!-- Slides 03 p. 17 -->

@@ -1,0 +1,13 @@
+digraph DbMappings {
+
+rankdir=TD;
+
+RealWorld[label="Real World"];
+
+Database -> RealWorld[dir="both", label="Mapping 1\nEnterprise modeling"];
+
+Database -> Program[dir="both", label="Mapping 2\nInterface between program and DB"];
+
+Program -> RealWorld[dir="both", label="Mapping 3\nSimulation (normal programming)"];
+
+}
