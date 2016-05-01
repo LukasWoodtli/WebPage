@@ -29,7 +29,7 @@ before_script:
 
 script:
 - python generate_page.py
-- linkchecker http://lukaswoodtli.github.io
+# it's not working??? - linkchecker http://lukaswoodtli.github.io
 
 env:
   global:
