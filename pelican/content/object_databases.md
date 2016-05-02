@@ -501,7 +501,7 @@ ODL Syntax:
 
 - Problems of Object Identity
     - Two object graphs can point to same objects
-    - Douplicates can be created When deserialized
+    - Duplicates can be created When deserialized
     - Programmer must take care to avoid multiplicity!
 - Object Identity
     - Multiple models
@@ -589,4 +589,98 @@ Example:
 - Criteria
     - An object-oriented representation of query criteria
 
-<!-- Slides 03 p. 17 -->
+## Mapping Associations
+
+- Uni- and bidirectional associations
+- Unordered and ordered associations
+- Association cardanality types
+    - one-to-one
+    - many-to-one
+    - one-to-many
+    - many-to-many
+- Join Tables to map complex associations
+
+Example:
+
+    :::SqlLexer
+    CREATE TABLE AUTHOR(AUTHOR_ID BIGINT NOT NULL PRIMARY KEY, ...)
+    CREATE TABLE AUTHORSPUBLICATIONS(
+      AUTHOR_ID BIGINT NOT NULL,
+      PUBLICATION_ID BIGINT NOT NULL,
+      PRIMARY KEY(AUTHOR_ID, PUBLICATION_ID))
+    CREATE TABLE PUBLICATION(PUBLICATION_ID BIGINT NOT NULL PRIMARY KEY, ... )
+
+## Mapping Inheritance
+
+- Multiple strategies
+    - One table per class hierarchy
+    - One table per subclass
+    - One table per concrete class
+- Mapping strategies can be mixed
+    - Different parts of inheritance hierarchy can have different strategy
+- Implicit polymorphism
+    - One table per concrete class
+    - Common interface *not* mentioned in the mapping
+    - Common properties are mapped in *every* table
+
+## Annotations
+
+- Since Java 5
+- Java Persistence API (JPA, Enterprise Java Beans 3.0)
+- Annotations instead of XML for mapping
+- Standardizes ORM
+- Hibernate implements JPA
+
+# Google Android
+
+- Linux based OS
+- Default applications: Search, Maps, Mail, Calendar, Contacts...
+- Java SDK
+- Support for persistent data management
+
+## Application component model
+
+- Activity (UI)
+- Service (API, Computation)
+- Broadcast Receiver (Events)
+- Content Provider (Data Management)
+
+- Manifest
+    - lists the application components
+    - sets activity to be shown at startup
+    - components can be made available to other applications
+- Intent: request the use of application components
+    - showing activities
+    - using content provides
+    - listening to events
+    - starting services
+    - ...
+- [Application Life-cycle](http://developer.android.com/guide/components/activities.html)
+    - States: New Activity, Running, Paused, Stopped, Destroyed
+    - Extend `Activity`
+    - Application can react to state changes
+
+## Data Management
+
+- Low-level: SQL
+- High-level: Content Provider
+- Database Instance
+    - SQLite
+    - **CRUD**
+        - **C**reate (Insert)
+        - **R**ead (Retrieve, Query)
+        - **U**pdate
+        - **D**elete
+- Cursor
+    - Iterator over result
+    - Methods `isLast()` and `moveToNext()`
+    - Type specific getter methods (e.g `getInt(3)`)
+    - Access with index
+    - Index can be retrieved `getColumnIndex(String colName)`
+
+- Content Provider
+    - Abstract class implemented by application
+    - Uses
+        - Cursor
+        - URI
+        - ContentValue
