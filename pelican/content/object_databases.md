@@ -684,3 +684,146 @@ Example:
         - Cursor
         - URI
         - ContentValue
+
+# Object-Oriented Databases: Object Database Manifesto
+
+- Avoid impedance mismatch
+- Provide uniform datamodel
+- Combine features of
+    - OOP
+    - Database Management Systems
+
+- The object-oriented database manifesto
+    - 13 mandatory features
+    - 5 optional characteristics
+    - 4 open choices
+    - several important topics not addressed
+
+- Object-oriented systems
+    - 1\. Complex objects
+    - 2\. Object identity
+    - 3\. Encapsulation
+    - 4\. Types and classes
+    - 5\. Type and class hierarchies
+    - 6\. Overriding, overloading and late binding 7. Computational completeness
+    - 8\. Extensibility
+
+- Database management systems
+    - 9\. Persistence
+    - 10\. Efficiency
+    - 11\. Concurrency
+    - 12\. Reliability
+    - 13\. Declarative query language
+
+## Objects
+
+- Complex objects
+    - build from simpler objects (constructor)
+    - collections
+- Object identity and equality
+    - Object ID (OID)
+        - unique and immutable
+    - sharing of objects (references)
+    - *identical* objects have same OID
+    - *equal* objects have same state
+    - shallow and deep equality
+- Tuples: entities and their attributes
+- Sets: collections of entities
+- Lists: order
+
+- Constructor orthogonality
+    - supports arbitrary nesting such as
+        - sets of sets
+        - set of records
+        - records containing records
+        - ...
+    - In contrast, relational databases only support
+        - sets of records (relation with tuples) and
+        - tuples containing atomic values
+- Complex objects also require
+    - transitive retrieval and deletion of objects
+    - deep and shallow copying
+    - ...
+- Encapsulation
+    - interface
+        - signatures of public methods
+    - implementation
+        - includes data and methods
+    - object state modification only through public methods
+    - object data structure may be *exposed* for *declarative queries*!
+
+## Types and Classes
+
+- Data types
+    - definition of object properties
+    - static part: object structure
+    - dynamic part: object behavior
+    - separation of interface and implementation
+    - Check of correctness at compile time
+- Object classes
+    - container for objects of the same type
+    - objects can be added and removed
+    - used to add, remove and iterate over all existing objects
+        - to present, manipulate ... them
+
+## Generalization Hierarchies
+
+- Powerful modeling tool
+- Reuse (specification and implementation)
+- Inheritance
+    - Substitution principle
+    - Inherited attributes and methods (from super-class)
+    - New attributes and methods can be added (in subclass)
+- Migration between classes
+    - move objects between hierarchy levels
+    - object specialization and generalization
+
+## Durability and Efficiency
+- Persistence
+    - data has to survive the program execution
+    - orthogonal persistence
+    - implicit persistence
+- Secondary storage management
+    - index management
+    - data clustering
+    - data buffering
+    - access path selection
+    - query optimisation
+
+
+- Orthogonality
+    - Persistance applicable to all objects of any type
+    - No additional code necessary
+    - Moving objects between persistent and memory representation is not needed 
+
+- Similar requirements for  secondary storage management
+    - As a rule of thumb:
+        - a database should work without it, but with it, it should perform better
+    - If this requirement is met, a complete separation of the logical and physical level is achieved
+
+## Concurrency Control and Recovery
+- Concurrency
+    - management of multiple users concurrently interacting
+    - atomicity, consistency, isolation and durability
+    - serialisability of operations
+- Reliability
+    - resiliency to user, software and hardware failures
+    - transactions can be committed or aborted
+    - restore previous coherent state of data
+    - redoing and undoing of transactions
+    - logging of operations
+
+## Declarative Query Language
+- High-level language
+    - express non-trivial queries concisely
+    - text-based or graphical interface
+    - declarative
+- Efficient execution
+    - possibility for query optimisation
+    - Application independent
+    - work on any possible database
+    - no need for additional methods on user-defined types
+
+<!-- start week 5 -->
+
+
