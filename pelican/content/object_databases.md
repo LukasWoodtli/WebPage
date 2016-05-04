@@ -199,15 +199,28 @@ LINQ is a powerful and compile time safe support for querying.
 <!-- Lecture 1 Slides End -->
 <!-- Lecture 1 Notes End -->
 
+# CRUD and ACID
+
+- The acronym [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) stands for the basic functions of a database system
+    - Create
+    - Read
+    - Update
+    - Delete
+
+- The acronym [ACID](https://en.wikipedia.org/wiki/ACID) stands for the properties that allow for concurrent database transactions
+    - Atomicity
+    - Consistency
+    - Isolation
+    - Durability
 
 # Object Database Systems
 
-| System                                | db4o | Object Store | Versant | Objectivity  |
-|---------------------------------------|------|--------------|---------|--------------|
-| Data-type Orthogonality               |      |              |         |              |
-| Orthogonal Persistence (independence) |      |              |         |              |
-| Programming Languages                 |      |              |         |              |
-| OSs                                   |      |              |         |              |
+| System                                | db4o                                             | Object Store | Versant | Objectivity  |
+|---------------------------------------|--------------------------------------------------|--------------|---------|--------------|
+| Data-type Orthogonality               | No changes to classes to make objects persistent |              |         |              |
+| Orthogonal Persistence (independence) |                                                  |              |         |              |
+| Programming Languages                 |                                                  |              |         |              |
+| OSs                                   |                                                  |              |         |              |
 
 
 <!-- Lecture 2 Slides Start -->
@@ -824,6 +837,83 @@ Example:
     - work on any possible database
     - no need for additional methods on user-defined types
 
-<!-- start week 5 -->
+<!-- Lecture 5 Start -->
 
+# db4o
 
+- Open Source project
+    - Java and .NET
+- Features
+    - No conversion of mapping needed
+    - Classes don't need to be changed to make them persistent
+    - One line of code to store (complex) objects
+    - local or client/server mode
+    - ACID transaction model
+    - Automatic management and versioning of database schema
+    - Small memory foot-print (single 2Mb library)
+
+## Object Container
+
+- Represents db4o databases
+    - local file mode or
+    - client connections to db4o server
+- Owns one transaction
+    - operations are executed transactional
+    - transaction is started when object container is opened
+    - after commit/rollback next transaction is started automatically
+- Manages link between stored and instantiated objects
+    - object indentities
+    - loading, updating, unloading
+
+## Storing Objects
+
+- Store objects with method `ObjectContainer.store(...)`
+- Arbitrary complex objects can be stored
+- Persistance by reachability
+
+## Retrieving Objects
+
+- 3 Query languages
+    1. Query by Example
+        - simple
+        - based on prototype objects
+        - selects *exact* matches only
+    2. Native Queries
+        - expressed in application programming language
+        - type safe
+        - transformed to SODA (optimized)
+    3. Simple Object Data Access (SODA)
+        - query API based on query grah
+        - methods for descending graph and applying constraints
+
+### SODA Queries
+
+- Expressed using `Query` objects
+    - `descend` adds or traverses a node in the query tree
+    - `constrain` adds a constraint to a node in the query tree
+    - `sortBy` sorts the result set
+    - `orderAscending` and `orderDescending`
+    - `execute` executes the query
+- Interface Constraint
+    - `greater` and `smaller` comparison modes
+    - `identity`, `equal` and `like` evaluation modes
+    - `and`, `or` and `not` operators
+    - `startsWith` and `endsWith` string comparisons
+    - `contains` to test collection membership
+
+## Updating Objects
+
+- Update procedure for persistent object
+    - retrieve desired object from the database
+    - perform the required changes/modifications
+    - store object back to the database (calling `store` method)
+- db4o uses IDs to connect in-memory objects with stored objects
+- IDs are cached
+
+## Deleting Objects
+
+- similar to updating objects
+- Method `ObjectContainer.delete(...)` removes objects
+
+<!-- ## Simple Structured Objects -->
+<!-- TODO 06-0-db4o-part-1.pdf p. 20 -->
