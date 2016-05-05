@@ -220,6 +220,7 @@ LINQ is a powerful and compile time safe support for querying.
 | Data-type Orthogonality               | No changes to classes to make objects persistent |              |         |              |
 | Orthogonal Persistence (independence) |                                                  |              |         |              |
 | Programming Languages                 |                                                  |              |         |              |
+| Peristence Depth                      | persistence by reachability                      |              |         |              |
 | OSs                                   |                                                  |              |         |              |
 
 
@@ -807,7 +808,7 @@ Example:
 - Orthogonality
     - Persistance applicable to all objects of any type
     - No additional code necessary
-    - Moving objects between persistent and memory representation is not needed 
+    - Moving objects between persistent and memory representation is not needed
 
 - Similar requirements for  secondary storage management
     - As a rule of thumb:
@@ -915,5 +916,52 @@ Example:
 - similar to updating objects
 - Method `ObjectContainer.delete(...)` removes objects
 
-<!-- ## Simple Structured Objects -->
-<!-- TODO 06-0-db4o-part-1.pdf p. 20 -->
+## Simple Structured Objects
+
+- New objects are stored using the `store` method
+    - Persistence by reachability
+        - Object graph is traversed, each referenced object is stored
+- Updating objects with `store` method
+    - Update depth *1* by default
+    - Only primitives and strings are updated
+    - No traversal of object graph (performance)
+- Deleting objects with `delete` method
+    - Not cascaded by default
+    - Referenced objects have to be deleted manually
+    - Cascading delete can be configured for individual classes
+
+### Updating Simple Structured Objects
+
+- Cascading updates are configured per class with `ObjectClass.cascadeOnUpdate(..)`
+- Update depth can be configured
+    - `ExtObjectContainer.store(object, depth)` updates referenced objects to given depth
+    - `ObjectClass.updateDepth(depth)` defines update depth for a class (and all its objects)
+    - `Configuration.updateDepth(depth)` sets global update depth for all objects
+
+### Deleting Simple Structured Objects
+
+- Cascading deletes similar to cascading updates
+    - configured per object class
+    - `CommonConfiguration.objectClass (...)`
+    - `ObjectClass.cascadeOnDelete(..)`
+    - What happens if deleted objects referenced elsewhere???
+    - Cache and disk can become inconsistent when deleting objects
+        - `ExtObjectContainer.refresh(..)` syncs objects
+
+## Object Hierarchies
+
+- Complex object structures are handled automatically
+    - hierarchies, composite hierarchies
+    - inverse associations
+    - inheritance and interfaces
+    - multi-valued attributes, arrays and collections
+- db4o database-aware collections
+    - `ArrayList4` and `ArrayMap4` implement Collections API
+    - as part of transparent persistence/activation framework
+      - `ActivatableArrayList`, `ActivatableHashMap`, ...
+    - complex object implementation becomes db4o dependant
+
+<!-- ## Transparent Persistence
+06-0-db4o-part-1.pdf
+-->
+
