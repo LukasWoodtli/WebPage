@@ -959,9 +959,73 @@ Example:
     - `ArrayList4` and `ArrayMap4` implement Collections API
     - as part of transparent persistence/activation framework
       - `ActivatableArrayList`, `ActivatableHashMap`, ...
-    - complex object implementation becomes db4o dependant
+    - complex object implementation becomes *db4o dependant*
 
-<!-- ## Transparent Persistence
-06-0-db4o-part-1.pdf
--->
+## Transparent Persistence
 
+- Persistance should be transparent to application logic
+    - Store objects in database *once* (`store` method)
+    - avoid multiple calls of `store`
+- Logic of transparent persistence framework
+    - `Activatable` interface
+    - objects are made persistent by `store` method
+    - objects bound to transparent persistence framework with `bind`method
+    - commit: transparent persistent framework scans for modified objects and invokes `store`
+
+Enabling transparent persistence
+
+    :::java
+    config.add(new TransparentPersistenceSupport());
+
+## Activation
+
+- Activation controls depth of loaded fields
+    - filed values (objects) are loaded in memory to a certain depth when query retrieves objects
+    - activation depth: length of reference chain
+    - fields beyond activation depth: default value (e.g `null`)
+- Activation cases
+    - `ObjectSet.next(...)` called on an query result
+    - explicit `ObjectContainer.activate(...)`
+    - db4o collection element accessed
+    - members of Java collections are activated automatically when collection is activated
+- Controlling activation
+    - default depth: 5
+    - `ObjectContainer.activate(..)` and `ObjectContainer.deactivate()`
+- per class configuration
+
+Methods for per class configuration of activation depth
+
+    :::java
+    ObjectClass#minimumActivationDepth(minDepth)
+    ObjectClass#maximumActivationDepth(maxDepth)
+    ObjectClass#cascadeOnActivate(bool)
+    ObjectClass#objectField(...).cascadeOnActivate(bool)
+
+### Transparent Activation
+
+- Make activation transparent to application logic
+    - activate fields automatically when accessed
+- Logic of transparent activation framework
+    - `Activable` interface
+    - at object instantiation db registers itself in object with `bind(..)`
+
+Enabling the transparent activation framework
+
+    :::java
+    config.add(new TransparentActivationSupport());
+
+## db4o Transactions
+
+- ACID
+- Data transaction journaling
+    - no data loss in case of system failure
+    - automatic data recovery after system failure
+- thread-safe for simultaneous interactions
+- all work in `ObjectContainer`is transactional
+    - transaction started when container opened
+    - current transaction committed when container closed
+    - explicit commit and rollback possible
+        - `ObjectContainer.commit(...)`
+        - `ObjectContainer.rollback(...)`
+
+<!-- 07-0-db4o-part-2 -->
