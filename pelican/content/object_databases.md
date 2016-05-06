@@ -1028,4 +1028,30 @@ Enabling the transparent activation framework
         - `ObjectContainer.commit(...)`
         - `ObjectContainer.rollback(...)`
 
-<!-- 07-0-db4o-part-2 -->
+## Configuration
+
+- Embedded
+    - `Db4oEmbedded.newConfiguration()`
+- Client/Server
+    - `Db4oClientServer.newClientConfiguration()`
+    - `Db4oClientServer.newServerConfiguration()`
+
+## External tools
+- performance tuning
+- database diagnostics
+- Indexes
+    - optimise query evaluation
+- Defragment
+    - removes unused fields, classes, management information
+    - compacts db file, faster access
+    - command line interface or from application
+- Statistics
+    - queries
+    - objects: stored, retrieved, activated, ...
+    - I/O, Network, ...
+- Logger
+    - logs objects in db
+    - logs objects of a given class
+    - run from command line
+
+<!-- 07-0-db4o-part-2.pdf p 5 -->
