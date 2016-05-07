@@ -275,3 +275,66 @@ Each representation has it's pros and cons.
 
 
 <!-- Notes Week 8 End -->
+
+
+
+<!-- Notes Week 10 Begin -->
+
+# Tag System
+
+- Tape with a starting string
+- Reading and deleting at the beginning (left)
+- Appending (writing) at the end (right)
+
+## 2-Tag System
+
+1. reads *1* symbol at the beginning of the tape
+2. appends a string at the end of the type
+    - appendet string depends on read symbol
+3. removes *2* symbols at the beginning of the tape
+
+### Example: Test for odd/even number
+
+    - Alphabet: $\Sigma = \{C_1, C_2,C_3\}$
+    - Rules:
+        - $C_3 \rightarrow \epsilon$
+        - $C_1 \rightarrow C_2 \; O$
+        - $C_2 \rightarrow E$
+    - $\epsilon$: empty word
+    - $O$: Odd
+    - $E$: Even
+
+    - $C_1 \; C_1 \; (C_3)^x$
+    - $a^x$: symbol a is repeated $x$ times
+    - the given rules show if $x$ is odd or even
+
+Example even:
+$$\begin{align*}
+C_1 C_1 C_3 C_3 C_3 C_3 \rightarrow  \\ 
+C_3 C_3 C_3 C_3 C_2 O \rightarrow \\
+C_3 C_3 C_2 O \rightarrow \\
+C_2 O \rightarrow \\
+E
+\end{align*}$$
+
+Example odd:
+\begin{align*}
+C_1 C_1 C_3 C_3 C_3 \rightarrow  \\ 
+C_3 C_3 C_3 C_2 O \rightarrow \\
+C_3 C_2 O \rightarrow \\
+O
+\end{align*}
+
+### Example: Power of Two
+
+
+\begin{align*}
+2^n &\rightarrow  n \\ 
+C_1 &\rightarrow C_1 C_2 C_4 C_5 \\
+C_2 &\rightarrow \epsilon \\ 
+C_3 &\rightarrow C_3 \\ 
+C_4 &\rightarrow C_4 C_5 \\ 
+C_5 &\rightarrow C_6
+\end{align*}
+
+<!-- Notes Week 10 00:07:00 -->
