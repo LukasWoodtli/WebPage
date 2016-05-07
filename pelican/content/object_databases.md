@@ -1054,4 +1054,102 @@ Enabling the transparent activation framework
     - logs objects of a given class
     - run from command line
 
-<!-- 07-0-db4o-part-2.pdf p 5 -->
+## Indexes
+
+- Trade-off between
+    - increased query performance
+    - decreased storage, update und delete performance
+- Set by configuration or annotation (`@indexed`)
+
+## Tuning for Speed
+
+- Heuristic to improve performance
+    - weak references
+    - BTree node size
+    - free-space manager
+    - locking
+    - flushing
+    - callbacks
+    - caches
+    - ...
+- Object loading
+    - use appropriate activation depth
+    - use multiple object or session containers
+    - disable weak references if not required
+- Database tests
+    - disable detection of schema changes
+    - disable instantiation tests of persistance classes at start-up
+- Query evaluation
+    - set field indexes on most used objects to improve searches
+    - optimise native queries
+
+## Distribution and Replication
+
+- Embedded mode
+    - DB accessed by clients in same *JVM*
+    - direct file acces: 1 user and 1 thread at a time
+    - client session: 1 user and multiple threads
+    - Database file opened, locked and accessed directly
+        - `Db4oEmbedded.openFile(configuration, name)`
+- Client/Server mode
+    - Clients in multiple *JVMs*
+    - DB access on server
+    - Client opens TCP/IP connection to server
+        - `Db4oClientServer.openServer(filename, port)`
+        - `Db4oClientServer.openClient(host, port, user, pass)`
+    - Client sends query, insert, update and delete instructions to server
+    - Client receives data from the server
+- Replication
+    - redundant copies of database on multiple servers
+    - changes replicated form *master* to *client* servers
+    - several forms of replication supported
+        - snapshot replication
+        - transactional replication
+        - merge replication
+    - needs to be coded into application
+        - cannot be configured on admin level
+        - replication only on demand
+        - client/server semantics introduced by developer
+        - one interface for all forms of replication
+    - Replication Modes
+        - Snapshot Replication
+            - Snapshots of master replicated to client
+            - state-based
+            - periodical schedule
+            - special SODA query to detect all new and updated objects
+        - Transactional Replication
+            - Changes synchronised after transaction
+            - operation based
+            - changes replicated immediately
+            - Single object replication with `ReplicationSession`
+        - Merge Replication
+            - Changes from clients merged to central server
+            - Other clients updated to reflect changes
+            - Transactionally of on a periodic basis
+            - Typically if subscribers are occasionaly offline
+- Replication System
+    - Separated from db4o core
+    - uni- or bidirectional replication
+    - Replication of relational databases based on Hibernate
+    - Supported replication providers
+        - db4o &rarr; db4o
+        - db4o &rarr; Hibernate
+        - Hibernate &rarr; db4o
+        - Hibernate &rarr; Hibernate
+    - 3 steps required
+        1. Generating unique IDs and version numbers
+        2. Creating a `ReplicationSession`
+        3. Replicating objects
+    - Mode dependent on implementation
+    - Bidirectional by default
+        - Unidirectional can be configured
+            - `ReplicationSession.setDirection(from, to)`
+        - `ReplicationSession.replicate(object)` newer object transfered to DB
+        - Object granularity
+
+<!-- 07-0-db4o-part-2.pdf p. 20
+  ## Callbakcs -->
+
+
+
+
