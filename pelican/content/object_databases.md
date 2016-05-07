@@ -220,7 +220,7 @@ LINQ is a powerful and compile time safe support for querying.
 | Data-type Orthogonality               | No changes to classes to make objects persistent |              |         |              |
 | Orthogonal Persistence (independence) |                                                  |              |         |              |
 | Programming Languages                 |                                                  |              |         |              |
-| Peristence Depth                      | persistence by reachability                      |              |         |              |
+| Persistence Depth                      | persistence by reachability                      |              |         |              |
 | OSs                                   |                                                  |              |         |              |
 
 
@@ -492,7 +492,7 @@ ODL Syntax:
     - `UNION`, `INTERSECTION` and `EXCEPT`
     - inclusion tests (subset, super-set)
 - Special operations for lists
-    - Simple coercions
+    - Simple coercion
     - a collection of one element can be coerced to that element using the `ELEMENT` operator
 - Flattening a collection of collections
 
@@ -802,11 +802,11 @@ Example:
     - data clustering
     - data buffering
     - access path selection
-    - query optimisation
+    - query optimization
 
 
 - Orthogonality
-    - Persistance applicable to all objects of any type
+    - Persistence applicable to all objects of any type
     - No additional code necessary
     - Moving objects between persistent and memory representation is not needed
 
@@ -833,7 +833,7 @@ Example:
     - text-based or graphical interface
     - declarative
 - Efficient execution
-    - possibility for query optimisation
+    - possibility for query optimization
     - Application independent
     - work on any possible database
     - no need for additional methods on user-defined types
@@ -863,14 +863,14 @@ Example:
     - transaction is started when object container is opened
     - after commit/rollback next transaction is started automatically
 - Manages link between stored and instantiated objects
-    - object indentities
+    - object identities
     - loading, updating, unloading
 
 ## Storing Objects
 
 - Store objects with method `ObjectContainer.store(...)`
 - Arbitrary complex objects can be stored
-- Persistance by reachability
+- Persistence by reachability
 
 ## Retrieving Objects
 
@@ -884,7 +884,7 @@ Example:
         - type safe
         - transformed to SODA (optimized)
     3. Simple Object Data Access (SODA)
-        - query API based on query grah
+        - query API based on query graph
         - methods for descending graph and applying constraints
 
 ### SODA Queries
@@ -959,11 +959,11 @@ Example:
     - `ArrayList4` and `ArrayMap4` implement Collections API
     - as part of transparent persistence/activation framework
       - `ActivatableArrayList`, `ActivatableHashMap`, ...
-    - complex object implementation becomes *db4o dependant*
+    - complex object implementation becomes *db4o dependent*
 
 ## Transparent Persistence
 
-- Persistance should be transparent to application logic
+- Persistence should be transparent to application logic
     - Store objects in database *once* (`store` method)
     - avoid multiple calls of `store`
 - Logic of transparent persistence framework
@@ -1040,7 +1040,7 @@ Enabling the transparent activation framework
 - performance tuning
 - database diagnostics
 - Indexes
-    - optimise query evaluation
+    - optimize query evaluation
 - Defragment
     - removes unused fields, classes, management information
     - compacts db file, faster access
@@ -1058,7 +1058,7 @@ Enabling the transparent activation framework
 
 - Trade-off between
     - increased query performance
-    - decreased storage, update und delete performance
+    - decreased storage, update and delete performance
 - Set by configuration or annotation (`@indexed`)
 
 ## Tuning for Speed
@@ -1078,16 +1078,16 @@ Enabling the transparent activation framework
     - disable weak references if not required
 - Database tests
     - disable detection of schema changes
-    - disable instantiation tests of persistance classes at start-up
+    - disable instantiation tests of persistence classes at start-up
 - Query evaluation
     - set field indexes on most used objects to improve searches
-    - optimise native queries
+    - optimize native queries
 
 ## Distribution and Replication
 
 - Embedded mode
     - DB accessed by clients in same *JVM*
-    - direct file acces: 1 user and 1 thread at a time
+    - direct file access: 1 user and 1 thread at a time
     - client session: 1 user and multiple threads
     - Database file opened, locked and accessed directly
         - `Db4oEmbedded.openFile(configuration, name)`
@@ -1118,7 +1118,7 @@ Enabling the transparent activation framework
             - periodical schedule
             - special SODA query to detect all new and updated objects
         - Transactional Replication
-            - Changes synchronised after transaction
+            - Changes synchronized after transaction
             - operation based
             - changes replicated immediately
             - Single object replication with `ReplicationSession`
@@ -1126,7 +1126,7 @@ Enabling the transparent activation framework
             - Changes from clients merged to central server
             - Other clients updated to reflect changes
             - Transactionally of on a periodic basis
-            - Typically if subscribers are occasionaly offline
+            - Typically if subscribers are occasionally offline
 - Replication System
     - Separated from db4o core
     - uni- or bidirectional replication
@@ -1144,12 +1144,72 @@ Enabling the transparent activation framework
     - Bidirectional by default
         - Unidirectional can be configured
             - `ReplicationSession.setDirection(from, to)`
-        - `ReplicationSession.replicate(object)` newer object transfered to DB
+        - `ReplicationSession.replicate(object)` newer object transferred to DB
         - Object granularity
 
-<!-- 07-0-db4o-part-2.pdf p. 20
-  ## Callbakcs -->
+## Callbacks
+
+- Called in response to events
+    - activate
+    - deactivate
+    - new
+    - update
+    - delete
+- Methods called before and after event
+    - `can...` called *before* event
+    - `on...` called *after* event
+- Interface `ObjectCallbacks`
+- Use Cases
+    - Recording or preventing updates
+        - `canUpdate()` and `onUpdate()`
+    - Setting default values after *refactoring*
+        - `canNew()`
+    - Checking object integrity before storing objects
+        - `canNew()` and `canUpdate()`
+    - Restoring state when objects activated
+        - Update UI, restore network connections, ...
 
 
+## Object Instantiation
+
+- Three different techniques for instantiation
+    1. Constructor
+    2. Bypassing Constructor
+    3. Translator
+- Bypassing Constructor is default (if available)
+- Can be configured globally or per class
+- Constructors
+    - db4o tries first default constructor
+    - if not public default constructor available
+        - all constructors are tested to create instance
+        - default values (e. g `null`) passed as arguments
+        - first successfully tested constructor is used
+        - if no instance of a class can be created, object can't be stored
+
+Configuration interface:
+
+    :::java
+    // global setting (default: depends on environment)
+    CommonConfiguration#callConstructors(true)
+    // per class setting (default: depends on environment)
+    CommonConfiguration#objectClass(...).callConstructors(true)
+    // exceptions for debugging (default: true)
+    CommonConfiguration#exceptionsOnNotStorable(true)
+
+- Bypassing Constructors
+    - Constructors that cannot handle default values or `null` must be bypassed
+    - platform specific mechanism
+    - Not all environments support this feature
+    - Default setting (if supported by environment)
+    - Breaks classes that rely on constructors being executed
+- Translators
+    - needed if neither Constructors nor Bypassing Constructors can be used
+    - if constructor needed to populate transient members
+    - if constructor fails when called with default values
+    - Interfaces `ObjectTranslator` and `ObjectConstructor`
+- Type Handles
+    - instead of Translators at lower level
+    - type handler registered for class that it handles
+    - write to and read from byte-arrays
 
 
