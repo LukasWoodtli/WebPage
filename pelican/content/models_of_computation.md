@@ -295,18 +295,18 @@ Each representation has it's pros and cons.
 
 ### Example: Test for odd/even number
 
-    - Alphabet: $\Sigma = \{C_1, C_2,C_3\}$
-    - Rules:
-        - $C_3 \rightarrow \epsilon$
-        - $C_1 \rightarrow C_2 \; O$
-        - $C_2 \rightarrow E$
-    - $\epsilon$: empty word
-    - $O$: Odd
-    - $E$: Even
+- Alphabet: $\Sigma = \{C_1, C_2,C_3\}$
+- Rules:
+    - $C_3 \rightarrow \epsilon$
+    - $C_1 \rightarrow C_2 \; O$
+    - $C_2 \rightarrow E$
+- $\epsilon$: empty word
+- $O$: Odd
+- $E$: Even
 
-    - $C_1 \; C_1 \; (C_3)^x$
-    - $a^x$: symbol a is repeated $x$ times
-    - the given rules show if $x$ is odd or even
+- $C_1 \; C_1 \; (C_3)^x$
+- $a^x$: symbol a is repeated $x$ times
+- the given rules show if $x$ is odd or even
 
 Example even:
 $$\begin{align*}
