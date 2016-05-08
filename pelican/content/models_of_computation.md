@@ -280,7 +280,7 @@ Each representation has it's pros and cons.
 
 <!-- Notes Week 10 Begin -->
 
-# Tag System
+# Tag Systems
 
 - Tape with a starting string
 - Reading and deleting at the beginning (left)
@@ -290,7 +290,7 @@ Each representation has it's pros and cons.
 
 1. reads *1* symbol at the beginning of the tape
 2. appends a string at the end of the type
-    - appendet string depends on read symbol
+    - appended string depends on read symbol
 3. removes *2* symbols at the beginning of the tape
 
 ### Example: Test for odd/even number
@@ -325,8 +325,8 @@ C_3 C_2 O \rightarrow \\
 O
 \end{align*}
 
-### Example: Power of Two
 
+### Example: Power of Two
 
 \begin{align*}
 2^n &\rightarrow  n \\ 
@@ -337,4 +337,26 @@ C_4 &\rightarrow C_4 C_5 \\
 C_5 &\rightarrow C_6
 \end{align*}
 
-<!-- Notes Week 10 00:07:00 -->
+Starting with:
+
+$$(C_3)^{2n}C_1C_1 \rightarrow (C_6)^n$$
+
+For $n=2$:
+
+$$\begin{align*}
+C_3 C_3 C_3 C_3 C_1 C_1 \rightarrow \\
+C_3 C_3 C_1 C_1 C_3 \rightarrow \\
+C_1 C_1 C_3 C_3 \rightarrow \\
+C_3 C_3 C_1 C_2 C_4 C_5\rightarrow \\
+C_1 C_2 C_4 C_5 C_3 \rightarrow \\
+C_4 C_5 C_3 C_1 C_2 C_4 C_5 \rightarrow \\
+C_2 C_4 C_5 C_4 C_5 C_3 \rightarrow \\
+C_5 C_4 C_5 C_3 \rightarrow \\
+C_5 C_3 C_6 \rightarrow \\
+C_6 C_6
+\end{align*}$$
+
+<!-- Notes Week 10 ~00:10:00 -->
+
+
+
