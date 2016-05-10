@@ -401,8 +401,26 @@ Some of the notes here are taken from 'Understanding Computation' by Tom Stuart.
 9. Combine all the Tag Systems to make a large one thet simulates every rule of the Turing Machine
 
 
+### Cyclic Tag Systems
 
-<!-- Notes Week 10 ~00:25:00 -->
+This are simplified Tag Systems
 
+- The tape is allowed only to have 2 symbols $0$ and $1$
+- A string is only appended if a $1$ is read
+- The rules for appending strings is ordered
+- The deletion number is $1$
 
+Algorithm:
+
+In each round:
+- Read next rule in rule-set
+- Read next symbol on tape
+    - if $1$: append the string from the rule set to the tape
+    - if $0$: ignore the rule
+- Remove the last read symbol from the tape
+- Start from the beginning with reading the next rule
+
+A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computation' by Tom Stuart on how to do that.
+
+<!-- End Notes Week 10 -->
 
