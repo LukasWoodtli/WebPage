@@ -356,7 +356,53 @@ C_5 C_3 C_6 \rightarrow \\
 C_6 C_6
 \end{align*}$$
 
-<!-- Notes Week 10 ~00:10:00 -->
+
+
+### Simulation of Turing Machines with Tag Systems
+
+Some of the notes here are taken from 'Understanding Computation' by Tom Stuart.
+
+1. Tape uses only 2 characters: $0$ and $1$
+    - $0$ is the blank character
+2. Split the tape into two pieces
+    - left part
+        - character under the head
+        - all characters left of the head
+    - right part
+        - all characters right of the head
+3. Interprete left part as binary number
+4. Interprete right part as binary number written *backwards*
+5. Encode those 2 numbers as string (suitable to be used for Tag System)
+6. Simple operations:
+    - Simulate
+        - *reading* from tape
+        - *writing* to tape
+        - *moving* the head
+    - with simple operations
+        - doubling / halfing
+        - incrementing / decrementing
+        - odd / even (parity) check
+        - ...
+    - e.g
+        - move head to right:
+            - doubling left number
+            - halving right number
+        - reading from tape
+            - check if left number is even/odd
+        - writing
+            - $1$: incrementing number
+            - $0$: decrementing number
+7. Current *state* of simulated Turing machine represented by different encodings
+    - e. g
+        - State 1: use *a*, *b*, *c*
+        - State 2: use *d*, *e*, *f*
+        - ...
+8. Convert each Turing Machine rule into a Tag Systems that rewrites the current string in the expected way
+9. Combine all the Tag Systems to make a large one thet simulates every rule of the Turing Machine
+
+
+
+<!-- Notes Week 10 ~00:25:00 -->
 
 
 
