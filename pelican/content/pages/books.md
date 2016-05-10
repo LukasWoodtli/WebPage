@@ -19,7 +19,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Design Patterns                                | Erich Gamma et al. (Gang of Four)                             | Addison-Wesley                                    |
+| Design Patterns                                   | Erich Gamma et al. (Gang of Four)                 | Addison-Wesley                                    |
 | Head First Design Patterns                        | Eric Freeman et al.                               | O'Reilly                                          |
 | Refactoring                                       | Martin Fowler                                     | Addison-Wesley                                    |
 
@@ -40,6 +40,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Hacking mit Python                                | Justin Seitz                                      | dpunkt.verlag                                     |
 | Aus dem Tagebuch eines Bughunters                 | Tobias Klein                                      | dpunkt.verlag                                     |
 | UML 2.0                                           | Dan Pilone                                        | O'Reilly                                          |
+| Understanding Computation                         | Tom Stuart                                        | O'Reilly                                          |
 
 #Version Control
 
