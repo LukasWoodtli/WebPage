@@ -60,6 +60,20 @@ General of **XOR**:
 <!-- TODO -->
 <!-- Notes Week 2 Start -->
 
+
+# Finite State Machines
+<!-- TODO Lecture Notes -->
+
+See also [Tutorialspoint](http://www.tutorialspoint.com/automata_theory/automata_theory_introduction.htm)
+
+Can be represented as a 5-tuple $(Q, \Sigma, \delta, q_0, F)$:
+
+- $Q$: finite set of states
+- $\Sigma$: alphabet (finite set of symbols)
+- $\delta$: trasition function
+- $q_0$: initial state ($q_0 \in Q$)
+- $F$: set of final states ($F \subseteq  Q$)
+
 <!-- Notes Week 7 Start -->
 
 # Lambda Calculus
