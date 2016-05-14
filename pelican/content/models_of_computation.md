@@ -57,22 +57,57 @@ General of **XOR**:
 
 
 
-<!-- TODO -->
+
 <!-- Notes Week 2 Start -->
 
 
-# Finite State Machines
-<!-- TODO Lecture Notes -->
+# Finite State Machines (FSM)
+
+- Also called Finite State Automaton (FSA)
 
 See also [Tutorialspoint](http://www.tutorialspoint.com/automata_theory/automata_theory_introduction.htm)
 
-Can be represented as a 5-tuple $(Q, \Sigma, \delta, q_0, F)$:
+Can be represented as a 5-touple $(Q, \Sigma, \delta, q_0, F)$:
 
 - $Q$: finite set of states
 - $\Sigma$: alphabet (finite set of symbols)
-- $\delta$: trasition function
+- $\delta$: transition function
 - $q_0$: initial state ($q_0 \in Q$)
 - $F$: set of final states ($F \subseteq  Q$)
+
+## Deterministic / Non-Deterministic FSM
+
+- Deterministic
+    - For each arriving event it's clear what the next state is
+- Non-deterministic
+    - For some (or all) events the next state can be more than one (it's not clear to which state the machine will change)
+
+- Any non-deterministic FSM can be turned into a deterministic FSM
+
+## Acceptor (Recognizer)
+
+- Calculates a Boolean function
+- All states are either *accepting* or *rejecting* for a given input
+- In graphical notation the *accepting* states have a double circle
+- Non-deterministic Acceptor
+    - accepts if there is *any* way to accept
+    - methodically try all possibilities
+    - 'Parallel World' - try all possibilities *simultaneously* in separate copies of the machine (for complexity theory)
+
+## Classifier
+
+- Has more than two final states
+- gives single output when it terminates
+
+## Transducer
+
+- Produces outputs based on current input and on previous state
+- 2 different types
+    - Mealy Machine: output depends only on *current state*
+    - Moore Machine: output depends on *current state* and *current input*
+    
+
+<!-- TODO Notes Week 2 0:25:00 -->
 
 <!-- Notes Week 7 Start -->
 
@@ -115,10 +150,10 @@ $$((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7$$
 - $\alpha$-conversion: changing a functions 'argument symbol' ($\lambda x.x \equiv \lambda y.y$)
 - $\eta$-conversion: $\lambda v. f v \equiv f$ because $(\lambda v. f v) a \equiv f a$
 
-## Chruch Numerals
+## Church Numerals
 
 - Numbers can be encoded as functions
-- Arbitary encoding of numbers suggested by church
+- Arbitrary encoding of numbers suggested by church
 
 Each number is a function that takes 2 arguments: $f$ and $x$:
 
@@ -384,8 +419,8 @@ Some of the notes here are taken from 'Understanding Computation' by Tom Stuart.
         - all characters left of the head
     - right part
         - all characters right of the head
-3. Interprete left part as binary number
-4. Interprete right part as binary number written *backwards*
+3. Interpret left part as binary number
+4. Interpret right part as binary number written *backwards*
 5. Encode those 2 numbers as string (suitable to be used for Tag System)
 6. Simple operations:
     - Simulate
@@ -406,13 +441,13 @@ Some of the notes here are taken from 'Understanding Computation' by Tom Stuart.
         - writing
             - $1$: incrementing number
             - $0$: decrementing number
-7. Current *state* of simulated Turing machine represented by different encodings
+7. Current *state* of simulated Turing machine represented by different encoding
     - e. g
         - State 1: use *a*, *b*, *c*
         - State 2: use *d*, *e*, *f*
         - ...
 8. Convert each Turing Machine rule into a Tag Systems that rewrites the current string in the expected way
-9. Combine all the Tag Systems to make a large one thet simulates every rule of the Turing Machine
+9. Combine all the Tag Systems to make a large one the simulates every rule of the Turing Machine
 
 
 ### Cyclic Tag Systems
