@@ -105,9 +105,42 @@ Can be represented as a 5-touple $(Q, \Sigma, \delta, q_0, F)$:
 - 2 different types
     - Mealy Machine: output depends only on *current state*
     - Moore Machine: output depends on *current state* and *current input*
-    
+    - They can be transformed into each other
 
-<!-- TODO Notes Week 2 0:25:00 -->
+
+# Register Machines
+
+- A register machine has multiple registers that store positive integers
+- There are only two possible operations on these registers
+    1. incrementing ($+1$)
+    2. decrementing ($-1$)
+    - Decrementing a register that holds $0$ fails
+- There are other (slightly different) definitions of register machines that allow different operations (e.g checking for $0$)
+- Register Machines can be graphically represented like FSMs or as a simple list of instructions (programming language)
+
+Example of list of instructions for a Register Machine:
+
+|    | Action | Next Instruction | Alternative Instruction (if actual instruction fails) |
+|----|--------|------------------|-------------------------------------------------------|
+| 1. | x-     |  2               |   4                                                   |
+| 2. | y+     |  3               |   -                                                   |
+| 3. | x-     |  1               |   8                                                   |
+| 4. | y-     |  5               |   6                                                   |
+| 5. | x+     |  4               |   -                                                   |
+| 6. | x-     |  7               |   5                                                   |
+| 7. | x-     |  9               |   HALT                                                |
+| 8. | y-     |  9               |   3                                                   |
+| 9. | x+     |  10              |   -                                                   |
+| 10.| x+     |  11              |   -                                                   |
+| 11.| x+     |  8               |   -                                                   |
+
+- Register Machines and Turing Machines can simulate each other in polynomial time
+- For each Register Machine with more than 2 registers ($N$) there is an equivalent Register Machine with only 2 registers
+    - The $N$ registers need to be encoded
+- Whenever a loop ends (in a 2 Register Machine)
+    - one register is $0$
+    - in the other register is some information available
+
 
 <!-- Notes Week 7 Start -->
 
@@ -287,8 +320,8 @@ Beta recursion gives:
 
 $$\begin{align*}
 Y g &= \lambda f. (\lambda x. f (x\; x))(\lambda x. f (x\; x)) g \\
- &= (\lambda x. g (x\; x)) (\lambda x. g (x\; x)) \\ 
- &= g ((\lambda x. g (x\; x)) (\lambda x. g (x\; x)))  \\ 
+ &= (\lambda x. g (x\; x)) (\lambda x. g (x\; x)) \\
+ &= g ((\lambda x. g (x\; x)) (\lambda x. g (x\; x)))  \\
  &= g (Y\; g)
 \end{align*}$$
 
@@ -359,7 +392,7 @@ Each representation has it's pros and cons.
 
 Example even:
 $$\begin{align*}
-C_1 C_1 C_3 C_3 C_3 C_3 \rightarrow  \\ 
+C_1 C_1 C_3 C_3 C_3 C_3 \rightarrow  \\
 C_3 C_3 C_3 C_3 C_2 O \rightarrow \\
 C_3 C_3 C_2 O \rightarrow \\
 C_2 O \rightarrow \\
@@ -368,7 +401,7 @@ E
 
 Example odd:
 \begin{align*}
-C_1 C_1 C_3 C_3 C_3 \rightarrow  \\ 
+C_1 C_1 C_3 C_3 C_3 \rightarrow  \\
 C_3 C_3 C_3 C_2 O \rightarrow \\
 C_3 C_2 O \rightarrow \\
 O
@@ -378,11 +411,11 @@ O
 ### Example: Power of Two
 
 \begin{align*}
-2^n &\rightarrow  n \\ 
+2^n &\rightarrow  n \\
 C_1 &\rightarrow C_1 C_2 C_4 C_5 \\
-C_2 &\rightarrow \epsilon \\ 
-C_3 &\rightarrow C_3 \\ 
-C_4 &\rightarrow C_4 C_5 \\ 
+C_2 &\rightarrow \epsilon \\
+C_3 &\rightarrow C_3 \\
+C_4 &\rightarrow C_4 C_5 \\
 C_5 &\rightarrow C_6
 \end{align*}
 
@@ -472,4 +505,3 @@ In each round:
 A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computation' by Tom Stuart on how to do that.
 
 <!-- End Notes Week 10 -->
-
