@@ -980,7 +980,7 @@ Enabling transparent persistence
 ## Activation
 
 - Activation controls depth of loaded fields
-    - filed values (objects) are loaded in memory to a certain depth when query retrieves objects
+    - fieled values (objects) are loaded in memory to a certain depth when query retrieves objects
     - activation depth: length of reference chain
     - fields beyond activation depth: default value (e.g `null`)
 - Activation cases
@@ -1059,7 +1059,8 @@ Enabling the transparent activation framework
 - Trade-off between
     - increased query performance
     - decreased storage, update and delete performance
-- Set by configuration or annotation (`@indexed`)
+- Set by configuration or annotation (`@Indexed`)
+- B-Tree based indexes on single object fields
 
 ## Tuning for Speed
 
