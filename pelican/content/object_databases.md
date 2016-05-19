@@ -38,6 +38,8 @@ Data has to outlive the execution of the program
 ## Impedance Missmatch
 
 - Difference between models
+    - OOP data model is based on object trees
+    - [The Relational Model](https://en.wikipedia.org/wiki/Relational_model) is based on tables
 - OOP Languages
     - Difference between attributes and relationships not clear
     - Both are (usually) reference types in a class
@@ -48,6 +50,17 @@ Data has to outlive the execution of the program
 - Inheritance (OOP) is difficult to model in relational DBs
     - Objects spread over several tables (other approaches possible)
 
+An overview of the mismatch is shown on [Tutorialspoint](http://www.tutorialspoint.com/hibernate/orm_overview.htm)
+
+| Mismatch    |                                                                                                         |
+|-------------|---------------------------------------------------------------------------------------------------------|
+| Granularity | An object model can have more classes than the number of corresponding tables in the DB.                |
+| Inheritance | In OOP inheritance is a base concept. The Relational Model doesn't support this directly.              |
+| Identity    | The Relational Model defines identity. In OOP there is often a difference between equality and identity. |
+| Association | OOP uses references. The Relational Model uses foreign keys.                                            |
+| Navigation  | OOP uses following references in object tree. The Relational Model uses queries.                        |
+
+
 ## Relational Databases
 
 - Tables, Rows, Columns...
@@ -57,11 +70,12 @@ Data has to outlive the execution of the program
 
 > It's difficult to match the relational database model to the object oriented model
 
-- [Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping) can help
+## Object-relational mapping (ORM)
+
+- [Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping) can be used against object-relational miss-match
     - But it's not a very good approach
     - There are a lot of solutions: Hibernate, [QxOrm](http://www.qxorm.com/qxorm_en/home.html), ...
-
-
+ 
 
 ## Develop own Database
 
@@ -546,14 +560,41 @@ ODL Syntax:
 
 ## Main Concepts
 
-- Configuration
+- `Configuration`
     - Connection to database (hibernate.properties or hibernate.cfg.xml)
     - Which DBMS? (MySQL, HSQL, ...)
     - Which DB Instance? (Database Name)
-    - Mappings
-- SessionFactory
-    - Using the configuration, a SessionFactory is created
-    - Using this SessionFactory, Session objects can be created
+    - Mappings between classes and database tables
+    - The Configuration object is created at first
+        - usually created only once during application initialization
+- `SessionFactory`
+    - Created by using the configuration object
+    - Session objects can be created and supplied with configuration
+    - Heavyweight object: create during start up and keep for later use
+    - multiple databases require multiple `SessionFactory` objects
+- `Session` object
+    - Used to get physical connection to the database
+    - leightweight
+    - desigend to be instatiated each time an interatcion with the DB is needed
+    - Persistent objects are *stored* and *retrieved* through `Session` object
+    - should not be kept open for al long time
+        - usually not thread safe
+        - create before use
+        - destroy after use
+- `Transaction` object
+    - represent a unit of work with the DB
+    - handled by underlying tansaction manager and transaction (JDBC or JTA)
+    - optional object
+        - transactions can be managed in own application code
+- `Query` object
+    - SQL or Hibernate Query Language (HQL)
+    - bind query parameters
+    - limit number of results
+    - execute query
+- `Criteria` object
+    - used to create and execute *object oriented* criteria queries to retrieve objects
+
+<!-- TODO Hibernate Tutorial http://www.tutorialspoint.com/hibernate/hibernate_environment.htm  -->
 
 Example:
 
@@ -702,7 +743,7 @@ Example:
 # Object-Oriented Databases: Object Database Manifesto
 
 - Avoid impedance mismatch
-- Provide uniform datamodel
+- Provide uniform data model
 - Combine features of
     - OOP
     - Database Management Systems
@@ -741,7 +782,7 @@ Example:
     - *identical* objects have same OID
     - *equal* objects have same state
     - shallow and deep equality
-- Tuples: entities and their attributes
+- Touple: entities and their attributes
 - Sets: collections of entities
 - Lists: order
 
@@ -752,8 +793,8 @@ Example:
         - records containing records
         - ...
     - In contrast, relational databases only support
-        - sets of records (relation with tuples) and
-        - tuples containing atomic values
+        - sets of records (relation with touple) and
+        - touple containing atomic values
 - Complex objects also require
     - transitive retrieval and deletion of objects
     - deep and shallow copying
@@ -859,7 +900,7 @@ Example:
     - local file mode or
     - client connections to db4o server
 - Owns one transaction
-    - operations are executed transactional
+    - operations are executed transactions
     - transaction is started when object container is opened
     - after commit/rollback next transaction is started automatically
 - Manages link between stored and instantiated objects
@@ -980,7 +1021,7 @@ Enabling transparent persistence
 ## Activation
 
 - Activation controls depth of loaded fields
-    - fieled values (objects) are loaded in memory to a certain depth when query retrieves objects
+    - field values (objects) are loaded in memory to a certain depth when query retrieves objects
     - activation depth: length of reference chain
     - fields beyond activation depth: default value (e.g `null`)
 - Activation cases
@@ -1212,5 +1253,3 @@ Configuration interface:
     - instead of Translators at lower level
     - type handler registered for class that it handles
     - write to and read from byte-arrays
-
-
