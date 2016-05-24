@@ -505,3 +505,30 @@ In each round:
 A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computation' by Tom Stuart on how to do that.
 
 <!-- End Notes Week 10 -->
+
+
+
+<!-- Begin Notes Week 12 -->
+
+# Primitive Recursive Functions
+
+- Recursion can do a lot!
+- Functions are defined using itselves or other functions
+- Each function has 2 definition:
+    1. Definition for argument $0$
+    2. General definition
+
+| Function           | Name           | Definition ($if n=0$) | Definition ($if n=S(m)$) |
+|--------------------|----------------|-----------------------|--------------------------|
+| $S(n) = n + 1$     | Successor      | intrinsic/primitive   | -                        |
+| $A(n,a)=n+a$       | Addition       | $a$                   | $S(A(m,a))$              |
+| $M(n,a)=n\cdot a$  | Multiplication | $0$                   | $A(a,M(m,a))$            |
+| $E(n,a)=a^n$       | Exponentiation | $1$                   | $M(a,E(m,a))$            |
+| $V(n)=sign(n)$     | Positivity     | $0$                   | $1$                      |
+| $P(n) = n-1$       | Predecessor    | $0$                   | $m$                      |
+| $D(a,n) = a-n$     | Subtraction    | $a$                   | $P(D(n,m))$              |
+| $R(n,a)=n \bmod a$ | Remainder      | $0$                   | $M(S(R(m,a)),V(D(P(a),R(m,a))))$ |
+| $C(n,a)=\prod_{i=2}^{n+1} a \bmod i$ | 'mod Product'  | $0$ | $M(C(m,a),R(a,(S(S(m))))) |
+| $Z(n)=\begin{cases}1 & \text{ if } n \text{ is prime} \\  0 & \text{ if not} \end{cases} $ | Primality | $0$ | $V(M(m,(P(m),S(m))))$ | 
+
+- Infinite loops not possible
