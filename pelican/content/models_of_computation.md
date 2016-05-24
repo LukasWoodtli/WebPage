@@ -518,7 +518,7 @@ A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computa
     1. Definition for argument $0$
     2. General definition
 
-| Function           | Name           | Definition ($if n=0$) | Definition ($if n=S(m)$) |
+| Function           | Name           | Definition ($\text{if } n=0$) | Definition ($\text{if } n=S(m)$) |
 |--------------------|----------------|-----------------------|--------------------------|
 | $S(n) = n + 1$     | Successor      | intrinsic/primitive   | -                        |
 | $A(n,a)=n+a$       | Addition       | $a$                   | $S(A(m,a))$              |
@@ -528,7 +528,9 @@ A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computa
 | $P(n) = n-1$       | Predecessor    | $0$                   | $m$                      |
 | $D(a,n) = a-n$     | Subtraction    | $a$                   | $P(D(n,m))$              |
 | $R(n,a)=n \bmod a$ | Remainder      | $0$                   | $M(S(R(m,a)),V(D(P(a),R(m,a))))$ |
-| $C(n,a)=\prod_{i=2}^{n+1} a \bmod i$ | 'mod Product'  | $0$ | $M(C(m,a),R(a,(S(S(m))))) |
+| $C(n,a)=\prod_{i=2}^{n+1} a \bmod i$ | 'mod Product'  | $0$ | $M(C(m,a),R(a,(S(S(m)))))$ |
 | $Z(n)=\begin{cases}1 & \text{ if } n \text{ is prime} \\  0 & \text{ if not} \end{cases} $ | Primality | $0$ | $V(M(m,(P(m),S(m))))$ | 
 
 - Infinite loops not possible
+- Can simulate a Turing Machine only with a given numbers of steps
+    - Number of iterations of a loop need to be known from beginning
