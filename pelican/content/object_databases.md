@@ -594,7 +594,45 @@ ODL Syntax:
 - `Criteria` object
     - used to create and execute *object oriented* criteria queries to retrieve objects
 
-<!-- TODO Hibernate Tutorial http://www.tutorialspoint.com/hibernate/hibernate_environment.htm  -->
+## Configuration
+
+- Hibernate needs to know where to find some informations about class mappings and database
+- XML file: *hibernate.cfg.xml* (or Java properties file *hibernate.properties*)
+
+### Properties
+
+| Property          | Description                                       |
+|-------------------|---------------------------------------------------|
+| hibernate.dialect | The SQL dialect used to generate persistance code |
+| hibernate.connection.driver_class | The JDBC driver class             |
+| hibernate.connection.url          | The URL to the database instance  |
+| hibernate.connection.username     | The username for the database     |
+| hibernate.connection.password     | The password for the database     |
+| hibernate.connection.pool_size    | The number of connections in the Hibernate database connection pool |
+| hibernate.connection.autocommit   | Autocommit mode for the JDBC connection |
+
+
+There are additional settings for using a database along with an application server and JNDI.
+
+### Persistant Objects
+
+Only Plain Old Java Object (POJO) can be saved in the DB.
+
+Requirements:
+
+- Default constructor
+- Class should contain an ID
+    - Maps to the primary key column in DB table
+- Attributes should be private
+    - Public accessor functions (getter, setter) need to be provided
+    - JavaBean style accessors: getXYZ, setXYZ
+- Persistence class either
+    - non-final or
+    - implementation of interface that declares all public methods
+- Some additional minor restrictions from EJB framework
+
+
+<!-- TODO Hibernate Tutorial http://www.tutorialspoint.com/hibernate/hibernate_examples.htm  -->
 
 Example:
 
@@ -1253,3 +1291,51 @@ Configuration interface:
     - instead of Translators at lower level
     - type handler registered for class that it handles
     - write to and read from byte-arrays
+
+
+<!-- Start Slides Week 13 -->
+
+# The OM Data Model
+
+- Extended Entity-Relationship model
+- for OOP data management
+- special features
+    - difference between typing and classification
+    - objects: attributes and methods
+    - multiple inheritance, multiple instantiation, multiple classification
+    - collections as first-class concepts
+    - binary associations as first-class concepts
+    - constraints for integrity, classification and evolution
+    - data definition, manipulation and query language (OML)
+
+## Typing and Classification
+
+| Typing                        | Classification               |
+|-------------------------------|------------------------------|
+| representation of entities    | roles of entities            |
+| defines format of data values | defines semantic groupings as collections of values |
+| defines operations            | defines constraits among collection |
+| defines inheritance properties |                               |
+
+- better understanding of issues
+    - important to recognise the two concepts
+- Reduces complexity of type graphs
+    - no need to introduce subtypes to represent each classification
+- Rich classification structures
+- Support for relationships between objects
+    - accociation over collections instead embedded in objects
+- Integration of:
+    - Database
+    - Programming Languages
+- Collections
+    - semantic groupings of objects
+- Member types of collections
+    - constrain membership in a collection
+- Object evolution
+    - objects can gain/loose roles by being added or deleted form collections
+    - type change not always required (???) <!-- slides week 13 p.7 -->
+
+
+ <!-- TODO slides week 13 p.7 -->
+
+    
