@@ -532,5 +532,9 @@ A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computa
 | $Z(n)=1 \text{ if prime} ; 0 \text{ else} $ | Primality | $0$ | $V(M(m,(P(m),S(m))))$ | 
 
 - Infinite loops not possible
-- Can simulate a Turing Machine only with a given numbers of steps
+- Can simulate a Turing Machine only for a given number of steps
     - Number of iterations of a loop need to be known from beginning
+    - Infinite loops are not possible
+
+<!-- TODO: cont: Week 12 51:00 (Ackermann functions)  -->
+
