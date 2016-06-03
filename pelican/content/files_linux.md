@@ -62,4 +62,4 @@ File descriptors are unique ID's (ints) that identify an open file.
 
 The number can differ but the given ones are common.
 
-Functions that return a file descriptor (e.g. `open(...)`or `creat()`) return `-1` if en error occurred.
+Functions that return a file descriptor (e.g. `open(...)`or `creat(...)`) return `-1` if en error occurred.
