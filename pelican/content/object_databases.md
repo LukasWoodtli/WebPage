@@ -213,7 +213,7 @@ LINQ is a powerful and compile time safe support for querying.
 <!-- Lecture 1 Slides End -->
 <!-- Lecture 1 Notes End -->
 
-# General Topis for DB's
+# General Topics for DB's
 
 [Prepared Statement]
 
@@ -1305,6 +1305,137 @@ Configuration interface:
 
 
 <!-- End Slides/Notes Week 5 ? -->
+
+
+
+<!-- Start Slides Week 12 -->
+# Indexing
+
+## Type Hierarchy Indexing
+
+### Single Class Index (SC-Index)
+
+- Index construction for attribute of a type *t*
+    - incorporate only direct instances of a particular type in index
+    - construct search structure for all types in sub-hierarchy of t
+    - search data structres (called SC-Index components)
+    - Evaluator needs to traverse all components referenced by query
+- Usually implemented using $B^+$-trees
+
+> Good for querying full extent
+
+### Class Hierarchy Index (CH-Index)
+
+- One search structure for all objects of all types of indexed hierarchy
+- One index on the common attribute for all classes of a iheritance graph
+- Leaf node consists of
+    - key-value
+    - key directory
+        - contains an entry for each class that has instances with the key-value in the indexed attribute
+        - entry for a class consist of class identifier and offset fo list of OIDs in index record
+    - number of elements in list of OIDs (for each class in the inheritance graph)
+    - list of OIDs
+- Evaluator scans through $B^+$-tree once
+    - selects OIDs f types referenced by query
+    - discards other OIDs
+- Point queries perform good
+- Range queries depend on number of referenced types
+    - good when queries aim at indexed type and all subtypes
+    - bad if only few types of indexed hierarchy hit by query
+- Key-grouping structure
+    
+> Good for querying extent (not full extent)
+
+### H-Tree
+
+- Set of nested $B^+$-trees
+- Combining class hierarchy with SC-Index
+- Nesting reflects indexed type hierarchy
+    - each H-tree component is nested with H-trees of immediate subtypes
+    - H-tree index for attribute of inheritance sub-graph is H-tree hierarchy nested according to supertype-subtype relation
+- Avoids full scans of each B-tree component when several types queried
+- Single type lookup: don't search nested trees
+- Type hierarchy lookup: traverse nested trees
+
+- Type-grouping structure
+
+### Class Division Index (CD-Index)
+
+- Compromise between
+    - indexing for each type
+    - indexing extent for each type
+- Specific family of type sets for indexed hierarchy
+- Combine parts of subtype hierarchies to use one index structure
+- Each typeset managed with search data structure
+- Parameters *q* and *r* give bounds
+    - *q*: number of structures needed to build a type extent
+    - *r*: number of times a type set is managed redundantly or replicated
+
+### Multi-Key Type Index (MT-Index)
+
+- Compromise between
+    - type grouping
+    - key grouping
+- Type membership as additional object attribute
+    - symmetrical indexing of object types and attributes
+    - indexing of more than one attribute with single search structure
+
+### Overview: Type Hierarchy Indexing
+
+- Classes: `Person :> Student`
+- Extent: all objects of a given class (without subclasses)
+- Full Extent: all objects of a given class and it's subclasses
+
+|                           |         |                               |
+|---------------------------|---------|-------------------------------|
+| Full-Extent               | Person  | Rel. DBs, SC-Index, (H-Index) |
+| Extent                    | Person  | CH-Index, H-Index             |
+| Extnet                    | Student | CH-Index, H-Index             |
+| comb(Extent, Full-Extent) | ...     | MT-Index, CD-Index, (H-Index) | 
+
+
+
+## Aggregation Path Indexing
+
+- Backward queries
+    - without full object tree traverses
+- Forward queries
+    - without retrieving intermedia objects
+
+### Nested Index
+
+- Direct association between
+    - an *ending* object and
+    - corresponding starting objects along a path
+
+### Path Index
+
+- Records all subpaths leading to an ending object
+- Predicates can be evaluated on all classes along the path
+
+### Multi-Index 8MX9
+
+- Divide path (of arbritrary length) into sub-paths
+    - sub-paths have length *1*
+    - index maintained over sub-paths
+- Query evaluation
+    - concatenating *n* index edges requires *n* index scans
+    - supports backward traversals and queries
+    - *no* forward traversals and queries
+- Each index enty is represented as a pair
+    1. A key-value
+    2. set of OIDs of objects holding this key-value (for indexed attribute)
+
+
+### Overview: Aggregation Path Indexing
+
+- Nested Index and Path Index implemented using
+    - trees or
+    - hash tables
+    
+
+
+<!-- End Slides Week 12 -->
 
 
 
