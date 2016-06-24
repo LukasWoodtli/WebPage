@@ -213,7 +213,11 @@ LINQ is a powerful and compile time safe support for querying.
 <!-- Lecture 1 Slides End -->
 <!-- Lecture 1 Notes End -->
 
-# CRUD and ACID
+# General Topics for DB's
+
+[Prepared Statement]
+
+## CRUD and ACID
 
 - The acronym [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) stands for the basic functions of a database system
     - Create
@@ -778,6 +782,8 @@ Example:
         - URI
         - ContentValue
 
+
+<!-- OODB Manifesto start -->
 # Object-Oriented Databases: Object Database Manifesto
 
 - Avoid impedance mismatch
@@ -792,7 +798,7 @@ Example:
     - 4 open choices
     - several important topics not addressed
 
-- Object-oriented systems
+- Object-oriented systems (mandatory)
     - 1\. Complex objects
     - 2\. Object identity
     - 3\. Encapsulation
@@ -801,14 +807,14 @@ Example:
     - 6\. Overriding, overloading and late binding 7. Computational completeness
     - 8\. Extensibility
 
-- Database management systems
+- Database management systems (mandatory)
     - 9\. Persistence
     - 10\. Efficiency
     - 11\. Concurrency
     - 12\. Reliability
     - 13\. Declarative query language
 
-## Objects
+## Objects (mandatory)
 
 - Complex objects
     - build from simpler objects (constructor)
@@ -916,6 +922,10 @@ Example:
     - Application independent
     - work on any possible database
     - no need for additional methods on user-defined types
+
+
+<!-- OODB Manifesto end -->
+
 
 <!-- Lecture 5 Start -->
 
@@ -1226,6 +1236,7 @@ Enabling the transparent activation framework
             - `ReplicationSession.setDirection(from, to)`
         - `ReplicationSession.replicate(object)` newer object transferred to DB
         - Object granularity
+    - Conflict handlig has to be done by developer
 
 ## Callbacks
 
@@ -1291,6 +1302,141 @@ Configuration interface:
     - instead of Translators at lower level
     - type handler registered for class that it handles
     - write to and read from byte-arrays
+
+
+<!-- End Slides/Notes Week 5 ? -->
+
+
+
+<!-- Start Slides Week 12 -->
+# Indexing
+
+## Type Hierarchy Indexing
+
+### Single Class Index (SC-Index)
+
+- Index construction for attribute of a type *t*
+    - incorporate only direct instances of a particular type in index
+    - construct search structure for all types in sub-hierarchy of t
+    - search data structres (called SC-Index components)
+    - Evaluator needs to traverse all components referenced by query
+- Usually implemented using $B^+$-trees
+
+> Good for querying full extent
+
+### Class Hierarchy Index (CH-Index)
+
+- One search structure for all objects of all types of indexed hierarchy
+- One index on the common attribute for all classes of a iheritance graph
+- Leaf node consists of
+    - key-value
+    - key directory
+        - contains an entry for each class that has instances with the key-value in the indexed attribute
+        - entry for a class consist of class identifier and offset fo list of OIDs in index record
+    - number of elements in list of OIDs (for each class in the inheritance graph)
+    - list of OIDs
+- Evaluator scans through $B^+$-tree once
+    - selects OIDs f types referenced by query
+    - discards other OIDs
+- Point queries perform good
+- Range queries depend on number of referenced types
+    - good when queries aim at indexed type and all subtypes
+    - bad if only few types of indexed hierarchy hit by query
+- Key-grouping structure
+    
+> Good for querying extent (not full extent)
+
+### H-Tree
+
+- Set of nested $B^+$-trees
+- Combining class hierarchy with SC-Index
+- Nesting reflects indexed type hierarchy
+    - each H-tree component is nested with H-trees of immediate subtypes
+    - H-tree index for attribute of inheritance sub-graph is H-tree hierarchy nested according to supertype-subtype relation
+- Avoids full scans of each B-tree component when several types queried
+- Single type lookup: don't search nested trees
+- Type hierarchy lookup: traverse nested trees
+
+- Type-grouping structure
+
+### Class Division Index (CD-Index)
+
+- Compromise between
+    - indexing for each type
+    - indexing extent for each type
+- Specific family of type sets for indexed hierarchy
+- Combine parts of subtype hierarchies to use one index structure
+- Each typeset managed with search data structure
+- Parameters *q* and *r* give bounds
+    - *q*: number of structures needed to build a type extent
+    - *r*: number of times a type set is managed redundantly or replicated
+
+### Multi-Key Type Index (MT-Index)
+
+- Compromise between
+    - type grouping
+    - key grouping
+- Type membership as additional object attribute
+    - symmetrical indexing of object types and attributes
+    - indexing of more than one attribute with single search structure
+
+### Overview: Type Hierarchy Indexing
+
+- Classes: `Person :> Student`
+- Extent: all objects of a given class (without subclasses)
+- Full Extent: all objects of a given class and it's subclasses
+
+|                           |         |                               |
+|---------------------------|---------|-------------------------------|
+| Full-Extent               | Person  | Rel. DBs, SC-Index, (H-Index) |
+| Extent                    | Person  | CH-Index, H-Index             |
+| Extnet                    | Student | CH-Index, H-Index             |
+| comb(Extent, Full-Extent) | ...     | MT-Index, CD-Index, (H-Index) | 
+
+
+
+## Aggregation Path Indexing
+
+- Backward queries
+    - without full object tree traverses
+- Forward queries
+    - without retrieving intermedia objects
+
+### Nested Index
+
+- Direct association between
+    - an *ending* object and
+    - corresponding starting objects along a path
+
+### Path Index
+
+- Records all subpaths leading to an ending object
+- Predicates can be evaluated on all classes along the path
+
+### Multi-Index 8MX9
+
+- Divide path (of arbritrary length) into sub-paths
+    - sub-paths have length *1*
+    - index maintained over sub-paths
+- Query evaluation
+    - concatenating *n* index edges requires *n* index scans
+    - supports backward traversals and queries
+    - *no* forward traversals and queries
+- Each index enty is represented as a pair
+    1. A key-value
+    2. set of OIDs of objects holding this key-value (for indexed attribute)
+
+
+### Overview: Aggregation Path Indexing
+
+- Nested Index and Path Index implemented using
+    - trees or
+    - hash tables
+    
+
+
+<!-- End Slides Week 12 -->
+
 
 
 <!-- Start Slides Week 13 -->
