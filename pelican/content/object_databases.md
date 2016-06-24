@@ -213,7 +213,11 @@ LINQ is a powerful and compile time safe support for querying.
 <!-- Lecture 1 Slides End -->
 <!-- Lecture 1 Notes End -->
 
-# CRUD and ACID
+# General Topis for DB's
+
+[Prepared Statement]
+
+## CRUD and ACID
 
 - The acronym [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) stands for the basic functions of a database system
     - Create
@@ -778,6 +782,8 @@ Example:
         - URI
         - ContentValue
 
+
+<!-- OODB Manifesto start -->
 # Object-Oriented Databases: Object Database Manifesto
 
 - Avoid impedance mismatch
@@ -792,7 +798,7 @@ Example:
     - 4 open choices
     - several important topics not addressed
 
-- Object-oriented systems
+- Object-oriented systems (mandatory)
     - 1\. Complex objects
     - 2\. Object identity
     - 3\. Encapsulation
@@ -801,14 +807,14 @@ Example:
     - 6\. Overriding, overloading and late binding 7. Computational completeness
     - 8\. Extensibility
 
-- Database management systems
+- Database management systems (mandatory)
     - 9\. Persistence
     - 10\. Efficiency
     - 11\. Concurrency
     - 12\. Reliability
     - 13\. Declarative query language
 
-## Objects
+## Objects (mandatory)
 
 - Complex objects
     - build from simpler objects (constructor)
@@ -916,6 +922,10 @@ Example:
     - Application independent
     - work on any possible database
     - no need for additional methods on user-defined types
+
+
+<!-- OODB Manifesto end -->
+
 
 <!-- Lecture 5 Start -->
 
@@ -1226,6 +1236,7 @@ Enabling the transparent activation framework
             - `ReplicationSession.setDirection(from, to)`
         - `ReplicationSession.replicate(object)` newer object transferred to DB
         - Object granularity
+    - Conflict handlig has to be done by developer
 
 ## Callbacks
 
@@ -1291,6 +1302,10 @@ Configuration interface:
     - instead of Translators at lower level
     - type handler registered for class that it handles
     - write to and read from byte-arrays
+
+
+<!-- End Slides/Notes Week 5 ? -->
+
 
 
 <!-- Start Slides Week 13 -->
