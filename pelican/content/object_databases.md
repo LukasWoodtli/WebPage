@@ -1311,6 +1311,27 @@ Configuration interface:
 <!-- Start Slides Week 12 -->
 # Indexing
 
+Make OODBs faster and more performant
+
+- Compare OOP model to Relational model
+
+Main differences bewteen OOP and Relational model:
+
+1. inheritance (is-a)
+2. multitype attributes (sets, collections)
+3. dereferencing a path of pointers/references (traversing the object graph)
+
+Different approaches to:
+
+- Mapping (ORM)
+- Physically represent data differently (eg. Objectivity)
+- Use additional (meta-) data but keep the representation of the data
+- Group record: pages, clusters ...
+
+
+<!-- TODO Cont week 12 0:15:00 -->
+
+
 ## Type Hierarchy Indexing
 
 ### Single Class Index (SC-Index)
@@ -1413,7 +1434,7 @@ Configuration interface:
 - Records all subpaths leading to an ending object
 - Predicates can be evaluated on all classes along the path
 
-### Multi-Index 8MX9
+### Multi-Index (MX)
 
 - Divide path (of arbritrary length) into sub-paths
     - sub-paths have length *1*
@@ -1433,7 +1454,7 @@ Configuration interface:
     - trees or
     - hash tables
     
-
+<!-- TODO -->
 
 <!-- End Slides Week 12 -->
 
