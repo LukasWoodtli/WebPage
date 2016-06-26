@@ -41,6 +41,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Aus dem Tagebuch eines Bughunters                 | Tobias Klein                                      | dpunkt.verlag                                     |
 | UML 2.0                                           | Dan Pilone                                        | O'Reilly                                          |
 | Understanding Computation                         | Tom Stuart                                        | O'Reilly                                          |
+| [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
 
 #Version Control
 
