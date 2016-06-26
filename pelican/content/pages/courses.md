@@ -29,5 +29,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 | Clojure                         | [Clojure for the Brave and True](http://www.braveclojure.com/)                               |
 | Programming Languages           | [Udacity](https://www.udacity.com/course/cs262)                                              |
 | iOS Development                 | [iTunes U](https://itunes.apple.com/us/course/developing-ios-7-apps-for/id733644550)         |
-| UX Design for Mobile Developers | [Udacity](https://www.udacity.com/course/ud849)                                               |
+| Scheme (Lisp) | [MIT OpenCourseWare](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/) |
+| UX Design for Mobile Developers | [Udacity](https://www.udacity.com/course/ud849)                                              |
 | Emacs Lisp                      | [Casting Spels](http://www.lisperati.com/casting-spels-emacs/html/casting-spels-emacs-1.html)|
+
