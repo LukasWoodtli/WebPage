@@ -50,7 +50,9 @@ Example:
     - Diet of Animals (`diet`)
         - `species`
         - `food`
-- How many animals eat fisch?
+
+
+Example: Which animals eat fisch?
 
     :::sql
     SELECT
@@ -79,7 +81,7 @@ Select Clauses
     - columns: which columns to sort by. Seperated by comas.
     - DESC: sort in reverse order (descending).
 
-
+Select example:
     :::sql
     SELECT name, birthday FROM animals WHERE species = 'gorilla' AND name = 'Max';
 
