@@ -70,13 +70,20 @@ Unique Keys
 
 Select Clauses
 ==============
-LIMIT count [OFFSET skip]
-count: how many rows to return.
-skip: how far into the result to start.
 
-ORDER BY columns [DESC]
-columns: which columns to sort by. Seperated by comas.
-DESC: sort in reverse order (descending).
+- LIMIT count [OFFSET skip]
+    - count: how many rows to return.
+    - skip: how far into the result to start.
+
+- ORDER BY columns [DESC]
+    - columns: which columns to sort by. Seperated by comas.
+    - DESC: sort in reverse order (descending).
 
 
-![select where]({filename}/images/sql_select_where.png)
+    :::sql
+    SELECT name, birthday FROM animals WHERE species = 'gorilla' AND name = 'Max';
+
+- `SELECT`: selects *colums*
+- `FROM`: table to select from
+- `WHERE`: row restriction
+
