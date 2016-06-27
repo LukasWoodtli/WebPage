@@ -288,6 +288,11 @@ Sprint Backlog
 --------------
 
 Sprint Burndown
+
+![Sprint Burndown](/images/burndown.png)
+
+There's a good [article](http://www.methodsandtools.com/archive/scrumburndown.php) about the Burndown Chart.
+
 ---------------
 
 Release Burndown
