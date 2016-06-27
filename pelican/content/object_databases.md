@@ -1319,20 +1319,30 @@ Main differences bewteen OOP and Relational model:
 
 1. inheritance (is-a)
 2. multitype attributes (sets, collections)
+    - First normal form in Relational Databases disallows mutlivalued attribues (collections) in a field
 3. dereferencing a path of pointers/references (traversing the object graph)
+
+> OODB systems can be faster when using additional information that a RDBMSs doesn't have
 
 Different approaches to:
 
 - Mapping (ORM)
 - Physically represent data differently (eg. Objectivity)
 - Use additional (meta-) data but keep the representation of the data
+    - secundary datastructures
+    - index structures
 - Group record: pages, clusters ...
 
 
-<!-- TODO Cont week 12 0:15:00 -->
-
-
 ## Type Hierarchy Indexing
+
+### Extent and Full Extent
+
+- Extent: all objects of a given class (without subclasses)
+- Full Extent: all objects of a given class and it's subclasses
+
+
+-<!-- TODO Cont week 12 0:30:00 -->
 
 ### Single Class Index (SC-Index)
 
@@ -1404,8 +1414,6 @@ Different approaches to:
 ### Overview: Type Hierarchy Indexing
 
 - Classes: `Person :> Student`
-- Extent: all objects of a given class (without subclasses)
-- Full Extent: all objects of a given class and it's subclasses
 
 |                           |         |                               |
 |---------------------------|---------|-------------------------------|
