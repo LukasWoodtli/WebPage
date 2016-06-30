@@ -1307,6 +1307,152 @@ Configuration interface:
 <!-- End Slides/Notes Week 5 ? -->
 
 
+<!-- Start Slides/Notes Week 10 -->
+# Graph Databases
+
+- Domain specific solution
+    - for a group of problems
+    - a kind of solution for a kind of problems
+- Technology models (describe the world):
+    1. Key-Value Map
+    2. Relational Model
+    3. OO Model
+    - Mapping between models
+    - There is no generig model for all domains
+
+## Social Network Analysis
+- People are connected to each other
+- Networks may be represented as graphs
+    - Nodes: peoples
+    - Edges: relationships
+- [Social Network Analysis](http://www.orgnet.com/sna.html) to gather information
+
+## Graphs
+- Nodes and Edges may have attributes
+    - Often key-value pairs
+- Graph algorithms can compute different values
+- Connections vary:
+    - Uni- / Bidirectional connections
+    - Nodes with single / multiple connections
+    - Multiple connections with different attribute
+    - Explicit / implicit connections
+    - Transient / long lasting connections
+    - One-time / repeated connections
+        - regular / irregular connections
+
+### Graph Metrics
+
+#### Path Lengths
+
+- [Dunbar's number](https://en.wikipedia.org/wiki/Dunbar%27s_number)
+- [Erdős number](https://en.wikipedia.org/wiki/Erd%C5%91s_number)
+- [Bacon’s number](https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon)
+- [Small world phenomenon](https://en.wikipedia.org/wiki/Small-world_experiment)
+
+#### Node Properties
+
+- Degree Centrality
+    - The number of direct connections a node has
+- Betweenness Centrality (Bridge)
+    - A node is *between* two important nodes
+    - has great influence what flows in the network
+- Closeness Centrality
+    - A node has the shortest path to all others
+    - good position to monitor information flow in network
+
+#### Network Structure Properties
+
+- Network Centralisation
+    - Dominated by one or few nodes
+    - (single) point of failure
+- Density/Cohesion
+    - Proposition of direct connections relative to all possible connections
+- Distance (Small World)
+    - Minimum numbers of edges needed to connect two particular nodes
+- Clustering Coefficients
+    - Likelyhood that two associates of a node are also associates to each other
+    - 'cliquishness'
+
+### General Model
+
+- Common representation
+- Uniform graph representation
+    - needed to apply algorithms
+- Always *2* core *identities* connected by *action*
+- e.g.
+    - connect 2 authors that worked on same publication
+    - or connect publications that have the same autor
+
+## Graph Database Implementations
+
+- API
+- Support for CRUD
+- High-level operations for graph traversals
+- Somtimes graph algorithms part of DB
+- ACID
+- Scalable
+- Examples:
+    - Objectivity InfiniteGraph
+    - Neo4j
+    - OrientDB
+
+### InfiniteGraph (Objectivity)
+
+- Graph library on top of Objectivity/DB
+- Distributed graph DB
+- Classes for Vertex and Edge are predefined and persistent capable
+- DB API extended with graph methods
+- Traversing/Querying the graph: Navigator Engine
+    1. Put the current path from here
+    2. Follow path from here
+    3. if yes: which path to follow
+    - not declaritive
+    - interface to implement
+    - some predefined queries available
+
+### Neo4j
+
+- [Open Source DB](https://neo4j.com/) for Java
+- Distinction between marking transaction and finishing (committing)
+- Only generic node class available
+    - set properties as key-values (`setProperty(...)`)
+- Graph Traversal
+    - using [fluent interface](https://en.wikipedia.org/wiki/Fluent_interface) (chaining method calls)
+    - Provides special methods for
+        - breadth first, depth first
+        - evaluator
+        - relationships
+        - ...
+    - all these methods return a `TraversalDescription` object, supports chaining
+    - evaluator looks at a Path object
+        - decides if it should be in the result
+        - decides if the traverser should continue actual path
+        - Method to be implemented: `Evaluation evaluate(Path path)`
+        - return value:
+            - `EXCLUDE_AND_CONTINUE`
+            - `EXCLUDE_AND_PRUNE`
+            - `INCLUDE_AND_CONTINUE`
+            - `INCLUDE_AND_PRUNE`
+- Graph algorithms
+    - find all paths between two nodes
+    - [Dijktra-based cheapest path](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+    - Paths with given length
+    - Shortest paths
+- REST API
+    - Management (CRUD) of nodes and edges
+        - GET/POST
+        - JSON in-/output
+    - Graph traversals
+    - Graph algorithms
+- Query language: Cypher
+    - Declarative
+    - pattern matching
+    - supports update operations
+    - ASCII art
+    - [try it online](http://console.neo4j.org/)
+
+<!-- End Slides/Notes Week 10 -->
+
 
 <!-- Start Slides/Notes Week 12 -->
 # Indexing
@@ -1427,7 +1573,7 @@ Different approaches to:
 - Type membership as additional object attribute
     - symmetrical indexing of object types and attributes
     - indexing of more than one attribute with single search structure
-- Linearization 
+- Linearization
 
 ### Overview: Type Hierarchy Indexing
 
