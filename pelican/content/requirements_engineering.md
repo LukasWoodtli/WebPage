@@ -55,3 +55,6 @@ Example:
 | create     | message, location | -               |
 | get        | location          | set of messages |
 
+- Sentences (e.g. use cases):
+    - Nouns: Objects (classes)
+    - Verbs: Methods
