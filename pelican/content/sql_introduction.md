@@ -74,12 +74,16 @@ Select Clauses
 ==============
 
 - LIMIT count [OFFSET skip]
-    - count: how many rows to return.
-    - skip: how far into the result to start.
+    - count: how many rows to return
+    - skip: how far into the result to start
 
 - ORDER BY columns [DESC]
-    - columns: which columns to sort by. Seperated by comas.
-    - DESC: sort in reverse order (descending).
+    - columns: which columns to sort by, seperated by comas
+    - DESC: sort in reverse order (descending)
+
+- GROUP BY columns
+    - used only with aggregations (e.g. count, sum)
+    - which columns to use for aggregation
 
 Select example:
     :::sql
