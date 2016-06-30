@@ -75,7 +75,7 @@ An overview of the mismatch is shown on [Tutorialspoint](http://www.tutorialspoi
 - [Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping) can be used against object-relational miss-match
     - But it's not a very good approach
     - There are a lot of solutions: Hibernate, [QxOrm](http://www.qxorm.com/qxorm_en/home.html), ...
- 
+
 
 ## Develop own Database
 
@@ -1308,7 +1308,7 @@ Configuration interface:
 
 
 
-<!-- Start Slides Week 12 -->
+<!-- Start Slides/Notes Week 12 -->
 # Indexing
 
 Make OODBs faster and more performant
@@ -1336,13 +1336,22 @@ Different approaches to:
 
 ## Type Hierarchy Indexing
 
+### Key- vs Type-Grouping
+
+- Key-Grouping
+    - build index along the actual attribute value
+    - as $B^+$-trees
+    - additional information about typing and subtiping in the leafs
+- Type-Grouping
+    - index built along typing information
+    - values are sencondary datastructure
+
+
 ### Extent and Full Extent
 
 - Extent: all objects of a given class (without subclasses)
 - Full Extent: all objects of a given class and it's subclasses
 
-
--<!-- TODO Cont week 12 0:30:00 -->
 
 ### Single Class Index (SC-Index)
 
@@ -1374,7 +1383,7 @@ Different approaches to:
     - good when queries aim at indexed type and all subtypes
     - bad if only few types of indexed hierarchy hit by query
 - Key-grouping structure
-    
+
 > Good for querying extent (not full extent)
 
 ### H-Tree
@@ -1396,20 +1405,29 @@ Different approaches to:
     - indexing for each type
     - indexing extent for each type
 - Specific family of type sets for indexed hierarchy
-- Combine parts of subtype hierarchies to use one index structure
+- Look at all possible combinations of full extends for all types
+- Combine parts of subtype hierarchies to use one index structure (like SC-index)
 - Each typeset managed with search data structure
 - Parameters *q* and *r* give bounds
-    - *q*: number of structures needed to build a type extent
+    - *q*: number of index structures needed to build a type extent
     - *r*: number of times a type set is managed redundantly or replicated
+- Multiple index structures need to be accessed for a querry
+    - trade-off between:
+        - number of index structures to access for a query
+        - number of index structures to maintain
+
 
 ### Multi-Key Type Index (MT-Index)
 
+- Mutli-Dimensional indexing
+- Type information as additional attribute available
 - Compromise between
     - type grouping
     - key grouping
 - Type membership as additional object attribute
     - symmetrical indexing of object types and attributes
     - indexing of more than one attribute with single search structure
+- Linearization 
 
 ### Overview: Type Hierarchy Indexing
 
@@ -1419,10 +1437,18 @@ Different approaches to:
 |---------------------------|---------|-------------------------------|
 | Full-Extent               | Person  | Rel. DBs, SC-Index, (H-Index) |
 | Extent                    | Person  | CH-Index, H-Index             |
-| Extnet                    | Student | CH-Index, H-Index             |
-| comb(Extent, Full-Extent) | ...     | MT-Index, CD-Index, (H-Index) | 
+| Extent                    | Student | CH-Index, H-Index             |
+| comb(Extent, Full-Extent) | ...     | MT-Index, CD-Index, (H-Index) |
 
 
+| Index Structure      |  Extent          | Full Extent       | Combination (Extent, Full Extent) |
+|----------------------|------------------|-------------------|-----------------------------------|
+| Relational DBs       |     x            |  Person           |   x                               |
+| SC-Index             |     x            |  Person           |   x                               |
+| CH-Index             |  Person, Student |   x               |   x                               |
+| H-Index              |  Person, Student | (Person)          | ('any')                           |
+| CD-Index             |     x            |   x               |  'any'                            |
+| MT-Index             |     x            |   x               |  'any'                            |
 
 ## Aggregation Path Indexing
 
@@ -1431,19 +1457,32 @@ Different approaches to:
 - Forward queries
     - without retrieving intermedia objects
 
-### Nested Index
+### Nested Index (NX)
 
 - Direct association between
     - an *ending* object and
     - corresponding starting objects along a path
+- Bypassing intermediate objects
+- Only allows backwards traversels of full path
+- Equivalent to backward traversal in ASR canonical
+- A Nested Index *NX(P)* for path *P* with length *1* is equivalent to a Multi-Index *MX(P)* for the same path
 
-### Path Index
+
+### Path Index (PX)
 
 - Records all subpaths leading to an ending object
 - Predicates can be evaluated on all classes along the path
+- Equivalent to backwards traversal of right-complete ASR
+- A Path-Index *PX(P)* for path *P* with length *1* is equivalent to Multi-Index *MX(P)* an a Nested Index *NX(P)* for the same path
+
+### Join-Index (JX)
+
+- Originally for optimization of *joins* in Relational DBs
+- Consists of a set of binary join indices (Slides p. 33)
 
 ### Multi-Index (MX)
 
+- Like Join-Indexes in Relational DBs
 - Divide path (of arbritrary length) into sub-paths
     - sub-paths have length *1*
     - index maintained over sub-paths
@@ -1455,16 +1494,44 @@ Different approaches to:
     1. A key-value
     2. set of OIDs of objects holding this key-value (for indexed attribute)
 
+### Access Support Relations (ASR)
+
+- Given a path create *4* index structures that support all desired queries (Nested Index, Path Index, Multi-Index)
+    1. Canonical representation
+    2. Full representation
+    3. Left representation
+    4. Right representation
+    - Related to Relational DB Joins: canonical is like regular join in SQL
+- ASR Compositions Index Graph
+    - Queries that do not traverse the path at either endpoint can't be answered efficiently
+    - Aggregation path can be split in sub-paths (partitions)
+    - Set of partions: decompositions of an ASR
 
 ### Overview: Aggregation Path Indexing
 
 - Nested Index and Path Index implemented using
     - trees or
     - hash tables
-    
-<!-- TODO -->
 
-<!-- End Slides Week 12 -->
+## Collection Operations
+
+- For: sets, bags, lists, arrays
+- new modelling features, enhanced expressiveness
+- increased complexity of indexing and query optimisation
+- OQL provides constructors and operators for collections
+
+### Signature Files
+
+- Index construction for a multi-valued property of a type
+- Query over multi-valued properties
+- Compute signatures for attribute values, elements ...
+- Use mathematical operation
+    - Super-set, sub-set ...
+    - 'actual drop': true positive
+    - 'false drop': false positive
+
+
+<!-- End Slides/Notes Week 12 -->
 
 
 
@@ -1512,5 +1579,3 @@ Different approaches to:
 
 
  <!-- TODO slides week 13 p.7 -->
-
-    
