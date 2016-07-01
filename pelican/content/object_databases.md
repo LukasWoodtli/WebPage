@@ -1317,8 +1317,8 @@ Configuration interface:
     1. Key-Value Map
     2. Relational Model
     3. OO Model
-    - Mapping between models
-    - There is no generig model for all domains
+- Mapping between models
+- There is no generig model for all domains
 
 ## Social Network Analysis
 - People are connected to each other
@@ -1406,8 +1406,9 @@ Configuration interface:
     1. Put the current path from here
     2. Follow path from here
     3. if yes: which path to follow
+- Properties of the Navigator Engine
     - not declaritive
-    - interface to implement
+    - interfaces to implement
     - some predefined queries available
 
 ### Neo4j
@@ -1419,9 +1420,9 @@ Configuration interface:
 - Graph Traversal
     - using [fluent interface](https://en.wikipedia.org/wiki/Fluent_interface) (chaining method calls)
     - Provides special methods for
-        - breadth first, depth first
-        - evaluator
-        - relationships
+        - `breadthFirst()`, `depthFirst()`
+        - `evaluator(Evaluator)`
+        - `relationships(RelationShipType, Direction)`
         - ...
     - all these methods return a `TraversalDescription` object, supports chaining
     - evaluator looks at a Path object
@@ -1433,6 +1434,7 @@ Configuration interface:
             - `EXCLUDE_AND_PRUNE`
             - `INCLUDE_AND_CONTINUE`
             - `INCLUDE_AND_PRUNE`
+
 - Graph algorithms
     - find all paths between two nodes
     - [Dijktra-based cheapest path](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
@@ -1504,9 +1506,10 @@ Different approaches to:
 - Index construction for attribute of a type *t*
     - incorporate only direct instances of a particular type in index
     - construct search structure for all types in sub-hierarchy of t
-    - search data structres (called SC-Index components)
+    - search data structres (called *SC-Index components*)
     - Evaluator needs to traverse all components referenced by query
 - Usually implemented using $B^+$-trees
+- Type-Grouping
 
 > Good for querying full extent
 
@@ -1561,7 +1564,7 @@ Different approaches to:
     - trade-off between:
         - number of index structures to access for a query
         - number of index structures to maintain
-
+- Type-grouping structure
 
 ### Multi-Key Type Index (MT-Index)
 
@@ -1574,6 +1577,7 @@ Different approaches to:
     - symmetrical indexing of object types and attributes
     - indexing of more than one attribute with single search structure
 - Linearization
+- Key-grouping structure (type is handled as an attribute)
 
 ### Overview: Type Hierarchy Indexing
 
@@ -1612,7 +1616,9 @@ Different approaches to:
 - Only allows backwards traversels of full path
 - Equivalent to backward traversal in ASR canonical
 - A Nested Index *NX(P)* for path *P* with length *1* is equivalent to a Multi-Index *MX(P)* for the same path
+- Updating index structure is expensive
 
+![Nested Index](/images/object_databases/nested_index.png)
 
 ### Path Index (PX)
 
@@ -1620,6 +1626,9 @@ Different approaches to:
 - Predicates can be evaluated on all classes along the path
 - Equivalent to backwards traversal of right-complete ASR
 - A Path-Index *PX(P)* for path *P* with length *1* is equivalent to Multi-Index *MX(P)* an a Nested Index *NX(P)* for the same path
+- Updating index structure better than with *NX*
+
+![Path Index](/images/object_databases/path_index.png)
 
 ### Join-Index (JX)
 
@@ -1639,6 +1648,10 @@ Different approaches to:
 - Each index enty is represented as a pair
     1. A key-value
     2. set of OIDs of objects holding this key-value (for indexed attribute)
+- Updates cheap
+- Complex queries expensive (hop over nodes)
+
+![Multi Index](/images/object_databases/multi_index.png)
 
 ### Access Support Relations (ASR)
 
