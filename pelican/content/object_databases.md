@@ -1434,7 +1434,7 @@ Configuration interface:
         - `evaluator(Evaluator)`
             - Continue from here?
             - Put node/path in result?
-        - `relationships(RelationShipType, Direction)`
+        - Relationships to follow (`relationships(RelationShipType, Direction)`)
     - all these methods return a `TraversalDescription` object, supports chaining
     - evaluator looks at a Path object
         - decides if it should be in the result
@@ -1468,18 +1468,18 @@ Configuration interface:
 
 
 
-### Comparison InfiniteGraph and Neo4j
+### Comparison between InfiniteGraph and Neo4j
 
 | Infinte Graph (Objectivity)                               | Neo4j                                                                      |
 |-----------------------------------------------------------|----------------------------------------------------------------------------|
-| NO database orthogonality                                 | partly datatype orthogonality (`RelationshipTypes` need to be implemented) |
+| *no* database orthogonality                               | partly datatype orthogonality (`RelationshipTypes` need to be implemented) |
 | independance (persistence orthogonality)                  | (no) independance (persistence orthogonally)                               |
 | Extend `BaseVertex` and `BaseEdge`                        | Only generic nodes and edges available                                     |
 | Navigation with implementation of interfaces (Qualifiers) | Navigation with fluent interface (chaining)                                |
 | Navigation not declarative                                | Navigation not declarative                                                 |
 | Part of Objectivity (object database)                     | Some graph algorithms included                                             |
-                                                            | REST API: CRUD, JSON, algorithms                                           |
-                                                            | Cyper: ASCII Art, declarative query language                               |
+|                                                           | REST API: CRUD, JSON, algorithms                                           |
+|                                                           | Cyper: ASCII Art, declarative query language                               |
 
 
 <!-- End Slides/Notes Week 10 -->
