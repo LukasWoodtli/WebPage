@@ -1401,11 +1401,18 @@ Configuration interface:
 - Graph library on top of Objectivity/DB
 - Distributed graph DB
 - Classes for Vertex and Edge are predefined and persistent capable
+    - `BaseVertex`
+    - `BaseEdge`
 - DB API extended with graph methods
 - Traversing/Querying the graph: Navigator Engine
     1. Put the current path from here
     2. Follow path from here
     3. if yes: which path to follow
+- Interfaces for Navigator Engine
+    - Path Guide (path to go next)
+    - Path Qualifier (terminate current path?)
+    - Result Qualifier (put path in result set?)
+    - Result handler is called after navigation on result set
 - Properties of the Navigator Engine
     - not declaritive
     - interfaces to implement
@@ -1416,14 +1423,18 @@ Configuration interface:
 - [Open Source DB](https://neo4j.com/) for Java
 - Distinction between marking transaction and finishing (committing)
 - Only generic node class available
+    - Generic Node (`GraphDatabaseService.createNode()`)
+    - Generic Edge (`Node.createRelationshipTo(...)`)
     - set properties as key-values (`setProperty(...)`)
+- Generic nodes can be integrated into Java classes (different use of nodes)
 - Graph Traversal
     - using [fluent interface](https://en.wikipedia.org/wiki/Fluent_interface) (chaining method calls)
     - Provides special methods for
-        - `breadthFirst()`, `depthFirst()`
+        - `breadthFirst()` or `depthFirst()`
         - `evaluator(Evaluator)`
+            - Continue from here?
+            - Put node/path in result?
         - `relationships(RelationShipType, Direction)`
-        - ...
     - all these methods return a `TraversalDescription` object, supports chaining
     - evaluator looks at a Path object
         - decides if it should be in the result
@@ -1434,6 +1445,8 @@ Configuration interface:
             - `EXCLUDE_AND_PRUNE`
             - `INCLUDE_AND_CONTINUE`
             - `INCLUDE_AND_PRUNE`
+    - Iterator over result set
+    - Not declarative
 
 - Graph algorithms
     - find all paths between two nodes
@@ -1452,6 +1465,22 @@ Configuration interface:
     - supports update operations
     - ASCII art
     - [try it online](http://console.neo4j.org/)
+
+
+
+### Comparison InfiniteGraph and Neo4j
+
+| Infinte Graph (Objectivity)                               | Neo4j                                                                      |
+|-----------------------------------------------------------|----------------------------------------------------------------------------|
+| NO database orthogonality                                 | partly datatype orthogonality (`RelationshipTypes` need to be implemented) |
+| independance (persistence orthogonality)                  | (no) independance (persistence orthogonally)                               |
+| Extend `BaseVertex` and `BaseEdge`                        | Only generic nodes and edges available                                     |
+| Navigation with implementation of interfaces (Qualifiers) | Navigation with fluent interface (chaining)                                |
+| Navigation not declarative                                | Navigation not declarative                                                 |
+| Part of Objectivity (object database)                     | Some graph algorithms included                                             |
+                                                            | REST API: CRUD, JSON, algorithms                                           |
+                                                            | Cyper: ASCII Art, declarative query language                               |
+
 
 <!-- End Slides/Notes Week 10 -->
 
