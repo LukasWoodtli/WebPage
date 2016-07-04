@@ -46,8 +46,8 @@ Statement (Anweisung)
     - class/type definitions
 - statements often begin with a identifier/keyword
 - the syntax of statements can be described with
-    - BNF
-    -Syntax diagram
+    - `BNF <https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form>`_
+    - `Syntax diagram <https://en.wikipedia.org/wiki/Syntax_diagram>`_
 - statements differ from subroutine calls by handling of parameters
     - subroutine parameters are evaluated once
     - statement parameters can be evaluated multiple times (e.g. condition in while loop)
