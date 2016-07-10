@@ -1731,6 +1731,11 @@ Different approaches to:
 - for OOP data management
 - special features
     - difference between typing and classification
+    - types (model):
+        - names
+        - attributes
+        - behaviour
+        - relationships
     - objects: attributes and methods
     - multiple inheritance, multiple instantiation, multiple classification
     - collections as first-class concepts
@@ -1761,9 +1766,16 @@ Different approaches to:
     - semantic groupings of objects
 - Member types of collections
     - constrain membership in a collection
+    - can define a *view* of object accessed in *context* of collection
 - Object evolution
     - objects can gain/loose roles by being added or deleted form collections
     - type change not always required (???) <!-- slides week 13 p.7 -->
 
+<!-- TODO cont: Slides Week 13 p. 8 -->
 
- <!-- TODO slides week 13 p.7 -->
+
+
+- Things that exist
+    - types
+    - values for attributes
+    
