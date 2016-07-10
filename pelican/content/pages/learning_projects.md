@@ -16,6 +16,10 @@ Structure and Interpretation of Computer Programs [1.2.4](https://mitpress.mit.e
 
 MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/4a-pattern-matching-and-rule-based-substitution/)
 
+My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
+
+## Common Lisp
+[ELM Art](http://art2.ph-freiburg.de/Lisp-Kurs)
 
 # Linux/UNIX
 
