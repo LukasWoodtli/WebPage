@@ -1,6 +1,6 @@
 Title: Modern OS's
-Category: Computer Science
-Tags: OS
+Category: Programming
+Tags: Computer Science, OS
 Date: 2015-04-01
 Modified: 2015-04-11
 

@@ -1,6 +1,6 @@
 Title: Files and File descriptors on Linux
-Category: Computer Science
-Tags: OS, Linux
+Category: Programming
+Tags: Computer Science, OS, Linux
 Date: 2016-06-03
 Modified: 2016-06-03
 

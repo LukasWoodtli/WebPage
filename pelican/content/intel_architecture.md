@@ -1,6 +1,6 @@
 Title: Intel Architecture
-Category: Computer Science
-Tags: Assembler
+Category: Programming
+Tags: Computer Science, Assembler
 Date: 2015-06-22
 Modified: 2015-07-20
 

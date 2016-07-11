@@ -1,6 +1,6 @@
 Title: Models of Computation
-Category: Computer Science
-Tags: ETH
+Category: Programming
+Tags: Computer Science, ETH
 Date: 2016-02-29
 Modified: 2016-04-21
 

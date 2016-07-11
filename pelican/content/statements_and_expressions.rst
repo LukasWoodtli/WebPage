@@ -3,7 +3,8 @@ Statements and Expressions
 
 :date: 2016-07-04
 :modified: 2016-07-04
-:category: Computer Science
+:category: Programming
+:tags: Computer Science
 
 
 "The purpose of an expression is to be evaluated to produce another expression; a statement, on the other hand, is evaluated to make some change to the state of the abstract machine." [Tom Stuart, Understanding Computation]

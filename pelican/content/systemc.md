@@ -1,6 +1,6 @@
 Title: SystemC
-Category: Computer Science
-Tags: C++, Embedded Systems
+Category: Programming
+Tags: Computer Science, C++, Embedded Systems
 Date: 2016-02-15
 Modified: 2016-02-19
 

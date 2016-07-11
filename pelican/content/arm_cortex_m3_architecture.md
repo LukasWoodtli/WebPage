@@ -1,6 +1,6 @@
 Title: ARM Cortex-M3 Architecture
-Category: Computer Science
-Tags: Assembler
+Category: Programming
+Tags: Computer Science, Assembler
 Date: 2015-07-03
 Modified: 2015-07-19
 

@@ -1,6 +1,7 @@
 Title: Executable Loader
 Date: 2015-08-11
-Category: Computer Science
+Category: Programming
+Tags: Computer Science
 
 Most information of this page is taken from
 [Calling conventions for different C++ compilers and operating systems](http://www.agner.org/optimize/#manuals).
