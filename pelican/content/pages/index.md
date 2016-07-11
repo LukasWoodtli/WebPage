@@ -51,14 +51,14 @@ var tagList = [new TagInfos("C", "/tag/c.html", 70),
                new TagInfos("Statistics", "/tag/statistics.html", 15),
                new TagInfos("SVN", "/tag/svn.html", 20),
                new TagInfos("XP", "/tag/xp.html", 20),
-               new TagInfos("Computer Science", "/category/computer_science.html", 40),
+               new TagInfos("Computer Science", "/tag/computer_science.html", 40),
                new TagInfos("Emacs", "/category/emacs.html", 15),
                new TagInfos("Mathematics", "/category/mathematics.html", 20),
                new TagInfos("Programming", "/category/programming.html", 50),
                new TagInfos("Software Development", "/category/software_development.html", 40),
                new TagInfos("Version Control", "/category/version_control.html", 20),
                new TagInfos("SystemC", "/systemc.html", 20),
-               new TagInfos("Linux", "/tag/linux.html", 35)               
+               new TagInfos("Linux", "/tag/linux.html", 35)
 ];
 
 
