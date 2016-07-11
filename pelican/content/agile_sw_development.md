@@ -1,8 +1,8 @@
 Title: Agile Software Development
 Date: 2015-05-29
 Modified: 2015-06-01
-Category: Software Development
-Tags: Agile, Scrum, XP
+Category: Programming
+Tags: Agile, Scrum, XP, Software Development Methodology
 
 
 > This page is still work in progress
