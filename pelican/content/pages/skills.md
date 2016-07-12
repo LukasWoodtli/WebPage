@@ -13,11 +13,12 @@ My main (and favourite) programming language is C++. I have also been programmin
 | Assembler (x86, ARM)                     | basic                                    |
 | Java                                     | good                                     |
 | Scala                                    | basic                                    |
+| Lisp (Scheme, Clojure)                   | basic                                    |
+| Matlab/Simulink                          | basic                                    |
+| Ruby                                     | basic                                    |
 | Objective C                              | basic                                    |
 | Oberon                                   | basic                                    |
 | JavaScript                               | basic                                    |
-| Clojure (Lisp)                           | basic                                    |
-| Matlab/Simulink                          | basic                                    |
 | VHDL                                     | basic                                    |
 
 # Frameworks
