@@ -25,6 +25,11 @@ Data has to outlive the execution of the program
     - How much code needs to be written for persistence
         - None at all would be nice but not realistic (GUI objects usually don't need storing...)
     - Data is stored automatically
+    - Not always desirabls: don't need to store UI, messages ...
+    - 3 possible solutions
+        1. implicit: save all objects automatically
+        2. explicit: objects need to be saved manually
+        3. on class base (different granularity)
 - **Data Type Orthogonality** all data objects should be allowed to be persistent (long-lived, transient)
     - The data types do not need to be modified (implicitly or explicitly) to allow persistence
     - e.g Serializable interface in Java does not satisfy this criteria (classes that don't implement the interface can't be stored)
@@ -635,8 +640,6 @@ Requirements:
     - implementation of interface that declares all public methods
 - Some additional minor restrictions from EJB framework
 
-
-<!-- TODO Hibernate Tutorial http://www.tutorialspoint.com/hibernate/hibernate_examples.htm  -->
 
 Example:
 
@@ -1304,7 +1307,153 @@ Configuration interface:
     - write to and read from byte-arrays
 
 
-<!-- End Slides/Notes Week 5 ? -->
+<!-- End Slides/Notes Week 5/6 ? -->
+
+
+<!-- Start Slides/Notes Week 7 -->
+
+# Versant
+
+- Highly scalable
+- Distributed
+- Many platforms and progamming languages
+    - C, C++, Java
+- db4o acquired by Versant
+- Lot of features
+
+## Indexing
+
+- Like SQL
+- Point/Range queries
+- Index structures for Relational DBs not ideal for Subtyping
+    - *Polymorphic indexes* in Versant
+
+## Architecture
+
+- Always network based
+    - no embedded option (as db4o)
+- Client
+    - Versant Manager
+    - Object cache
+    - Application logic
+- Versant Server
+    - possible to use multiple servers
+    - Access to data
+        - Volumes (page cache)
+    - Logical log file
+    - Physical log file
+
+## Database Volumes
+
+- System Volume (created automatically)
+    - Class descriptions
+    - Object instances
+- Data Volumes (optional)
+    - Increase database capacity
+    - Partition data
+- Logical Log Volume (created automatically)
+    - Transactions and redo information
+    - For recovery and rollback
+- Physical Log Volume (created automatically)
+    - Physical data information
+    - For recovery and rollback
+
+## Versant Manager
+
+- Presents objects to app
+- Caches objects in virtual memory
+- Manages transactions
+- Distributes queries and updates to servers
+- Conversion between Versant DB format and client machine format
+
+## Cache
+
+- Cached Object Descriptor Table
+- Map from *logical object identifier* (LOID) to object in memory
+    - attributes pointing to other object: access object in memory or DB
+
+
+![Nested Index](/images/object_databases/versant_cache.png)
+
+
+| pointer  | LOID     | Meaning                |
+|----------|----------|------------------------|
+| NULL     | NULL     | object deleted?        |
+| not NULL | NULL     | not saved persistently |
+| NULL     | not NULL | not loaded in cache    |
+| not NULL | not NULL | in DB and in cache     |
+
+Other entries:
+
+- locking information
+- state information
+- ...
+
+Version doesn't have the notion of activation. Data is retreived automatically
+when dereferencing pointers.
+
+## Processes, Sessions and Transactions
+
+- Session (same as ObjectContainer in db4o)
+    - On client side
+    - Represents database instance
+    - Container
+    - A session object is always bound to one *single transaction*
+    - It's possible to have multiple threads attached to one session
+        - This is dangerous!
+        - Not transaction support
+    - Multiple sessions within separate threads
+    - or multiple session in one thread
+    - Each session object on the client is bound to one transaction thread in the server
+        - Transaction (ACID) support
+    - The server thread accesses the page cache
+
+## Java Versant Interface
+
+- Easy-to-use storage of persistent Java objects
+    - pure Java (syntax and semantics)
+    - instances of nearly all classes can be stored (and accessed)
+    - works with Java GC
+- Client-server architecture
+    - access to the Versant object DB
+    - client libs cache objects for faster access
+    - DB queries are axecuted on server
+
+## JVI Layers
+
+### Fundamental Layer
+
+- DB centric
+- Objects manipulated indirectly through handles
+- package `com.versant.fund`
+
+- Create wrapper code for real classes (reflection)
+
+
+### Transparent Layer
+
+- language centric
+- build on top of fundamental layer
+- package `com.versant.trans`
+- Java classes are mapped to objects in fundamental layer
+- Persistant objects are cached in memory
+- For persistent objects retrieved from a DB Java objects are constructed (in memory)
+
+
+<!-- TODO cont slides p. 20, Notes 0:40:00 -->
+...
+
+### OMDG Layer
+
+- language centric
+- ODMG database, transactions, collections
+- build on transparent layer
+- packages `com.versant.odmg` and `com.versant.odmg`
+ ...
+
+
+
+
 
 
 <!-- Start Slides/Notes Week 10 -->
@@ -1778,4 +1927,36 @@ Different approaches to:
 - Things that exist
     - types
     - values for attributes
-    
+- Collection is not just contains objects
+    - relationship to objects
+    - name
+    - constraint (subset relation)
+        - joint
+        - disjoint
+    - associations
+        - collection to pairs
+
+- e.g: A person becomming a friend or an enemy doesn't change (or add/remove) any properties of a person type
+- Objects can gain state and behavior dynamically
+    - distinguish
+        - object: can refer to, identity, can be pointed to
+        - instance: container of values of a particular type
+
+- Relationships
+
+
+- intentional / extensional ???
+
+- Query
+    - Decide if something in a collection or not
+    - Traversiong result (iterator, cursor)
+- SQL
+    - relationships mapped by primary-/foreign-key
+    - `select` can be used instead of `joins` to follow relationships
+    - A selection query is fully specified when:
+        - providing a *set of candidates* and
+        - a function that takes *individual candidates* and returns *true* or *false*
+- OM Model queries
+    - Declaritive query language
+    - Collections are *sets of candidates* for queries
+- Map-Reduce
