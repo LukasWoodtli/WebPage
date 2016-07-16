@@ -1,5 +1,5 @@
- Evaluation strategy
-####################
+Evaluation strategy
+###################
 
 :date: 2016-07-12
 :category: Programming
