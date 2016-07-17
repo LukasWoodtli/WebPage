@@ -1320,6 +1320,9 @@ Configuration interface:
     - C, C++, Java
 - db4o acquired by Versant
 - Lot of features
+- easy to use
+- Full Persistance Orthogonality
+    - but code is injected (into byte-code)
 
 ## Indexing
 
@@ -1342,6 +1345,9 @@ Configuration interface:
         - Volumes (page cache)
     - Logical log file
     - Physical log file
+- Dual cache
+    - Object cache (client)
+    - Page cache (server)
 
 ## Database Volumes
 
@@ -1389,6 +1395,13 @@ Other entries:
 - state information
 - ...
 
+## Versant Server
+
+- Object retrieval (disk and page cache)
+- Transactions and locks
+- Logging and recovery
+- Indexing
+
 Version doesn't have the notion of activation. Data is retreived automatically
 when dereferencing pointers.
 
@@ -1418,14 +1431,20 @@ when dereferencing pointers.
     - access to the Versant object DB
     - client libs cache objects for faster access
     - DB queries are axecuted on server
+- Configuration and code-generation integrated in build process
 
 ## JVI Layers
+
+Versant provides different API layers.
+The fundamental layer is usually not direclty needed by the application developer.
 
 ### Fundamental Layer
 
 - DB centric
+- Create 'Meta-classes'
 - Objects manipulated indirectly through handles
 - package `com.versant.fund`
+- Query classes `FundQuery` and `FundQueryResult`
 
 - Create wrapper code for real classes (reflection)
 
@@ -1433,6 +1452,8 @@ when dereferencing pointers.
 ### Transparent Layer
 
 - language centric
+- usually used by developer
+- code is injected to application code
 - build on top of fundamental layer
 - package `com.versant.trans`
 - Java classes are mapped to objects in fundamental layer
@@ -1440,8 +1461,59 @@ when dereferencing pointers.
 - For persistent objects retrieved from a DB Java objects are constructed (in memory)
 
 
-<!-- TODO cont slides p. 20, Notes 0:40:00 -->
-...
+#### First and Second Class Objects
+
+Versant distiquishes first class and second class objects
+
+- Configured externally in a file
+- Configured on class basis
+- First Class Objects (FCO)
+    - main objects that can be saved and retrieved independently
+    - have a Logical Object Identifier (LOID)
+    - changes are saved automatically (independance)
+    - strong entities
+- Second Class Objects (SCO)
+    - can be saved only as part of an FCO
+    - can't be results of queries
+    - can be part of forst class objects
+    - stored as binary array
+    - weak entity
+    - used for optimization
+
+#### Persistence Categories
+
+- can be configured on class basis
+
+- First class objects
+    - Persistent always (*p*)
+        - becomes persistent at instantiation (independence)
+        - marked as dirty when modified
+    - Persistence capable (*c*)
+        - new instances are transient but can become persistent
+        - marked as dirty when modified
+    - Superclass of *p* or *c* must also be *p* or *c* respectively
+- Second class objects
+    - Transparent dirty owner (*d*)
+        - changes to object automatically mark the owner object as dirty
+        - works only when the owner is stored (FCO)
+    - Persistence aware (*a*)
+        - for code that is aware of FCO
+        - code needs to mark manually the FCO as dirty
+    - Not persistent (*n*)
+        - no managed by Versant system
+
+
+#### Persistence and Navigation
+
+- Persistence by reachability is provided
+- Database root
+    - persist the root of an object graph
+    - name it (for retrieving it later)
+    - Methods `makeRoot()`, `deleteRoot()` and `findRoot()`
+- Transparent navigation
+    - 'activation' handled automatically and lazy
+    - objects are transparently locked and retrieved
+    - works across DB boundaries
 
 ### OMDG Layer
 
@@ -1449,11 +1521,81 @@ when dereferencing pointers.
 - ODMG database, transactions, collections
 - build on transparent layer
 - packages `com.versant.odmg` and `com.versant.odmg`
- ...
 
+## Application Development
 
+- Develop Java classes
+    - make code 'persistence aware'
+    - sessions, transactions, concurrency
+- Create configuration file
+    - specify persistence category for each Java class
+- Compile
+- Run enhancer to make byte-code changes
+    - persistence behaviour ihnerited from `com.versant.trans.Persistent`
+    - explicit at compile time or
+    - implicit at run time (class loader)
+- create DB
+- Run application
 
+## Byte-code Enhancement
 
+- Code which creates shema object in DB
+- Code for writing and reading to and from DB
+- Code for accessing attribute values
+
+## Object Lifecycle
+
+- Creation of persistent objects
+    - Java objects in memory
+    - Each object has internal DB information in object cache
+- Commit
+    - Object data written to DB
+    - Proxy Java objects retained in memory
+- Rollback
+    - New database objects will be dropped
+- Querying
+    - Queries are passed to DB server
+    - Proxy object for every object in result
+- Accessing objects
+    - Objects are fetched or de-serialized transparently
+
+## Versant Collections
+
+- Standard collection classes can't be byte-code enhanced
+- Special collection classes for *FCO*s and *SCO*s
+- Scalable large collections (*FCO*)
+- OMDG collections (are *FCO*s)
+    - additional query facilities
+
+## Versant Query Language (VQL)
+
+- Subset of OQL (ODMG)
+- Similar to SQL
+- Executed on server
+- Can be parameterised
+    - prepared statements
+
+## Event Notification and Persistent Object Hooks
+
+- Like callbacks in db4o
+- Event Notification
+    - Propagation of events from DB to client
+    - Event types
+        - class: create, modfy or delete an instance
+        - object: modify or delete object or group of objects
+        - transactions: begin or end of transaction
+        - user-defined events
+    - package `com.versant.event`
+- Persistent Object Hooks
+    - Allow interventeion of state transitions
+    - `activate()`, `deactivate()`
+    - `preRead(boolean act)` and `postRead(boolean act)`
+    - `preWrite(boolean deAct)` and `postWrite(boolean deAct)`
+    - `vDelete()`: can be used to maintain referential integrity (caascading delete)
+
+<!-- End of Notes/Slides Week 7 -->
+
+    
 
 
 <!-- Start Slides/Notes Week 10 -->
