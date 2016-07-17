@@ -25,7 +25,7 @@ Data has to outlive the execution of the program
     - How much code needs to be written for persistence
         - None at all would be nice but not realistic (GUI objects usually don't need storing...)
     - Data is stored automatically
-    - Not always desirabls: don't need to store UI, messages ...
+    - Not always desirable: don't need to store UI, messages ...
     - 3 possible solutions
         1. implicit: save all objects automatically
         2. explicit: objects need to be saved manually
@@ -583,16 +583,16 @@ ODL Syntax:
     - multiple databases require multiple `SessionFactory` objects
 - `Session` object
     - Used to get physical connection to the database
-    - leightweight
-    - desigend to be instatiated each time an interatcion with the DB is needed
+    - lightweight
+    - designed to be instantiated each time an interaction with the DB is needed
     - Persistent objects are *stored* and *retrieved* through `Session` object
-    - should not be kept open for al long time
+    - should not be kept open for a long time
         - usually not thread safe
         - create before use
         - destroy after use
 - `Transaction` object
     - represent a unit of work with the DB
-    - handled by underlying tansaction manager and transaction (JDBC or JTA)
+    - handled by underlying transaction manager and transaction (JDBC or JTA)
     - optional object
         - transactions can be managed in own application code
 - `Query` object
@@ -605,14 +605,14 @@ ODL Syntax:
 
 ## Configuration
 
-- Hibernate needs to know where to find some informations about class mappings and database
+- Hibernate needs to know where to find some information about class mappings and database
 - XML file: *hibernate.cfg.xml* (or Java properties file *hibernate.properties*)
 
 ### Properties
 
 | Property          | Description                                       |
 |-------------------|---------------------------------------------------|
-| hibernate.dialect | The SQL dialect used to generate persistance code |
+| hibernate.dialect | The SQL dialect used to generate persistence code |
 | hibernate.connection.driver_class | The JDBC driver class             |
 | hibernate.connection.url          | The URL to the database instance  |
 | hibernate.connection.username     | The username for the database     |
@@ -623,7 +623,7 @@ ODL Syntax:
 
 There are additional settings for using a database along with an application server and JNDI.
 
-### Persistant Objects
+### Persistent Objects
 
 Only Plain Old Java Object (POJO) can be saved in the DB.
 
@@ -1239,7 +1239,7 @@ Enabling the transparent activation framework
             - `ReplicationSession.setDirection(from, to)`
         - `ReplicationSession.replicate(object)` newer object transferred to DB
         - Object granularity
-    - Conflict handlig has to be done by developer
+    - Conflict handling has to be done by developer
 
 ## Callbacks
 
@@ -1316,12 +1316,12 @@ Configuration interface:
 
 - Highly scalable
 - Distributed
-- Many platforms and progamming languages
+- Many platforms and programming languages
     - C, C++, Java
 - db4o acquired by Versant
 - Lot of features
 - easy to use
-- Full Persistance Orthogonality
+- Full Persistence Orthogonality
     - but code is injected (into byte-code)
 
 ## Indexing
@@ -1402,7 +1402,7 @@ Other entries:
 - Logging and recovery
 - Indexing
 
-Version doesn't have the notion of activation. Data is retreived automatically
+Version doesn't have the notion of activation. Data is retrieved automatically
 when dereferencing pointers.
 
 ## Processes, Sessions and Transactions
@@ -1430,13 +1430,13 @@ when dereferencing pointers.
 - Client-server architecture
     - access to the Versant object DB
     - client libs cache objects for faster access
-    - DB queries are axecuted on server
+    - DB queries are executed on server
 - Configuration and code-generation integrated in build process
 
 ## JVI Layers
 
 Versant provides different API layers.
-The fundamental layer is usually not direclty needed by the application developer.
+The fundamental layer is usually not directly needed by the application developer.
 
 ### Fundamental Layer
 
@@ -1457,25 +1457,25 @@ The fundamental layer is usually not direclty needed by the application develope
 - build on top of fundamental layer
 - package `com.versant.trans`
 - Java classes are mapped to objects in fundamental layer
-- Persistant objects are cached in memory
+- Persistent objects are cached in memory
 - For persistent objects retrieved from a DB Java objects are constructed (in memory)
 
 
 #### First and Second Class Objects
 
-Versant distiquishes first class and second class objects
+Versant distinguishes first class and second class objects
 
 - Configured externally in a file
 - Configured on class basis
 - First Class Objects (FCO)
     - main objects that can be saved and retrieved independently
     - have a Logical Object Identifier (LOID)
-    - changes are saved automatically (independance)
+    - changes are saved automatically (independence)
     - strong entities
 - Second Class Objects (SCO)
     - can be saved only as part of an FCO
     - can't be results of queries
-    - can be part of forst class objects
+    - can be part of first class objects
     - stored as binary array
     - weak entity
     - used for optimization
@@ -1491,7 +1491,7 @@ Versant distiquishes first class and second class objects
     - Persistence capable (*c*)
         - new instances are transient but can become persistent
         - marked as dirty when modified
-    - Superclass of *p* or *c* must also be *p* or *c* respectively
+    - Super-class of *p* or *c* must also be *p* or *c* respectively
 - Second class objects
     - Transparent dirty owner (*d*)
         - changes to object automatically mark the owner object as dirty
@@ -1531,7 +1531,7 @@ Versant distiquishes first class and second class objects
     - specify persistence category for each Java class
 - Compile
 - Run enhancer to make byte-code changes
-    - persistence behaviour ihnerited from `com.versant.trans.Persistent`
+    - persistence behavior inherited from `com.versant.trans.Persistent`
     - explicit at compile time or
     - implicit at run time (class loader)
 - create DB
@@ -1539,7 +1539,7 @@ Versant distiquishes first class and second class objects
 
 ## Byte-code Enhancement
 
-- Code which creates shema object in DB
+- Code which creates schema object in DB
 - Code for writing and reading to and from DB
 - Code for accessing attribute values
 
@@ -1581,21 +1581,20 @@ Versant distiquishes first class and second class objects
 - Event Notification
     - Propagation of events from DB to client
     - Event types
-        - class: create, modfy or delete an instance
+        - class: create, modify or delete an instance
         - object: modify or delete object or group of objects
         - transactions: begin or end of transaction
         - user-defined events
     - package `com.versant.event`
 - Persistent Object Hooks
-    - Allow interventeion of state transitions
+    - Allow intervention of state transitions
     - `activate()`, `deactivate()`
     - `preRead(boolean act)` and `postRead(boolean act)`
     - `preWrite(boolean deAct)` and `postWrite(boolean deAct)`
-    - `vDelete()`: can be used to maintain referential integrity (caascading delete)
+    - `vDelete()`: can be used to maintain referential integrity (cascading delete)
 
 <!-- End of Notes/Slides Week 7 -->
 
-    
 
 
 <!-- Start Slides/Notes Week 10 -->
@@ -1609,7 +1608,7 @@ Versant distiquishes first class and second class objects
     2. Relational Model
     3. OO Model
 - Mapping between models
-- There is no generig model for all domains
+- There is no generic model for all domains
 
 ## Social Network Analysis
 - People are connected to each other
@@ -1653,7 +1652,7 @@ Versant distiquishes first class and second class objects
 
 #### Network Structure Properties
 
-- Network Centralisation
+- Network Centralization
     - Dominated by one or few nodes
     - (single) point of failure
 - Density/Cohesion
@@ -1661,7 +1660,7 @@ Versant distiquishes first class and second class objects
 - Distance (Small World)
     - Minimum numbers of edges needed to connect two particular nodes
 - Clustering Coefficients
-    - Likelyhood that two associates of a node are also associates to each other
+    - Likelihood that two associates of a node are also associates to each other
     - 'cliquishness'
 
 ### General Model
@@ -1672,14 +1671,14 @@ Versant distiquishes first class and second class objects
 - Always *2* core *identities* connected by *action*
 - e.g.
     - connect 2 authors that worked on same publication
-    - or connect publications that have the same autor
+    - or connect publications that have the same author
 
 ## Graph Database Implementations
 
 - API
 - Support for CRUD
 - High-level operations for graph traversals
-- Somtimes graph algorithms part of DB
+- Sometimes graph algorithms part of DB
 - ACID
 - Scalable
 - Examples:
@@ -1705,7 +1704,7 @@ Versant distiquishes first class and second class objects
     - Result Qualifier (put path in result set?)
     - Result handler is called after navigation on result set
 - Properties of the Navigator Engine
-    - not declaritive
+    - not declarative
     - interfaces to implement
     - some predefined queries available
 
@@ -1761,16 +1760,16 @@ Versant distiquishes first class and second class objects
 
 ### Comparison between InfiniteGraph and Neo4j
 
-| Infinte Graph (Objectivity)                               | Neo4j                                                                      |
+| Infinite Graph (Objectivity)                               | Neo4j                                                                      |
 |-----------------------------------------------------------|----------------------------------------------------------------------------|
 | *no* database orthogonality                               | partly datatype orthogonality (`RelationshipTypes` need to be implemented) |
-| independance (persistence orthogonality)                  | (no) independance (persistence orthogonally)                               |
+| independence (persistence orthogonality)                  | (no) independence (persistence orthogonality)                               |
 | Extend `BaseVertex` and `BaseEdge`                        | Only generic nodes and edges available                                     |
 | Navigation with implementation of interfaces (Qualifiers) | Navigation with fluent interface (chaining)                                |
 | Navigation not declarative                                | Navigation not declarative                                                 |
 | Part of Objectivity (object database)                     | Some graph algorithms included                                             |
 |                                                           | REST API: CRUD, JSON, algorithms                                           |
-|                                                           | Cyper: ASCII Art, declarative query language                               |
+|                                                           | Cypher: ASCII Art, declarative query language                               |
 
 
 <!-- End Slides/Notes Week 10 -->
@@ -1783,11 +1782,11 @@ Make OODBs faster and more performant
 
 - Compare OOP model to Relational model
 
-Main differences bewteen OOP and Relational model:
+Main differences between OOP and Relational model:
 
 1. inheritance (is-a)
 2. multitype attributes (sets, collections)
-    - First normal form in Relational Databases disallows mutlivalued attribues (collections) in a field
+    - First normal form in Relational Databases disallows mutlivalued attributes (collections) in a field
 3. dereferencing a path of pointers/references (traversing the object graph)
 
 > OODB systems can be faster when using additional information that a RDBMSs doesn't have
@@ -1797,7 +1796,7 @@ Different approaches to:
 - Mapping (ORM)
 - Physically represent data differently (eg. Objectivity)
 - Use additional (meta-) data but keep the representation of the data
-    - secundary datastructures
+    - secondary datastructures
     - index structures
 - Group record: pages, clusters ...
 
@@ -1809,16 +1808,16 @@ Different approaches to:
 - Key-Grouping
     - build index along the actual attribute value
     - as $B^+$-trees
-    - additional information about typing and subtiping in the leafs
+    - additional information about typing and sub-typing in the leafs
 - Type-Grouping
     - index built along typing information
-    - values are sencondary datastructure
+    - values are secondary datastructure
 
 
 ### Extent and Full Extent
 
-- Extent: all objects of a given class (without subclasses)
-- Full Extent: all objects of a given class and it's subclasses
+- Extent: all objects of a given class (without sub-classes)
+- Full Extent: all objects of a given class and it's sub-classes
 
 
 ### Single Class Index (SC-Index)
@@ -1826,7 +1825,7 @@ Different approaches to:
 - Index construction for attribute of a type *t*
     - incorporate only direct instances of a particular type in index
     - construct search structure for all types in sub-hierarchy of t
-    - search data structres (called *SC-Index components*)
+    - search data structures (called *SC-Index components*)
     - Evaluator needs to traverse all components referenced by query
 - Usually implemented using $B^+$-trees
 - Type-Grouping
@@ -1836,12 +1835,12 @@ Different approaches to:
 ### Class Hierarchy Index (CH-Index)
 
 - One search structure for all objects of all types of indexed hierarchy
-- One index on the common attribute for all classes of a iheritance graph
+- One index on the common attribute for all classes of a inheritance graph
 - Leaf node consists of
     - key-value
     - key directory
         - contains an entry for each class that has instances with the key-value in the indexed attribute
-        - entry for a class consist of class identifier and offset fo list of OIDs in index record
+        - entry for a class consist of class identifier and offset for list of OIDs in index record
     - number of elements in list of OIDs (for each class in the inheritance graph)
     - list of OIDs
 - Evaluator scans through $B^+$-tree once
@@ -1849,7 +1848,7 @@ Different approaches to:
     - discards other OIDs
 - Point queries perform good
 - Range queries depend on number of referenced types
-    - good when queries aim at indexed type and all subtypes
+    - good when queries aim at indexed type and all sub-types
     - bad if only few types of indexed hierarchy hit by query
 - Key-grouping structure
 
@@ -1860,11 +1859,11 @@ Different approaches to:
 - Set of nested $B^+$-trees
 - Combining class hierarchy with SC-Index
 - Nesting reflects indexed type hierarchy
-    - each H-tree component is nested with H-trees of immediate subtypes
-    - H-tree index for attribute of inheritance sub-graph is H-tree hierarchy nested according to supertype-subtype relation
+    - each H-tree component is nested with H-trees of immediate sub-types
+    - H-tree index for attribute of inheritance sub-graph is H-tree hierarchy nested according to super-type-sub-type relation
 - Avoids full scans of each B-tree component when several types queried
-- Single type lookup: don't search nested trees
-- Type hierarchy lookup: traverse nested trees
+- Single type look-up: don't search nested trees
+- Type hierarchy look-up: traverse nested trees
 
 - Type-grouping structure
 
@@ -1875,12 +1874,12 @@ Different approaches to:
     - indexing extent for each type
 - Specific family of type sets for indexed hierarchy
 - Look at all possible combinations of full extends for all types
-- Combine parts of subtype hierarchies to use one index structure (like SC-index)
+- Combine parts of sub-type hierarchies to use one index structure (like SC-index)
 - Each typeset managed with search data structure
 - Parameters *q* and *r* give bounds
     - *q*: number of index structures needed to build a type extent
     - *r*: number of times a type set is managed redundantly or replicated
-- Multiple index structures need to be accessed for a querry
+- Multiple index structures need to be accessed for a query
     - trade-off between:
         - number of index structures to access for a query
         - number of index structures to maintain
@@ -1888,7 +1887,7 @@ Different approaches to:
 
 ### Multi-Key Type Index (MT-Index)
 
-- Mutli-Dimensional indexing
+- Multi-Dimensional indexing
 - Type information as additional attribute available
 - Compromise between
     - type grouping
@@ -1925,7 +1924,7 @@ Different approaches to:
 - Backward queries
     - without full object tree traverses
 - Forward queries
-    - without retrieving intermedia objects
+    - without retrieving intermediate objects
 
 ### Nested Index (NX)
 
@@ -1933,7 +1932,7 @@ Different approaches to:
     - an *ending* object and
     - corresponding starting objects along a path
 - Bypassing intermediate objects
-- Only allows backwards traversels of full path
+- Only allows backwards traversals of full path
 - Equivalent to backward traversal in ASR canonical
 - A Nested Index *NX(P)* for path *P* with length *1* is equivalent to a Multi-Index *MX(P)* for the same path
 - Updating index structure is expensive
@@ -1942,7 +1941,7 @@ Different approaches to:
 
 ### Path Index (PX)
 
-- Records all subpaths leading to an ending object
+- Records all sub-paths leading to an ending object
 - Predicates can be evaluated on all classes along the path
 - Equivalent to backwards traversal of right-complete ASR
 - A Path-Index *PX(P)* for path *P* with length *1* is equivalent to Multi-Index *MX(P)* an a Nested Index *NX(P)* for the same path
@@ -1953,12 +1952,12 @@ Different approaches to:
 ### Join-Index (JX)
 
 - Originally for optimization of *joins* in Relational DBs
-- Consists of a set of binary join indices (Slides p. 33)
+- Consists of a set of binary join indexes (Slides p. 33)
 
 ### Multi-Index (MX)
 
 - Like Join-Indexes in Relational DBs
-- Divide path (of arbritrary length) into sub-paths
+- Divide path (of arbitrary length) into sub-paths
     - sub-paths have length *1*
     - index maintained over sub-paths
 - Query evaluation
