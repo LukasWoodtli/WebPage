@@ -29,7 +29,6 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Mastering Regular Expressions                     | Jeffrey E.F. Friedl                               | O'Reilly                                          |
-| Moderne Betriebssysteme                           | Andrew S. Tanenbaum                               | Pearson                                           |
 | Seven Concurrency Models [...]                    | Paul Butcher                                      | The Pragmatic Bookshelf                           |
 | Effektives Arbeiten mit Legacy Code               | Michael C. Feathers                               | mitp                                              |
 | Test Driven Development for Embedded C            | James W. Grenning                                 | The Pragmatic Bookshelf                           |
@@ -43,7 +42,16 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Understanding Computation                         | Tom Stuart                                        | O'Reilly                                          |
 | [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
 
-#Version Control
+# Operating Systems
+
+| Name                                              | Authors                                           | Publisher                                         |
+|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Moderne Betriebssysteme                           | Andrew S. Tanenbaum                               | Pearson                                           |
+| Using the FreeRTOS Real Time Kernel               | Richard Barry                                     | Richard Barry                                     |
+| Using the FreeRTOS Real Time Kernel               | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
+| [Linux-UNIX-Programmierung](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/index.htm) | Jürgen Wolf | Rheinwerk                            |
+
+# Version Control
 
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
@@ -52,7 +60,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 
 
 
-#XML
+# XML
 
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
