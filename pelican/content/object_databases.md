@@ -1615,6 +1615,7 @@ Versant distinguishes first class and second class objects
 ## Architecture
 
 - C++ and Java
+- Client/Server application
 - Leightweight and professional editions available
 - Based on virtual memory mapping
     - pages
@@ -1630,7 +1631,6 @@ Versant distinguishes first class and second class objects
     - heterogeneous
     - persistent
     - transactional
-
 - Logical vs. physical address
     - data is referenced uniquely using a 4-part key
         1. database
@@ -1642,6 +1642,8 @@ Versant distinguishes first class and second class objects
 - Physical memory and secondary storage
     - all data accessed by client must be in *PSR*
     - cache hold recently accessed data even across transactions
+- Data is cached on different levels
+- Granularity: pages
 
 ## Virtual Memory Mapping Architecture
 
@@ -1663,7 +1665,7 @@ Versant distinguishes first class and second class objects
     - automatic recovery mechanism
 - Database
     - managed by one server
-        - one server can manage multiple DBs
+        - one server can manage multiple DBs (distribution)
     - binary files storing pages of memory containing C++ objects
 - Transaction log
     - each server owns transaction log
@@ -1676,22 +1678,77 @@ Versant distinguishes first class and second class objects
 
 ## Client Side Components
 
+<!-- TODO continue  Notes 0:50:00 -->
+
+
 - Client
     - C++ program linked with ObjectStore librarys
-    - even Java programs using ObjectStore have a C++ part
+    - even Java programs using ObjectStore are embedded (session) in a C++ part
     - interacts with DB
     - pages automatically fetched from DB
 - Cache
     - one cache memory mapped file per client process
     - pages fetched from DB are held in cache
     - pages can be retained in cache between transactions
-- meta-information
+    - Cache manager retrieves data from the server
+- meta-information (Commseg)
     - Commseg memory mapped file
     - contains meta-information about pages in cache
     - stores *permit* and *lock* for pages in cache
     - *permit*s can be retained between transactions
+- Cache manager
+    - one manager per client machine
+    - shared by all clients on that machine
+    - handles permit revokes
+    - read/write cache and commseg
+    - not directly involved in page fetch
+- Persistent Storage Region (*PSR*)
+    - reserved area of virtual address space (in C++ part)
+    - addresses of persistent objects used by client are mapped to *PSR*
+    - pointers of application will be in the range of the *PSR*
+    - at end of transaction *PSR* is cleared
+        - can be reused for next transaction
 
-<!-- TODO continue Slides . 9, Notes 0:50:00 -->
+## Fetching and Mapping Pages
+
+- Client automaticalliy fetches and maps pages
+    - 'lazy' fetches
+    - held in client cache
+- Server *perimits* and client *locks* acquired automatically
+    - ensuring transaction consistency
+- Existing page can be swapped out
+    - if not enough toom in cache for new page
+    - updated pages are sent to the server
+    - read-only pages are dropped from cache (copy in DB)
+
+### Fetching and Mapping Sequence
+
+- ObjectStore installs `SIGSEGV` (segmentation fault) handler
+- Program obtains pointer `p` to object on page *x*
+- Dereferencing `p` causes `SIGSEGV` handler to be called
+- Virtual mapping table is consulted
+- Page is fetched from server and stored in cache
+- Page *x* is mapped to address space
+- Execution continues
+
+## Cache-Forward Architecture
+
+- To provide high performace in ObjectStore
+    - data cached across transaction boundaries
+    - number of used locks is reduces
+    - cached data kept in globally consistent state
+- Two types of locks on pages
+    - *transaction locks*: represents state of page during transaction
+    - *ownership permits*: represents state of page in cache
+- *Permits* are tracked by *server*
+    - server serves permits on pages that are sent to client
+- *Locks* are taken by *client*
+    - client can lock pages according to given permit
+
+<!-- TODO continue Slides p. 13 -->
+
+    
+
 
 <!-- End Notes/Slides Week 8 -->
 
