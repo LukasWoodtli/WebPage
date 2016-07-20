@@ -1402,7 +1402,7 @@ Other entries:
 - Logging and recovery
 - Indexing
 
-Version doesn't have the notion of activation. Data is retrieved automatically
+Versant doesn't have the notion of activation. Data is retrieved automatically
 when dereferencing pointers.
 
 ## Processes, Sessions and Transactions
@@ -1594,6 +1594,106 @@ Versant distinguishes first class and second class objects
     - `vDelete()`: can be used to maintain referential integrity (cascading delete)
 
 <!-- End of Notes/Slides Week 7 -->
+
+
+<!-- Start Notes/Slides Week 8 -->
+# ObjectStore
+
+## General Topics of Persistence
+- Orthogonal persistence is not always desired (UI, messages, ...)
+- Persistence identification: do we need to explicit store/retrieve objects
+- Possibility to select what is in DB and what is in memory
+- Declarative query language
+    - what, not how
+    - more powerfull
+    - easy to use
+    - more expressive
+- Difference between
+    - persistent always: stored automatically
+    - persistent capable: needs to be stored explicitly
+
+## Architecture
+
+- C++ and Java
+- Leightweight and professional editions available
+- Based on virtual memory mapping
+    - pages
+    - cache forward architecture
+- Virtual memory mapping architecture (extends operating system)
+    - logical vs. physical address
+    - page fault
+    - address translation
+- Characteristics (ObjectStore)
+    - virtual
+    - shared
+    - distributed
+    - heterogeneous
+    - persistent
+    - transactional
+
+- Logical vs. physical address
+    - data is referenced uniquely using a 4-part key
+        1. database
+        2. segment
+        3. cluster
+        4. offset (in cluster)
+    - theoretical address space to $2^{128}$
+    - Reserved virtual memory region for persistence: Persistent Storage Region (*PSR*)
+- Physical memory and secondary storage
+    - all data accessed by client must be in *PSR*
+    - cache hold recently accessed data even across transactions
+
+## Virtual Memory Mapping Architecture
+
+- Page faults
+    - ObjectStore maps data into app when page fault occurs
+    - data is paged into memory from cache if not in *PSR* or fetched from server if not in cache
+- Address translation
+    - done when data is fetched into cache
+    - retranslation can occur (when *PSR* gets full)
+    - trade-off
+        - nice to have the ability to use direct SW pointes
+        - translating pointers has scalability implications
+
+## Server Side Components
+
+- Server
+    - Enforces ACID using 'page permits'
+    - co-operation between servers with two-phase commits
+    - automatic recovery mechanism
+- Database
+    - managed by one server
+        - one server can manage multiple DBs
+    - binary files storing pages of memory containing C++ objects
+- Transaction log
+    - each server owns transaction log
+    - pages only propagated to DB when transaction commits
+    - used for
+        - automatic recovery
+        - faster commits
+        - Multiversion Concurrency Control (MVCC)
+        - ...
+
+## Client Side Components
+
+- Client
+    - C++ program linked with ObjectStore librarys
+    - even Java programs using ObjectStore have a C++ part
+    - interacts with DB
+    - pages automatically fetched from DB
+- Cache
+    - one cache memory mapped file per client process
+    - pages fetched from DB are held in cache
+    - pages can be retained in cache between transactions
+- meta-information
+    - Commseg memory mapped file
+    - contains meta-information about pages in cache
+    - stores *permit* and *lock* for pages in cache
+    - *permit*s can be retained between transactions
+
+<!-- TODO continue Slides . 9, Notes 0:50:00 -->
+
+<!-- End Notes/Slides Week 8 -->
 
 
 
