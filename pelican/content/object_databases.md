@@ -1745,7 +1745,51 @@ Versant distinguishes first class and second class objects
 - *Locks* are taken by *client*
     - client can lock pages according to given permit
 
-<!-- TODO continue Slides p. 13 -->
+## Shared Virtual Memory
+
+- Lazy call-back mechanism for permits
+- Server maintains table of permits for each client
+- When client requests page from server
+    - Server checks for other clients with permit for page (and permit type)
+    - Server issues call-back if one or more clients have conflicting permits
+
+## Page Permits and Locks
+
+- Read permit
+    - client can lock page for reading *without consulting server*
+    - many clients can hold a read permit for the same page
+- Write permit
+    - client can lock page for reading or writing *without asking server*
+    - only one client can hold a write permit for a page at any given time
+- Cache manager inspects permit and lock status for call-back
+    - ✓: Positive
+    - ✗: Negative, but permit is flagged to be revoked at transaction end
+
+
+| Permit    | Lock     | Response                             |
+|-----------|----------|--------------------------------------|
+| read      | read     | ✗ server only calls back permit of other client needs to write |
+| read      | no lock  | ✓                                    |
+| write     | read     | ✓ permit for page downgraded fo read |
+| write     | write    | ✗                                    |
+| write     | no lock  | ✓                                    |
+
+
+## Distribution and Hatarogenity
+
+- Clients can access objects in different remote DBs in one transaction
+- Clients and servers can run on different platforms
+    - Win
+    - Linux
+    - Unix
+    - ...
+- Physical object layout is transformed automatically
+    - by client
+    - at runtime
+    - when page is mapped into cache
+
+
+<!-- TODO continue Slides p. 17 -->
 
     
 
