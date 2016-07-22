@@ -1862,7 +1862,7 @@ Versant distinguishes first class and second class objects
     - compile schema file with `pssq` compiler
     - compile classes with C++ compiler
     - linking
-    
+
 ### Managing Databases
 
 - provided by `os_database
@@ -1881,10 +1881,60 @@ Versant distinguishes first class and second class objects
     - directly using `os_transaction` class (dynamic)
     - using macros (lexical)
 
-<!-- TODO continue Slides p. 25 -->
+### Creating Persistent Objects
+
+Use overloaded `new` operator:
+    :::cpp
+    os_database *db = os_database::open("publications.db", 0, 1);
+    Author *scheel = new(db, os_ts<Author>::get()) Author("Matthias Geel");
+    db->close();
+
+It's also possible to instantiate persitent array of objects.
+
+### Updating and Deleting Persistent Objects
+
+- Changes to persistent objects are propagated to DB automatically
+    - when pages are sent back to server
+    - client app updates memory-mapped persistent objects (using standard C++)
+    - persistent objects are deleted when memory-mapped objects are deleted (using standard C++)
+- Fully transparent to app developer
+
+### Collections and Relationships
+
+- Relationships between classes modelled as collections
+- library of non-templated and templated collection types available
+- traversal, manipulation, retrieval
+- classes `os_collection`, `os_Collection<E>` and sub-classes
+
+Relationships:
+
+    :::cpp
+    // Relationship to the customers orders:
+    os_relationship_m_1(Customer,orders,Order,customer,os_List<Order*>) orders;
 
 
+- Cursors over Collections
+    - used to navigate and manipulate collections
+    - class `os_Cursor`
+    - cursors can be reused by rebinding to other collection
 
+- Queries over Collections
+    - specify
+        - element type
+        - query string
+        - schema DB
+    - query string indicates selection criterion
+        - in C++
+        - or pattern matching expression
+    - function calls in query strings restricted to basic types
+    - nested queries supported
+
+## Database Roots
+
+- persistent objects with a well-known name
+- class `os_database_root`
+    - root name as `char *`
+    - pointer to object as `void *`
 
 <!-- End Notes/Slides Week 8 -->
 
@@ -2066,6 +2116,63 @@ Versant distinguishes first class and second class objects
 
 
 <!-- End Slides/Notes Week 10 -->
+
+
+
+<!-- Start Slides/Notes Week 11 -->
+<!-- TODO Notes 0:00:00 -->
+
+# Version Models
+
+- Various models proposed
+    - temporal DBs
+    - CAD/CAM
+    - SW configuration and engineering environments
+- Some object-oriented DBs provide versioning
+
+## Versioned Object
+
+- Concept with number of states
+- Different levels of granularity
+    - entire files
+    - tuples of relation
+    - attributes of a class
+    - objects in OOP system
+- Each version is a possible representation of the object
+    - corresponding directly to one of its states
+
+
+## Version Orgensiations
+
+- Set
+- List
+- Tree
+- DAG
+
+## References
+
+- Specific reference
+    - references single version of object directly
+- Generic reference
+    - references entire object
+    - has to be dereferenced to a version when traversed
+
+## Storage Strategies
+
+- Representing versions at physical level
+    - store complete versions of objects
+    - store changes (deltas) between versions
+- Delta-based approaches
+    - forward or backward deltas
+    - state-based or operation-based delta
+
+<!-- TODO Slides p. 7 -->
+
+
+
+<!-- End Slides/Notes Week 11 -->
+
+
 
 
 <!-- Start Slides/Notes Week 12 -->
