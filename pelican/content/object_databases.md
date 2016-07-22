@@ -1775,7 +1775,7 @@ Versant distinguishes first class and second class objects
 | write     | no lock  | ✓                                    |
 
 
-## Distribution and Hatarogenity
+## Distribution and Heterogenity
 
 - Clients can access objects in different remote DBs in one transaction
 - Clients and servers can run on different platforms
@@ -1788,10 +1788,102 @@ Versant distinguishes first class and second class objects
     - at runtime
     - when page is mapped into cache
 
+## Persistence
 
-<!-- TODO continue Slides p. 17 -->
+- persistence by instantiation in C++
+- Overloaded persistent `new` operator
+- Several options for object allocation
+    - transiently on the heap
+    - DB
+    - segment
+    - cluster
+    - ...
+- Persistence is orthogonal to the type of an object (datatype orthogonality)
 
+## Transactions
+
+- Basic ACID properties
+- Atomicity
+    - after commit: guaranteed that data was written and is recoverable
+    - after abort: changes are undone
+- Consistency
+    - it's impossible to apply or lose update while data is written
+- Isolation
+    - serialisability (CPSR) is quaranteed by 2-phase locking
+    - MVCC provides serialisability for read-only transactions (using snapshots)
+- Durability
+    - changes are written to transaction log first
+    - background process propagates changes to DB
+
+### Transaction Types
+
+- Read or Write
+- Local or Global
+    - local: only initiating thread is allowd
+    - global: allows all threds in a session to share transaction
+- Lexical or Dynamic transactions
+    - Lexical transactions
+        - automatically retry on lock
+        - must start and end in same code block
+        - always thread-local
+    - Dynamic transactions
+        - lower level of `os_transaction`class
+        - better suited for multi-threaded applications
+
+## Database Layout
+
+- Memory pages held in hierarchy of clusters in segments
+- Segments
+    - logical partitioning of objects
+    - Segment 0: schema segment
+        - DB schema
+        - DB roots
+    - Segment 2: default segment
+    - Segment 4: first user-created segment
+    - max $2^{32}$ segments per DB
+- Clusters
+    - group closely related objects
+    - each segment has default cluster 0
+    - max $2^{31}$ clusters per segment
+
+## Developing Applications (API)
+
+- ObjectStore libraries
+    - `objectstore`: runtime
+    - `os_database`: DB management
+    - `os_transactions`: transaction handles and functionality
+    - `os_typespec`: determine type specification
+    - `os_database_root`: manage roots
+    - `os_segment`: segment access and management
+    - `os_cluster`: cluster access and management
+
+- Development process
+    - writing persistent classes, schema file, app logic
+    - compile schema file with `pssq` compiler
+    - compile classes with C++ compiler
+    - linking
     
+### Managing Databases
+
+- provided by `os_database
+    - `create()`: creates new DB
+    - `open()`: opens DB
+    - `save()`: saves DB, changes permanent
+    - `close()`: closes DB, but doesn't save stat
+    - `destroy()`: deletes DB
+
+### Transactions
+
+- provided by `os_transaction`
+    - all interactions with DB must be in a transactions
+    - can be nested
+- defining and working with transactions
+    - directly using `os_transaction` class (dynamic)
+    - using macros (lexical)
+
+<!-- TODO continue Slides p. 25 -->
+
+
 
 
 <!-- End Notes/Slides Week 8 -->
