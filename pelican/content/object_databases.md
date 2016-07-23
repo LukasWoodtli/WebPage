@@ -2165,8 +2165,39 @@ Relationships:
 - Delta-based approaches
     - forward or backward deltas
     - state-based or operation-based delta
+- Different strategies have different perfomance
+    - storage vs. retrieval
+    - space vs. time
+    - ...
 
-<!-- TODO Slides p. 7 -->
+## Operation and Interaction Models
+
+- Operations
+    - Control evolution of versions (of single objects)
+    - create new version
+    - branch a parallel version
+    - merge two parallel versions
+    - delete a version
+- Interaction or transactions models
+    - working with complex objects and object graphs
+    - automatic versioning transparent to user
+    - library model uses check-out and check-in operations
+    - long running and nested transactions
+
+## Queries and Configurations
+
+- additional constraint to seletc correct representations (versions)
+- various implementations
+    - configurator evaluates rules against versioned objects
+    - declarative queries express constraints in extended language
+    - logical (based on feature logic)
+- Dereferencing of generic references
+    - query evaluator needs to select specific version
+    - access for parallel versions
+    - access for sequencial versions
+    
+
+<!-- TODO Slides p. 10 -->
 
 
 
