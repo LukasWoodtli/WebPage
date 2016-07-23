@@ -1597,6 +1597,7 @@ Versant distinguishes first class and second class objects
 
 
 <!-- Start Notes/Slides Week 8 -->
+
 # ObjectStore
 
 ## General Topics of Persistence
@@ -1619,7 +1620,7 @@ Versant distinguishes first class and second class objects
 - Leightweight and professional editions available
 - Based on virtual memory mapping
     - pages
-    - cache forward architecture
+    - cache forward architecture (very performant)
 - Virtual memory mapping architecture (extends operating system)
     - logical vs. physical address
     - page fault
@@ -1644,6 +1645,9 @@ Versant distinguishes first class and second class objects
     - cache hold recently accessed data even across transactions
 - Data is cached on different levels
 - Granularity: pages
+- close to persistence capable (in Versant)
+    - overloaded `new` operator
+    - instance based persistence
 
 ## Virtual Memory Mapping Architecture
 
@@ -1677,9 +1681,6 @@ Versant distinguishes first class and second class objects
         - ...
 
 ## Client Side Components
-
-<!-- TODO continue  Notes 0:50:00 -->
-
 
 - Client
     - C++ program linked with ObjectStore librarys
@@ -1733,7 +1734,7 @@ Versant distinguishes first class and second class objects
 
 ## Cache-Forward Architecture
 
-- To provide high performace in ObjectStore
+- To provide *high performace* in ObjectStore
     - data cached across transaction boundaries
     - number of used locks is reduces
     - cached data kept in globally consistent state
@@ -1755,6 +1756,8 @@ Versant distinguishes first class and second class objects
 
 ## Page Permits and Locks
 
+- Lock for client (locally)
+- Permission for server (globaly)
 - Read permit
     - client can lock page for reading *without consulting server*
     - many clients can hold a read permit for the same page
@@ -1770,9 +1773,13 @@ Versant distinguishes first class and second class objects
 |-----------|----------|--------------------------------------|
 | read      | read     | ✗ server only calls back permit of other client needs to write |
 | read      | no lock  | ✓                                    |
-| write     | read     | ✓ permit for page downgraded fo read |
+| write     | read     | ✓ permit for page downgraded to read |
 | write     | write    | ✗                                    |
 | write     | no lock  | ✓                                    |
+
+
+- Pages on server are fetched with permission (read or write)
+- Local locks don't tell server about lock/un-lock about after transaction
 
 
 ## Distribution and Heterogenity
@@ -2195,9 +2202,86 @@ Relationships:
     - query evaluator needs to select specific version
     - access for parallel versions
     - access for sequencial versions
-    
 
-<!-- TODO Slides p. 10 -->
+
+## Temporal Databases
+
+- one of the first application domains for version models
+- manage different time-dependent data
+- field of research
+- numerous approaches
+- mostly based on relational DBs
+
+## Time in Databases
+
+- does time stored in a DB represent
+    - time in the domain (e.g. event schedule)?
+    - time of DB operation (e.g. insertion, update)?
+    - can the time be *arbitrary modified*?
+    - is the time value provided by app or DB?
+    - ...
+- different types of time to characterise temporal data
+    - Transaction, Registration or Physical time
+        - captures when values were stored in DB
+        - `AS-OF` operation
+    - Valid or logical time
+        - used to express when values existed in *real world*
+        - `WHEN` operation
+    - User-defined time
+        - all other aspects of time
+
+## Classification of Temporal Databases
+
+- Static or snapshot DB
+    - conventional DB
+    - does not manage temporal data
+    - supports only one single version
+    - if value is updated, previous value is lost
+- Static roll-back DB
+    - keeps track of transaction time
+    - supports `AS-OF` operation
+    - no way to correct an error
+    - space or computation overhead (destructive vs. non-destructive)
+- Historical DB
+    - keeps track of *valid time*
+    - supports `WHEN`
+    - changes can be made to previous values
+- Temporal DB
+    - keept track of *transaction* and *valid* time
+    - supports `AS-OF` and `WHEN` operations
+- Spatio-Temporal DB
+    - DB for moving objects
+    - continuous update of location
+    - uncertainty of location value
+
+### Querying Moving Objects with Uncertainity
+
+- Point Queries
+    - operators over singel trajectory
+        - `Where_At(trajectory T, time t)`: expected location on route `T` at time `t`
+        - `When_At(trajectory T, location l)`: times object expected to be at location `l` on `T`
+- Spatio-Temporal Range Queries
+    - set of *6 boolean predicates*
+    - give *qualitative* description of relative position
+
+- location changes continuously: condition satisfied *sometime* or *always* within $[t_b,t_e]
+- due to uncerainty: condition satisfied *possibly* or *definitely* at point $p \in [t_b,t_e]
+
+Leads to 8 possible operators
+
+
+1. `Possibly_Sometime_Inside( T, R, tb te)`
+2. `Sometime_Possibly_Inside ( T, R, tb, te)`
+3. `Possibly_Always_Inside( T, R, tb, te)`
+4. `Always_Possibly_Inside( T, R, tb, te)`
+5. `Definitely_Always_Inside( T, R, tb, te)`
+6. `Always_Definitely_Inside( T, R, tb, te)`
+7. `Definitely_Sometime_Inside( T, R, tb, te)`
+8. `Sometime_Definitely_Inside( T, R, tb, te)`
+
+Some of them are semantically equivalent
+
+<!-- TODO Slides p. 22 -->
 
 
 
