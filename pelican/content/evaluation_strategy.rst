@@ -5,7 +5,7 @@ Evaluation strategy
 :category: Programming
 :tags: Computer Science
 
-See also: [Wikipedia: Evaluation strategy](https://en.wikipedia.org/wiki/Evaluation_strategy)
+See also: `Wikipedia: Evaluation strategy <https://en.wikipedia.org/wiki/Evaluation_strategy>`_
 
 Applicative order evaluation (eager evaluation)
 ===============================================
