@@ -11,7 +11,7 @@ Sources
 =======
 Most information is taken from:
 
-`Structure and Interpretation of Computer Programs<http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/>_
+`Structure and Interpretation of Computer Programs<http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/>`_
 
 `My Github repository with examples<https://github.com/LukasWoodtli/SchemeCourse>`_
 
