@@ -2281,7 +2281,94 @@ Leads to 8 possible operators
 
 Some of them are semantically equivalent
 
-<!-- TODO Slides p. 22 -->
+## Representing Temporal Data
+
+- Tuple Versioning
+    - tuple is extended with attribute for temporal dimension
+    - can be realised without violating *relational first normal form*
+
+Example:
+
+| Employee   | Office | Salary | TS   | TE   |
+|------------|--------|--------|------|------|
+| Anne       | A12    | 5500   | 2000 | now  |
+| Bob        | B 34   | 4000   | 2002 | 2003 |
+| Bob        | B 34   | 5500   | 2003 | now  |
+| Charles    | C 56   | 6700   | 1995 | 2000 |
+| Charles    | C 56   | 7500   | 2000 | 2006 |
+| Charles    | C 56   | 7000   | 2006 | now  |
+| Denise     | B 34   | 3000   | 1990 | 1995 |
+| Denise     | B 34   | 5300   | 1995 | 2002 |
+
+- Attribute Versioning
+    - each attribute is extended with temporal information
+    - requires non-first normal form $NF^3$ relational systems
+
+Example:
+
+| Employee | Office | Salary            |
+|----------|--------|-------------------|
+| Anne     | A12    | (5500, 2000, now) |
+| Bob      | B 34   | (4000, 2002, 2003) (5500, 2003, now) |
+| Charles  | C 56   | (6700, 1995, 2000) (7500, 2000, 2006) (7000, 2006, now) |
+| Denise   | B 34   | (3000, 1990, 1995) (5300, 1995, 2002) |
+
+
+## Conceptual and Data Models
+
+- Early models: extend relational of E/R model
+- Bitemporal Conceptual Data Model (BCDM)
+    - tuple versioning
+    - using *4* additional columns per tuple
+    - *transation time* and *valid time*
+        - special 'until changed' and 'now' values indicate if a tuple is current
+    - query language TSQL2
+        - extension of SQL
+        - introduces `VALIDTIME` and `WHEN` clause
+        - integrated into SQL3 as SQL/Temporal
+
+## Homogeneous and Heterogenous Models
+
+- homogenous if temporal domain does not vary from one attribute to another
+    - all models that use tuple versioning are homogenous
+- heterogenous if attributes of a tuple associated to different times
+
+## Storage Models
+
+- Temporal relation as 3-dimensional data structure
+    - sequence of relations
+    - data cube
+- implemented using a two level store structure
+    - primary store contains current versions
+        - satisfy all non-temporal queries
+    - history store hold in remaining history versions
+- traditional access methods cannot be used in such a storage model
+- Two-level Storage Structures
+    - Reverse Chaining
+    - Accession Lists
+    - Clustering
+    - Stacked Versions
+
+## Engineering Databases
+
+- Engineering application domains
+    - Computer-Aided Design (CAD)
+    - Computer-Aided Manufacturing (CAM)
+- support development and maintenance of products
+- Requirements
+    - data structures
+    - concurrency control concepts
+    - define and manage complex (and hierarchical) design objects
+    - versionen support for complex objects
+    - iterative development
+    - alternatives and trial-and-error experiments
+- 2-dimensional version models
+    - linear revision dimension
+    - non-sequential variation dimension
+
+
+
+<!-- TODO Slides p. 30 -->
 
 
 
