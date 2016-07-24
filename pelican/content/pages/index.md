@@ -58,7 +58,9 @@ var tagList = [new TagInfos("C", "/tag/c.html", 70),
                new TagInfos("Software Development", "/category/software_development.html", 40),
                new TagInfos("Version Control", "/category/version_control.html", 20),
                new TagInfos("SystemC", "/systemc.html", 20),
-               new TagInfos("Linux", "/tag/linux.html", 35)
+               new TagInfos("Linux", "/tag/linux.html", 35),
+               new TagInfos("Lisp", "/tag/lisp.html", 25)
+               
 ];
 
 
