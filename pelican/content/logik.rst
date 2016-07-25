@@ -15,9 +15,9 @@ Notizen zur Vorlesung: `Einführung in die Logik <https://itunes.apple.com/de/it
 Übersicht
 =========
 
-+==================+=====================+
-| Aussagelogik     | Prädikatenlogik     |
 +------------------+---------------------+
+| Aussagelogik     | Prädikatenlogik     |
++==================+=====================+
 | Zeichensystem    | Zeichensystem       |
 | der Aussagelogik | der Prädiketenlogik |
 +==================+=====================+
