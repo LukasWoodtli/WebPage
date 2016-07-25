@@ -9,6 +9,50 @@ Logik
 
 Notizen zur Vorlesung: `Einführung in die Logik <https://itunes.apple.com/de/itunes-u/einfuhrung-in-die-logik/id631959529?mt=10>`_
 
+.. contents:: Inhaltsverzeichnis
+
+
+Übersicht
+=========
+
++==================+=====================+
+| Aussagelogik     | Prädikatenlogik     |
++------------------+---------------------+
+| Zeichensystem    | Zeichensystem       |
+| der Aussagelogik | der Prädiketenlogik |
++==================+=====================+
+| Wahrheitsfunkt.  | Klassifikation von  |
+| Verknüpfungen    | Aussagen            |
++------------------+---------------------+
+| Aussagelogische  | Prädikatenlogische  |
+| Form             | Form                |
++------------------+---------------------+
+| Interpretation   | Interpretation      |
+| von              | von                 |
+| Aussagelogischen | Prädikatenlogischen |
+| Formeln          | Formeln             |
++==================+=====================+
+| Metalogik der    | Metalogik der       |
+| Aussagelogik     | Prädikatenlogik     |
++==================+=====================+
+| Objektebene vs.  | Parallele zur       |
+| Metaebene        | Metalogik der       |
+|                  | Aussagelogik        |
++------------------+---------------------+
+| Logische         | Logische            |
+| - Wahrheit       | - Wahrheit          |
+| - Falschheit     | - Falschheit        |
+| - Folgerung      | - Folgerung         |
+| - Äquivalenz     | - Äquivalenz        |
+| - Widerspruch    |                     |
+| - Konsistenz     | Weitere metalogische|
+| - Abhängigkeit   | Begriffe            |
++------------------+---------------------+
+| Mathematischer Zugang zur Aussagelogik |
++----------------------------------------+
+
+
+
 Formale Logik
 =============
 
@@ -25,7 +69,7 @@ Beispiel:
 :Konklusion (Schlusssatz):
    Alle Logiker sind schlafbedürftig.
 
-Das Gesamte ist ein *Schluss*.
+Das Gesamte ist ein ***Schluss***.
 
 2 Fragen
 --------
@@ -44,7 +88,7 @@ Merkmale
 
 
 
-Prämissen können auch (manifest) falsch sein, der Schluss bleibt trotzdem korrekt!
+Prämissen können auch (manifest) falsch sein, der *Schluss* bleibt trotzdem korrekt!
 
 Beispiel:
 
@@ -57,5 +101,3 @@ Beispiel:
    Alle Logiker haben Eigenschaft *S*.
 
 Setze Eigenschaft S = Reptil sein
-
-
