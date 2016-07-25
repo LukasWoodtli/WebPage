@@ -2127,7 +2127,6 @@ Relationships:
 
 
 <!-- Start Slides/Notes Week 11 -->
-<!-- TODO Notes 0:00:00 -->
 
 # Version Models
 
@@ -2136,6 +2135,13 @@ Relationships:
     - CAD/CAM
     - SW configuration and engineering environments
 - Some object-oriented DBs provide versioning
+
+
+
+Comparison:
+
+- Version Control Systems: unstructured data
+- Versioning DBs: structured data
 
 ## Versioned Object
 
@@ -2149,12 +2155,13 @@ Relationships:
     - corresponding directly to one of its states
 
 
-## Version Orgensiations
+## Version Organsiations
 
-- Set
-- List
-- Tree
-- DAG
+- Relations between version
+    - not related (set)
+    - linerar versioning (time, list)
+    - trees (branches)
+    - DAG (merging)
 
 ## References
 
@@ -2163,6 +2170,8 @@ Relationships:
 - Generic reference
     - references entire object
     - has to be dereferenced to a version when traversed
+- default version
+    - it's not always clear which version is the default one (e.g. DAG)
 
 ## Storage Strategies
 
@@ -2266,6 +2275,9 @@ Relationships:
 
 - location changes continuously: condition satisfied *sometime* or *always* within $[t_b,t_e]
 - due to uncerainty: condition satisfied *possibly* or *definitely* at point $p \in [t_b,t_e]
+
+- *possibly*: trajectory with uncretainity
+- *sometime*: don't care about time
 
 Leads to 8 possible operators
 
