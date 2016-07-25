@@ -26,6 +26,11 @@ Evaluation Rules
     a) *evaluate* all subexpressions (in any order)
     b) *apply* operator on arguments and return result
 
+Application Rules
+=================
+
+1. If *primitive procedure*, just do it
+2. If *compound procedure*, then *evaluate* body of procedure with each *formal* parameter replaced with corresponding *actual* argument value.
 
 Linear Recursion and Iteration
 ==============================
