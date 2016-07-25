@@ -15,42 +15,39 @@ Notizen zur Vorlesung: `Einführung in die Logik <https://itunes.apple.com/de/it
 Übersicht
 =========
 
-+------------------+---------------------+
-| Aussagelogik     | Prädikatenlogik     |
-+==================+=====================+
-| Zeichensystem    | Zeichensystem       |
-| der Aussagelogik | der Prädiketenlogik |
-+==================+=====================+
-| Wahrheitsfunkt.  | Klassifikation von  |
-| Verknüpfungen    | Aussagen            |
-+------------------+---------------------+
-| Aussagelogische  | Prädikatenlogische  |
-| Form             | Form                |
-+------------------+---------------------+
-| Interpretation   | Interpretation      |
-| von              | von                 |
-| Aussagelogischen | Prädikatenlogischen |
-| Formeln          | Formeln             |
-+==================+=====================+
-| Metalogik der    | Metalogik der       |
-| Aussagelogik     | Prädikatenlogik     |
-+==================+=====================+
-| Objektebene vs.  | Parallele zur       |
-| Metaebene        | Metalogik der       |
-|                  | Aussagelogik        |
-+------------------+---------------------+
-| Logische         | Logische            |
-| - Wahrheit       | - Wahrheit          |
-| - Falschheit     | - Falschheit        |
-| - Folgerung      | - Folgerung         |
-| - Äquivalenz     | - Äquivalenz        |
-| - Widerspruch    |                     |
-| - Konsistenz     | Weitere metalogische|
-| - Abhängigkeit   | Begriffe            |
-+------------------+---------------------+
-| Mathematischer Zugang zur Aussagelogik |
-+----------------------------------------+
-
++--------------------+-----------------------+
+| Aussagelogik       | Prädikatenlogik       |
++====================+=======================+
+| Zeichensystem      | Zeichensystem         |
+| der Aussagelogik   | der Prädiketenlogik   |
+|                    |                       |
+| - Wahrheitsfunkt.  | - Klassifikation von  |
+|   Verknüpfungen    |   Aussagen            |
+| - Aussagelogische  | - Prädikatenlogische  |
+|   Form             |   Form                |
+| - Interpretation   | - Interpretation      |
+|   von              |   von                 |
+|   Aussagelogischen |   Prädikatenlogischen |
+|   Formeln          |   Formeln             |
+|                    |                       |
++--------------------+-----------------------+
+| Metalogik der      | Metalogik der         |
+| Aussagelogik       | Prädikatenlogik       |
+|                    |                       |
+| - Objektebene vs.  | - Parallele zur       |
+|   Metaebene        |   Metalogik der       |
+| - Logische         |   Aussagelogik        |
+|   - Wahrheit       | - Logische            |
+|   - Falschheit     |   - Wahrheit          |
+|   - Folgerung      |   - Falschheit        |
+|   - Äquivalenz     |   - Folgerung         |
+|   - Widerspruch    |   - Äquivalenz        |
+|   - Konsistenz     | - Weitere metalogische|
+|   - Abhängigkeit   |   Begriffe            |
+|                    |                       |
++--------------------+-----------------------+
+| Mathematischer Zugang zur Aussagelogik     |
++--------------------------------------------+
 
 
 Formale Logik
