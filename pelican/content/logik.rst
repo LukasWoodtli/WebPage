@@ -37,13 +37,15 @@ Notizen zur Vorlesung: `Einführung in die Logik <https://itunes.apple.com/de/it
 | - Objektebene vs.  | - Parallele zur       |
 |   Metaebene        |   Metalogik der       |
 | - Logische         |   Aussagelogik        |
-|   - Wahrheit       | - Logische            |
+|                    | - Logische            |
+|   - Wahrheit       |                       |
 |   - Falschheit     |   - Wahrheit          |
 |   - Folgerung      |   - Falschheit        |
 |   - Äquivalenz     |   - Folgerung         |
 |   - Widerspruch    |   - Äquivalenz        |
-|   - Konsistenz     | - Weitere metalogische|
-|   - Abhängigkeit   |   Begriffe            |
+|   - Konsistenz     |                       |
+|   - Abhängigkeit   | - Weitere metalogische|
+|                    |   Begriffe            |
 |                    |                       |
 +--------------------+-----------------------+
 | Mathematischer Zugang zur Aussagelogik     |
