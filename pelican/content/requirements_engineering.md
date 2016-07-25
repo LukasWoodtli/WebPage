@@ -58,3 +58,13 @@ Example:
 - Sentences (e.g. use cases):
     - Nouns: Objects (classes)
     - Verbs: Methods
+
+
+- Software objects
+    - requirements specifications, designs, documentations, program code, test plans, test cases, user manuals, project plans, ...
+    - object identification
+    - object granularity (module:declarations and statements, documentation:chapters and sections)
+    - object representation (files, graph, ...)
+- Relationships
+    - composition relationships: tree with root representing product
+    - dependency relationships

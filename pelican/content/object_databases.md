@@ -2366,11 +2366,59 @@ Example:
     - linear revision dimension
     - non-sequential variation dimension
 
+## Design Space Version Model
 
+- Modeling primitives
+- component hierarchies (*is-a-part-of*)
+- version histories (*is-a-kind-of*, *is-derved-from*)
+- configurations combine hierarchies and version histories
 
-<!-- TODO Slides p. 30 -->
+## Software Configuration Systems
 
+- Developed for SW development
+- SW Configuration Management (SCM)
+- SW Engineering Environments (SEE)
+- manage product directly
+- fully automting process of building final product
+- built around source files and program modules
+- reference and dependencies management complex
+    - hidden inside source code files
 
+## Product Space Representation
+
+- Data model with type relationships
+    - composition tree with files as leaves
+    - dependencies are sepresented within tree
+    - build information can be computed from composition and dependency relationships
+- Without spanning tree
+    - all files of one module are summarised as one object
+    - only source dependencies are represented
+    - directly corresponds to logical structure
+
+## Version Space
+
+- Version model defines how objects are versioned
+    - versioned object is container for set of object version
+    - common properties shared by all versions (invariants)
+    - differences (deltas) between versions
+        - symmetric deltas
+        - directed deltas (changes)
+- Definition of version set
+    - *extentional* versioning enumerates all member of version set
+    - *intentional* versioning uses predicate defining version set members
+- Evolution
+    - revisions: track of history
+    - variants: alternatives
+    - can be used for cooperation and collaboration
+
+### Version Space Representation
+
+- One-level representation
+    - Successor relationship (Sequence)
+    - Branch (Tree) and Merge (DAG)
+- Two-level representation
+    - Revision
+    - Variants
 
 <!-- End Slides/Notes Week 11 -->
 
