@@ -2763,3 +2763,55 @@ Different approaches to:
     - Declaritive query language
     - Collections are *sets of candidates* for queries
 - Map-Reduce
+
+## Object Model Language (OML)
+
+<!-- TODO cont Notes 0:30:00 -->
+
+- Declarative OOP language for OM data model
+- OML Data Definition Language
+    - object and structured type definition
+    - method definition and emplementation
+    - collection, association and constraint definition
+- OML Data Manipulation Language
+    - creating and updating objects
+    - ceate, update, delete, dress and strip operations
+- OML Query Language
+    - expressions and functions for values of base types
+    - operations on objects
+        - access attributes
+        - invoke methods
+    - operations on collections (collection algebra)
+
+### Collection Algebra
+
+- Operations defined for collections of OM model
+    - union
+    - intersections
+    - difference
+    - selection
+    - map
+    - reduce
+    - flatten
+- Sematics of operations depend on collection behaviour
+    - set theory defines semantics
+    - generalisation for *bag*, *sequence* and *ranking*
+    - mixing and converting collection types
+
+### Binary Collections
+
+- All collections-operations can be applied to binary collection
+- Binary collections suort additional operations
+    - domain and range
+    - domain and range restriction
+    - subtraction
+    - inverse
+        - swapping domain and range
+    - nest
+        - grouping of binary collections
+    - compose
+        - find associatd objects in DB it may be necessary to compose (*join*) associations
+    - closure
+        - repeatedly compose binary collection with itself
+    - division
+        - divide a binary collection with a unary collection
