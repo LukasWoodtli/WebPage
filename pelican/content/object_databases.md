@@ -1606,7 +1606,7 @@ Versant distinguishes first class and second class objects
 - Possibility to select what is in DB and what is in memory
 - Declarative query language
     - what, not how
-    - more powerfull
+    - more power-full
     - easy to use
     - more expressive
 - Difference between
@@ -1617,7 +1617,7 @@ Versant distinguishes first class and second class objects
 
 - C++ and Java
 - Client/Server application
-- Leightweight and professional editions available
+- Lightweight and professional editions available
 - Based on virtual memory mapping
     - pages
     - cache forward architecture (very performant)
@@ -1656,9 +1656,9 @@ Versant distinguishes first class and second class objects
     - data is paged into memory from cache if not in *PSR* or fetched from server if not in cache
 - Address translation
     - done when data is fetched into cache
-    - retranslation can occur (when *PSR* gets full)
+    - re-translation can occur (when *PSR* gets full)
     - trade-off
-        - nice to have the ability to use direct SW pointes
+        - nice to have the ability to use direct SW pointers
         - translating pointers has scalability implications
 
 ## Server Side Components
@@ -1677,13 +1677,13 @@ Versant distinguishes first class and second class objects
     - used for
         - automatic recovery
         - faster commits
-        - Multiversion Concurrency Control (MVCC)
+        - Multi-version Concurrency Control (MVCC)
         - ...
 
 ## Client Side Components
 
 - Client
-    - C++ program linked with ObjectStore librarys
+    - C++ program linked with ObjectStore libraries
     - even Java programs using ObjectStore are embedded (session) in a C++ part
     - interacts with DB
     - pages automatically fetched from DB
@@ -1701,7 +1701,7 @@ Versant distinguishes first class and second class objects
     - one manager per client machine
     - shared by all clients on that machine
     - handles permit revokes
-    - read/write cache and commseg
+    - read/write cache and Commseg
     - not directly involved in page fetch
 - Persistent Storage Region (*PSR*)
     - reserved area of virtual address space (in C++ part)
@@ -1712,13 +1712,13 @@ Versant distinguishes first class and second class objects
 
 ## Fetching and Mapping Pages
 
-- Client automaticalliy fetches and maps pages
+- Client automatically fetches and maps pages
     - 'lazy' fetches
     - held in client cache
-- Server *perimits* and client *locks* acquired automatically
+- Server *permits* and client *locks* acquired automatically
     - ensuring transaction consistency
 - Existing page can be swapped out
-    - if not enough toom in cache for new page
+    - if not enough room in cache for new page
     - updated pages are sent to the server
     - read-only pages are dropped from cache (copy in DB)
 
@@ -1734,7 +1734,7 @@ Versant distinguishes first class and second class objects
 
 ## Cache-Forward Architecture
 
-- To provide *high performace* in ObjectStore
+- To provide *high performance* in ObjectStore
     - data cached across transaction boundaries
     - number of used locks is reduces
     - cached data kept in globally consistent state
@@ -1757,7 +1757,7 @@ Versant distinguishes first class and second class objects
 ## Page Permits and Locks
 
 - Lock for client (locally)
-- Permission for server (globaly)
+- Permission for server (globally)
 - Read permit
     - client can lock page for reading *without consulting server*
     - many clients can hold a read permit for the same page
@@ -1782,7 +1782,7 @@ Versant distinguishes first class and second class objects
 - Local locks don't tell server about lock/un-lock about after transaction
 
 
-## Distribution and Heterogenity
+## Distribution and Heterogeneity
 
 - Clients can access objects in different remote DBs in one transaction
 - Clients and servers can run on different platforms
@@ -1792,7 +1792,7 @@ Versant distinguishes first class and second class objects
     - ...
 - Physical object layout is transformed automatically
     - by client
-    - at runtime
+    - at run-time
     - when page is mapped into cache
 
 ## Persistence
@@ -1805,7 +1805,7 @@ Versant distinguishes first class and second class objects
     - segment
     - cluster
     - ...
-- Persistence is orthogonal to the type of an object (datatype orthogonality)
+- Persistence is orthogonal to the type of an object (data-type orthogonality)
 
 ## Transactions
 
@@ -1816,7 +1816,7 @@ Versant distinguishes first class and second class objects
 - Consistency
     - it's impossible to apply or lose update while data is written
 - Isolation
-    - serialisability (CPSR) is quaranteed by 2-phase locking
+    - serialisability (CPSR) is guaranteed by 2-phase locking
     - MVCC provides serialisability for read-only transactions (using snapshots)
 - Durability
     - changes are written to transaction log first
@@ -1826,8 +1826,8 @@ Versant distinguishes first class and second class objects
 
 - Read or Write
 - Local or Global
-    - local: only initiating thread is allowd
-    - global: allows all threds in a session to share transaction
+    - local: only initiating thread is allowed
+    - global: allows all threads in a session to share transaction
 - Lexical or Dynamic transactions
     - Lexical transactions
         - automatically retry on lock
@@ -1856,7 +1856,7 @@ Versant distinguishes first class and second class objects
 ## Developing Applications (API)
 
 - ObjectStore libraries
-    - `objectstore`: runtime
+    - `objectstore`: run-time
     - `os_database`: DB management
     - `os_transactions`: transaction handles and functionality
     - `os_typespec`: determine type specification
@@ -1872,7 +1872,7 @@ Versant distinguishes first class and second class objects
 
 ### Managing Databases
 
-- provided by `os_database
+- provided by `os_database`
     - `create()`: creates new DB
     - `open()`: opens DB
     - `save()`: saves DB, changes permanent
@@ -1896,7 +1896,7 @@ Use overloaded `new` operator:
     Author *scheel = new(db, os_ts<Author>::get()) Author("Matthias Geel");
     db->close();
 
-It's also possible to instantiate persitent array of objects.
+It's also possible to instantiate persistent array of objects.
 
 ### Updating and Deleting Persistent Objects
 
@@ -1908,7 +1908,7 @@ It's also possible to instantiate persitent array of objects.
 
 ### Collections and Relationships
 
-- Relationships between classes modelled as collections
+- Relationships between classes modeled as collections
 - library of non-templated and templated collection types available
 - traversal, manipulation, retrieval
 - classes `os_collection`, `os_Collection<E>` and sub-classes
@@ -2112,7 +2112,7 @@ Relationships:
 
 | Infinite Graph (Objectivity)                               | Neo4j                                                                      |
 |-----------------------------------------------------------|----------------------------------------------------------------------------|
-| *no* database orthogonality                               | partly datatype orthogonality (`RelationshipTypes` need to be implemented) |
+| *no* database orthogonality                               | partly data-type orthogonality (`RelationshipTypes` need to be implemented) |
 | independence (persistence orthogonality)                  | (no) independence (persistence orthogonality)                               |
 | Extend `BaseVertex` and `BaseEdge`                        | Only generic nodes and edges available                                     |
 | Navigation with implementation of interfaces (Qualifiers) | Navigation with fluent interface (chaining)                                |
@@ -2752,7 +2752,7 @@ Different approaches to:
 
 - Query
     - Decide if something in a collection or not
-    - Traversiong result (iterator, cursor)
+    - Traversing result (iterator, cursor)
 - SQL
     - relationships mapped by primary-/foreign-key
     - `select` can be used instead of `joins` to follow relationships
@@ -2766,7 +2766,7 @@ Different approaches to:
 
 ## Object Model Language (OML)
 
-<!-- TODO cont Notes 0:30:00 -->
+<!-- TODO cont Notes 1:15:00 -->
 
 - Declarative OOP language for OM data model
 - OML Data Definition Language
@@ -2782,6 +2782,8 @@ Different approaches to:
         - access attributes
         - invoke methods
     - operations on collections (collection algebra)
+- map-reduce
+    - very important operations after selection
 
 ### Collection Algebra
 
@@ -2791,7 +2793,11 @@ Different approaches to:
     - difference
     - selection
     - map
+        - takes a set of objects and applies a function on *each object*
+        - the result set has the same carinality
     - reduce
+        - take a set of values (objects)
+        - return one value (object)
     - flatten
 - Sematics of operations depend on collection behaviour
     - set theory defines semantics
