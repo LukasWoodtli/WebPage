@@ -40,3 +40,18 @@ TODO:
 https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.1
 
 http://stackoverflow.com/questions/17254240/sicp-recursive-process-vs-iterative-process-using-a-recursive-procedure-to-gene
+
+Iterative Process
+-----------------
+
+- Iterative algorithms have constant space
+- Develop iterative algorithm:
+
+  - figure out a way to accumulate partial answers
+  - write out table to analyze precisely
+
+    - initialization of first row
+    - update rules for other rows
+    - how to know when to stop
+
+- Iterative algorithms have no pending operations when the procedure calls itself
