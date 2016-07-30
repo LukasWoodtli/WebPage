@@ -8,8 +8,7 @@ Modified: 2016-02-20
 [TOC]
 
 
-<!-- Lecture 1 Slides Start -->
-<!-- Lecture 1 Notes Start -->
+<!-- Lecture 1 Slides/Notes Start -->
 
 # Motivation
 
@@ -215,8 +214,7 @@ LINQ is a powerful and compile time safe support for querying.
 
 
 
-<!-- Lecture 1 Slides End -->
-<!-- Lecture 1 Notes End -->
+<!-- Lecture 1 Slides/Notes End -->
 
 # General Topics for DB's
 
@@ -247,8 +245,7 @@ LINQ is a powerful and compile time safe support for querying.
 | OSs                                   |                                                  |              |         |              |
 
 
-<!-- Lecture 2 Slides Start -->
-<!-- Lecture 2 Notes Start -->
+<!-- Lecture 2 Slides/Notes Start -->
 
 # ODMG Standard
 
@@ -2723,9 +2720,36 @@ Different approaches to:
     - objects can gain/loose roles by being added or deleted form collections
     - type change not always required (???) <!-- slides week 13 p.7 -->
 
-<!-- TODO cont: Slides Week 13 p. 8 -->
+## OM Data Model Layers
 
-
+- OM distinguishes
+    - typing from
+    - classification
+- Type-layer
+    - object representation
+        - objects: type units
+        - can gain and lose types dynamically: dressing and stripping
+    - multiple inheritance
+    - multiple instantiation
+        - objects can have types from parallel inheritance hierarchies
+        - objects can have types that are completely unrelated
+- Classification-layer
+    - based on types from type layer
+    - semantic groupings: collections
+        - membership constrained by type
+        - associations to link objects together
+        - kinds and roles
+        - constraints
+            - subcollections and supercollections
+            - cardinality to describe associations
+            - evolution constraints
+            - ...
+    - multiple classification
+    - collections and associations
+- Associations can be nested
+    - model n-ary relationships
+    - clearer semantics
+    - allow uniform query language
 
 - Things that exist
     - types
@@ -2746,9 +2770,7 @@ Different approaches to:
         - instance: container of values of a particular type
 
 - Relationships
-
-
-- intentional / extensional ???
+- intentional / extensional
 
 - Query
     - Decide if something in a collection or not
@@ -2764,9 +2786,11 @@ Different approaches to:
     - Collections are *sets of candidates* for queries
 - Map-Reduce
 
-## Object Model Language (OML)
+<!-- End Slides/Notes Week 13 -->
 
-<!-- TODO cont Notes 1:15:00 -->
+<!-- Begin Slides/Notes Week 14 -->
+
+## Object Model Language (OML)
 
 - Declarative OOP language for OM data model
 - OML Data Definition Language
@@ -2809,7 +2833,8 @@ Different approaches to:
 - All collections-operations can be applied to binary collection
 - Binary collections suort additional operations
     - domain and range
-    - domain and range restriction
+        - not same as collection with tuple containing 'range' and 'domain'
+    - domain and range restriction (selection)
     - subtraction
     - inverse
         - swapping domain and range
@@ -2821,3 +2846,5 @@ Different approaches to:
         - repeatedly compose binary collection with itself
     - division
         - divide a binary collection with a unary collection
+
+<!-- End Slides/Notes Week 14 -->
