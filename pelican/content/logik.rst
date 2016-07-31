@@ -103,7 +103,7 @@ Beispiel:
 Setze Eigenschaft S = Reptil sein
 
 Allgemeine Formulierung
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 :Prämissen (Voraussetzung):
    Alle *A* sind *B*.
@@ -118,8 +118,9 @@ Der Schluss ist *korrekt* auch wenn man nicht weiss, was *A*, *B* und *C* bedeut
 
 
 Logische Form
-~~~~~~~~~~~~~
+-------------
 
 - Form: Elemente isolieren, von denen die *Korrektheit* eines *Schlusses* abhängt
 - Inhalt: Elemente die übrig bleiben
 
+Verschiedene Logiken (z.B. Aussagelogik, Prädikatenlogik) können anhand ihrer unterschidlichen logischen Form differenziert werden.
