@@ -115,3 +115,11 @@ Allgemeine Formulierung
     Alle *A* sind *C*.
 
 Der Schluss ist *korrekt* auch wenn man nicht weiss, was *A*, *B* und *C* bedeuten.
+
+
+Logische Form
+~~~~~~~~~~~~~
+
+- Form: Elemente isolieren, von denen die *Korrektheit* eines *Schlusses* abhängt
+- Inhalt: Elemente die übrig bleiben
+
