@@ -84,10 +84,11 @@ Merkmale
 2. Ob die Prämissen wahr sind, spielt für die Beurteilung der Korrektheit des Schlusses keine Rolle.
 3. Aus einem korrektem Schluss lassen sich viele weitere korrekte Schlüsse (mechanisch) erzeugen.
 4. Für die Korrektheit eines Schlusses sind die Bedeutungen der in ihm vorkommenden Begriffe unwesentlich.
-
+5. Die Gültigkeit von korrekten Schlüssen hängt von Wörtern wie *alle* und *einige* ab
 
 
 Prämissen können auch (manifest) falsch sein, der *Schluss* bleibt trotzdem korrekt!
+
 
 Beispiel:
 
@@ -100,3 +101,26 @@ Beispiel:
    Alle Logiker haben Eigenschaft *S*.
 
 Setze Eigenschaft S = Reptil sein
+
+Allgemeine Formulierung
+-----------------------
+
+:Prämissen (Voraussetzung):
+   Alle *A* sind *B*.
+   
+   Alle *B* sind *C*.
+   
+
+:Konklusion (Schlusssatz):
+    Alle *A* sind *C*.
+
+Der Schluss ist *korrekt* auch wenn man nicht weiss, was *A*, *B* und *C* bedeuten.
+
+
+Logische Form
+-------------
+
+- Form: Elemente isolieren, von denen die *Korrektheit* eines *Schlusses* abhängt
+- Inhalt: Elemente die übrig bleiben
+
+Verschiedene Logiken (z.B. Aussagelogik, Prädikatenlogik) können anhand ihrer unterschidlichen logischen Form differenziert werden.
