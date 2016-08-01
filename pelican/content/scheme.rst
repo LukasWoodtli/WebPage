@@ -35,14 +35,66 @@ Application Rules
 Linear Recursion and Iteration
 ==============================
 
-TODO:
 
-https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.1
+See [SICP section 1.2.1](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.1)
 
-http://stackoverflow.com/questions/17254240/sicp-recursive-process-vs-iterative-process-using-a-recursive-procedure-to-gene
+and [stack overflow](http://stackoverflow.com/questions/17254240/sicp-recursive-process-vs-iterative-process-using-a-recursive-procedure-to-gene)
+
+
+It's confusing that both the recursive and the iterative implementation call themselves. There is a distinction between
+
+- Recursive process and
+- Recursive function
+
+A recursive function calls itself. But it can be implemented as *recursive* or *iterative* process.
+
++---------------------------------------------------+----------------------------------------------------------------+
+| Recursive Process                                 | Iterative Process                                              |
++===================================================+================================================================+
+| Function calls itself                             | Function calls itself                                          |
++---------------------------------------------------+----------------------------------------------------------------+
+| Itermediate result is kept on caller side         | Intermedia result is passed to the called function             |
+|                                                   |                                                                |
+|                                                   | - additinal argument needed                                    |
+|                                                   | - initial value needed                                         |
+|                                                   |                                                                |
++---------------------------------------------------+----------------------------------------------------------------+
+| Each recursive call needs a new stack frame       | Stack frame can be reused (tail call)                          |
++---------------------------------------------------+----------------------------------------------------------------+
+| Recursive function call part of bigger expression | Recursive function call not part of bigger expression          |
++---------------------------------------------------+----------------------------------------------------------------+
+| Easier to understand                              | More difficult to understand and to implement                  |
++---------------------------------------------------+----------------------------------------------------------------+
+| Needs stack                                       | Can be implemented in register machine (without stack)         |
++---------------------------------------------------+----------------------------------------------------------------+
+
+
+Recursive Process
+-----------------
+
+.. code-block:: scheme
+
+    (define (factorial n)
+      (if (= n 1)
+          1
+          (* n (factorial (- n 1))))) ;; 'factorial' is part of bigger expression
+
 
 Iterative Process
 -----------------
+
+.. code-block:: scheme
+
+    (define (factorial n)
+      (fact-iter 1 1 n)) ;; inital values need to be provided
+
+    (define (fact-iter product counter max-count) ;; max-cout: intermediate result
+      (if (> counter max-count)
+           product
+           (fact-iter (* counter product)
+                      (+ counter 1)
+                      max-count))) ;; max-cout: supply intermediate result to next call
+
 
 - Iterative algorithms have constant space
 - Develop iterative algorithm:
@@ -55,3 +107,4 @@ Iterative Process
     - how to know when to stop
 
 - Iterative algorithms have no pending operations when the procedure calls itself
+
