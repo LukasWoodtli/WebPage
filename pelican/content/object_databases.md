@@ -1943,8 +1943,51 @@ Relationships:
 <!-- End Notes/Slides Week 8 -->
 
 
+<!-- Start Slides/Notes Week 9 -->
+
+# Objectivity/DB
+
+## Key Features
+
+- Logical and physical pages
+    - non-destructive manipulation
+    - simple rollback/commit
+- Relationships
+    - bidirectional relationship outside of class
+- LINQ
+- Parallel Query Engine
+- Graph Navigator
+- Core implemented in C++
+- Language support
+    - C++
+    - C#
+    - Java
+    - Smaltalk
+    - Python
+    - SQL++
+    - XML
+- Platform support
+    - Windows
+    - Linux, Altix
+    - UNIX: Solaris, HP-UX, IBM RS/6000
+    - OS X
+    - 32-bit and 64-bit
+
+## Architecture
+
+- Client/Server
+- Lock Servers
+- Data Servers
+- Query Servers (Parallel Query Engine)
+- Client-side Objectivity Kernel
+
+<!-- TODO: Continue p 7/8 -->
+
+
+<!-- End Notes/Slides Week 9 -->
 
 <!-- Start Slides/Notes Week 10 -->
+
 # Graph Databases
 
 - Domain specific solution
