@@ -48,7 +48,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Moderne Betriebssysteme                           | Andrew S. Tanenbaum                               | Pearson                                           |
 | Using the FreeRTOS Real Time Kernel               | Richard Barry                                     | Richard Barry                                     |
-| Using the FreeRTOS Real Time Kernel               | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
+| FreeRTOS Reference Manual                         | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
 | [Linux-UNIX-Programmierung](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/index.htm) | Jürgen Wolf | Rheinwerk                            |
 
 # Version Control
