@@ -1979,9 +1979,63 @@ Relationships:
 - Lock Servers
 - Data Servers
 - Query Servers (Parallel Query Engine)
+    - task splitter
+    - multiple query server scanning portions of data in parallel
 - Client-side Objectivity Kernel
 
-<!-- TODO: Continue p 7/8 -->
+## Federation
+
+> Federation > Database > Container > Objects
+
+- A *Federation* contains several *DBs*.
+- A *DB* contains several *Containers*.
+- A *Container* contains several *Objects*.
+
+| Logical     | Physical  |
+|-------------|-----------|
+| Federation  | File      |
+| Database    | Files     |
+| Container   | Pages     |
+| Objects     | Slots     |
+
+- Federated DB contains one or more DBs
+
+## Databases
+
+- Databases are files
+    - contain objects in container
+    - up to 65530 databases per federation
+    - a database holds up to 65530 containers
+- can be moved or copied to any disk/machine
+- can be marked read-only or taken off-line
+
+## Containers
+
+- Collections of objects in DB
+    - contained objects can be of any size or type
+    - logical zie in page
+    - can grow up to 65530 pages
+- Useful for logical partitions
+    - by owner
+    - by attribute
+    - by time
+    - ...
+
+## Pages
+
+- Logical and Physical
+    - logical page is permament part of object ID (OID)
+    - physical page is where the page is put in the file
+- Different age sizes possible
+- Unit of transfer from disk or server
+- Unit of locking
+    - one writer
+    - multiple readers
+
+### Logical and Physical Pages
+
+
+<!-- TODO: Continue p 17 -->
 
 
 <!-- End Notes/Slides Week 9 -->
