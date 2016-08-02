@@ -1945,6 +1945,8 @@ Relationships:
 
 <!-- Start Slides/Notes Week 9 -->
 
+<!-- TODO Notes 0:00:00 -->
+
 # Objectivity/DB
 
 ## Key Features
@@ -2123,10 +2125,69 @@ Relationships:
     - helper and utility functionality
 - App code class contains user-defined code
 
-<!-- TODO: Continue p 30 -->
+## Connection, Sessions and Threads
 
+- Static funtions for startup, shutdown and connection
+- One connection to federation per application process
+- Seesions
+    - manage resources (cache, transaction state ...)
+    - one or many per thread or
+    - one shared by many threads
+- Cache
+    - remains intact through commits and checkpoints
+    - flushed if transaction aborted
 
+## Persistent Collections
 
+- Built-in persistent collections: sets, lists and maps
+    - automatically persistent (when created)
+    - conform to `System.Collections.Generic` interface
+- Types of persistent collections
+    - ordered vs. unordered
+    - scalable vs.non-scalabse
+
+## Iterators
+
+- Iterators are transient
+    - provide access to persistent objects
+- Not an efficient method for looking up objects
+    - predicates evaluated on client (unless index is available)
+    - can be improved with indexes and scoping
+- Result is not built entirely before it is returned
+    - clients can start process result (instead of getting blockes)
+    - sorting of result is not possible
+
+## Scope Names
+
+- Generalization of DB roots
+- Unique name
+- Possible on each storage level
+    - container
+    - database
+    - federation
+
+## Retrieving Objects
+
+-Scope names
+- Creating links (and following them)
+- Individual and group lookup
+    - keys
+    - iteratos
+- Parallel query
+    - Parallel Query Engine
+    - divides query among several servers
+- Content-based filtering
+    - predicate-query language
+    - used to follow to-many relationships
+    - used in parallel queries
+
+## LINQ Overview
+
+- Part of .NEW (`System.Linq`)
+- add native query capabilities to .NET languages
+- Standard query operators defined by class `Enumerable`
+- Language extensions are translated into method calls
+- Static safety
 
 <!-- End Notes/Slides Week 9 -->
 
