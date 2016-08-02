@@ -2034,8 +2034,98 @@ Relationships:
 
 ### Logical and Physical Pages
 
+- When page is modified
+    - new page is written to container
+    - old page is kept
+    - journal file is written
+        - containing current page map
+- When a transaction commits
+    - page map is updated and written to disk
+    - old page is freed (for reuse)
+    - journal file is truncated
+    - lock removed on lock server
+- If a transaction aborts
+    - new page is freed (for reuse)
+    - lock is removed from server
 
-<!-- TODO: Continue p 17 -->
+## Persistent Object Model
+
+- Language independent
+- Persistence by inheritance
+- Base types
+    - numeric: sbyte, short, int, long, byte, ushort, uint, ulong, float, double
+    - string: ASCII (8-bit), UTF8, UTF16
+    - boolean
+    - date/time
+- Complex types
+    - embedded: stored as part of parent object
+    - referece: parent object stores object identifier
+    - enumeration
+    - arrays (fixed and variable-length)
+- Relationships
+- Collections
+
+## Relationships
+
+- between objects declared in classes
+    - unary and binary
+    - to-one and to-many
+- Storage and management of relationships
+    - inline
+    - non-inline
+    - binary associations represented as separate construct internally
+- Consistency of relationships
+    - referential integrity
+    - inverse relationship of binary relationship is updated automatically
+    - objects are removed from all relationships when deleted
+
+
+### Non-Inline Relationships (default)
+
+- Each object with relationships has a default relationship array
+    - all non-inline relationships are stored in that array
+- Each relationship in the array is identified by
+    - relationship name (id, not string)
+    - object id (ODI) of related object
+- Objectivity traverses relationships until it locates the desired relationship
+
+### Inline Relationships
+
+- To-one inline relationships: embedded as fields of an object
+- To-many inline relationships: placed in their own array
+
+## Deletion and Lock Propagation
+
+- Relationshis can have semantics
+- Deletion propagation
+    - if object is deleted all associated objects are deleted
+- Lock propagation
+    - if object is locked all associated objects are locked
+- Developer specifies operation and direction of propagation
+
+## Copy and Versioning Behaviour
+
+- Policies define what happens to object relationships when a copy or a new version of an object is made
+    - copy: old an new object associated with same objects
+    - drop: only old object is associated with other objects
+    - move: only new object is associated with other objects
+
+## Domain Classes
+
+- .NET partial classes to separate app and persistence code
+- Persistence by inheritance
+    - both partial classes inherit form `ReferenceableObject`
+- Persistence code class
+    - defines schema class and attributes
+    - functionality to create and dispose objects
+    - properties for attributes defined by schema
+    - proxy cache for each relationship
+    - helper and utility functionality
+- App code class contains user-defined code
+
+<!-- TODO: Continue p 30 -->
+
+
 
 
 <!-- End Notes/Slides Week 9 -->
