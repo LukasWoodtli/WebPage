@@ -2090,6 +2090,7 @@ Relationships:
     - relationship name (id, not string)
     - object id (ODI) of related object
 - Objectivity traverses relationships until it locates the desired relationship
+- array is like part of an adjacent matrix
 
 ### Inline Relationships
 
