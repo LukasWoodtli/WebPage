@@ -2476,11 +2476,14 @@ Comparison:
     - ...
 - different types of time to characterise temporal data
     - Transaction, Registration or Physical time
+        - transaction or registration time
         - captures when values were stored in DB
         - `AS-OF` operation
     - Valid or logical time
+        - real-world time
         - used to express when values existed in *real world*
         - `WHEN` operation
+    - Bitemporal: combination of physical and logical time
     - User-defined time
         - all other aspects of time
 
@@ -2492,6 +2495,9 @@ Comparison:
     - supports only one single version
     - if value is updated, previous value is lost
 - Static roll-back DB
+    - like version control system (more or less)
+    - changes can be made only on actual version
+        - errors in older versions can't be fixed
     - keeps track of transaction time
     - supports `AS-OF` operation
     - no way to correct an error
@@ -2501,6 +2507,7 @@ Comparison:
     - supports `WHEN`
     - changes can be made to previous values
 - Temporal DB
+    - bi-temporal
     - keept track of *transaction* and *valid* time
     - supports `AS-OF` and `WHEN` operations
 - Spatio-Temporal DB
