@@ -2001,6 +2001,7 @@ Relationships:
 | Objects     | Slots     |
 
 - Federated DB contains one or more DBs
+- A DB file can be copied to other machine
 
 ## Databases
 
@@ -2151,6 +2152,8 @@ Relationships:
 
 - Iterators are transient
     - provide access to persistent objects
+- Predicates can be supplied to iterators
+    - no (or less) `if`s in loop
 - Not an efficient method for looking up objects
     - predicates evaluated on client (unless index is available)
     - can be improved with indexes and scoping
