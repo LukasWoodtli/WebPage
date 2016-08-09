@@ -9,7 +9,7 @@ Status: draft
 
 - Conceptual Design => Technical Design => Implementation
 - Actors, Personas
-- Mock-ups
+- Mock-ups (for non-engineer)
     - Paper Mock-ups
     - Tools for Mock-ups (functional)
 - Rapid Prototype
@@ -23,11 +23,12 @@ Status: draft
 - Logical Architecture
     - Read the Specification: Nouns => Actors/Entities, Verbs => Actions/Functionality/Behavior
     - Entities + Behavior => Data Model
-    - Methods: input -> output
+    - Methods: input -> output (table form)
     - Entities: data -> creator
     - Components (Bottom-Top):
         1. Create Data Model
         2. Build Application
+- API driven development
 - Conceptual data model:
     - first high-level, go in detail later
     - describe reality => Model
@@ -35,13 +36,21 @@ Status: draft
         - SQL
         - ...
         - Impedance mismatch
+- Relationships (pointers/references in most languages)
+    - mostly more complex and with semantics
 - Know the Problem! Don't start before you really know the problem!
+    - be convinced about solution
+- Describe application domain (reality)
 - Modeling Language (programming languages...) needed to capture details of reality
     - e.g Java (and other OOP languages) can not properly model relationships
 - Impedance mismatch
     - if two connected models are not the same
     - OOP <-> reality
     - OOP <-> relational-dbs (SQL)
+- Relational DB:
+    - Table: Relation (similar to class)
+    - Columns: Relation attributes (similar to class attributes)
+    - Keys: Pointers (relationships)
 - Start with simple things => improve
     - agile
 
