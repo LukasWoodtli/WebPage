@@ -1005,6 +1005,16 @@ Example:
 - similar to updating objects
 - Method `ObjectContainer.delete(...)` removes objects
 
+## Simple vs. Complex Objects
+
+- Simple Structured Objects (objects in classical sense):
+    - properties
+    - methods
+- Complex Object Structures: multivalued attrivutes
+    - arrays
+    - collections
+    - ...
+
 ## Simple Structured Objects
 
 - New objects are stored using the `store` method
@@ -2955,10 +2965,14 @@ Different approaches to:
 
 | Typing                        | Classification               |
 |-------------------------------|------------------------------|
+| static                        | dynamic                      |
 | representation of entities    | roles of entities            |
 | defines format of data values | defines semantic groupings as collections of values |
 | defines operations            | defines constraits among collection |
-| defines inheritance properties |                               |
+| defines inheritance properties | Collections: member type    |
+| 'Java' classes                |                              |
+| multiple inheritance/instantiation  |                        |
+
 
 - better understanding of issues
     - important to recognise the two concepts
@@ -3044,6 +3058,19 @@ Different approaches to:
     - Declaritive query language
     - Collections are *sets of candidates* for queries
 - Map-Reduce
+
+## Collection Constraint
+
+- Disjoint: XOR
+- Cover: OR
+- Partition: one and only one needs to be true
+
+## Associations (Relationships)
+
+- binary relation between 2 collections
+- cardinality
+- tuple as type of collection
+- can be nested: n-ary relationships
 
 <!-- End Slides/Notes Week 13 -->
 
