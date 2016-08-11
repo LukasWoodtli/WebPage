@@ -15,13 +15,14 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Algorithms in C (Parts 1-5)                       | Robert Sedgewick                                  | Addison-Wesley                                    |
 
 
-# Design Patterns
+# Design Patterns and Refactoring
 
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Design Patterns                                   | Erich Gamma et al. (Gang of Four)                 | Addison-Wesley                                    |
 | Head First Design Patterns                        | Eric Freeman et al.                               | O'Reilly                                          |
 | Refactoring                                       | Martin Fowler                                     | Addison-Wesley                                    |
+| Effektives Arbeiten mit Legacy Code               | Michael C. Feathers                               | mitp                                              |
 
 
 # Skills & Tools
@@ -30,8 +31,6 @@ I really like reading technical books to improve my skills. Usually I try to rea
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Mastering Regular Expressions                     | Jeffrey E.F. Friedl                               | O'Reilly                                          |
 | Seven Concurrency Models [...]                    | Paul Butcher                                      | The Pragmatic Bookshelf                           |
-| Effektives Arbeiten mit Legacy Code               | Michael C. Feathers                               | mitp                                              |
-| Test Driven Development for Embedded C            | James W. Grenning                                 | The Pragmatic Bookshelf                           |
 | Mastering CMake                                   | Ken Martin, Bill Hofmann                          | Kitware                                           |
 | Language Implementation Patterns                  | Terence Parr                                      | The Pragmatic Bookshelf                           |
 | Learning GNU Emacs                                | Debra Cameron, et al.                             | O'Reilly                                          |
@@ -42,7 +41,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Understanding Computation                         | Tom Stuart                                        | O'Reilly                                          |
 | [Structure and Interpretation of Computer Programs](https://mitpress.mit.edu/sicp/) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
 
-# Operating Systems
+# Operating Systems and Networking
 
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
@@ -50,6 +49,17 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Using the FreeRTOS Real Time Kernel               | Richard Barry                                     | Richard Barry                                     |
 | FreeRTOS Reference Manual                         | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
 | [Linux-UNIX-Programmierung](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/index.htm) | Jürgen Wolf | Rheinwerk                            |
+| TCP/IP für Dummies                                | Candace Leiden, Marshall Wilensky                 | Wiley-VCH Verlag GmbH                             |
+
+
+# Embedded Systems and Computer Architecture
+
+| Name                                              | Authors                                           | Publisher                                         |
+|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Test Driven Development for Embedded C            | James W. Grenning                                 | The Pragmatic Bookshelf                           |
+| Vom Gatter zu VHDL                                | M. Künzli                                         | vdf Lehrbuch                                      |
+| Technische Informatik I+II                        | T. Müller et al.                                  | vdf Lehrbuch                                      |
+
 
 # Version Control
 
