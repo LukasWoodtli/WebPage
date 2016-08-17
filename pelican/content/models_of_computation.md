@@ -195,6 +195,45 @@ See also [Wikipedia:Wang tile](https://en.wikipedia.org/wiki/Wang_tile)
 
 <!-- Notes Week 4 End -->
 
+<!-- Notes Week 6 Start -->
+
+# Cellular Automata
+
+- Inspired by natural cells
+- World is grid of cells
+- Cells have state (e.g. dead/alive)
+- Next state of a cell is calculated by
+    - actual state of the cell
+    - actual state of the neighbor cells
+- All cells work with same rules
+- Time is discrete (round based)
+- Often used in physics
+- Good model for unreliability
+- parallel, local comuptation
+
+## The Model
+
+- $N$-dimensional array of cells (infinitely large)
+- Finite number of states
+    - each cell is in some state
+- At each time step, each cell updates its state based on
+    - it's own state
+    - the states of its neighbors
+- Variations:
+    - number of dimensions
+    - neighborhood size (and geometry)
+    - asynchronouns
+    - error-prone (add randomness)
+    - finite size
+    - grid type
+
+## Variants
+
+- [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+    - [My implementation (Qt, C++)](https://github.com/LukasWoodtli/GameOfLife)
+- [Toom's rule](https://en.wikipedia.org/wiki/Toom%27s_rule)
+    - asymetrc rule
+<!-- Notes Week 6 End -->
 
 <!-- Notes Week 7 Start -->
 
@@ -583,7 +622,7 @@ A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computa
 | $D(a,n) = a-n$     | Subtraction    | $a$                   | $P(D(n,m))$              |
 | $R(n,a)=n \bmod a$ | Remainder      | $0$                   | $M(S(R(m,a)),V(D(P(a),R(m,a))))$ |
 | $C(n,a)=\prod_{i=2}^{n+1} a \bmod i$ | 'mod Product'  | $0$ | $M(C(m,a),R(a,(S(S(m)))))$ |
-| $Z(n)=1$ if prime ; $0$ else $ | Primality | $0$ | $V(M(m,(P(m),S(m))))$ |
+| $Z(n)=1$ if prime ; $0$ else | Primality | $0$ | $V(M(m,(P(m),S(m))))$ |
 
 - Infinite loops not possible
 - Can simulate a Turing Machine only for a given number of steps
