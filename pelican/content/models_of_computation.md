@@ -141,6 +141,46 @@ Example of list of instructions for a Register Machine:
     - one register is $0$
     - in the other register is some information available
 
+<!-- Notes Week 2 End -->
+
+
+<!-- Notes Week 4 Start -->
+
+# Fractran
+
+See also [Wikipedia:Fractran](https://en.wikipedia.org/wiki/FRACTRAN)
+
+Example PRIMEGAME:
+
+$${\frac  {17}{91}},{\frac  {78}{85}},{\frac  {19}{51}},{\frac  {23}{38}},{\frac  {29}{33}},{\frac  {77}{29}},{\frac  {95}{23}},{\frac  {77}{19}},{\frac  {1}{17}},{\frac  {11}{13}},{\frac  {13}{11}},{\frac  {15}{2}},{\frac  {1}{7}},{\frac  {55}{1}}$$
+
+State/Memory: an Integer
+
+Computation: multiply by first fraction that yields an integer
+
+Start with $2$: calculate primes.
+
+Implementation in racket:
+
+<script src="https://gist.github.com/LukasWoodtli/c391e391dcc9f9c9e9231a8c6fb954a4.js"></script>
+
+
+Fractran is similar to stack machines.
+
+# Tilings
+
+See also [Wikipedia:Wang tile](https://en.wikipedia.org/wiki/Wang_tile)
+
+- Graphical model of computation
+- The edges of each tile have special form/color
+- Tiles can be arranged on plain so that edges match
+- Tiled plain can be seen as Turing Machine over time
+    - one dimension (horizontal, x) is tape
+    - other dimension (vertical, y) is time
+    - so each row shows the tape at a given time
+
+<!-- Notes Week 4 End -->
+
 
 <!-- Notes Week 7 Start -->
 
@@ -529,7 +569,7 @@ A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computa
 | $D(a,n) = a-n$     | Subtraction    | $a$                   | $P(D(n,m))$              |
 | $R(n,a)=n \bmod a$ | Remainder      | $0$                   | $M(S(R(m,a)),V(D(P(a),R(m,a))))$ |
 | $C(n,a)=\prod_{i=2}^{n+1} a \bmod i$ | 'mod Product'  | $0$ | $M(C(m,a),R(a,(S(S(m)))))$ |
-| $Z(n)=1 \text{ if prime} ; 0 \text{ else} $ | Primality | $0$ | $V(M(m,(P(m),S(m))))$ | 
+| $Z(n)=1 \text{ if prime} ; 0 \text{ else} $ | Primality | $0$ | $V(M(m,(P(m),S(m))))$ |
 
 - Infinite loops not possible
 - Can simulate a Turing Machine only for a given number of steps
@@ -537,4 +577,3 @@ A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computa
     - Infinite loops are not possible
 
 <!-- TODO: cont: Week 12 51:00 (Ackermann functions)  -->
-
