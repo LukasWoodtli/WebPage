@@ -253,6 +253,10 @@ LINQ is a powerful and compile time safe support for querying.
     - Something that can be pointed to?
     - Can be passed on as a reference?
     - Distinct from single values
+- Object:
+    - properties
+    - behaviour
+    - presenting something (modelling the real world)
 
 Examples in Java:
 
