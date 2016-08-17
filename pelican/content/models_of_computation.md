@@ -174,10 +174,24 @@ See also [Wikipedia:Wang tile](https://en.wikipedia.org/wiki/Wang_tile)
 - Graphical model of computation
 - The edges of each tile have special form/color
 - Tiles can be arranged on plain so that edges match
+
+## Tiles as Turing Machine
+
 - Tiled plain can be seen as Turing Machine over time
     - one dimension (horizontal, x) is tape
     - other dimension (vertical, y) is time
     - so each row shows the tape at a given time
+3 kind of tiles needed
+
+| Kind of Tile | Use                                      |
+|--------------|------------------------------------------|
+| TAPE         | One for each symbol in the alphabet      |
+| ACTION       | One tile for each transition of the TM   |
+| PREPARE      | Two for each (symbol, state) pair        |
+
+- Seed row: initial configuration
+- We can tile the floor with the tiles if TM halts
+
 
 <!-- Notes Week 4 End -->
 
@@ -569,7 +583,7 @@ A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computa
 | $D(a,n) = a-n$     | Subtraction    | $a$                   | $P(D(n,m))$              |
 | $R(n,a)=n \bmod a$ | Remainder      | $0$                   | $M(S(R(m,a)),V(D(P(a),R(m,a))))$ |
 | $C(n,a)=\prod_{i=2}^{n+1} a \bmod i$ | 'mod Product'  | $0$ | $M(C(m,a),R(a,(S(S(m)))))$ |
-| $Z(n)=1 \text{ if prime} ; 0 \text{ else} $ | Primality | $0$ | $V(M(m,(P(m),S(m))))$ |
+| $Z(n)=1$ if prime ; $0$ else $ | Primality | $0$ | $V(M(m,(P(m),S(m))))$ |
 
 - Infinite loops not possible
 - Can simulate a Turing Machine only for a given number of steps
