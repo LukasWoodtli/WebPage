@@ -21,13 +21,18 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 ## Common Lisp
 [ELM Art](http://art2.ph-freiburg.de/Lisp-Kurs)
 
-# Linux/UNIX
 
-## General
+
+# Operating Systems
+[Udacity: Advanced Operating Systems](https://classroom.udacity.com/courses/ud189/)
+
+## Linux/UNIX
+
+### General
 
 [Tutorialspoint](http://www.tutorialspoint.com/unix/)
 
-## Application Development
+### Application Development
 
 [Linux-UNIX-Programmierung (Rheinwerk/Galileo)](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/Kap02-002.htm#t2t310)
 
@@ -36,3 +41,10 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
 [Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation) by Tom Stuart
 
+
+[Udacity: Programming Languages](https://classroom.udacity.com/courses/cs262)
+
+
+# Mathematics
+
+[Udacity: Intro to Statistics](https://classroom.udacity.com/courses/st101)
