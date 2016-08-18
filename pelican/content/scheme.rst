@@ -108,3 +108,10 @@ Iterative Process
 
 - Iterative algorithms have no pending operations when the procedure calls itself
 
+
+Expressions
+===========
+
+- In Scheme everything is an expression
+- Expressions can be nested arbritarly
+

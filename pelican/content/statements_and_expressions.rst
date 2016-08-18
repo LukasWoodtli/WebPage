@@ -13,10 +13,12 @@ Expressions (Ausdruck)
 ======================
 
 - is *evaluated* according to semantics in a context
-- 'returns' a value (atom)
+- 'returns' a value
 - can have side-effects (in most languages)
 - some languages have expressions as only construct (functional, declarative)
 - some languages have declarations for defining context of expression (among other things)
+- can be nested with each other
+
 
 Statement (Anweisung)
 =====================
@@ -53,6 +55,7 @@ Statement (Anweisung)
     - subroutine parameters are evaluated once
     - statement parameters can be evaluated multiple times (e.g. condition in while loop)
         - call-by-name (lazy evaluation)
+- can't be nested with each others or with expressions
 
 Declaration
 ===========
