@@ -1074,7 +1074,7 @@ Example:
     - Store objects in database *once* (`store` method)
     - avoid multiple calls of `store`
 - Logic of transparent persistence framework
-    - `Activatable` interface
+    - `Activatable` interface (no datatype orthogonality)
     - objects are made persistent by `store` method
     - objects bound to transparent persistence framework with `bind`method
     - commit: transparent persistent framework scans for modified objects and invokes `store`
@@ -1113,7 +1113,7 @@ Methods for per class configuration of activation depth
 - Make activation transparent to application logic
     - activate fields automatically when accessed
 - Logic of transparent activation framework
-    - `Activable` interface
+    - `Activable` interface (no datatype orthogonality)
     - at object instantiation db registers itself in object with `bind(..)`
 
 Enabling the transparent activation framework
@@ -2034,7 +2034,6 @@ Relationships:
 
 - Collections of objects in DB
     - contained objects can be of any size or type
-    - logical zie in page
     - can grow up to 65530 pages
 - Useful for logical partitions
     - by owner
@@ -2766,8 +2765,6 @@ Different approaches to:
 - Usually implemented using $B^+$-trees
 - Type-Grouping
 
-> Good for querying full extent
-
 ### Class Hierarchy Index (CH-Index)
 
 - One search structure for all objects of all types of indexed hierarchy
@@ -2788,7 +2785,6 @@ Different approaches to:
     - bad if only few types of indexed hierarchy hit by query
 - Key-grouping structure
 
-> Good for querying extent (not full extent)
 
 ### H-Tree
 
@@ -2815,6 +2811,8 @@ Different approaches to:
 - Parameters *q* and *r* give bounds
     - *q*: number of index structures needed to build a type extent
     - *r*: number of times a type set is managed redundantly or replicated
+    - big *q*: slow queries
+    - big *r*: slow updates
 - Multiple index structures need to be accessed for a query
     - trade-off between:
         - number of index structures to access for a query
@@ -2823,7 +2821,7 @@ Different approaches to:
 
 ### Multi-Key Type Index (MT-Index)
 
-- Multi-Dimensional indexing
+- *Multi-Dimensional* indexing (locality)
 - Type information as additional attribute available
 - Compromise between
     - type grouping
@@ -2834,26 +2832,6 @@ Different approaches to:
 - Linearization
 - Key-grouping structure (type is handled as an attribute)
 
-### Overview: Type Hierarchy Indexing
-
-- Classes: `Person :> Student`
-
-|                           |         |                               |
-|---------------------------|---------|-------------------------------|
-| Full-Extent               | Person  | Rel. DBs, SC-Index, (H-Index) |
-| Extent                    | Person  | CH-Index, H-Index             |
-| Extent                    | Student | CH-Index, H-Index             |
-| comb(Extent, Full-Extent) | ...     | MT-Index, CD-Index, (H-Index) |
-
-
-| Index Structure      |  Extent          | Full Extent       | Combination (Extent, Full Extent) |
-|----------------------|------------------|-------------------|-----------------------------------|
-| Relational DBs       |     x            |  Person           |   x                               |
-| SC-Index             |     x            |  Person           |   x                               |
-| CH-Index             |  Person, Student |   x               |   x                               |
-| H-Index              |  Person, Student | (Person)          | ('any')                           |
-| CD-Index             |     x            |   x               |  'any'                            |
-| MT-Index             |     x            |   x               |  'any'                            |
 
 ## Aggregation Path Indexing
 
@@ -2861,6 +2839,8 @@ Different approaches to:
     - without full object tree traverses
 - Forward queries
     - without retrieving intermediate objects
+    - less hops to get to objects referenced over seversl levels
+    - shortcut forward
 
 ### Nested Index (NX)
 
@@ -2889,6 +2869,8 @@ Different approaches to:
 
 - Originally for optimization of *joins* in Relational DBs
 - Consists of a set of binary join indexes (Slides p. 33)
+- Forward references are also indexed
+- Cost compared to *MX* doubled
 
 ### Multi-Index (MX)
 
@@ -2905,6 +2887,7 @@ Different approaches to:
     2. set of OIDs of objects holding this key-value (for indexed attribute)
 - Updates cheap
 - Complex queries expensive (hop over nodes)
+- each reference in object has index structure for backward references
 
 ![Multi Index](/images/object_databases/multi_index.png)
 
@@ -2963,7 +2946,7 @@ Different approaches to:
         - behaviour
         - relationships
     - objects: attributes and methods
-    - multiple inheritance, multiple instantiation, multiple classification
+    - multiple inheritance, multiple instantiation (gain/lose roles), multiple classification
     - collections as first-class concepts
     - binary associations as first-class concepts
     - constraints for integrity, classification and evolution
