@@ -21,7 +21,7 @@ Data has to outlive the execution of the program
 
 
 - **Independence** of longelivety of data
-    - How much code needs to be written for persistence
+    - How much code needs to be written for persistence (effort for programmer)
         - None at all would be nice but not realistic (GUI objects usually don't need storing...)
     - Data is stored automatically
     - Not always desirable: don't need to store UI, messages ...
@@ -100,7 +100,7 @@ Definition of data models
     - Relation attributes and domains
     - Primary and foreign key
 - Operations
-    - Create tables
+    - Create tables (`class` in Java)
     - Declare relation attributes
     - Declare primary and foreign keys
     - Alter tables
@@ -116,6 +116,7 @@ Creation and management of data
     - Insert
     - Update
     - Delete
+    - in Java: `new` and 'setters'
 
 ### Query Language (QL)
 
@@ -129,6 +130,7 @@ Retrieval of data
     - Project
     - Join
     - Select
+    - in Java: 'getters'
 
 ## DDL, DML and QL in SQL and Java
 
@@ -234,17 +236,6 @@ LINQ is a powerful and compile time safe support for querying.
     - Isolation
     - Durability
 
-# Object Database Systems
-
-| System                                | db4o                                             | Object Store | Versant | Objectivity  |
-|---------------------------------------|--------------------------------------------------|--------------|---------|--------------|
-| Data-type Orthogonality               | No changes to classes to make objects persistent |              |         |              |
-| Orthogonal Persistence (independence) |                                                  |              |         |              |
-| Programming Languages                 |                                                  |              |         |              |
-| Persistence Depth                      | persistence by reachability                      |              |         |              |
-| OSs                                   |                                                  |              |         |              |
-
-
 <!-- Lecture 2 Slides/Notes Start -->
 
 # ODMG Standard
@@ -253,6 +244,9 @@ LINQ is a powerful and compile time safe support for querying.
     - Something that can be pointed to?
     - Can be passed on as a reference?
     - Distinct from single values
+    - properties and behaviour
+    - representing something (moddeling the real world)
+
 - Object:
     - properties
     - behaviour
@@ -366,6 +360,7 @@ Based on ODMG Object Model and SQL-92
 Mapping to OOP not obvious.
 
 Table in relational DBs has tow roles:
+
 1. Defining Type
 2. Container of all values (of that type)
 
@@ -377,6 +372,7 @@ ODMG defines Extents.
 #### Difference to SQL
 
 This is illegal as the “dot” operator cannot be applied to a collection of objects:
+
     :::SqlLexer
     select a.authors.title
     from   Authors a
@@ -399,6 +395,8 @@ As a default, queries return a *bag*
     select first: p.authored_by[1], p.title, p.year
     from   Publications p
 
+In Java:
+
     :::java
     Bag<Struct { Author first, string title, integer year }>
 
@@ -408,6 +406,8 @@ Queries with `DISTINCT` return a *set*
     select distinct a.name
     from   Authors a
 
+In Java:
+
     :::java
     Set<Struct { string name }>
 
@@ -416,6 +416,8 @@ Queries with `ORDER BY` return a *list*
     :::SqlLexer
     select p.title
     from Publications s order by p.year desc
+
+In Java:
 
     :::java
     List<Struct { string name }>
@@ -471,10 +473,10 @@ OMDG supports sub-collections
 - Persistence by reachability
     - not necessary the best option
 - Database gives access to global names
-    - explicitly named root objects
+    - explicitly *named root objects*
     - types defined in schema
     - named extents of types
-
+    - store object graphs
 
 ### Other Concepts Supported
 - Database operations
@@ -738,6 +740,7 @@ Example:
 - Default applications: Search, Maps, Mail, Calendar, Contacts...
 - Java SDK
 - Support for persistent data management
+- Smart Phone / Tablet
 
 ## Application component model
 
@@ -750,7 +753,7 @@ Example:
     - lists the application components
     - sets activity to be shown at startup
     - components can be made available to other applications
-- Intent: request the use of application components
+- Intent: request the use of application components (integration with other apps)
     - showing activities
     - using content provides
     - listening to events
@@ -808,7 +811,8 @@ Example:
     - 3\. Encapsulation
     - 4\. Types and classes
     - 5\. Type and class hierarchies
-    - 6\. Overriding, overloading and late binding 7. Computational completeness
+    - 6\. Overriding, overloading and late binding
+    - 7\. Computational completeness
     - 8\. Extensibility
 
 - Database management systems (mandatory)
@@ -939,7 +943,7 @@ Example:
     - Java and .NET
 - Features
     - No conversion of mapping needed
-    - Classes don't need to be changed to make them persistent
+    - Classes don't need to be changed to make them persistent (datatype orthogonality)
     - One line of code to store (complex) objects
     - local or client/server mode
     - ACID transaction model
