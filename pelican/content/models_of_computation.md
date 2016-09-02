@@ -210,6 +210,7 @@ See also [Wikipedia:Wang tile](https://en.wikipedia.org/wiki/Wang_tile)
 - Often used in physics
 - Good model for unreliability
 - parallel, local comuptation
+- can model a Turing Machine
 
 ## The Model
 
@@ -233,6 +234,7 @@ See also [Wikipedia:Wang tile](https://en.wikipedia.org/wiki/Wang_tile)
     - [My implementation (Qt, C++)](https://github.com/LukasWoodtli/GameOfLife)
 - [Toom's rule](https://en.wikipedia.org/wiki/Toom%27s_rule)
     - asymetrc rule
+
 <!-- Notes Week 6 End -->
 
 <!-- Notes Week 7 Start -->
@@ -599,6 +601,30 @@ A Cyclic Tag System can simulate a normal Tag System. See 'Understanding Computa
 
 <!-- End Notes Week 10 -->
 
+
+<!-- Begin Notes Week 11 -->
+
+# Diophantine Equations
+
+See also [Wikipedia:Diophantine equation](https://en.wikipedia.org/wiki/Diophantine_equation)
+
+- Polynomal equations
+- Only integer solutions are sought
+- Properties
+    - no state
+    - no dynamics
+    - no time
+    - no loops
+    - no 'IF'/'THEN'
+    - just *equations* which all must be true
+
+How to compute?
+
+- Consider a space-time history
+- Solve it in the digits of a large number
+- Use equations to force it to be valid
+
+<!-- End Notes Week 11 -->
 
 
 <!-- Begin Notes Week 12 -->
