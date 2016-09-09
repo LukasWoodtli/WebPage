@@ -144,7 +144,7 @@ The meeting has three phases:
 1. The objective of the sprint (PO, 30 minutes)
 2. Pre-Selection of requirements (PO, 3 hours)
 3. Analyze the requirements and split them to smaller tasks (activities)
-&rarr; put them in the Sprint Backlog (Team, 4 hours) 
+&rarr; put them in the Sprint Backlog (Team, 4 hours)
 
 The output of the meeting is:
 
@@ -156,6 +156,18 @@ The output of the meeting is:
 5 - 15 Stories per Sprint is usually a good number.
 
 If the Sprint Planning Meeting takes to long the Scrum Master shall cut it short or reschedule it.
+
+### Publish Sprint Goal
+
+Keep the whole company informed about what is going on.
+
+Publish short notes:
+
+- Web/Intranet
+- Wiki
+- Printout (on door...)
+
+If people are not informed they will complain. Or they assume that the team is working on something but it isn't.
 
 ### Product Backlog Refinement
 
@@ -173,7 +185,7 @@ The effort of each user story has to be estimated by the team (only by the team!
 It is one of the most difficult parts of Scrum. But there are some techniques for doing the estimation.
 
 Storypoints
-The user stories are estimated in story points. Don't bother at first about how much work exactly a story point is. It depends on the team. And after a few sprints it becomes clear how many story points can be acomplished in one sprint. 
+The user stories are estimated in story points. Don't bother at first about how much work exactly a story point is. It depends on the team. And after a few sprints it becomes clear how many story points can be acomplished in one sprint.
 
 So how to define story points? Just chose a really small task (maybe just find the smallest user story in the backlog) and assign it the amount of one story point.
 
@@ -181,7 +193,7 @@ Now it makes sense to define a range for the possible story points. The fibonacc
 
 > 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 ...
 
-For really small tasks the value of *1/2* can be added. 
+For really small tasks the value of *1/2* can be added.
 
 If a user story is too big it should be split in smaller stories or tasks.
 
@@ -225,8 +237,9 @@ answers to the following questions:
 - What am I going to do until the next meeting.
 - What are my actual problems.
 
-> There should be no discussions in this meeting. It’s
-just an information to the coworkers so people with similar interests or some good solutions can connect after the meeting.
+> There should be no discussions in this meeting
+
+It’s just an information to the coworkers so people with similar interests or some good solutions can connect after the meeting.
 
 Sprint Review (Presentation)
 ----------------------------
@@ -237,6 +250,24 @@ It should not be a pure presentation but more like a workshop. In this
 meeting the **Product Owner** decides if all the requirements are
 implemented completely. For each requirement this is a pure yes or now
 criteria. The product that is shown at the review is potentially shippable to the users.
+
+> The Sprint Review is about **feedback**
+
+- Insist on the Sprint Review
+- The team gets credit
+
+Checklist:
+
+- Present Sprint Goal
+- Don't waste time in preparing the Review
+- Focus on working code
+- Fast and not beatiful
+- Buisiness oriented
+    - leave out technical detaion
+    - 'what did we do' (not 'how did we do it')
+- Let the audience try the product (if possible)
+
+
 
 Retrospective
 -------------
@@ -250,6 +281,24 @@ be donne to improve the production cycle.
 
 After the retrospective a new Sprint starts with the Sprint Planning
 Meeting.
+
+- one hour for a two week sprint
+- longer (half-, full-day) every few month
+
+> It's the possiblity to improve!
+
+- Without Retrospective mistakes are repeated over and over again
+
+Organisation:
+
+- Members: OP, team, Scrum Master
+- Closed room
+- Designated secretary
+- Summarize sprint
+- Each person gets the chance to talk without getting interrupted
+    - talk abut good things and what could be improved
+
+> Focus on few improvements for new sprint
 
 Artefacts
 =========
@@ -287,6 +336,8 @@ There should be only one Product Backlog per product.
 Sprint Backlog
 --------------
 
+The hwole team should be involved in maintaining the Sprint Backlog
+
 Sprint Burndown
 
 ![Sprint Burndown](/images/burndown.png)
@@ -305,7 +356,7 @@ Tools
 Scrum Board
 -----------
 
-The **Scrum Board** helps the Team (and the PO) to have an overview about the actual ongoing work. It's inspired by Kanban.
+The **Scrum Board** (Task Board) helps the Team (and the PO) to have an overview about the actual ongoing work. It's inspired by Kanban.
 Each team has a slightly different Scrum board but they have similarities.
 
 There are three main sections on the Scrum Board:
@@ -359,6 +410,17 @@ what knowledge he/she has that wold be lost/missed if that memer leaves the comp
 knowledge with as many other team members as possible.
 
 
+Pair Programming
+----------------
+
+- Improve code quality
+- Improve team focus
+- Should not be done all day (exhausting)
+- Changing pairs frequently
+- Spread knowledge fast in team
+- Both developer should have a computer at hand
+- Don't force pair programming, encourage people
+
 Literature and Links
 ====================
 
@@ -373,3 +435,7 @@ Literature and Links
 [A good page with Podcasts (German)](http://www.scrumidable.de/)
 
 [Cheat Sheet](http://media.agile42.com/content/Scrum_in_a_nutshell.pdf)
+
+[Scrum Checklist](https://www.crisp.se/gratis-material-och-guider/scrum-checklist)
+
+[Retromat](http://www.plans-for-retrospectives.com/)
