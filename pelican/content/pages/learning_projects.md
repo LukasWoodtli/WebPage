@@ -18,8 +18,8 @@ MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-co
 
 My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
-## Common Lisp
-[ELM Art](http://art2.ph-freiburg.de/Lisp-Kurs)
+<!-- ## Common Lisp
+[ELM Art](http://art2.ph-freiburg.de/Lisp-Kurs) -->
 
 
 
@@ -38,9 +38,6 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
 
 # Computation
-
-[Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation) by Tom Stuart
-
 
 [Udacity: Programming Languages](https://classroom.udacity.com/courses/cs262)
 
