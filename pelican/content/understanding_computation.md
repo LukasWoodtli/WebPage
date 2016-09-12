@@ -11,89 +11,56 @@ This page collects notes and citations from the book:
 
 # I. Programs and Machines
 
-*"
-- A machine capable of performing the computation
-- A language for writing instructions that the machine can understand
-- A program written in that language, describing the exact computation that the machine should perform
-"*
+- *"A machine capable of performing the computation"*
+- *"A language for writing instructions that the machine can understand"*
+- *"A program written in that language, describing the exact computation that the machine should perform"* - page 18
 
-page 18
+*"But computer programming isn’t really about programs , it’s about ideas"* - page 20
 
-*"But computer programming isn’t really about programs , it’s about ideas"*
-
-page 20
-
-*"semantics is the study of the connection between words and their meanings"*
-page 21
+*"semantics is the study of the connection between words and their meanings"* - page 21
 
 
 Expression and Statements:
 
-*"The purpose of an expression is to be evaluated to produce another expression; a statement, on the other hand, is evaluated to make some change to the state of the abstract machine."*
+*"The purpose of an expression is to be evaluated to produce another expression; a statement, on the other hand, is evaluated to make some change to the state of the abstract machine."* - page 35
 
-page 35
+*"difference between expressions and statements. For expressions, we pass an environment into #reduce and get a reduced expression back; no new environment is returned"* - page 37
 
-*"difference between expressions and statements. For expressions, we pass an environment into #reduce and get a reduced expression back; no new environment is returned"*
-
-page 37
-
-*"[SIMPLE's] expressions are pure and its statements are impure"*
-
-page 37
+*"[SIMPLE's] expressions are pure and its statements are impure"* - page 37
 
 
-*"conditional statements like `« if (x) { y = 1 } else { y = 2 } »`, which contain an expression called the condition (`« x »`), and two statements that we’ll call the consequence (`« y = 1 »`) and the alternative (`« y = 2 »`)
+*"conditional statements like `« if (x) { y = 1 } else { y = 2 } »`, which contain an expression called the condition (`« x »`), and two statements that we’ll call the consequence (`« y = 1 »`) and the alternative (`« y = 2 »`)"* - page 39
 
-page 39
+*"the latest R6RS standard for the Scheme programming language uses small-step semantics to describe its execution"* - page 45
 
-*"the latest R6RS standard for the Scheme programming language uses small-step semantics to describe its execution"*
+*"small-step semantics has a mostly iterative flavor, requiring the abstract machine to repeatedly perform reduction steps"* - page 45
 
-page 45
-
-*"small-step semantics has a mostly iterative flavor, requiring the abstract machine to repeatedly perform reduction steps"*
-
-page 45
-
-*"recursive rather than an iterative process"*
+*"recursive rather than an iterative process"* - page 46
 
 - Small-step semantics: iterative
 - Big-step semantics: recursive
 
-page 46
 
-*"operational semantics is about explaining a language’s meaning by designing an interpreter for it. By contrast, the language-to-language translation of denotational semantics is like a compiler"*
 
-page 60
+*"operational semantics is about explaining a language’s meaning by designing an interpreter for it. By contrast, the language-to-language translation of denotational semantics is like a compiler"* - page 60
 
-*" [It's] possible to compare two programs written in different languages, if a denotational semantics exists to translate both languages into some shared representation"*
+*" [It's] possible to compare two programs written in different languages, if a denotational semantics exists to translate both languages into some shared representation"* - page 62
 
-page 62
+*"Small-step semantics is also known as structural operational semantics and transition semantics"* - page 63
 
-*"Small-step semantics is also known as structural operational semantics and transition semantics"*
+*"big-step semantics is more often called natural semantics or relational semantics"* - page 63
 
-page 63
+*"denotational semantics is also called fixed-point semantics or mathematical semantics"* - page 63
 
-*"big-step semantics is more often called natural semantics or relational semantics"*
-
-page 63
-
-*"denotational semantics is also called fixed-point semantics or mathematical semantics"*
-
-page 63
-
-*"One alternative is axiomatic semantics"*
+*"One alternative is axiomatic semantics"* - page 64
 
 - Design by Contract (pre-/post-conditions)
 
-page 64
 
-*"Reducing an expression and an environment gives us a new expression, and we may reuse the old environment next time; reducing a statement and an environment gives us a new statement and a new environment."*
 
-page 70
+*"Reducing an expression and an environment gives us a new expression, and we may reuse the old environment next time; reducing a statement and an environment gives us a new statement and a new environment."* - page 70
 
-*"alternative style of operational semantics, called reduction semantics , which explicitly separates these “what do we reduce next?” and “how do we reduce it?” phases by introducing so-called reduction contexts"*
-
-page 71
+*"alternative style of operational semantics, called reduction semantics , which explicitly separates these “what do we reduce next?” and “how do we reduce it?” phases by introducing so-called reduction contexts"* - page 71
 
 
 <!-- TODO: continue here
