@@ -651,8 +651,15 @@ How to compute?
 | $Z(n)=1$ if prime ; $0$ else | Primality | $0$ | $V(M(m,(P(m),S(m))))$ |
 
 - Infinite loops not possible
-- Can simulate a Turing Machine only for a given number of steps
+- Can simulate a Turing Machine only for a given number of steps (weaker than TM's)
     - Number of iterations of a loop need to be known from beginning
     - Infinite loops are not possible
+- *Not* considierd as universal system
 
-<!-- TODO: cont: Week 12 51:00 (Ackermann functions)  -->
+
+<!-- # Some Simple Models
+
+## Chemical Reaction Networks -->
+
+<!-- TODO: cont Week 13  0:40:00 -->
+
