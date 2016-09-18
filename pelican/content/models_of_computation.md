@@ -657,9 +657,59 @@ How to compute?
 - *Not* considierd as universal system
 
 
-<!-- # Some Simple Models
+# Some Simple Models
 
-## Chemical Reaction Networks -->
+## Chemical Reaction Networks
 
-<!-- TODO: cont Week 13  0:40:00 -->
+- Inspired by chemical reaction equations
+
+$$\begin{matrix}
+A & \rightarrow  & B \\ 
+C & \rightarrow & D \\ 
+B + C & \rightarrow & A \\ 
+A + D & \rightarrow & A + 2E\\ 
+B + E & \rightarrow & B + D
+\end{matrix}$$
+
+- Nondeterministic: any reaction can happen at any time
+- Primitive Recursive Functions can always compute this in bounded time, even if answer is $\infty$.
+- Chemical Reaction Networks are not stronger than Primitive Recursive Functions.
+
+## Petri Nets
+
+- A lot of different form of [Petri Nets](https://en.wikipedia.org/wiki/Petri_net)
+- Components
+    - Transition (edges)
+    - Places (nodes)
+    - Tokens (arcs) travel from transitions to places (or vice versa)
+- Nondeterministic
+- Similar to (and as powerful as) Chemical Transition Networks
+- Used to simulate concurrency in distributed systems (but not turing-complete)
+
+## Vector Addition Systems
+
+- Rules: Starting position and list of possible moves (like a knight in chess)
+- no coordinate ca go negative
+- N-dimensional is posible
+
+|  A |  B |  C |  D |  E |  F |  G |
+|----|----|----|----|----|----|----|
+| -1 |  1 |  0 |  0 |  0 |  0 |  0 |
+|  0 |  0 | -1 |  1 |  0 |  0 |  0 |
+|  1 | -1 | -1 |  0 |  0 |  0 |  0 |
+| -1 |  0 |  0 | -1 |  0 |  1 |  0 |
+|  1 |  0 |  0 | -1 |  0 |  1 |  0 |
+|  0 | -1 |  0 |  0 | -1 |  0 |  1 |
+|  0 |  1 |  1 |  0 |  0 |  0 | -1 |
+
+- 7 moves for 7 dimensions
+- Non-deterministic
+- Same as Chemical Reduction Networks
+    - Put equations in vectors (linear combination)
+
+
+<!-- Continue: Week 13 1:10:00
+
+##Unordered Fractran -->
+
 
