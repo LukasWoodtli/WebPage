@@ -70,7 +70,7 @@ Expression and Statements:
 *"finite automata also have a rudimentary way of producing output"* - page 74
 
 
-[Deterministric finite automaton] *"it’s always absolutely certain which state it will end up in"* - page 75
+*"[Deterministric finite automaton:] it’s always absolutely certain which state it will end up in"* - page 75
 
 
 *"a string is accepted if there’s some way for the **NFA** to end up in an accept state by following some of its rules—that is, if finishing in an accept state is possible , even if it’s not inevitable."* - page 81
@@ -84,7 +84,7 @@ Expression and Statements:
 
 
 
-[...] *"introducing another machine feature called free moves. These are rules that the machine may spontaneously follow without reading any input"* - page 88
+*"[...] introducing another machine feature called free moves. These are rules that the machine may spontaneously follow without reading any input"* - page 88
 
 
 <!-- TODO continue here
