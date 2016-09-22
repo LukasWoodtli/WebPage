@@ -11,11 +11,13 @@ This page collects notes and citations from the book:
 
 # I. Programs and Machines
 
-- *"A machine capable of performing the computation"*
-- *"A language for writing instructions that the machine can understand"*
-- *"A program written in that language, describing the exact computation that the machine should perform"* - page 18
+*"To create an environment where* [...] *computation can occur, we need three basic ingredients:“
 
-*"But computer programming isn’t really about programs , it’s about ideas"* - page 20
+- *"A **machine** capable of performing the computation"*
+- *"A **language** for writing instructions that the machine can understand"*
+- *"A **program** written in that language, describing the exact computation that the machine should perform"* - page 18
+
+*"But computer programming isn’t really about **programs**, it’s about **ideas**"* - page 20
 
 *"semantics is the study of the connection between words and their meanings"* - page 21
 
@@ -44,7 +46,7 @@ Expression and Statements:
 
 *"operational semantics is about explaining a language’s meaning by designing an interpreter for it. By contrast, the language-to-language translation of denotational semantics is like a compiler"* - page 60
 
-*" [It's] possible to compare two programs written in different languages, if a denotational semantics exists to translate both languages into some shared representation"* - page 62
+*"[It's] possible to compare two programs written in different languages, if a denotational semantics exists to translate both languages into some shared representation"* - page 62
 
 *"Small-step semantics is also known as structural operational semantics and transition semantics"* - page 63
 
@@ -57,85 +59,35 @@ Expression and Statements:
 - Design by Contract (pre-/post-conditions)
 
 
-
 *"Reducing an expression and an environment gives us a new expression, and we may reuse the old environment next time; reducing a statement and an environment gives us a new statement and a new environment."* - page 70
 
 *"alternative style of operational semantics, called reduction semantics , which explicitly separates these “what do we reduce next?” and “how do we reduce it?” phases by introducing so-called reduction contexts"* - page 71
 
 
-<!-- TODO: continue here
+*"each finite automaton has a hardcoded collection of rules that determine how it should move from one state to another in response to input"* - page 73
 
 
-each finite automaton has a hardcoded collection of rules that determine how it should move from one state to another in response to input
-
-July 24, 2016
-73
+*"finite automata also have a rudimentary way of producing output"* - page 74
 
 
+[Deterministric finite automaton] *"it’s always absolutely certain which state it will end up in"* - page 75
 
 
-
-finite automata also have a rudimentary way of producing output
-
-July 24, 2016
-74
+*"a string is accepted if there’s some way for the **NFA** to end up in an accept state by following some of its rules—that is, if finishing in an accept state is possible , even if it’s not inevitable."* - page 81
 
 
+*"The collection of strings that are accepted by a particular machine is called a language : we say that the machine recognizes that language."* - page 82
 
 
-
-deterministic
-
-July 24, 2016
-75
+*"those languages that can be recognized by finite automata are called regular languages"* - page 82
 
 
 
 
-
-it’s always absolutely certain which state it will end up in
-
-July 24, 2016
-75
+[...] *"introducing another machine feature called free moves. These are rules that the machine may spontaneously follow without reading any input"* - page 88
 
 
-
-
-
-a string is accepted if there’s some way for the NFA to end up in an accept state by following some of its rules—that is, if finishing in an accept state is possible , even if it’s not inevitable.
-
-July 29, 2016
-81
-
-
-
-
-
-The collection of strings that are accepted by a particular machine is called a language : we say that the machine recognizes that language.
-
-July 29, 2016
-82
-
-
-
-
-
-those languages that can be recognized by finite automata are called regular languages
-
-July 29, 2016
-82
-
-
-
-
-
-introducing another machine feature called free moves. These are rules that the machine may spontaneously follow without reading any input
-
-July 30, 2016
-88
-
-
-
+<!-- TODO continue here
 
 
 The characters read by finite automata are usually called symbols , the rules for moving between states are called transitions , and the collection of rules making up a machine is called a transition function (or sometimes transition relation for NFAs)
