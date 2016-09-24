@@ -708,8 +708,23 @@ B + E & \rightarrow & B + D
     - Put equations in vectors (linear combination)
 
 
-<!-- Continue: Week 13 1:10:00
 
-##Unordered Fractran -->
+## Unordered Fractran
 
+- Similar to fractran
+- Choose any fraction randomly that yields an integer when multiplied with given number
+- non-deterministic
+
+## Broken Register Machine
+
+- decrementing a register might fail even if register could be decremented
+
+## General Notes
+
+- A lot of these systems get more powerful if they allow prioritizing
+- determinism: turing complete
+
+<!-- End Notes Week 13 -->
+
+<!-- Beginn Notes Week 14 -->
 
