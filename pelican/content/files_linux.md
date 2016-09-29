@@ -63,3 +63,16 @@ File descriptors are unique ID's (ints) that identify an open file.
 The number can differ but the given ones are common.
 
 Functions that return a file descriptor (e.g. `open(...)`or `creat(...)`) return `-1` if en error occurred.
+
+# File Types
+
+There are 6 different file types in Linux:
+
+- Regular files
+- Directories
+- Device files
+- Sockets
+- Pipes (named Pipes and FIFOs)
+- Links (Soft- and Hardlinks)
+
+
