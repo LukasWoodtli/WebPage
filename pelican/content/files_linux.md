@@ -76,3 +76,12 @@ There are 6 different file types in Linux:
 - Links (Soft- and Hardlinks)
 
 
+# Special Device Files
+
+
+| File           | Use                     |
+|----------------|-------------------------|
+| `/dev/null`    | Write or read *nothing* |
+| `/dev/zero`    | Read zero (`0`)         |
+| `/dev/urandom` | Read random bytes       |
+
