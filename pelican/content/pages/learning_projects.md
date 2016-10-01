@@ -12,7 +12,7 @@ The page is meant for my own reference.
 
 ## Scheme
 
-Structure and Interpretation of Computer Programs [1.2.4](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.4)
+Structure and Interpretation of Computer Programs
 
 MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/4a-pattern-matching-and-rule-based-substitution/)
 
@@ -28,14 +28,17 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
 ## Linux/UNIX
 
-### General
-
-[Tutorialspoint](http://www.tutorialspoint.com/unix/)
-
 ### Application Development
 
 [Linux-UNIX-Programmierung (Rheinwerk/Galileo)](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/Kap02-002.htm#t2t310)
 
+### Systems Programming
+
+https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html
+
+### Shell
+
+[Shell scripting](http://openbook.rheinwerk-verlag.de/shell_programmierung/)
 
 # Computation
 
