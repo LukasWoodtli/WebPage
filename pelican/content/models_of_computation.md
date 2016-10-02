@@ -730,7 +730,7 @@ B + E & \rightarrow & B + D
 
 # Halting Problem
 
-Suppose a Turing Machine "A" can take $Enc_1(table)$, $Enc_2(tape)$ and *decide* wether a TM with the given table will ever halt, if started on the given tape
+Suppose a Turing Machine "A" can take $Enc_1(table)$, $Enc_2(tape)$ and *decide* wether a TM with the given table will ever halt, if started on the given tape.
 
 This is impossible! 
 
@@ -740,5 +740,11 @@ Idea (proof):
 2. The goal is to feed this machine to itself
 3. Analyze what machines do when they are fed to themselves
 
-<!-- Continue Notes Week 14 0:40:00
-# Universal Machine -->
+
+# Universal Machine
+
+It's possible to create a "universal" machine, which just (slowly) does the same
+thing that the machine described to it would do.
+
+- a programmable Turing Machine
+- see [Universal Turing machine](https://en.wikipedia.org/wiki/Universal_Turing_machine)
