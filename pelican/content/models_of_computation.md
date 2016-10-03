@@ -748,3 +748,5 @@ thing that the machine described to it would do.
 
 - a programmable Turing Machine
 - see [Universal Turing machine](https://en.wikipedia.org/wiki/Universal_Turing_machine)
+
+<!-- End Notes Week 14 -->
