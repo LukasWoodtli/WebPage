@@ -7,9 +7,9 @@ Regular Expressions
 :tags: Computer Science
 
 
-Most notes are from `Mastering Python Regular Expressions<https://www.packtpub.com/application-development/mastering-python-regular-expressions>`_
+Most notes are from `Mastering Python Regular Expressions <https://www.packtpub.com/application-development/mastering-python-regular-expressions>`_
 
-My Repository on `GitHub<https://github.com/LukasWoodtli/MasteringPythonRegularExpressions>`_
+My Repository on `GitHub <https://github.com/LukasWoodtli/MasteringPythonRegularExpressions>`_
 
 
 Metacharacters
@@ -63,7 +63,7 @@ Available in Python
 POSIX Character Classes
 -----------------------
 
-- POSIX defines some classes: `Wikibooks<https://en.wikibooks.org/wiki/Regular_Expressions/POSIX_Basic_Regular_Expressions#Character_classes>`
+- POSIX defines some classes: `Wikibooks <https://en.wikibooks.org/wiki/Regular_Expressions/POSIX_Basic_Regular_Expressions#Character_classes>`
 - not available in Python
 
 
