@@ -590,6 +590,7 @@ This are simplified Tag Systems
 Algorithm:
 
 In each round:
+
 - Read next rule in rule-set
 - Read next symbol on tape
     - if $1$: append the string from the rule set to the tape
