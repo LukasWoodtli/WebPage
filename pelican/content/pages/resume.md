@@ -38,7 +38,7 @@ Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit proce
 # Education
 | Years:         |                                                                                          |
 |----------------|------------------------------------------------------------------------------------------|
-| 2004 - 2009    | Bachelor of Electrical Engineering, [University of Applied Science Zürich (ZHAW)](http://www.zhaw.ch/de/engineering/studium/bachelor/elektrotechnik.html) |
+| 2004 - 2009    | Bachelor of Electrical Engineering, [University of Applied Science Zürich (ZHAW)](http://www.zhaw.ch) |
 | 2003 - 2004    | Teacher Training College, PH Zürich                                                      |
 | 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
 

@@ -437,7 +437,7 @@ Each representation has it's pros and cons.
 - Roman Numerals
 - Binary
 - [Two's complement](https://en.wikipedia.org/wiki/Two's_complement)
-- [Binary with digits up to 2](Redundant binary representation)
+- [Binary with digits up to 2 (Redundant binary representation)](https://en.wikipedia.org/wiki/Redundant_binary_representation)
     - Addition can be faster
     - Logical operation are slower
 - Ternary
