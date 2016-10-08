@@ -22,6 +22,8 @@ install:
 - pip install requests==2.2.0
   # check for broken links
 - pip install linkchecker
+  # highlighting of inline code in rst
+- pip install sphinxcontrib-inlinesyntaxhighlight
 
 before_script:
 - git config --global user.name ${GIT_NAME}
