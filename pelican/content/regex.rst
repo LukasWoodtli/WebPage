@@ -17,7 +17,7 @@ Metacharacters
 
 Twelve Metacharacters:
 
-- Backslash ``\``
+- Backslash :code:`\`
 - Caret ``^``
 - Dollar ``$``
 - Dot ``.``
@@ -63,7 +63,7 @@ Available in Python
 POSIX Character Classes
 -----------------------
 
-- POSIX defines some classes: `Wikibooks <https://en.wikibooks.org/wiki/Regular_Expressions/POSIX_Basic_Regular_Expressions#Character_classes>`
+- POSIX defines some classes: `Wikibooks <https://en.wikibooks.org/wiki/Regular_Expressions/POSIX_Basic_Regular_Expressions#Character_classes>`_
 - not available in Python
 
 
