@@ -113,8 +113,12 @@ Python Regex Functions
 Grouping
 ========
 
-Used for different purposes
+- Subexpressions are grouped within `(` and `)`
+
+Used for different purposes:
 
 - Creating subexpressions for applying *quantifiers*
-
+- Limiting scope of an *alternation*
+- Extract *parts* of the matched pattern (capturing)
+- Using captured *parts* again in the regex
 
