@@ -87,35 +87,16 @@ Expression and Statements:
 *"[...] introducing another machine feature called free moves. These are rules that the machine may spontaneously follow without reading any input"* - page 88
 
 
-<!-- TODO continue here
+*"The characters read by finite automata are usually called **symbol*s, the rules for moving between states are called **transitions**, and the collection of rules making up a machine is called a **transition function** (or sometimes transition relation for NFAs)"* - page 91
 
 
-The characters read by finite automata are usually called symbols , the rules for moving between states are called transitions , and the collection of rules making up a machine is called a transition function (or sometimes transition relation for NFAs)
-
-July 31, 2016
-91
+*"NFA with free moves is known as an NFA-ε, and free moves themselves are usually called ε-transitions."* - page 91
 
 
+*"it’s possible to convert any regular expression into an equivalent NFA—every string matched by the regular expression is accepted by the NFA, and vice versa — and then match a string by feeding it to a simulation of that NFA to see whether it gets accepted."* - page 92
 
 
-
-NFA with free moves is known as an NFA-ε, and free moves themselves are usually called ε-transitions .
-
-July 31, 2016
-91
-
-
-
-
-
-it’s possible to convert any regular expression into an equivalent NFA—every string matched by the regular expression is accepted by the NFA, and vice versa—and then match a string by feeding it to a simulation of that NFA to see whether it gets accepted.
-
-July 31, 2016
-92
-
-
-
-
+<!-- TODO continue
 
 An empty regular expression. This matches the empty string and nothing else. A regular expression containing a single, literal character. For example, a and b are regular expressions that match only the strings 'a' and 'b' respectively.
 
