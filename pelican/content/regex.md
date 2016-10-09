@@ -122,3 +122,27 @@ Used for different purposes:
 - Extract *parts* of the matched pattern (capturing)
 - Using captured *parts* again in the regex
 
+
+Look Around
+===========
+
+- Add subpatterns that are not in the result (not consuming characters)
+    - positive: subpattern needs to match
+    - negative: subpattern must not match
+- Also called zero-width assertions
+- Python `re` module allows *look behind* only with *fixed size (sub-) patterns*
+
+|              |  positive  | negative   |
+|--------------|------------|------------|
+| Look ahead   | (?=regex)  | (?!regex)  |
+| Look behind  | (?<=regex) | (?<!regex) |
+
+
+Benchmarking
+============
+
+General for Python:
+
+    :::Python
+    import cProfile
+    cProfile.run("myFunction")
