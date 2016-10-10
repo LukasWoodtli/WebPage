@@ -96,25 +96,21 @@ Expression and Statements:
 *"it’s possible to convert any regular expression into an equivalent NFA—every string matched by the regular expression is accepted by the NFA, and vice versa — and then match a string by feeding it to a simulation of that NFA to see whether it gets accepted."* - page 92
 
 
+*"here are two kinds of extremely simple regular expression that are not built out of anything simpler:*
+
+- *An empty regular expression. This matches the empty string and nothing else.*
+- *A regular expression containing a single, literal character. For example, `a` and `b` are regular expressions that match only the strings '`a`' and '`b`' respectively."* - page 92
+
+
+*"combine them to build more complex expressions:*
+
+- *Concatenate two patterns. We can concatenate the regular expressions `a` and `b` to get the regular expression `ab` , which only matches the string '`ab`'.*
+- *Choose between two patterns, written by joining them with the `|` operator. We can join the regular expressions `a` or `b` to get the regular expression `a|b` , which matches the strings '`a`' and '`b`'.*
+- *Repeat a pattern zero or more times, written by suffixing it with the `*` operator. We can suffix the regular expression a to get `a*` , which matches the strings '`a`' , '`aa`' , '`aaa`' , and so on, as well as the empty string '' (i.e., zero repetitions)."* - page 92
+
+
+
 <!-- TODO continue
-
-An empty regular expression. This matches the empty string and nothing else. A regular expression containing a single, literal character. For example, a and b are regular expressions that match only the strings 'a' and 'b' respectively.
-
-July 31, 2016
-92
-
-
-
-
-
-combine them to build more complex expressions: Concatenate two patterns. We can concatenate the regular expressions a and b to get the regular expression ab , which only matches the string 'ab' . Choose between two patterns, written by joining them with the | operator. We can join the regular expressions a or b to get the regular expression a|b , which matches the strings 'a' and 'b' . Repeat a pattern zero or more times, written by suffixing it with the * operator. We can suffix the regular expression a to get a* , which matches the strings 'a' , 'aa' , 'aaa' , and so on, as well as the empty string '' (i.e., zero repetitions).
-
-July 31, 2016
-92
-
-
-
-
 
 the * operator to bind more tightly than concatenation, which in turn binds more tightly than the | operator.
 
