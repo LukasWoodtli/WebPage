@@ -108,16 +108,10 @@ Expression and Statements:
 - *Choose between two patterns, written by joining them with the `|` operator. We can join the regular expressions `a` or `b` to get the regular expression `a|b` , which matches the strings '`a`' and '`b`'.*
 - *Repeat a pattern zero or more times, written by suffixing it with the `*` operator. We can suffix the regular expression a to get `a*` , which matches the strings '`a`' , '`aa`' , '`aaa`' , and so on, as well as the empty string '' (i.e., zero repetitions)."* - page 92
 
+*"the `*` operator to bind more tightly than **concatenation**, which in turn binds more tightly than the `|` operator."* - page 94
 
 
 <!-- TODO continue
-
-the * operator to bind more tightly than concatenation, which in turn binds more tightly than the | operator.
-
-July 31, 2016
-94
-
-
 
 
 
