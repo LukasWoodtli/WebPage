@@ -87,7 +87,7 @@ Expression and Statements:
 *"[...] introducing another machine feature called free moves. These are rules that the machine may spontaneously follow without reading any input"* - page 88
 
 
-*"The characters read by finite automata are usually called **symbol*s, the rules for moving between states are called **transitions**, and the collection of rules making up a machine is called a **transition function** (or sometimes transition relation for NFAs)"* - page 91
+*"The characters read by finite automata are usually called **symbols**, the rules for moving between states are called **transitions**, and the collection of rules making up a machine is called a **transition function** (or sometimes transition relation for NFAs)"* - page 91
 
 
 *"NFA with free moves is known as an NFA-ε, and free moves themselves are usually called ε-transitions."* - page 91
