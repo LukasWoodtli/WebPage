@@ -111,33 +111,25 @@ Expression and Statements:
 *"the `*` operator to bind more tightly than **concatenation**, which in turn binds more tightly than the `|` operator."* - page 94
 
 
+*"Any two NFAs can be concatenated by turning every accept state from the first NFA into a nonaccept state and connecting it to the start state of the second NFA with a free move"* - page 97
+
+
+- *"The start state of the first NFA"*
+- *"The accept states of the second NFA"*
+- *"All the rules from both NFAs"*
+- *"Some extra free moves to connect each of the first NFA’s old accept states to the second NFA’s old start state"* - page 98
+
+
+*"We can use a similar strategy to convert a Choose expression into an NFA."* - page 98
+
+- *"A new start state"*
+- *"All the accept states from both NFAs"*
+- *"All the rules from both NFAs"*
+- *"Two extra free moves to connect the new start state to each of the NFA’s old start states"* - page 100
+
+
+
 <!-- TODO continue
-
-
-
-Any two NFAs can be concatenated by turning every accept state from the first NFA into a nonaccept state and connecting it to the start state of the second NFA with a free move
-
-August 2, 2016
-97
-
-
-
-
-
-The start state of the first NFA The accept states of the second NFA All the rules from both NFAs Some extra free moves to connect each of the first NFA’s old accept states to the second NFA’s old start state
-
-August 2, 2016
-98
-
-
-
-
-
-A new start state All the accept states from both NFAs All the rules from both NFAs Two extra free moves to connect the new start state to each of the NFA’s old start states
-
-August 2, 2016
-100
-
 
 
 
