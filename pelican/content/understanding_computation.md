@@ -129,91 +129,42 @@ Expression and Statements:
 
 
 
+*"This time we need:*
+
+- *A new start state, which is also an accept state*
+- *All the accept states from the old NFA*
+- *All the rules from the old NFA*
+- *Some extra free moves to connect each of the old NFA’s accept states to its old start state*
+- *Another extra free move to connect the new start state to the old start state* - page 101
+
+
+*"Free moves are useful for this conversion because they provide an unobtrusive way to glue together smaller machines into larger ones without affecting the behavior of any of the components."* - page 102
+
+
+*"Nondeterminism and free moves make it easier to design finite state machines to perform specific jobs"* - page 105
+
+*"it’s possible to convert any nondeterministic finite automaton into a deterministic one that accepts exactly the same strings"* - page 105
+
+
+*"A finite state machine with a built-in stack is called a pushdown automaton (PDA), and when that machine’s rules are deterministic, we call it a deterministic pushdown automaton (DPDA)."* - page 122
+
+*"[...] a PDA rule into five parts:*
+- *The current state of the machine*
+- *The character that must be read from the input (optional)*
+- *The next state of the machine*
+- *The character that must be popped off the stack*
+- *The sequence of characters to push onto the stack after the top character has been popped off"* - page 123
+
+
+*"The assumption is that a PDA will always pop the top character off the stack, and then push some other characters onto the stack, every time it follows a rule. Each rule declares which character it wants to pop, and the rule will only apply when that character is on the top of the stack; if the rule wants that character to stay on the stack instead of getting popped, it can include it in the sequence of characters that get pushed back on afterward."* - page 123
+
+
+
+*"[...] bottom of the stack—the dollar sign, `$` , is a popular choice"* - page 124
+
+
+
 <!-- TODO continue
-
-
-
-
-A new start state, which is also an accept state All the accept states from the old NFA All the rules from the old NFA Some extra free moves to connect each of the old NFA’s accept states to its old start state Another extra free move to connect the new start state to the old start state
-
-August 2, 2016
-101
-
-
-
-
-
-Free moves are useful for this conversion because they provide an unobtrusive way to glue together smaller machines into larger ones without affecting the behavior of any of the components.
-
-August 2, 2016
-102
-
-
-
-
-
-Nondeterminism and free moves make it easier to design finite state machines to perform specific jobs—we’ve
-
-August 2, 2016
-105
-
-
-
-
-
-it’s possible to convert any nondeterministic finite automaton into a deterministic one that accepts exactly the same strings
-
-August 2, 2016
-105
-
-
-
-
-
-stack , a last-in first-out data structure
-
-August 4, 2016
-121
-
-
-
-
-
-A finite state machine with a built-in stack is called a pushdown automaton (PDA), and when that machine’s rules are deterministic, we call it a deterministic pushdown automaton (DPDA).
-
-August 4, 2016
-122
-
-
-
-
-
-a PDA rule into five parts: The current state of the machine The character that must be read from the input (optional) The next state of the machine The character that must be popped off the stack The sequence of characters to push onto the stack after the top character has been popped off
-
-August 4, 2016
-123
-
-
-
-
-
-The assumption is that a PDA will always pop the top character off the stack, and then push some other characters onto the stack, every time it follows a rule. Each rule declares which character it wants to pop, and the rule will only apply when that character is on the top of the stack; if the rule wants that character to stay on the stack instead of getting popped, it can include it in the sequence of characters that get pushed back on afterward.
-
-August 4, 2016
-123
-
-
-
-
-
-bottom of the stack—the dollar sign, $ , is a popular choice
-
-August 4, 2016
-124
-
-
-
-
 
 there are two important things to know about a pushdown automaton at each step of its computation: what its current state is, and what the current contents of its stack are. If we use the word configuration to refer to this combination of a state and a stack, we can talk about a pushdown automaton moving from one configuration to another as it reads input characters,
 
