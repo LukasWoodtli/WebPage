@@ -36,9 +36,8 @@ Linear Recursion and Iteration
 ==============================
 
 
-See [SICP section 1.2.1](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.1)
-
-and [stack overflow](http://stackoverflow.com/questions/17254240/sicp-recursive-process-vs-iterative-process-using-a-recursive-procedure-to-gene)
+See `SICP section 1.2.1 <https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.1>`_
+and `stack overflow <http://stackoverflow.com/questions/17254240/sicp-recursive-process-vs-iterative-process-using-a-recursive-procedure-to-gene>`_
 
 
 It's confusing that both the recursive and the iterative implementation call themselves. There is a distinction between
