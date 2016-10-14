@@ -159,129 +159,39 @@ Expression and Statements:
 *"The assumption is that a PDA will always pop the top character off the stack, and then push some other characters onto the stack, every time it follows a rule. Each rule declares which character it wants to pop, and the rule will only apply when that character is on the top of the stack; if the rule wants that character to stay on the stack instead of getting popped, it can include it in the sequence of characters that get pushed back on afterward."* - page 123
 
 
-
 *"[...] bottom of the stack—the dollar sign, `$` , is a popular choice"* - page 124
 
 
+*"there are two important things to know about a pushdown automaton at each step of its computation: what its current state is, and what the current contents of its stack are. If we use the word **configuration** to refer to this combination of a state and a stack, we can talk about a pushdown automaton moving from one configuration to another as it reads input characters"* - page 126
 
-<!-- TODO continue
 
-there are two important things to know about a pushdown automaton at each step of its computation: what its current state is, and what the current contents of its stack are. If we use the word configuration to refer to this combination of a state and a stack, we can talk about a pushdown automaton moving from one configuration to another as it reads input characters,
+*"there isn’t an NPDA-to-DPDA algorithm."* - page 139
 
-August 17, 2016
-126
 
+*"Lexical analysis
 
+Read a raw string of characters and turn it into a sequence of tokens. Each token represents an individual building block of program syntax, like “variable name,” “opening bracket,” or “ while keyword.” A lexical analyzer uses a language-specific set of rules called a lexical grammar to decide which sequences of characters should produce which tokens. This stage deals with messy character-level details like variable-naming rules, comments, and whitespace, leaving a clean sequence of tokens for the next stage to consume."* - page 139
 
 
 
-there isn’t an NPDA-to-DPDA algorithm.
+*"Syntactic analysis
 
-August 10, 2016
-139
+Read a sequence of tokens and decide whether they represent a valid program according to the syntactic grammar of the language being parsed. If the program is valid, the syntactic analyzer may produce additional information about its structure (e.g., a parse tree)."* - page 140
 
+*"context-free grammar (CFG)
 
+Each rule has a symbol on the lefthand side and one or more sequences of symbols and tokens on the right"* - page 143
 
 
+*"The technique for converting a CFG into a PDA works like this:
 
-Lexical analysis Read a raw string of characters and turn it into a sequence of tokens . Each token represents an individual building block of program syntax, like “variable name,” “opening bracket,” or “ while keyword.” A lexical analyzer uses a language-specific set of rules called a lexical grammar to decide which sequences of characters should produce which tokens. This stage deals with messy character-level details like variable-naming rules, comments, and whitespace, leaving a clean sequence of tokens for the next stage to consume.
+1. *Pick a character to represent each symbol from the grammar*
+2. *Use the PDA’s stack to store characters that represent grammar symbols and tokens. When the PDA starts, have it immediately push a symbol onto the stack to represent the structure it’s trying to recognize.*
+3. *Translate the grammar rules into PDA rules that expand symbols on the top of the stack without reading any input. Each grammar rule describes how to expand a single symbol into a sequence of other symbols and tokens*
+4. *Give every token character a PDA rule that reads that character from the input and pops it off the stack*" - pages 143-145
 
-August 10, 2016
-139
 
-
-
-
-
-Syntactic analysis Read a sequence of tokens and decide whether they represent a valid program according to the syntactic grammar of the language being parsed. If the program is valid, the syntactic analyzer may produce additional information about its structure (e.g., a parse tree).
-
-August 10, 2016
-140
-
-
-
-
-
-context-free grammar (CFG)
-
-August 14, 2016
-143
-
-
-
-
-
-Each rule has a symbol on the lefthand side and one or more sequences of symbols and tokens on the right.
-
-August 14, 2016
-143
-
-
-
-
-
-The technique for converting a CFG into a PDA works like this:
-
-August 14, 2016
-143
-
-
-
-
-
-Pick a character to represent each symbol from the grammar
-
-August 14, 2016
-143
-
-
-
-
-
-Use the PDA’s stack to store characters that represent grammar symbols
-
-August 14, 2016
-144
-
-
-
-
-
-and tokens
-
-August 14, 2016
-144
-
-
-
-
-
-When the PDA starts, have it immediately push a symbol onto the stack to represent the structure it’s trying to recognize.
-
-August 14, 2016
-144
-
-
-
-
-
-Translate the grammar rules into PDA rules that expand symbols on the top of the stack without reading any input. Each grammar rule describes how to expand a single symbol into a sequence of other symbols and tokens
-
-August 14, 2016
-144
-
-
-
-
-
-Give every token character a PDA rule that reads that character from the input and pops it off the stack
-
-August 14, 2016
-145
-
-
-
-
+<!-- TODO continue here
 
 These token rules work in opposition to the symbol rules. The symbol rules tend to make the stack larger, sometimes pushing several characters to replace the one that’s been popped; the token rules always make the stack smaller, consuming input as they go.
 
