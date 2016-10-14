@@ -17,7 +17,7 @@ Tags: Lisp
 Equivalent to `(cons (cons a0 (cons a1 (cons a2 (cons ... (cons (cons aN nil))...)))))`
 
 - `nil`: end of list marker (equivalent to the empty list `'()`)
-- `cons` makes a list like the original one, but with an additional item at the beginning
+- `(cons a lst)` makes a list like the original one (`lst`), but with an additional item (`a`) at the beginning
 
 Example:
 
@@ -25,3 +25,6 @@ Example:
     (define a (list 1 2 3))
     (cons 10 a)
     >> (10 1 2 3)
+
+- `(list-ref lst i)`: retrieves element at index `i` (index is zero-based)
+
