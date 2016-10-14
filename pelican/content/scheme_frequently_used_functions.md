@@ -12,13 +12,14 @@ Tags: Lisp
 
 # Lists
 
-- `(list $a_0$ $a_1$ $a_2$ ... $a_n$)`: create a list
+- `(list a0 a1 a2 ... an)`: create a list
 
-Equivalent to `(cons (cons $a_0$ (cons $a_1$ (cons $a_2$ (cons ... (cons (cons $a_n$ nil))...)))))`
+Equivalent to `(cons (cons a0 (cons a1 (cons a2 (cons ... (cons (cons an nil))...)))))`
 
-- `nil`: end of list marker (equivalent to the empty list $'()$
+- `nil`: end of list marker (equivalent to the empty list `'()`
 - `cons` makes a list like the original one, but with an additional item at the beginning
 
+Example:
     :::scheme
     (define a (list 1 2 3))
     (cons 10 a)
