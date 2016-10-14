@@ -27,4 +27,17 @@ Example:
     >> (10 1 2 3)
 
 - `(list-ref lst i)`: retrieves element at index `i` (index is zero-based)
+- `(length lst)`: returns the length of a list
+- `(append lst1 lst2)`: combines the elements of two lists into one new list
+
+## Dotted-tail Notation
+
+- Used for functions with arbitrary number of arguments
+
+Example:
+
+    :::scheme
+    (define (x a b . c) ...)
+    (x 1 2 3 4 5) ;; in the body of x: a=1, b=2, c='(3 4 5)
+
 
