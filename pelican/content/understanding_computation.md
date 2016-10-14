@@ -168,22 +168,22 @@ Expression and Statements:
 *"there isn’t an NPDA-to-DPDA algorithm."* - page 139
 
 
-*"Lexical analysis
+*"Lexical analysis*
 
-Read a raw string of characters and turn it into a sequence of tokens. Each token represents an individual building block of program syntax, like “variable name,” “opening bracket,” or “ while keyword.” A lexical analyzer uses a language-specific set of rules called a lexical grammar to decide which sequences of characters should produce which tokens. This stage deals with messy character-level details like variable-naming rules, comments, and whitespace, leaving a clean sequence of tokens for the next stage to consume."* - page 139
-
-
-
-*"Syntactic analysis
-
-Read a sequence of tokens and decide whether they represent a valid program according to the syntactic grammar of the language being parsed. If the program is valid, the syntactic analyzer may produce additional information about its structure (e.g., a parse tree)."* - page 140
-
-*"context-free grammar (CFG)
-
-Each rule has a symbol on the lefthand side and one or more sequences of symbols and tokens on the right"* - page 143
+*Read a raw string of characters and turn it into a sequence of tokens. Each token represents an individual building block of program syntax, like “variable name,” “opening bracket,” or “ while keyword.” A lexical analyzer uses a language-specific set of rules called a lexical grammar to decide which sequences of characters should produce which tokens. This stage deals with messy character-level details like variable-naming rules, comments, and whitespace, leaving a clean sequence of tokens for the next stage to consume."* - page 139
 
 
-*"The technique for converting a CFG into a PDA works like this:
+
+*"Syntactic analysis*
+
+*Read a sequence of tokens and decide whether they represent a valid program according to the syntactic grammar of the language being parsed. If the program is valid, the syntactic analyzer may produce additional information about its structure (e.g., a parse tree)."* - page 140
+
+*"context-free grammar (CFG)*
+
+*Each rule has a symbol on the lefthand side and one or more sequences of symbols and tokens on the right"* - page 143
+
+
+*"The technique for converting a CFG into a PDA works like this:*
 
 1. *Pick a character to represent each symbol from the grammar*
 2. *Use the PDA’s stack to store characters that represent grammar symbols and tokens. When the PDA starts, have it immediately push a symbol onto the stack to represent the structure it’s trying to recognize.*
