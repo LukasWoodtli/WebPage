@@ -44,7 +44,6 @@ The `map` function can be applied on multiple lists:
         (list 700 800 900))
     >>> (741 852 963)
 
-    :::scheme
     (map (lambda (x y) (+ x (* 2 y)))
         (list 1 2 3)
         (list 4 5 6))
