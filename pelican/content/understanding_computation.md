@@ -234,93 +234,45 @@ Expression and Statements:
 
 *"We can write software - an encoded description of a Turing machine - onto a tape, feed that tape to the UTM, and have our software executed to produce the behavior we want."* - page 177
 
-<!--- TODO continue here
 
-One challenge is that every Turing machine has a finite number of states and a finite number of different characters it can store on its tape, with both of these numbers being fixed in advance by its rulebook, and a UTM is no exception.
-
-August 22, 2016
-178
-
-II. Computation and Computability
+*"One challenge is that every Turing machine has a finite number of states and a finite number of different characters it can store on its tape, with both of these numbers being fixed in advance by its rulebook, and a UTM is no exception.*" - page 178
 
 
+# II. Computation and Computability
 
-As programmers we work with languages and machines that are designed to fit our mental models of the world, and we expect them to come equipped with features that make it easy to translate our ideas into implementations. These human-centered designs are motivated by convenience rather than necessity
+*"As programmers we work with languages and machines that are designed to fit our mental models of the world, and we expect them to come equipped with features that make it easy to translate our ideas into implementations. These human-centered designs are motivated by convenience rather than necessity"* - page 182
 
-August 22, 2016
-182
-
-
+*"[...] hard theoretical constraints: certain problems just can’t be solved by any computer, no matter how fast and efficient it is."* - page 182
 
 
+Chruch numerals:
 
-hard theoretical constraints: certain problems just can’t be solved by any computer, no matter how fast and efficient it is.
+*"Each number corresponds to a unique way of repeating an action: the number one corresponds to just performing the action; the number two corresponds to performing it and then performing it again; and so on. The number zero, unsurprisingly, corresponds to not performing the action at all."* - page 189
 
-August 22, 2016
-182
-
-
+*"[...] Church encoding after Alonzo Church, the inventor of the lambda calculus"* - page 190
 
 
+*"[Church numeral to integer] conversion:*
 
-Each number corresponds to a unique way of repeating an action: the number one corresponds to just performing the action; the number two corresponds to performing it and then performing it again; and so on. The number zero, unsurprisingly, corresponds to not performing the action at all.
+    :::ruby
+    def to_integer(proc)
+        proc[-> n { n + 1 }][0]
+    end
 
-August 22, 2016
-189
-
-
-
-
-
-Church encoding after Alonzo Church, the inventor of the lambda calculus
-
-August 22, 2016
-190
+*This method takes a proc that represents a number and calls it with another proc (which just increments its argument) and the native Ruby number 0.*" - page 191
 
 
+Church to boolean:
+
+    :::ruby
+    def to_boolean(proc)
+        proc[true][false]
+    end
+
+*"This works by taking a proc that represents a Boolean and calling it with `true` as its first argument and `false` as its second. `TRUE` just returns its first argument, so `to_boolean(TRUE)` will return `true`, and likewise for `FALSE` [...]"* - 193
 
 
-
-conversion:def to_integer(proc) proc[-> n { n + 1 }][0] endThis method takes a proc that represents a number and calls it with another proc (which just increments its argument) and the native Ruby number 0.
-
-Church numeral to int conversion
-
-August 22, 2016
-191
-
-
-
-
-
-def to_integer(proc) proc[-> n { n + 1 }][0] endThis method takes a proc that represents a number and calls it with another proc (which just increments its argument) and the native Ruby number 0.
-
-August 22, 2016
-191
-
-
-
-
-
-def to_integer(proc) proc[-> n { n + 1 }][0] endThis method takes a proc that represents a number and calls it with another proc (which just increments its argument) and the native Ruby number 0
-
-Conversion of Church numerals
-
-August 22, 2016
-191
-
-
-
-
-
-def to_boolean(proc) proc[true][false] endThis works by taking a proc that represents a Boolean and calling it with true as its first argument and false as its second. TRUE just returns its first argument, so to_boolean(TRUE) will return true, and likewise for FALSE:
-
-Converting Church booleans
-
-August 22, 2016
-193
-
-
-
+<!-- TODO continue here
 
 
 In languages like Ruby, the if - else statement is nonstrict (or lazy ): we give it a condition and two blocks, and it evaluates the condition to decide which of the two blocks to evaluate and return—it never evaluates both.
