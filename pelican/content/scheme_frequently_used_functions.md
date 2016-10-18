@@ -17,6 +17,11 @@ Tags: Lisp
 Equivalent to `(cons (cons a0 (cons a1 (cons a2 (cons ... (cons (cons aN nil))...)))))`
 
 - `nil`: end of list marker (equivalent to the empty list `'()`)
+- `(null? p)`: checks if the given element is `nil`
+- `(pair? e)`: checks if the given element is a pair
+
+> the empty list satisfies `null?` and also is *not* a pair
+
 - `(cons a lst)` makes a list like the original one (`lst`), but with an additional item (`a`) at the beginning
 
 Example:
