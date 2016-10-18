@@ -283,64 +283,30 @@ Church to boolean:
 *"we can easily implement lists that calculate their contents on the fly, also known as **streams**. In fact, there’s no reason why streams even need to be finite, because the calculation only has to generate the list contents as they’re consumed"* - page 215
 
 
-
-<!-- TODO continue here
-
-defining a data structure in terms of itself might seem weird and unusual; in this setting, they’re exactly the same thing, and the Z combinator makes both completely legitimate.
-
-August 25, 2016
-216
+*"defining a data structure in terms of itself might seem weird and unusual; in this setting, they’re exactly the same thing, and the Z combinator makes both completely legitimate."* - page 216
 
 
-defining a data structure in terms of itself might seem weird and unusual; in this setting, they’re exactly the same thing, and the Z combinator makes both completely legitimate.
-
-August 25, 2016
-216
+*"Function calls are the only thing that actually **happens** when a lambda calculus program is evaluated"* - page 225
 
 
-Function calls are the only thing that actually happens when a lambda calculus program is evaluated,
-
-August 29, 2016
-225
+*"function calls are the only kind of syntax that can be reduced."* - page 225
 
 
 
-
-
-function calls are the only kind of syntax that can be reduced.
-
-August 29, 2016
-225
+*"You might protest that `3 - 5 = 0` isn’t called "subtraction" where you come from, and you’d be right: the technical name for this operation is  "monus", because the nonnegative integers under addition form a commutative monoid instead of a proper abelian group." - page 229
 
 
 
+# Universality Is Everywhere
 
+*"Even though any individual Turing machine has a hardcoded rulebook, the universal Turing machine demonstrates that it’s possible to design a device that can adapt to arbitrary tasks by reading instructions from a tape. These instructions are effectively a piece of software that controls the operation of the machine’s hardware, just like in the general-purpose programmable computers we use every day."* - page 231
 
-You might protest that 3 - 5 = 0 isn’t called “subtraction” where you come from, and you’d be right: the technical name for this operation is “ monus ,” because the nonnegative integers under addition form a commutative monoid instead of a proper abelian group .
-
-August 25, 2016
-229
-
-
-
-
-
-Even though any individual Turing machine has a hardcoded rulebook, the universal Turing machine demonstrates that it’s possible to design a device that can adapt to arbitrary tasks by reading instructions from a tape. These instructions are effectively a piece of software that controls the operation of the machine’s hardware, just like in the general-purpose programmable computers we use every day.
-
-August 29, 2016
-231
-
-
-
-
+<!-- TODO continue
 
 a Turing machine can act as an interpreter for the lambda calculus by storing a representation of a lambda calculus expression on the tape and repeatedly updating it according to a set of reduction rules,
 
 August 29, 2016
 234
-
-
-
 
 
 Since every Turing machine can be simulated by a lambda calculus program, and every lambda calculus program can be simulated by a Turing machine, the two systems are exactly equivalent in power.
@@ -349,16 +315,10 @@ August 29, 2016
 234
 
 
-
-
-
 partial recursive functions are programs that are constructed from four fundamental building blocks in different combinations.
 
 August 29, 2016
 235
-
-
-
 
 
 The first two building blocks are called zero and increment
@@ -367,25 +327,16 @@ August 29, 2016
 235
 
 
-
-
-
 third building block, #recurse
 
 August 29, 2016
 235
 
 
-
-
-
 #recurse is just a template for defining a certain kind of recursive function.
 
 August 29, 2016
 235
-
-
-
 
 
 The programs that we can assemble out of #zero , #increment , and #recurse are called the primitive recursive functions. All primitive recursive functions are total : regardless of their inputs, they always halt and return an answer. This is because #recurse is the only legitimate way to define a recursive method, and #recurse always halts: each recursive call makes the last argument closer to zero, and when it inevitably reaches zero, the recursion will stop.
