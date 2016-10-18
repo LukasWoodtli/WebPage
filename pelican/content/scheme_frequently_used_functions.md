@@ -63,6 +63,9 @@ The `map` function can be applied on multiple lists:
 
 [SICP:2.2.1  Representing Sequences:Exercise 2.23](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.1)
 
+
+- `(flatten t)`: flattens a tree structure into a list
+
 ## Dotted-tail Notation
 
 - Used for functions with arbitrary number of arguments
