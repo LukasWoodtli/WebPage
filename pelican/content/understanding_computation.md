@@ -272,52 +272,30 @@ Church to boolean:
 *"This works by taking a proc that represents a Boolean and calling it with `true` as its first argument and `false` as its second. `TRUE` just returns its first argument, so `to_boolean(TRUE)` will return `true`, and likewise for `FALSE` [...]"* - 193
 
 
+
+
+*"In languages like Ruby, the `if`-`else` statement is nonstrict (or **lazy**): we give it a condition and two blocks, and it evaluates the condition to decide which of the two blocks to evaluate and return — it never evaluates both."* - page 200
+
+
+*"Ruby [...] evaluates both arguments before IF gets a chance to decide which one to return."* - page 200
+
+
+*"we can easily implement lists that calculate their contents on the fly, also known as **streams**. In fact, there’s no reason why streams even need to be finite, because the calculation only has to generate the list contents as they’re consumed"* - page 215
+
+
+
 <!-- TODO continue here
 
-
-In languages like Ruby, the if - else statement is nonstrict (or lazy ): we give it a condition and two blocks, and it evaluates the condition to decide which of the two blocks to evaluate and return—it never evaluates both.
-
-August 25, 2016
-200
-
-
-
-
-
-evaluates both arguments before IF gets a chance to decide which one to return.
-
-August 25, 2016
-200
-
-
-
-
-
-we can easily implement lists that calculate their contents on the fly, also known as streams . In fact, there’s no reason why streams even need to be finite, because the calculation only has to generate the list contents as they’re consumed
-
-August 25, 2016
-215
-
-
-
-
-
 defining a data structure in terms of itself might seem weird and unusual; in this setting, they’re exactly the same thing, and the Z combinator makes both completely legitimate.
 
 August 25, 2016
 216
 
 
-
-
-
 defining a data structure in terms of itself might seem weird and unusual; in this setting, they’re exactly the same thing, and the Z combinator makes both completely legitimate.
 
 August 25, 2016
 216
-
-
-
 
 
 Function calls are the only thing that actually happens when a lambda calculus program is evaluated,
