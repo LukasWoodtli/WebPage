@@ -315,7 +315,7 @@ Church to boolean:
 
 *[...]* 
 
-**The first two building blocks are called **zero** and **increment***
+*The first two building blocks are called **zero** and **increment***
 
 *[...]* 
 
