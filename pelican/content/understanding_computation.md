@@ -301,105 +301,48 @@ Church to boolean:
 
 *"Even though any individual Turing machine has a hardcoded rulebook, the universal Turing machine demonstrates that it’s possible to design a device that can adapt to arbitrary tasks by reading instructions from a tape. These instructions are effectively a piece of software that controls the operation of the machine’s hardware, just like in the general-purpose programmable computers we use every day."* - page 231
 
-<!-- TODO continue
 
-a Turing machine can act as an interpreter for the lambda calculus by storing a representation of a lambda calculus expression on the tape and repeatedly updating it according to a set of reduction rules,
-
-August 29, 2016
-234
+*"a Turing machine can act as an interpreter for the lambda calculus by storing a representation of a lambda calculus expression on the tape and repeatedly updating it according to a set of reduction rules"* - page 234
 
 
-Since every Turing machine can be simulated by a lambda calculus program, and every lambda calculus program can be simulated by a Turing machine, the two systems are exactly equivalent in power.
-
-August 29, 2016
-234
+*"Since every Turing machine can be simulated by a lambda calculus program, and every lambda calculus program can be simulated by a Turing machine, the two systems are exactly equivalent in power."* - page 234
 
 
-partial recursive functions are programs that are constructed from four fundamental building blocks in different combinations.
-
-August 29, 2016
-235
+## Partial Recursive Functions
 
 
-The first two building blocks are called zero and increment
+*"partial recursive functions are programs that are constructed from four fundamental building blocks in different combinations.*
 
-August 29, 2016
-235
+*[...] The first two building blocks are called **zero** and **increment***
 
+*third building block, **recurse***
 
-third building block, #recurse
-
-August 29, 2016
-235
+***recurse** is just a template for defining a certain kind of recursive function.*
 
 
-#recurse is just a template for defining a certain kind of recursive function.
+*The programs that we can assemble out of **zero**, **increment**, and **recurse** are called the **primitive** recursive functions.*
 
-August 29, 2016
-235
+*All primitive recursive functions are **total**: regardless of their inputs, they always halt and return an answer. This is because **recurse** is the only legitimate way to define a recursive method, and **recurse** always halts: each recursive call makes the last argument closer to zero, and when it inevitably reaches zero, the recursion will stop.*
 
+*However, we can’t simulate the full execution of an arbitrary Turing machine with primitive recursive functions, because some Turing machines loop forever, so primitive recursive functions aren’t universal.*
 
-The programs that we can assemble out of #zero , #increment , and #recurse are called the primitive recursive functions. All primitive recursive functions are total : regardless of their inputs, they always halt and return an answer. This is because #recurse is the only legitimate way to define a recursive method, and #recurse always halts: each recursive call makes the last argument closer to zero, and when it inevitably reaches zero, the recursion will stop.
+*To get a truly universal system we have to add a fourth fundamental operation, **minimize**:*
 
-August 29, 2016
-237
+***minimize** takes a block and calls it repeatedly with a single numeric argument. For the first call, it provides 0 as the argument, then 1, then 2, and keeps calling the block with larger and larger numbers until it returns zero.*
 
+*By adding **minimize** to **zero**, **increment**, and **recurse**, we can build many more functions—all the **partial** recursive functions—including ones that don’t always halt.*
 
-
-
-
-However, we can’t simulate the full execution of an arbitrary Turing machine with primitive recursive functions, because some Turing machines loop forever, so primitive recursive functions aren’t universal.
-
-August 29, 2016
-237
+*With **minimize**, it’s possible to fully simulate a Turing machine by repeatedly calling the primitive recursive function that performs a single simulation step. The simulation will continue until the machine halts - and if that never happens, it’ll run forever.* - pages 235 - 238
 
 
+<!-- TODO continue here
 
-
-
-To get a truly universal system we have to add a fourth fundamental operation, #minimize :
-
-August 29, 2016
-237
-
-
-
-
-
-#minimize takes a block and calls it repeatedly with a single numeric argument. For the first call, it provides 0 as the argument, then 1 , then 2 , and keeps calling the block with larger and larger numbers until it returns zero.
-
-August 29, 2016
-237
-
-
-
-
-
-By adding #minimize to #zero , #increment , and #recurse , we can build many more functions—all the partial recursive functions—including ones that don’t always halt.
-
-August 29, 2016
-238
-
-
-
-
-
-With #minimize , it’s possible to fully simulate a Turing machine by repeatedly calling the primitive recursive function that performs a single simulation step. The simulation will continue until the machine halts—and if that never happens, it’ll run forever.
-
-August 29, 2016
-238
-
-
-
-
+## SKI Combinator Calculus
 
 The SKI calculus is even simpler, with only two kinds of expression—calls and alphabetic symbols —and much easier rules. All of its power comes from the three special symbols S , K , and I (called combinators ), each of which has its own reduction rule: Reduce S[ a ][ b ][ c ] to a [ c ][ b [ c ]] , where a , b , and c can be any SKI calculus expressions. Reduce K[ a ][ b ] to a . Reduce I[ a ] to a .
 
 August 29, 2016
 239
-
-
-
 
 
 The SKI calculus can produce surprisingly complex behavior with its three simple rules—so complex, in fact, that it turns out to be universal.
@@ -408,16 +351,10 @@ August 31, 2016
 243
 
 
-
-
-
 Although the SKI calculus has three combinators, the I combinator is actually redundant. There are many expressions containing only S and K that do the same thing as I
 
 September 2, 2016
 245
-
-
-
 
 
 S[K][K] has the same behavior as I , and in fact, that’s true for any SKI expression of the form S[K][ whatever ] . The I combinator is syntactic sugar that we can live without; just the two combinators S and K are enough for universality.
