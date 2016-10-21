@@ -313,12 +313,15 @@ Church to boolean:
 
 *"partial recursive functions are programs that are constructed from four fundamental building blocks in different combinations.*
 
-*[...] The first two building blocks are called **zero** and **increment***
+*[...]* 
 
-*third building block, **recurse***
+**The first two building blocks are called **zero** and **increment***
+
+*[...]* 
+
+*third building block, **recurse** [...]*
 
 ***recurse** is just a template for defining a certain kind of recursive function.*
-
 
 *The programs that we can assemble out of **zero**, **increment**, and **recurse** are called the **primitive** recursive functions.*
 
@@ -363,34 +366,20 @@ September 2, 2016
 246
 
 
-
-
-
 iota ( ɩ ) is an extra combinator that can be added to the SKI calculus. Here is its reduction rule: Reduce ɩ[ a ] to a [S][K] .
 
 September 2, 2016
 246
-
-
-
-
 
 a language called Iota whose programs only use the ɩ combinator. Although it only has one combinator, Iota is a universal language,
 
 September 2, 2016
 246
 
-
-
-
-
 We can convert an SKI expression to Iota by applying these substitution rules: Replace S with ɩ[ɩ[ɩ[ɩ[ɩ]]]] . Replace K with ɩ[ɩ[ɩ[ɩ]]] . Replace I with ɩ[ɩ] .
 
 September 2, 2016
 246
-
-
-
 
 
 a tag system operates on a string by repeatedly adding new characters to the end of the string and removing them from the beginning.
@@ -399,16 +388,10 @@ September 2, 2016
 248
 
 
-
-
-
 A tag system’s description has two parts: first, a collection of rules, where each rule specifies some characters to append to the string when a particular character appears at the beginning—“when
 
 September 2, 2016
 249
-
-
-
 
 
 instance; and second, a number, called the deletion number , which specifies how many characters to delete from the beginning of the string after a rule has been followed.
