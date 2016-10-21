@@ -7,6 +7,8 @@ Scheme (Lisp)
 
 This page collects notes about Scheme (an Lisp in general).
 
+.. contents::
+
 Sources
 =======
 Most information is taken from:
