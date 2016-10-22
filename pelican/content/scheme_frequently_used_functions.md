@@ -38,7 +38,7 @@ Example:
 
 The `map` function can be applied on multiple lists:
 
-*"This more general `map?  takes a procedure of **n** arguments, together with **n** lists, and applies the procedure to all the first elements of the lists, all the second elements of the lists, and so on, returning a list of the results.*
+*"This more general `map` takes a procedure of **n** arguments, together with **n** lists, and applies the procedure to all the first elements of the lists, all the second elements of the lists, and so on, returning a list of the results.*
 
 *For example:*"
 
@@ -65,6 +65,23 @@ The `map` function can be applied on multiple lists:
 
 
 - `(flatten t)`: flattens a tree structure into a list
+
+- `(filter p lst)`: Creates a new list with the elements of `lst` for which the predicate `p` returns true
+
+- `(foldr f b lst)`: applies the function `f` to the next element of the list and the result of the previous element. `b` is the initial begining value. The list is traversed from right to left. Also known as `acumulate` ([SICP:2.2.3](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.3))
+
+- `(foldl f b lst)`: Same as `foldlr` but the list is traversed from left to right.
+
+- `(reduce f lst)`: Same as `foldl` but take the first (leftmost) element as starting element.
+
+If `reduce` is not available (e.g in Racket) it can be defined in terms of `foldl`:
+
+    :::scheme
+    (define (reduce f xs)
+        (and (not (empty? xs)) (foldl f (first xs) (rest xs))))
+
+[Stack Overflow](http://stackoverflow.com/a/25211454/1272072)
+
 
 ## Dotted-tail Notation
 
