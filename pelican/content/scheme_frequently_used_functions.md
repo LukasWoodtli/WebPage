@@ -66,7 +66,7 @@ The `map` function can be applied on multiple lists:
 
 - `(flatten t)`: flattens a tree structure into a list
 
-- `(filter p lst)`: Creates a new list with the elements of `lst` for which the predicate `p` returns true
+- `(filter p lst)`: Creates a new list with the elements of `lst` for which the predicate `p` is satisfied
 
 - `(foldr f b lst)`: applies the function `f` to the next element of the list and the result of the previous element. `b` is the initial begining value. The list is traversed from right to left. Also known as `acumulate` ([SICP:2.2.3](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.3))
 

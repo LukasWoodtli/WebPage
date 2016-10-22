@@ -116,3 +116,13 @@ Expressions
 - In Scheme everything is an expression
 - Expressions can be nested arbritarly
 
+
+Sequences as Conventional Interfaces
+====================================
+
+*"The key to organizing programs so as to more clearly reflect the signal-flow structure is to concentrate on the "signals" that flow from one stage in the process to the next. If we represent these signals as lists, then we can use list operations to implement the processing at each of the stages.*"
+
+*"The value of expressing programs as sequence operations is that this helps us make program designs that are modular, that is, designs that are constructed by combining relatively independent pieces. We can encourage modular design by providing a library of standard components together with a conventional interface for connecting the components in flexible ways."*
+
+[SICP: 2.2.3  Sequences as Conventional Interfaces](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.3)
+
