@@ -338,38 +338,31 @@ Church to boolean:
 *With **minimize**, it’s possible to fully simulate a Turing machine by repeatedly calling the primitive recursive function that performs a single simulation step. The simulation will continue until the machine halts - and if that never happens, it’ll run forever.* - pages 235 - 238
 
 
-<!-- TODO continue here
-
 ## SKI Combinator Calculus
 
-The SKI calculus is even simpler, with only two kinds of expression—calls and alphabetic symbols —and much easier rules. All of its power comes from the three special symbols S , K , and I (called combinators ), each of which has its own reduction rule: Reduce S[ a ][ b ][ c ] to a [ c ][ b [ c ]] , where a , b , and c can be any SKI calculus expressions. Reduce K[ a ][ b ] to a . Reduce I[ a ] to a .
+*"The SKI calculus is even simpler, with only two kinds of expression-calls and alphabetic **symbols**-and much easier rules. All of its power comes from the three special symbols `S`, `K`, and `I` (called **combinators**), each of which has its own reduction rule:*
 
-August 29, 2016
-239
+- *Reduce `S[a][b][c]` to `a[c][b[c]]`, where `a`, `b`, and `c can be any SKI calculus expressions.*
+- *Reduce `K[a][b]` to `a`.*
+- *Reduce `I[a]` to `a`.* 
 
-
-The SKI calculus can produce surprisingly complex behavior with its three simple rules—so complex, in fact, that it turns out to be universal.
-
-August 31, 2016
-243
+page 239
 
 
-Although the SKI calculus has three combinators, the I combinator is actually redundant. There are many expressions containing only S and K that do the same thing as I
-
-September 2, 2016
-245
+*"The SKI calculus can produce surprisingly complex behavior with its three simple rules—so complex, in fact, that it turns out to be universal."* - page 243
 
 
-S[K][K] has the same behavior as I , and in fact, that’s true for any SKI expression of the form S[K][ whatever ] . The I combinator is syntactic sugar that we can live without; just the two combinators S and K are enough for universality.
+*"Although the SKI calculus has three combinators, the `I` combinator is actually redundant. There are many expressions containing only `S` and `K` that do the same thing as `I`*
 
-September 2, 2016
-246
+[...]
 
+*`S[K][K]` has the same behavior as `I`, and in fact, that’s true for any SKI expression of the form `S[K][whatever]`. The `I` combinator is syntactic sugar that we can live without; just the two combinators `S` and `K` are enough for universality.*" - pages 245-246
 
-iota ( ɩ ) is an extra combinator that can be added to the SKI calculus. Here is its reduction rule: Reduce ɩ[ a ] to a [S][K] .
+## Iota
 
-September 2, 2016
-246
+*"iota (`ɩ`) is an extra combinator that can be added to the SKI calculus. Here is its reduction rule: Reduce `ɩ[a]` to `a[S][K]`." - page 246
+
+<!-- TODO continue here
 
 a language called Iota whose programs only use the ɩ combinator. Although it only has one combinator, Iota is a universal language,
 
