@@ -342,7 +342,7 @@ Church to boolean:
 
 *"The SKI calculus is even simpler, with only two kinds of expression-calls and alphabetic **symbols**-and much easier rules. All of its power comes from the three special symbols `S`, `K`, and `I` (called **combinators**), each of which has its own reduction rule:*
 
-- *Reduce `S[a][b][c]` to `a[c][b[c]]`, where `a`, `b`, and `c can be any SKI calculus expressions.*
+- *Reduce `S[a][b][c]` to `a[c][b[c]]`, where `a`, `b`, and `c` can be any SKI calculus expressions.*
 - *Reduce `K[a][b]` to `a`.*
 - *Reduce `I[a]` to `a`.* 
 
@@ -356,24 +356,25 @@ page 239
 
 [...]
 
-*`S[K][K]` has the same behavior as `I`, and in fact, that’s true for any SKI expression of the form `S[K][whatever]`. The `I` combinator is syntactic sugar that we can live without; just the two combinators `S` and `K` are enough for universality.*" - pages 245-246
+*`S[K][K]` has the same behavior as `I`, and in fact, that’s true for any SKI expression of the form `S[K][whatever]`. The `I` combinator is syntactic sugar that we can live without; just the two combinators `S` and `K` are enough for universality."* - pages 245-246
 
 ## Iota
 
-*"iota (`ɩ`) is an extra combinator that can be added to the SKI calculus. Here is its reduction rule: Reduce `ɩ[a]` to `a[S][K]`." - page 246
+*"iota (`ɩ`) is an extra combinator that can be added to the SKI calculus. Here is its reduction rule: Reduce `ɩ[a]` to `a[S][K]`."* - page 246
+
+
+*"[...] a language called Iota whose programs **only** use the `ɩ` combinator. Although it only has one combinator, Iota is a universal language*" - page 246
+
+*"We can convert an SKI expression to Iota by applying these substitution rules:
+
+- Replace `S` with `ɩ[ɩ[ɩ[ɩ[ɩ]]]]`. 
+- Replace `K` with `ɩ[ɩ[ɩ[ɩ]]]`.
+- Replace `I` with `ɩ[ɩ]`.
+
+page 246
 
 <!-- TODO continue here
-
-a language called Iota whose programs only use the ɩ combinator. Although it only has one combinator, Iota is a universal language,
-
-September 2, 2016
-246
-
-We can convert an SKI expression to Iota by applying these substitution rules: Replace S with ɩ[ɩ[ɩ[ɩ[ɩ]]]] . Replace K with ɩ[ɩ[ɩ[ɩ]]] . Replace I with ɩ[ɩ] .
-
-September 2, 2016
-246
-
+## Tag Systems
 
 a tag system operates on a string by repeatedly adding new characters to the end of the string and removing them from the beginning.
 
@@ -391,8 +392,6 @@ instance; and second, a number, called the deletion number , which specifies how
 
 September 2, 2016
 249
-
-
 
 
 
