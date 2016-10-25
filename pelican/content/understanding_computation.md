@@ -11,7 +11,7 @@ This page collects notes and citations from the book:
 
 # I. Programs and Machines
 
-*"To create an environment where* [...] *computation can occur, we need three basic ingredients:“
+*"To create an environment where [...] computation can occur, we need three basic ingredients:“*
 
 - *"A **machine** capable of performing the computation"*
 - *"A **language** for writing instructions that the machine can understand"*
@@ -301,6 +301,7 @@ Church to boolean:
 
 *"Even though any individual Turing machine has a hardcoded rulebook, the universal Turing machine demonstrates that it’s possible to design a device that can adapt to arbitrary tasks by reading instructions from a tape. These instructions are effectively a piece of software that controls the operation of the machine’s hardware, just like in the general-purpose programmable computers we use every day."* - page 231
 
+*"The term Turing complete is often used to describe a system or programming language that can simulate any Turing machine."*
 
 *"a Turing machine can act as an interpreter for the lambda calculus by storing a representation of a lambda calculus expression on the tape and repeatedly updating it according to a set of reduction rules"* - page 234
 
@@ -313,11 +314,11 @@ Church to boolean:
 
 *"partial recursive functions are programs that are constructed from four fundamental building blocks in different combinations.*
 
-*[...]* 
+*[...]*
 
 *The first two building blocks are called **zero** and **increment***
 
-*[...]* 
+*[...]*
 
 *third building block, **recurse** [...]*
 
@@ -344,7 +345,7 @@ Church to boolean:
 
 - *Reduce `S[a][b][c]` to `a[c][b[c]]`, where `a`, `b`, and `c` can be any SKI calculus expressions.*
 - *Reduce `K[a][b]` to `a`.*
-- *Reduce `I[a]` to `a`.* 
+- *Reduce `I[a]` to `a`.*
 
 page 239
 
@@ -365,80 +366,37 @@ page 239
 
 *"[...] a language called Iota whose programs **only** use the `ɩ` combinator. Although it only has one combinator, Iota is a universal language*" - page 246
 
-*"We can convert an SKI expression to Iota by applying these substitution rules:
+*"We can convert an SKI expression to Iota by applying these substitution rules:*
 
-- Replace `S` with `ɩ[ɩ[ɩ[ɩ[ɩ]]]]`. 
-- Replace `K` with `ɩ[ɩ[ɩ[ɩ]]]`.
-- Replace `I` with `ɩ[ɩ]`.
+- *Replace `S` with `ɩ[ɩ[ɩ[ɩ[ɩ]]]]`.*
+- *Replace `K` with `ɩ[ɩ[ɩ[ɩ]]]`.*
+- *Replace `I` with `ɩ[ɩ]`.*
 
 page 246
 
-<!-- TODO continue here
+
 ## Tag Systems
 
-a tag system operates on a string by repeatedly adding new characters to the end of the string and removing them from the beginning.
-
-September 2, 2016
-248
+*"a tag system operates on a string by repeatedly adding new characters to the end of the string and removing them from the beginning."* - page 248
 
 
-A tag system’s description has two parts: first, a collection of rules, where each rule specifies some characters to append to the string when a particular character appears at the beginning—“when
-
-September 2, 2016
-249
+*"A tag system's description has two parts: first, a collection of rules, where each rule specifies some characters to append to the string when a particular character appears at the beginning [...] and second, a number, called the deletion number, which specifies how many characters to delete from the beginning of the string after a rule has been followed."* - page 249
 
 
-instance; and second, a number, called the deletion number , which specifies how many characters to delete from the beginning of the string after a rule has been followed.
-
-September 2, 2016
-249
+*"Having a deletion number greater than 1 is essential for making this tag system work. Because every **second** character triggers a rule, we can influence the system's behavior by arranging for certain characters to appear (or not appear) in these trigger positions."* - page 254
 
 
-
-Having a deletion number greater than 1 is essential for making this tag system work. Because every second character triggers a rule, we can influence the system’s behavior by arranging for certain characters to appear (or not appear) in these trigger positions.
-
-September 2, 2016
-254
+*"Cyclic tag systems are extremely limited - they have inflexible rules, only two characters, and the lowest possible deletion number - but surprisingly, it's still possible to use them to simulate any tag system."* - page 260
 
 
+<!-- TODO continue here
 
-
-
-Building a Turing machine simulation on top of something as simple as a tag system involves a lot of detail,
-
-September 2, 2016
-255
-
-
-
-
-
-Cyclic tag systems are extremely limited—they have inflexible rules, only two characters, and the lowest possible deletion number—but surprisingly, it’s still possible to use them to simulate any tag system.
-
-September 2, 2016
-260
-
-
-
-
-
-The term Turing complete is often used to describe a system or programming language that can simulate any Turing machine.
-
-August 25, 2016
-271
-
-
-
-
+# Impossible Programs
 
 The practical purpose of a computing machine is to perform algorithms . An algorithm is a list of instructions describing some process for turning an input value into an output value, as long as those instructions fulfill certain criteria:
 
 September 3, 2016
 274
-
-
-
-
 
 Finiteness There are a finite number of instructions.
 
@@ -446,14 +404,10 @@ September 3, 2016
 274
 
 
-
-
-
 Simplicity Each instruction is simple enough that it can be performed by a person with a pencil and paper without using any ingenuity.
 
 September 3, 2016
 274
-
 
 
 
