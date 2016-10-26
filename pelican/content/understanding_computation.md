@@ -389,135 +389,64 @@ page 246
 *"Cyclic tag systems are extremely limited - they have inflexible rules, only two characters, and the lowest possible deletion number - but surprisingly, it's still possible to use them to simulate any tag system."* - page 260
 
 
-<!-- TODO continue here
-
 # Impossible Programs
 
-The practical purpose of a computing machine is to perform algorithms . An algorithm is a list of instructions describing some process for turning an input value into an output value, as long as those instructions fulfill certain criteria:
+*"The practical purpose of a computing machine is to perform algorithms. An algorithm is a list of instructions describing some process for turning an input value into an output value, as long as those instructions fulfill certain criteria:*
 
-September 3, 2016
-274
 
-Finiteness There are a finite number of instructions.
+### Finiteness 
 
-September 3, 2016
-274
+*There are a finite number of instructions.*
 
+### Simplicity
 
-Simplicity Each instruction is simple enough that it can be performed by a person with a pencil and paper without using any ingenuity.
+*Each instruction is simple enough that it can be performed by a person with a pencil and paper without using any ingenuity.*
 
-September 3, 2016
-274
+### Termination
 
+*A person following the instructions will finish within a finite number of steps for any input.*
 
+### Correctness
 
+*A person following the instructions will produce the right answer for any input.*
 
-Termination A person following the instructions will finish within a finite number of steps for any input.
+page 274
 
-September 3, 2016
-274
+*"can any algorithm be turned into instructions suitable for execution by a machine?"* - page 276
 
 
+*"there’s a real difference between the abstract, intuitive idea of an algorithm and the concrete, logical implementation of that algorithm within a computational system. Could there ever be an algorithm so large, complex, and unusual that its essence can’t be captured by an unthinking mechanical process?"* - page 276
 
 
+*"the question is philosophical rather than scientific"* - page 276
 
-Correctness A person following the instructions will produce the right answer for any input.
 
-September 3, 2016
-274
+*"The idea that any algorithm can be performed by a machine - specifically a deterministic Turing machine - is called the **Church–Turing thesis**, and although it's just a conjecture rather than a proven fact, it has enough evidence in its favor to be generally accepted as true.*" - page 277
 
 
+## Code Is Data
 
+*"programs can be represented as data so that they can be used as input to other programs; it's the unification of code and data that makes software possible in the first place."* - page 279
 
 
-can any algorithm be turned into instructions suitable for execution by a machine?
+## Universal Systems Can Loop Forever
 
-September 3, 2016
-276
+*"any system that's powerful enough to be universal will inevitably allow us to construct computations that loop forever without halting."* - page 281
 
 
+*"So why must every universal system bring nontermination along for the ride?"* - page 283
 
+*"it's impossible to remove features (e.g., `while` loops) from a programming language in a way that prevents us from writing nonhalting programs while keeping the language powerful enough to be universal."* - page 287
 
 
-there’s a real difference between the abstract, intuitive idea of an algorithm and the concrete, logical implementation of that algorithm within a computational system. Could there ever be an algorithm so large, complex, and unusual that its essence can’t be captured by an unthinking mechanical process?
+*"Languages that have been carefully designed to ensure that their programs must always halt are called **total programming languages**, as opposed to the more conventional **partial programming languages** whose programs sometimes halt with an answer and sometimes don't. Total programming languages are still very powerful and capable of expressing many useful computations, but one thing they can’t do is interpret themselves."* - page 287
 
-September 3, 2016
-276
-
-
-
-
-
-the question is philosophical rather than scientific
-
-September 3, 2016
-276
-
-
-
-
-
-The idea that any algorithm can be performed by a machine—specifically a deterministic Turing machine—is called the Church–Turing thesis , and although it’s just a conjecture rather than a proven fact, it has enough evidence in its favor to be generally accepted as true.
-
-September 3, 2016
-277
-
-
-
-
-
-programs can be represented as data so that they can be used as input to other programs; it’s the unification of code and data that makes software possible in the first place.
-
-September 3, 2016
-279
-
-
-
-
-
-any system that’s powerful enough to be universal will inevitably allow us to construct computations that loop forever without halting.
-
-September 3, 2016
-281
-
-
-
-
-
-So why must every universal system bring nontermination along for the ride?
-
-September 3, 2016
-283
-
-
-
-
-
-it’s impossible to remove features (e.g., while loops) from a programming language in a way that prevents us from writing nonhalting programs while keeping the language powerful enough to be universal.
-
-September 3, 2016
-287
-
-
-
-
-
-Languages that have been carefully designed to ensure that their programs must always halt are called total programming languages , as opposed to the more conventional partial programming languages whose programs sometimes halt with an answer and sometimes don’t. Total programming languages are still very powerful and capable of expressing many useful computations, but one thing they can’t do is interpret themselves.
-
-September 3, 2016
-287
-
-
-
-
+<!-- TODO continue here
 
 a fundamental mathematical result called Kleene’s second recursion theorem , which guarantees that any program can be converted into an equivalent one that is able to calculate its own source code.
 
 September 3, 2016
 288
-
-
-
 
 
 A decision problem is any question with a yes or no answer
