@@ -441,39 +441,22 @@ page 274
 
 *"Languages that have been carefully designed to ensure that their programs must always halt are called **total programming languages**, as opposed to the more conventional **partial programming languages** whose programs sometimes halt with an answer and sometimes don't. Total programming languages are still very powerful and capable of expressing many useful computations, but one thing they can’t do is interpret themselves."* - page 287
 
+
+*"a fundamental mathematical result called **Kleene's second recursion theorem**, which guarantees that any program can be converted into an equivalent one that is able to calculate its own source code."* - page 288
+
+
+## Decidability
+
+*"A decision problem is any question with a yes or no answer"*
+
+*"A decision problem is **decidable** (or **computable**) if there's an algorithm that's guaranteed to solve it in a finite amount of time for any possible input. The Church-Turing thesis claims that every algorithm can be performed by a Turing machine, so for a problem to be decidable, we have to be able to design a Turing machine that always produces the correct answer and always halts if we let it run for long enough."* - page 293
+
 <!-- TODO continue here
-
-a fundamental mathematical result called Kleene’s second recursion theorem , which guarantees that any program can be converted into an equivalent one that is able to calculate its own source code.
-
-September 3, 2016
-288
-
-
-A decision problem is any question with a yes or no answer
-
-September 4, 2016
-293
-
-
-
-
-
-A decision problem is decidable (or computable ) if there’s an algorithm that’s guaranteed to solve it in a finite amount of time for any possible input. The Church–Turing thesis claims that every algorithm can be performed by a Turing machine, so for a problem to be decidable, we have to be able to design a Turing machine that always produces the correct answer and always halts if we let it run for long enough.
-
-September 4, 2016
-293
-
-
-
-
 
 There are many decision problems— infinitely many—and it turns out that a lot of them are undecidable: there is no guaranteed-to-halt algorithm for solving them. Each of these problems is undecidable not because we just haven’t found the right algorithm for it yet, but because the problem itself is fundamentally impossible to solve for some inputs, and we can even prove that no suitable algorithm will ever be found.
 
 September 4, 2016
 294
-
-
-
 
 
 the halting problem, is the task of deciding whether the execution of a particular Turing machine with a particular initial tape will ever halt.
@@ -482,16 +465,10 @@ September 5, 2016
 295
 
 
-
-
-
 This is Rice’s theorem : any nontrivial property of program behavior is undecidable, because the halting problem can always be reduced to the problem of deciding whether that property is true; if we could invent an algorithm for deciding that property, we’d be able to use it to build another algorithm that decides the halting problem, and that’s impossible.
 
 September 5, 2016
 304
-
-
-
 
 
 Any system with enough power to be self-referential can’t correctly answer every question about itself. [ 83 ]
