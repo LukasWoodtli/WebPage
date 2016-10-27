@@ -451,20 +451,14 @@ page 274
 
 *"A decision problem is **decidable** (or **computable**) if there's an algorithm that's guaranteed to solve it in a finite amount of time for any possible input. The Church-Turing thesis claims that every algorithm can be performed by a Turing machine, so for a problem to be decidable, we have to be able to design a Turing machine that always produces the correct answer and always halts if we let it run for long enough."* - page 293
 
+*"There are many decision problems - **infinitely** many - and it turns out that a lot of them are undecidable: there is no guaranteed-to-halt algorithm for solving them. Each of these problems is undecidable not because we just haven't found the right algorithm for it yet, but because the problem itself is fundamentally impossible to solve for some inputs, and we can even prove that no suitable algorithm will ever be found."* - page 294
+
+
+## The Halting Problem
+
+*"the **halting problem**, is the task of deciding whether the execution of a particular Turing machine with a particular initial tape will ever halt."* - page 295
+
 <!-- TODO continue here
-
-There are many decision problems— infinitely many—and it turns out that a lot of them are undecidable: there is no guaranteed-to-halt algorithm for solving them. Each of these problems is undecidable not because we just haven’t found the right algorithm for it yet, but because the problem itself is fundamentally impossible to solve for some inputs, and we can even prove that no suitable algorithm will ever be found.
-
-September 4, 2016
-294
-
-
-the halting problem, is the task of deciding whether the execution of a particular Turing machine with a particular initial tape will ever halt.
-
-September 5, 2016
-295
-
-
 This is Rice’s theorem : any nontrivial property of program behavior is undecidable, because the halting problem can always be reduced to the problem of deciding whether that property is true; if we could invent an algorithm for deciding that property, we’d be able to use it to build another algorithm that decides the halting problem, and that’s impossible.
 
 September 5, 2016
