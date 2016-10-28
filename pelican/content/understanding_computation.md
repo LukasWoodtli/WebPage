@@ -451,61 +451,32 @@ page 274
 
 *"A decision problem is **decidable** (or **computable**) if there's an algorithm that's guaranteed to solve it in a finite amount of time for any possible input. The Church-Turing thesis claims that every algorithm can be performed by a Turing machine, so for a problem to be decidable, we have to be able to design a Turing machine that always produces the correct answer and always halts if we let it run for long enough."* - page 293
 
+*"There are many decision problems - **infinitely** many - and it turns out that a lot of them are undecidable: there is no guaranteed-to-halt algorithm for solving them. Each of these problems is undecidable not because we just haven't found the right algorithm for it yet, but because the problem itself is fundamentally impossible to solve for some inputs, and we can even prove that no suitable algorithm will ever be found."* - page 294
+
+
+## The Halting Problem
+
+*"the **halting problem**, is the task of deciding whether the execution of a particular Turing machine with a particular initial tape will ever halt."* - page 295
+
+*"This is **Rice's theorem**: any nontrivial property of program behavior is undecidable, because the halting problem can always be reduced to the problem of deciding whether that property is true; if we could invent an algorithm for deciding that property, we'd be able to use it to build another algorithm that decides the halting problem, and that's impossible."* - page 304
+
+
+*"Any system with enough power to be self-referential can’t correctly answer every question about itself."* - page 308
+
+
+*"every pushdown automaton has an equivalent context-free grammar and vice versa; any CFG can be rewritten in Chomsky normal form; and any CFG in that form must take exactly 2n − 1 steps to generate a string of length n."* - page 312
+
+
+# Programming in Toyland
+
+## Abstract Interpretation
+
+*"The main idea of abstract interpretation is to use an **abstraction**, a model of the real problem that discards enough detail to make it manageable - perhaps by making it smaller, simpler, or by eliminating unknowns - but that also retains enough detail to make its solution relevant to the original problem."* - page 315
+
+
+*"A lot of the time, it's fine for a result to be imprecise, but for an abstraction to be useful, it's important that this imprecision is **safe**. Safety means that the abstraction always tells the truth: the result of an abstract computation must agree with the result of its concrete counterpart. If not, the abstraction is giving us unreliable information and is probably worse than useless."* - page 321
+
 <!-- TODO continue here
-
-There are many decision problems— infinitely many—and it turns out that a lot of them are undecidable: there is no guaranteed-to-halt algorithm for solving them. Each of these problems is undecidable not because we just haven’t found the right algorithm for it yet, but because the problem itself is fundamentally impossible to solve for some inputs, and we can even prove that no suitable algorithm will ever be found.
-
-September 4, 2016
-294
-
-
-the halting problem, is the task of deciding whether the execution of a particular Turing machine with a particular initial tape will ever halt.
-
-September 5, 2016
-295
-
-
-This is Rice’s theorem : any nontrivial property of program behavior is undecidable, because the halting problem can always be reduced to the problem of deciding whether that property is true; if we could invent an algorithm for deciding that property, we’d be able to use it to build another algorithm that decides the halting problem, and that’s impossible.
-
-September 5, 2016
-304
-
-
-Any system with enough power to be self-referential can’t correctly answer every question about itself. [ 83 ]
-
-September 6, 2016
-308
-
-
-
-
-
-every pushdown automaton has an equivalent context-free grammar and vice versa; any CFG can be rewritten in Chomsky normal form ; and any CFG in that form must take exactly 2 n − 1 steps to generate a string of length n .
-
-September 4, 2016
-312
-
-
-
-
-
-The main idea of abstract interpretation is to use an abstraction , a model of the real problem that discards enough detail to make it manageable—perhaps by making it smaller, simpler, or by eliminating unknowns—but that also retains enough detail to make its solution relevant to the original problem.
-
-September 6, 2016
-315
-
-
-
-
-
-A lot of the time, it’s fine for a result to be imprecise, but for an abstraction to be useful, it’s important that this imprecision is safe . Safety means that the abstraction always tells the truth: the result of an abstract computation must agree with the result of its concrete counterpart. If not, the abstraction is giving us unreliable information and is probably worse than useless.
-
-September 7, 2016
-321
-
-
-
-
 
 dynamic semantics of programming languages, a way of specifying the meaning of code when it’s executed; a language’s static semantics tells us about properties of programs that we can investigate without executing them. The classic example of static semantics is a type system
 
