@@ -476,50 +476,18 @@ page 274
 
 *"A lot of the time, it's fine for a result to be imprecise, but for an abstraction to be useful, it's important that this imprecision is **safe**. Safety means that the abstraction always tells the truth: the result of an abstract computation must agree with the result of its concrete counterpart. If not, the abstraction is giving us unreliable information and is probably worse than useless."* - page 321
 
+## Static Semantics
+
+*"[...] **dynamic semantics** of programming languages, a way of specifying the meaning of code when it's executed; a language's **static semantics** tells us about properties of programs that we can investigate without executing them. The classic example of static semantics is a **type system**"* - page 327
+
+*"From the perspective of someone designing the static semantics, it's also more difficult to handle a language where variables can change their types."* - page 334
+
+*"Fundamentally, there is a tension between the restrictiveness of a type system and the expressiveness of the programs we can write within it."* - page 334
+
+*"A good type system finds an acceptable compromise between restrictiveness and expressiveness, ruling out enough problems to be worthwhile without getting in the way, while being simple enough for programmers to understand."* - page 334
+
+
 <!-- TODO continue here
-
-dynamic semantics of programming languages, a way of specifying the meaning of code when it’s executed; a language’s static semantics tells us about properties of programs that we can investigate without executing them. The classic example of static semantics is a type system
-
-September 8, 2016
-327
-
-
-
-
-
-From the perspective of someone designing the static semantics, it’s also more difficult to handle a language where variables can change their types.
-
-September 8, 2016
-334
-
-
-
-
-
-Fundamentally, there is a tension between the restrictiveness of a type system and the expressiveness of the programs we can write within it.
-
-September 8, 2016
-334
-
-
-
-
-
-A good type system finds an acceptable compromise between restrictiveness and expressiveness, ruling out enough problems to be worthwhile without getting in the way, while being simple enough for programmers to understand.
-
-September 8, 2016
-334
-
-
-
-
-
-September 9, 2016
-338
-
-
-
-
 
 Any information we get from the type system has to be taken with a pinch of salt, and we have to pay attention to its limitations when deciding how much faith to put in it. A successful execution of a program’s static semantics doesn’t mean “this program will definitely work,” only “this program definitely won’t fail in a particular way.” It would be great to have an automated system that can tell us that a program is free of any conceivable kind of bug or error, but as we saw in Chapter 8 , the universe just isn’t that convenient.
 
