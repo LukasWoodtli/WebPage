@@ -7,7 +7,7 @@ This page collects notes and citations from the book:
 
 [Understanding Computation by Tom Stuart](http://computationbook.com/)
 
-
+[TOC]
 
 # I. Programs and Machines
 
@@ -17,7 +17,7 @@ This page collects notes and citations from the book:
 - *"A **language** for writing instructions that the machine can understand"*
 - *"A **program** written in that language, describing the exact computation that the machine should perform"* - page 18
 
-*"But computer programming isn’t really about **programs**, it’s about **ideas**"* - page 20
+*"But computer programming isn't really about **programs**, it's about **ideas**"* - page 20
 
 *"semantics is the study of the connection between words and their meanings"* - page 21
 
@@ -31,7 +31,7 @@ Expression and Statements:
 *"[SIMPLE's] expressions are pure and its statements are impure"* - page 37
 
 
-*"conditional statements like `« if (x) { y = 1 } else { y = 2 } »`, which contain an expression called the condition (`« x »`), and two statements that we’ll call the consequence (`« y = 1 »`) and the alternative (`« y = 2 »`)"* - page 39
+*"conditional statements like `« if (x) { y = 1 } else { y = 2 } »`, which contain an expression called the condition (`« x »`), and two statements that we'll call the consequence (`« y = 1 »`) and the alternative (`« y = 2 »`)"* - page 39
 
 *"the latest R6RS standard for the Scheme programming language uses small-step semantics to describe its execution"* - page 45
 
@@ -44,7 +44,7 @@ Expression and Statements:
 
 
 
-*"operational semantics is about explaining a language’s meaning by designing an interpreter for it. By contrast, the language-to-language translation of denotational semantics is like a compiler"* - page 60
+*"operational semantics is about explaining a language's meaning by designing an interpreter for it. By contrast, the language-to-language translation of denotational semantics is like a compiler"* - page 60
 
 *"[It's] possible to compare two programs written in different languages, if a denotational semantics exists to translate both languages into some shared representation"* - page 62
 
@@ -70,10 +70,10 @@ Expression and Statements:
 *"finite automata also have a rudimentary way of producing output"* - page 74
 
 
-*"[Deterministric finite automaton:] it’s always absolutely certain which state it will end up in"* - page 75
+*"[Deterministic finite automaton:] it's always absolutely certain which state it will end up in"* - page 75
 
 
-*"a string is accepted if there’s some way for the **NFA** to end up in an accept state by following some of its rules—that is, if finishing in an accept state is possible , even if it’s not inevitable."* - page 81
+*"a string is accepted if there's some way for the **NFA** to end up in an accept state by following some of its rules—that is, if finishing in an accept state is possible , even if it's not inevitable."* - page 81
 
 
 *"The collection of strings that are accepted by a particular machine is called a language : we say that the machine recognizes that language."* - page 82
@@ -93,7 +93,7 @@ Expression and Statements:
 *"NFA with free moves is known as an NFA-ε, and free moves themselves are usually called ε-transitions."* - page 91
 
 
-*"it’s possible to convert any regular expression into an equivalent NFA—every string matched by the regular expression is accepted by the NFA, and vice versa — and then match a string by feeding it to a simulation of that NFA to see whether it gets accepted."* - page 92
+*"it's possible to convert any regular expression into an equivalent NFA—every string matched by the regular expression is accepted by the NFA, and vice versa — and then match a string by feeding it to a simulation of that NFA to see whether it gets accepted."* - page 92
 
 
 *"here are two kinds of extremely simple regular expression that are not built out of anything simpler:*
@@ -117,7 +117,7 @@ Expression and Statements:
 - *"The start state of the first NFA"*
 - *"The accept states of the second NFA"*
 - *"All the rules from both NFAs"*
-- *"Some extra free moves to connect each of the first NFA’s old accept states to the second NFA’s old start state"* - page 98
+- *"Some extra free moves to connect each of the first NFA's old accept states to the second NFA's old start state"* - page 98
 
 
 *"We can use a similar strategy to convert a Choose expression into an NFA."* - page 98
@@ -125,7 +125,7 @@ Expression and Statements:
 - *"A new start state"*
 - *"All the accept states from both NFAs"*
 - *"All the rules from both NFAs"*
-- *"Two extra free moves to connect the new start state to each of the NFA’s old start states"* - page 100
+- *"Two extra free moves to connect the new start state to each of the NFA's old start states"* - page 100
 
 
 
@@ -134,7 +134,7 @@ Expression and Statements:
 - *A new start state, which is also an accept state*
 - *All the accept states from the old NFA*
 - *All the rules from the old NFA*
-- *Some extra free moves to connect each of the old NFA’s accept states to its old start state*
+- *Some extra free moves to connect each of the old NFA's accept states to its old start state*
 - *Another extra free move to connect the new start state to the old start state* - page 101
 
 
@@ -143,10 +143,10 @@ Expression and Statements:
 
 *"Nondeterminism and free moves make it easier to design finite state machines to perform specific jobs"* - page 105
 
-*"it’s possible to convert any nondeterministic finite automaton into a deterministic one that accepts exactly the same strings"* - page 105
+*"it's possible to convert any nondeterministic finite automaton into a deterministic one that accepts exactly the same strings"* - page 105
 
 
-*"A finite state machine with a built-in stack is called a pushdown automaton (PDA), and when that machine’s rules are deterministic, we call it a deterministic pushdown automaton (DPDA)."* - page 122
+*"A finite state machine with a built-in stack is called a pushdown automaton (PDA), and when that machine's rules are deterministic, we call it a deterministic pushdown automaton (DPDA)."* - page 122
 
 *"[...] a PDA rule into five parts:*
 - *The current state of the machine*
@@ -165,7 +165,7 @@ Expression and Statements:
 *"there are two important things to know about a pushdown automaton at each step of its computation: what its current state is, and what the current contents of its stack are. If we use the word **configuration** to refer to this combination of a state and a stack, we can talk about a pushdown automaton moving from one configuration to another as it reads input characters"* - page 126
 
 
-*"there isn’t an NPDA-to-DPDA algorithm."* - page 139
+*"there isn't an NPDA-to-DPDA algorithm."* - page 139
 
 
 *"Lexical analysis*
@@ -186,45 +186,45 @@ Expression and Statements:
 *"The technique for converting a CFG into a PDA works like this:*
 
 1. *Pick a character to represent each symbol from the grammar*
-2. *Use the PDA’s stack to store characters that represent grammar symbols and tokens. When the PDA starts, have it immediately push a symbol onto the stack to represent the structure it’s trying to recognize.*
+2. *Use the PDA's stack to store characters that represent grammar symbols and tokens. When the PDA starts, have it immediately push a symbol onto the stack to represent the structure it's trying to recognize.*
 3. *Translate the grammar rules into PDA rules that expand symbols on the top of the stack without reading any input. Each grammar rule describes how to expand a single symbol into a sequence of other symbols and tokens*
 4. *Give every token character a PDA rule that reads that character from the input and pops it off the stack*
 
-*These token rules work in opposition to the symbol rules. The symbol rules tend to make the stack larger, sometimes pushing several characters to replace the one that’s been popped; the token rules always make the stack smaller, consuming input as they go.*
+*These token rules work in opposition to the symbol rules. The symbol rules tend to make the stack larger, sometimes pushing several characters to replace the one that's been popped; the token rules always make the stack smaller, consuming input as they go.*
 
 5\. *Finally, make a PDA rule that will allow the machine to enter an accept state if the stack becomes empty* - pages 143-145
 
 
 *"the symbol rules repeatedly expand the symbol on the top of the stack until it gets replaced by a token, then the token rules consume the stack (and the input) until they hit a symbol. This back and forth eventually results in an empty stack as long as the input string can be generated by the grammar rules."*
 
-*"This algorithm is called **LL** parsin . The first L stands for “left-to-right,” because the input string is read in that direction, and the second L stands for “left derivation,” because it’s always the leftmost (i.e., uppermost) symbol on the stack that gets expanded."* - page 146
+*"This algorithm is called **LL** parsing. The first L stands for “left-to-right,” because the input string is read in that direction, and the second L stands for “left derivation,” because it's always the leftmost (i.e., uppermost) symbol on the stack that gets expanded."* - page 146
 
 
 *"The unlimited storage provided by a stack lets a PDA remember arbitrary amounts of information during a computation and refer back to it later."* - page 148
 
 
-*"There’s a feedback loop between the rules and the stack—the contents of the stack affect which rules the machine can follow, and following a rule will affect the stack contents—which allows a PDA to store away information on the stack that will influence its future execution."* - page 148
+*"There's a feedback loop between the rules and the stack—the contents of the stack affect which rules the machine can follow, and following a rule will affect the stack contents—which allows a PDA to store away information on the stack that will influence its future execution."* - page 148
 
 
 *"[...] unified rule format has five parts:*
 
 - *The current state of the machine*
-- *The character that must appear at the tape head’s current position*
+- *The character that must appear at the tape head's current position*
 - *The next state of the machine*
-- *The character to write at the tape head’s current position*
+- *The character to write at the tape head's current position*
 - *The direction (left or right) in which to move the head after writing to the tape"* - page 156
 
 
-*"we don’t have to worry about free moves, because Turing machines don’t have them."* - pages 160
+*"we don't have to worry about free moves, because Turing machines don't have them."* - pages 160
 
 
-*"A Turing machine’s next action is chosen according to its current state and the character currently underneath its tape head, so a deterministic machine can only have one rule for each combination of state and character—the “no contradictions” rule—in order to prevent any ambiguity over what its next action will be."* - page 160
+*"A Turing machine's next action is chosen according to its current state and the character currently underneath its tape head, so a deterministic machine can only have one rule for each combination of state and character—the “no contradictions” rule—in order to prevent any ambiguity over what its next action will be."* - page 160
 
 
 *"there's an implicit stuck state that the machine can go into when no rule applies*" - page 160
 
 
-*"does adding nondeterminism make a Turing machine more powerful? In this case the answer is no: a nondeterministic Turing machine can’t do any more than a deterministic one. Pushdown automata are the exception here, because both DFAs and DTMs have enough power to simulate their nondeterministic counterparts. A single state of a finite automaton can be used to represent a combination of many states, and a single Turing machine tape can be used to store the contents of many tapes, but a single pushdown automaton stack can’t represent many possible stacks at once."* - page 166
+*"does adding nondeterminism make a Turing machine more powerful? In this case the answer is no: a nondeterministic Turing machine can't do any more than a deterministic one. Pushdown automata are the exception here, because both DFAs and DTMs have enough power to simulate their nondeterministic counterparts. A single state of a finite automaton can be used to represent a combination of many states, and a single Turing machine tape can be used to store the contents of many tapes, but a single pushdown automaton stack can't represent many possible stacks at once."* - page 166
 
 
 *"can we design a single machine that can read a program from its input and then do whatever job the program specifies? Perhaps unsurprisingly, a Turing machine is powerful enough to read the description of a simple machine from its tape - a deterministic finite automaton, say - and then run a simulation of that machine to find out what it does."* - page 176
@@ -242,7 +242,7 @@ Expression and Statements:
 
 *"As programmers we work with languages and machines that are designed to fit our mental models of the world, and we expect them to come equipped with features that make it easy to translate our ideas into implementations. These human-centered designs are motivated by convenience rather than necessity"* - page 182
 
-*"[...] hard theoretical constraints: certain problems just can’t be solved by any computer, no matter how fast and efficient it is."* - page 182
+*"[...] hard theoretical constraints: certain problems just can't be solved by any computer, no matter how fast and efficient it is."* - page 182
 
 
 Chruch numerals:
@@ -280,10 +280,10 @@ Church to boolean:
 *"Ruby [...] evaluates both arguments before IF gets a chance to decide which one to return."* - page 200
 
 
-*"we can easily implement lists that calculate their contents on the fly, also known as **streams**. In fact, there’s no reason why streams even need to be finite, because the calculation only has to generate the list contents as they’re consumed"* - page 215
+*"we can easily implement lists that calculate their contents on the fly, also known as **streams**. In fact, there's no reason why streams even need to be finite, because the calculation only has to generate the list contents as they're consumed"* - page 215
 
 
-*"defining a data structure in terms of itself might seem weird and unusual; in this setting, they’re exactly the same thing, and the Z combinator makes both completely legitimate."* - page 216
+*"defining a data structure in terms of itself might seem weird and unusual; in this setting, they're exactly the same thing, and the Z combinator makes both completely legitimate."* - page 216
 
 
 *"Function calls are the only thing that actually **happens** when a lambda calculus program is evaluated"* - page 225
@@ -293,13 +293,13 @@ Church to boolean:
 
 
 
-*"You might protest that `3 - 5 = 0` isn’t called "subtraction" where you come from, and you’d be right: the technical name for this operation is  "monus", because the nonnegative integers under addition form a commutative monoid instead of a proper abelian group." - page 229
+*"You might protest that `3 - 5 = 0` isn't called "subtraction" where you come from, and you'd be right: the technical name for this operation is  "monus", because the nonnegative integers under addition form a commutative monoid instead of a proper abelian group." - page 229
 
 
 
 # Universality Is Everywhere
 
-*"Even though any individual Turing machine has a hardcoded rulebook, the universal Turing machine demonstrates that it’s possible to design a device that can adapt to arbitrary tasks by reading instructions from a tape. These instructions are effectively a piece of software that controls the operation of the machine’s hardware, just like in the general-purpose programmable computers we use every day."* - page 231
+*"Even though any individual Turing machine has a hardcoded rulebook, the universal Turing machine demonstrates that it's possible to design a device that can adapt to arbitrary tasks by reading instructions from a tape. These instructions are effectively a piece of software that controls the operation of the machine's hardware, just like in the general-purpose programmable computers we use every day."* - page 231
 
 *"The term Turing complete is often used to describe a system or programming language that can simulate any Turing machine."*
 
@@ -328,15 +328,15 @@ Church to boolean:
 
 *All primitive recursive functions are **total**: regardless of their inputs, they always halt and return an answer. This is because **recurse** is the only legitimate way to define a recursive method, and **recurse** always halts: each recursive call makes the last argument closer to zero, and when it inevitably reaches zero, the recursion will stop.*
 
-*However, we can’t simulate the full execution of an arbitrary Turing machine with primitive recursive functions, because some Turing machines loop forever, so primitive recursive functions aren’t universal.*
+*However, we can't simulate the full execution of an arbitrary Turing machine with primitive recursive functions, because some Turing machines loop forever, so primitive recursive functions aren't universal.*
 
 *To get a truly universal system we have to add a fourth fundamental operation, **minimize**:*
 
 ***minimize** takes a block and calls it repeatedly with a single numeric argument. For the first call, it provides 0 as the argument, then 1, then 2, and keeps calling the block with larger and larger numbers until it returns zero.*
 
-*By adding **minimize** to **zero**, **increment**, and **recurse**, we can build many more functions—all the **partial** recursive functions—including ones that don’t always halt.*
+*By adding **minimize** to **zero**, **increment**, and **recurse**, we can build many more functions—all the **partial** recursive functions—including ones that don't always halt.*
 
-*With **minimize**, it’s possible to fully simulate a Turing machine by repeatedly calling the primitive recursive function that performs a single simulation step. The simulation will continue until the machine halts - and if that never happens, it’ll run forever.* - pages 235 - 238
+*With **minimize**, it's possible to fully simulate a Turing machine by repeatedly calling the primitive recursive function that performs a single simulation step. The simulation will continue until the machine halts - and if that never happens, it'll run forever.* - pages 235 - 238
 
 
 ## SKI Combinator Calculus
@@ -357,7 +357,7 @@ page 239
 
 [...]
 
-*`S[K][K]` has the same behavior as `I`, and in fact, that’s true for any SKI expression of the form `S[K][whatever]`. The `I` combinator is syntactic sugar that we can live without; just the two combinators `S` and `K` are enough for universality."* - pages 245-246
+*`S[K][K]` has the same behavior as `I`, and in fact, that's true for any SKI expression of the form `S[K][whatever]`. The `I` combinator is syntactic sugar that we can live without; just the two combinators `S` and `K` are enough for universality."* - pages 245-246
 
 ## Iota
 
@@ -415,7 +415,7 @@ page 274
 *"can any algorithm be turned into instructions suitable for execution by a machine?"* - page 276
 
 
-*"there’s a real difference between the abstract, intuitive idea of an algorithm and the concrete, logical implementation of that algorithm within a computational system. Could there ever be an algorithm so large, complex, and unusual that its essence can’t be captured by an unthinking mechanical process?"* - page 276
+*"there's a real difference between the abstract, intuitive idea of an algorithm and the concrete, logical implementation of that algorithm within a computational system. Could there ever be an algorithm so large, complex, and unusual that its essence can't be captured by an unthinking mechanical process?"* - page 276
 
 
 *"the question is philosophical rather than scientific"* - page 276
@@ -439,7 +439,7 @@ page 274
 *"it's impossible to remove features (e.g., `while` loops) from a programming language in a way that prevents us from writing nonhalting programs while keeping the language powerful enough to be universal."* - page 287
 
 
-*"Languages that have been carefully designed to ensure that their programs must always halt are called **total programming languages**, as opposed to the more conventional **partial programming languages** whose programs sometimes halt with an answer and sometimes don't. Total programming languages are still very powerful and capable of expressing many useful computations, but one thing they can’t do is interpret themselves."* - page 287
+*"Languages that have been carefully designed to ensure that their programs must always halt are called **total programming languages**, as opposed to the more conventional **partial programming languages** whose programs sometimes halt with an answer and sometimes don't. Total programming languages are still very powerful and capable of expressing many useful computations, but one thing they can't do is interpret themselves."* - page 287
 
 
 *"a fundamental mathematical result called **Kleene's second recursion theorem**, which guarantees that any program can be converted into an equivalent one that is able to calculate its own source code."* - page 288
@@ -461,7 +461,7 @@ page 274
 *"This is **Rice's theorem**: any nontrivial property of program behavior is undecidable, because the halting problem can always be reduced to the problem of deciding whether that property is true; if we could invent an algorithm for deciding that property, we'd be able to use it to build another algorithm that decides the halting problem, and that's impossible."* - page 304
 
 
-*"Any system with enough power to be self-referential can’t correctly answer every question about itself."* - page 308
+*"Any system with enough power to be self-referential can't correctly answer every question about itself."* - page 308
 
 
 *"every pushdown automaton has an equivalent context-free grammar and vice versa; any CFG can be rewritten in Chomsky normal form; and any CFG in that form must take exactly 2n − 1 steps to generate a string of length n."* - page 312
