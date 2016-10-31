@@ -394,7 +394,7 @@ page 246
 *"The practical purpose of a computing machine is to perform algorithms. An algorithm is a list of instructions describing some process for turning an input value into an output value, as long as those instructions fulfill certain criteria:*
 
 
-### Finiteness 
+### Finiteness
 
 *There are a finite number of instructions.*
 
@@ -487,60 +487,18 @@ page 274
 *"A good type system finds an acceptable compromise between restrictiveness and expressiveness, ruling out enough problems to be worthwhile without getting in the way, while being simple enough for programmers to understand."* - page 334
 
 
-<!-- TODO continue here
+*"Any information we get from the type system has to be taken with a pinch of salt, and we have to pay attention to its limitations when deciding how much faith to put in it. A successful execution of a program's static semantics doesn't mean "this program will definitely work," only "this program definitely won't fail in a particular way" It would be great to have an automated system that can tell us that a program is free of any conceivable kind of bug or error, but as we saw [...], the universe just isn't that convenient."* - page 338
 
-Any information we get from the type system has to be taken with a pinch of salt, and we have to pay attention to its limitations when deciding how much faith to put in it. A successful execution of a program’s static semantics doesn’t mean “this program will definitely work,” only “this program definitely won’t fail in a particular way.” It would be great to have an automated system that can tell us that a program is free of any conceivable kind of bug or error, but as we saw in Chapter 8 , the universe just isn’t that convenient.
+*"Formally, abstract interpretation is a mathematical technique where different semantics for the same language are connected together by functions that convert collections of concrete values into abstract ones and vice versa, allowing the results and properties of abstract programs to be understood in terms of concrete ones."* - page 338
 
-September 9, 2016
-338
-
+*"Java has a **type and effect system** that tracks not only the types of methods' arguments and return values but also which **checked exceptions** can be thrown by the body of the method (throwing an exception is an **effect**), which is used to ensure that all possible exceptions are either handled or explicitly propagated."* - page 339
 
 
+# Afterword
+
+*"Every computer program is a mathematical object. Syntactically a program is just a large number; semantically it can represent a mathematical function, or a hierarchical structure which can be manipulated by formal reduction rules. This means that many techniques and results from mathematics, like Kleene's recursion theorem or Gödel's incompleteness theorem, can equally be applied to programs."* - page 341
 
 
-Formally, abstract interpretation is a mathematical technique where different semantics for the same language are connected together by functions that convert collections of concrete values into abstract ones and vice versa, allowing the results and properties of abstract programs to be understood in terms of concrete ones.
+*"Computation, which we initially described as just "what a computer does", has turned out to be something of a force of nature. It's tempting to think of computation as a sophisticated human invention that can only be performed by specially-designed systems with many complicated parts, but it also shows up in systems that don't seem complex enough to support it. So computation isn't a sterile, artificial process that only happens inside a microprocessor, but rather a pervasive phenomenon that crops up in many different places and in many different ways."* - page 341
 
-September 9, 2016
-338
-
-
-
-
-
-Java has a type and effect system that tracks not only the types of methods’ arguments and return values but also which checked exceptions can be thrown by the body of the method (throwing an exception is an effect ), which is used to ensure that all possible exceptions are either handled or explicitly propagated.
-
-September 9, 2016
-339
-
-
-
-
-A. Afterword
-
-
-
-Every computer program is a mathematical object. Syntactically a program is just a large number; semantically it can represent a mathematical function, or a hierarchical structure which can be manipulated by formal reduction rules. This means that many techniques and results from mathematics, like Kleene’s recursion theorem or Gödel’s incompleteness theorem, can equally be applied to programs.
-
-September 9, 2016
-341
-
-
-
-
-
-Computation, which we initially described as just “what a computer does,” has turned out to be something of a force of nature. It’s tempting to think of computation as a sophisticated human invention that can only be performed by specially-designed systems with many complicated parts, but it also shows up in systems that don’t seem complex enough to support it. So computation isn’t a sterile, artificial process that only happens inside a microprocessor, but rather a pervasive phenomenon that crops up in many different places and in many different ways.
-
-September 9, 2016
-341
-
-
-
-
-
-Computation is not all-or-nothing. Different machines have different amounts of computational power, giving us a continuum of usefulness: DFAs and NFAs have limited capabilities, DPDAs are more powerful, NPDAs more powerful still, and Turing machines are the most powerful we know of.
-
-September 9, 2016
-341
-
-
--->
+*"Computation is not all-or-nothing. Different machines have different amounts of computational power, giving us a continuum of usefulness: DFAs and NFAs have limited capabilities, DPDAs are more powerful, NPDAs more powerful still, and Turing machines are the most powerful we know of."* - page 341
