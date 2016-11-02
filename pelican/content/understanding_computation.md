@@ -17,9 +17,15 @@ This page collects notes and citations from the book:
 - *"A **language** for writing instructions that the machine can understand"*
 - *"A **program** written in that language, describing the exact computation that the machine should perform"* - page 18
 
+## The Meaning of Programs
+
 *"But computer programming isn't really about **programs**, it's about **ideas**"* - page 20
 
+### The Meaning of "Meaning"
+
 *"semantics is the study of the connection between words and their meanings"* - page 21
+
+### Operational Semantics
 
 
 Expression and Statements:
@@ -63,6 +69,7 @@ Expression and Statements:
 
 *"alternative style of operational semantics, called reduction semantics , which explicitly separates these “what do we reduce next?” and “how do we reduce it?” phases by introducing so-called reduction contexts"* - page 71
 
+## The Simplest Computers
 
 *"each finite automaton has a hardcoded collection of rules that determine how it should move from one state to another in response to input"* - page 73
 
@@ -145,6 +152,7 @@ Expression and Statements:
 
 *"it's possible to convert any nondeterministic finite automaton into a deterministic one that accepts exactly the same strings"* - page 105
 
+## Just Add Power
 
 *"A finite state machine with a built-in stack is called a pushdown automaton (PDA), and when that machine's rules are deterministic, we call it a deterministic pushdown automaton (DPDA)."* - page 122
 
@@ -205,6 +213,7 @@ Expression and Statements:
 
 *"There's a feedback loop between the rules and the stack—the contents of the stack affect which rules the machine can follow, and following a rule will affect the stack contents—which allows a PDA to store away information on the stack that will influence its future execution."* - page 148
 
+## The Ultimate Machine
 
 *"[...] unified rule format has five parts:*
 
@@ -244,6 +253,7 @@ Expression and Statements:
 
 *"[...] hard theoretical constraints: certain problems just can't be solved by any computer, no matter how fast and efficient it is."* - page 182
 
+## Programming with Nothing
 
 Chruch numerals:
 
@@ -297,7 +307,7 @@ Church to boolean:
 
 
 
-# Universality Is Everywhere
+## Universality Is Everywhere
 
 *"Even though any individual Turing machine has a hardcoded rulebook, the universal Turing machine demonstrates that it's possible to design a device that can adapt to arbitrary tasks by reading instructions from a tape. These instructions are effectively a piece of software that controls the operation of the machine's hardware, just like in the general-purpose programmable computers we use every day."* - page 231
 
@@ -309,7 +319,7 @@ Church to boolean:
 *"Since every Turing machine can be simulated by a lambda calculus program, and every lambda calculus program can be simulated by a Turing machine, the two systems are exactly equivalent in power."* - page 234
 
 
-## Partial Recursive Functions
+### Partial Recursive Functions
 
 
 *"partial recursive functions are programs that are constructed from four fundamental building blocks in different combinations.*
@@ -389,24 +399,24 @@ page 246
 *"Cyclic tag systems are extremely limited - they have inflexible rules, only two characters, and the lowest possible deletion number - but surprisingly, it's still possible to use them to simulate any tag system."* - page 260
 
 
-# Impossible Programs
+## Impossible Programs
 
 *"The practical purpose of a computing machine is to perform algorithms. An algorithm is a list of instructions describing some process for turning an input value into an output value, as long as those instructions fulfill certain criteria:*
 
 
-### Finiteness
+Finiteness:
 
 *There are a finite number of instructions.*
 
-### Simplicity
+Simplicity:
 
 *Each instruction is simple enough that it can be performed by a person with a pencil and paper without using any ingenuity.*
 
-### Termination
+Termination:
 
 *A person following the instructions will finish within a finite number of steps for any input.*
 
-### Correctness
+Correctness:
 
 *A person following the instructions will produce the right answer for any input.*
 
@@ -424,12 +434,12 @@ page 274
 *"The idea that any algorithm can be performed by a machine - specifically a deterministic Turing machine - is called the **Church–Turing thesis**, and although it's just a conjecture rather than a proven fact, it has enough evidence in its favor to be generally accepted as true.*" - page 277
 
 
-## Code Is Data
+### Code Is Data
 
 *"programs can be represented as data so that they can be used as input to other programs; it's the unification of code and data that makes software possible in the first place."* - page 279
 
 
-## Universal Systems Can Loop Forever
+### Universal Systems Can Loop Forever
 
 *"any system that's powerful enough to be universal will inevitably allow us to construct computations that loop forever without halting."* - page 281
 
@@ -445,7 +455,7 @@ page 274
 *"a fundamental mathematical result called **Kleene's second recursion theorem**, which guarantees that any program can be converted into an equivalent one that is able to calculate its own source code."* - page 288
 
 
-## Decidability
+### Decidability
 
 *"A decision problem is any question with a yes or no answer"*
 
@@ -454,7 +464,7 @@ page 274
 *"There are many decision problems - **infinitely** many - and it turns out that a lot of them are undecidable: there is no guaranteed-to-halt algorithm for solving them. Each of these problems is undecidable not because we just haven't found the right algorithm for it yet, but because the problem itself is fundamentally impossible to solve for some inputs, and we can even prove that no suitable algorithm will ever be found."* - page 294
 
 
-## The Halting Problem
+### The Halting Problem
 
 *"the **halting problem**, is the task of deciding whether the execution of a particular Turing machine with a particular initial tape will ever halt."* - page 295
 
@@ -467,16 +477,16 @@ page 274
 *"every pushdown automaton has an equivalent context-free grammar and vice versa; any CFG can be rewritten in Chomsky normal form; and any CFG in that form must take exactly 2n − 1 steps to generate a string of length n."* - page 312
 
 
-# Programming in Toyland
+## Programming in Toyland
 
-## Abstract Interpretation
+### Abstract Interpretation
 
 *"The main idea of abstract interpretation is to use an **abstraction**, a model of the real problem that discards enough detail to make it manageable - perhaps by making it smaller, simpler, or by eliminating unknowns - but that also retains enough detail to make its solution relevant to the original problem."* - page 315
 
 
 *"A lot of the time, it's fine for a result to be imprecise, but for an abstraction to be useful, it's important that this imprecision is **safe**. Safety means that the abstraction always tells the truth: the result of an abstract computation must agree with the result of its concrete counterpart. If not, the abstraction is giving us unreliable information and is probably worse than useless."* - page 321
 
-## Static Semantics
+### Static Semantics
 
 *"[...] **dynamic semantics** of programming languages, a way of specifying the meaning of code when it's executed; a language's **static semantics** tells us about properties of programs that we can investigate without executing them. The classic example of static semantics is a **type system**"* - page 327
 
