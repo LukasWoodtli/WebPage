@@ -349,7 +349,7 @@ Church to boolean:
 *With **minimize**, it's possible to fully simulate a Turing machine by repeatedly calling the primitive recursive function that performs a single simulation step. The simulation will continue until the machine halts - and if that never happens, it'll run forever.* - pages 235 - 238
 
 
-## SKI Combinator Calculus
+### SKI Combinator Calculus
 
 *"The SKI calculus is even simpler, with only two kinds of expression-calls and alphabetic **symbols**-and much easier rules. All of its power comes from the three special symbols `S`, `K`, and `I` (called **combinators**), each of which has its own reduction rule:*
 
@@ -369,7 +369,7 @@ page 239
 
 *`S[K][K]` has the same behavior as `I`, and in fact, that's true for any SKI expression of the form `S[K][whatever]`. The `I` combinator is syntactic sugar that we can live without; just the two combinators `S` and `K` are enough for universality."* - pages 245-246
 
-## Iota
+### Iota
 
 *"iota (`ɩ`) is an extra combinator that can be added to the SKI calculus. Here is its reduction rule: Reduce `ɩ[a]` to `a[S][K]`."* - page 246
 
@@ -385,7 +385,7 @@ page 239
 page 246
 
 
-## Tag Systems
+### Tag Systems
 
 *"a tag system operates on a string by repeatedly adding new characters to the end of the string and removing them from the beginning."* - page 248
 
