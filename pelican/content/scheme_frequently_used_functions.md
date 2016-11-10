@@ -43,9 +43,9 @@ The `map` function can be applied on multiple lists:
 *For example:*"
 
     :::scheme
-    (map + 
-        (list 1 2 3) 
-        (list 40 50 60) 
+    (map +
+        (list 1 2 3)
+        (list 40 50 60)
         (list 700 800 900))
     >>> (741 852 963)
 
@@ -59,7 +59,7 @@ The `map` function can be applied on multiple lists:
 - `(for-each fun lst)`: applies a function `fun` to each element in the list `lst` but doesn't create a new list. The return value of the function is ignored.
 
 
-*"The procedure `for-each` is similar to map. It takes as arguments a procedure and a list of elements. However, rather than forming a list of the results, `for-each` just applies the procedure to each of the elements in turn, from left to right. The values returned by applying the procedure to the elements are not used at all - `for-each` is used with procedures that perform an action, such as printing."* 
+*"The procedure `for-each` is similar to map. It takes as arguments a procedure and a list of elements. However, rather than forming a list of the results, `for-each` just applies the procedure to each of the elements in turn, from left to right. The values returned by applying the procedure to the elements are not used at all - `for-each` is used with procedures that perform an action, such as printing."*
 
 [SICP:2.2.1  Representing Sequences:Exercise 2.23](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.1)
 
@@ -82,6 +82,7 @@ If `reduce` is not available (e.g in Racket) it can be defined in terms of `fold
 
 [Stack Overflow](http://stackoverflow.com/a/25211454/1272072)
 
+- `(memq  v lst)`: find element `v` in list `lst` and return the rest of the list starting at the found element. If element is not found `#f` is returned. Similar functions: `member`, `memv`, `memf`
 
 ## Dotted-tail Notation
 
@@ -92,5 +93,3 @@ Example:
     :::scheme
     (define (x a b . c) ...)
     (x 1 2 3 4 5) ;; in the body of x: a=1, b=2, c='(3 4 5)
-
-
