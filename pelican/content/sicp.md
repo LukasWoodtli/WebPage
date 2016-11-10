@@ -1,4 +1,3 @@
-﻿
 Title: Structure and Interpretation of Computer Programs
 Date: 2016-11-10
 Category: Programming
