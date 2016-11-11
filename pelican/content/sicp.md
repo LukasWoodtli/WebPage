@@ -56,22 +56,22 @@ Notes to the book
 #### Let
 *"we could use a lambda expression to specify an anonymous procedure for binding our local variables*
 
-*The general form of a let expression is*
+*The general form of a `let` expression is*
 
-       :::scheme
-       (let
-         ((⟨var ₁⟩ ⟨exp ₁⟩)
-          (⟨var ₂⟩ ⟨exp ₂⟩)
-          …
-          (⟨var n⟩ ⟨exp n⟩))
-       ⟨ body⟩)
+    :::scheme
+    (let
+       ((<var 1> <exp 1>)
+        (<var 2> <exp 2>)
+        ...
+        (<var n> <exp n>))
+      <body>)
 
-*the let expression is interpreted as an alternate syntax for*
+*the `let` expression is interpreted as an alternate syntax for*
 
-       :::scheme
-       (( lambda ( ⟨ var ₁ ⟩ … ⟨ var n ⟩ )
-         ⟨ body ⟩ )
-         ⟨ exp ₁ ⟩ … ⟨ exp n ⟩ )
+    :::scheme
+    ((lambda (<var 1> ... <var n>)
+      <body>)
+        <exp n> ... <exp n>)
 
 *No new mechanism is required in the interpreter in order to provide local variables. A `let` expression is simply syntactic sugar for the underlying lambda application."*
 
@@ -99,14 +99,14 @@ Notes to the book
 *"we could implement `cons`, `car`, and `cdr` without using any data structures at all but only using procedures. Here are the definitions:*
 
        :::scheme
-       ( define ( cons x y )
-          ( define ( dispatch m )
-              ( cond (( = m 0 ) x )
-                  (( = m 1 ) y )
-                      ( else ( error "Argument not 0 or 1: CONS" m )))) dispatch )
+       (define (cons x y)
+          (define (dispatch m)
+              (cond ((= m 0) x)
+                  ((= m 1) y)
+                      (else (error "Argument not 0 or 1: CONS" m)))) dispatch)
 
-       ( define ( car z ) ( z 0 ))
-       ( define ( cdr z ) ( z 1 ))
+       (define (car z)(z 0))
+       (define (cdr z) (z 1))
 
 ## Hierarchical Data and the Closure Property
 
