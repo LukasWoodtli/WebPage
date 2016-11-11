@@ -53,7 +53,12 @@ Notes to the book
 
 *"any iterative process can be realized 'in hardware' as a machine that has a fixed set of registers and no auxiliary memory. In contrast, realizing a recursive process requires a machine that uses an auxiliary data structure known as a **stack**."*
 
-#### Let
+
+## Formulating Abstractions with Higher-Order Procedures
+### Constructing Procedures Using `lambda`
+
+#### Using `let` to create local variables
+
 *"we could use a lambda expression to specify an anonymous procedure for binding our local variables*
 
 *The general form of a `let` expression is*
@@ -71,14 +76,14 @@ Notes to the book
     :::scheme
     ((lambda (<var 1> ... <var n>)
       <body>)
-        <exp n> ... <exp n>)
+        <exp 1>
+        ...
+        <exp n>)
 
 *No new mechanism is required in the interpreter in order to provide local variables. A `let` expression is simply syntactic sugar for the underlying lambda application."*
 
 *"`Let` allows one to bind variables as locally as possible to where they are to be used."*
 
-
-## Formulating Abstractions with Higher-Order Procedures
 
 #### Abstractions and first-class procedures
 
@@ -103,7 +108,8 @@ Notes to the book
       (define (dispatch m)
           (cond ((= m 0) x)
               ((= m 1) y)
-                  (else (error "Argument not 0 or 1: CONS" m)))) dispatch)
+                  (else (error "Argument not 0 or 1: CONS" m))))
+       dispatch)
 
     (define (car z)(z 0))
     (define (cdr z) (z 1))
