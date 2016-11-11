@@ -98,15 +98,15 @@ Notes to the book
 
 *"we could implement `cons`, `car`, and `cdr` without using any data structures at all but only using procedures. Here are the definitions:*
 
-       :::scheme
-       (define (cons x y)
-          (define (dispatch m)
-              (cond ((= m 0) x)
-                  ((= m 1) y)
-                      (else (error "Argument not 0 or 1: CONS" m)))) dispatch)
+    :::scheme
+    (define (cons x y)
+      (define (dispatch m)
+          (cond ((= m 0) x)
+              ((= m 1) y)
+                  (else (error "Argument not 0 or 1: CONS" m)))) dispatch)
 
-       (define (car z)(z 0))
-       (define (cdr z) (z 1))
+    (define (car z)(z 0))
+    (define (cdr z) (z 1))
 
 ## Hierarchical Data and the Closure Property
 
