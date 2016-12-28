@@ -43,8 +43,3 @@ https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html
 # Computation
 
 [Udacity: Programming Languages](https://classroom.udacity.com/courses/cs262)
-
-
-# Mathematics
-
-[Udacity: Intro to Statistics](https://classroom.udacity.com/courses/st101)
