@@ -52,10 +52,10 @@ MARKDOWN = {
             'extension_configs': {
                         'markdown.extensions.codehilite': {'css_class': 'highlight'},
                         'markdown.extensions.extra': {},
-                        'markdown.extensions.sane_list': {},
+                        'markdown.extensions.sane_lists': {},
                         'markdown.extensions.toc': {},
                         'markdown.extensions.footnotes': {},
-                        'markdown.extensions.attr_list': {},
+                        'markdown.extensions.attr_list': {}
             },
             'output_format': 'html5',
 }
