@@ -43,3 +43,22 @@ https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html
 # Computation
 
 [Udacity: Programming Languages](https://classroom.udacity.com/courses/cs262)
+
+# Parsers
+[Language Implementation Patterns](https://pragprog.com/book/tpdsl/language-implementation-patterns)
+
+
+[Getting Started with LLVM Core Libraries](https://www.packtpub.com/mapt/book/application_development/9781782166924/1/ch01lvl1sec10/Obtaining+prebuilt+packages)
+
+# C++
+
+Modern C++ Design
+
+[Boost C++ Application Development Cookbook
+](https://www.packtpub.com/mapt/book/All%20Books/9781849514880)
+
+# Embedded Systems
+
+[ARM® Cortex® M4 Cookbook](https://www.packtpub.com/mapt/book/hardware_and_creative/9781782176503/1/ch01lvl1sec10/Installing+uVision5)
+
+FreeRTOS Book
