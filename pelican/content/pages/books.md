@@ -30,6 +30,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Mastering Regular Expressions                     | Jeffrey E.F. Friedl                               | O'Reilly                                          |
+| Mastering Python Regular Expressions              | Félix López, Víctor Romero                        | Packt Publishing                                  |
 | Seven Concurrency Models [...]                    | Paul Butcher                                      | The Pragmatic Bookshelf                           |
 | Mastering CMake                                   | Ken Martin, Bill Hofmann                          | Kitware                                           |
 | Language Implementation Patterns                  | Terence Parr                                      | The Pragmatic Bookshelf                           |
@@ -49,6 +50,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Using the FreeRTOS Real Time Kernel               | Richard Barry                                     | Richard Barry                                     |
 | FreeRTOS Reference Manual                         | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
 | [Linux-UNIX-Programmierung](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/index.htm) | Jürgen Wolf | Rheinwerk                            |
+| [Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/index.htm)           | Jürgen Wolf | Rheinwerk                            |
 | TCP/IP für Dummies                                | Candace Leiden, Marshall Wilensky                 | Wiley-VCH Verlag GmbH                             |
 
 
@@ -66,6 +68,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Version Control with Git                          | Jon Loeliger                                      | O'Reilly                                          |
+| [Pro Git](https://git-scm.com/book/en/v2)         | Scott Chacon, Ben Straub                          | Apress                                            | 
 | Version Control with Subversion                   | C. Michael Pilato et al.                          | O'Reilly                                          |
 
 

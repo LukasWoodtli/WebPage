@@ -48,7 +48,17 @@ home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
 PLUGINS = ["render_math", "pelican-bootstrapify"] # "better_tables"
 
-MD_EXTENSIONS = ['codehilite(css_class=highlight)','extra', 'sane_lists', 'toc', 'footnotes', 'attr_list']
+MARKDOWN = {
+            'extension_configs': {
+                        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+                        'markdown.extensions.extra': {},
+                        'markdown.extensions.sane_lists': {},
+                        'markdown.extensions.toc': {},
+                        'markdown.extensions.footnotes': {},
+                        'markdown.extensions.attr_list': {}
+            },
+            'output_format': 'html5',
+}
 
 DOCUTILS_SETTINGS = {'table_style' : 'borderless'} # 'math_output': 'mathjax'
 
