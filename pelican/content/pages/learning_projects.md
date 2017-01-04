@@ -40,11 +40,10 @@ https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html
 
 [Shell scripting](http://openbook.rheinwerk-verlag.de/shell_programmierung/)
 
-# Computation
+# Computation and Parsers
 
 [Udacity: Programming Languages](https://classroom.udacity.com/courses/cs262)
 
-# Parsers
 [Language Implementation Patterns](https://pragprog.com/book/tpdsl/language-implementation-patterns)
 
 
@@ -62,3 +61,9 @@ Modern C++ Design
 [ARM® Cortex® M4 Cookbook](https://www.packtpub.com/mapt/book/hardware_and_creative/9781782176503/1/ch01lvl1sec10/Installing+uVision5)
 
 FreeRTOS Book
+
+# Git
+
+[Pro Git](https://git-scm.com/book/en/v2)
+
+Version Control with Git (O'Reilly)
