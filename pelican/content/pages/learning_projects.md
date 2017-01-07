@@ -8,19 +8,13 @@ The page is meant for my own reference.
 
 [TOC]
 
-# Lisp
-
-## Scheme
+# Scheme
 
 Structure and Interpretation of Computer Programs
 
 MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/4a-pattern-matching-and-rule-based-substitution/)
 
 My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
-
-<!-- ## Common Lisp
-[ELM Art](http://art2.ph-freiburg.de/Lisp-Kurs) -->
-
 
 
 # Operating Systems
@@ -34,7 +28,7 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
 ### Systems Programming
 
-https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html
+[IC221: Systems Programming (SP16)](https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html)
 
 ### Shell
 
@@ -53,8 +47,7 @@ https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html
 
 Modern C++ Design
 
-[Boost C++ Application Development Cookbook
-](https://www.packtpub.com/mapt/book/All%20Books/9781849514880)
+[Boost C++ Application Development Cookbook](https://www.packtpub.com/mapt/book/All%20Books/9781849514880)
 
 # Embedded Systems
 
