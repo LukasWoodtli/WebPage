@@ -43,7 +43,7 @@ Expression and Statements:
 
 *"small-step semantics has a mostly iterative flavor, requiring the abstract machine to repeatedly perform reduction steps"* - page 45
 
-*"recursive rather than an iterative process"* - page 46
+*"[Big-step semantics:] recursive rather than an iterative process"* - page 46
 
 - Small-step semantics: iterative
 - Big-step semantics: recursive
@@ -127,7 +127,7 @@ Expression and Statements:
 - *"Some extra free moves to connect each of the first NFA's old accept states to the second NFA's old start state"* - page 98
 
 
-*"We can use a similar strategy to convert a Choose expression into an NFA."* - page 98
+*"We can use a similar strategy to convert a* `Choose` *expression into an NFA."* - page 98
 
 - *"A new start state"*
 - *"All the accept states from both NFAs"*
@@ -136,7 +136,7 @@ Expression and Statements:
 
 
 
-*"This time we need:*
+*"We can do the same for any NFA [...]. This time we need:*
 
 - *A new start state, which is also an accept state*
 - *All the accept states from the old NFA*
@@ -157,17 +157,20 @@ Expression and Statements:
 *"A finite state machine with a built-in stack is called a pushdown automaton (PDA), and when that machine's rules are deterministic, we call it a deterministic pushdown automaton (DPDA)."* - page 122
 
 *"[...] a PDA rule into five parts:*
+
 - *The current state of the machine*
 - *The character that must be read from the input (optional)*
 - *The next state of the machine*
 - *The character that must be popped off the stack*
-- *The sequence of characters to push onto the stack after the top character has been popped off"* - page 123
+- *The sequence of characters to push onto the stack after the top character has been popped off"*
+
+page 123
 
 
 *"The assumption is that a PDA will always pop the top character off the stack, and then push some other characters onto the stack, every time it follows a rule. Each rule declares which character it wants to pop, and the rule will only apply when that character is on the top of the stack; if the rule wants that character to stay on the stack instead of getting popped, it can include it in the sequence of characters that get pushed back on afterward."* - page 123
 
 
-*"[...] bottom of the stack—the dollar sign, `$` , is a popular choice"* - page 124
+*"[...] mark the bottom of the stack—the dollar sign,* `$`, *is a popular choice"* - page 124
 
 
 *"there are two important things to know about a pushdown automaton at each step of its computation: what its current state is, and what the current contents of its stack are. If we use the word **configuration** to refer to this combination of a state and a stack, we can talk about a pushdown automaton moving from one configuration to another as it reads input characters"* - page 126
@@ -214,6 +217,8 @@ Expression and Statements:
 *"There's a feedback loop between the rules and the stack—the contents of the stack affect which rules the machine can follow, and following a rule will affect the stack contents—which allows a PDA to store away information on the stack that will influence its future execution."* - page 148
 
 ## The Ultimate Machine
+
+Turing machine:
 
 *"[...] unified rule format has five parts:*
 
@@ -287,7 +292,7 @@ Church to boolean:
 *"In languages like Ruby, the `if`-`else` statement is nonstrict (or **lazy**): we give it a condition and two blocks, and it evaluates the condition to decide which of the two blocks to evaluate and return — it never evaluates both."* - page 200
 
 
-*"Ruby [...] evaluates both arguments before IF gets a chance to decide which one to return."* - page 200
+*"Ruby [...] evaluates both arguments before* `IF` *gets a chance to decide which one to return."* - page 200
 
 
 *"we can easily implement lists that calculate their contents on the fly, also known as **streams**. In fact, there's no reason why streams even need to be finite, because the calculation only has to generate the list contents as they're consumed"* - page 215
@@ -301,9 +306,7 @@ Church to boolean:
 
 *"function calls are the only kind of syntax that can be reduced."* - page 225
 
-
-
-*"You might protest that `3 - 5 = 0` isn't called "subtraction" where you come from, and you'd be right: the technical name for this operation is  "monus", because the nonnegative integers under addition form a commutative monoid instead of a proper abelian group." - page 229
+*"You might protest that* `3 - 5 = 0` *isn't called "subtraction" where you come from, and you'd be right: the technical name for this operation is  "monus", because the nonnegative integers under addition form a commutative monoid instead of a proper abelian group."* - page 229
 
 
 
@@ -351,7 +354,7 @@ Church to boolean:
 
 ### SKI Combinator Calculus
 
-*"The SKI calculus is even simpler, with only two kinds of expression-calls and alphabetic **symbols**-and much easier rules. All of its power comes from the three special symbols `S`, `K`, and `I` (called **combinators**), each of which has its own reduction rule:*
+*"The SKI calculus is even simpler, with only two kinds of expression - calls and alphabetic **symbols** - and much easier rules. All of its power comes from the three special symbols `S`, `K`, and `I` (called **combinators**), each of which has its own reduction rule:*
 
 - *Reduce `S[a][b][c]` to `a[c][b[c]]`, where `a`, `b`, and `c` can be any SKI calculus expressions.*
 - *Reduce `K[a][b]` to `a`.*
