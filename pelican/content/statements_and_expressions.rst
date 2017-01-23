@@ -9,6 +9,15 @@ Statements and Expressions
 
 "The purpose of an expression is to be evaluated to produce another expression; a statement, on the other hand, is evaluated to make some change to the state of the abstract machine." [Tom Stuart, Understanding Computation]
 
+Statements often contain expressions but not the other way around.
+
+   stmt
+---------
+x = 1 + 2
+    -----
+     exp
+
+
 Expressions (Ausdruck)
 ======================
 
