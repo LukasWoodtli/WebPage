@@ -11,11 +11,13 @@ Statements and Expressions
 
 Statements often contain expressions but not the other way around.
 
+<!--
    stmt
 ---------
 x = 1 + 2
     -----
      exp
+-->
 
 
 Expressions (Ausdruck)
