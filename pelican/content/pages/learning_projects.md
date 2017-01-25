@@ -36,12 +36,8 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
 # Computation and Parsers
 
-[Udacity: Programming Languages](https://classroom.udacity.com/courses/cs262)
-
 [Language Implementation Patterns](https://pragprog.com/book/tpdsl/language-implementation-patterns)
 
-
-[Getting Started with LLVM Core Libraries](https://www.packtpub.com/mapt/book/application_development/9781782166924/1/ch01lvl1sec10/Obtaining+prebuilt+packages)
 
 # C++
 
