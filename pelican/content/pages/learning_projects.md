@@ -30,10 +30,6 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
 [IC221: Systems Programming (SP16)](https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html)
 
-### Shell
-
-[Shell scripting](http://openbook.rheinwerk-verlag.de/shell_programmierung/)
-
 # Computation and Parsers
 
 [Language Implementation Patterns](https://pragprog.com/book/tpdsl/language-implementation-patterns)
