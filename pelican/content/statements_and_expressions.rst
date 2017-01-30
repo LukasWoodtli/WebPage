@@ -11,14 +11,7 @@ Statements and Expressions
 
 Statements often contain expressions but not the other way around.
 
-<!--
-   stmt
----------
-x = 1 + 2
-    -----
-     exp
--->
-
+$$\underbrace{x = \overbrace{1 + 2}^{\text{expression}}}_{\text{statement}}$$
 
 Expressions (Ausdruck)
 ======================
