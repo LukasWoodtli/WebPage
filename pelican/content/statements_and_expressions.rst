@@ -11,7 +11,8 @@ Statements and Expressions
 
 Statements often contain expressions but not the other way around.
 
-$$\underbrace{x = \overbrace{1 + 2}^{\text{expression}}}_{\text{statement}}$$
+.. math::
+    \underbrace{x = \overbrace{1 + 2}^{\text{expression}}}_{\text{statement}}
 
 Expressions (Ausdruck)
 ======================
