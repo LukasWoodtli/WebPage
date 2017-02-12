@@ -2,7 +2,7 @@ Title: Modern OS's
 Category: Programming
 Tags: Computer Science, OS
 Date: 2015-04-01
-Modified: 2015-04-11
+Modified: 2017-01-12
 
 This page collects some notes about different Operating System approaches.
 
@@ -31,9 +31,9 @@ Overview of Kernels
 | FreeRTOS   | Microkernel (RTOS)         | C, Assembly          | Real Time OS. Mainly for embedded systems.                               |
 | UNIX       | Monolithic                 | C, Assembly          | Original: AT&T Unix.                                                     |
 | L3         | Microkernel                | ELAN                 | Predecessor of L4.                                                       |
-| Barrelfish |                            | C                    | Special aproach.                                                         |
+| Barrelfish | "Multikernel"              | C                    | Special aproach.                                                         |
 | Mac OS 9   | Microkernel (Nanokernel)   | ?                    | Legacy                                                                   |
-| QNX        | Microkernel                | ?                    | CPUs: x86, MIPS, PowerPC, SH-4, ARM, StrongARM und xScale
+| QNX        | Microkernel (RTOS)         | ?                    | Unix-Like (POSIX), Qt supported. |
 | VxWorks    | Monolithic (RTOS)          | ?                    |                                                                          |
 
 
@@ -400,4 +400,3 @@ The Locks are stored in a linked list.
 Synchronization for adding and removing clients to a lock.
 
 Published by [John M. Mellor-Crummey and Michael L. Scott (MCS)](http://www.cs.rice.edu/~johnmc/papers/tocs91.pdf)
-
