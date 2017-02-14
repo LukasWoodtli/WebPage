@@ -16,17 +16,11 @@ MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-co
 
 My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
-
-# Operating Systems
-[Udacity: Advanced Operating Systems](https://classroom.udacity.com/courses/ud189/)
-
-## Linux/UNIX
-
-### Application Development
+# Linux/UNIX Application Development
 
 [Linux-UNIX-Programmierung (Rheinwerk/Galileo)](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/Kap02-002.htm#t2t310)
 
-### Systems Programming
+# Linux Systems Programming
 
 [IC221: Systems Programming (SP16)](https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/cal.html)
 
