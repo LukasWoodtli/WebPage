@@ -31,7 +31,7 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
 # C++
 
-Modern C++ Design
+[Modern C++ Design](https://play.google.com/books/reader?printsec=frontcover&output=reader&id=vV-ACgAAAEAJ&pg=GBS.PA25)
 
 [Boost C++ Application Development Cookbook](https://www.packtpub.com/mapt/book/All%20Books/9781849514880)
 
@@ -39,7 +39,7 @@ Modern C++ Design
 
 [ARM® Cortex® M4 Cookbook](https://www.packtpub.com/mapt/book/hardware_and_creative/9781782176503/1/ch01lvl1sec10/Installing+uVision5)
 
-FreeRTOS Book
+[FreeRTOS Book](https://www.dropbox.com/s/dxcag8v4gv0ew9c/Using%20the%20FreeRTOS%20Real%20Time%20Kernel%20-%20A%20Practical%20Guide.pdf?dl=0)
 
 # Git
 
