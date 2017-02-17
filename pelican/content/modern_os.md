@@ -400,3 +400,11 @@ The Locks are stored in a linked list.
 Synchronization for adding and removing clients to a lock.
 
 Published by [John M. Mellor-Crummey and Michael L. Scott (MCS)](http://www.cs.rice.edu/~johnmc/papers/tocs91.pdf)
+
+# Parallel Architectures
+
+- [Symmetric multiprocessing (SMP)](https://en.wikipedia.org/wiki/Symmetric_multiprocessing)
+- [Non-uniform memory access (NUMA)](https://en.wikipedia.org/wiki/Non-Uniform_Memory_Access)
+- [Cache coherence](https://en.wikipedia.org/wiki/Cache_coherence)
+- [Computer cluster](https://en.wikipedia.org/wiki/Computer_cluster)
+
