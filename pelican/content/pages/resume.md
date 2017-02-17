@@ -9,26 +9,14 @@ Zürich
 # Nationality
 Swiss, Czech
 
-# Actual Education
-[Certificate Program in Computer Science (CAS-INFK)](https://www.inf.ethz.ch/continuing-education/certificate-program.html)
-
-## Courses
-
-- Concepts of Object-Oriented Programming
-- System Construction
-- Hardware/Software Codesign
-- Principles of Distributed Computing
-- Object Databases
-- Models of Computation
-
-
-# Latest Job
-Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit processors.
+# Actual Job
+Software Developer C++ on Linux.
 
 # Work Experience
 
 | Time             | Occupation
 |------------------|---------------------------------------------------
+| 2016 - now       | Software engineer C++ on Linux, Profidata AG
 | 2010 - 2015      | Senior firmware/software engineer, Kaba AG, Wetzikon
 | 2010 (4 months)  | Software engineer, Codecheck Zürich
 | 2010 (6 months)  | Internship as software engineer, development with Qt on Windows and Linux, Schiller AG Baar
@@ -38,6 +26,7 @@ Senior Embedded Software/Firmware Developer. C and C++ on 8 bit and 32 bit proce
 # Education
 | Years:         |                                                                                          |
 |----------------|------------------------------------------------------------------------------------------|
+| 2015 - 2016    | [Certificate Program in Computer Science (CAS-INFK)](https://www.inf.ethz.ch/continuing-education/certificate-program.html) |
 | 2004 - 2009    | Bachelor of Electrical Engineering, [University of Applied Science Zürich (ZHAW)](http://www.zhaw.ch) |
 | 2003 - 2004    | Teacher Training College, PH Zürich                                                      |
 | 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
