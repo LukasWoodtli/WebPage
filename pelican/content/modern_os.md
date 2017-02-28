@@ -22,7 +22,7 @@ Overview of Kernels
 
 | Kernel     | Type                       | Programming Language | Notes                                                                    |
 |------------|----------------------------|----------------------|--------------------------------------------------------------------------|
-| SPIN       | Microkernel (Mach-like)    | Modula-3             | Special approach.                                                        |
+| [SPIN](https://en.wikipedia.org/wiki/SPIN_(operating_system))       | Microkernel (Mach-like)    | Modula-3             | Special approach.                                                        |
 | Linux      | Monolithic (modular)       | C, Assembly          | Loadable kernel modules allow loading extensions (drivers) at runtime.   |
 | XNU        | Hybrid                     | C, C++               | Kernel of OS X. Mach-3.0 and FreeBSD combined.                           |
 | BSD        | Monolithic                 | C                    | FreeBSD, OpenBSD, NetBSD...                                              |
@@ -35,7 +35,14 @@ Overview of Kernels
 | Mac OS 9   | Microkernel (Nanokernel)   | ?                    | Legacy                                                                   |
 | QNX        | Microkernel (RTOS)         | ?                    | Unix-Like (POSIX), Qt supported. |
 | VxWorks    | Monolithic (RTOS)          | ?                    |                                                                          |
+| [Spring](https://en.m.wikipedia.org/wiki/Spring_(operating_system))
+    | Microkernel          | independent (CORBA IDL)  | Solaris emulation, OOP design, doors ... |
 
+
+# Other OS's:
+
+- [Nucleus RTOS](https://en.m.wikipedia.org/wiki/Nucleus_RTOS)
+- [ChorusOS](https://en.m.wikipedia.org/wiki/ChorusOS)
 
 
 Sharing Resources
@@ -408,3 +415,197 @@ Published by [John M. Mellor-Crummey and Michael L. Scott (MCS)](http://www.cs.r
 - [Cache coherence](https://en.wikipedia.org/wiki/Cache_coherence)
 - [Computer cluster](https://en.wikipedia.org/wiki/Computer_cluster)
 
+
+
+
+OS:
+
+# Spring
+
+[Wikipedia:Spring (operating system)](https://en.m.wikipedia.org/wiki/Spring_(operating_system))
+
+[An Overview of the Spring System](https://www.cs.fsu.edu/~awang/courses/cop5611_s2004/spring.pdf)
+
+- Indepentant of programming language (CORBA IDL)
+- OOP
+- Microkernel
+- Spring Nucleus: secure objects with high speed object invocation between address spaces and networked machines
+- Object managers:
+    - e.g. file system: file objects
+    - running in non-kernel mode
+    - like server
+- IDL (CORBA) Generate:
+        1. Interface (e.g. header file)
+        2. Client side stub code: get access to object implemented in other address space or machine
+        3. Server side stub code: used by object manager to translate remote object invocations into the run-time environment of object implementation
+- Serverless objects
+    - entire state of object always in clients address space
+    - passing to other address space: copy entire state
+- Subcontracts
+    - plugging different kinds of object runtimes
+    - control how
+        - object invocation is implemented
+        - object references are transmitted between address spaces
+        - object references are released
+        - ...
+    - Subcontracts
+        - Singleton
+        - Replication
+        - Cheap objects
+        - Caching
+        - Crash recovery
+        - ...
+
+## Overall System Structure
+
+- Microkernel
+    - Processes, IPC and Memory management part of kernel (Liedtke)
+- Kernel mode
+    - Nucleus: processes and IPC
+        - Entered by trap mechanism
+    - Virtual Memory Manager
+        - page faults
+        - external pagers (looks like any other object server)
+        - ...
+- All other system services implemented as user-level servers
+    - naming
+    - paging
+    - network IO
+    - file systems
+    - keyboard management
+    - ...
+- inherently distributed: all services and objects available on one node are also a available on other nodes in the distributed system
+
+## Nucleus
+
+- Three basic abstractions: domains, threads and doors
+- No memory management
+- Domains
+    - analogous to processes in Unix or tasks in Mach
+    - address space for applications
+    - resources: threads, doors, ...
+- Threads
+    - execute within domains
+- Doors
+    - Cross domain calls
+    - OOP calls between domains
+    - entry points to domains
+    - represented by a PC and a unique value (nominated by domain)
+    - unique value used by object server to identify state of object
+    - unique value might be a C++ pointer
+
+### Doors
+
+- pieces of protected nucleus state
+- each domain has a table with doors it has access to
+- refers to doors using *door identifiers*
+- same door may be referenced by several different door identifiers in different domains
+- possesion of door: right to send invocation request to door
+- valid door can be obtained with consent of
+    - target domain
+    - someone who already has door identifier to that door
+- doors can be passed as arguments or be returned as values from functions
+
+
+### Object invocations via Doors
+
+- cross-address-space invocation
+- Algorithm
+    1. nucleus allocates server thread in target address space
+    2. nucleus transfers control to that thread, passing information about door and the arguments of the invoked method
+    3. when the called thread returns:
+        - deactivation of the thread
+        - activation of caller thread
+        - passing return data
+
+
+## Network Proxies
+
+rovide object invocation across network
+- connect nuclei of different machines transparently
+- proxies are normal user-mode domains (no special support from nucleus)
+- client and server need not to be aware that proxies exist: normal door invocation
+
+## Security model
+
+- secure access to objects
+- two basic security mechanisms:
+    - Access Control Lists
+    - software capabilities
+- invocations are controlled by nucleus doors and front objects
+
+## Virtual Memory
+
+- demand-paged virtual memory system
+- per machine virtual memory manager (VMM) handles local memory:
+    - mapping
+    - sharing
+    - protection
+    - transfer
+    - caching
+- depends on *external pagers* for accessing store and maintaining inter-machine coherency
+- *Address Space* and *Memory* objects used by clients
+- Adress Space:
+    - virtual address space of domain
+    - implemented by VMM
+- Memory
+    - abstraction of memory that can be mapped to address space
+    - can be a file
+    - operations to set and query length and bind
+    - no read/write or page-in/out operations
+- Separating memory from interface for paging
+    - useful for implementing filesystem
+    - Memory Object server can be on different machine than the Pager Object server
+
+### Cache and Pager Objects
+
+- two-way connection between the VMMs and external pagers
+-  cache must be coherent between more than one VMM
+- VMM obtains data by invoking pager object implemented by external pager
+- external pager performs coherency actions by invoking cache object implemented by a VMM
+- the coherency protocol is not specified by the architecture: external pagers can implement  any coherency protocol
+
+## File System
+
+- file objects implemented by fileserver
+- file objects may be memory mapped
+- access to files on local disks or over the network
+- Spring security and naming architectures to provide access control and directory services
+- Spring file system typically consists of several layered file servers
+
+## Spring Naming
+
+- Naming for:
+    - users
+    - files
+    - printers
+    - machines
+    - services
+    - ...
+- uniform name service
+- any object can be bound to any name
+- Object can be:
+    - local to a process
+    - local to a machine
+    - resident on the network
+    - transient or persistent
+    - standard system object
+    - process environment object
+    - user specific object
+- new name spaces  can be compose of different name spaces
+- name service allows objects to be associated with a name in a context
+- objects need not be bound to a name
+- naming graph (name space):
+    - a directed graph
+    - nodes with outgoing edges are contexts
+- naming provide persistence
+- access control and authentication
+
+## UNIX Emulation
+
+- Spring can run Solaris binaries
+- implemented by user-level code
+- contains no UNIX code
+- two components:
+    - a shared library (libue.so), dynamically linked with each Solaris binary
+    - a set of UNIX-specific services
