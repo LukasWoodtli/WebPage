@@ -35,8 +35,7 @@ Overview of Kernels
 | Mac OS 9   | Microkernel (Nanokernel)   | ?                    | Legacy                                                                   |
 | QNX        | Microkernel (RTOS)         | ?                    | Unix-Like (POSIX), Qt supported. |
 | VxWorks    | Monolithic (RTOS)          | ?                    |                                                                          |
-| [Spring](https://en.m.wikipedia.org/wiki/Spring_(operating_system))
-    | Microkernel          | independent (CORBA IDL)  | Solaris emulation, OOP design, doors ... |
+| [Spring](https://en.m.wikipedia.org/wiki/Spring_(operating_system)) | Microkernel          | independent (CORBA IDL)  | Solaris emulation, OOP design, doors ... |
 
 
 # Other OS's:
