@@ -29,3 +29,36 @@ Modified: 2016-09-30
 | `/proc/`     | Virtual file system with live kernel information              |
 
 Any directory ending with `bin/` contains binary executable files (or links to them)
+
+# Procfs
+
+The `/proc` file system is a pseudo filesystem that allows to get informations from the kernel mainly information about running processes.
+
+The man page can be found with: `man 5 proc`
+
+## Processes
+
+Each running process has a subfolder in `/proc` which is named after its PID.
+
+| Directory             | Content                                                                                        |
+|-----------------------|------------------------------------------------------------------------------------------------|
+| `/proc/$pid/cmdline`  | The command line that was used to start the process.                                           |
+| `/proc/$pid/environ`  | The environment of the process.                                                                |
+| `/proc/self`          | A link to the current process (can be used prom the process to get information about itself).  |
+| `/proc/$pid/fd/`      | A directory that contains references to file descriptors that the process uses.                |
+| `/proc/$pid/statm`    | Information about the process memory.                                                          |
+| `/proc/$pid/status`   | General formated information: PID, real and effective UID and GID, memory use, bitmasks ...    |
+| `/proc/$pid/stat`     | Same as `/proc/$pid/status`. But not formated.                                                 |
+| `/proc/$pid/cwd`      | A symbolic link to the current working directory of the process.                               |
+| `/proc/$pid/exe`      | A reference to the executable file of the process.                                             |
+| `/proc/$pid/root`     | A link to the root directory of the process (s.a. `chroot()`).                                 |
+| `/proc/$pid/maps`     | Contains memory mappings to files and libraries used by the process. This file can become very large. |
+
+
+## Kernel
+
+- The command that was used to run the kernel at boot time can be found with `cat /proc/cmdline`
+- More information about kernel parameters can be found with `man bootparam`
+- The current locks can be found under `/proc/locks`
+- Loaded kernel modules are listed under `/proc/modules`
+- Information about filesystems are found under `/proc/filesystems` and `/proc/mounts`
