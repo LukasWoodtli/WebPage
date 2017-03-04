@@ -32,9 +32,13 @@ Any directory ending with `bin/` contains binary executable files (or links to t
 
 # Procfs
 
-The `/proc` file system is a pseudo filesystem that allows to get informations from the kernel mainly information about running processes.
+The `/proc` file system is a pseudo filesystem that allows to get informations from the kernel.
 
 The man page can be found with: `man 5 proc`
+
+There are also informations available in the `/sys` file system.
+
+
 
 ## Processes
 
@@ -62,3 +66,22 @@ Each running process has a subfolder in `/proc` which is named after its PID.
 - The current locks can be found under `/proc/locks`
 - Loaded kernel modules are listed under `/proc/modules`
 - Information about filesystems are found under `/proc/filesystems` and `/proc/mounts`
+
+
+## Hardware
+
+| Directory          | Content                                                              |
+|--------------------|----------------------------------------------------------------------|
+| `/proc/devices`    | List devices (character- and block-devices), HD's, SSD's, ports ...  |
+| `/proc/dma`        | List of used DMA channesl and the driver that uses it.               |
+| `/proc/interrupts` | List of used interrupts, type of IRQ, using modules and number of occureces |
+| `/proc/ioports`    | List of all used I/O port (HD's, ethernet, USB ...).                 |
+| `/proc/iomem`      | Mapped hardware memory regions.                                      |
+| `/proc/stat`       | General informations about processorS states (s.a. `procinfo`)       |
+| `/proc/uptime`     | Number of seconds that the system is running and idle time of CPU's. |
+| `/proc/scsi/`      | Directory with informations about SCSI devices                       |
+| `/proc/scsi/scsi`  | List of all SCSI devices.                                            |
+| `/proc/net/`       | Directory with information to networks                               |
+| `/proc/loadavg`    | Average workload (1 minute, 5 minutes, 15 minutes, active processes / number of processes, last used PID) |
+| `/proc/meminfo`    | Information about memory.                                            |
+| `/proc/cpuinfo`    | Information about CPU's.                                             |
