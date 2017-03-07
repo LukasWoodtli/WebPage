@@ -33,3 +33,17 @@ Saves the user password and related information. The file can be read only by ro
 - `deaktIn`: Day when password expires.
 - `deaktSince`: Number of days since password expired.
 - `unused`: For feature use.
+
+
+# `/etc/group`
+
+Stores informations about groups.
+
+`groupName:password:groupId:member1,memger2,...`
+
+
+- `groupName`: Name of the group.
+- `password`: Usually `x`, meaning that the password is saved in `/etc/passwd`.
+- `groupId`: Group ID (GID).
+- `member1,memger2,...`: User names of the members of the group (comma separated).
+
