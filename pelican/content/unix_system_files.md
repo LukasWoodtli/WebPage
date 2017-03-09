@@ -55,3 +55,38 @@ Stores informations about groups.
 - `/etc/protocols`: Information about network portocols (see `getprotobyname()` and `getprotobynumber()`)
 - `/etc/hosts`: Mapping from hostnames to IP's, mainly replaced by DNS (see `gethostbyname()` and `gethostbyaddr()`)
 
+
+# Shell
+
+
+> Work in Progress
+
+
+## System Settings
+
+| Shell type              | System settings |
+|-------------------------|-----------------|
+| Interactive Login Shell | `/etc/profile`  |
+
+## User Settings
+
+| Shell type                    | Bourne Shell | Bash                        |
+|-------------------------------|--------------|-----------------------------|
+| Interactive Login Shell       | `~/.profile` | `~/.bash_profile`           |
+| Interactive (Non-Login) Shell |              | `~/bashrc` (or `$BASH_ENV`) |
+
+### Bash
+
+For an *interactive login shell* the Bash searches for profile files in the following order:
+
+1. `~/.bash_profile`
+2. `~/.bash_login`
+3. `~/.profile`
+
+## References
+[Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html)
+[Bash shell startup files](http://cdwilson.us/articles/bash-shell-startup-files/)
+[Bash Guide for Beginners](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_01.html)
+[Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/shell_010_008.htm#RxxKap01000804004F0A1F024172)
+
+
