@@ -20,6 +20,7 @@ The use of the memory for a process is different in each operating system.
 This example overwiew is taken from *Secure Coding in C and C++, by Robert Seacord*:
 ![Memory layouts on different OS's](/images/memory_layout.png)
 
+See also [Anatomy of a Program in Memory](http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/)
 
 Stack Growth
 ============
@@ -75,3 +76,4 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | Tern EE                                         | Paradigm                     | downwards    |
 | TriCore 1782                                    | GCC                          | downwards    |
 | V850ES                                          | IAR                          | downwards    |
+
