@@ -48,12 +48,23 @@ Stores informations about groups.
 - `member1,memger2,...`: User names of the members of the group (comma separated).
 
 
+# Mounts
+
+- `/etc/fstab`: Lists drives to mount at startup
+- `/etc/exports`: Folders provided to clients over NFS
+
 # Network Files
 
 - `/etc/services`: Services provided on the network, mapping of ports to processes (see `getservbyname()` and `getservbyport()`).
 - `etc/networks`: Informations about connected networks (see `getnetbyname()` and `getnetbyaddr()`)
 - `/etc/protocols`: Information about network portocols (see `getprotobyname()` and `getprotobynumber()`)
 - `/etc/hosts`: Mapping from hostnames to IP's, mainly replaced by DNS (see `gethostbyname()` and `gethostbyaddr()`)
+
+
+# Logging
+
+- `/etc/syslog.conf`: Configuration of applications that use syslog
+- `/etc/asl.conf`: Additional config on macOS
 
 
 # `cron` Jobs
