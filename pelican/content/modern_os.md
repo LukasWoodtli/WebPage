@@ -434,9 +434,9 @@ OS:
     - running in non-kernel mode
     - like server
 - IDL (CORBA) Generate:
-        1. Interface (e.g. header file)
-        2. Client side stub code: get access to object implemented in other address space or machine
-        3. Server side stub code: used by object manager to translate remote object invocations into the run-time environment of object implementation
+    1. Interface (e.g. header file)
+    2. Client side stub code: get access to object implemented in other address space or machine
+    3. Server side stub code: used by object manager to translate remote object invocations into the run-time environment of object implementation
 - Serverless objects
     - entire state of object always in clients address space
     - passing to other address space: copy entire state
@@ -474,6 +474,7 @@ OS:
     - keyboard management
     - ...
 - inherently distributed: all services and objects available on one node are also a available on other nodes in the distributed system
+
 
 ## Nucleus
 
@@ -556,13 +557,15 @@ rovide object invocation across network
     - useful for implementing filesystem
     - Memory Object server can be on different machine than the Pager Object server
 
+
 ### Cache and Pager Objects
 
 - two-way connection between the VMMs and external pagers
--  cache must be coherent between more than one VMM
+- cache must be coherent between more than one VMM
 - VMM obtains data by invoking pager object implemented by external pager
 - external pager performs coherency actions by invoking cache object implemented by a VMM
 - the coherency protocol is not specified by the architecture: external pagers can implement  any coherency protocol
+
 
 ## File System
 
@@ -571,6 +574,7 @@ rovide object invocation across network
 - access to files on local disks or over the network
 - Spring security and naming architectures to provide access control and directory services
 - Spring file system typically consists of several layered file servers
+
 
 ## Spring Naming
 
@@ -600,6 +604,7 @@ rovide object invocation across network
 - naming provide persistence
 - access control and authentication
 
+
 ## UNIX Emulation
 
 - Spring can run Solaris binaries
@@ -608,3 +613,94 @@ rovide object invocation across network
 - two components:
     - a shared library (libue.so), dynamically linked with each Solaris binary
     - a set of UNIX-specific services
+
+
+# Barrelfish
+
+- Multikernel
+- OS as distributed system of functional units (network of independent cores)
+- communication via explicit messages (message passing)
+- Design principles
+    1. Make all inter-core communication explicit (message passing)
+    2. Make OS structure HW-neutral
+    3. View state as replicated instead of shared
+- Single computer as networked system
+- RPC
+    - latency is lower than shared memory access
+    - asynchronous or pipelined RPC: client processors can avoid stalling on cache misses
+- Asynchronous messaging: event-driven programming
+- pitfalls with shared data structures in scalable progams:
+    - correctness
+    - performance
+    - lock granularity
+    - field layout in structures (alignment ...)
+- applications can share memory across cores, but OS design does not reky on shared memory
+- networking optimizations for message passing:
+    - pipelining: a number of requests in flight at once
+    - batching: sending or processing a number of messages together
+- Multikernel separates OS structure from hardware
+- Replication of state is a useful framework for:
+    - changes to the running cores
+    - hotplugging processors
+    - shutting down subsystems to save power
+- Replication:
+    - Benefit of performance and availability
+    - at cost of ensuring replica consistency
+- porting application to Barrelfish are straightforward
+    - standard C and mate library
+    - Virtual Memory Management
+    - subset of POSIX threads and file I/O APIs
+
+
+##  System Structure
+
+- multiple independent OS instances
+- communication via explicit messages
+- each OS instance per core
+    - privileged mode CPU driver
+    - user mode monitor process
+- CPU driver local to core
+- monitor
+    - performes inter-core coordination
+    - coordinate system-wide state
+    - handling message-oriented inter-core communication
+    - mostly processor-agnostic
+- monitor and CPU driver encapsulate: scheduling, communication and resource allocation
+- device drivers and system services (network stack, memory allocators ...) run in user mode
+- device interrupts are routed in hardware to the appropriate core
+- CPU driver
+    - enfonces protection
+    - performs authorization
+    - timeslices processes
+    - mediates access to core and associated hardware (MMU, APIC ...)
+    - completely event-driven and non-preemptable (single threaded)
+    - processes events: traps from user processes, interrupts from devices to other cores
+- Process structure
+    - collection of dispatcher objects (cores)
+    - dispatchers scheduled by local CPU driver
+- Inter-core communication
+    - user-level RPC (URPC):
+        - marschaling code generated with stub compiler
+        - name service to locate services
+        - channels established between services (setup performed by monitors)
+        - no shared memory other than URPC channel and packet payload
+- cross-core thread management is performed in user-space
+    - thread schedulers exchange messages to create and unblock threads and migrate threads between cores
+    - POSIX like threads
+
+
+## Memory Management
+
+- global set of resources
+- user-level app and services services use shared memory across multiple cores
+- capability system ([ seL4](https://sel4.systems/))
+- virtual memory management (allocation/manipulation of page tables...) entirely in user-space
+- capability code is complex
+
+
+## Knowledge and Policy Engine
+
+- Maintaining  knowledge of hardware in ['system knowledge base'](http://wiki.barrelfish.org/SystemKnowledgeBase)
+- subset of first-order logic: [The ECLiPSe Constraint Programming System](http://eclipseclp.org/)
+- declarative approach
+- hardware discovery
