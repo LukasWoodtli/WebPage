@@ -60,7 +60,7 @@ var tagList = [new TagInfos("C", "/tag/c.html", 70),
                new TagInfos("SystemC", "/systemc.html", 20),
                new TagInfos("Linux", "/tag/linux.html", 35),
                new TagInfos("Lisp", "/tag/lisp.html", 25),
-               new TagInfos("Embedded Systems", "/tag/embedded_systems.html", 80)
+               new TagInfos("Embedded Systems", "/tag/embedded_systems.html", 50)
                
 ];
 

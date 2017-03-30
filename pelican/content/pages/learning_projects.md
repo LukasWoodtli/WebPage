@@ -27,7 +27,13 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/LinuxDevelopment)
 
 # C++
 
+## Modern C++
+
 [Modern C++ Design](https://play.google.com/books/reader?printsec=frontcover&output=reader&id=vV-ACgAAAEAJ&pg=GBS.PA25)
+
+My Repo: [GitHub](https://github.com/LukasWoodtli/)
+
+## Boost
 
 [Boost C++ Application Development Cookbook](https://www.packtpub.com/mapt/book/All%20Books/9781849514880)
 
@@ -41,7 +47,14 @@ Version Control with Git (O'Reilly)
 
 # Embedded Systems
 
+## FreeRTOS
+
 [FreeRTOS Book](https://www.dropbox.com/s/dxcag8v4gv0ew9c/Using%20the%20FreeRTOS%20Real%20Time%20Kernel%20-%20A%20Practical%20Guide.pdf?dl=0)
+
+My Repo: [GitHub](https://github.com/LukasWoodtli/FreeRtosExamples)
+
+
+## ARM Cortex
 
 [ARM® Cortex® M4 Cookbook](https://www.packtpub.com/mapt/book/hardware_and_creative/9781782176503/1/ch01lvl1sec10/Installing+uVision5)
 
@@ -51,3 +64,4 @@ Version Control with Git (O'Reilly)
 [Language Implementation Patterns](https://pragprog.com/book/tpdsl/language-implementation-patterns)
 
 My Repo: [GitHub](https://github.com/LukasWoodtli/LanguageImplementationPatterns)
+
