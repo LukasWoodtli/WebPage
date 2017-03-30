@@ -8,16 +8,6 @@ The page is meant for my own reference.
 
 [TOC]
 
-# Scheme
-
-[Structure and Interpretation of Computer Programs](https://play.google.com/books/reader?printsec=frontcover&output=reader&id=cCsbCQAAAEAJ&pg=GBS.PA227)
-
-[Text online](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-4.html#%25_toc_start)
-
-MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/4a-pattern-matching-and-rule-based-substitution/)
-
-My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
-
 # Linux/UNIX Application Development
 
 [Linux-UNIX-Programmierung (Rheinwerk/Galileo)](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/Kap02-002.htm#t2t310)
@@ -65,3 +55,13 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/FreeRtosExamples)
 
 My Repo: [GitHub](https://github.com/LukasWoodtli/LanguageImplementationPatterns)
 
+
+# Scheme
+
+[Structure and Interpretation of Computer Programs](https://play.google.com/books/reader?printsec=frontcover&output=reader&id=cCsbCQAAAEAJ&pg=GBS.PA227)
+
+[Text online](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-4.html#%25_toc_start)
+
+MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/4a-pattern-matching-and-rule-based-substitution/)
+
+My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
