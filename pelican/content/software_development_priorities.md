@@ -1,4 +1,4 @@
-Title: Agile Software Development
+Title: Software Development Priorities
 Date: 2017-03-31
 Category: Programming
 Tags: Software Development Methodology
@@ -7,8 +7,6 @@ Tags: Software Development Methodology
 > This page is still work in progress
 
 [TOC]
-
-# Software Development Priorities
 
 When developping software the priorities are as following:
 
