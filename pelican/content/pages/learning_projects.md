@@ -68,65 +68,8 @@ MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-co
 
 My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
+
 # Overview
-
-<meta charset="utf-8">
-<style>
-
-    body {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        width: 960px;
-        height: 500px;
-        position: relative;
-    }
-
-    svg {
-        width: 100%;
-        height: 100%;
-        position: center;
-    }
-
-    .toolTip {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        position: absolute;
-        display: none;
-        width: auto;
-        height: auto;
-        background: none repeat scroll 0 0 white;
-        border: 0 none;
-        border-radius: 8px 8px 8px 8px;
-        box-shadow: -3px 3px 15px #888888;
-        color: black;
-        font: 12px sans-serif;
-        padding: 5px;
-        text-align: center;
-    }
-
-    text {
-        font: 12px sans-serif;
-        color: white;
-    }
-    text.value {
-        font-size: 120%;
-        fill: white;
-    }
-
-    .axisHorizontal path{
-        fill: none;
-    }
-
-    .axisHorizontal .tick line {
-        stroke-width: 1;
-        stroke: rgba(0, 0, 0, 0.2);
-    }
-
-    .bar {
-        fill: steelblue;
-        fill-opacity: .9;
-    }
-
-</style>
-
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
