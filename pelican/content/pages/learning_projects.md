@@ -68,7 +68,7 @@ MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-co
 
 My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
-# Overview
+<!-- # Overview
 
 <meta charset="utf-8">
 <style>
@@ -261,3 +261,4 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
             .call(xAxis);
 
 </script>
+-->
