@@ -68,7 +68,7 @@ MIT OpenCourseWare [4A](http://ocw.mit.edu/courses/electrical-engineering-and-co
 
 My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
-<!-- # Overview
+# Overview
 
 <meta charset="utf-8">
 <style>
@@ -129,8 +129,8 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
 
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
 
+<script type="text/javascript">
     function Book(name, page, totalPages) {
         this.name = name;
         this.page = page;
@@ -261,4 +261,3 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/SchemeCourse)
             .call(xAxis);
 
 </script>
--->
