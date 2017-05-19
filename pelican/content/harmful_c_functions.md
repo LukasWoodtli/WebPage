@@ -53,7 +53,7 @@ Buffer Overflows
 
 | Original    | Replacement               | Problem   | Relevant in Embedded |
 |-------------|---------------------------|-----------|:--------------------:|
-| `gets`      | fgets()                   |           |         no           |
+| `gets()`    | fgets()                   |           |         no           |
 | cuserid()   | getlogin() or getpwuid()  |           |  Only Unix/Linux     |
 | scanf()     |                           |           |                      |
 | fscanf()    |                           |           |                      |
@@ -61,13 +61,14 @@ Buffer Overflows
 | vscanf()    |                           |           |                      |
 | vsscanf()   |                           |           |                      |
 | vfscanf()   |                           |           |                      |
-| sprintf()   |                           |           |                      |
-| strcat()    |                           |           |                      |
-| strcpy()    |                           |           |                      |
+| `sprintf()` | `snprintf()`              |           |                      |
+| `strcat()`  | `strncat()`               |           |                      |
+| `strcpy()`  | `strncpy()`               |           |                      |
 | streadd()   |                           |           |                      |
 | strecpy()   |                           |           |                      |
 | vsprintf()  |                           |           |                      |
 | strtrns()   |                           |           |                      |
+| `getwd()`   | `getcwd()`                |           |                      |
 
 
 String Vulnerabilities
@@ -84,8 +85,8 @@ String Vulnerabilities
 | vfprintf()  |               |           |                      |
 | vsprintf()  |               |           |                      |
 | vsnprintf() |               |           |                      |
-                                                                 
-                                                                 
+
+
 
 http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1044652485&id=1043284385
 
