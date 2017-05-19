@@ -26,8 +26,8 @@ install:
 - pip install sphinxcontrib-inlinesyntaxhighlight
 
 before_script:
-- git config --global user.name ${GIT_NAME}
-- git config --global user.email ${GIT_EMAIL}
+- git config --global user.name travis (Lukas Woodtli)
+- git config --global user.email lukas_woodtli@travis.example.com
 
 script:
 - python generate_page.py
