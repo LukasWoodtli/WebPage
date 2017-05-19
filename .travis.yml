@@ -35,4 +35,4 @@ script:
 
 env:
   global:
-    secure: QiCjd/QdpGf2xaGOH4odghvahFi+/FkmjE3WbszItmkD1fswH3iG/L0x1VP5BtGsxEEiWzR/tAVJPaqUdyhmfqttfhVKfyyuUz4d09DcehmhenjLL6pHOUVm6QyxWNkMIuEaYdZ3zzwFndQTsnccZsNvbxByPABwqlQ8lJm+e3s=
+    secure: clRv1/ZKTnGQji4hqIRZUQ7PeTqBdE+d/VfpmW89d7Stm8waNtmGEjvebCXUUoaSBV/GxPkl7e9E9elkBilXmYtZzYTmn6nfNLq05bCwilFogV4BNel7fTgO6BjYR9HVIHzyIKI4KUYwjuJMMB5B+rZxNXyxMvDR8Dh4sVxMgRs=
