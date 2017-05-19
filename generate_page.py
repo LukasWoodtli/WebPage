@@ -11,7 +11,7 @@ HOME = expanduser("~")
 
 GITHUB_USERPAGE_REPO = "https://github.com/LukasWoodtli/LukasWoodtli.github.io"
 try:
-    GIT_HUB_TOKEN =  os.environ['GH_TOKEN']
+    GIT_HUB_TOKEN =  os.environ['DEPLOY_KEY']
     GITHUB_USERPAGE_REPO = "https://{}github.com/LukasWoodtli/LukasWoodtli.github.io".format(GIT_HUB_TOKEN + "@")
 except:
     pass

@@ -34,6 +34,5 @@ script:
 # it's not working??? - linkchecker http://lukaswoodtli.github.io
 
 env:
-  global:
-    secure: JNdLq0N//T+PC2ms1PUGT04Udj49VzQhlGORVrjQA2VeJmBEahpBfU7IGYN6sIsvlJqeg0acDxQqb/RIZetifoJAf9Vtf5+BvNEh5M7aRTf1Sw5ECizyeuVOq04eI/sJvsTn5Q3AfmGUchMCrvqE78r5UoEd5aLP8bijYF99Rqo=
-
+  matrix:
+    secure: QiCjd/QdpGf2xaGOH4odghvahFi+/FkmjE3WbszItmkD1fswH3iG/L0x1VP5BtGsxEEiWzR/tAVJPaqUdyhmfqttfhVKfyyuUz4d09DcehmhenjLL6pHOUVm6QyxWNkMIuEaYdZ3zzwFndQTsnccZsNvbxByPABwqlQ8lJm+e3s=
