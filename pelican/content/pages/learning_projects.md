@@ -30,13 +30,6 @@ My Repo: [GitHub](https://github.com/LukasWoodtli/)
 My Repo: [GitHub](https://github.com/LukasWoodtli/BoostCookbook)
 
 
-# Git
-
-[Pro Git](https://git-scm.com/book/en/v2)
-
-<!-- Version Control with Git (O'Reilly) -->
-
-
 # Embedded Systems
 
 ## FreeRTOS
