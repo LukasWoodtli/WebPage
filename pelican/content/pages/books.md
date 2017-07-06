@@ -9,7 +9,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Effektiv C++ Programmieren                        | Scott Meyers                                      | Addison-Wesley                                    |
 | Die C++ Programmiersprache                        | Bjarne Stroustrup                                 | Addison-Wesley                                    |
-| [Modern C++ Design](https://github.com/LukasWoodtli/ModernCppDesign) | Andrei Alexandrescu                               | Addison-Wesley (Kindle)                           |
+| [Modern C++ Design](https://github.com/LukasWoodtli/ModernCppDesign) | Andrei Alexandrescu                               | Addison-Wesley                          |
 | Secure Coding in C and C++                        | Robert C. Seacord                                 | Addison-Wesley                                    |
 | Exceptional C++                                   | Herb Sutter                                       | Addison-Wesley                                    |
 | Algorithms in C (Parts 1-5)                       | Robert Sedgewick                                  | Addison-Wesley                                    |
@@ -68,7 +68,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Version Control with Git                          | Jon Loeliger                                      | O'Reilly                                          |
-| [Pro Git](https://git-scm.com/book/en/v2)         | Scott Chacon, Ben Straub                          | Apress                                            |
+| [Pro Git (Second Edition)](https://git-scm.com/book/en/v2)         | Scott Chacon, Ben Straub                          | Apress                                            |
 | Version Control with Subversion                   | C. Michael Pilato et al.                          | O'Reilly                                          |
 
 

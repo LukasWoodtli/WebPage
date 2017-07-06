@@ -4,11 +4,11 @@ title: Projects
 I started to develop [this library](https://github.com/LukasWoodtli/MarkdownGen) for personal use. The aim was to generate some **Markdown** files for my homepage. I used just a part of the library for my home page.
 But I keep working on the project anyway. It is also a good exercise for me doing a complete Python project from start to end.
 
-# FeatureTogglesPlusPlus
+<!-- # FeatureTogglesPlusPlus
 [This](https://github.com/LukasWoodtli/FeatureTogglesPlusPlus) is a small personal project to provide lightweight feature toggles in C++. It should have no dependencies (maybe some to STL) and be highly configurable. With writing this library I want to improve my C++ knowledge. Mainly Templates and other **Modern C++** topics.
 
 I haven't been working on the project for a while. It's still in it's beginning and not meant for use yet.
-
+-->
 
 # Bachelor Thesis	
 [Disney Copter](http://www.reely.ethz.ch/) (2008-2009)
