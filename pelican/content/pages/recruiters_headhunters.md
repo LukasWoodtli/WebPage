@@ -11,7 +11,7 @@ There are some requirements that a new position has to meet to catch my attentio
 ## Musts:
 
 - C/C++: I'm very interested in other languages too, but C++ is my favorite language.
-- Working site in Zürich or near (max. 30 minutes by public transport): I just don't like to loose too much time commuting.
+- Working site in Zürich or near (max. 30 minutes by public transport): I just don't like to lose too much time commuting.
 - Possibility to work part time (80%): This is an absolute must. I have a family that I need to take care of.
 - Possibility to work from home occasionally (home office): I prefer to work on site. But sometimes it's just convenient to work from home.
 
