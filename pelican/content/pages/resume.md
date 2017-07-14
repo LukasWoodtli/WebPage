@@ -74,5 +74,5 @@ Available on request
 
 # Recruiters and Head Hunter
 
-If you are a recruiter (head hunter) then please read [this page]({filename}/pages/recruiters_headhunters.md) before contactnig me.
+If you are a recruiter (head hunter) then please read [this page]({filename}/pages/recruiters_headhunters.md) before contacting me.
 
