@@ -70,3 +70,9 @@ Available on request
 |---------|---------------------------|------------|
 | English | [Application Documents (compact)](/documents/Application_Documents_Lukas_Woodtli.zip) | [Application Documents (full)](/documents/Application_Documents_full_Lukas_Woodtli.zip) |
 | Deutsch | [Bewerbungsunterlagen (kompakt)](/documents/Bewerbungsunterlagen_Lukas_Woodtli.zip) | [Bewerbungsunterlagen (vollständig)](/documents/Bewerbungsunterlagen_alle_Lukas_Woodtli.zip) |
+
+
+# Recruiters and Head Hunter
+
+If you are a recruiter (head hunter) then please read [this page]({filename}/pages/recruiters_headhunters.md) before contactnig me.
+
