@@ -1,7 +1,8 @@
 Title: Intro to SQL
 Date: 2015-04-13
 Modified: 2016-06-26
-Category: SQL
+Category: Programming
+Tags: SQL
 
 Most notes taken here are from the [Udacity SQL course](https://www.udacity.com/course/ud197)
 
@@ -92,4 +93,3 @@ Select example:
 - `SELECT`: selects *colums*
 - `FROM`: table to select from
 - `WHERE`: row restriction
-
