@@ -105,7 +105,7 @@ $$r={\frac {V_{f}-V_{i}}{V_{i}}}$$
     - $NPV(i,N)=\sum _{t=0}^{N}{\frac {R_{t}}{(1+i)^{t}}}$
 
         - $t$: time of the cash flow
-	- $i$: discount rate, i.e. the return that could be earned per unit of time
+        - $i$: discount rate, i.e. the return that could be earned per unit of time
         - $R_t$: net cash flow (cash inflow - cash outflow) at time $t$
 
 - **invest** in projects with a *positive NPV*
