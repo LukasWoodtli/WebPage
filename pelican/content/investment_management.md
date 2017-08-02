@@ -3,6 +3,7 @@ Date: 2017-07-28
 Category: Finance
 Tags: Investment Management
 
+[TOC]
 
 # Understanding Financial Markets
 
@@ -92,3 +93,21 @@ $$r={\frac {V_{f}-V_{i}}{V_{i}}}$$
     - horizontal axis is divided into intervals
     - divide the number of observations in an interval by the total number of observations
     - vertical axis indicates this probability or (relative) frequency
+
+## Major Financial Markets
+
+### Equities
+
+#### How much is a company worth on the stock market?
+
+- Net Present Value (NVP, Kapitalwert, Nettobarwert)
+
+    - $NPV(i,N)=\sum _{t=0}^{N}{\frac {R_{t}}{(1+i)^{t}}}$
+
+        - $t$: time of the cash flow
+	- $i$: discount rate, i.e. the return that could be earned per unit of time
+        - $R_t$: net cash flow (cash inflow - cash outflow) at time $t$
+
+- **invest** in projects with a *positive NPV*
+- **do not invest** in projects with *negative NPV*
+
