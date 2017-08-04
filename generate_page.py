@@ -8,6 +8,7 @@ from os.path import expanduser
 REPO_DIRECTORY = os.path.realpath(__file__)
 REPO_DIRECTORY = os.path.split(REPO_DIRECTORY)[0]
 HOME = expanduser("~")
+print "HOME: ", HOME
 
 GITHUB_USERPAGE_REPO = "https://github.com/LukasWoodtli/LukasWoodtli.github.io"
 try:
