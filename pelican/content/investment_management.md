@@ -111,7 +111,8 @@ $$r={\frac {V_{f}-V_{i}}{V_{i}}}$$
         - $i$: discount rate, i.e. the return that could be earned per unit of time
         - $R_t$: net cash flow (cash inflow - cash outflow) at time $t$
 
-- **invest** in projects with a *positive NPV*
-- **do not invest** in projects with *negative NPV*
-
+    - **invest** in projects with a *positive NPV*
+    - **do not invest** in projects with *negative NPV*
+    - [Investopedia](http://www.investopedia.com/terms/n/npv.asp)
+    - [Wikipedia](https://en.wikipedia.org/wiki/Net_present_value)
 
