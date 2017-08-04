@@ -3,6 +3,8 @@ Date: 2017-07-28
 Category: Finance
 Tags: Investment Management
 
+# Contents
+
 [TOC]
 
 # Understanding Financial Markets
@@ -94,6 +96,7 @@ $$r={\frac {V_{f}-V_{i}}{V_{i}}}$$
     - divide the number of observations in an interval by the total number of observations
     - vertical axis indicates this probability or (relative) frequency
 
+
 ## Major Financial Markets
 
 ### Equities
@@ -110,4 +113,5 @@ $$r={\frac {V_{f}-V_{i}}{V_{i}}}$$
 
 - **invest** in projects with a *positive NPV*
 - **do not invest** in projects with *negative NPV*
+
 
