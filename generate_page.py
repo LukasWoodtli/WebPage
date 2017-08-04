@@ -46,7 +46,6 @@ def build_web_page():
     # installinc pelican-chameleon theme
     pelican_chameleon_path = os.path.join(HOME, "pelican-chameleon")
     print "Installing pelican-chameleon theme from path: ", pelican_chameleon_path
-    print pelican_chameleon_path
     subprocess.call(["pelican-themes", "-i", pelican_chameleon_path])
 
     # make web page

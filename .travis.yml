@@ -30,9 +30,7 @@ before_script:
 - git config --global user.email lukas_woodtli@travis.example.com
 
 script:
-#- python generate_page.py
-- python -m trace --trace generate_page.py | grep generate_page.py
-
+- python generate_page.py
 # it's not working??? - linkchecker http://lukaswoodtli.github.io
 
 env:
