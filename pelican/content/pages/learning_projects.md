@@ -8,12 +8,6 @@ The page is meant for my own reference.
 
 [TOC]
 
-# Linux/UNIX Application Development
-
-[Linux-UNIX-Programmierung (Rheinwerk/Galileo)](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/Kap02-002.htm#t2t310)
-
-My Repo: [GitHub](https://github.com/LukasWoodtli/LinuxDevelopment)
-
 
 # C++
 
