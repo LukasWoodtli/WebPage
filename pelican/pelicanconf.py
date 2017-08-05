@@ -46,7 +46,8 @@ AUTHOR_SAVE_AS = 'author/lukas_woodtli.html'  # The location to save an author.
 
 home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
-PLUGINS = ["render_math", "pelican-bootstrapify"] # "better_tables"
+#PLUGINS = ["render_math", "pelican-bootstrapify"] # "better_tables"
+PLUGINS = ["pelican-bootstrapify"]
 
 MARKDOWN = {
             'extension_configs': {
