@@ -1,5 +1,5 @@
 # My Web Page
 
-This will mainly used for applying for a new job.
+This are the sources of my web page.
 
 The page is available at: http://lukaswoodtli.github.io
