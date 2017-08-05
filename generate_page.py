@@ -30,7 +30,7 @@ def remove_local_repository(local_path):
 def clone_repository(repo, local_path):
     remove_local_repository(local_path)
     print "Cloning repo to ", local_path
-    Repo.clone_from(repo, local_path, depth=1)
+    Repo.clone_from(repo, local_path, depth=1, recursive=True)
    
 
 def clone_needed_repositories():
