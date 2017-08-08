@@ -53,7 +53,7 @@ def build_web_page():
     working_dir = os.path.join(REPO_DIRECTORY, "pelican")
     os.chdir(working_dir)
     print "make html in path: ", working_dir
-    subprocess.call(["make", "html", "--trace"])
+    subprocess.call(["make", "html", "-k"])
 
     # copy output to user page repo
     root_src_dir = os.path.join(working_dir, "output")
