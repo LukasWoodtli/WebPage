@@ -10,18 +10,18 @@ before_install:
 
 install:
   # Pelican for generating the web page
-- pip install pelican
+- pip install pelican>=3.6.3
   # Markdown for writing content on the page
-- pip install Markdown
+- pip install Markdown>=2.6.6
 - pip install typogrify
   # bs4 is used by pelican-bootstrapify plug in
-- pip install BeautifulSoup4
+- pip install BeautifulSoup4>=2.0.7
   # gitpython used for build file
 - pip install gitpython
   # needed for linkchecker
 - pip install requests==2.2.0
   # check for broken links
-- pip install linkchecker
+#- pip install linkchecker
   # highlighting of inline code in rst
 - pip install sphinxcontrib-inlinesyntaxhighlight
 
