@@ -9,6 +9,8 @@ before_install:
 - pip install --upgrade pip
 
 install:
+  # Used for rst
+- pip install docutils>=0.12
   # Pelican for generating the web page
 - pip install pelican>=3.6.3
   # Markdown for writing content on the page
