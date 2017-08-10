@@ -60,7 +60,7 @@ MARKDOWN = {
             'output_format': 'html5',
 }
 
-DOCUTILS_SETTINGS = {'table_style' : 'borderless'} # 'math_output': 'mathjax'
+DOCUTILS_SETTINGS = {'table_style' : 'borderless', 'math_output': 'mathjax https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'}
 
 THEME = "pelican-chameleon"
 BS3_THEME = "http://bootswatch.com/yeti/bootstrap.min.css"
