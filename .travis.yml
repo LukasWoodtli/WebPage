@@ -1,5 +1,5 @@
 os:
-  - macos
+  - osx
 
 language: python
 python: '2.7'
