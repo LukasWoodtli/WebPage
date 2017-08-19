@@ -1,4 +1,5 @@
-dist: precise
+os:
+  - macos
 
 language: python
 python: '2.7'
