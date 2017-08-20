@@ -1,4 +1,4 @@
-docutils==0.14
+docutils>=0.14
 pelican>=3.7.1
 GitPython==2.1.5
 pyOpenSSL==0.13.1
@@ -8,8 +8,8 @@ pytz==2013.7
 six
 smmap2==2.0.3
 Markdown>=2.6.6
-typogrify
-BeautifulSoup4>=2.0.7
+typogrify>=2.0.7
+BeautifulSoup4>=4.4.0
 requests==2.2.0
 sphinxcontrib-inlinesyntaxhighlight
 
