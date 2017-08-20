@@ -1,4 +1,4 @@
-docutils==0.14
+docutils>=0.14
 pelican>=3.7.1
 GitPython==2.1.5
 pyOpenSSL==0.13.1
