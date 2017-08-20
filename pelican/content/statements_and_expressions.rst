@@ -12,6 +12,7 @@ Statements and Expressions
 Statements often contain expressions but not the other way around.
 
 .. math::
+
     \underbrace{x = \overbrace{1 + 2}^{\text{expression}}}_{\text{statement}}
 
 Expressions (Ausdruck)
