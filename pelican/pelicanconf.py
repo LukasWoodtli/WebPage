@@ -48,6 +48,8 @@ home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
 PLUGINS = ["render_math", "pelican-bootstrapify"] # "better_tables"
 
+TYPOGRIFY = True
+
 MARKDOWN = {
             'extension_configs': {
                         'markdown.extensions.codehilite': {'css_class': 'highlight'},
