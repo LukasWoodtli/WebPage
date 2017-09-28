@@ -26,10 +26,10 @@ The meanings in the following tables are:
 
 # File Level
 
-| Command                    | HEAD | Index | Workdir | WD  | Notes |
-|----------------------------|------|-------|---------|-----|-------|
-| `reset [commit] <file>`    |  ✗   |   ✓   |    ✗    |  ✓  |       |
-| `checkout [commit] <file>` |  ✗   |   ✓   |    ✓    | *✘* | would be same as `git reset --hard [branch] file` but this is not allowed |
+| Command                    | HEAD | Index | Workdir | Safe | Notes |
+|----------------------------|------|-------|---------|------|-------|
+| `reset [commit] <file>`    |  ✗   |   ✓   |    ✗    |  ✓   |       |
+| `checkout [commit] <file>` |  ✗   |   ✓   |    ✓    | *✘*  | would be same as `git reset --hard [branch] file` but this is not allowed |
 
  HEAD is never changed with this commands.
 
