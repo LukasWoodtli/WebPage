@@ -42,6 +42,8 @@ Most information in this section is from
 
 There is also a good [Wikipedia page](https://en.m.wikipedia.org/wiki/Intel_Memory_Model).
 
+The memory is byte addressable. Data is stored in little endian format. This means that the
+least significant byte (LSB) is saved on the smallest memory address.
 
 ## Real Mode Memory Models (16-bit)
 
@@ -156,7 +158,7 @@ Addresses must be negative between $-2^{31}$ and $0$.
 
 ### OS X (Darwin)
 
-The defaukt memory model of the intel-based darwin kernel 
+The default memory model of the intel-based darwin kernel 
 limits code and static data together to 2 GB.
 So 32-bit RIP-relative addresses can be used.
 
@@ -176,29 +178,41 @@ code below $2^{31}$ so that absolute 32-bit addresses can be used.
 
 # Registers
 
-This are the 16-bit registers of Intel 8086, 8088,  80186 and 80188.
+## General-Purpose Registers
 
-| Register          | Purpose                         | Notes                                                                              |
-|-------------------|---------------------------------|------------------------------------------------------------------------------------|
-| AX                | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL). Can be used as 8-bit registers (AH/AL).     |
-| BX                | General-Purpose Register (GPR)  | Base index (array). Can be used as 8-bit registers (BH/BL).                        |
-| CX                | General-Purpose Register (GPR)  | Only register that can be used for `LOOP`. Can be used as 8-bit registers (CH/CL). |
-| DX                | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`. Extend precision of accumulator. Can be used as 8-bit registers (DH/DL). |
-| DI                | Destination Index               | Destination for string operations.                                                 |
-| SI                | Source Index                    | Source for string operations.                                                      |
-| BP                | Base Pointer                    | Often used as Frame Pointer (pointing to current stack frame).                     |
-| SP                | Stack Pointer                   | Points to the top of the stack.                                                    |
-| CS                | Segment Register                | Code Segment.                                                                      |
-| DS                | Segment Register                | Data Segment.                                                                      |
-| SS                | Segment Register                | Stack Segment.                                                                     |
-| ES                | Segment Register                | Extra Segment.                                                                     |
-| FLAGS             | Status Register                 | Carry Flag, Overflow Flag, Zero flag...                                            |
-| IP                | Instruction Pointer             | Points to the *next* instruction (cannot be directly accessed).                    |
+| 64-bit | 32-bit   | 16-bit   | 8-bit    | Purpose                         | Notes                                                                              |
+|--------|----------|----------|----------|---------------------------------|------------------------------------------------------------------------------------|
+| rax    | eax      | ax       | al       | General-Purpose Register (GPR)  | Accumulator for `IN`/`OUT` (AX or AL). Can be used as 8-bit registers (AH/AL).     |
+| rbx    | ebx      | bx       | bl       | General-Purpose Register (GPR)  | Base index (array). Can be used as 8-bit registers (BH/BL).                        |
+| rcx    | ecx      | cx       | cl       | General-Purpose Register (GPR)  | Only register that can be used for `LOOP`. Can be used as 8-bit registers (CH/CL). |
+| rdx    | edx      | dx       | dl       | General-Purpose Register (GPR)  | Needs to contain port address for `IN`/`OUT`. Extend precision of accumulator. Can be used as 8-bit registers (DH/DL). |
+| rdi    | edi      | di       | dil      | Destination Index               | Destination for string operations.                                                 |
+| rsi    | esi      | si       | sil      | Source Index                    | Source for string operations.                                                      |
+| rbp    | ebp      | bp       | bpl      | Base Pointer                    | Often used as Frame Pointer (pointing to current stack frame).                     |
+| rsp    | esp      | sp       | spl      | Stack Pointer                   | Points to the top of the stack.                                                    |
+| r8-r15 | r8d-r15d | r8w-r15w | r8w-r15w | GPRs                            | x86-64 adds new GPRs.                                                              |
 
+The first four *GPRs* can be accessed as two 8 bit registers. i. e:
+*bx's* high byte can be accessed as *bh* and low byte as *bl*.
 
-## 8-bit Registers
-Each of the *GPRs* can be accessed as two 8 bit registers. i. e:
-*BX's* high byte can be accessed as *BH* and low byte as *BL*.
+## Segment Registers
+
+These registers are used in real mode and protected mode for memory segmentation.
+
+| cs | Purpose       |
+|----|---------------|
+| cs | Code Segment  |
+| ds | Data Segment  |
+| ss | Stack Segment |
+| es | Extra Segment |
+
+## Special Registers
+
+| Register | Purpose             | Notes                                                          |
+|----------|---------------------|----------------------------------------------------------------|
+| rFlags   | Status Register     | Carry Flag, Overflow Flag, Zero flag...                        |
+| rip      | Instruction Pointer | Points to the *next* instruction (cannot be directly accessed) |
+
 
 ## Values after Reset
 
@@ -212,8 +226,16 @@ Each of the *GPRs* can be accessed as two 8 bit registers. i. e:
 
 All other registers have a random value after reset.
 
+## XMM Registes
 
-## FLAGS Register
+There are registers for 64-bit and 32-bit floating point operations, for
+single Instruction Multiple Data (SIMD) and SSE.
+
+There are 16 XMM registers with a size of 128 bits.
+They are called xmm0-xmm15.
+
+
+## Flags Register
 
 |    Bit    | Mnemonic |           Meaning          |
 |-----------|----------|----------------------------|
