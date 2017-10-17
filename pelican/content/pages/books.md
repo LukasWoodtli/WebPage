@@ -61,7 +61,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Test Driven Development for Embedded C            | James W. Grenning                                 | The Pragmatic Bookshelf                           |
 | Vom Gatter zu VHDL                                | M. Künzli                                         | vdf Lehrbuch                                      |
 | Technische Informatik I+II                        | T. Müller et al.                                  | vdf Lehrbuch                                      |
-| x86-64 Assembly Language Programming with Ubuntu  | Ed Jorgensen                                      | Ed Jorgensen                                      |
+| [x86-64 Assembly Language Programming with Ubuntu](https://github.com/LukasWoodtli/LinuxAssemblyProgramming) | Ed Jorgensen | Ed Jorgensen                |
 
 
 # Version Control
