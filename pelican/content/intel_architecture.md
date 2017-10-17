@@ -312,6 +312,15 @@ i.e:
 
 <pre>MOV <strong>[BX + DI]</strong>, CH; calculate the operand with the values from BX and DI</pre>
 
+
+This mode can also be used to access values from variables. A variable name without brackets is used to get the address
+of the variable. With brackets the value stored in the variable
+is taken.
+
+    :::nasm
+    mov rax, qword [var1] ; value of var1 in rax 
+    mov rax, var1         ; address of var1 in rax
+
 ### Address
 To calculate an address the following scheme is used:
 
@@ -365,11 +374,13 @@ In some cases the size of an operand can be given (for some cases it is even man
 Moves (copies) a value from a source to a destination.
 
     :::nasm
-    MOV dest, src;
+    MOV dest, src
 
-- `dest` can be a memory variable or a register (but not CS or IP).
+- `dest` can be a memory variable or a register (but not CS or IP) and not an immediate.
 - `src` can be a memory variable, a register or a constant.
 - Only one memory operand can be used. Then the other one needs to be a register or a constant.
+- destination and source operands must be of the same size.
+- for double-word destination and source operands the upper part of the register is set to 0.
 
 
 ## Exchange Command (`XCHG`)
@@ -397,6 +408,21 @@ Port address needs to be written to DX before calling the IN-/OUT-Command. As sp
     OUT 16h, AL;
 
 It's not possible communicate directly between memory and ports. For this a DMA (Direct Memory Access) Hardware would be needed.
+
+
+## Load Effective Address (`LEA`)
+
+Loads an address:
+
+    :::nasm
+    lea   <reg64>, <mem> ; address of <mem> in reg64
+    
+Examples:
+
+    :::nasm
+    lea   rcx, byte [bvar]
+    lea   rsi, dword [dVar]
+
 
 # Arithmetic Commands
 
