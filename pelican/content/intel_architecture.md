@@ -313,14 +313,6 @@ i.e:
 <pre>MOV <strong>[BX + DI]</strong>, CH; calculate the operand with the values from BX and DI</pre>
 
 
-This mode can also be used to access values from variables. A variable name without brackets is used to get the address
-of the variable. With brackets the value stored in the variable
-is taken.
-
-    :::nasm
-    mov rax, qword [var1] ; value of var1 in rax 
-    mov rax, var1         ; address of var1 in rax
-
 ### Address
 To calculate an address the following scheme is used:
 
@@ -364,7 +356,15 @@ In some cases the size of an operand can be given (for some cases it is even man
 
 
 ## Addressing Memory
- For addressing the memory the immediate, direct and indirect method can be used.
+
+For addressing the memory the immediate, direct and indirect method can be used.
+
+A variable name without brackets is used to get the address of the variable.
+With brackets the value stored in the variable is taken.
+
+    :::nasm
+    mov rax, qword [var1] ; value of var1 in rax 
+    mov rax, var1         ; address of var1 in rax
 
 
 # Data Transfer Commands
@@ -380,7 +380,25 @@ Moves (copies) a value from a source to a destination.
 - `src` can be a memory variable, a register or a constant.
 - Only one memory operand can be used. Then the other one needs to be a register or a constant.
 - destination and source operands must be of the same size.
-- for double-word destination and source operands the upper part of the register is set to 0.
+
+> For *double-word* destination and source operands the upper part of the *quad-word* destination register is set to 0!
+
+Example:
+
+    :::nasm
+    qFirstVal  dq  0xffffffffffffffff ; inital 64-bit value
+    dVar32     dd  0xabcdefab         ; 32-bit value
+    wVar16     dw  0xbdbd             ; 16-bit value
+
+    ; 16-bit example
+    mov     rax, qword [qFirstVal]    ; initialize rax
+    mov     ax, word [wVar16]         ; write lowest 16 bit
+    ; now rax has value 0xffffffffffffbdbd: the upper part of the register is kept
+
+    ; 32-bit example
+    mov     rax, qword [qFirstVal]    ; initialize rax
+    mov     eax, dword [dVar32]       ; write lowest 32 bit
+    ; now rax has value 0x00000000abcdefab: the upper part of the register is cleared!
 
 
 ## Exchange Command (`XCHG`)
