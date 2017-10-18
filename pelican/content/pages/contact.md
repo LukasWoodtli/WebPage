@@ -35,3 +35,5 @@ document.write("<a href='mailto:"+link+"'>e-mail</a>.")
 }
 //-->
 </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+
+> If you are a recruiter (head hunter) then please read [this page]({filename}/pages/recruiters_headhunters.md) before contacting me.
