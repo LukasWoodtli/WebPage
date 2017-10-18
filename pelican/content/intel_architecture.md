@@ -434,12 +434,38 @@ Loads an address:
 
     :::nasm
     lea   <reg64>, <mem> ; address of <mem> in reg64
-    
+
 Examples:
 
     :::nasm
     lea   rcx, byte [bvar]
     lea   rsi, dword [dVar]
+
+
+# Conversion Instructions
+
+## Narrowing Conversions
+
+- No special instructions are needed
+- `mov` instruction is used
+- Programmer is responsible that narrowing conversions are sane
+- The instruction will just strip upper part of register or variable
+
+
+## Widening Conversions
+
+Upper-order bit (sign) must be set based on original value
+
+### Unsigned Conversions (`MOVZX`)
+
+- Upper part of register or memory location must be set to zero
+- Instruction `movzx` can be used
+- `movzx` does not allow a quad-word destination with double-word source operand
+    - A `mov` with a double-word destination register and with double-word source operand will zero out the upper double-word of the quad-word destination register (s.a. `MOV`)
+- Only one memory operand is allowed
+- Destination can not be an immediate
+
+
 
 
 # Arithmetic Commands
