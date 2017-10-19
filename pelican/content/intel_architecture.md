@@ -465,6 +465,36 @@ Upper-order bit (sign) must be set based on original value
 - Only one memory operand is allowed
 - Destination can not be an immediate
 
+### Signed Conversions
+
+- Widening conversion for singed values need adjustment of the upper order bits
+- The upper order bits must be set to 0's or 1's depending if original value was negative or positive
+- There are general instructions: `movsx` and `movsxd`
+    - Only one operand can be memory
+    - Destination can not be immediate
+    - `movsxd` required for 32-bit to 64-bit extension
+- There are special instructions that convert values in a register : `bcw`, `cwd`, ...
+    - These work only on the `A` register sometimes using `D` register for result
+
+Instructions `movsx` and `movsxd`:
+
+    ::nasm
+    movsx <dest>, <src>
+    movsxd <dest>, <src>
+
+
+Special instructions:
+
+
+| Instruction | Source Size | Implicit Source | Destination Size | Implicit destination |
+|-------------|-------------|-----------------|------------------|----------------------|
+| `cbw`       | byte        | `al`            | word             | `ax`                 |
+| `cwd`       | word        | `ax`            | double-word      | `dx:ax`              |
+| `cwde`      | word        | `ax`            | double-word      | `eax`                |
+| `cdq`       | double-word | `eax`           | quadword         | `edx:eax`            |
+| `cdqe`      | double-word | `eax`           | quad-word        | `rax`                |
+| `cqo`       | quadword    | `rax`           | double-quadword  | `rdx:rax`            |
+
 
 
 
