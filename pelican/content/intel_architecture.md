@@ -6,11 +6,16 @@ Modified: 2015-07-20
 
 On this page I write down some notes about the Intel architecture (x86). I learned most of it in [school](http://www.vdf.ethz.ch/info/showDetails.asp?isbnNr=3255) few years ago.
 
-It's mainly for Intel 80186. But I'll extend it with information about modern [Intel processors](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html) ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
+Part of the notes here are for Intel 80186. But some sections are extend with information about modern [Intel processors](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html) ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
+
+Some information (especially about x86-64) is taken from [x86-64 Assembly Language Programming with Ubuntu](http://www.egr.unlv.edu/~ed/x86.html) by Ed Jorgensen.
 
 I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
 There is a good overview of the [x86 instructions](https://en.wikipedia.org/wiki/X86_instruction_listings) on Wikipedia.
+
+I keep some examples on [GitHub](https://github.com/LukasWoodtli/LinuxAssemblyProgramming).
+
 
 [TOC]
 
@@ -649,7 +654,8 @@ Sizes (`mul`):
 `imul` allows more operands:
 
     :::nasm
-    imul <source>
+    imul <source>
+
     imul <dest>, <src/imm>
     imul <dest>, <src>, <imm>
 
