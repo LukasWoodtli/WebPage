@@ -697,19 +697,37 @@ For three operands:
 
 There are different division operations for unsigned (`DIV`) and signed (`IDIV`) numbers.
 
-The explicit operand (given directly after the command) defines the size of the operands.
-It can be a register or a memory location.
+$$quotient = \frac{dividend}{divisor}$$
 
-The implicit operand is the accumulator (*AX*) or the extended accumulator (*DX/AX*), dependant on
-the size of the explicit operator.
+The explicit operand (given directly after the command) defines 
+the size of the operands.
 
-The result (quotient) is saved either in *AX* or *AL*. The remainder is saved in either *DX* or *AH*.
+The dividend must be larger than the divisor.
+Setting the dividend correctly requires often to set two registers
+(*D* register for the upper part, *A* register for the lower part).
 
-![The x86 MUL/IMUL commands](/images/intel_div.svg)
+For `idiv` singed conversion of the operand might be necessary.
+
+The operand can be a register or a memory location but not immediate.
 
     ::nasm
     DIV BX ; Use DX/AX  as implicit operand. Result is saved in AX. Remainder is saved in DX.
     IDIV 0x34 ; Use AX as implicit operand. Result is saved in AL. Remainder is saved in AH.
+
+
+Unsigned and signed division (`div`, `idiv`):
+
+| Size        | Registers                                   |
+|-------------|---------------------------------------------|
+| Byte        | `al = ax / <src>`, remainder in `ah`        |
+| Word        | `ax = dx:ax / <src>`, remainder in `dx`     |
+| Double-word | `eax = edx:eax / <src>`, remainder in `edx` |
+| Quad-word   | `rax = rdx:rax / <src>`, remainder in `rdx` |
+
+
+![The x86 DIV/IDIV commands](/images/intel_div.svg)
+
+> Don't divide by zero!
 
 ### Affected Flags
 
