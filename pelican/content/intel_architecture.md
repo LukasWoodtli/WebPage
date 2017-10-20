@@ -746,8 +746,11 @@ number to a number of the same value but twice the size. This is needed to keep 
 
 ## And, Or and Xor (`AND`, `OR`, `XOR`)
 
-Bit-wise **and**, **or** or **xor**  operation. The first operand can be a register or a memory address. The second operand can
-be a register, a memory address or a constant.
+Bit-wise **and**, **or** or **xor**  operation. 
+
+- The first operand can be a register or a memory address
+- The second operand can be a register, a memory address or a constant
+- Only one operand can be memory
 
 The first operand is overwritten with the result.
 
@@ -759,7 +762,7 @@ The first operand is overwritten with the result.
 
 ## Not (`NOT`)
 
-Bit-wise **not** (inverse) operation. The operand can be a register or a memory address.
+Bit-wise **not** (inverse) operation. The operand can be a register or a memory address but not an immediate.
 
 The operand is overwritten with the result.
 
@@ -837,7 +840,7 @@ the constant **1** (immediate) or by the value given in *CL*.
     * Carry: For unsigned Operands a set carry flag means *overflow*
     * Overflow: For signed Operands a set overflow flag means *overflow*
 
-## Right  Shift Commands (`SHR`, `SAR`)
+## Right Shift Commands (`SHR`, `SAR`)
 
 
 The *logical shift right* (`SHR`) divides a unsigned value by *2* or by $2^{CL}$.
