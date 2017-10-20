@@ -820,13 +820,23 @@ power of two (2, 5, 8, ...).
 For a multiplication or a division of a *unsigned* number the *logical
 shift operators* need to be used.
 
-For a multiplication or a division of a *signed* number the *arithmetic
-shift operators* need to be used.
+For a multiplication or a division of a *signed* number the 
+*arithmetic shift operators* need to be used.
+
+| Direction        | Logical | Arithmetic | Notes                           |
+|------------------|---------|------------|---------------------------------|
+| Left             | `shl`   | `sal`      | Both instructions are identical |
+| Right            | `shr`   | `sar`      | Instructions work diffently     |
+
+- Logical shift (unsigned shift): Spaces filled with zero
+- Arithmetic shift (signed shift): Spaces filled so that sign is preserved
+    * Right: Spaces are filled with sign bit.
+    * Left: Spaces are filled with zero (doesn't affect sign), thus same as logical shift
 
 ## Left Shift Commands (`SHL`, `SAL`)
 
-Both left shift operators are functional identical. They muliplicate
-the operator by *2* or by $2^{CL}$.
+Both left shift operators are functional identical. They 
+muliplicate the operator by *2* or by $2^{CL}$.
 
 Shifts the given operator (memory or register) left by
 the constant **1** (immediate) or by the value given in *CL*.
@@ -840,14 +850,16 @@ the constant **1** (immediate) or by the value given in *CL*.
     * Carry: For unsigned Operands a set carry flag means *overflow*
     * Overflow: For signed Operands a set overflow flag means *overflow*
 
-## Right Shift Commands (`SHR`, `SAR`)
 
+## Right Shift Commands (`SHR`, `SAR`)
 
 The *logical shift right* (`SHR`) divides a unsigned value by *2* or by $2^{CL}$.
 
 The *arithmetic shift right* (`SHR`) divides a unsigned value by *2* or by $2^{CL}$.
 The sign stays unchanged.
 
+The two right shift instructions are not equivalent (not as the
+two left shift instructions).
 
 The first operand is a memory location or a register. The second operand is the
 constant **1** or the register *CL*.
@@ -914,7 +926,7 @@ Far jumps change *CS* and *IP*.
 
 All far jumps are absolute.
 
-## Unconditional Jumps
+## Unconditional Jumps (`JMP`)
 
 - 8-bit displacement is added to *IP* as signed number:<pre><strong>JMP</strong> displ8</pre>
 - 16-bit displacement is added to *IP* as unsigned number:<pre><strong>JMP</strong> displ16</pre>
