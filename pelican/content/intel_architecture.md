@@ -344,6 +344,9 @@ In some cases the size of an operand can be given (for some cases it is even man
 
 `BYTE`, `WORD`, `DWORD`, `QWORD`, `TBYTE`, `FAR`...
 
+Even if the operand size is not mandatory it's good programming 
+practice to incule it.
+
 #### Examples
 
     :::nasm
@@ -506,7 +509,11 @@ Special instructions:
 
 ## Addition (`ADD`)
 
-Adds the two operands and writes the result into the first one. The first operand can not be a constant.
+Adds the two operands and writes the result into the first one.
+
+- The first operand can not be a constant (immediate)
+- Both operands need to be of same size
+- Only one operand can be memory
 
 ### Affected Flags
 
@@ -518,7 +525,12 @@ Adds the two operands and writes the result into the first one. The first operan
 
 ## Addition with Carry (`ADC`)
 
-Adds the two operands and the carry flag. The result is written into the first operand. The first operand can not be a constant.
+Adds the two operands and the carry flag. The result is written into the first operand.
+
+- The first operand can not be a constant (immediate)
+- Both operands need to be of same size
+- Only one operand can be memory
+- The `adc` instruction should directly follow an inital `add` instruction otherwise the carry bit can be lost
 
 > Addition of big signed operands can be splitted into several `ADC` commands.
 
@@ -535,6 +547,8 @@ Adds the two operands and the carry flag. The result is written into the first o
 
 Adds one to the operand. The result is saved in the given operand.
 
+- The operand can not be an immediate
+
 ### Affected Flags
 
 - Overflow: with signed operands
@@ -548,7 +562,11 @@ Adds one to the operand. The result is saved in the given operand.
 
 ## Subtraction (`SUB`)
 
-Subtracts the second operand from the first. The result is written into the first operand. The first operand can not be a constant.
+Subtracts the second operand from the first. The result is written into the first operand. 
+
+- The first operand can not be a constant (immediate)
+- Only one operand can be memory
+- Subtraction work same for signed and unsigned data
 
 ### Affected Flags
 
@@ -603,9 +621,10 @@ Changes a negative into a positive number and vice versa. It's basically subtrac
 
 Multiplicates unsigned (`MUL`) or signed (`IMUL`) numbers.
 
-There is a explicit operand given after the command and an implicit operand in the AX or AL register.
+There is a explicit operand given after the command and an implicit operand in the A (AL, AX, ..) register.
 
-The explicit operand sets the size and defines the used implicit register. It can be either a register or a memory location.
+The explicit operand sets the size and defines the used implicit register. It can be either a register or a memory location but not
+an immediate.
 
 The result is always twice as big as the operands. It's either the accumulator (*AX*)
 or the **extended accumulator** (*DX/AX*).
@@ -615,6 +634,49 @@ or the **extended accumulator** (*DX/AX*).
     ::nasm
     MUL 0x0 ; Use AL as implicit operand. Result is saved in AX.
     IMUL BX ; Use AX as implicit operand. Result is saved in DX/AX.
+
+    
+Sizes (`mul`):
+
+| Size        | Registers               |
+|-------------|-------------------------|
+| Byte        | `ax = al * <src>`       |
+| Word        | `dx:ax = ax * <src>`    |
+| Double-word | `edx:eax = eax * <src>` |
+| Quad-word   | `rdx:rax = rax * <src>` |
+
+
+`imul` allows more operands:
+
+    :::nasm
+    imul <source>
+    imul <dest>, <src/imm>
+    imul <dest>, <src>, <imm>
+
+For single operand (same as `mul`):
+
+| Size        | Registers               |
+|-------------|-------------------------|
+| Byte        | `ax = al * <src>`       |
+| Word        | `dx:ax = ax * <src>`    |
+| Double-word | `edx:eax = eax * <src>` |
+| Quad-word   | `rdx:rax = rax * <src>` |
+
+Note: `<src>` operand can not be immediate
+
+For two operands:
+
+- `<reg16> = <reg16> * <op16/imm>`
+- `<reg32> = <reg32> * <op32/imm>`
+- `<reg64> = <reg64> * <op64/imm>`
+
+
+For three operands:
+
+- `<reg16> = <op16> * <imm>`
+- `<reg32> = <op32> * <imm>`
+- `<reg64> = <op64> * <imm>`
+
 
 ### Affected Flags
 
