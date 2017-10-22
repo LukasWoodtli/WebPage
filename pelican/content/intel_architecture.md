@@ -935,6 +935,9 @@ All far jumps are absolute.
 - *IP* is loaded with the value given by the memory position:<pre><strong>JMP</strong> mem16</pre>
 - *CS* and *IP* are loaded with the value at the memory position:<pre><strong>JMP</strong> mem32</pre>
 
+The unconditional jump are not limited in range.
+
+
 ## Conditional Jumps
 
 Conditional jumps check one or more flags and jump to a given address if a condition is met.
@@ -944,7 +947,7 @@ Alternatively the commands `CMP` and `TEST` can be used.
 
 Conditional jumps can be divided into following groups:
 
-- Arithmetic jumps: The jump depends on size difference of two operands. The two operands have to be *divided* in advance.
+- Arithmetic jumps: The jump depends on size difference of two operands. The two operands have to be compared in advance.
                     One or more flags have to be checked.
 - Flag oriented jumps: A jump is performed if *one* given flag is set or deleted.
 
@@ -1021,7 +1024,11 @@ are special commands that only affect the flags.
    The result is not written anywhere.
 
 Both commands accept a register or a memory location as first operand and a register, a memory location
-or a constant as second operator.
+or a constant (immediate) as second operator.
+
+Only one memory operand is allowed.
+
+The operands need to be of the same size.
 
 # Loop Commands (`LOOPx`, `JCXZ`)
 
@@ -1031,7 +1038,7 @@ None of the loop commands affects any flags!
 
 ## Loop (`LOOP`)
 
-Decrements *CX* by one (1). If *CX* is not zero (*CX* $\neq$ 0) it performs the jump.
+Decrements *RCX* by one (1). If *RCX* is not zero (*RCX* $\neq$ 0) it performs the jump.
 
 ## Loop while equal and Loop while zero (`LOOPE`, `LOOPZ`)
 
