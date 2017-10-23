@@ -118,3 +118,17 @@ For the standard linker (Linux) the entry point is defined:
 Assembler directives are instrutions for the assembler that are not directly translated
 to CPU instrutions.
 
+
+# Labels
+
+- Labels are used as targets for jumps
+- Can contain letters, numbers and `_`
+- Terminated with colon (`:`)
+- Case sensitive (at least in *yasm*)
+- May be definied only once
+
+    :::nasm
+    loopBegin:
+    end:
+
+

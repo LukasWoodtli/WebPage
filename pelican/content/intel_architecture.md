@@ -6,11 +6,16 @@ Modified: 2015-07-20
 
 On this page I write down some notes about the Intel architecture (x86). I learned most of it in [school](http://www.vdf.ethz.ch/info/showDetails.asp?isbnNr=3255) few years ago.
 
-It's mainly for Intel 80186. But I'll extend it with information about modern [Intel processors](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html) ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
+Part of the notes here are for Intel 80186. But some sections are extend with information about modern [Intel processors](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html) ([IA-32](https://en.wikipedia.org/wiki/IA-32), [x86-64](https://en.wikipedia.org/wiki/X86-64)).
+
+Some information (especially about x86-64) is taken from [x86-64 Assembly Language Programming with Ubuntu](http://www.egr.unlv.edu/~ed/x86.html) by Ed Jorgensen.
 
 I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
 
 There is a good overview of the [x86 instructions](https://en.wikipedia.org/wiki/X86_instruction_listings) on Wikipedia.
+
+I keep some examples on [GitHub](https://github.com/LukasWoodtli/LinuxAssemblyProgramming).
+
 
 [TOC]
 
@@ -344,6 +349,9 @@ In some cases the size of an operand can be given (for some cases it is even man
 
 `BYTE`, `WORD`, `DWORD`, `QWORD`, `TBYTE`, `FAR`...
 
+Even if the operand size is not mandatory it's good programming 
+practice to incule it.
+
 #### Examples
 
     :::nasm
@@ -465,6 +473,36 @@ Upper-order bit (sign) must be set based on original value
 - Only one memory operand is allowed
 - Destination can not be an immediate
 
+### Signed Conversions
+
+- Widening conversion for singed values need adjustment of the upper order bits
+- The upper order bits must be set to 0's or 1's depending if original value was negative or positive
+- There are general instructions: `movsx` and `movsxd`
+    - Only one operand can be memory
+    - Destination can not be immediate
+    - `movsxd` required for 32-bit to 64-bit extension
+- There are special instructions that convert values in a register : `bcw`, `cwd`, ...
+    - These work only on the `A` register sometimes using `D` register for result
+
+Instructions `movsx` and `movsxd`:
+
+    ::nasm
+    movsx <dest>, <src>
+    movsxd <dest>, <src>
+
+
+Special instructions:
+
+
+| Instruction | Source Size | Implicit Source | Destination Size | Implicit destination |
+|-------------|-------------|-----------------|------------------|----------------------|
+| `cbw`       | byte        | `al`            | word             | `ax`                 |
+| `cwd`       | word        | `ax`            | double-word      | `dx:ax`              |
+| `cwde`      | word        | `ax`            | double-word      | `eax`                |
+| `cdq`       | double-word | `eax`           | quadword         | `edx:eax`            |
+| `cdqe`      | double-word | `eax`           | quad-word        | `rax`                |
+| `cqo`       | quadword    | `rax`           | double-quadword  | `rdx:rax`            |
+
 
 
 
@@ -476,7 +514,11 @@ Upper-order bit (sign) must be set based on original value
 
 ## Addition (`ADD`)
 
-Adds the two operands and writes the result into the first one. The first operand can not be a constant.
+Adds the two operands and writes the result into the first one.
+
+- The first operand can not be a constant (immediate)
+- Both operands need to be of same size
+- Only one operand can be memory
 
 ### Affected Flags
 
@@ -488,7 +530,12 @@ Adds the two operands and writes the result into the first one. The first operan
 
 ## Addition with Carry (`ADC`)
 
-Adds the two operands and the carry flag. The result is written into the first operand. The first operand can not be a constant.
+Adds the two operands and the carry flag. The result is written into the first operand.
+
+- The first operand can not be a constant (immediate)
+- Both operands need to be of same size
+- Only one operand can be memory
+- The `adc` instruction should directly follow an inital `add` instruction otherwise the carry bit can be lost
 
 > Addition of big signed operands can be splitted into several `ADC` commands.
 
@@ -505,6 +552,8 @@ Adds the two operands and the carry flag. The result is written into the first o
 
 Adds one to the operand. The result is saved in the given operand.
 
+- The operand can not be an immediate
+
 ### Affected Flags
 
 - Overflow: with signed operands
@@ -518,7 +567,11 @@ Adds one to the operand. The result is saved in the given operand.
 
 ## Subtraction (`SUB`)
 
-Subtracts the second operand from the first. The result is written into the first operand. The first operand can not be a constant.
+Subtracts the second operand from the first. The result is written into the first operand. 
+
+- The first operand can not be a constant (immediate)
+- Only one operand can be memory
+- Subtraction work same for signed and unsigned data
 
 ### Affected Flags
 
@@ -573,9 +626,10 @@ Changes a negative into a positive number and vice versa. It's basically subtrac
 
 Multiplicates unsigned (`MUL`) or signed (`IMUL`) numbers.
 
-There is a explicit operand given after the command and an implicit operand in the AX or AL register.
+There is a explicit operand given after the command and an implicit operand in the A (AL, AX, ..) register.
 
-The explicit operand sets the size and defines the used implicit register. It can be either a register or a memory location.
+The explicit operand sets the size and defines the used implicit register. It can be either a register or a memory location but not
+an immediate.
 
 The result is always twice as big as the operands. It's either the accumulator (*AX*)
 or the **extended accumulator** (*DX/AX*).
@@ -585,6 +639,50 @@ or the **extended accumulator** (*DX/AX*).
     ::nasm
     MUL 0x0 ; Use AL as implicit operand. Result is saved in AX.
     IMUL BX ; Use AX as implicit operand. Result is saved in DX/AX.
+
+    
+Sizes (`mul`):
+
+| Size        | Registers               |
+|-------------|-------------------------|
+| Byte        | `ax = al * <src>`       |
+| Word        | `dx:ax = ax * <src>`    |
+| Double-word | `edx:eax = eax * <src>` |
+| Quad-word   | `rdx:rax = rax * <src>` |
+
+
+`imul` allows more operands:
+
+    :::nasm
+    imul <source>
+
+    imul <dest>, <src/imm>
+    imul <dest>, <src>, <imm>
+
+For single operand (same as `mul`):
+
+| Size        | Registers               |
+|-------------|-------------------------|
+| Byte        | `ax = al * <src>`       |
+| Word        | `dx:ax = ax * <src>`    |
+| Double-word | `edx:eax = eax * <src>` |
+| Quad-word   | `rdx:rax = rax * <src>` |
+
+Note: `<src>` operand can not be immediate
+
+For two operands:
+
+- `<reg16> = <reg16> * <op16/imm>`
+- `<reg32> = <reg32> * <op32/imm>`
+- `<reg64> = <reg64> * <op64/imm>`
+
+
+For three operands:
+
+- `<reg16> = <op16> * <imm>`
+- `<reg32> = <op32> * <imm>`
+- `<reg64> = <op64> * <imm>`
+
 
 ### Affected Flags
 
@@ -599,19 +697,37 @@ or the **extended accumulator** (*DX/AX*).
 
 There are different division operations for unsigned (`DIV`) and signed (`IDIV`) numbers.
 
-The explicit operand (given directly after the command) defines the size of the operands.
-It can be a register or a memory location.
+$$quotient = \frac{dividend}{divisor}$$
 
-The implicit operand is the accumulator (*AX*) or the extended accumulator (*DX/AX*), dependant on
-the size of the explicit operator.
+The explicit operand (given directly after the command) defines 
+the size of the operands.
 
-The result (quotient) is saved either in *AX* or *AL*. The remainder is saved in either *DX* or *AH*.
+The dividend must be larger than the divisor.
+Setting the dividend correctly requires often to set two registers
+(*D* register for the upper part, *A* register for the lower part).
 
-![The x86 MUL/IMUL commands](/images/intel_div.svg)
+For `idiv` singed conversion of the operand might be necessary.
+
+The operand can be a register or a memory location but not immediate.
 
     ::nasm
     DIV BX ; Use DX/AX  as implicit operand. Result is saved in AX. Remainder is saved in DX.
     IDIV 0x34 ; Use AX as implicit operand. Result is saved in AL. Remainder is saved in AH.
+
+
+Unsigned and signed division (`div`, `idiv`):
+
+| Size        | Registers                                   |
+|-------------|---------------------------------------------|
+| Byte        | `al = ax / <src>`, remainder in `ah`        |
+| Word        | `ax = dx:ax / <src>`, remainder in `dx`     |
+| Double-word | `eax = edx:eax / <src>`, remainder in `edx` |
+| Quad-word   | `rax = rdx:rax / <src>`, remainder in `rdx` |
+
+
+![The x86 DIV/IDIV commands](/images/intel_div.svg)
+
+> Don't divide by zero!
 
 ### Affected Flags
 
@@ -630,8 +746,11 @@ number to a number of the same value but twice the size. This is needed to keep 
 
 ## And, Or and Xor (`AND`, `OR`, `XOR`)
 
-Bit-wise **and**, **or** or **xor**  operation. The first operand can be a register or a memory address. The second operand can
-be a register, a memory address or a constant.
+Bit-wise **and**, **or** or **xor**  operation. 
+
+- The first operand can be a register or a memory address
+- The second operand can be a register, a memory address or a constant
+- Only one operand can be memory
 
 The first operand is overwritten with the result.
 
@@ -643,7 +762,7 @@ The first operand is overwritten with the result.
 
 ## Not (`NOT`)
 
-Bit-wise **not** (inverse) operation. The operand can be a register or a memory address.
+Bit-wise **not** (inverse) operation. The operand can be a register or a memory address but not an immediate.
 
 The operand is overwritten with the result.
 
@@ -701,13 +820,23 @@ power of two (2, 5, 8, ...).
 For a multiplication or a division of a *unsigned* number the *logical
 shift operators* need to be used.
 
-For a multiplication or a division of a *signed* number the *arithmetic
-shift operators* need to be used.
+For a multiplication or a division of a *signed* number the 
+*arithmetic shift operators* need to be used.
+
+| Direction        | Logical | Arithmetic | Notes                           |
+|------------------|---------|------------|---------------------------------|
+| Left             | `shl`   | `sal`      | Both instructions are identical |
+| Right            | `shr`   | `sar`      | Instructions work diffently     |
+
+- Logical shift (unsigned shift): Spaces filled with zero
+- Arithmetic shift (signed shift): Spaces filled so that sign is preserved
+    * Right: Spaces are filled with sign bit.
+    * Left: Spaces are filled with zero (doesn't affect sign), thus same as logical shift
 
 ## Left Shift Commands (`SHL`, `SAL`)
 
-Both left shift operators are functional identical. They muliplicate
-the operator by *2* or by $2^{CL}$.
+Both left shift operators are functional identical. They 
+muliplicate the operator by *2* or by $2^{CL}$.
 
 Shifts the given operator (memory or register) left by
 the constant **1** (immediate) or by the value given in *CL*.
@@ -721,14 +850,16 @@ the constant **1** (immediate) or by the value given in *CL*.
     * Carry: For unsigned Operands a set carry flag means *overflow*
     * Overflow: For signed Operands a set overflow flag means *overflow*
 
-## Right  Shift Commands (`SHR`, `SAR`)
 
+## Right Shift Commands (`SHR`, `SAR`)
 
 The *logical shift right* (`SHR`) divides a unsigned value by *2* or by $2^{CL}$.
 
 The *arithmetic shift right* (`SHR`) divides a unsigned value by *2* or by $2^{CL}$.
 The sign stays unchanged.
 
+The two right shift instructions are not equivalent (not as the
+two left shift instructions).
 
 The first operand is a memory location or a register. The second operand is the
 constant **1** or the register *CL*.
@@ -795,7 +926,7 @@ Far jumps change *CS* and *IP*.
 
 All far jumps are absolute.
 
-## Unconditional Jumps
+## Unconditional Jumps (`JMP`)
 
 - 8-bit displacement is added to *IP* as signed number:<pre><strong>JMP</strong> displ8</pre>
 - 16-bit displacement is added to *IP* as unsigned number:<pre><strong>JMP</strong> displ16</pre>
@@ -803,6 +934,9 @@ All far jumps are absolute.
 - *IP* is loaded with the value of the register:<pre><strong>JMP</strong> reg16</pre>
 - *IP* is loaded with the value given by the memory position:<pre><strong>JMP</strong> mem16</pre>
 - *CS* and *IP* are loaded with the value at the memory position:<pre><strong>JMP</strong> mem32</pre>
+
+The unconditional jump are not limited in range.
+
 
 ## Conditional Jumps
 
@@ -813,7 +947,7 @@ Alternatively the commands `CMP` and `TEST` can be used.
 
 Conditional jumps can be divided into following groups:
 
-- Arithmetic jumps: The jump depends on size difference of two operands. The two operands have to be *divided* in advance.
+- Arithmetic jumps: The jump depends on size difference of two operands. The two operands have to be compared in advance.
                     One or more flags have to be checked.
 - Flag oriented jumps: A jump is performed if *one* given flag is set or deleted.
 
@@ -890,7 +1024,11 @@ are special commands that only affect the flags.
    The result is not written anywhere.
 
 Both commands accept a register or a memory location as first operand and a register, a memory location
-or a constant as second operator.
+or a constant (immediate) as second operator.
+
+Only one memory operand is allowed.
+
+The operands need to be of the same size.
 
 # Loop Commands (`LOOPx`, `JCXZ`)
 
@@ -900,7 +1038,7 @@ None of the loop commands affects any flags!
 
 ## Loop (`LOOP`)
 
-Decrements *CX* by one (1). If *CX* is not zero (*CX* $\neq$ 0) it performs the jump.
+Decrements *RCX* by one (1). If *RCX* is not zero (*RCX* $\neq$ 0) it performs the jump.
 
 ## Loop while equal and Loop while zero (`LOOPE`, `LOOPZ`)
 
