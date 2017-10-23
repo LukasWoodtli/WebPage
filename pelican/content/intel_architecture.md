@@ -473,15 +473,17 @@ Upper-order bit (sign) must be set based on original value
 - Only one memory operand is allowed
 - Destination can not be an immediate
 
-### Signed Conversions
+### Signed Conversions (`CBW`, `CWD`, ...)
 
 - Widening conversion for singed values need adjustment of the upper order bits
+- This is needed to keep the
+[two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) format
 - The upper order bits must be set to 0's or 1's depending if original value was negative or positive
 - There are general instructions: `movsx` and `movsxd`
     - Only one operand can be memory
     - Destination can not be immediate
     - `movsxd` required for 32-bit to 64-bit extension
-- There are special instructions that convert values in a register : `bcw`, `cwd`, ...
+- There are special instructions that convert values in a register : *convert byte to word* `cbw`, *convert word to double-word* `cwd`, ...
     - These work only on the `A` register sometimes using `D` register for result
 
 Instructions `movsx` and `movsxd`:
@@ -736,11 +738,6 @@ Unsigned and signed division (`div`, `idiv`):
 > If the result is too big for the register *AL* resp. *AX* a interrupt (*division error*) is caused.
 > If it is not handled the **program can crash** (undefined behaviour).
 
-## Convert Operand Size (`CBW`, `CWD`)
-
-The commands *convert byte to word* (`CBW`) and *convert word to double-word* (`CWD`) convert a *signed*
-number to a number of the same value but twice the size. This is needed to keep the
-[two's complement](https://en.wikipedia.org/wiki/Two%27s_complement) format.
 
 # Logical Commands
 
