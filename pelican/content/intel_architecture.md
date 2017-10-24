@@ -130,7 +130,7 @@ Pointers are usually 64 bits (sometimes 32 bits).
 
 Negative addresses are reserved for the kernel.
 
-### Linux snd BSD
+### Linux and BSD
 
 #### Small
 
@@ -347,15 +347,16 @@ Default for most registers is DS. But for BP the default is SS.
 
 #### x86-64
 
-The general for calculating a memory address is
+The general for calculating a memory address is:
 
-$$\[baseAddress + \(indexRegister \cdot scaleValue\) + displacement\]$$
+$$[baseAddress + (indexRegister \cdot scaleValue) + displacement]$$
 
 Where:
+
 - *baseAddress*: any GP register or variable name
 - *indexRegister*: any GP register
 - *scaleValue*: immediate value of *1*, *2*, *4* or *8* (*1* does nothing)
-- *displacement*: 8-bit ot 32-bit constant
+- *displacement*: 8-bit or 32-bit constant
 
 Examples:
 
