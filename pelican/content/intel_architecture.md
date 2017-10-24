@@ -319,7 +319,10 @@ i.e:
 
 
 ### Address
-To calculate an address the following scheme is used:
+
+#### Real Mode
+
+To calculate an address in processors with segmentation the following scheme is used:
 
 $$Offset := \begin{Bmatrix}-\\CS:\\DS:\\SS:\\ES:\end{Bmatrix}\begin{Bmatrix}-\\BX\\BP\end{Bmatrix} +\begin{Bmatrix}-\\SI\\DI\end{Bmatrix} + \begin{Bmatrix}-\\displacement_8\\displacement_{16}\end{Bmatrix}$$
 
@@ -341,6 +344,33 @@ This addressing scheme gives a total of 27 addressing combinations. But only *24
 
 A segment prefix (**CS:**, **DS:**, **ES:** or **SS:**) defines which segment register will be used for calculating the address.
 Default for most registers is DS. But for BP the default is SS.
+
+#### x86-64
+
+The general for calculating a memory address is
+
+$$\[baseAddress + \(indexRegister \cdot scaleValue\) + displacement\]$$
+
+Where:
+- *baseAddress*: any GP register or variable name
+- *indexRegister*: any GP register
+- *scaleValue*: immediate value of *1*, *2*, *4* or *8* (*1* does nothing)
+- *displacement*: 8-bit ot 32-bit constant
+
+Examples:
+
+    ::::nasm
+    mov eax, dword [var]
+    mov rax, qword [rbx+rsi]
+    mov ax, word [lst+4]
+    mov bx, word [lst+rdx+2]
+    mov rcx, qword [lst+(rsi*8)]
+    mov al, byte [buffer-1+rcx]
+    mov eax, dword [rbx+(rsi*4)+16]
+
+Because addresses are always of 64-bit size (`qword`), a 64-bit 
+register is needed for memory addressing. Even when accessing 
+smaller sized values.
 
 #### Operand Size (`WORD`, `DWORD`...)
 
