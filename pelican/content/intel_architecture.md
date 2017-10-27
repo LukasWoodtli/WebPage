@@ -1093,10 +1093,17 @@ Jump if: CX $=$ 0
 
 The stack on x86 is always addressed by the Stack Segment (*SS*).
 
-Stack operations are word aligned (16-bit). So `PUSH` decrements *SP* by *2* and
-`POP` increments *SP* by *2*.
+On 80186 stack operations are word aligned (16-bit). So `PUSH` 
+decrements *SP* by *2* and `POP` increments *SP* by *2*.
 
-*SP* points to the *last written* word.
+On x86-64 stack operations are quad-wor (64-bit) aligned.
+So `PUSH` decrements *RSP* by *8* and `POP` increments *RSP* by *8*.
+
+It's possible to use pop and push instructions for operands smaller than 64-bits. But it's not recomended.
+
+The stack on x86 grow downwards (reverse in memory).
+
+*RSP* points to the *last written* item. It is the top of the stack (smallest address on stack).
 
 ## Push and Pop (`PUSH`, `PUSHF`, `PUSHA`, `POP`, `POPF`, `POPA`)
 
@@ -1104,8 +1111,8 @@ The different push and pop commands save/restore 16-bit words to/from the stack.
 
 ### `PUSH`
 
-`PUSH` can be called with all registers as as operands or a memory operand. Immediate addressing
-is not possible with `PUSH`.
+`PUSH` can be called with all registers as as operands or a memory 
+operand. Immediate addressing is not possible with `PUSH`.
 
 The registers that can be pushed are: *AX*, *BX*, *CX*, *DX*, *SP*, *BP*, *SI*, *DI*, *ES*, *SS*, *DS* and *CS*.
 
