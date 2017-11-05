@@ -1150,6 +1150,8 @@ and calls the function.
 
 ## Defining a Function
 
+Functions need to be placed in the code segment.
+
 In [NASM](http://left404.com/2011/01/04/converting-x86-assembly-from-masm-to-nasm-3/) a function is defined as follows:
 
     :::nasm
@@ -1162,9 +1164,11 @@ In [NASM](http://left404.com/2011/01/04/converting-x86-assembly-from-masm-to-nas
 For calling the function:
 
     :::nasm
-    call far my_func ;
+    call far my_func
 
 The pseudo commands `PROC and `ENDP` (as in MASM/TASM) are not supported by NASM.
+
+Function definitions can not be nested. 
 
 ### Function Prologue
 
