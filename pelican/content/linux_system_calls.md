@@ -28,15 +28,15 @@ The registers are only used when needed.
 
 The call code is necessary.
 
-| Register | Usage        |
+| Register | Usage        |
 |----------|--------------|
-| `rax`    | Call code, return value after call |
-| `rdi`    | 1st argument |
-| `rsi`    | 2nd argument |
-| `rdx`    | 3rd argument |
-| `rcx`    | 4th argument |
-| `r8`     | 5th argument |
-| `r9`     | 6th argument |
+| `rax`    | Call code, return value after call |
+| `rdi`    | 1st argument |
+| `rsi`    | 2nd argument |
+| `rdx`    | 3rd argument |
+| `rcx`    | 4th argument |
+| `r8`     | 5th argument |
+| `r9`     | 6th argument |
 
 
 ## `SYSCALL` Instruction
