@@ -88,7 +88,8 @@ Memory (typical sizes):
 
 Typically, applications of this type include a mix of both hard and soft real-time requirements
 
-- Soft real-time requirements:
+
+- Soft real-time requirements:
     - time deadline
     - but breaching deadline does not render the system useles
     - i.e. GUI (user interaction)
@@ -97,3 +98,10 @@ Typically, applications of this type include a mix of both hard and soft real-ti
     - breaching the deadline: absolute failure of the system
     - i.e. security related code in cars
 - Applications typically combine both types of real-time rocessing
+
+
+# Blocking a Task
+
+- A task can be blocked if it currently has nothing to do
+- `vTaskDelay()` is usually called for a task to enter the blocked state
+- `vTaskDelayUntil()` should be used when a *fixed* execution period is required (e.g. DSP)
