@@ -96,3 +96,39 @@ Destructors of Policy Classes
 *"Defining a virtual destructor for a policy [...] works against its static nature and hurts performance."*
 
 *"The lightweight, effective solution that policies should use is to define a **nonvirtual protected destructor**"*
+
+
+Optional Functionality Through Incomplete Instantiation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*"If a member function of a class template is never used, it is not even instantiated - the compiler does not look at it at all, except perhaps for syntax checking. This gives the host class a chance to specify and use optional features of a policy class."*
+
+
+Combining Policy Classes
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+*"The greatest usefulness of policies is apparent when you combine them. Typically, a highly configurable class uses several policies for various aspects of its workings. Then the library user selects the desired high-level behavior by combining several policy classes."*
+
+
+Decomposing a Class into Policies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*"[To] decompose the functionality of a class in policies. The rule of thumb is to identify and name the design decisions that take part in a class's behavior. Anything that can be done in more than one way should be identified and migrated from the class to a policy. Don't forget: Design constraints buried in a class's design are as bad as magic constants buried in code."*
+
+
+
+*"When you decompose a class in policies, it is very important to find an orthogonal decomposition. An orthogonal decomposition yields policies that are completely independent of each other. You can easily spot a nonorthogonal decomposition when various policies need to know about each other."*
+
+
+Summary
+~~~~~~~
+
+*"The mechanics of policies consist of a combination of templates with multiple inheritance. A class that uses policies - a host class - is a template with many template parameters (often, template template parameters), each parameter being a policy. The host class “indirects” parts of its functionality through its policies and acts as a receptacle that combines several policies in a coherent aggregate."*
+
+*"Policy-based classes support flexibility when it comes to conversions. If you use policy-by-policy copying, each policy can control which other policies it accepts, or converts to, by providing the appropriate conversion constructors, conversion operators, or both."*
+
+
+*"wo important guidelines."*
+
+1. *"One is to localize, name, and isolate design decisions in your class - things that are subject to a trade-off or could be sensibly implemented in various ways."*
+2. *"The other guideline is to look for orthogonal policies, that is, policies that don’t need to interact with each other and that can be changed independently."*
