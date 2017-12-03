@@ -128,7 +128,51 @@ Summary
 *"Policy-based classes support flexibility when it comes to conversions. If you use policy-by-policy copying, each policy can control which other policies it accepts, or converts to, by providing the appropriate conversion constructors, conversion operators, or both."*
 
 
-*"wo important guidelines."*
+*"Two important guidelines."*
 
 1. *"One is to localize, name, and isolate design decisions in your class - things that are subject to a trade-off or could be sensibly implemented in various ways."*
 2. *"The other guideline is to look for orthogonal policies, that is, policies that don’t need to interact with each other and that can be changed independently."*
+
+
+Techniques
+----------
+
+Partial Template Specialization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*"In a partial specialization of a class template, you specify only some of the template arguments and leave the other ones generic."*
+
+*"When you instantiate a template, the compiler does a pattern matching of existing partial and total specializations to find the best candidate; this gives you enormous flexibility."*
+
+*"Unfortunately, partial template specialization does not apply to functions - be they member or nonmember - which somewhat reduces the flexibility and the granularity of what you can do."*
+
+- *"Although you can totally specialize member functions of a class template, you **cannot partially specialize member functions**."*
+- *"You cannot partially specialize namespace-level (nonmember) template functions. The closest thing to partial specialization for namespace-level template functions is overloading. For practical purposes, this means that you have fine-grained specialization abilities only for the **function parameters** - **not** for the **return value** or for internally used types."*
+
+
+Overloading is the closest to partial specialization for functions:
+
+    :::cpp
+    // primary template
+    template <class T, class U>
+    T Fun(U obj);
+    
+    // illegal partial specialization
+    template <class U> 
+    void Fun<void, U>(U obj);
+    
+    // specialization legal (overloading)
+    template <class T>
+    T Fun (Window obj);
+
+
+Local Classes
+~~~~~~~~~~~~~
+
+Local (nested) classes can be used (defined) inside of template functions:
+
+*"What makes local classes truly interesting is that you can use them in template functions. Local classes defined inside template functions can use the template parameters of the enclosing function."*
+
+*"Local classes do have a unique feature, though: They are **final**. Outside users cannot derive from a class hidden in a function."*
+
+
