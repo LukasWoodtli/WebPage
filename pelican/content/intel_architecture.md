@@ -770,6 +770,109 @@ Unsigned and signed division (`div`, `idiv`):
 > If it is not handled the **program can crash** (undefined behaviour).
 
 
+# Floating Point Instructions
+
+There are special instructions for floating point numbers.
+
+Here are the most important x86-64 floating point instructions
+shown. They differ from the 32-bit floating point instructions.
+
+## Values
+
+- 32-bit: single precision (`float` in C/C++)
+- 64-bit: double precision (`double` in C/C++)
+
+Single precision instuctions have a `s` postfix and
+double precision instuctions have a `d` postfix.
+
+## Registers
+
+There are 16 `XMM` registers `xmm0` - `xmm15` to be used
+for floating point instructions.
+
+They are 128 bits (on later processors 256 bits) long.
+
+## Data Transfer Commands (`movss`, `movsd`)
+
+Copies a value to or from a `XMM` register.
+
+    :::nasm
+    movss dest, src
+    movsd dest, src
+
+- Only one operand can be memory
+- Operands can not be an immediate
+
+## Conversion Instructions
+
+| Conversions      | float (32-bit)  | double (64-bit) | integer (32 bit) |
+|------------------|-----------------|-----------------|------------------|
+| float (32-bit)   |      -          | `cvtss2sd`      | `cvtss2si`       |
+| double (64-bit)  | `cvtsd2ss`      |      -          | `cvtsd2si`       |
+| integer (32 bit) | `cvtsi2ss`      | `cvtsi2sd`      |     -            |
+
+## Arithmetic Instructions
+
+### Addition (`addss`, `addsd`)
+
+    :::nasm
+    addss dest, src
+    addsd dest, src
+
+- Destination operands must be an `XMM` register
+- Source operand can't be an immediate
+
+### Substraction (`subss`, `subsd`)
+
+    :::nasm
+    subss dest, src
+    subsd dest, src
+
+- Destination operands must be an `XMM` register
+- Source operand can't be an immediate
+
+### Multiplication (`mulss`, `mulsd`)
+
+    :::nasm
+    mulss dest, src
+    mulsd dest, src
+
+- Destination operands must be an `XMM` register
+- Source operand can't be an immediate
+
+### Division (`divss`, `divsd`)
+
+    :::nasm
+    divss dest, src
+    divsd dest, src
+
+- Destination operands must be an `XMM` register
+- Source operand can't be an immediate
+
+### Square Root (`sqrtss`, `sqrtsd`)
+
+    :::nasm
+    sqrtss dest, src
+    sqrtsd dest, src
+
+- Destination operands must be an `XMM` register
+- Source operand can't be an immediate
+
+### Control Instructions
+
+There are ordered and unordered floating point compare instructions.
+Here only the unordered floating point instructions shown.
+
+    :::nasm
+    ucomiss op1, op2
+    ucomisd op1, op2
+
+- Operands are not changed
+- `op1` must be an `XMM` register
+- `op2` may be `XMM` register or memory
+- No immediate operands are allowed
+
+
 # Logical Commands
 
 ## And, Or and Xor (`AND`, `OR`, `XOR`)
