@@ -37,9 +37,10 @@ The first 6 arguments (integer or pointer) are passed in registers:
 | `R8`     | 5th argument |
 | `R9`     | 6th argument |
 
+The first 8 floating point arguments are in the registers `xmm0` - `xmm7`.
+
 - Additional arguments are located on the stack in reverse order (from right to left)
 - `R10` is used as static chain pointer for nested functions
-- `XMM0`- `XMM7` are used for certain floating point arguments
 - Variadic functions:
     - Number of floating point arguments: `RAX`
     - The arguments are passed in the vector registers
@@ -47,6 +48,8 @@ The first 6 arguments (integer or pointer) are passed in registers:
 ## Return Value
 
 The return value is passed in registers `RAX` and if needed also in `RDX`.
+
+If the return value is a floating point number it is passed in `xmm0`.
 
 ## Call by Reference (out params)
 
@@ -59,7 +62,8 @@ Output parameters need two steps to return a value:
 ## Registers
 
 - Calle: must save and restore `RBP`, `RBX` and `R12`-`R15` if they are used
-- Caller: all other registers must be saved and restored if their content is needed after the function call
+- Caller: all other registers must be saved and restored if their content is needed after the function cal
+- No `XMM` registers are preserved
 
 
 | Register | Usage         | Notes                              |
@@ -80,6 +84,7 @@ Output parameters need two steps to return a value:
 | `r13`    | Callee Saved  |                                    |
 | `r14`    | Callee Saved  |                                    |
 | `r15`    | Callee Saved  |                                    |
+| `xmm0` - `xmm15` |       | Not preserved during function call |
 
 
 ## Clean-Up
@@ -110,7 +115,8 @@ To save and adjust `rbp`:
 
     :::nasm
     ; prologue
-    push rbp       ; save the 'old' `rbp` on the stack
+    push rbp
+       ; save the 'old' `rbp` on the stack
     mov rbp, rsp   ; adjust `rbp` to point to the just saved 'old' `rbp`
 
 ## The Red Zone
