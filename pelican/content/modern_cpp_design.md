@@ -165,4 +165,101 @@ Local (nested) classes can be used (defined) inside of template functions:
 
 *"Local classes do have a unique feature, though: They are **final**. Outside users cannot derive from a class hidden in a function."*
 
+### Detecting Convertibility and Inheritance at Compile Time
+
+See also [SFINAE](http://en.cppreference.com/w/cpp/language/sfinae)
+
+*"How can we write a function that accepts 'anything else'? [...] We need a match that's 'worse' than an automatic conversion - that is, a conversion that kicks in if and only if there's no automatic conversion. A quick look through the conversion rules applied for a function call yields the ellipsis match, which is the worst of all - the bottom of the list"*
+
+*"Passing a C++ object to a function with ellipses has undefined results, but this doesn't matter. Nothing actually calls the function. It's not even implemented. Recall that sizeof does not evaluate its argument.)"*
+
+See also: [stackoverflow](https://stackoverflow.com/questions/3634564/type-safety-by-using-the-ellipsis-notation/3634934#3634934)
+
+*"[...] how much you can do with functions [...], that not only don't do anything but don't even really exist at all [(just declared but not defined)]?"*
+
+*"If template code applies const twice (to a type that's already const), the second const is ignored."*
+
+### Optimized Parameter Types
+
+*"A detail that must be carefully handled is that C++ does not allow references to references. Thus, if `T` is already a reference, you should not add one more reference to it."*
+
+## Typelists
+
+*"templates cannot have a variable number of parameters"*
+
+*"virtual functions cannot be templates"*
+
+### Intermezzo
+
+About "meta functions" (like `Length`) for `Typelist`s that are implemented in a functional way:
+
+*"Couldn't we develop a version of Length that's iterative, instead of recursive? After all, iteration is more natural to C++ than recursion."*
+
+*"template specialization [..] provide the equivalent of if statements at compile time."*
+
+*"All compile-time values are **immutable**. After you've defined an integral constant, say an enumerated value, you cannot change it (that is, assign another value to it)."*
+
+*"Type definitions (`typedef`s) can be seen as introducing named type constants. Again, after definition, they are frozen - you cannot later redefine a `typedef`d symbol to hold another type."*
+
+### Erasing a Type from a Typelist
+
+*"[If] there is no default version of [a] template [...] you can instantiate [it] only with certain types."*
+
+
+# Components
+
+## Generalized Functors
+
+*"Generalized functors, [are] a powerful abstraction that allows decoupled interobject communication."*
+
+- *"**Encapsulates** any processing invocation"*
+- *"Is **typesafe**"*
+- *"Is an **object with value semantics**: copying, assignment, and pass by value, does not expose virtual member functions"*
+- *"Can store state and invoke member functions"*
+
+*"Two important aspects of the Command pattern:*
+
+- *Interface separation. The invoker is isolated from the receiver.*
+- *Time separation. Command stores a ready-to-go processing request that's to be started later.*"
+
+### C++ Callable Entities
+
+*"In addition to simple callbacks [function pointers], C++ defines many more entities that support the function-call operator. Let's enumerate all the things that support `operator()` in C++."*
+
+- *"C-like functions"*
+- *"C-like pointers to functions"*
+- *"References to functions (which essentially act like const pointers to functions)"*
+- *"Functors, that is, objects that define an `operator()`"*
+- *"The result of applying `operator.*` or `operator->*` having a pointer to a member function in the right-hand side of the expression"*
+
+*"You can add a pair of parentheses to the right of any of the enumerated items, put an appropriate list of arguments inside, and get some processing done. No other objects in C++ allow this except the ones just listed."* (before C++11)
+
+### The Functor Class Template Skeleton
+
+*"In C++ a bald pointer to a polymorphic type does not strictly have first-class semantics because of the ownership issue."*
+
+*"C++ does not instantiate member functions for templates until they are **actually used**."*
+
+### Handling Functors
+
+    :::cpp
+    template <typename R, class TList>
+    template <typename Fun> 
+    Functor<R, TList>::Functor(const Fun& fun) 
+      : spImpl_(new FunctorHandler<Functor, Fun>(fun))
+    { }
+
+*"The two template parameter sets are necessary: The `template <typename R, class TList>` stands for the class template `Functor`, and `template <typename Fun>` stands for the parameter that the constructor itself takes. [...] is known as an 'out-of-class member template definition'.”*
+
+### Argument and Return Type Conversions
+
+*"Template processing predates compiling, allowing you to operate at source-code level. In object-oriented programming, in contrast, the power comes from late (after compilation) binding of names to values. Thus, object-oriented programming fosters reuse in the form of binary components, whereas generic programming fosters reuse at the source-code level. [...] The two techniques complement each other."*
+
+*"pointers to member functions and their two related operators - `.*` and `->*` - reveals strange features. There is no C++ type for the result of `geronimo.*pActivity` and `pGeronimo->*pActivity`. Both are binary operators [that] return something to which you can apply the function-call operator immediately, but that 'something' does not have a type."*
+
+*"The standard says, 'If the result of `.*` or `->*` is a function, then that result can be used only as the operand for the function call `operator()`.”*
+
+*"You cannot store the result of `operator.*` or `operator->*` in any way, although there is an entity that holds the fusion between your object and the pointer to a member function"*
+
+*"pointers to member functions and the two related operators are a curiously half-baked concept in C++. And by the way, you cannot have references to member functions (although you can have references to regular functions)."*
 
