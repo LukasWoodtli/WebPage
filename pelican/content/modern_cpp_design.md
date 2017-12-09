@@ -312,3 +312,52 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 *"In a nutshell, you have a nifty way of implementing locked function calls. This idiom has broad uses with multithreading and locked resource access. You can have `PointerType`'s constructor lock the resource, and then you can access the resource; finally, `PointerType`'s destructor unlocks the resource."*
 
+
+### Ownership-Handling Strategies
+
+*"A smart pointer is a first-class value that takes care of deleting the pointed-to object under the covers. The client can intervene in the pointee object's lifetime by issuing calls to helper management functions."*
+
+*"self-ownership, smart pointers must carefully track the pointee object, especially during copying, assignment, and destruction."*
+
+
+### Copy on Write
+
+*"The idea that underlies COW is to clone the pointee object at the first attempt of modification; until then, several pointers can share the same object. Smart pointers, however, are not the best place to implement COW, because smart pointers cannot differentiate between calls to const and non- const member functions of the pointee object."*
+
+*"Function invocations for the pointee object happen somewhere beyond the reach of the smart pointer."*
+
+### Reference Counting
+
+*"You should not keep dumb pointers and smart pointers to the same object."*
+
+*"The actual counter must be shared among smart pointer objects"*
+
+*"Reference management - be it counting or linking - is a victim of the resource leak known as **cyclic reference**."*
+
+### Destructive Copy
+
+*"C++ etiquette calls for the right-hand side of the copy constructor and the assignment operator to be a reference to a `const` object. Classes that foster destructive copy break this convention for obvious reasons. Because etiquette exists for a reason, you should expect negative consequences if you break it."*
+
+*"Because they do not support value semantics, smart pointers with destructive copy cannot be stored in standard containers and in general must be handled with almost as much care as raw pointers."*
+
+*"On the bright side, smart pointers with destructive copy have significant advantages:*
+
+- *They incur almost no overhead.*
+- *They are good at enforcing ownership transfer semantics.*
+- *They are good as return values from functions.*
+- *They are excellent as stack variables in functions that have multiple return paths.*"
+
+### The Address-of Operator
+
+*"There are two reasons why overloading unary `operator&` is not a very good idea. One reason is that exposing the address of the pointed-to object implies giving up any automatic ownership management. [...] The second reason, a more pragmatic one, is that overloading unary `operator&` makes the smart pointer unusable with STL containers. Actually, overloading unary `operator&` for a type pretty much makes generic programming impossible for that type, because the address of an object is too fundamental a property to play with naively. Most generic code assumes that applying `&` to an object of type `T` returns an object of type `T*` [...] address-of is a fundamental concept. If you defy this concept, generic code behaves strangely either at compile time or - worse - at runtime."*
+
+
+
+
+
+
+
+
+
+
+
