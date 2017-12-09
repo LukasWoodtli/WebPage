@@ -263,3 +263,52 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 *"pointers to member functions and the two related operators are a curiously half-baked concept in C++. And by the way, you cannot have references to member functions (although you can have references to regular functions)."*
 
+
+## Implementing Singletons
+
+### Addressing the Dead Reference Problem (II): Singletons with Longevity
+
+*"The concept emerging here is that of **longevity control** and is independent of the concept of a singleton: The greater longevity an object has, the later it will be destroyed. It doesn't matter whether the object is a singleton or some global dynamically allocated object."*
+
+
+### The Double-Checked Locking Pattern
+
+*"Very experienced multithreaded programmers know that even the Double-Checked Locking pattern, although correct on paper, is not always correct in practice. In certain symmetric multiprocessor environments (the ones featuring the so-called relaxed memory model), the writes are committed to the main memory in bursts, rather than one by one. The bursts occur in increasing order of addresses, not in chronological order."*
+
+*"Thus, sadly, the Double-Checked Locking pattern is known to be defective for such systems."*
+
+*"Usually the platform offers alternative, nonportable concurrency-solving primitives, such as memory barriers, which ensure ordered access to memory."*
+
+*"A reasonable compiler should generate correct, nonspeculative code around `volatile` objects."*
+
+
+## Smart Pointers
+
+*"Smart pointers are C++ objects that simulate simple pointers by implementing `operator->` and the unary `operator*`. In addition to sporting pointer syntax and semantics, smart pointers often perform useful tasks - such as memory management or locking - under the covers, thus freeing the application from carefully managing the lifetime of pointed-to objects."*
+
+### The Deal
+
+*"Smart pointers have value semantics, whereas some simple pointers do not. An object with value semantics is an object that you can **copy** and **assign** to. A plain `int` is the perfect example of a first-class object. You can create, copy, and change integer values freely. A pointer that you use to iterate in a buffer also has value semantics - you initialize it to point to the beginning of the buffer, and you bump it until you reach the end. Along the way, you can copy its value to other variables to hold temporary results. With pointers that hold values allocated with `new`, however, the story is very different. Once you have written*
+
+    :::cpp
+    Widget* p = new Widget;
+
+*the variable `p` not only points to, but also **owns**, the memory allocated for the `Widget` object. This is because later you must issue `delete p` to ensure that the `Widget` object is destroyed and its memory is released."*
+
+*"In short, in the smart pointers' world, ownership is an important topic. By providing ownership management, smart pointers are able to support integrity guarantees and full value semantics. Because ownership has much to do with constructing, copying, and destroying smart pointers, it's easy to figure out that these are the most vital functions of a smart pointer."*
+
+### Storage of Smart Pointers
+
+*"Each type that's hardcoded in a piece of generic code decreases the genericity of the code. Hardcoded types are to generic code what magic constants are to regular code."*
+
+*"When you apply `operator->` to a type that's not a built-in pointer, the compiler does an interesting thing. After looking up and applying the user-defined `operator->` to that type, it applies `operator->` again to the result. The compiler keeps doing this recursively until it reaches a native pointer, and only then proceeds with member access. It follows that a smart pointer's `operator->` does not have to return a pointer. It can return an object that in turn implements `operator->`, without changing the use syntax."*
+
+*"If you return an object of type `PointerType` by value from `operator->`, the sequence of execution is as follows:*
+
+1. *Constructor of `PointerType`*
+2. *`PointerType::operator->` called; likely returns a pointer to an object of type `PointeeType`*
+3. *Member access for `PointeeType` - likely a function call*
+4. *Destructor of `PointerType`*
+
+*"In a nutshell, you have a nifty way of implementing locked function calls. This idiom has broad uses with multithreading and locked resource access. You can have `PointerType`'s constructor lock the resource, and then you can access the resource; finally, `PointerType`'s destructor unlocks the resource."*
+
