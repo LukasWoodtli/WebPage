@@ -351,13 +351,93 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 *"There are two reasons why overloading unary `operator&` is not a very good idea. One reason is that exposing the address of the pointed-to object implies giving up any automatic ownership management. [...] The second reason, a more pragmatic one, is that overloading unary `operator&` makes the smart pointer unusable with STL containers. Actually, overloading unary `operator&` for a type pretty much makes generic programming impossible for that type, because the address of an object is too fundamental a property to play with naively. Most generic code assumes that applying `&` to an object of type `T` returns an object of type `T*` [...] address-of is a fundamental concept. If you defy this concept, generic code behaves strangely either at compile time or - worse - at runtime."*
 
+### Putting It All Together
+
+*"A rule for all policies is that they must have value semantics; that is, they must define a proper copy constructor and assignment operator."*
 
 
+## Object Factories
+
+*"[...] subject to the paradox of 'virtual constructors'. You need virtual constructors when the information about the object to be created is inherently dynamic and cannot be used directly with C++ constructs."*
+
+*"This marks a fundamental difference between creating objects and invoking virtual member functions in C++. Virtual member functions are fluid, dynamic - you can change their behavior without changing the call site. In contrast, each object creation is a stumbling block of statically bound, rigid code."*
+
+### The Need for Object Factories
+
+*"[...] an object factory may be needed. When you save an object to a file, you must save its actual type in the form of a string, an integral value, an identifier of some sort. Thus, although the type information exists, its **form** does not allow you to create C++ objects."*
+
+### Object Factories in C++: Classes and Objects
+
+*"In C++, classes and objects are different beasts. Classes are what the programmer creates, and objects are what the program creates. You cannot create a new class at runtime, and you cannot create an object at compile time. Classes don't have first-class status: You cannot copy a class, store it in a variable, or return it from a function."*
+
+*"In C++ there is a fracture between types and values: A value has a type attribute, but a type cannot exist on its own. If you want to create an object in a totally dynamic way, you need a means to express and pass around a 'pure' type and build a value from it on demand. Because you cannot do this, you somehow must represent types as objects - integers, strings, and so on. Then, you must employ some trick to exchange the value for the right type, and finally to use that type to create an object."*
 
 
+## Abstract Factory
 
+*"However, the more you reduce dependencies, the more you also reduce type knowledge, and consequently the more you undermine the type safety of your design. This is yet another instance of the classic dilemma of better type safety versus lesser dependencies that often appears in C++"*
 
+*"`Type2Type` is a simple template whose unique purpose is to disambiguate overloaded functions."*
 
+## Visitor
 
+*"Visitor gives you a surprising amount of flexibility in a certain area: You can add virtual functions to a class hierarchy without recompiling them or their existing clients. However, this flexibility comes at the expense of disabling features that designers take for granted: You cannot add a new leaf class to the hierarchy without recompiling the hierarchy and all its clients."*
 
+*"Visitor’s operational area is limited to very stable hierarchies (you seldom add new classes) and heavy processing needs (you often add new virtual functions)."*
 
+*"Visitor goes against programmers' intuition; therefore, a careful implementation and rigorous discipline are essential to using it successfully."*
+
+### Visitor Basics
+
+*"In a nutshell, from a dependency standpoint, new classes are easy to add, and new virtual member functions are difficult to add."*
+
+*"Visitor applies best when operations on objects are distinct and unrelated."*
+
+*"A **type switch** occurs whenever you query a polymorphic object on its concrete type and perform different operations with it depending on what that concrete type is."*
+
+### Back to the "Cyclic" Visitor
+
+*"If you use `dynamic_cast` against some object, the runtime support has quite a few things to do. The RTTI code must figure out whether the conversion to the target type is legal and, if it is, must compute a pointer to that target type."*
+
+*"Let's detail a bit how a compiler writer can achieve this. One reasonable solution is to assign a unique integral identifier to each type in the program. The integral identifier also comes in handy when it comes to exception handling, so it's quite a wise integrating solution. Then in each class's virtual table, the compiler puts (a pointer to) a table of identifiers of all its subtypes. Together with these identifiers, the compiler has to store the offsets of the relative positions of the subobjects within the big object. This would be enough information to perform a dynamic cast correctly."*
+
+*"Details - such as multiple inheritance - render the dynamic cast code even more complicated and slower."*
+
+*"`dynamic_cast` does have a cost, which is unpredictable and can become unacceptable for some particular needs of an application."*
+
+### Summary
+
+*"Essentially, Visitor allows you to add virtual functions to a class hierarchy without modifying the classes in that hierarchy. In some cases, Visitor can lead to a clever, extensible design."*
+
+## Multimethods
+
+*"The C++ virtual function mechanism allows dispatching of a call depending on the dynamic type of one object. The multimethods feature allows dispatching of a function call depending on the types of **multiple** objects. A universally good implementation requires language support, which is the route that languages such as CLOS, ML, Haskell, and Dylan have taken. C++ lacks such support, so its emulation is left to library writers."*
+
+### What Are Multimethods?
+
+*"Two types of polymorphism are implemented in C++:*
+
+- *Compile-time polymorphism, supported by overloading and template functions*
+- *Runtime polymorphism, implemented with virtual functions*"
+
+*"Overloading and template functions scale to multiple objects naturally."*
+
+*"Unfortunately, virtual functions - the only mechanism that implements runtime polymorphism in C++ - are tailored for one object only. Even the call syntax - `obj.Fun(arguments)` - gives `obj` a privileged role over `arguments`"*
+
+### The Logarithmic Dispatcher and Casts
+
+*"A template can accept a pointer to a function as a nontype template parameter. [...] A template is allowed to accept pointers to global objects, including functions, as nontype template parameters. The only condition is that the function whose address is used as a template argument must have external linkage."*
+
+*"You can easily transform static functions into functions with external linkage by removing `static` and putting them into unnamed namespaces."*
+
+### Converting Arguments: `static_cast` or `dynamic_cast`?
+
+*"Virtual inheritance provides a means for several derived classes to share the same base class object."*
+
+*"you must use `dynamic_cast` if you have a hierarchy using virtual inheritance."*
+
+*"The `dynamic_cast operator is designed to reach the right object in a class hierarchy, no matter how intricate its structure is."*
+
+*"`dynamic_cast` is much slower than `static_cast`. Its power comes at a cost."*
+
+*"What is double dispatching? You can see it as finding a handler function (or functor) in a two-dimensional space. On one axis are the types of the left-hand operator. On the other axis are the types of the right-hand operator. At the intersection between two types, you find their respective handler function."*
