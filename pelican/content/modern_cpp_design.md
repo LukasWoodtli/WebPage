@@ -240,6 +240,9 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 *"C++ does not instantiate member functions for templates until they are **actually used**."*
 
+*"Good C++ libraries sport this interesting feature: Whenever something ambiguous may appear, they allow the user to disambiguate it by writing some explicit code. At the other end of the spectrum are libraries that misuse silent C++ features (especially conversions and pointer ownership). They allow the user to type less, but at the cost of making dubious assumptions and decisions on the user's behalf."*
+
+
 ### Handling Functors
 
     :::cpp
@@ -263,6 +266,9 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 *"pointers to member functions and the two related operators are a curiously half-baked concept in C++. And by the way, you cannot have references to member functions (although you can have references to regular functions)."*
 
+### Real-World Issues II: Heap Allocation
+
+*"You might expect a pointer to a member function to occupy 4 bytes, just as pointers to functions do. However, pointers to methods are actually little tagged unions. They deal with multiple virtual inheritance and virtual/nonvirtual functions."*
 
 ## Implementing Singletons
 
@@ -441,3 +447,14 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 *"`dynamic_cast` is much slower than `static_cast`. Its power comes at a cost."*
 
 *"What is double dispatching? You can see it as finding a handler function (or functor) in a two-dimensional space. On one axis are the types of the left-hand operator. On the other axis are the types of the right-hand operator. At the intersection between two types, you find their respective handler function."*
+
+### Summary
+
+*"Multimethods are dispatched depending on multiple classes simultaneously. This allows you to implement virtual functions for collections of types instead of one type at a time."*
+
+*"Multimethods are needed in applications that call algorithms that depend on the type of two or more objects. Typical examples include collisions between polymorphic objects, intersections, and displaying objects on various target devices."*
+
+
+
+
+
