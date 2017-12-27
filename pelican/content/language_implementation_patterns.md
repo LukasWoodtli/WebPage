@@ -1,6 +1,6 @@
 Title: Language Implementation Patterns
 Category: Programming
-Tags: Computer Science, Parsing
+Tags: Computer Science, Parsing, Design Patterns
 Date: 2017-12-14
 
 This page collects notes and citations from the book:
@@ -100,6 +100,8 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
 *"Token references for token type `T` become calls to `match(T)`. match is a support method in Parser that consumes a token if `T` is the current lookahead token. If there is a mismatch, match throws an exception."*
 
 
+#### Alternatives
+
 *"Alternatives become either a switch or an if-then-else sequence"*
 
 ![Alternatives](/images/language_implementation_patterns/alternatives.svg)
@@ -122,8 +124,10 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
         <throw​-exception>
       }
 
+
+
     
-*"Optional subrule `(T)?`"
+#### Optional subrule `(T)?`
 
 ![Option](/images/language_implementation_patterns/option.svg)
 
@@ -131,7 +135,7 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
     if (<lookahead-is-T>) { match(T);} // no error else clause
 
 
-*"One or more `(...)+` subrules"*
+#### One or more `(...)+` subrules
 
 ![One or more](/images/language_implementation_patterns/one_or_more.svg)
 
@@ -141,7 +145,7 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
 
 
     
-*"Zero or more `(...)*` subrules"*
+#### Zero or more `(...)*` subrules
 
 ![Zero or more](/images/language_implementation_patterns/zero_or_more.svg)
 
@@ -149,3 +153,55 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
     :::java
     while(<lookahead-predicts-an-alt-of-subrule>) {
       <code-matching-alternatives> }
+
+
+### Pattern 2: LL(1) Recursive-Descent Lexer
+
+*"Lexers derive a stream of tokens from a character stream by recognizing lexical patterns. Lexers are also called **scanners**, **lexical analyzers**, and **tokenizers**."*
+
+*"This pattern can recognize nested lexical structures such as nested comments"*
+
+*"The goal of the lexer is to emit a sequence of tokens. Each token has two primary attributes: a **token type** (symbol category) and the text associated with it."*
+
+
+### Pattern 3: LL(1) Recursive-Descent Parser
+
+*"It's the weakest form of recursive-descent parser but the easiest to understand and implement."*
+
+*"To make parsing decisions, the parser tests the current lookahead token against the alternatives' lookahead sets. A lookahead set is the set of tokens that can begin a particular alternative."*
+
+*"Formally, we compute lookahead sets using two computations: FIRST and FOLLOW. In practice, though, it's easier to simply ask ourselves, 'What tokens can possibly start phrases beginning at this alternative?'"*
+
+#### Deterministic Parsing Decisions
+
+*"LL parsing decisions work only when the lookahead sets predicting the alternatives are disjoint"*
+
+*"If the lookahead sets overlap, though, the parser is **nondeterministic**-it cannot determine which alternative to choose."*
+
+*"Building an LL(1) parser is the easiest way to learn about parsers. In practice, though, we really need more than a single token of lookahead."*
+
+
+### Pattern 4: LL(k) Recursive-Descent Parser
+
+*"The strength of a recursive-descent parser depends entirely on the strength of its lookahead decisions."*
+
+*"Having more lookahead is like being able to see farther down multiple paths emanating from a fork in a maze. The farther we can see ahead, the easier it is to decide which path to take. More powerful parsing decisions make it easier to build parsers."*
+
+
+*"For example, we want to recognize input such as `[a, b=c, [d,e]]`"*
+
+
+    :::antlr-java
+    list : '[' elements ']' ;
+    elements : element (​ ',' ​ element)* ;
+    element : NAME '=' NAME
+            | NAME
+            | list
+            ;
+
+*"`element` [is] non-LL(1) since the first two alternatives start with the same `NAME` token."*
+
+
+*"The lookahead depth **k** in LL(k) is really a maximum not the exact, fixed amount of lookahead each parsing decision uses."*
+
+
