@@ -42,6 +42,14 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | [Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation) | Tom Stuart    | O'Reilly                                          |
 | [Structure and Interpretation of Computer Programs](https://github.com/LukasWoodtli/SchemeCourse) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
 
+
+# Agile Software Development and Scrm
+
+| Name                                                                                                            | Authors         | Publisher          |
+|-----------------------------------------------------------------------------------------------------------------|-----------------|--------------------|
+| [Scrum and XP from the Trenches (second edition)](https://www.infoq.com/minibooks/scrum-xp-from-the-trenches-2) |  Henrik Kniberg | InfoQ              |
+| [Co-Pilot](https://buchundnetz.com/werke/co-pilot/)  |  Till Bay, Benno Baumgartner, Matthias Hüni, Eva Jutzeler, Michela Pedroni | buch & netz        |
+
 # Operating Systems and Networking
 
 | Name                                              | Authors                                           | Publisher                                         |
