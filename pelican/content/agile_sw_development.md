@@ -366,7 +366,10 @@ There are three main sections on the Scrum Board:
 - In Progress
 - Donne
 
-A backlog items moves from *Backlog* to *In Progress* when someone has started to work on it. After it's finished it moves to the section *Donne* (see *Definition of Donne*).
+A backlog item moves from *Backlog* to *In Progress* when someone has started to work on it. After it's finished it moves to the section *Donne* (see *Definition of Donne*).
+
+The items should be sorted by importance from top to bottom.
+
 
 Index Cards
 
@@ -374,6 +377,8 @@ Index Cards
 All the Backlog items should be printed (or written) on index cards. So it's easier to handle them on the Scrum Board.
 
 Handling items on index cards can also simplify the Sprint Planning Meeting or the Backlog Refinement.
+
+It's a good idea to add a mark (sticker) on a index card for each day the issue is in the progress state. The marks can have different colors (i.e Coding, Testing, Documentation ...)
 
 Definition of Donne
 -------------------
