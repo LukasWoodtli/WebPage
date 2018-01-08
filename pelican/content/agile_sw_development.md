@@ -141,7 +141,7 @@ implemented in the new **Sprint**. They are put into the so called **Sprint Back
 
 The meeting has three phases:
 
-1. The objective of the sprint (PO, 30 minutes)
+1. The objective (goal) of the sprint (PO, 30 minutes)
 2. Pre-Selection of requirements (PO, 3 hours)
 3. Analyze the requirements and split them to smaller tasks (activities)
 &rarr; put them in the Sprint Backlog (Team, 4 hours)
@@ -252,6 +252,8 @@ meeting the **Product Owner** (alone) decides if all the requirements are
 implemented completely. For each requirement this is a pure yes or no
 criteria. The product that is shown at the review is potentially shippable to the users (Product increment).
 
+The review meeting should take about 4 hours and the team should need at most 2 hours to prepare it.
+
 > The Sprint Review is about **feedback**
 
 - Insist on the Sprint Review
@@ -259,8 +261,11 @@ criteria. The product that is shown at the review is potentially shippable to th
 
 Checklist:
 
-- Present Sprint Goal
+- Present Sprint Goal (PO)
+- What was good/bad (team)
 - Don't waste time in preparing the Review
+- Show product
+- Workshop style: everybody is allowed to check out new features
 - Focus on working code
 - Fast and not beatiful
 - Buisiness oriented
@@ -275,7 +280,7 @@ Retrospective
 
 The **Retrospective** is a very important meeting. All involved people have
 to attend this meeting (PO, SM, Team). No other people are allowed in this
-meeting. The topic of the meeting is to
+meeting. It is moderated my the Scrum Master. The topic of the meeting is to
 discuss the Scrum process of the last Sprint. There should be discussed
 what was good and what was bad. There have to be decided what steps will
 be donne to improve the production cycle.
@@ -298,6 +303,10 @@ Organisation:
 - Summarize sprint
 - Each person gets the chance to talk without getting interrupted
     - talk abut good things and what could be improved
+    - how they are feeling
+    - what is expected
+- Analyze processes and social topics
+- Formulate goals for improvement and make them public (i.e next to Scrum Board)
 
 > Focus on few improvements for new sprint
 
@@ -371,8 +380,15 @@ A backlog item moves from *Backlog* to *In Progress* when someone has started to
 The items should be sorted by importance from top to bottom.
 
 
-Index Cards
+It's possible to add additional information:
 
+- Sort by importance (top to down)
+- Add subtasks
+- Add colors (issue, bug, test, documentatin ...)
+- Add a mark on the cards for each day that was worked on the topic
+
+
+### Index Cards
 
 All the Backlog items should be printed (or written) on index cards. So it's easier to handle them on the Scrum Board.
 
@@ -380,10 +396,13 @@ Handling items on index cards can also simplify the Sprint Planning Meeting or t
 
 It's a good idea to add a mark (sticker) on a index card for each day the issue is in the progress state. The marks can have different colors (i.e Coding, Testing, Documentation ...)
 
+
 Definition of Donne
 -------------------
 The team with the PO need to decide what requirements need to be fulfiled
 for a story to be marked as *done*.
+
+> Code complete is not feature complete!
 
 The best approach is to define a checklist for the stories. i.e:
 
@@ -395,6 +414,33 @@ The best approach is to define a checklist for the stories. i.e:
 
 Maybe for different kind of stories (features, bugs, ...) a different
 checklist is needed.
+
+Impediment Backlog
+------------------
+
+- What do I need to fulfill my task. i.e
+    - A server
+    - WiFi isn't working
+    - Order a book
+
+
+eXtreme Programming (XP)
+========================
+
+Extreme Programming has no roles and no process. There are just a few artefacts and about 25 rules:
+
+- Pair Programing
+    - Developers should thing loud
+    - Switch roles every 20 minutes
+    - It's very tiring (exhausting)
+- No overtime (because it's tiring)
+- Refactoring
+    - Regularly
+    - After small development steps
+- TDD/Testing
+    - Code coverage: 100%
+- Continous integration
+
 
 General Notes
 =============
