@@ -100,7 +100,7 @@ In Scrum all work is donne in time-boxes of defined length. The length of any ti
 The Sprint
 ----------
 
-The most important timebox is the **Sprint**. It is a time span of two to four weeks. In
+The most important timebox is the **Sprint**. It is a time span of two to four weeks (in most Teams it's 2 weeks). In
 this time the team works on the tasks they have themselves comitted to
 at the **Scrum Planning Meeting**. At the end of this time span the team should be able to present
 a product that can be potentially delivered to the cusomer. To achieve
@@ -177,6 +177,7 @@ So the needed time for the sprint planning meeting can be reduced. Rule: Number 
 
 > It's not accepted to reduce the estimate of the story in exchange of quality!
 
+Some teams estimate only the stories that go in the sprint backlog in the sprint planning meeting.
 
 ### Estimation
 
@@ -247,9 +248,9 @@ Sprint Review (Presentation)
 When a Sprint is finished the **Team** presents the result. Anyone can join
 the presentation. Everybody is allowed to try out the resulting product.
 It should not be a pure presentation but more like a workshop. In this
-meeting the **Product Owner** decides if all the requirements are
-implemented completely. For each requirement this is a pure yes or now
-criteria. The product that is shown at the review is potentially shippable to the users.
+meeting the **Product Owner** (alone) decides if all the requirements are
+implemented completely. For each requirement this is a pure yes or no
+criteria. The product that is shown at the review is potentially shippable to the users (Product increment).
 
 > The Sprint Review is about **feedback**
 
@@ -307,16 +308,16 @@ Product Backlog
 ---------------
 
 The Product Backlog is a list with all Requirements that have to be
-donne to improve the product. The only person who can put new
+donne to improve the product. The only person that can put new
 requirements into the Product Backlog is the Product Owner. Each
 requirement has to have several properties when put into the Backlog.
 
 - ID (unambigous)
 - Significance/Importance (unambigous, set only by PO)
-- Initial Estimate/Effort (set only by Team)
+- Initial Estimate/Effort (set only by Team in the Refinement Meeting)
 - Name
 - Label/Topic
-- Description/Notes (User story / use case, "As X, I want Y, so that Z")
+- Description (User story / use case, "As X, I want Y, so that Z")
 - Criteria for aceptance
 - Notes / References
 - Source (who added this requirement)
@@ -336,7 +337,7 @@ There should be only one Product Backlog per product.
 Sprint Backlog
 --------------
 
-The hwole team should be involved in maintaining the Sprint Backlog
+The whole team should be involved in maintaining the Sprint Backlog
 
 Sprint Burndown
 
