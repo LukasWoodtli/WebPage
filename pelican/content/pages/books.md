@@ -13,6 +13,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Secure Coding in C and C++                        | Robert C. Seacord                                 | Addison-Wesley                                    |
 | Exceptional C++                                   | Herb Sutter                                       | Addison-Wesley                                    |
 | Algorithms in C (Parts 1-5)                       | Robert Sedgewick                                  | Addison-Wesley                                    |
+| [Boost C++ Application Development Cookbook](https://github.com/LukasWoodtli/BoostCookbook) | Antony Polukhin | Packt Publishing                          |
 
 
 # Design Patterns and Refactoring
@@ -69,7 +70,8 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Test Driven Development for Embedded C            | James W. Grenning                                 | The Pragmatic Bookshelf                           |
 | Vom Gatter zu VHDL                                | M. Künzli                                         | vdf Lehrbuch                                      |
 | Technische Informatik I+II                        | T. Müller et al.                                  | vdf Lehrbuch                                      |
-| [x86-64 Assembly Language Programming with Ubuntu](https://github.com/LukasWoodtli/LinuxAssemblyProgramming) | Ed Jorgensen | Ed Jorgensen                |
+| [x86-64 Assembly Language Programming with Ubuntu](https://github.com/LukasWoodtli/LinuxAssemblyProgramming) | Ed Jorgensen   | Ed Jorgensen              |
+| [Mastering Embedded Linux Programming](https://github.com/LukasWoodtli/MasteringEmbeddedLinuxProgramming)    | Chris Simmonds | Packt Publishing          |
 
 
 # Version Control
@@ -79,7 +81,6 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Version Control with Git                          | Jon Loeliger                                      | O'Reilly                                          |
 | [Pro Git (Second Edition)](https://git-scm.com/book/en/v2) | Scott Chacon, Ben Straub                 | Apress                                            |
 | Version Control with Subversion                   | C. Michael Pilato et al.                          | O'Reilly                                          |
-
 
 
 # XML
