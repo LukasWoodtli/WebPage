@@ -1,13 +1,13 @@
 Title: Parsers and Lexers
 Category: Software Development
+Tags: Parsing
 Date: 2017-01-08
-Modified: 2017-01-08
-Status: draft
+Modified: 2018-01-09
 
 > Most material on this page is from [Udacity: Programming Languages](https://de.udacity.com/course/programming-languages--cs262/)
 
 
-Source --[Lexer (break up in words)]--> Tokens --[Parser (understand the structure)]--> AST --[Find meaning]-> ...
+`Source --[Lexer (break up in words)]--> Tokens --[Parser (understand the structure)]--> AST --[Find meaning]-> ...`
 
 - Lexical Analysis (Lexing): String -> Token List
 - Syntatical Analysis (Parsing): Token List -> Valid in Grammar?
