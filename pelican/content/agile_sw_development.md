@@ -267,11 +267,12 @@ Checklist:
 - Show product
 - Workshop style: everybody is allowed to check out new features
 - Focus on working code
-- Fast and not beatiful
-- Buisiness oriented
+- Fast and not beautiful
+- Business oriented
     - leave out technical detaion
     - 'what did we do' (not 'how did we do it')
 - Let the audience try the product (if possible)
+- No powerpoint...
 
 
 
@@ -284,6 +285,10 @@ meeting. It is moderated my the Scrum Master. The topic of the meeting is to
 discuss the Scrum process of the last Sprint. There should be discussed
 what was good and what was bad. There have to be decided what steps will
 be donne to improve the production cycle.
+
+It should take place after the Review.
+
+No PC's are allowed.
 
 After the retrospective a new Sprint starts with the Sprint Planning
 Meeting.
@@ -302,11 +307,27 @@ Organisation:
 - Designated secretary
 - Summarize sprint
 - Each person gets the chance to talk without getting interrupted
+    - respect each other
+    - be honest
+    - don't take things personally (separate person from things)
     - talk abut good things and what could be improved
     - how they are feeling
     - what is expected
+- It can help if everybody writes down its topics on a card
+    - then one after the other presents his/hers card
+    - write down what was good and what was bad
+    - feelings
+    - expectation
 - Analyze processes and social topics
+- Discuss if result (of sprint) is achieved and why (or why not)
 - Formulate goals for improvement and make them public (i.e next to Scrum Board)
+- If needed reformulate rules
+    - Coding standards
+    - Definition of Done
+    - Processes
+    - Documentation rules
+    - ...
+- Retrospective of Retrospective (5-10 min)
 
 > Focus on few improvements for new sprint
 
