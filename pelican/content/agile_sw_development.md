@@ -21,25 +21,24 @@ Product Owner (PO)
 ------------------
 
 The **Product Owner** is the connection between the **Team** and the
-stakeholders or clients. He’s the only one who is allowed to give tasks
+stakeholders or clients. He's the only one who is allowed to give tasks
 to the Team. The Product Owner should not be part of the Team.
-The Product Owner maintains and manages the **Product Backlog**.
+The Product Owner maintains and manages the **Product Backlog**, release plane and the *Return of Investment*.
 
-There should be only one Product Owner per product.
+The Product Owner is not part of the team and there should be only one Product Owner per product.
 
 Scrum Master (SM)
 -----------------
 
-The **Scrum Master** is responsible that the Scrum process is realized
-properly. He's also in charge if there are problems in the work progress
-of the Team. He has to solve sozial problems and organize anything that
-helps the Team to work productively. Ideally the Scrum Master isn’t a
+The **Scrum Master** is responsible that the Scrum process is working properly and that everybody plays by the rules. He's also in charge if there are problems in the work progress
+of the Team and to remove any impediments. He has to solve social problems and organize anything that
+helps the Team to work productively. Ideally the Scrum Master isn't
 part of the Team. But often he is a member of the Developer-Team.
 
 Team
 ----
 
-The **Team** is the group of people (usually developers) that do the work.
+The **Team** is the group of people (usually developers) that do the work. They turn the Backlog into an working increment of the product within a sprint.
 The team is self organizing. That means they decide how they do
 something. Ideally every teammember can do anything needed in the team.
 But sometimes there are special roles like teser, documentation writer
@@ -51,7 +50,7 @@ The main tasks of the Team are:
 - Unit Tests
 - Definition of Done
 - Development Documentation
-
+- Organize themselves
 
 Other
 -----
@@ -103,7 +102,15 @@ The Sprint
 The most important timebox is the **Sprint**. It is a time span of two to four weeks (in most Teams it's 2 weeks). In
 this time the team works on the tasks they have themselves comitted to
 at the **Scrum Planning Meeting**. At the end of this time span the team should be able to present
-a product that can be potentially delivered to the cusomer. To achieve
+a product that can be potentially delivered to the customer.
+
+The product should be (before the sprint ends):
+
+- thoroughly tested
+- documented (developer and customer documentation)
+- well developed (architecture, unit tests, design...)
+
+To achieve
 this goal there are several meetings that help to do the work organized
 and on the right time.
 
@@ -135,7 +142,8 @@ Sprint Planning Meeting
 
 At the beginning of each **Sprint** the **Team**, the **Scrum Master** and the **Product Owner** decide
 which of the requirements of the **Product Backlog** are going to be
-implemented in the new **Sprint**. They are put into the so called **Sprint Backlog**.
+implemented in the new **Sprint**. They are put into the **Sprint Backlog**.
+If needed the User Stories can be split into smaller Tasks.
 
 > The Planning Meeting takes about **one day** (take the needed time!)
 
@@ -217,6 +225,19 @@ easier. And it helps the team when implementing the story.
 The tasks don't need to be represented in the backlog. It's too detailed
 and they can change often.
 
+Overview
+--------
+
+This is an overview of who attends which meetings and the aproximate time
+that the meeting should take (for a 2 week sprint).
+
+| Meeting | Sprint Planning | Daily Scrum    | Sprint Review | Retrospective |
+|---------|-----------------|----------------|---------------|---------------|
+| PO      |   Owner         | only if needed | Paricipant    | Paricipant    |
+| SM      |   Paricipant    | Owner          | Paricipant    | Owner         |
+| Team    |   Paricipants   | Paricipants    | Owner         | Paricipants   |
+| Others  |   no            | may silently attend | yes    | only if invited |
+| Timebox |   4 hours       | 15 minutes     | 2 hours       | 2 hours       |
 
 Sprint Goal
 ===========
@@ -231,7 +252,7 @@ The sprint goal should be in business terms, not technical terms
 Daily Scrum
 -----------
 
-Every day the Team gathers for fifteen minutes and every member gives
+Every day the Team gathers for a fifteen minutes standup meeting and every member gives
 answers to the following questions:
 
 - What have I donne since the last meeting.
@@ -240,7 +261,9 @@ answers to the following questions:
 
 > There should be no discussions in this meeting
 
-It’s just an information to the coworkers so people with similar interests or some good solutions can connect after the meeting.
+It's just an information to the coworkers so people with similar interests or some good solutions can connect after the meeting.
+
+The sprint progress should be checked (by viewing the burndown chart) and adjustment to the sprint shall be made if necessary.
 
 Sprint Review (Presentation)
 ----------------------------
@@ -364,12 +387,36 @@ are not estimated yet once a week.
 
 There should be only one Product Backlog per product.
 
+### Requirements
+
+- *S*imple
+- *M*easurable
+- *A*chievable
+- *R*ealisitc
+- *T*raceable
+
+### User Stories
+
+- *I*ndependant
+- *N*egotiable
+- *V*aluable
+- *E*stimatable
+- *S*mall
+- *T*raceable
+
+### Tasks
+
+- *T*ime boxed
+- *E*verybody can do it
+- *C*omplete
+- *H*uman readable
+
 Sprint Backlog
 --------------
 
 The whole team should be involved in maintaining the Sprint Backlog
 
-Sprint Burndown
+Sprint Burndown Chart
 
 ![Sprint Burndown](/images/burndown.png)
 
