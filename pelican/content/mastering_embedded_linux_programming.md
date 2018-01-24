@@ -64,3 +64,56 @@ My code examples can be found here: [GitHub](https://github.com/LukasWoodtli/Mas
 *"[We] need some means of loading software when starting from scratch. [For example JTAG] but modern SoCs have the ability to load boot code directly from removable media, especially SD and micro SD cards, or serial interfaces such as RS-232 or USB."*
 
 
+# Chapter 2. Learning About Toolchains
+
+## What is a toolchain?
+
+*"A standard GNU toolchain consists of three main components:"*
+
+- [Binutils](http://www.gnu.org/software/binutils/): Assembler, linker, (ld) and other tools
+- [GCC](http://gcc.gnu.org/): Compilers for C, C++, Objective-C, Objective-C++, Java, Fortran, Ada, and Go. They all use a common back-end which produces assembler code for the GNU assembler (GAS)
+- **C library**: Standardized API based on POSIX (interface to the operating system kernel from applications)
+
+*"As well as these, you will need a copy of the Linux kernel headers,"*
+
+*"of the header files in the include directory of your kernel source code. Those headers are intended for use in the kernel only and contain definitions that will cause conflicts if used in their raw state to compile regular Linux applications. Instead, you will need to generate a set of sanitized kernel headers"*
+
+
+## Types of toolchain - native versus cross toolchain
+
+*"here are two types of toolchain:*
+
+- *Native: This toolchain runs on the same type of system [...] This is the usual case for desktops and servers, and it is becoming popular on certain classes of embedded devices. [...]*
+- *Cross: This toolchain runs on a different type of system than the target, allowing the development to be done on a fast desktop PC and then loaded onto the embedded target for testing."*
+
+*"Almost all embedded Linux development is done using a cross development toolchain, partly because most embedded devices are not well suited to program development since they lack computing power, memory, and storage, but also because it keeps the host and target environments separate."*
+
+*"there is a counter argument in favor of native development. Cross development creates the burden of cross-compiling all the libraries and tools that you need for your target."*
+
+
+## CPU architectures
+
+*"toolchain has to be built according to the capabilities of the target CPU:*
+
+- *CPU architecture: arm, mips, x86_64, and so on*
+- *Big- or little-endian operation: Some CPUs can operate in both modes, but the machine code is different for each*
+- *Floating point support: Not all versions of embedded processors implement a hardware floating point unit, in which case, the toolchain can be configured to call a software floating point library instead*
+- *Application Binary Interface (ABI): The calling convention used for passing parameters between function calls"*
+
+
+### ARM OABI, EABI and EABIHF
+
+*"With many architectures, the ABI is constant across the family of processors. One notable exception is ARM. The ARM architecture transitioned to the *Extended Application Binary Interface* (**EABI**) in the late 2000's, resulting in the previous ABI being named the *Old Application Binary Interface* (**OABI**). While the OABI is now obsolete, you continue to see references to EABI. Since then, the *EABI has split into two*, based on the way that floating point parameters are passed. The *original EABI uses general purpose (integer)* registers* while the *newer **EABIHF** uses floating point registers. The EABIHF is significantly faster at floating point operations since it removes the need for copying between integer and floating point registers, but it is not compatible with CPUs that do not have a floating point unit. The choice, then, is between two incompatible ABIs: *you cannot mix and match the two* and so you have to decide at this stage."*
+
+
+### GNU prefix tuple
+
+*"GNU uses a prefix to the tools to identify the various combinations that can be generated, consisting of a tuple of three or four components separated by dashes:*
+
+- *CPU: The CPU architecture, such as arm, mips, or x86_64. If the CPU has both endian modes, they may be differentiated by adding **el for little-endian**, or **eb for big-endian**. Good examples are little-endian MIPS, mipsel and big-endian ARM, armeb.*
+- *Vendor: This identifies the provider of the toolchain. Examples include buildroot, poky, or just unknown. Sometimes it is left out altogether.*
+- *Kernel: For our purposes, it is always 'linux'.*
+- *Operating system: A name for the user space component, which might be `gnu` or `uclibcgnu`. The ABI may be appended here as well so, for ARM toolchains, you may see `gnueabi`, `gnueabihf`, `uclibcgnueabi`, or `uclibcgnueabihf`."*
+
+*"You can find the tuple used when building the toolchain by using the `-dumpmachine` option of `gcc`"*
+
