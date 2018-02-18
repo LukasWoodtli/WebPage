@@ -5,25 +5,26 @@ I really like reading technical books to improve my skills. Usually I try to rea
 
 # C and C++
 
-| Name                                              | Authors                                           | Publisher                                         |
-|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Effektiv C++ Programmieren                        | Scott Meyers                                      | Addison-Wesley                                    |
-| Die C++ Programmiersprache                        | Bjarne Stroustrup                                 | Addison-Wesley                                    |
-| [Modern C++ Design](https://github.com/LukasWoodtli/ModernCppDesign) | Andrei Alexandrescu            | Addison-Wesley                                    |
-| Secure Coding in C and C++                        | Robert C. Seacord                                 | Addison-Wesley                                    |
-| Exceptional C++                                   | Herb Sutter                                       | Addison-Wesley                                    |
-| Algorithms in C (Parts 1-5)                       | Robert Sedgewick                                  | Addison-Wesley                                    |
-| [Boost C++ Application Development Cookbook](https://github.com/LukasWoodtli/BoostCookbook) | Antony Polukhin | Packt Publishing                          |
+| Name                                              | Authors                                           | Publisher                |
+|---------------------------------------------------|---------------------------------------------------|--------------------------|
+| Effektiv C++ Programmieren                        | Scott Meyers                                      | Addison-Wesley           |
+| Die C++ Programmiersprache                        | Bjarne Stroustrup                                 | Addison-Wesley           |
+| [Modern C++ Design](https://github.com/LukasWoodtli/ModernCppDesign) | Andrei Alexandrescu            | Addison-Wesley           |
+| Secure Coding in C and C++                        | Robert C. Seacord                                 | Addison-Wesley           |
+| Exceptional C++                                   | Herb Sutter                                       | Addison-Wesley           |
+| Algorithms in C (Parts 1-5)                       | Robert Sedgewick                                  | Addison-Wesley           |
+| [Boost C++ Application Development Cookbook](https://github.com/LukasWoodtli/BoostCookbook) | Antony Polukhin | Packt Publishing |
 
 
-# Design Patterns and Refactoring
+# Architecture, Design Patterns and Refactoring
 
-| Name                                              | Authors                                           | Publisher                                         |
-|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Design Patterns                                   | Erich Gamma et al. (Gang of Four)                 | Addison-Wesley                                    |
-| Head First Design Patterns                        | Eric Freeman et al.                               | O'Reilly                                          |
-| Refactoring                                       | Martin Fowler                                     | Addison-Wesley                                    |
-| Effektives Arbeiten mit Legacy Code               | Michael C. Feathers                               | mitp                                              |
+| Name                                              | Authors                                           | Publisher                       |
+|---------------------------------------------------|---------------------------------------------------|---------------------------------|
+| Design Patterns                                   | Erich Gamma et al. (Gang of Four)                 | Addison-Wesley                  |
+| Head First Design Patterns                        | Eric Freeman et al.                               | O'Reilly                        |
+| Refactoring                                       | Martin Fowler                                     | Addison-Wesley                  |
+| Effektives Arbeiten mit Legacy Code               | Michael C. Feathers                               | mitp                            |
+| [Software Architecture Patterns](http://www.oreilly.com/programming/free/software-architecture-patterns.csp) | Mark Richards | O'Reilly |
 
 
 # Skills & Tools

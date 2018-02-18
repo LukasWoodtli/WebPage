@@ -10,7 +10,7 @@ My main (and favourite) programming language is C++. I have also been programmin
 | C                                        | very good                                |
 | C++                                      | very good                                |
 | Python                                   | very good                                |
-| Assembler (x86, ARM)                     | basic                                    |
+| Assembler (x86, ARM)                     | good                                     |
 | Java                                     | good                                     |
 | Scala                                    | basic                                    |
 | Lisp (Scheme, Clojure)                   | basic                                    |
@@ -45,7 +45,7 @@ I'm a big fan of the Qt framework. For bigger projects Boost is a must. And of c
 
 # Processor Architectures
 
-- Intel x86
+- Intel x86 & x64
 - ARM Cortex-M3 (Silicon Labs, STMicroelectronics)
 - ARM Cortex-A7 (Raspberry Pi 2)
 - Atmel Atmega
@@ -61,7 +61,7 @@ For each project there is an IDE that suits the task best. I really like Visual 
 | Visual Studio                            | very good                                |
 | IAR Studio                               | very good                                |
 | Qt Creator                               | very good                                |
-| Eclipse                                  | basic                                    |
+| Eclipse                                  | good                                     |
 
 
 # OS's
@@ -76,24 +76,25 @@ I really like the Unix/Linux flavoured OS's. The shell is really enjoyable to wo
 
 # Build Tools
 
-IDE's are nice. But often they are not flexible enough. So I prefer a platform independent build tool (CMake) and a highly cusomisable build server (Buildbot).
+IDE's are nice. But often they are not flexible enough. So I prefer a platform independent build tool (CMake) and a proven CI build server (Jenkins).
 
 | Tool                                     | Knowledge                                |
 |------------------------------------------|------------------------------------------|
 | CMake                                    | good                                     |
-| Buildbot                                 | basic                                    |
-| Travis CI                                | basic                                    |
+| Travis CI                                | very good                                |
+| Gerrit                                   | good                                     |
 
 
 # Unit Tests
 
 Unit tests are of great importance for bug free software. Which tool to use is not of big importance. But doing tests is.
 
-| Test Harness                             | Knowledge                                |
+| Test Tool                                | Knowledge                                |
 |------------------------------------------|------------------------------------------|
+| Catch                                    | very good                                |
 | Google Test                              | basic                                    |
 | Qt Test                                  | good                                     |
-| Test Coverage (gcov & lcov)              | basic                                    |
+| Test Coverage (gcov & gcovr)             | good                                     |
 
 
 # Skills
@@ -103,13 +104,14 @@ There are a lot of skills and tools that a developer needs to do his work.
 |--------------------------------------------------|------------------------------------------|
 | OOP/OOD                                          | very good                                |
 | Design/Architecture Patterns                     | very good                                |
-| Regexp                                           | basic                                    |
+| Regexp                                           | good                                     |
 | UX/UI Design                                     | basic                                    |
 | UML                                              | very good                                |
 | Project Management / Scrum / XP                  | very good                                |
 | Legacy Code (refactoring, testing, improving...) | very good                                |
 | XML                                              | good                                     |
 | JSON                                             | good                                     |
+| Debugging (gdb)                                  | very good                                |
 
 
 # Documentation
@@ -130,6 +132,7 @@ Static analysis is one of the important tools to improve code quality.
 |------------------------------------------|------------------------------------------|
 | OCLint                                   | basic                                    |
 | CppCheck                                 | good                                     |
+| Clang static analyzer (scan-build)       | good                                     |
 
 
 # Dynamic Analysis
@@ -139,6 +142,7 @@ Dynamic analysis (profiling) is an very important tool for checking and improvin
 |------------------------------------------|------------------------------------------|
 | Valgrind                                 | basic                                    |
 | Instruments (XCode)                      | basic                                    |
+| Perf                                     | basic                                    |
 
 
 # Version Control
@@ -146,7 +150,7 @@ I really like Git. It's the version control system I use for all my projects. SV
 
 | VCS                                      | Knowledge                                |
 |------------------------------------------|------------------------------------------|
-| Git                                      | good                                     |
+| Git                                      | very good                                |
 | SVN                                      | very good                                |
 
 
