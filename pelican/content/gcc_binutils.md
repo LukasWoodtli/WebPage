@@ -30,8 +30,13 @@ ld/gcc?
 
 -d
 
+## Show which libraries have been linked
 
+`readelf -a <prog> | grep "Shared library"`
 
+## Show the run-time linker
+
+`readelf -a <prog> | grep "program interpreter"`
 
 # objdump
 
