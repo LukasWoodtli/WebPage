@@ -231,3 +231,53 @@ The output contains (among other information):
 `arm-cortex_a8-linux-gnu eabihf-readelf -a myprog | grep "program interpreter"`
 
 
+## Linking with libraries: static and dynamic linking
+
+*"Any application [...] will be linked with the C library, libc. [...] Other libraries [...] have to be explicitly named through the `-l` option."*
+
+
+### Static libraries
+
+*"Static linking is useful in a few circumstances.
+
+- building a small system which consists of only BusyBox
+- if you need to run a program before the filesystem that holds the runtime libraries is available"*
+
+*"[Tell] `gcc` to link all libraries statically by adding `-static`:"*
+
+`arm-cortex_a8-linux-gnueabihf-gcc -static helloworld.c -o helloworld-static`
+
+*"the size of the binary increases dramatically"*
+
+
+### Shared libraries
+
+*"The object code for a shared library must be position-independent so that the runtime linker is free to locate it in memory at the next free address. To do this, add the `-fPIC` parameter to gcc, and then link it using the `-shared` option"*
+
+
+### Understanding shared library version numbers
+
+*"Each library has a release version and an interface number. The release version is simply a string that is appended to the library name"*
+
+
+*"The `soname` encodes the interface number when the library was built and is used by the runtime linker when it loads the library. It is formatted as `<library name>.so.<interface number>`"*
+
+Find the `soname`:
+
+`readelf -a <path_to_so> | grep SONAME`
+
+Libraries and symbolic links in a library directory (example `libjpeg`):
+
+| File               | Use                                                                      |
+|--------------------|--------------------------------------------------------------------------|
+| `libjpeg.a`        | library archive used for static linking                                  |
+| `libjpeg.so -> libjpeg.so.8.0.2`   | symbolic link, used for dynamic linking                  |
+| `libjpeg.so.8 -> libjpeg.so.8.0.2` | symbolic link used when loading the library at runtime   |
+| `libjpeg.so.8.0.2` | This is the actual shared library, used at both compile time and runtime |
+
+
+*"The first two are only needed on the host computer for building, the last two are needed on the target at runtime."*
+
+See also: [`ldconfig`](http://man7.org/linux/man-pages/man8/ldconfig.8.html)
+
+
