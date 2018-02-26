@@ -2,6 +2,7 @@ Title: Object File Formats
 Date: 2015-08-05
 Modified: 2015-08-05
 Category: Programming
+Tags: OS
 
 
 Most information of this page is taken from
