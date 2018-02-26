@@ -80,8 +80,9 @@ IDE's are nice. But often they are not flexible enough. So I prefer a platform i
 
 | Tool                                     | Knowledge                                |
 |------------------------------------------|------------------------------------------|
-| CMake                                    | good                                     |
+| CMake                                    | very good                                |
 | Travis CI                                | very good                                |
+| Jenkins                                  | very good                                |
 | Gerrit                                   | good                                     |
 
 
@@ -95,6 +96,7 @@ Unit tests are of great importance for bug free software. Which tool to use is n
 | Google Test                              | basic                                    |
 | Qt Test                                  | good                                     |
 | Test Coverage (gcov & gcovr)             | good                                     |
+| boost::di (dependency injection)         | good                                     |
 
 
 # Skills
@@ -111,7 +113,7 @@ There are a lot of skills and tools that a developer needs to do his work.
 | Legacy Code (refactoring, testing, improving...) | very good                                |
 | XML                                              | good                                     |
 | JSON                                             | good                                     |
-| Debugging (gdb)                                  | very good                                |
+| Debugging (gdb, Visual Studio)                   | very good                                |
 
 
 # Documentation
@@ -123,6 +125,7 @@ Documenting the code is very important. Generally I use the de facto standard Do
 | Doxygen                                  | very good                                |
 | Graphviz                                 | very good                                |
 | MediaWiki                                | good                                     |
+| Markdown                                 | very good                                |
 
 
 # Static Analysis
@@ -140,6 +143,7 @@ Dynamic analysis (profiling) is an very important tool for checking and improvin
 
 | Tool                                     | Knowledge                                |
 |------------------------------------------|------------------------------------------|
+| Sanitizers (gcc, clang)                  | good                                     |
 | Valgrind                                 | basic                                    |
 | Instruments (XCode)                      | basic                                    |
 | Perf                                     | basic                                    |
