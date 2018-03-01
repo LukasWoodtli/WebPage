@@ -1,4 +1,4 @@
-Title: Finance
+Title: Finance and Capital Markets
 Date: 2018-02-26
 Category: Finance
 
@@ -10,25 +10,20 @@ Most common applied model uses compound interest:
 
 $$PV = \frac{C}{(1+i)^n}$$
 
-$C$: Future amount of money
-$n$: Number of compounding periods
-$i$: Interest rate
+
+- $C$: Future amount of money
+- $n$: Number of compounding periods
+- $i$: Interest rate
 
 
-Assets = Liabilities + Equity
+$$Assets = Liabilities + Equity$$
 
-Assets: Aktiva (“Vermögen”) , left side of balance sheet
-Liabilities: Passiva (“Schulden”), right side of balance sheet
-Equity: Eigenkapital
+- Assets: Aktiva (“Vermögen”) , left side of balance sheet
+- Liabilities: Passiva (“Schulden”), right side of balance sheet
+- Equity: Eigenkapital
 
 
-Down Payment: Anzahlung
-
-Loan: Darlehen/Kredit
-
-Mortgage: Hypothek, Pfand
-
-Inflation
+# Inflation
 
 - Price inflation: goods and services get more expensive
 - Monetary inflation: increase in money supply, leads usually to price inflation
@@ -36,9 +31,9 @@ Inflation
 When people talk about inflation they usually mean price inflation.
 
 
-Bilanz (balance sheet):
-Aufstellung über Herkunft und Verwendung von Kapital
+# Bilanz (balance sheet):
 
+- Aufstellung über Herkunft und Verwendung von Kapital
 - Gegenüberstellung von
     -Aktiva (assets): Vermögen und Investitionen
     - Passiva (liabilities): Schulden und Finanzierung
@@ -55,23 +50,15 @@ Mindestanforderung an eine Bilanz (OR § 663)
 | => Bilanzsumme | => Bilanzsumme  |
 
 
-Nutzenfunktion (utility)
-Grenznutzen (marginal utility)
 
-Umsatz/Erlös (revenue)
-Gewinn (profit)
-Investition (investment)
-Return on Investment
+# Betriebswirtschaftliche Kennzahlen:
 
-
-Betriebswirtschaftliche Kennzahlen:
-
-- Kapitalrendite: Gewinn/Eigenkapital x 100
+- Kapitalrendite: $Gewinn/Eigenkapital x 100$
 - EBIT (earnings before interest and tax): Gewinn ohne Zinsen, Steuern und ausserordentichen Anteilen
-- Eigenkapitalquote: Eigenkapital/Bilanzsumme x 100
+- Eigenkapitalquote: $Eigenkapital/Bilanzsumme x 100$
 
 
-Verschiedene Daten:
+# Verschiedene Daten:
 
 - Valuta:  Festsetzung des Kalenderdatums, an dem eine Gutschrift oder Belastung auf einem Konto wirksam bzw. zinswirksam wird.
 - Schlusstag (tradedate): der Tag, an welchem Käufer und Verkäufer ein Geschäft über ein Handelsobjekt (Basiswert) verbindlich an der Börse abschliessen
@@ -80,17 +67,32 @@ Verschiedene Daten:
 Das Valutadatum kann vor oder nach dem Buchungsdatum liegen
 
 
-Depretiation: Abschreibung
+# Shares and Bonds
 
-Share/Stock (Aktie): part owner of company (security: equity)
+- Share/Stock (Aktie): part owner of company (security: equity)
+    - Shares are a split of the equities
+    - Market Capitalisation (market price): $number of shares x price per share$
+- Bond (Anleihe): part lender to company (security: dept)
+    - Zero-coupon bond (wikipedia)
 
-Bond (Anleihe): part lender to company (security: dept)
-- Zero-coupon bond (wikipedia)
+
+# Securities
 
 Security (Wertpapier): a tradable financial asset
 
-securities:
 - Going long: buying (buy low, sell high)
 - Going short (Leerverkauf): borrowing the security and selling it (sell high, buy low)
 
 
+# Various Terms
+
+- Down Payment: Anzahlung
+- Loan: Darlehen/Kredit
+- Mortgage: Hypothek, Pfand
+- Depretiation: Abschreibung
+- Nutzenfunktion (utility)
+- Grenznutzen (marginal utility)
+- Umsatz/Erlös (revenue)
+- Gewinn (profit)
+- Investition (investment)
+- Return on Investment
