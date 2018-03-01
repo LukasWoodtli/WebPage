@@ -1,6 +1,6 @@
 Title: Parsers and Lexers
-Category: Software Development
-Tags: Parsing
+Category: Programming
+Tags: Parsing, Computer Science
 Date: 2017-01-08
 Modified: 2018-01-09
 
