@@ -281,3 +281,43 @@ Libraries and symbolic links in a library directory (example `libjpeg`):
 See also: [`ldconfig`](http://man7.org/linux/man-pages/man8/ldconfig.8.html)
 
 
+## The art of cross compiling
+
+### Simple makefiles
+
+*"[For] the Linux kernel, the U-Boot bootloader, and Busybox [and others] you only need to put the toolchain prefix in the make variable `CROSS_COMPILE`, for example `arm-cortex_a8-linux-gnueabi-`. Note the trailing dash `-`."*
+
+*"In the case of U-Boot and Linux, you also have to set the `make` variable `ARCH` to one of the machine architectures they support"*
+
+
+### Autotools
+
+*"Autotools, refers to a group of tools that are used as the build system in many open source projects."*
+
+- [GNU Autoconf](http://www.gnu.org/software/autoconf/autoconf.html) 
+- [GNU Automake](http://www.gnu.org/savannah-checkouts/gnu/automake)
+- [GNU Libtool](http://www.gnu.org/software/libtool/libtool.html)
+- [Gnulib](https://www.gnu.org/software/gnulib)
+
+
+*"The role of Autotools is to smooth over the differences between the many different types of system that the package may be compiled for, accounting for different versions of compilers, different versions of libraries, different locations of header files, and dependencies with other packages."*
+
+*"Packages that use Autotools come with a script named `configure` that checks dependencies and generates makefiles according to what it finds."*
+
+*"Find the options [...] by running `./configure --help`."*
+
+
+*"Autotools is able to handle cross development as well. You can influence the behavior of the configure script by setting these shell variables:*
+
+- *`CC`: The C compiler command*
+- *`CFLAGS`: Additional C compiler flags*
+- *`LDFLAGS`: Additional linker flags, for example if you have libraries in a non-standard directory `<lib dir>` you would add it to the library search* path by adding `-L<lib dir>`*
+- *`LIBS`: Contains a list of additional libraries to pass to the linker, for instance `-lm` for the math library*
+- *`CPPFLAGS`: Contains C/C++ preprocessor flags, for example you would add `-I<include dir>` to search for headers in a non-standard directory `<include dir>`*
+- *`CPP`: The C preprocessor to use*"
+
+*"Autotools understands three different types of machine that may be involved when compiling a package:*
+
+- *`Build`: This is the computer that is to build the package, which defaults to the current machine.*
+- *`Host`: This is the computer the program will run on: for a native compile this is left blank and it defaults to be the same computer as build. For a **cross compile** you set it to be the **tuple of your toolchain**.*
+- *`Target`: This is the computer the program will generate code for: you would set this when building a cross compiler, for example.*"
