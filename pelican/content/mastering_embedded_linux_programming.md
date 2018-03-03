@@ -321,3 +321,27 @@ See also: [`ldconfig`](http://man7.org/linux/man-pages/man8/ldconfig.8.html)
 - *`Build`: This is the computer that is to build the package, which defaults to the current machine.*
 - *`Host`: This is the computer the program will run on: for a native compile this is left blank and it defaults to be the same computer as build. For a **cross compile** you set it to be the **tuple of your toolchain**.*
 - *`Target`: This is the computer the program will generate code for: you would set this when building a cross compiler, for example.*"
+
+
+## Package configuration
+
+*"Tracking package dependencies is quite complex. The package configuration utility, [`pkg-config`]( http://www.freedesktop.org/wiki/Software/pkg-config) helps track which packages are installed and which compile flags each needs by keeping a database of Autotools packages in `[sysroot]/usr/lib/pkgconfig`."*
+
+*"You can use the utility pkg-config to extract information in a form that you can feed straight to gcc. In the case of a library [...], you want to know the library name (`--libs`) and any special C flags (`--cflags`)."*
+
+*"You need to point it at the sysroot of the target toolchain by setting the shell variable `PKG_CONFIG_LIBDIR`"*
+
+`PKG_CONFIG_LIBDIR=$(arm-cortex_a8-linux-gnueabihf-gcc -print-sysroot)/usr/lib/pkgconfig pkg-config sqlite3 --libs --cflags`
+
+
+## Problems with cross compiling
+
+*"Typical pain points include:*
+
+- *Home-grown build systems, zlib, for example, has a configure script but it does not behave like the Autotools configure*
+- *Configure scripts that read `pkg-config` information, headers, and other files from the host, disregarding the `--host` override*
+- *Scripts that insist on trying to run cross compiled code*"
+
+## Summary
+
+*"Beware of toolchains or distributions that are offered to you for free as part of a hardware package: they are often poorly configured and not maintained. In any case, you should make the choice according to your situation, and then be consistent in its use throughout the project."*
