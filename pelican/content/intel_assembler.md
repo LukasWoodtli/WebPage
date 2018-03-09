@@ -127,6 +127,8 @@ to CPU instrutions.
 - Case sensitive (at least in *yasm*)
 - May be definied only once
 
+Examples:
+
     :::nasm
     loopBegin:
     end:
