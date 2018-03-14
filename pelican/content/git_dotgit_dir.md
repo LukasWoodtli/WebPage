@@ -14,3 +14,8 @@ Some notes about the contents of the `.git` directory that resides in the root o
 - `refs` directory: stores pointers to commit objects (branches)
 - `index` file: staging area information
 - `description` file: only used by the GitWeb program
+
+
+For submodules the directory is in the `.git` directory of the main repository ("supermodule").
+
+The `.git` directory of a repository can be shown with `git rev-parse --git-dir`
