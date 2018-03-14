@@ -50,6 +50,15 @@ Mindestanforderung an eine Bilanz (OR § 663)
 | => Bilanzsumme | => Bilanzsumme  |
 
 
+# Financial Statements
+
+There are 3 financial statements:
+
+1. Income statement
+2. Balance sheet
+3. Cashflow statement
+
+
 
 # Betriebswirtschaftliche Kennzahlen:
 
