@@ -60,3 +60,19 @@ Function calls:
 2. Create storage places in the new environment for each *formal parameter*.
 3. Fill these placeswith the values of the *actual arguments*
 3. Evaluate the *function body* in the new environment.
+
+
+Comparison of LL- and LR-Parsers
+================================
+
+This overview is assembled mostly from
+[LL and LR Parsing Demystified](http://blog.reverberate.org/2013/07/ll-and-lr-parsing-demystified.html)
+
+
+|             | LL Parser                     | LR Parser                     |
+|-------------|-------------------------------|-------------------------------|
+| traversal   | pre-order  (visit the parent node before the children)    | post-order (visit the parent node after the children) |
+| derivations | leftmost derivation           | reversed rightmost derivation |
+| direction   | top-down                      | bottom-up                     |
+| alternative description | predictive parser | shift-reduce parser           |
+
