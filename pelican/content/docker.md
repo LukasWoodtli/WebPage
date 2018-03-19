@@ -65,23 +65,21 @@ or: `docker rmi <image-name>:<tag>`
 
 ### Run Image
 
-#### interactive Run
 
-Command: `docker run -i -t <image-name>:<tag> <command>`
-
-This will override the default command that is run when the container is started.
+Command: `docker run [flags] <image-name>:<tag> [command]`
 
 Flags:
 
 - `-i`: interactive shell
 - `-t`: pseudo tty
+- `-d`: run as daemon
+- `-p <host_port>:<container_port>`: map ports
+
+If the interactive (`-i`) flag is provided a command sould be executed.
+This will override the default command that is run when the container is started.
+
 
 Example: `docker run -i -t fedora:latest /bin/bash`
-
-
-#### Run as Daemon
-
-Command: `docker run -d <image-name>:<tag>`
 
 
 ### Show Running Images
@@ -91,7 +89,9 @@ Command: `docker ps`
 To show also containers that are not running: `docker ps -a`
 
 
+### Logs
 
+Command: `docker logs <container-id-or-name>`
 
 
 
