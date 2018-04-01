@@ -61,7 +61,7 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | FreeRTOS Reference Manual                         | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
 | [Linux-UNIX-Programmierung](https://github.com/LukasWoodtli/LinuxUnixDevelopment) | Jürgen Wolf       | Rheinwerk                                         |
 | [Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/index.htm) | Jürgen Wolf | Rheinwerk                                      |
-| [What You Need to Know about Docker](https://www.packtpub.com/packt/free-ebook/what-you-need-know-about-docker) | Scott Gallagher | Packt Publishing      |
+| [What You Need to Know about Docker]({filename}/docker.md) | Scott Gallagher                          | Packt Publishing                                  |
 | TCP/IP für Dummies                                | Candace Leiden, Marshall Wilensky                 | Wiley-VCH Verlag GmbH                             |
 
 

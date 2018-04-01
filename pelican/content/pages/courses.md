@@ -23,6 +23,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 
 | Topic                           | Course                                                                                       |
 |---------------------------------|----------------------------------------------------------------------------------------------|
+| Designing RESTful APIs          | [Udacity](https://classroom.udacity.com/courses/ud388)|
 | JavaScript Basics               | [Udacity](https://www.udacity.com/course/ud804)                                              |
 | How to Use Git and GitHub       | [Udacity](https://www.udacity.com/course/ud775)                                              |
 | Advanced Operating Systems      | [Udacity](https://www.udacity.com/course/ud189)                                              |
