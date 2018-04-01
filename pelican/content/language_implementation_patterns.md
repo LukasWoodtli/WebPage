@@ -86,10 +86,10 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
     :::antlr-java
     r : r X ;
 
-*"we’d end up with a function that immediately called itself"*
+*"we'd end up with a function that immediately called itself"*
 
     :::java
-    void ​ r() { r(); match(X); }
+    void r() { r(); match(X); }
 
 *"Besides left-recursive rules, there are other grammar constructs that yield **nondeterministic** recursive-descent recognizers. A nondeterministic recognizer cannot decide which path to take."*
 
@@ -111,22 +111,21 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
       case <token1-predicting-alt1>:
       case <token2-predicting-alt1>:
         <match-alt1>
-        break​;
+        break;
       case <token1-predicting-alt2>:
       case <token2-predicting-alt2>:
         <match-alt2>
-        break​;
+        break;
       case <token1-predicting-altN>:
-      case ​<token2-predicting-altN>:
+      case <token2-predicting-altN>:
         <match-altN>
-        break​;
+        break;
       default:
-        <throw​-exception>
+        <throw-exception>
       }
 
 
 
-    
 #### Optional subrule `(T)?`
 
 ![Option](/images/language_implementation_patterns/option.svg)
@@ -144,7 +143,6 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
     while(<lookahead-predicts-an-alt-of-subrule>);
 
 
-    
 #### Zero or more `(...)*` subrules
 
 ![Zero or more](/images/language_implementation_patterns/zero_or_more.svg)
@@ -193,7 +191,7 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
 
     :::antlr-java
     list : '[' elements ']' ;
-    elements : element (​ ',' ​ element)* ;
+    elements : element ( ',' element)* ;
     element : NAME '=' NAME
             | NAME
             | list
@@ -204,4 +202,109 @@ Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatte
 
 *"The lookahead depth **k** in LL(k) is really a maximum not the exact, fixed amount of lookahead each parsing decision uses."*
 
+
+## Enhanced Parsing Patterns
+
+### Parsing with Arbitrary Lookahead
+
+*"[Some] language constructs [...] only differ on the right side. For example, C++ function definitions and declarations are identical until the parser sees `;` or `{` :"*
+
+    :::cpp
+    void bar() {...} // a function definition
+    void bar(); // a function declaration
+
+*"function headers can be arbitrarily long, the distinguishing token does not appear at a fixed lookahead position from the left side of the statement."*
+
+*"The parser can speculatively parse as far ahead as it needs."*
+
+*"Speculatively matching the alternatives of a rule effectively orders them. The first alternative that matches wins. This is great because we can use ordering to specify precedence."*
+
+*"With ordered alternatives, there is no ambiguity because the parser consistently chooses the first of two ambiguous alternatives. By having the parser pay attention to the order of alternatives"*
+
+*"Though speculative parsing has a lot of advantages, there are two drawbacks. First, it can make debugging more difficult. When the parser speculatively parses ahead, it's easy to get lost with all of the scanning ahead and rewinding. Second, backtracking can be extremely slow. Fortunately, we can fix the efficiency issue."*
+
+
+### Parsing like a Pack Rat
+
+*"Almost by definition, we use backtracking parsers only when we need to distinguish between similar language constructs. If the constructs are similar, the associated grammar likely contains repeated references to the same rule."*
+
+### Directing the Parse with Semantic Information
+
+*"The parsers we're working with in this book recognize **context-free languages**. A context-free language is a language whose constructs don't depend on the presence of other constructs.
+Unfortunately, some programming languages have context-sensitive phrases. To handle context-sensitive phrases with a context-free parser, we have to predicate alternatives. In effect, a predicate is just a run-time boolean test that says when it's OK to match an alternative. The predicates gate the associated alternatives in and out."*
+
+
+*"In C++, the expression `T(6)` is either a function call or a constructor-style typecast depending on whether `T` is a function or type name. A C++ parser literally does not know how to interpret `T(6)` without seeing the definition of `T`. Such a construct is **context sensitive** and, in this case, ambiguous from a purely syntactic point of view."*
+
+*"Ambiguous grammars lead to **nondeterministic parsers**"*
+
+
+### Pattern 5 Backtracking Parser
+
+*"This pattern adds speculative parsing support (arbitrary lookahead) to any recursive-descent recognizer."*
+
+*"[...] we can't map all grammars to recursive-descent parsers. Only **non-left-recursive grammars** work (no rule can directly or indirectly invoke itself without consuming a token)."*
+
+*"[...] we can't always get properly functioning (deterministic) parsers even from non-left-recursive grammars. The problem is that fixed lookahead LL parsers need the lookahead sets predicting alternatives to be disjoint."*
+
+*"This pattern overcomes this lookahead issue by allowing arbitrary lookahead [...]. To look arbitrarily ahead, we need infrastructure to support backtracking. Backtracking also gives us a way to specify the precedence of ambiguous rule alternatives (alternatives that can match the same input). Backtracking parsers, by definition, try the alternatives in order."*
+
+*"Syntactic predicates are grammar fragments that specify the lookahead language predicting an alternative."*
+
+*"ANTLR's notion of grammars plus syntactic predicates [are called] Parsing Expression Grammars (PEGs)"*
+
+*"In the functional language world, syntactic predicates are called **parser combinators**"*
+
+
+*"Syntactic predicates and speculative parsing are extremely useful when parsing phrases that look the same from the left edge. Distinguishing between C++ function definitions and declarations is a prime example"*
+
+#### Dealing with Actions While Backtracking
+
+*"Either we disallow actions or disallow actions with side effects, or we parse winning alternatives twice."*
+
+*"During speculation, all actions are off. Once the parser knows an alternative will match, however, it can match the alternative again "with feeling" to do the actions."*
+
+
+### Pattern 6 Memoizing Parser
+
+*"This pattern records partial parsing results during backtracking to guarantee linear parsing performance, at the cost of a small amount of memory."*
+
+*"Memoizing is a form of dynamic programming"*
+
+*"Another name for **memoizing recursive-descent parser** is **packrat parser**"*
+
+*"Memoization only helps us, though, if we invoke the same rule at the same input position more than once."*
+
+*"For example, upon input `(3+4);`, a backtracking parser derived from the following rule invokes `expr` twice:"*
+
+
+    :::antlr-java
+    s : expr '!' // assume backtracking parser tries this alternative
+      | expr ';' // and then this one
+      ;
+    expr : ... ; // match input such as "(3+4)"
+
+*"Rule `s` invokes `expr` to speculatively match the first alternative. `expr` succeeds, but `s` finds that the next 
+input symbol is `;` and not `!`. Rule `s` rewinds the input and tries the second alternative. The parser immediately calls
+`expr` again and at the same input position. [...] To avoid reparsing, all we have to do is remember that `expr` succeeded 
+the last time we tried it at this position."*
+
+*"Packrat parsers are guaranteed to have linear performance [and also] linear space complexity."*
+
+
+### Pattern 7 Predicated Parser
+
+*"This pattern augments any top-down parser with arbitrary boolean expressions that help make parsing decisions."*
+
+*"These boolean expressions are called semantic predicates and specify the semantic applicability of an alternative.
+Predicates that evaluate to false effectively "turn off" a parser decision path. From a grammar point of view, false
+predicates make alternatives invisible."*
+
+*"We need semantic predicates when the parser cannot use syntax alone to make parsing decisions, that is, when the parser
+cannot distinguish between alternatives without using run-time information. The most common case is when we need to use symbol
+table information to guide the parse."*
+
+
+*"Predicates are also useful when a parser must recognize multiple versions of an input language. For example, the GCC C
+compiler adds a number of extensions beyond C. Java 5.0 introduced the enum keyword to support enumerated types."*
 
