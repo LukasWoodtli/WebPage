@@ -23,6 +23,10 @@ $$\nabla = \left(\frac\partial {\partial x}, \frac\partial {\partial y}, \frac\p
 
 Sometimes $\vec\nabla$ is written instead of $\nabla$ to show that it's basically a vector.
 
+The Nabla Operator can be seen as "Vector of partial derivative *operators*". The dimension is same as the input dimension.
+
+Operator: takes as input a function an outputs an other function.
+
 
 Gradient ($\operatorname{grad}$)
 ================================
@@ -33,8 +37,8 @@ Input: A [Scalar field](https://en.wikipedia.org/wiki/Scalar_field)
 
 Output: A [Vector field](https://en.wikipedia.org/wiki/Vector_field) 
 
-The direction of the gradient at one position shows the direction of the biggest change in the scalar field.
-The length (absolute value) of the gradient at that point is a measurement of the change (slope).
+The direction of the gradient at one position shows the direction of the biggest change (steepest ascent) in the scalar field. The vectors are pointing "uphills".
+The length (absolute value) of the gradient at that point is a measurement of the change (slope, steepness).
 
 $$\nabla f = \frac{\partial f}{\partial x_1}\mathbf{e}_1 + \cdots + \frac{\partial f}{\partial x_n }\mathbf{e}_n$$
 
