@@ -119,6 +119,7 @@ Command: `docker stats <container-name>`
 
 Command: `docker top <container-name>`
 
+
 ## Removing Containers
 
 Command: `docker rm <container-name>`
@@ -157,3 +158,32 @@ Columns:
 ## Restart a Node
 
 Commmand: `docker-machine restart <node-name>`
+
+
+# Dockerfile
+
+## Instructions
+
+- `FROM`: The base image for this Docker image.
+- `MAINTAINER`: Responsible maintainer  (name and e-mail).
+- `RUN`: Install packages and run other commands.
+- `ADD`: Add files or folders to the Docker image. URLs can be provided. Automatically unpack or untar a compressed files.
+- `COPY`: Same as `ADD` but without URL handling or unpacking/untarring.
+- `EXPOSE`: Expose ports from the image to the outside world.
+- `LABEL`: Additional information (version number, text ...). Each label add a layer to the image.
+- `CMD`: Execute commands and keep the container alive.
+- `ENTRYPOINT`: Similar to `CMD`. Can be used in conjunction with `CMD`.
+- `USER`: Specify which username to use. Influences `RUN`, `CMD` and `ENTRYPOINT` instructions that follow in the Dockerfile.
+- `WORKDIR`: Specify the directory where to execute instructions. Influences `RUN`, `CMD` and `ENTRYPOINT` instructions that follow in the Dockerfile
+- `ONBUILD`: Used if image is used as base in another Dockerfile. Executed as first statement after `FROM`. Use in conjunction with `ADD` or `RUN`.
+
+## Label Informations
+
+Command: `docker inspect <image-id>`
+
+## Best Practices
+
+- Use a `.dockerignore` file.
+- Install only necessary packages.
+- Limit the number of layers. Every `RUN` command adds a layer.
+- Execute only one process per container.
