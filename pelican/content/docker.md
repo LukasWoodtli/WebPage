@@ -6,11 +6,13 @@ Date: 2018-03-19
 These notes are mainly taken from
 [What You Need to Know about Docker](https://www.packtpub.com/packt/free-ebook/what-you-need-know-about-docker).
 
-# Docker
+[TOC]
 
-## Setup
+# Setup
 
 Start the daemon (on Fedora): `sudo systemctl start docker`
+
+Start the daemon on boot (on Fedora): `sudo systemctl enable docker`
 
 Run as user:
 
@@ -24,9 +26,9 @@ Then add the actual user to that group:
 
 After that log out and log in again.
 
-## Images and Containers
+# Images and Containers
 
-### List Images
+## List Images
 
 Command: `docker images`
 
@@ -39,7 +41,7 @@ Columns:
 - `SIZE`: size of the image
 
 
-### Search Images
+## Search Images
 
 Command: `docker search <image-name>`
 
@@ -52,18 +54,18 @@ Columns:
 - `AUTOMATED`: If the build is automanted (on Docker Hub)
 
 
-### Pull Images
+## Pull Images
 
 Command: `docker pull <image-name>`
 
-### Remove Images
+## Remove Images
 
 Command: `docker rmi <image-id>`
 
 or: `docker rmi <image-name>:<tag>`
 
 
-### Run Image
+## Run Image
 
 
 Command: `docker run [flags] <image-name>:<tag> [command]`
@@ -83,19 +85,19 @@ A random name is assigned to the image.
 Example: `docker run -i -t fedora:latest /bin/bash`
 
 
-### Show Running Images
+## Show Running Images
 
 Command: `docker ps`
 
 To show also containers that are not running: `docker ps -a`
 
 
-### Logs
+## Logs
 
 Command: `docker logs <container-id-or-name>`
 
 
-### Stopping Containers
+## Stopping Containers
 
 Shutdown the container:
 
@@ -107,21 +109,21 @@ Force quit the container:
 Command: `docker kill <container-id-or-name>`
 
 
-### Renaming Containers
+## Renaming Containers
 
 Command: `docker rename <old-name> <new-name>`
 
-### Getting Information from Containers
+## Getting Information from Containers
 
 Command: `docker stats <container-name>`
 
 Command: `docker top <container-name>`
 
-### Removing Containers
+## Removing Containers
 
 Command: `docker rm <container-name>`
 
-## Registries
+# Registries
 
 There are three kinds of registries:
 
@@ -129,15 +131,15 @@ There are three kinds of registries:
 - Docker Trusted Registry: Hosted or on premise (backend maintained by Docker)
 - Docker Registry: For running own Docker registry
 
-## Docker Machine
+# Docker Machine
 
-### Create Machines
+## Create Machines
 
 Create and manage machines running Docker.
 
 Example (creating a VirtualBox machine running Docker): `docker-machine create -d virtualbox node1`
 
-### List Machines
+## List Machines
 
 Command: `docker-machine ls`
 
@@ -152,6 +154,6 @@ Columns:
 - `DOCKER`: version of Docker
 - `ERRORS`: any errors that occurred
 
-### Restart a Node
+## Restart a Node
 
 Commmand: `docker-machine restart <node-name>`
