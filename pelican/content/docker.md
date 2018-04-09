@@ -164,7 +164,7 @@ Commmand: `docker-machine restart <node-name>`
 
 ## Instructions
 
-- `FROM`: The base image for this Docker image.
+- `FROM`: The base image for this Docker image (`scratch` for empty base image).
 - `MAINTAINER`: Responsible maintainer  (name and e-mail).
 - `RUN`: Install packages and run other commands.
 - `ADD`: Add files or folders to the Docker image. URLs can be provided. Automatically unpack or untar a compressed files.
@@ -187,3 +187,20 @@ Command: `docker inspect <image-id>`
 - Install only necessary packages.
 - Limit the number of layers. Every `RUN` command adds a layer.
 - Execute only one process per container.
+
+
+# Docker build
+
+`docker build -t <docker-hub-username>/<repository-name> <directory>`
+
+or
+
+`docker build -f <path-do-dockerfile> -t <repository>:<tag>`
+
+
+`<repository>`: repository name prefixed by Docker Hub username
+
+## The `.dockerignore` file
+
+This file can be used to exclude files and folders from being sent to the Docker daemon for the build. It should be placed in the same
+folder as the `Dockerfile`.
