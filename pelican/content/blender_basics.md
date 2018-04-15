@@ -24,9 +24,17 @@ Lights (rendering): usually 3 kind of lamps
 
 # Viewport (3D View)
 
+## Emulate 3 Button Mouse and Emulate Numpad
+
+> File > User Preferences
+
+- Emulate 3 Button Mouse: use `alt`-`LMB` as `MMB`
+- Emulate Numpad: use top row numbers as numpad
+
+
 ## Navigation
 
-| Shortcut         | Default     |
+| Action           | Shortcut    |
 |------------------|-------------|
 | Pan (shifting)   | `Shift-MMB` |
 | Orbit (rotatong) | `MMB`       |
@@ -35,10 +43,23 @@ Lights (rendering): usually 3 kind of lamps
 
 ## Shortcuts for Views
 
-| Shortcut (num pad) | Default (num pad) |
-|--------------------|-------------------|
-| Front              |                 1 |
-| Side               |                 3 |
-| Top                |                 7 |
-| (De-)activate ortographic mode |     5 |
-| Camera             |                 0 |
+| Action    | Shortcut (num pad)  |
+|-----------|---------------------|
+| Front     |                 1   |
+| Side      |                 3   |
+| Top       |                 7   |
+| (De-)activate orthographic mode | 5 |
+| Camera    |                 0   |
+
+
+## Selection
+
+Select object: `RMB`
+Select multiple objects: `shift`-`RMB`
+Select (deselect) all: `A`
+Box selection: `B`
+Circle (brush) select: `C` + `LMB`, scroll for bigger brush, `MMB` for deselection
+
+## Tranformation
+
+
