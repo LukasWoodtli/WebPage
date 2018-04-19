@@ -28,18 +28,20 @@ Lights (rendering): usually 3 kind of lamps
 
 > File > User Preferences
 
-- Emulate 3 Button Mouse: use `alt`-`LMB` as `MMB`
+- Emulate 3 Button Mouse: use `ALT`+`LMB` as `MMB`
 - Emulate Numpad: use top row numbers as numpad
 
 
 ## Navigation
 
-| Action           | Shortcut    |
-|------------------|-------------|
-| Pan (shifting)   | `Shift-MMB` |
-| Orbit (rotatong) | `MMB`       |
-| Zoom             | Mouse wheel |
+| Action           | Shortcut      |
+|------------------|---------------|
+| Pan (shifting)   | `Shift`+`MMB` |
+| Orbit (rotatong) | `MMB`         |
+| Zoom             | Mouse wheel   |
 
+
+`SHIFT`+`C`: Reset 3D cursor to origin
 
 ## Shortcuts for Views
 
@@ -55,11 +57,41 @@ Lights (rendering): usually 3 kind of lamps
 ## Selection
 
 Select object: `RMB`
-Select multiple objects: `shift`-`RMB`
+Select multiple objects: `shift`+`RMB`
 Select (deselect) all: `A`
-Box selection: `B`
-Circle (brush) select: `C` + `LMB`, scroll for bigger brush, `MMB` for deselection
+Box selection: `B` `LMB` (`MMB` for deselection)
+Circle (brush) select: `C` `LMB`, scroll for bigger brush (`MMB` for deselection)
 
 ## Tranformation
+
+Grab: `G`
+Rotation: `R` (`R` `R` for free rotation)
+Scale: `S`
+
+Revert Grab `Alt`+`G`
+Revert Rotatsion `Alt`+`R`
+Revert Scale `Alt`+`S`
+
+Each of the transformation hot-key can be combined with `x`, `y` or `z` to allow the trasformation only for this axis.
+
+## Add and Delete Objects
+
+- Delete: `x` or `DEL`
+- Add: `SHIFT`+`A`
+
+
+## Modes
+
+Toggle between *Edit Mode* and *Object Mode*: `TAB`
+
+
+## Display Mode
+
+Toggle between *Solid* and *Wireframe*: `Z`
+
+## Edit Mode
+
+Mesh select mode (Vertex, Edge, Face): `CTRL`+`TAB`
+
 
 
