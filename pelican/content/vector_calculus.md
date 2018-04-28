@@ -44,6 +44,8 @@ $$\nabla f = \frac{\partial f}{\partial x_1}\mathbf{e}_1 + \cdots + \frac{\parti
 
 $e_i$: The orthogonal unit vectors pointing in the coordinate directions
 
+The Gradient is always perpendicular to the Contour lines.
+
 
 Divergence ($\operatorname{div}$)
 =================================

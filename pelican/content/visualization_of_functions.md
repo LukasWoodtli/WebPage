@@ -32,6 +32,7 @@ Some notes how to visualize mathematical functions.
 - Show only the input space
 - outputs values represent should be evenly spaced (easier to understand)
 - useful for functions with a two-dimensional input and a one-dimensional output
+- The Gradient is always perpendicular to the Contour lines
 
 ![Contour Map](/images/visualization_of_functions/3_contour_map.png)
 
