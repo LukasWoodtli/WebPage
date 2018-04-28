@@ -57,7 +57,8 @@ Lights (rendering): usually 3 kind of lamps
 ## Selection
 
 Select object: `RMB`
-Select multiple objects: `shift`+`RMB`
+Select multiple objects: `SHIFT`+`RMB`
+Select complete loop: `ALT`+`RMB` (can be combined with `SHIFT`)
 Select (deselect) all: `A`
 Box selection: `B` `LMB` (`MMB` for deselection)
 Circle (brush) select: `C` `LMB`, scroll for bigger brush (`MMB` for deselection)
