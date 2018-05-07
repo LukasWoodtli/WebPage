@@ -96,4 +96,5 @@ I really like reading technical books to improve my skills. Usually I try to rea
 
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Normen-Auszug 2006                                | Swissmem                                          | Swissmem                                          |
 | 3D-Drucken für Einsteiger                         | Heiner Stiller                                    | Franzis (onleihe)                                 |
