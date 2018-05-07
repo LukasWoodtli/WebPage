@@ -90,3 +90,10 @@ I really like reading technical books to improve my skills. Usually I try to rea
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
+
+
+# Mechanical Engineering
+
+| Name                                              | Authors                                           | Publisher                                         |
+|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| 3D-Drucken für Einsteiger                         | Heiner Stiller                                    | Franzis (onleihe)                                 |
