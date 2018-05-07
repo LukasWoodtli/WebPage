@@ -31,6 +31,12 @@ Lights (rendering): usually 3 kind of lamps
 - Emulate 3 Button Mouse: use `ALT`+`LMB` as `MMB`
 - Emulate Numpad: use top row numbers as numpad
 
+## User Interface
+
+- Toggle maximised and normal view: `SHIFT`+`TAB`
+- Toggle property panel: `N`
+- Toggle tools panel: `T`
+
 
 ## Navigation
 
