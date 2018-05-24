@@ -10,25 +10,23 @@ Date: 2018-02-22
 # ld
 
 ## Flags
--z now
--O1 (linker!)
+
+- `-z now`
+- `-O1` (linker!)
 
 ## Environment Variables
 
-LD_BIND_NOW
-LD_PRELOAD
-LD_DEBUG
-LD_DEBUG_OUTPUT
+- `LD_BIND_NOW`
+- `LD_PRELOAD`
+- `LD_DEBUG`
+- `LD_DEBUG_OUTPUT`
 
 
 ld/gcc?
---hash-style=gnu
+
+`--hash-style=gnu`
 
 # readelf
-
-## Flags
-
--d
 
 ## Show which libraries have been linked
 
@@ -42,13 +40,15 @@ ld/gcc?
 
 ## Flags
 
--d: disassemble
--C: demangle C++ symbols
+- `-d`: disassemble
+- `-C`: demangle C++ symbols
+
 
 # Library Directories
+
 https://stackoverflow.com/questions/9922949/how-to-print-the-ldlinker-search-path
 
 
 # ldd
 
-ldd 
+> TODO
