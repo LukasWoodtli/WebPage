@@ -50,6 +50,15 @@ See my page about the [courses](courses.html) I attended.
 - English: Good writing and speaking knowledge
 - French: Some basic knowledge
 
+# Online Profiles and Social Networks
+
+- [Home page](http://lukaswoodtli.github.io/)
+- [GitHub](https://github.com/LukasWoodtli)
+- [stack overflow](https://careers.stackoverflow.com/lukaswoodtli)
+- [LinkedIn](https://www.linkedin.com/in/lukaswoodtli)
+- [XING](https://www.xing.com/profile/Lukas_Woodtli)
+
+
 # Hobbies
 
 * Sports:
