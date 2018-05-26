@@ -65,7 +65,7 @@ MARKDOWN = {
 DOCUTILS_SETTINGS = {'table_style' : 'borderless', 'math_output': 'mathjax https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'}
 
 THEME = "pelican-chameleon"
-BS3_THEME = "http://bootswatch.com/yeti/bootstrap.min.css"
+BS3_THEME = "https://bootswatch.com/4/solar/bootstrap.min.css"
 
 # Keep the generated blog index but save it under different name
 INDEX_SAVE_AS = 'blog_index.html'
