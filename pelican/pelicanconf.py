@@ -83,11 +83,12 @@ MENUITEMS = [
          ('Categories', '/categories.html'),
          ('Tags', '/tags.html'),
          ('Chronological', '/archives.html')]),
+    ('Social' = [('LinkedIn', 'https://www.linkedin.com/in/lukaswoodtli'),
+          ('github', 'https://github.com/LukasWoodtli'),
+          ('stack overflow', 'https://careers.stackoverflow.com/lukaswoodtli'),
+          ('XING', 'https://www.xing.com/profile/Lukas_Woodtli')]),
+
     ('Contact', '/pages/contact.html')
     ]
 
-SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/lukaswoodtli'),
-          ('github', 'https://github.com/LukasWoodtli'),
-          ('stack overflow', 'https://careers.stackoverflow.com/lukaswoodtli'),
-          ('XING', 'https://www.xing.com/profile/Lukas_Woodtli'))
 
