@@ -19,7 +19,7 @@ try:
 except:
     pass
 
-REPOSITORIES = [("https://github.com/yuex/pelican-chameleon",           "pelican-chameleon"),  # Pelican chameleon theme
+REPOSITORIES = [("https://github.com/LukasWoodtli/pelican-chameleon",           "pelican-chameleon"),  # Pelican chameleon theme
                 ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
                 ("https://github.com/getpelican/pelican-plugins", "pelican-plugins"),
                 (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
