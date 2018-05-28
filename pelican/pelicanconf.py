@@ -46,7 +46,9 @@ AUTHOR_SAVE_AS = 'author/lukas_woodtli.html'  # The location to save an author.
 
 home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
-PLUGINS = ["render_math", "pelican-bootstrapify"] # "better_tables"
+PLUGINS = ["render_math", "pelican-bootstrapify", 'sitemap', 'extract_toc', 'tipue_search'] # "better_tables"
+
+DIRECT_TEMPLATES = (('index', 'tags', 'categories','archives', 'search', '404'))
 
 TYPOGRIFY = True
 
@@ -54,6 +56,7 @@ MARKDOWN = {
             'extension_configs': {
                         'markdown.extensions.codehilite': {'css_class': 'highlight'},
                         'markdown.extensions.extra': {},
+                        'markdown.extensions.headerid': {},
                         'markdown.extensions.sane_lists': {},
                         'markdown.extensions.toc': {},
                         'markdown.extensions.footnotes': {},
@@ -64,11 +67,8 @@ MARKDOWN = {
 
 DOCUTILS_SETTINGS = {'table_style' : 'borderless', 'math_output': 'mathjax https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'}
 
-THEME = "pelican-blueidea"
-DISPLAY_PAGES_ON_MENU=True
-DISPLAY_CATEGORIES_ON_MENU=False
-DISPLAY_CATEGORIES_ON_SUBMENU=True
-DISPLAY_CATEGORIES_ON_POSTINFO=True
+THEME = "pelican-elegant"
+
 SOCIAL = [('LinkedIn', 'https://www.linkedin.com/in/lukaswoodtli'),
           ('github', 'https://github.com/LukasWoodtli'),
           ('stack overflow', 'https://careers.stackoverflow.com/lukaswoodtli'),
