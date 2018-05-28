@@ -5,7 +5,7 @@ from os.path import expanduser, join
 import string
 
 AUTHOR = u'Lukas Woodtli'
-AUTHORS = AUTHOR
+AUTHORS = { AUTHOR: "pages/contact.html" }
 
 SITENAME = u'Lukas Woodtli'
 SITEURL = 'http://lukaswoodtli.github.io'
@@ -65,7 +65,7 @@ MARKDOWN = {
 DOCUTILS_SETTINGS = {'table_style' : 'borderless', 'math_output': 'mathjax https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'}
 
 THEME = "pelican-chameleon"
-BS3_THEME = "https://bootswatch.com/4/solar/bootstrap.min.css"
+BS3_THEME = "https://bootswatch.com/4/cosmo/bootstrap.min.css"
 
 # Keep the generated blog index but save it under different name
 INDEX_SAVE_AS = 'blog_index.html'
@@ -84,6 +84,6 @@ MENUITEMS = [
          ('Tags', '/tags.html'),
          ('Chronological', '/archives.html')]),
     ('Contact', '/pages/contact.html')
-    ]
+]
 
 

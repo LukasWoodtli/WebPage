@@ -19,7 +19,7 @@ try:
 except:
     pass
 
-REPOSITORIES = [("https://github.com/LukasWoodtli/pelican-chameleon",           "pelican-chameleon"),  # Pelican chameleon theme
+REPOSITORIES = [("https://github.com/yuex/pelican-chameleon",           "pelican-chameleon"),  # Pelican chameleon theme
                 ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
                 ("https://github.com/getpelican/pelican-plugins", "pelican-plugins"),
                 (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
@@ -49,13 +49,16 @@ def build_web_page():
     # installinc pelican-chameleon theme
     pelican_chameleon_path = os.path.join(HOME, "pelican-chameleon")
     print "Installing pelican-chameleon theme from path: ", pelican_chameleon_path
-    subprocess.call(["pelican-themes", "-i", pelican_chameleon_path])
+    subprocess.call(["pelican-themes", "-i", pelican_chameleon_path, "--verbose"])
 
     # make web page
     working_dir = os.path.join(REPO_DIRECTORY, "pelican")
     os.chdir(working_dir)
     print "make html in path: ", working_dir
-    subprocess.call(["make", "html", "-k"])
+    ret = subprocess.call(["make", "html", "-k"])
+    if ret != 0:
+      print("Error while running main")
+      exit(1)
 
     # copy output to user page repo
     root_src_dir = os.path.join(working_dir, "output")
@@ -80,7 +83,7 @@ def publish_web_page():
      repo.index.add("*")
      repo.index.commit("Update Github page automated.")
      repo.remotes.origin.push(repo.head)
-     
+
 
 if __name__ == "__main__":
     assert len(sys.argv) < 2
@@ -89,7 +92,3 @@ if __name__ == "__main__":
     publish_web_page()
     remove_working_copies_of_repositories()
 
-
-
-    
-    

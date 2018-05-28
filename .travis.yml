@@ -12,7 +12,7 @@ before_install:
   #- pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
 
 install:
-- pip install -r requirements.txt
+- pip install -r requirements.txt --user
   # Used for rst
   #- pip install docutils>=0.12
   # Pelican for generating the web page
