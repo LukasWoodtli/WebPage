@@ -71,8 +71,9 @@ THEME = "pelican-elegant"
 
 SOCIAL = [('LinkedIn', 'https://www.linkedin.com/in/lukaswoodtli'),
           ('github', 'https://github.com/LukasWoodtli'),
-          ('stack overflow', 'https://careers.stackoverflow.com/lukaswoodtli'),
-          ('XING', 'https://www.xing.com/profile/Lukas_Woodtli')]
+          ('stack-overflow', 'https://careers.stackoverflow.com/lukaswoodtli'),
+          ('XING', 'https://www.xing.com/profile/Lukas_Woodtli'),
+          ('email','/pages/contact.html')]
 
 # Keep the generated blog index but save it under different name
 INDEX_SAVE_AS = 'blog_index.html'
