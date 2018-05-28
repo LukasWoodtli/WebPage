@@ -65,7 +65,14 @@ MARKDOWN = {
 DOCUTILS_SETTINGS = {'table_style' : 'borderless', 'math_output': 'mathjax https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'}
 
 THEME = "pelican-blueidea"
-BS3_THEME = "https://bootswatch.com/4/cosmo/bootstrap.min.css"
+DISPLAY_PAGES_ON_MENU=True
+DISPLAY_CATEGORIES_ON_MENU=False
+DISPLAY_CATEGORIES_ON_SUBMENU=True
+DISPLAY_CATEGORIES_ON_POSTINFO=True
+SOCIAL = [('LinkedIn', 'https://www.linkedin.com/in/lukaswoodtli'),
+          ('github', 'https://github.com/LukasWoodtli'),
+          ('stack overflow', 'https://careers.stackoverflow.com/lukaswoodtli'),
+          ('XING', 'https://www.xing.com/profile/Lukas_Woodtli')]
 
 # Keep the generated blog index but save it under different name
 INDEX_SAVE_AS = 'blog_index.html'
