@@ -62,6 +62,10 @@ def build_web_page():
     # copy output to user page repo
     root_src_dir = os.path.join(working_dir, "output")
     root_dest_dir = os.path.join(HOME, "github-userpage")
+    
+    # clean up repository
+    gitRepo = sh.git.bake(_cwd=root_dest_dir)
+    gitRepo.rm("-rf", "*")
 
     # from http://stackoverflow.com/a/7420617
     for src_dir, dirs, files in os.walk(root_src_dir):
