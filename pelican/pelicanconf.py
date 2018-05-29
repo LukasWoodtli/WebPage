@@ -46,8 +46,7 @@ RELATIVE_URLS = True
 
 home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
-PLUGINS = ["render_math", "pelican-bootstrapify", 'extract_toc', 'tipue_search'] # "better_tables"
-
+PLUGINS = ["render_math", "pelican-bootstrapify", "extract_toc", "tipue_search", "sitemap", "neighbors"]
 DIRECT_TEMPLATES = (('index', 'tags', 'categories','archives', 'search', '404'))
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
@@ -55,6 +54,20 @@ DISPLAY_CATEGORIES_ON_MENU = False
 TYPOGRIFY = True
 
 TIPUE_SEARCH = True
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'daily',
+        'indexes': 'daily',
+        'pages': 'daily'
+    }
+}
 
 MARKDOWN = {
             'extension_configs': {
