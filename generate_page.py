@@ -3,6 +3,7 @@
 import sys
 import os
 import shutil
+import sh
 import subprocess
 from git import Repo
 from os.path import expanduser
