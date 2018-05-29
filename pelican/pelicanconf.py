@@ -49,6 +49,8 @@ PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
 PLUGINS = ["render_math", "pelican-bootstrapify", 'sitemap', 'extract_toc', 'tipue_search'] # "better_tables"
 
 DIRECT_TEMPLATES = (('index', 'tags', 'categories','archives', 'search', '404'))
+DISPLAY_PAGES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = False
 
 TYPOGRIFY = True
 
