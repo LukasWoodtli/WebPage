@@ -19,7 +19,7 @@ try:
 except:
     pass
 
-REPOSITORIES = [("https://github.com/talha131/pelican-elegant",           "pelican-elegant"),  # Pelican chameleon theme
+REPOSITORIES = [("https://github.com/LukasWoodtli/pelican-elegant",           "pelican-elegant"),  # Pelican chameleon theme
                 ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
                 ("https://github.com/getpelican/pelican-plugins", "pelican-plugins"),
                 (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
@@ -46,7 +46,6 @@ def remove_working_copies_of_repositories():
         remove_local_repository(local_path)
 
 def build_web_page():
-    # installinc pelican-elegant theme
     pelican_chameleon_path = os.path.join(HOME, "pelican-elegant")
     print "Installing pelican-elegant theme from path: ", pelican_chameleon_path
     subprocess.call(["pelican-themes", "-i", pelican_chameleon_path, "--verbose"])

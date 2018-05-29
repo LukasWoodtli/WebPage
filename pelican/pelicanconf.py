@@ -42,17 +42,19 @@ AUTHOR_URL = 'author/lukas_woodtli.html'  # The URL to use for an author.
 AUTHOR_SAVE_AS = 'author/lukas_woodtli.html'  # The location to save an author.
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
-PLUGINS = ["render_math", "pelican-bootstrapify", 'sitemap', 'extract_toc', 'tipue_search'] # "better_tables"
+PLUGINS = ["render_math", "pelican-bootstrapify", 'extract_toc', 'tipue_search'] # "better_tables"
 
 DIRECT_TEMPLATES = (('index', 'tags', 'categories','archives', 'search', '404'))
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 
 TYPOGRIFY = True
+
+TIPUE_SEARCH = True
 
 MARKDOWN = {
             'extension_configs': {
