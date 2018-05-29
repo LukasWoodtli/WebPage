@@ -1,6 +1,5 @@
 docutils>=0.14
 pelican>=3.7.1
-GitPython==2.1.5
 sh>=1.12.10
 pyparsing==2.0.1
 python-dateutil==1.5

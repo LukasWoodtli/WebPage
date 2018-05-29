@@ -5,7 +5,6 @@ import os
 import shutil
 import sh
 import subprocess
-from git import Repo
 from os.path import expanduser
  
 REPO_DIRECTORY = os.path.realpath(__file__)
@@ -20,7 +19,7 @@ try:
 except:
     pass
 
-REPOSITORIES = [("https://github.com/LukasWoodtli/pelican-elegant",           "pelican-elegant"),  # Pelican chameleon theme
+REPOSITORIES = [("https://github.com/LukasWoodtli/pelican-elegant",           "pelican-elegant"),  # Pelican theme
                 ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
                 ("https://github.com/getpelican/pelican-plugins", "pelican-plugins"),
                 (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
@@ -33,7 +32,7 @@ def remove_local_repository(local_path):
 def clone_repository(repo, local_path):
     remove_local_repository(local_path)
     print "Cloning repo to ", local_path
-    Repo.clone_from(repo, local_path, depth=1, recursive=True)
+    sh.git.clone(["--depth=1", "--recursive", repo, local_path])
    
 
 def clone_needed_repositories():
@@ -54,7 +53,7 @@ def build_web_page():
     # make web page
     working_dir = os.path.join(REPO_DIRECTORY, "pelican")
     os.chdir(working_dir)
-    print "make html in path: ", working_dir
+    print "Create html in path: ", working_dir
     ret = subprocess.call(["make", "html", "-k"])
     if ret != 0:
       print("Error while running main")
@@ -83,10 +82,10 @@ def build_web_page():
 
 def publish_web_page():
      userpage_local_repo = os.path.join(HOME, "github-userpage")
-     repo = Repo(userpage_local_repo)
-     repo.index.add("*")
-     repo.index.commit("Update Github page automated.")
-     repo.remotes.origin.push(repo.head)
+     repo = sh.git.bake(_cwd=userpage_local_repo)
+     repo.add("*")
+     repo.commit(["-m", "Update Github page automated."])
+     repo.push(["origin"])
 
 
 if __name__ == "__main__":
