@@ -83,13 +83,13 @@ SOCIAL = [('LinkedIn', 'https://www.linkedin.com/in/lukaswoodtli'),
 INDEX_SAVE_AS = 'blog_index.html'
 
 MENUITEMS = [
-    ('Resume', '/pages/resume.html'),
-    ('Skills', '/pages/skills.html'),
-    #('Courses', '/pages/courses.html'),
-    #('Books', '/pages/books.html'),
-    #('Projects', '/pages/projects.html'),
-    ('Blog', '/pages/blog.html'),
-    ('Contact', '/pages/contact.html')
+    ('Resume', 'pages/resume.html'),
+    ('Skills', 'pages/skills.html'),
+    #('Courses', 'pages/courses.html'),
+    #('Books', 'pages/books.html'),
+    #('Projects', 'pages/projects.html'),
+    ('Blog', 'pages/blog.html'),
+    ('Contact', 'pages/contact.html')
 ]
 
 
