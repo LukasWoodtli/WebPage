@@ -125,7 +125,7 @@ Sequences as Conventional Interfaces
 
 *"The value of expressing programs as sequence operations is that this helps us make program designs that are modular, that is, designs that are constructed by combining relatively independent pieces. We can encourage modular design by providing a library of standard components together with a conventional interface for connecting the components in flexible ways."*
 
-`SICP: 2.2.3 Sequences as Conventional Interfaces<https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.3>`_
+`SICP section 2.2.3 Sequences as Conventional Interfaces <https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.3>`_
 
 
 Quotation
@@ -133,4 +133,4 @@ Quotation
 
 *"Allowing quotation in a language wreaks havoc with the ability to reason about the language in simple terms, because it destroys the notion that equals can be substituted for equals. For example, three is one plus two, but the word “three” is not the phrase “one plus two”. Quotation is powerful because it gives us a way to build expressions that manipulate other expressions"*
 
-`SICP: 2.3.1 Quotation<https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-16.html#%_sec_2.3.1>`_
+`SICP section 2.3.1 Quotation <https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-16.html#%_sec_2.3.1>`_
