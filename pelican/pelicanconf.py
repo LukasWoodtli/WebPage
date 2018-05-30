@@ -98,9 +98,9 @@ INDEX_SAVE_AS = 'blog_index.html'
 MENUITEMS = [
     ('Resume', 'pages/resume.html'),
     ('Skills', 'pages/skills.html'),
-    #('Courses', 'pages/courses.html'),
-    #('Books', 'pages/books.html'),
-    #('Projects', 'pages/projects.html'),
+    ('Books', 'pages/books.html'),
+    ('Courses', 'pages/courses.html'),
+    ('Projects', 'pages/projects.html'),
     ('Blog', 'pages/blog.html'),
     ('Contact', 'pages/contact.html')
 ]
