@@ -1,16 +1,35 @@
 
 language: python
-python: '3.6'
+python: '2.7'
 
 branches:
   only:
   - master
 
 before_install:
-- pip3 install --upgrade pip
+- pip install --upgrade pip
+  # Update all pip packages
+  #- pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
 
 install:
-- pip3 install -r requirements.txt
+- pip install -r requirements.txt
+  # Used for rst
+  #- pip install docutils>=0.12
+  # Pelican for generating the web page
+  #- pip install pelican>=3.6.3
+  # Markdown for writing content on the page
+  #- pip install Markdown>=2.6.6
+  #- pip install typogrify
+  # bs4 is used by pelican-bootstrapify plug in
+  #- pip install BeautifulSoup4>=2.0.7
+  # gitpython used for build file
+  #- pip install gitpython
+  # needed for linkchecker
+  #- pip install requests==2.2.0
+  # check for broken links
+#- pip install linkchecker
+  # highlighting of inline code in rst
+  #- pip install sphinxcontrib-inlinesyntaxhighlight
 
 before_script:
 - git config --global user.name "travis (Lukas Woodtli)"

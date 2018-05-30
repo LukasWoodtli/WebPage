@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import sys
 import os
@@ -10,7 +10,7 @@ from os.path import expanduser
 REPO_DIRECTORY = os.path.realpath(__file__)
 REPO_DIRECTORY = os.path.split(REPO_DIRECTORY)[0]
 HOME = expanduser("~")
-print("HOME: ", HOME)
+print "HOME: ", HOME
 
 GITHUB_USERPAGE_REPO = "https://github.com/LukasWoodtli/LukasWoodtli.github.io"
 try:
@@ -28,14 +28,14 @@ REPOSITORIES = [("https://github.com/LukasWoodtli/" + PELICAN_THEME,     PELICAN
 
 
 def remove_local_repository(local_path):
-    print("Removing: ", local_path)
+    print "Removing: ", local_path
     shutil.rmtree(local_path, ignore_errors=True)
 
 def clone_repository(repo, local_path):
     remove_local_repository(local_path)
-    print("Cloning repo to ", local_path)
+    print "Cloning repo to ", local_path
     sh.git.clone(["--depth=1", "--recursive", repo, local_path])
-
+   
 
 def clone_needed_repositories():
     for repo in REPOSITORIES:
@@ -49,14 +49,14 @@ def remove_working_copies_of_repositories():
 
 def build_web_page():
     pelican_theme_path = os.path.join(HOME, PELICAN_THEME)
-    print("Installing pelican-elegant theme from path: ", pelican_theme_path)
+    print "Installing pelican-elegant theme from path: ", pelican_theme_path
     subprocess.call(["pelican-themes", "--remove", PELICAN_THEME, "--verbose"])
     subprocess.call(["pelican-themes", "-i", pelican_theme_path, "--verbose"])
 
     # make web page
     working_dir = os.path.join(REPO_DIRECTORY, "pelican")
     os.chdir(working_dir)
-    print("Create html in path: ", working_dir)
+    print "Create html in path: ", working_dir
     ret = subprocess.call(["pelican", "./content", "-o", "./output", "-s", "./pelicanconf.py"])
     if ret != 0:
       print("Error while running main")
@@ -80,7 +80,7 @@ def build_web_page():
             dst_file = os.path.join(dst_dir, file_)
             if os.path.exists(dst_file):
                 os.remove(dst_file)
-            print(" Moving file ", src_file, " to ", dst_dir)
+            print " Moving file ", src_file, " to ", dst_dir
             shutil.move(src_file, dst_dir)
 
 def publish_web_page():
