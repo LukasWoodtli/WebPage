@@ -1,16 +1,19 @@
 title: Projects
 
+
+# Design by Contract for C++
+
+This small [library](https://github.com/LukasWoodtli/DesignByContractPlusPlus) allows to define contracts in C++ that are checked at specific points (for example at scope exit). It can help to improve the quality of code and is a good addition to unit tests.
+
+
 # Markdown Generator for Python
+
 I started to develop [this library](https://github.com/LukasWoodtli/MarkdownGen) for personal use. The aim was to generate some **Markdown** files for my homepage. I used just a part of the library for my home page.
 But I keep working on the project anyway. It is also a good exercise for me doing a complete Python project from start to end.
 
-<!-- # FeatureTogglesPlusPlus
-[This](https://github.com/LukasWoodtli/FeatureTogglesPlusPlus) is a small personal project to provide lightweight feature toggles in C++. It should have no dependencies (maybe some to STL) and be highly configurable. With writing this library I want to improve my C++ knowledge. Mainly Templates and other **Modern C++** topics.
 
-I haven't been working on the project for a while. It's still in it's beginning and not meant for use yet.
--->
+# Bachelor Thesis
 
-# Bachelor Thesis	
 [Disney Copter](http://www.reely.ethz.ch/) (2008-2009)
 
 The task of our bachelor thesis was to construct a flying device that entertains visitors at Disneyland. We created a **quadcopter** in the shape of a film reel.
@@ -42,5 +45,7 @@ The bachelor thesis was rewarded with a grade of **5.5** (of 6).
 
 More information on the project can be found on the homepage: [www.reely.ethz.ch](http://www.reely.ethz.ch)
 
-# Internship at Schiller AG	
+
+# Internship at Schiller AG
+
 The main task during the internship was to create a computer program that reads and writes **XML** files. In these files the configuration of different filters for electrocardiogram devices are stored. The software reads the configuration from the file and shows it graphically as connected boxes which represent the filters. It's also possible to create an XML file. For that the filters can be placed on a workspace via drag and drop. They then can be connected with mouse clicks. The software was programmed in **C++** mainly with **Qt**, **STL**, **Boost** and the **Xerces XML** library.

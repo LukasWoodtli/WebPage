@@ -10,7 +10,7 @@ Zürich
 Swiss, Czech
 
 # Actual Job
-Software Developer C++ on Linux.
+Software Developer C++ on Linux at Profidata.
 
 # Work Experience
 
