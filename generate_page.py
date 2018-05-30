@@ -56,17 +56,16 @@ def build_web_page():
     subprocess.call(["pelican-themes", "--remove", PELICAN_THEME, "--verbose"])
     subprocess.call(["pelican-themes", "-i", pelican_theme_path, "--verbose"])
 
-    # make web page
-    working_dir = os.path.join(REPO_DIRECTORY, "pelican")
-    os.chdir(working_dir)
-    print("Create html in path: ", working_dir)
+    # Build web page
+    os.chdir(REPO_DIRECTORY)
+    print("Create html in path: ", REPO_DIRECTORY)
     ret = subprocess.call(["pelican", "./content", "-o", "./output", "-s", "./pelicanconf.py"])
     if ret != 0:
       print("Error while running main")
       exit(1)
 
     # copy output to user page repo
-    root_src_dir = os.path.join(working_dir, "output")
+    root_src_dir = os.path.join(REPO_DIRECTORY, "output")
     root_dest_dir = os.path.join(HOME, "github-userpage")
 
     # clean up repository
