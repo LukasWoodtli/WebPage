@@ -48,13 +48,14 @@ def remove_working_copies_of_repositories():
 def build_web_page():
     pelican_chameleon_path = os.path.join(HOME, "pelican-elegant")
     print "Installing pelican-elegant theme from path: ", pelican_chameleon_path
+    subprocess.call(["pelican-themes", "--remove", "pelican-elegant", "--verbose"])
     subprocess.call(["pelican-themes", "-i", pelican_chameleon_path, "--verbose"])
 
     # make web page
     working_dir = os.path.join(REPO_DIRECTORY, "pelican")
     os.chdir(working_dir)
     print "Create html in path: ", working_dir
-    ret = subprocess.call(["make", "html", "-k"])
+    ret = subprocess.call(["pelican", "./content", "-o", "./output", "-s", "./pelicanconf.py"])
     if ret != 0:
       print("Error while running main")
       exit(1)
@@ -62,7 +63,7 @@ def build_web_page():
     # copy output to user page repo
     root_src_dir = os.path.join(working_dir, "output")
     root_dest_dir = os.path.join(HOME, "github-userpage")
-    
+
     # clean up repository
     gitRepo = sh.git.bake(_cwd=root_dest_dir)
     gitRepo.rm("-rf", "*")
