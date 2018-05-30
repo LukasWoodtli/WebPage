@@ -32,5 +32,5 @@ Man page: `man ioctl` and `man ioctl_list` (only Linux).
 - `/dev/null`: used to redirect unused streams to 'nowhere'
 - `/dev/zero`: 'infinite' sized file filled with `0` (s.a. `mmap()`)
 - `/dev/pts/`: virtual consoles (s.a. [stackexchange](http://unix.stackexchange.com/questions/93531/what-is-stored-in-dev-pts-files-and-can-we-open-them/93640#93640))
-- `/dev/random` and `/dev/urandom`: provide random numbers (`/dev/random` might block, `/dev/urandom` doesn't block)
+- `/dev/random` and `/dev/urandom`: provide random numbers (`/dev/random` might block (high entropy), `/dev/urandom` doesn't block)
 - `/dev/full`: can be used to simulate writing to a file when the disk is full (sets `errno` to `ENOSPC`)

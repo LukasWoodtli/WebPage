@@ -2,7 +2,7 @@ Title: Intel Architecture
 Category: Programming
 Tags: Computer Science, Assembler
 Date: 2015-06-22
-Modified: 2015-07-20
+Modified: 2018-05-30
 
 On this page I write down some notes about the Intel architecture (x86). I learned most of it in [school](http://www.vdf.ethz.ch/info/showDetails.asp?isbnNr=3255) few years ago.
 
@@ -204,12 +204,12 @@ The first four *GPRs* can be accessed as two 8 bit registers. i. e:
 
 These registers are used in real mode and protected mode for memory segmentation.
 
-| cs | Purpose       |
-|----|---------------|
-| cs | Code Segment  |
-| ds | Data Segment  |
-| ss | Stack Segment |
-| es | Extra Segment |
+| Register | Purpose       |
+|----------|---------------|
+| cs       | Code Segment  |
+| ds       | Data Segment  |
+| ss       | Stack Segment |
+| es       | Extra Segment |
 
 ## Special Registers
 

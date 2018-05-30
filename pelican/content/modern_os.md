@@ -2,7 +2,7 @@ Title: Modern OS's
 Category: Programming
 Tags: Computer Science, OS
 Date: 2015-04-01
-Modified: 2017-01-12
+Modified: 2018-05-30
 
 This page collects some notes about different Operating System approaches.
 
@@ -11,14 +11,12 @@ Most of the information gathered here is from the course [Advanced Operating Sys
 Some information is from [Operating System](http://en.wikipedia.org/wiki/Operating_system "Wikipedia"). And other Wikipedia pages.
 
 The book *Modern Operating Systems* by Andrew S. Tanenbaum is also a very good resource I'm using for learning about Operating Systems.
-5
 
 [TOC]
 
 
 Overview of Kernels
 ===================
-> This overview Table is still work in progress!
 
 | Kernel     | Type                       | Programming Language | Notes                                                                    |
 |------------|----------------------------|----------------------|--------------------------------------------------------------------------|

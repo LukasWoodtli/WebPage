@@ -18,6 +18,7 @@ Memory Layout on different Operating Systems
 The use of the memory for a process is different in each operating system.
 
 This example overwiew is taken from *Secure Coding in C and C++, by Robert Seacord*:
+
 ![Memory layouts on different OS's](/images/memory_layout.png)
 
 See also [Anatomy of a Program in Memory](http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/)

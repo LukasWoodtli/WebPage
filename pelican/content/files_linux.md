@@ -2,14 +2,11 @@ Title: Files and File descriptors on Linux
 Category: Programming
 Tags: Computer Science, OS, Linux
 Date: 2016-06-03
-Modified: 2016-06-03
+Modified: 2018-05-30
 
-
-Files on Linux
 
 Some information on this page is taken from [here](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/Kap02-001.htm) (German).
 
-[Here](http://www.usna.edu/Users/cs/aviv/classes/ic221/s15/lec/21/lec.html) is another good resource (English).
 
 # Process Control Block (PCB)
 
@@ -78,10 +75,5 @@ There are 6 different file types in Linux:
 
 # Special Device Files
 
-
-| File           | Use                     |
-|----------------|-------------------------|
-| `/dev/null`    | Write or read *nothing* |
-| `/dev/zero`    | Read zero (`0`)         |
-| `/dev/urandom` | Read random bytes       |
+See [here]({filename}/unix_device_files.md) for a descrption for device files.
 
