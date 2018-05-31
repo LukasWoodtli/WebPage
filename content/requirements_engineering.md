@@ -1,10 +1,10 @@
 Title: Requirements Engineering
 Category: Software Development
 Date: 2016-04-28
-Modified: 2016-06-27
-Status: draft
+Modified: 2018-05-31
 
-> This article is work in progress... For now it's just a un-ordered collection of notes
+
+> This article is work in progress.
 
 
 - Conceptual Design => Technical Design => Implementation
