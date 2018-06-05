@@ -4,6 +4,7 @@ Modified: 2018-06-05
 Category: Programming
 Tags: Tools, Cheat Sheet, Unix, Linux
 
+[TOC]
 
 # Function Keys
 
@@ -15,7 +16,7 @@ The `mc-wrapper` script allows that the shell changes to the current directory w
 
 It can be activated by setting an alias:
 
-    ::: bash
+    :::bash
     alias mc='. /usr/libexec/mc/mc-wrapper.sh'
 
 
