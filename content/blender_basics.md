@@ -1,7 +1,8 @@
 Title: Blender Basics
 Date: 2018-04-14
+Modified: 2018-06-05
 Category: Misc
-Tags: Blender
+Tags: Blender, Cheat Sheet
 
 
 
