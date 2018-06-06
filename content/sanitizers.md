@@ -3,6 +3,8 @@ Category: Programming
 Tags: C, C++, Dynamic Analysis
 Date: 2018-03-05
 
+[TOC]
+
 # Sanitizers
 
 ## Address Sanitizer (and Leak Sanitizer)
@@ -75,6 +77,21 @@ Example of `lsan_suppressions.txt`
     leak:myexecutable
 
 There is also a similar suppression mechanism for ASan.
+
+### Virtual Memory Max Map Count
+
+When out of memory errors occur when using the address sanatizer it can be of help to increase
+the number of virtual memory maps that a process can have.
+
+    :::bash
+    sysctl -w vm.max_map_count=1000000
+
+The number of maps needs to be adjusted per use case (just experiment).
+
+The setting is also available at `/proc/sys/vm/max_map_count`
+
+See also: [Elasticsearch: Virtual memory](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)
+
 
 
 ### Help and Debugging
