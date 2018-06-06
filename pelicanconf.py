@@ -46,7 +46,7 @@ RELATIVE_URLS = True
 
 home = expanduser("~")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
-PLUGINS = ["render_math", "pelican-bootstrapify", "extract_toc", "tipue_search", "sitemap", "neighbors"]
+PLUGINS = ["render_math", "pelican-bootstrapify", "extract_toc", "tipue_search", "sitemap", "neighbors", "filetime_from_git"]
 DIRECT_TEMPLATES = (('index', 'tags', 'categories','archives', 'search', '404'))
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False

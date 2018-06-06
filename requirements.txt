@@ -13,3 +13,4 @@ requests==2.2.0
 sphinxcontrib-inlinesyntaxhighlight
 pyOpenSSL==0.13.1
 bs4
+gitpython
