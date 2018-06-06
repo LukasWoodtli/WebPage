@@ -1,6 +1,7 @@
 Title: Emacs Artist Mode
 Date: 2015-05-03
-Category: Emacs
+Category: Programming
+Tags: Tools, Emacs
 
 | Keys     | Command            | Description                              |
 |----------|--------------------|------------------------------------------|

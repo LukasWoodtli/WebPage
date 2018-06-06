@@ -1,8 +1,8 @@
 Title: Git: Commit a older version to HEAD
 Date: 2015-11-18
 Modified: 2015-11-18
-Category: Version Control
-Tags: Git
+Category: Programming
+Tags: Git, Version Control
 
 If a `HEAD` has to be reset to a older version this is a possible workflow.
 

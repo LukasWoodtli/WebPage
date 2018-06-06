@@ -1,7 +1,7 @@
 Title: Git Reset
 Date: 2017-09-26
-Category: Version Control
-Tags: Git
+Category: Programming
+Tags: Git, Version Control
 
 The `git reset` command is not very easy and can be dangerous in some cases. The `git checkout` command does similar things.
 

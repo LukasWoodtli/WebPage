@@ -1,7 +1,7 @@
 Title: Git: The .git Directory
 Date: 2017-06-29
-Category: Version Control
-Tags: Git
+Category: Programming
+Tags: Git, Version Control
 
 
 Some notes about the contents of the `.git` directory that resides in the root of a git repository.
