@@ -14,10 +14,17 @@ The function keys (`F1` - `F10`) can be emulated by using `ESC + 1` - `ESC + 0`
 
 The `mc-wrapper` script allows that the shell changes to the current directory when exiting `mc`.
 
-It can be activated by setting an alias:
+It can be activated by setting an alias.
+
+On Linux:
 
     :::bash
     alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+
+On macOS (homebrew):
+
+    :::bash
+     alias mc='. /usr/local/opt/midnight-commander/libexec/mc/mc-wrapper.sh'
 
 
 # Panels
