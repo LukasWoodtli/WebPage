@@ -13,6 +13,8 @@ Date: 2018-02-22
 
 - `-z now`
 - `-O1` (linker!)
+- `--no-undefined`: gives an error if some symbols are not available in the object files at linking stage
+- `--no-allow-shlib-undefined`: Similar to `--no-undefined`, but gives an error if symbols are not available in other shared libraries we link against
 
 ## Environment Variables
 
