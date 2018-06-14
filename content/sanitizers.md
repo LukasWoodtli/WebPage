@@ -12,6 +12,11 @@ Date: 2018-03-05
 Compile and link with the flag `-fsanitize=address`
 It might be necessary to link with `-lasan` with older gcc/ld versions.
 
+When linking shared libraries (dso's) the sanitizer run-time library (`libasan.so`) is not linked. This hapens only when executables are linked.
+It can lead to problems with some linker flags. For example `-Wl,--no-undefined` or `-Wl,-z,defs` don't work with with sanitizer because the compiler
+adds sanatizer related code into object files but the linker does not link the run-time library (leading to linker errors due to undefined symbols).
+
+To solve this problem either don't use the mentioned linker flags or compile only files needed in executables (and not in shared libraries) with the sanatizer flag.
 
 ### Run-time flags
 
