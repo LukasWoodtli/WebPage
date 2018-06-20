@@ -1,5 +1,4 @@
 Title: Structure and Interpretation of Computer Programs
-Date: 2016-11-10
 Category: Programming
 Tags: Lisp
 
@@ -7,6 +6,11 @@ Notes to the book
 > Structure and Interpretation of Computer Programs, Second Edition
 > Harold Abelson, Gerald Jay Sussman, Julie Sussman
 > MIT Press
+
+
+[My Github repository with examples](https://github.com/LukasWoodtli/SchemeCourse)
+
+See also [Scheme (Lisp)]({filename}/scheme.rst)
 
 [TOC]
 
