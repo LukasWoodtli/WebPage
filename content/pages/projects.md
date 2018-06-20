@@ -1,18 +1,19 @@
 title: Projects
 
-
-# Design by Contract for C++
-
-This small [library](https://github.com/LukasWoodtli/DesignByContractPlusPlus) allows to define contracts in C++ that are checked at specific points (for example at scope exit). It can help to improve the quality of code and is a good addition to unit tests.
+[TOC]
 
 
-# Markdown Generator for Python
-
-I started to develop [this library](https://github.com/LukasWoodtli/MarkdownGen) for personal use. The aim was to generate some **Markdown** files for my homepage. I used just a part of the library for my home page.
-But I keep working on the project anyway. It is also a good exercise for me doing a complete Python project from start to end.
+# Work Experience
 
 
-# Bachelor Thesis
+## Internship at Schiller AG
+
+The main task during the internship was to create a computer program that reads and writes **XML** files. In these files the configuration of different filters for electrocardiogram devices are stored. The software reads the configuration from the file and shows it graphically as connected boxes which represent the filters. It's also possible to create an XML file. For that the filters can be placed on a workspace via drag and drop. They then can be connected with mouse clicks. The software was programmed in **C++** mainly with **Qt**, **STL**, **Boost** and the **Xerces XML** library.
+
+
+# Educational Projects
+
+## Bachelor Thesis
 
 [Disney Copter](http://www.reely.ethz.ch/) (2008-2009)
 
@@ -45,7 +46,15 @@ The bachelor thesis was rewarded with a grade of **5.5** (of 6).
 
 More information on the project can be found on the homepage: [www.reely.ethz.ch](http://www.reely.ethz.ch)
 
+# Private Projects
 
-# Internship at Schiller AG
+## Design by Contract for C++
 
-The main task during the internship was to create a computer program that reads and writes **XML** files. In these files the configuration of different filters for electrocardiogram devices are stored. The software reads the configuration from the file and shows it graphically as connected boxes which represent the filters. It's also possible to create an XML file. For that the filters can be placed on a workspace via drag and drop. They then can be connected with mouse clicks. The software was programmed in **C++** mainly with **Qt**, **STL**, **Boost** and the **Xerces XML** library.
+This small [library](https://github.com/LukasWoodtli/DesignByContractPlusPlus) allows to define contracts in C++ that are checked at specific points (for example at scope exit). It can help to improve the quality of code and is a good addition to unit tests.
+
+
+## Markdown Generator for Python
+
+I started to develop [this library](https://github.com/LukasWoodtli/MarkdownGen) for personal use. The aim was to generate some **Markdown** files for my homepage. I used just a part of the library for my home page.
+But I keep working on the project anyway. It is also a good exercise for me doing a complete Python project from start to end.
+
