@@ -1,140 +1,99 @@
 Title: Harmful C Functions and their replacements
-Date: 2015-04-17
-Modified: 2015-05-22
 Category: Programming
 Tags: C, C++
-Status: draft
 
-> This article is still work in progress!
+[TOC]
 
-printf and the prefixes
-=======================
-There are quite a lot of functions in the `printf` family. It might not be very clear when to use which of them.
+# Pre- and postfixes for printf and scanf
+
+There are quite a lot of functions in the `printf` and scanff amily. It might not be very clear when to use which of them.
 
 Here is an explanation of the functions in the *Standard C Library*.
 
-* f: print to a `FILE` stream
-* s: print to a  `char` buffer (string)
-* sn: same as s but checks for buffer size
-* v: takes a `va_list` instead `...` (ellipsis), can be combined with the other prefixes
+## Prefixes
 
-So we get following functions:
+Most prefixed define where the function reads (`scanf`) or wirtes (`printf`) data from or to:
 
-| Output                 | ellipsis             | va_list               |
-|------------------------|----------------------|-----------------------|
-| stdout                 | `printf`             | `vprintf`             |
-| file                   | `fprintf`            | `vfprintf`            |
-| char buffer            | <del>`sprintf`</del> | <del>`vsprintf`</del> |
-| char buffer with size  | `snprintf`           | `vsnprintf`           |
+- *no prefix*: use `STDIN` or `STDOUT`
+- `f`: use a `FILE` stream
+- `s`: use a `char` buffer (string)
+- `sn`: same as s but checks for buffer size (only `printf`)
+- `v`: takes a `va_list` instead `...` (ellipsis), can be combined with the other prefixes
+
+## Postfix
+
+The C11 standard introduced addtional functions with the `_s` postfix which do some checks on the data.
+
+## Overview
+
+### Output
+
+So we get following `printf`-like functions:
+
+| Output                 | ellipsis                   | va_list                     |
+|------------------------|----------------------------|-----------------------------|
+| `STDOUT`               | `printf`(`_s`)             | `vprintf`(`_s`)             |
+| file                   | `fprintf(`_s`)`            | `vfprintf`(`_s`)            |
+| char buffer            | <del>`sprintf`</del>(`_s`) | <del>`vsprintf`</del>(`_s`) |
+| char buffer with size  | `snprintf`(`_s`)           | `vsnprintf`(`_s`)           |
+
+
+The functions with `_s` postfix should be preferred if available (C11).
 
 The `sprintf` and `vsprintf` functions should not be used since the can result in stack overflow. They are also
 suffer from string vulnerability.
 
-Use `snpritf` or `vsnprintf` instead.
+Use `snpritf` or `vsnprintf` instead. If possible with `_s` postfix.
+
+And force null-termination manually [^3].
+
+### Input
+
+And we get following `scanf`-like functions:
+
+| Input                  | ellipsis                  | va_list                    |
+|------------------------|---------------------------|----------------------------|
+| `STDIN`                | `scanf`(`_s`)             | `vscanf`(`_s`)             |
+| file                   | `fscanf`(`_s`)            | `vfscanf`(`_s`)            |
+| char buffer            | `sscanf`(`_s`)            | `vsscanf`(`_s`)            |
 
 
-OpenBSD
-=======
+The functions with `_s` postfix should be preferred if available (C11).
+
+And force null-termination manually [^1].
+
+# OpenBSD
+
 The OpenBSD kernel library defines some additional functions that are safer than their counterparts in the standard library.
 
-|                                 | C standard library | OpenBSD kernel library |
-|---------------------------------|--------------------|------------------------|
-| Copying string                  | strcpy             | strlcpy                |
-| Applying (concatenating) string | strcat             | strlcat                |
+|                                 | C standard library | OpenBSD kernellibrary |
+|---------------------------------|--------------------|-----------------------|
+| Copying string                  | `strcpy`           | `strlcpy`             |
+| Applying (concatenating) string | `strcat`           | `strlcat`             |
 
 
-C Std Library
-=============
+# Replacements
 
-Buffer Overflows
-----------------
+These C functions suffer buffer overflow problems:
 
-15 C functions suffer buffer overflow problems:
+| Original    | Replacement                  |
+|-------------|------------------------------|
+| `gets()`    | `fgets()`                    |
+| `cuserid()` | `getlogin()` or `getpwuid()` |
+| `scanf()` family | See [^2] and [^3], use functions with `_s`postfix (C11) |
+| `sprintf()` | `snprintf()`, use functions with `_s`postfix (C11)  |
+| `vsprintf()`| `vsnprintf()`, use functions with `_s`postfix (C11) |
+| `strcat()`  | `strncat()`                  |
+| `strcpy()`  | `strncpy()`                  |
+| `streadd()`, `strtrns()`, `strecpy()` ...| Check lengths of buffers or use standard library functions |
+| `getwd()`   | `getcwd()`                   |
 
-| Original    | Replacement               | Problem   | Relevant in Embedded |
-|-------------|---------------------------|-----------|:--------------------:|
-| `gets()`    | fgets()                   |           |         no           |
-| cuserid()   | getlogin() or getpwuid()  |           |  Only Unix/Linux     |
-| scanf()     |                           |           |                      |
-| fscanf()    |                           |           |                      |
-| sscanf()    |                           |           |                      |
-| vscanf()    |                           |           |                      |
-| vsscanf()   |                           |           |                      |
-| vfscanf()   |                           |           |                      |
-| `sprintf()` | `snprintf()`              |           |                      |
-| `strcat()`  | `strncat()`               |           |                      |
-| `strcpy()`  | `strncpy()`               |           |                      |
-| streadd()   |                           |           |                      |
-| strecpy()   |                           |           |                      |
-| vsprintf()  |                           |           |                      |
-| strtrns()   |                           |           |                      |
-| `getwd()`   | `getcwd()`                |           |                      |
+See also [^4] and [^5]
 
+# References
 
-String Vulnerabilities
-----------------------
-8 C functions suffer from format string vulnerabilities:
-
-| Original    | Replacement   | Problem   | Relevant in Embedded |
-|-------------|---------------|-----------|:--------------------:|
-| printf()    |               |           |                      |
-| fprintf()   |               |           |                      |
-| sprintf()   |               |           |                      |
-| snprintf()  |               |           |                      |
-| vprintf()   |               |           |                      |
-| vfprintf()  |               |           |                      |
-| vsprintf()  |               |           |                      |
-| vsnprintf() |               |           |                      |
-
-
-
-http://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1044652485&id=1043284385
-
-
-
-References:
-
-Functions:
-
-http://randomascii.wordpress.com/2013/04/03/stop-using-strncpy-already/
-
-http://stackoverflow.com/questions/1253053/cs-bad-functions-vs-their-good-alternatives
-
-https://www.securecoding.cert.org/confluence/plugins/servlet/mobile#content/view/32047151
-
-http://johnwilander.se/research_publications/licentiate_thesis.pdf
-
-GCC:
-
-http://blog.leafsr.com/2013/12/02/gcc-poison/
-
-Visual Studio:
-
-http://www.microsoft.com/en-us/download/details.aspx?id=24817
-
-OpenBSD:
-http://www.openbsd.org/cgi-bin/man.cgi?query=strlcat
-
-
-
-
-
-
-memcpy
-
-
-Function
-
-
-Compiler
-
-
-Notes
-
-memcpy_s
-
-
-Visual Studio
-
-
-Checks if dest buffer has space for copying.
+[^1]: http://randomascii.wordpress.com/2013/04/03/stop-using-strncpy-already/
+[^2]: https://stackoverflow.com/questions/1621394/how-to-prevent-scanf-causing-a-buffer-overflow-in-c
+[^3]: https://stackoverflow.com/questions/9245682/in-c-what-is-a-safe-alternative-to-sscanf
+[^4]: http://stackoverflow.com/questions/1253053/cs-bad-functions-vs-their-good-alternatives
+[^5]: http://johnwilander.se/research_publications/licentiate_thesis.pdf
