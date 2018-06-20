@@ -45,7 +45,7 @@ suffer from string vulnerability.
 
 Use `snpritf` or `vsnprintf` instead. If possible with `_s` postfix.
 
-And force null-termination manually [^3].
+And force null-termination manually [^1].
 
 ### Input
 
