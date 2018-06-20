@@ -92,8 +92,8 @@ See also [^4] and [^5]
 
 # References
 
-[^1]: http://randomascii.wordpress.com/2013/04/03/stop-using-strncpy-already/
-[^2]: https://stackoverflow.com/questions/1621394/how-to-prevent-scanf-causing-a-buffer-overflow-in-c
-[^3]: https://stackoverflow.com/questions/9245682/in-c-what-is-a-safe-alternative-to-sscanf
-[^4]: http://stackoverflow.com/questions/1253053/cs-bad-functions-vs-their-good-alternatives
-[^5]: http://johnwilander.se/research_publications/licentiate_thesis.pdf
+[^1]: [randomascii.wordpress.com](http://randomascii.wordpress.com/2013/04/03/stop-using-strncpy-already/)
+[^2]: [stackoverflow.com](https://stackoverflow.com/questions/1621394/how-to-prevent-scanf-causing-a-buffer-overflow-in-c)
+[^3]: [stackoverflow.com](https://stackoverflow.com/questions/9245682/in-c-what-is-a-safe-alternative-to-sscanf)
+[^4]: [stackoverflow.com](http://stackoverflow.com/questions/1253053/cs-bad-functions-vs-their-good-alternatives)
+[^5]: [johnwilander.se](http://johnwilander.se/research_publications/licentiate_thesis.pdf)
