@@ -16,6 +16,7 @@ before_script:
 - git config --global user.name "travis (Lukas Woodtli)"
 - git config --global user.email lukas_woodtli@travis.example.com
 - git fetch --unshallow # needed by filetime_from_git plugin
+- git pull origin master
 
 script:
 - python generate_page.py
