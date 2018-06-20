@@ -88,7 +88,7 @@ These C functions suffer buffer overflow problems:
 | `streadd()`, `strtrns()`, `strecpy()` ...| Check lengths of buffers or use standard library functions |
 | `getwd()`   | `getcwd()`                   |
 
-See also [^4] and [^5]
+See also [^4]
 
 # References
 
@@ -96,4 +96,3 @@ See also [^4] and [^5]
 [^2]: [stackoverflow.com](https://stackoverflow.com/questions/1621394/how-to-prevent-scanf-causing-a-buffer-overflow-in-c)
 [^3]: [stackoverflow.com](https://stackoverflow.com/questions/9245682/in-c-what-is-a-safe-alternative-to-sscanf)
 [^4]: [stackoverflow.com](http://stackoverflow.com/questions/1253053/cs-bad-functions-vs-their-good-alternatives)
-[^5]: [johnwilander.se](http://johnwilander.se/research_publications/licentiate_thesis.pdf)
