@@ -15,7 +15,9 @@ By default the prefix is:
 
 # Sessions
 
-| Commands             | Function               |
-|----------------------|------------------------|
-| `tmux new -s <name>` | Create a named session |
-| `tmux ls`            | List current sessions  |
+| Commands             | Function                | Additional Flags                     |
+|----------------------|-------------------------|--------------------------------------|
+| `tmux new -s <name>` | Create a named session  | `-d` Create in background (detached) |
+| `tmux ls`            | List current sessions   |                                      |
+| `tmux a`             | Attach to last session  |                                      |
+| `tmux a -t <name>`   | Attach to named session |                                      |
