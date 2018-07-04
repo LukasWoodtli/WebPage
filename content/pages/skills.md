@@ -9,6 +9,7 @@ Title: Skills
 | C                                        | very good                                |
 | Python                                   | very good                                |
 | Assembler (x86, ARM)                     | good                                     |
+| Shell scripting (bash, dash, sh, zsh)    | good                                     |
 | Java                                     | good                                     |
 | Matlab/Simulink                          | basic                                    |
 | Lisp (Scheme, Clojure)                   | basic                                    |
