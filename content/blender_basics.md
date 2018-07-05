@@ -4,7 +4,7 @@ Modified: 2018-06-05
 Category: Misc
 Tags: Blender, Cheat Sheet
 
-
+[TOC]
 
 Right-handed (Rechtshändiges) Cartesian coordinate system. Axes:
 
@@ -41,24 +41,50 @@ Lights (rendering): usually 3 kind of lamps
 
 ## Navigation
 
+### Mouse
+
 | Action           | Shortcut      |
 |------------------|---------------|
 | Pan (shifting)   | `Shift`+`MMB` |
 | Orbit (rotatong) | `MMB`         |
-| Zoom             | Mouse wheel   |
+| Zoom             | Mouse wheel (or `CTRL`+`MMB`) |
 
 
 `SHIFT`+`C`: Reset 3D cursor to origin
 
-## Shortcuts for Views
+### Shortcuts for Views
 
-| Action    | Shortcut (num pad)  |
-|-----------|---------------------|
-| Front     |                 1   |
-| Side      |                 3   |
-| Top       |                 7   |
-| (De-)activate orthographic mode | 5 |
-| Camera    |                 0   |
+| Action    | Shortcut (num pad)    |
+|-----------|-----------------------|
+| Front     |                 `1`   |
+| Back      |          `CTRL`+`1`   |
+| Right     |                 `3`   |
+| Left      |          `CTRL`+`3`   |
+| Top       |                 `7`   |
+| Bottom    |          `CTRL`+`7`   |
+| (De-)activate orthographic mode | `5` |
+| Camera    |                 `0`   |
+
+
+### Orbit View
+
+| Action      | Shortcut (num pad) |
+|-------------|--------------------|
+| Orbit Right |              `4`   |
+| Orbit Left  |              `6`   |
+| Orbit Up    |              `8`   |
+| Orbit Down  |              `2`   |
+| Orbit Opposite |           `9`   |
+
+
+### Pan View
+
+| Action    | Shortcut (num pad)    |
+|-----------|-----------------------|
+| Pan Right |          `CTRL`+`4`   |
+| Pan Left  |          `CTRL`+`6`   |
+| Pan Up    |          `CTRL`+`8`   |
+| Pan Down  |          `CTRL`+`2`   |
 
 
 ## Selection
