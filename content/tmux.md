@@ -20,7 +20,8 @@ By default the `PREFIX` is: `CTRL + b`
 | `tmux a`                 | Attach to last session  |
 | `tmux a -t <name>`       | Attach to named session |
 | `tmux kill-session -t <name>` | Kill named session |
-
+| `PREFIX d`               | Detach from a running session |
+| `PREFIX :`               | Enter command mode      |
 
 ## Additional Flags for `tmux new`
 
@@ -53,7 +54,7 @@ Like tabs in browser.
 | `PREFIX o`     | Cycle through panes        |
 | `PREFIX ←`, `PREFIX ↑`, `PREFIX →`, `PREFIX ↓`| Navigate around panes|
 | `PREFIX x`     | Close current pane         |
-
+| `PREFIX q`     | Show number of each pane   |
 
 ## Pane Layouts
 
