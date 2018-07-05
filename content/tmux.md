@@ -8,14 +8,12 @@ Tags: Tools, Cheat Sheet, Unix, Linux
 
 The prefix key combination needs to be pressed before any command for tmux (when tmux is running).
 
-By default the `PREFIX` is:
-
-`CTRL + b`
+By default the `PREFIX` is: `CTRL + b`
 
 
 # Sessions
 
-| Commands                 | Function                |
+| Command                  | Function                |
 |--------------------------|-------------------------|
 | `tmux new -s <name>`     | Create a named session  |
 | `tmux ls`                | List current sessions   |
@@ -24,9 +22,9 @@ By default the `PREFIX` is:
 | `tmux kill-session -t <name>` | Kill named session |
 
 
-## Additional Flags for `new`
+## Additional Flags for `tmux new`
 
-- `-d`: Create in background (detached) 
+- `-d`: Create in background (detached)
 - `-n <name>`: Name the first windows
 
 
@@ -34,7 +32,7 @@ By default the `PREFIX` is:
 
 Like tabs in browser.
 
-| Commands       | Function                   |
+| Command        | Function                   |
 |----------------|----------------------------|
 | `PREFIX c`     | Create a new window        |
 | `PREFIX ,`     | Rename current window      |
@@ -46,3 +44,25 @@ Like tabs in browser.
 | `PREFIX &`     | Close current window       |
 
 
+# Panes
+
+| Command        | Function                   |
+|----------------|----------------------------|
+| `PREFIX %`     | Split pane vertically      |
+| `PREFIX "`     | Split pane horizontally    |
+| `PREFIX o`     | Cycle through panes        |
+| `PREFIX ←`, `PREFIX ↑`, `PREFIX →`, `PREFIX ↓`| Navigate around panes|
+| `PREFIX x`     | Close current pane         |
+
+
+## Pane Layouts
+
+There are following layouts:
+
+- `even-horizontal`
+- `even-vertical`
+- `main-horizontal`
+- `main-vertical`
+- `tiled
+
+Cycle through layouts: `PREFIX SPACEBAR`
