@@ -63,6 +63,7 @@ There are following layouts:
 - `even-vertical`
 - `main-horizontal`
 - `main-vertical`
-- `tiled
+- `tiled`
 
 Cycle through layouts: `PREFIX SPACEBAR`
+
