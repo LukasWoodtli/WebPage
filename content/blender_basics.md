@@ -23,7 +23,7 @@ Lights (rendering): usually 3 kind of lamps
 - spots: simulate conical shaped light
 
 
-# Viewport (3D View)
+# General)
 
 ## Emulate 3 Button Mouse and Emulate Numpad
 
@@ -31,6 +31,8 @@ Lights (rendering): usually 3 kind of lamps
 
 - Emulate 3 Button Mouse: use `ALT`+`LMB` as `MMB`
 - Emulate Numpad: use top row numbers as numpad
+
+# Viewport (3D View)
 
 ## User Interface
 
@@ -86,6 +88,18 @@ Lights (rendering): usually 3 kind of lamps
 | Pan Up    |          `CTRL`+`8`   |
 | Pan Down  |          `CTRL`+`2`   |
 
+
+### General Shortcuts
+
+| Action            | Shortcut (num pad) |
+|-------------------|--------------------|
+| Show all objects  |           `HOME`   |
+| Zoom on selected object |        `,`   |
+| Zoom in           |              `+`   |
+| Zoom out          |              `-`   |
+| Toggle local mode |              `/`   |
+
+*Local mode*: Zoom on selected object and hide all other objects
 
 ## Selection
 
