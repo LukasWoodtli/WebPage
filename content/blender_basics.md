@@ -101,7 +101,10 @@ Lights (rendering): usually 3 kind of lamps
 
 *Local mode*: Zoom on selected object and hide all other objects
 
-## Selection
+
+### Modeling
+
+### Selection
 
 Select object: `RMB`
 Select multiple objects: `SHIFT`+`RMB`
@@ -110,7 +113,7 @@ Select (deselect) all: `A`
 Box selection: `B` `LMB` (`MMB` for deselection)
 Circle (brush) select: `C` `LMB`, scroll for bigger brush (`MMB` for deselection)
 
-## Tranformation
+### Tranformation
 
 Grab: `G`
 Rotation: `R` (`R` `R` for free rotation)
@@ -122,22 +125,22 @@ Revert Scale `Alt`+`S`
 
 Each of the transformation hot-key can be combined with `x`, `y` or `z` to allow the trasformation only for this axis.
 
-## Add and Delete Objects
+### Add and Delete Objects
 
 - Delete: `x` or `DEL`
 - Add: `SHIFT`+`A`
 
 
-## Modes
+### Modes
 
 Toggle between *Edit Mode* and *Object Mode*: `TAB`
 
 
-## Display Mode
+### Display Mode
 
 Toggle between *Solid* and *Wireframe*: `Z`
 
-## Edit Mode
+### Edit Mode
 
 Mesh select mode (Vertex, Edge, Face): `CTRL`+`TAB`
 
