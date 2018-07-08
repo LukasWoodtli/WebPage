@@ -19,7 +19,7 @@ Software Developer C++ on Linux at Profidata.
 | 2016 - now       | Software engineer C++ on Linux, Profidata AG
 | 2010 - 2015      | Senior firmware/software engineer, Kaba AG, Wetzikon
 | 2010 (4 months)  | Software engineer, Codecheck Zürich
-| 2010 (6 months)  | Internship as software engineer, development with Qt on Windows and Linux, Schiller AG Baar
+| 2010 (6 months)  | Internship as software engineer, Schiller AG Baar
 | 2002 (6 months)  | Mechanic, AIM Horgen
 
 
