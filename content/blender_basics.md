@@ -102,7 +102,7 @@ Lights (rendering): usually 3 kind of lamps
 *Local mode*: Zoom on selected object and hide all other objects
 
 
-### Modeling
+## Modeling
 
 ### Selection
 
@@ -138,7 +138,7 @@ Each of the transformation hot-key can be combined with `x`, `y` or `z` to allow
 - Add: `SHIFT`+`A`
 
 
-### Modes
+## Modes
 
 Toggle between *Edit Mode* and *Object Mode*: `TAB`
 
@@ -150,6 +150,4 @@ Toggle between *Solid* and *Wireframe*: `Z`
 ### Edit Mode
 
 Mesh select mode (Vertex, Edge, Face): `CTRL`+`TAB`
-
-
 
