@@ -106,22 +106,29 @@ Lights (rendering): usually 3 kind of lamps
 
 ### Selection
 
-Select object: `RMB`
-Select multiple objects: `SHIFT`+`RMB`
-Select complete loop: `ALT`+`RMB` (can be combined with `SHIFT`)
-Select (deselect) all: `A`
-Box selection: `B` `LMB` (`MMB` for deselection)
-Circle (brush) select: `C` `LMB`, scroll for bigger brush (`MMB` for deselection)
+- Select object: `RMB`
+- Select multiple objects: `SHIFT`+`RMB`
+- Select complete loop: `ALT`+`RMB` (can be combined with `SHIFT`)
+- Select (deselect) all: `A`
+- Box selection: `B` `LMB` (`MMB` for deselection)
+- Circle (brush) select: `C` `LMB`, scroll for bigger brush (`MMB` for deselection)
 
 ### Tranformation
 
-Grab: `G`
-Rotation: `R` (`R` `R` for free rotation)
-Scale: `S`
 
-Revert Grab `Alt`+`G`
-Revert Rotatsion `Alt`+`R`
-Revert Scale `Alt`+`S`
+| Action   | Shortcut |
+|----------|----------|
+| Grab     | `G`      |
+| Rotation | `R` (`R` `R` for free rotation) |
+| Scale    | `S`      | 
+
+The transformations can be reverted:
+
+| Action           | Shortcut  |
+|------------------|-----------|
+| Revert Grab      | `Alt`+`G` |
+| Revert Rotatsion | `Alt`+`R` |
+| Revert Scale     | `Alt`+`S` |
 
 Each of the transformation hot-key can be combined with `x`, `y` or `z` to allow the trasformation only for this axis.
 
