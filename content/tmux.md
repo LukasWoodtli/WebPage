@@ -68,3 +68,12 @@ There are following layouts:
 
 Cycle through layouts: `PREFIX SPACEBAR`
 
+# Config
+
+- Personal config file: `~/.tmux.conf`
+- Reload file: `source-file <file-name>`
+- Bind commands to keys: `bind [-nr] <key> <command0> \; <command1> ...`
+    - `-n`: Don't use `PREFIX`
+    - `-r`: Command may repeat (hold key)
+    - Separate commands by `\;`
+
