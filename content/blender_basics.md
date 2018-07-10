@@ -23,7 +23,7 @@ Lights (rendering): usually 3 kind of lamps
 - spots: simulate conical shaped light
 
 
-# General)
+# General
 
 ## Emulate 3 Button Mouse and Emulate Numpad
 
@@ -113,8 +113,28 @@ Lights (rendering): usually 3 kind of lamps
 - Box selection: `B` `LMB` (`MMB` for deselection)
 - Circle (brush) select: `C` `LMB`, scroll for bigger brush (`MMB` for deselection)
 
-### Tranformation
 
+### 3D Cursor
+
+The 3D cursor is where new objects are placed.
+
+- Set 3D cursor: `LMB`
+- Reset 3D cursor to origin: `SHIFT`+`C`
+
+
+### Add and Delete Objects
+
+- Delete: `x` or `DEL`
+- Add: `SHIFT`+`A`
+
+### Duplicate Element
+
+- `SHIFT`+`D`
+
+Use `x`, `y` or `z` to allow moving new object only on given axis.
+
+
+### Tranformation
 
 | Action   | Shortcut |
 |----------|----------|
@@ -132,10 +152,8 @@ The transformations can be reverted:
 
 Each of the transformation hot-key can be combined with `x`, `y` or `z` to allow the trasformation only for this axis.
 
-### Add and Delete Objects
+With `SHIFT`+`x`, `SHIFT`+`y` or `SHIFT`+`z` the transformation is allow only for the other axes.
 
-- Delete: `x` or `DEL`
-- Add: `SHIFT`+`A`
 
 
 ## Modes
