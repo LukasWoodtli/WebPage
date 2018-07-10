@@ -67,7 +67,6 @@ or: `docker rmi <image-name>:<tag>`
 
 ## Run Image
 
-
 Command: `docker run [flags] <image-name>:<tag> [command]`
 
 Flags:
@@ -83,6 +82,21 @@ This will override the default command that is run when the container is started
 A random name is assigned to the image.
 
 Example: `docker run -i -t fedora:latest /bin/bash`
+
+
+## Execute Command in running Container
+
+Command `docker exec [flags] <image-name>:tag [command]`
+
+- `-i`: interactive shell
+- `-t`: pseudo tty
+- `-d`: run as daemon
+- `-w`: use working directory
+
+
+## Detach from running Container
+
+`CTRL`+`p` `CTRL`+`q`
 
 
 ## Show Running Images
