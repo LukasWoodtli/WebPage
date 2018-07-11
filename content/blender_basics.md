@@ -155,6 +155,11 @@ Each of the transformation hot-key can be combined with `x`, `y` or `z` to allow
 With `SHIFT`+`x`, `SHIFT`+`y` or `SHIFT`+`z` the transformation is allow only for the other axes.
 
 
+### General Shortcuts
+
+- Set parent to: `CTRL`+`P`
+- Clear parent: `ALT`+`P`
+- Snap menu: `SHIFT`+`S`
 
 ## Modes
 
