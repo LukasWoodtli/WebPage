@@ -23,6 +23,16 @@ By default the `PREFIX` is: `CTRL + b`
 | `PREFIX d`               | Detach from a running session |
 | `PREFIX :`               | Enter command mode      |
 
+## The Target Flag (`-t`)
+
+Commands can be provided directly to tmux as arguments. To specify the
+target session for the command the flag `-t <session-name>` is used.
+
+Examples:
+
+- `tmux split-window -v -t mysession`
+
+
 ## Additional Flags for `tmux new`
 
 - `-d`: Create in background (detached)
@@ -47,14 +57,15 @@ Like tabs in browser.
 
 # Panes
 
-| Command        | Function                   |
-|----------------|----------------------------|
-| `PREFIX %`     | Split pane vertically      |
-| `PREFIX "`     | Split pane horizontally    |
-| `PREFIX o`     | Cycle through panes        |
+| Command     | Function                      |
+|-------------|-------------------------------|
+| `PREFIX %`  | Split pane vertically         |
+| `PREFIX "`  | Split pane horizontally       |
+| `PREFIX o`  | Cycle through panes           |
 | `PREFIX ←`, `PREFIX ↑`, `PREFIX →`, `PREFIX ↓`| Navigate around panes|
-| `PREFIX x`     | Close current pane         |
-| `PREFIX q`     | Show number of each pane   |
+| `PREFIX x`  | Close current pane            |
+| `PREFIX q`  | Show number of each pane      |
+| `PREFIX z`  | Maximize/resize pane (toggle) |
 
 ## Pane Layouts
 
