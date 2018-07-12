@@ -161,9 +161,12 @@ With `SHIFT`+`x`, `SHIFT`+`y` or `SHIFT`+`z` the transformation is allow only fo
 - Clear parent: `ALT`+`P`
 - Snap menu: `SHIFT`+`S`
 
+
 ## Modes
 
-Toggle between *Edit Mode* and *Object Mode*: `TAB`
+- *Object Mode*: Work with objects as whole
+- *Edit Mode*: Work with *Vertices*, *Edges* and *Faces* of objects
+- Toggle between *Edit Mode* and *Object Mode*: `TAB`
 
 
 ### Display Mode
@@ -172,5 +175,5 @@ Toggle between *Solid* and *Wireframe*: `Z`
 
 ### Edit Mode
 
-Mesh select mode (Vertex, Edge, Face): `CTRL`+`TAB`
+Mesh select mode (*Vertex*, *Edge*, *Face*): `CTRL`+`TAB`
 
