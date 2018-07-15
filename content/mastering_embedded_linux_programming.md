@@ -345,3 +345,25 @@ See also: [`ldconfig`](http://man7.org/linux/man-pages/man8/ldconfig.8.html)
 ## Summary
 
 *"Beware of toolchains or distributions that are offered to you for free as part of a hardware package: they are often poorly configured and not maintained. In any case, you should make the choice according to your situation, and then be consistent in its use throughout the project."*
+
+
+# Chapter 3. All About Bootloaders
+
+*"The bootloader [...] starts the system up and loads the operating system kernel. [...] it passes control from itself to the kernel using [...] a device tree (flattened device tree or FDT)"*
+
+## What does a bootloader do?
+
+*"the bootloader has two main jobs:*
+
+- *basic system initialization and*
+- *the loading of the kernel"*
+
+*"Typically, the only resources operational at the beginning [after booting] are a single CPU core and some on-chip static memory."*
+
+## The boot sequence
+
+### Phase 1: ROM code
+
+
+
+
