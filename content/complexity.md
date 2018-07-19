@@ -7,7 +7,7 @@ Category: Programming
 
 *"Halving the size of the problem at each step is the distinguishing characteristic of logarithmic growth"*
 
-[SICP: 2.3.3 Example: Representing Sets](https://mitpress.mit.edu/sicp/full-text/book/book-Z-H-16.html#%_sec_2.3.3)
+[SICP: 2.3.3 Example: Representing Sets](http://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-16.html#%_sec_2.3.3)
 
 Main complexity names:
 

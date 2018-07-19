@@ -53,7 +53,7 @@ Available in Python
 POSIX Character Classes
 -----------------------
 
-- POSIX defines some classes: [Wikibooks](https://en.wikibooks.org/wiki/Regular_Expressions/POSIX_Basic_Regular_Expressions#Character_classes>)
+- POSIX defines some classes: [Wikibooks](https://en.wikibooks.org/wiki/Regular_Expressions/POSIX_Basic_Regular_Expressions#Character_classes)
 - not available in Python
 
 

@@ -14,7 +14,7 @@ Here is a list of the most important courses I attended in the last few years.
 | Legic Identification (RFID) | [Legic Wetzikon](http://www.legic.com/) |
 | SMD Soldering               | [Meili Data](http://www.meili-data.ch/) |
 | C++ for Embedded Systems    | [HSR Rapperswil](http://www.hsr.ch/)    |
-| Agile Development           | [Golo Roden](http://www.goloroden.de/)  |
+| Agile Development           | [Golo Roden](https://www.thenativeweb.io) |
 
 
 Online Courses
@@ -23,10 +23,10 @@ I also like to attend online courses. It's a flexible way to learn new things.
 
 | Topic                           | Course                                                                                       |
 |---------------------------------|----------------------------------------------------------------------------------------------|
-| Designing RESTful APIs          | [Udacity](https://classroom.udacity.com/courses/ud388)|
-| JavaScript Basics               | [Udacity](https://www.udacity.com/course/ud804)                                              |
-| How to Use Git and GitHub       | [Udacity](https://www.udacity.com/course/ud775)                                              |
-| Advanced Operating Systems      | [Udacity](https://www.udacity.com/course/ud189)                                              |
+| Designing RESTful APIs          | [Udacity](https://www.udacity.com)                                                           |
+| JavaScript Basics               | [Udacity](https://www.udacity.com)                                                           |
+| How to Use Git and GitHub       | [Udacity](https://www.udacity.com)                                                           |
+| Advanced Operating Systems      | [Udacity](https://www.udacity.com)                                                           |
 | Clojure                         | [Clojure for the Brave and True](http://www.braveclojure.com/)                               |
 | Programming Languages           | [Udacity](https://www.udacity.com/course/cs262)                                              |
 | iOS Development                 | [iTunes U](https://itunes.apple.com/us/course/developing-ios-7-apps-for/id733644550)         |

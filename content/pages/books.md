@@ -22,7 +22,7 @@ Title: Books
 | Head First Design Patterns                        | Eric Freeman et al.                               | O'Reilly                        |
 | Refactoring                                       | Martin Fowler                                     | Addison-Wesley                  |
 | Effektives Arbeiten mit Legacy Code               | Michael C. Feathers                               | mitp                            |
-| [Software Architecture Patterns](http://www.oreilly.com/programming/free/software-architecture-patterns.csp) | Mark Richards | O'Reilly |
+| [Software Architecture Patterns](https://www.oreilly.com/programming/free/software-architecture-patterns.csp) | Mark Richards | O'Reilly |
 
 
 # Skills & Tools
