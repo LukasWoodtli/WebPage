@@ -27,7 +27,7 @@ Title: Skills
 |------------------------------------------|------------------------------------------|
 | Qt                                       | very good                                |
 | STL                                      | very good                                |
-| Boost                                    | good                                     |
+| Boost                                    | very good                                |
 | Cocoa Touch                              | basic                                    |
 
 
@@ -58,7 +58,7 @@ Title: Skills
 |------------------------------------------|------------------------------------------|
 | Qt Creator                               | very good                                |
 | Visual Studio                            | very good                                |
-| Eclipse                                  | good                                     |
+| Eclipse                                  | very good                                |
 | XCode                                    | good                                     |
 | IAR Studio                               | good                                     |
 
@@ -79,7 +79,7 @@ Title: Skills
 | CMake                                    | very good                                |
 | Make                                     | good                                     |
 | Travis CI                                | very good                                |
-| Jenkins                                  | very good                                |
+| Jenkins (pipelines)                      | very good                                |
 | Gerrit                                   | good                                     |
 
 
@@ -119,7 +119,6 @@ Title: Skills
 | Doxygen                                  | very good                                |
 | Graphviz                                 | very good                                |
 | MediaWiki                                | good                                     |
-| Markdown                                 | very good                                |
 | Markdown                                 | very good                                |
 | LaTeX                                    | good                                     |
 
