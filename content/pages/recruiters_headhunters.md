@@ -10,7 +10,7 @@ There are some requirements that a new position has to meet to catch my attentio
 
 ## Musts:
 
-- Emedded Software: I prever Firmware development to programming of PC or server applications.
+- Embedded Software: I prefer Firmware development to programming of PC or server applications.
 - C/C++: I like C but C++ is even better. There must be at least some C++ development involved.
 - Working site in Zürich or near (max. 30 minutes by public transport): I just don't like to lose too much time commuting.
 - Possibility to work part time (80%): This is an absolute must. I have a family that I need to take care of.
@@ -26,7 +26,7 @@ There are some requirements that a new position has to meet to catch my attentio
 
 ## Nice to have
 
-- Possibility to make sport (jogging in the neighborhood, showers)
+- Possibility to make sport (jogging in the neighbourhood, showers)
 - Team leading position
 
 
