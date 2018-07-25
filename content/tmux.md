@@ -13,7 +13,7 @@ By default the `PREFIX` is: `CTRL + b`
 
 # Sessions
 
-| Command                  | Function                |
+| Key Binding              | Function                |
 |--------------------------|-------------------------|
 | `tmux new -s <name>`     | Create a named session  |
 | `tmux ls`                | List current sessions   |
@@ -23,10 +23,21 @@ By default the `PREFIX` is: `CTRL + b`
 | `PREFIX d`               | Detach from a running session |
 | `PREFIX :`               | Enter command mode      |
 
+
+Commands can be provided directly to tmux as arguments or can be entered
+in command line (`PREFIX :`).
+
+Commands:
+
+- Check if a session is running: `has-session`
+    - `-t`: Target session
+
 ## The Target Flag (`-t`)
 
-Commands can be provided directly to tmux as arguments. To specify the
-target session for the command the flag `-t <session-name>` is used.
+ To specify the target session, window and pane for a command the flag `-t <session-name>:<window-id>.<pane-id>` is used.
+
+- `<session-name>`: The name of the session
+- `<window-id>` and `<pane-id>` (optional): id number of window or pane
 
 Examples:
 
@@ -43,7 +54,7 @@ Examples:
 
 Like tabs in browser.
 
-| Command        | Function                   |
+| Key Binding    | Function                   |
 |----------------|----------------------------|
 | `PREFIX c`     | Create a new window        |
 | `PREFIX ,`     | Rename current window      |
@@ -55,9 +66,17 @@ Like tabs in browser.
 | `PREFIX &`     | Close current window       |
 
 
+Commands:
+
+- Create window: `new-window`
+    - `-n`: name
+    - `-t`: Target session
+- Change to a window: `select-window `
+    - `-t`: Target session and window
+
 # Panes
 
-| Command     | Function                      |
+| Key Binding | Function                      |
 |-------------|-------------------------------|
 | `PREFIX %`  | Split pane vertically         |
 | `PREFIX "`  | Split pane horizontally       |
@@ -67,9 +86,21 @@ Like tabs in browser.
 | `PREFIX q`  | Show number of each pane      |
 | `PREFIX z`  | Maximize/resize pane (toggle) |
 
+
+Commands:
+
+- Create new pane: `split-window`
+    - `-v` or `-h`: vertically or horizontally
+    - `-p` Percent of split
+    - `-t` Target
+
+
 ## Pane Layouts
 
-There are following layouts:
+
+Command: `select-layout -t <session> <layout-type>`
+
+There are following layout types:
 
 - `even-horizontal`
 - `even-vertical`
@@ -79,9 +110,25 @@ There are following layouts:
 
 Cycle through layouts: `PREFIX SPACEBAR`
 
+# Send Shell Commands
+
+Shell commands can be sent to tmux:
+
+`tmux send-keys -t <session-name>:<window-id>.<pane-id> '<command>' C-m`
+
+Arguments and Flags:
+
+- `-t`: Target
+- `<command>`: Can be any shell command
+- `C-m`: Carriage return (enter, `CTRL`-`M`)
+
+
 # Config
 
 - Personal config file: `~/.tmux.conf`
+- A custom config file can be supplied when tmux is started
+    - `tmux -f <file-name>`
+    - add `source-file ~/.tmux.conf` as first line to get settings from default file
 - Reload file: `source-file <file-name>`
 - Bind commands to keys: `bind [-nr] <key> <command0> \; <command1> ...`
     - `-n`: Don't use `PREFIX`
