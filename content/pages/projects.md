@@ -9,10 +9,13 @@ title: Projects
 ## Profidata AG
 
 
-Currently I am working as a senior software developer at Profidata. My main task there is to extend the highly scalable and parallelized server application Xentis with REST services to provide its functionality to be used outside of the core application. The development is done in modern and generic C++ on Linux. I am also learning a lot about financial markets, investment and fintech.
+Currently I am working as a senior software developer at Profidata. My main task there is to extend the highly scalable and parallelized server application Xentis with REST services to provide its functionality to be used outside of the core application.
+
+The development is done in modern and generic C++ on Linux. I am also learning a lot about financial markets, investment and fintech.
+
 Another responsibility of mine is the maintenance of our build environment and continuous integration infrastructure (CMake, Jenkins pipeline, Gerrit), integration of static and dynamic analysis tools (Sanitizers, Clang Static Analyzer), as well as regression- and unit-tests. I also became an expert in development on Linux.
 
-[www.profidatagroup.com](www.profidatagroup.com)
+[www.profidatagroup.com](https://www.profidatagroup.com/)
 
 ## Kaba:
 
@@ -44,7 +47,9 @@ complete mobile app for Symbian with Qt and C++. Learned a lot about development
 ## Schiller AG
 After my studies as electronic engineer I worked as an intern at Schiller.
 There I created an application for the configuration and combination of filters for electrocardiograph devices (ECG). 
+
 The software reads the configuration from a XML file and shows it graphically as connected boxes which represent the filters. The configuration can be stored again in a XML file. For creating and editing configurations the filters are placed on a workspace via drag and drop and they can be connected with mouse clicks.
+
 The application was developed in C++ with Qt, Boost and Xerces for Windows and Linux.
 Beside improving my C++ skills I also learned a lot of general programming tools and techniques as Design Patterns, OOA/OOD, UML, XML (SAX/DOM), Doxygen.
 I not only learned a lot of technical stuff but also about medical engineering.
@@ -62,11 +67,12 @@ An other task was to manage the warehouse of mechanical parts and devices (logis
 
 ## Bachelor Thesis
 
-[Disney Copter](http://www.reely.ethz.ch/) (2008-2009)
-The task of my Bachelor thesis was to develop and build a quad copter in the shape of a film reel to entertain visitors at Disneyland. The project was a cooperation between the Autonomous Systems Lab at the ETH and the ZHAW, where I obtained my degree in Electrical Engineering.
-We were an interdisciplinary team of electrical and mechanical engineers. My task was to develop the firmware and create the controlling algorithm for the embedded hardware.
-The hardware, based on two micro controllers, had many different peripheral devices, such as gyroscopes, a compass, pressure-, ultrasonic- and acceleration-sensors, as well as the motors to drive the propellers. Different interfaces were used
- for communication with the peripheral devices, such as UART, SPI, I2C, ADC and ZigBee.
+The task of my Bachelor thesis was to develop and build a quad copter in the shape of a film reel to entertain visitors at Disneyland.
+
+The project was a cooperation between the Autonomous Systems Lab at the ETH and the ZHAW, where I obtained my degree in Electrical Engineering.
+We were an interdisciplinary team of electrical and mechanical engineers.
+
+My task was to develop the firmware and create the controlling algorithm for the embedded hardware. The hardware, based on two micro controllers, had many different peripheral devices, such as gyroscopes, a compass, pressure-, ultrasonic- and acceleration-sensors, as well as the motors to drive the propellers. Different interfaces were used for communication with the peripheral devices, such as UART, SPI, I2C, ADC and ZigBee.
 
 The bachelor thesis was rewarded with a grade of **5.5** (of 6).
 
