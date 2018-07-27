@@ -16,7 +16,7 @@ Software Developer C++ on Linux at Profidata.
 
 | Time             | Occupation
 |------------------|---------------------------------------------------
-| 2016 - now       | Software engineer C++ on Linux, Profidata AG
+| 2016 - present   | Software engineer C++ on Linux, Profidata AG
 | 2010 - 2015      | Senior firmware/software engineer, Kaba AG, Wetzikon
 | 2010 (4 months)  | Software engineer, Codecheck Zürich
 | 2010 (6 months)  | Internship as software engineer, Schiller AG Baar
@@ -75,10 +75,11 @@ Available on request
 
 # Application Documents
 
-|         | Compact                   | Full       |
-|---------|---------------------------|------------|
-| English | [Application Documents (compact)](/documents/Application_Documents_Lukas_Woodtli.zip) | [Application Documents (full)](/documents/Application_Documents_full_Lukas_Woodtli.zip) |
-| Deutsch | [Bewerbungsunterlagen (kompakt)](/documents/Bewerbungsunterlagen_Lukas_Woodtli.zip) | [Bewerbungsunterlagen (vollständig)](/documents/Bewerbungsunterlagen_alle_Lukas_Woodtli.zip) |
+|         | Documents                 |
+|---------|---------------------------|
+| Compact | [Application Documents (compact)](/documents/Application_Documents_Lukas_Woodtli.zip)   |
+| Full    | [Application Documents (full)](/documents/Application_Documents_full_Lukas_Woodtli.zip) |
+
 
 
 # Recruiters and Head Hunter
