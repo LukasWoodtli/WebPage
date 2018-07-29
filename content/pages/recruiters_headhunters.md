@@ -19,7 +19,7 @@ There are some requirements that a new position has to meet to catch my attentio
 
 ## Mustn't:
 
-- no .NET (C#, Visual Basic, F#): I just don't like it! I won't take any job that contains .NET development!
+<!-- - no .NET (C#, Visual Basic, F#): I just don't like it! I won't take any job that contains .NET development! -->
 - no Windows centric development: It's just not as nice and powerful as UNIX/Linux and it lacks a lot of important tools.
 - I'll never work for the weapons industry: I don't like wars!
 
