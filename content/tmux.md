@@ -110,6 +110,26 @@ There are following layout types:
 
 Cycle through layouts: `PREFIX SPACEBAR`
 
+
+# Buffers
+
+`vi` mode needs to be activated for these commands (`setw -g mode-keys vi`)
+
+| Key Binding (vi) | Function                      |
+|------------------|-------------------------------|
+| `PREFIX` `[`     | Enter Copy mode               |
+| `ENTER`          | Leave Copy mode               |
+| `h`,`j`,`k`,`l`  | Move curse (like in `vi`)     |
+| `w`,`b`          | Move word forward/backward    |
+| `CTRL`+`b`, `CTRL`+`f` | Page-up, page-down      | 
+| `g`, `G`         | Jump to top/bottom of buffer  | 
+| `?``             | Search in buffer              | 
+| `n`, `N`         | Jump to next/previous search result | 
+
+
+
+
+
 # Send Shell Commands
 
 Shell commands can be sent to tmux:
@@ -134,4 +154,9 @@ Arguments and Flags:
     - `-n`: Don't use `PREFIX`
     - `-r`: Command may repeat (hold key)
     - Separate commands by `\;`
+
+
+# See Also
+
+[Tmuxinator](https://github.com/tmuxinator/tmuxinator)
 
