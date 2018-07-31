@@ -125,7 +125,15 @@ Cycle through layouts: `PREFIX SPACEBAR`
 | `g`, `G`         | Jump to top/bottom of buffer  | 
 | `?``             | Search in buffer              | 
 | `n`, `N`         | Jump to next/previous search result | 
+| `SPACE`          | Select text (move around for selection |
+| `ENTER`          | Copy selected text            |
+| `PREFIX` `]`     | Paste copied text             |
 
+Commands:
+
+- Copy visible content of pane: `capture-pane`
+- Show the content of paste buffer: `show-buffer`
+- Store the content of paste buffer in a file: `save-buffer <file-name>`
 
 
 
