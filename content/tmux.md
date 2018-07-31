@@ -121,20 +121,23 @@ Cycle through layouts: `PREFIX SPACEBAR`
 | `ENTER`          | Leave Copy mode               |
 | `h`,`j`,`k`,`l`  | Move curse (like in `vi`)     |
 | `w`,`b`          | Move word forward/backward    |
-| `CTRL`+`b`, `CTRL`+`f` | Page-up, page-down      | 
-| `g`, `G`         | Jump to top/bottom of buffer  | 
-| `?``             | Search in buffer              | 
-| `n`, `N`         | Jump to next/previous search result | 
+| `CTRL`+`b`, `CTRL`+`f` | Page-up, page-down      |
+| `g`, `G`         | Jump to top/bottom of buffer  |
+| `?``             | Search in buffer              |
+| `n`, `N`         | Jump to next/previous search result |
 | `SPACE`          | Select text (move around for selection |
 | `ENTER`          | Copy selected text            |
-| `PREFIX` `]`     | Paste copied text             |
+| `PREFIX` `]`     | Paste copied text (top of paste buffer stack) |
 
 Commands:
 
 - Copy visible content of pane: `capture-pane`
 - Show the content of paste buffer: `show-buffer`
 - Store the content of paste buffer in a file: `save-buffer <file-name>`
-
+- tmux maintains a stack of paste buffers:
+    - Paste buffer 0: `PREFIX` `]`
+    - Show all buffers in stack: `list-buffers`
+    - Choose buffer to paste: `choose-buffer`
 
 
 
