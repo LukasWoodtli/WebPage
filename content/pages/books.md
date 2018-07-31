@@ -41,6 +41,8 @@ Title: Books
 | UML 2.0                                           | Dan Pilone                                        | O'Reilly                                          |
 | [Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation) | Tom Stuart    | O'Reilly                                          |
 | [Structure and Interpretation of Computer Programs](https://github.com/LukasWoodtli/SchemeCourse) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
+| [tmux (Productive Mouse-Free Development)](https://pragprog.com/book/bhtmux/tmux) | Brian P. Hogan    | The Pragmatic Bookshelf                           |
+| Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
 
 
 # Agile Software Development and Scrum
@@ -81,13 +83,6 @@ Title: Books
 | Version Control with Git                          | Jon Loeliger                                      | O'Reilly                                          |
 | [Pro Git (Second Edition)](https://git-scm.com/book/en/v2) | Scott Chacon, Ben Straub                 | Apress                                            |
 | Version Control with Subversion                   | C. Michael Pilato et al.                          | O'Reilly                                          |
-
-
-# XML
-
-| Name                                              | Authors                                           | Publisher                                         |
-|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
 
 
 # Mechanical Engineering
