@@ -123,11 +123,13 @@ Cycle through layouts: `PREFIX SPACEBAR`
 | `w`,`b`          | Move word forward/backward    |
 | `CTRL`+`b`, `CTRL`+`f` | Page-up, page-down      |
 | `g`, `G`         | Jump to top/bottom of buffer  |
-| `?``             | Search in buffer              |
+| `?`              | Search backward in buffer     |
+| `/`              | Search forward in buffer      |
 | `n`, `N`         | Jump to next/previous search result |
 | `SPACE`          | Select text (move around for selection |
 | `ENTER`          | Copy selected text            |
 | `PREFIX` `]`     | Paste copied text (top of paste buffer stack) |
+| `PREFIX` `=`     | Show all copied buffers for selection |
 
 Commands:
 
