@@ -43,6 +43,34 @@ Examples:
 
 - `tmux split-window -v -t mysession`
 
+## Grouped Sessions
+
+Grouped sessions allow different users to share a session but work in different windows.
+This is useful for pair-programming.
+
+Create main session:
+
+`tmux new-session -s mainSession`
+
+Create new session with main session as target
+
+`tmux new-session -t mainSession -s subSession`
+
+## Server Sockets
+
+Sessions can be created with a custom server socket where other users can connect to.
+This can also be used for pair-programming.
+
+Create session with server socket:
+
+`tmux -S /var/mysocket`
+
+Attach to socket
+
+`tmux -S /var/mysocket attach`
+
+The socket is created if needed.
+
 
 ## Additional Flags for `tmux new`
 
