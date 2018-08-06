@@ -166,7 +166,7 @@ Commands:
 
 - Copy visible content of pane: `capture-pane`
 - Show the content of paste buffer: `show-buffer`
-- Store the content of paste buffer in a file: `save-buffer <file-name>`
+- Store the content of paste buffer in a file: `save-buffer [-b buffer-index] <file-name>`
 - tmux maintains a stack of paste buffers:
     - Paste buffer 0: `PREFIX` `]`
     - Show all buffers in stack: `list-buffers`
