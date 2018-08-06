@@ -141,23 +141,26 @@ Cycle through layouts: `PREFIX SPACEBAR`
 
 # Buffers
 
-`vi` mode needs to be activated for these commands (`setw -g mode-keys vi`)
+`vi` mode needs to be activated for these key bindings (`setw -g mode-keys vi`)
 
-| Key Binding (vi) | Function                      |
+| Key Binding (vi) | Function                                      |
+|------------------|-----------------------------------------------|
+| `PREFIX` `[`     | Enter Copy mode                               |
+| `PREFIX` `]`     | Paste copied text (top of paste buffer stack) |
+| `PREFIX` `=`     | Show all copied buffers for selection         |
+
+
+| Key Binding in Copy mode (vi) | Function         |
 |------------------|-------------------------------|
-| `PREFIX` `[`     | Enter Copy mode               |
-| `ENTER`          | Leave Copy mode               |
 | `h`,`j`,`k`,`l`  | Move curse (like in `vi`)     |
 | `w`,`b`          | Move word forward/backward    |
 | `CTRL`+`b`, `CTRL`+`f` | Page-up, page-down      |
 | `g`, `G`         | Jump to top/bottom of buffer  |
 | `?`              | Search backward in buffer     |
 | `/`              | Search forward in buffer      |
-| `n`, `N`         | Jump to next/previous search result |
-| `SPACE`          | Select text (move around for selection |
-| `ENTER`          | Copy selected text            |
-| `PREFIX` `]`     | Paste copied text (top of paste buffer stack) |
-| `PREFIX` `=`     | Show all copied buffers for selection |
+| `n`, `N`         | Jump to next/previous search result     |
+| `SPACE`          | Select text (move around for selection) |
+| `ENTER`          | Copy selected text and leave Copy mode  |
 
 Commands:
 
@@ -200,4 +203,6 @@ Arguments and Flags:
 # See Also
 
 [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
+
+[tmux Productive Mouse-Free Development by Brian P. Hogan](https://pragprog.com/book/bhtmux/tmux)
 

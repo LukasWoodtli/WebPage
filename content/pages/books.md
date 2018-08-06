@@ -41,7 +41,7 @@ Title: Books
 | UML 2.0                                           | Dan Pilone                                        | O'Reilly                                          |
 | [Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation) | Tom Stuart    | O'Reilly                                          |
 | [Structure and Interpretation of Computer Programs](https://github.com/LukasWoodtli/SchemeCourse) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
-| [tmux (Productive Mouse-Free Development)](https://pragprog.com/book/bhtmux/tmux) | Brian P. Hogan    | The Pragmatic Bookshelf                           |
+| [tmux (Productive Mouse-Free Development)]({filename}/tmux.md) | Brian P. Hogan    | The Pragmatic Bookshelf                           |
 | Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
 
 
