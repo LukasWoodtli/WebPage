@@ -21,7 +21,10 @@ By default the `PREFIX` is: `CTRL + b`
 | `tmux a -t <name>`       | Attach to named session |
 | `tmux kill-session -t <name>` | Kill named session |
 | `PREFIX d`               | Detach from a running session |
-| `PREFIX :`               | Enter command mode      |
+| `PREFIX :`               | Enter command mode            |
+| `PREFIX )`               | Change to next session        |
+| `PREFIX (`               | Change to previous session    |
+| `PREFIX s`               | List all sessions             |
 
 
 Commands can be provided directly to tmux as arguments or can be entered
@@ -138,6 +141,13 @@ There are following layout types:
 
 Cycle through layouts: `PREFIX SPACEBAR`
 
+
+# Panes and Windows
+
+- Create new window form current pane: `PREFIX !`
+- Join a window (or pane) in other window (even from other session): `join-pane -s <session-name>:<window-id>.<pane-id>`
+    - Specify target: join-pane -s <session-name>:<window-id>.<pane-id> -t <session-name>:<window-id>.<pane-id>`
+- Move windows between sessions: `PREFIX .`
 
 # Buffers
 
