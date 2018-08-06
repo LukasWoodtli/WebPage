@@ -363,7 +363,27 @@ See also: [`ldconfig`](http://man7.org/linux/man-pages/man8/ldconfig.8.html)
 ## The boot sequence
 
 ### Phase 1: ROM code
+*"the code that runs immediately after a reset or power-on has to be stored on-chip in the SoC; this is known as ROM code.
+It is programmed into the chip when it is manufactured, hence ROM code is proprietary and cannot be replaced by an open source equivalent."*
+
+*"the only RAM that the ROM code has access to is the small amount of static RAM (SRAM) found in most SoC designs. The size of the SRAM varies from as little as 4 KiB up to a few hundred KiB"*
+
+*"In SoCs where the SRAM is not large enough to load a full bootloader like U-Boot, there has to be an intermediate loader called the secondary program loader, or SPL"*
+
+*"At the end of this phase, the next stage bootloader is present in on-chip memory and the ROM code jumps to the beginning of that code."*
 
 
+### Phase 2: SPL
+
+*"SPL must set up the memory controller and other essential parts of the system preparatory to loading the **third stage program loader (TPL)** into main memory, the DRAM"*
+
+*"The SPL may be open source [...] but it is quite common for it to contain proprietary code"*
 
 
+### Phase 3: TPL
+
+*"At last, we are running a full bootloader like U-Boot or Barebox."*
+
+*"At the end of the third phase, there is a kernel in memory"*
+
+*"Embedded bootloaders usually disappear from memory once the kernel is running"*
