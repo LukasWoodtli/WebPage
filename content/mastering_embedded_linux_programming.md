@@ -387,3 +387,81 @@ It is programmed into the chip when it is manufactured, hence ROM code is propri
 *"At the end of the third phase, there is a kernel in memory"*
 
 *"Embedded bootloaders usually disappear from memory once the kernel is running"*
+
+
+## Booting with UEFI firmware
+
+See also: [Universal Extensible Firmware Interface (UEFI)](http://www.uefi.org)
+
+### Phase 1:
+
+*"The processor loads the UEFI boot manager firmware from flash memory. In some designs, it is loaded directly from NOR flash memory, in others there is ROM code on-chip which loads the boot manager from SPI flash memory. The boot manager is roughly equivalent to the SPL, but may allow user interaction through a text-based or graphical interface."*
+
+### Phase 2:
+
+*"The boot manager loads the boot firmware from the **EFI System Partition (ESP)** or a hard disk or SSD, or from a network server via PXE boot."*
+
+*"[...] the EXP is identified by a well-known GUID value of **C12A7328-F81F-11D2-BA4B-00A0C93EC93B**."*
+
+Partition: FAT32
+
+Third stage bootloader file: `<efi_system_partition>/boot/boot<machine_type_short_name>.efi`
+
+### Phase 3:
+
+*"The TPL in this case has to be a bootloader that is capable of loading a Linux kernel and an optional RAM disk into memory. Common choices are:*
+
+- *GRUB 2*
+- *gummiboot"*
+
+
+## Moving from bootloader to kernel
+
+*"When the bootloader passes control to the kernel it has to pass some basic information to the kernel:*
+
+- *a number unique to the type of the SoC*
+- *Basic details of the hardware detected so far, [...] size and location of the physical RAM, and the CPU clock speed*
+- *The kernel command line (plain ASCII string)*
+- *Optionally, the location and size of a device tree binary*
+- *Optionally, the location and size of an initial RAM disk"*
+
+*"It is common to provide the root filesystem as a RAM disk, in which case it is the responsibility of the bootloader to load the RAM disk image into memory."*
+
+*"There is a good description of the format of the kernel source in `Documentation/arm/Booting`"*
+
+
+## Introducing device trees
+
+See also: [www.devicetree.org](https://www.devicetree.org/)
+
+*"A device tree is a flexible way to define the hardware components of a computer system. Usually, the device tree is loaded by the bootloader and passed to the kernel, although it is possible to bundle the device tree with the kernel image itself [...] for bootloaders that are not capable of handling them separately."*
+
+*"The format is derived from a Sun Microsystems bootloader known as OpenBoot"*
+
+*"[It] has been adapted on a large scale by the many ARM Linux implementations"*
+
+
+### Device tree basics
+
+There are a large number of device tree source files:
+
+- Linux kernel: `arch/$ARCH/boot/dts`
+- U-boot: `arch/$ARCH/dts`
+
+*"The device tree represents a computer system as a collection of components joined together in a hierarchy [...] begins with a root node, represented by a [...] `/`, which contains subsequent nodes representing the hardware of the system. Each node has a name and contains a number of properties in the form `name = "value"`"*
+
+
+### Phandles and interrupts
+
+Phandels are used to connect devices in a way that doesn't correspond to the main tree structure.
+
+*"As well as the obvious data connection between a component and other parts of the system, it might also be connected to an interrupt controller, to a clock source and to a voltage regulator. To express these connections, we have phandles."*
+
+*"[The] bindings can be found in the Linux kernel source, in directory `Documentation/devicetree/bindings/`."*
+
+### Compiling a device tree
+
+*"The bootloader and kernel require a binary representation of the device tree, so it has to be compiled using the device tree compiler, `dtc`. The result is a file ending with `.dtb`, which is referred to as a device tree binary or a device tree blob."*
+
+*"`dtc` does not give helpful error messages and it makes no checks other than on the basic syntax of the language"*
+
