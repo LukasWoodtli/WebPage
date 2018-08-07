@@ -112,7 +112,8 @@ Commands:
 | `PREFIX %`  | Split pane vertically         |
 | `PREFIX "`  | Split pane horizontally       |
 | `PREFIX o`  | Cycle through panes           |
-| `PREFIX ←`, `PREFIX ↑`, `PREFIX →`, `PREFIX ↓`| Navigate around panes|
+| `PREFIX ←`, `PREFIX ↑`, `PREFIX →`, `PREFIX ↓`  | Navigate around panes     |
+| `PREFIX ALT ←`, `PREFIX ALT ↑`, `PREFIX ALT →`, `PREFIX ALT ↓`| Resize panes|
 | `PREFIX x`  | Close current pane            |
 | `PREFIX q`  | Show number of each pane      |
 | `PREFIX z`  | Maximize/resize pane (toggle) |
