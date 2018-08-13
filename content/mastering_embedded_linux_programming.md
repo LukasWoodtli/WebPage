@@ -465,3 +465,56 @@ Phandels are used to connect devices in a way that doesn't correspond to the mai
 
 *"`dtc` does not give helpful error messages and it makes no checks other than on the basic syntax of the language"*
 
+
+## U-Boot
+
+### Building U-Boot
+
+*"[...] the way U-Boot is configured has undergone a lot of changes since the 2014.10 release. Double-check that the instructions you are following are appropriate."*
+
+    :::bash
+    CROSS_COMPILE=arm-cortex_a8-linux-gnueabihf- am335x_boneblack_defconfig
+    make CROSS_COMPILE=arm-cortex_a8-linux-gnueabihf-
+
+*"The results of the compilation are:*
+
+- *`u-boot`: This is U-Boot in ELF object format, suitable for use with a debugger*
+- *`u-boot.map`: This is the symbol table*
+- *`u-boot.bin`: This is U-Boot in raw binary format, suitable for running on your device*
+- *`u-boot.img`: This is `u-boot.bin` with a U-Boot header added, suitable for uploading to a running copy of U-Boot*
+- *`u-boot.srec`: This is U-Boot in Motorola `srec` format, suitable for transferring over a serial connection"*
+
+*"a Secondary Program Loader (SPL) [...] is built at the same time and is named `MLO`"*
+
+### Installing U-Boot
+
+*"[With] JTAG, it is usually possible to load a copy of U-Boot directly into RAM and set it running. From that point, you can use U-Boot commands to copy it into flash memory."*
+
+*"Some SoC designs have a boot ROM built in which can be used to read boot code from various external sources such as SD cards, serial interfaces, or USBs"*
+
+For BeagleBone Black:
+
+*"two partitions: the first is 64 MiB, formatted as FAT32 [(bootable)], and will contain the bootloader, and the second is 1 GiB, formatted as ext4"*
+
+
+List block devices with: [lsblk](http://man7.org/linux/man-pages/man8/lsblk.8.html)
+
+*"copy U-Boot and the SPL to [first partition of SD card]:"*
+
+    :::bash
+    cp MLO u-boot.img /media/$USER/boot
+
+
+### Boot image format
+
+*"Prepare files [(like the Linux kernel)] for U-Boot using the `mkimage` command."*
+
+Example:
+
+    :::bash
+    mkimage -A arm -O linux -T kernel -C gzip -a 0x80008000 \
+    -e 0x80008000 -n 'Linux' -d zImage uImage
+
+
+
+
