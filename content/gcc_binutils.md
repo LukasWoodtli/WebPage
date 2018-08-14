@@ -5,6 +5,7 @@ Date: 2018-02-22
 
 > Work in Progress!
 
+[TOC]
 
 
 # ld
@@ -15,6 +16,9 @@ Date: 2018-02-22
 - `-O1` (linker!)
 - `--no-undefined`: gives an error if some symbols are not available in the object files at linking stage
 - `--no-allow-shlib-undefined`: Similar to `--no-undefined`, but gives an error if symbols are not available in other shared libraries we link against
+- `--as-needed`: Link only libraries that are needed
+
+See also: [The new "--as-needed" option to the GNU linker](http://www.bnikolic.co.uk/blog/gnu-ld-as-needed.html)
 
 ## Environment Variables
 
@@ -23,10 +27,6 @@ Date: 2018-02-22
 - `LD_DEBUG`
 - `LD_DEBUG_OUTPUT`
 
-
-ld/gcc?
-
-`--hash-style=gnu`
 
 # readelf
 
@@ -48,9 +48,4 @@ ld/gcc?
 
 # Library Directories
 
-https://stackoverflow.com/questions/9922949/how-to-print-the-ldlinker-search-path
-
-
-# ldd
-
-> TODO
+[Print `ld` search pathes](https://stackoverflow.com/questions/9922949/how-to-print-the-ldlinker-search-path)
