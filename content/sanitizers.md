@@ -97,7 +97,9 @@ The setting is also available at `/proc/sys/vm/max_map_count`
 
 See also: [Elasticsearch: Virtual memory](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)
 
+### Docker
 
+To run an sanitized executable in a docker container the argument `--cap-add SYS_PTRACE` needs to be added to the `docker run` command.
 
 ### Help and Debugging
 
