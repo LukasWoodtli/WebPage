@@ -46,7 +46,7 @@ var tagList = [new TagInfos("C", "/tags.html#c-ref", 70),
                new TagInfos("ETH", "/tags.html#eth-ref", 10),
                new TagInfos("Git", "/tags.html#git-ref", 50),
                new TagInfos("OOP", "/tags.html#oop-ref", 60),
-               new TagInfos("Design Patterns", "/tags.html#oop-ref", 70),
+               new TagInfos("Design Patterns", "/tags.html#oop-ref", 60),
                new TagInfos("Scrum", "/tags.html#scrum-ref", 20),
                new TagInfos("Statistics", "/tags.html#statistics-ref", 15),
                new TagInfos("SVN", "/tags.html#svn-ref", 20),
@@ -60,7 +60,9 @@ var tagList = [new TagInfos("C", "/tags.html#c-ref", 70),
                new TagInfos("SystemC", "/systemc.html", 20),
                new TagInfos("Linux", "/tags.html#linux-ref", 35),
                new TagInfos("Lisp", "/tags.html#lisp-ref", 25),
-               new TagInfos("Embedded Systems", "/tags.html#embedded_systems-ref", 50)
+               new TagInfos("Embedded Systems", "/tags.html#embedded_systems-ref", 50),
+               new TagInfos("Robotics", "/tags.html#robotics-ref", 40),
+               new TagInfos("Robotics", "/categories.html#mechanics-ref", 50)
 ];
 
 

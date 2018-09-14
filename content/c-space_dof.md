@@ -85,5 +85,6 @@ dof &= \underbrace{m(N-1)}_{rigid\ body \ freedoms} - \underbrace{\sum_{i=1}^Jc_
 
 # Literature
 
-MODERN ROBOTICS MECHANICS, PLANNING, AND CONTROL
-Kevin M. Lynch and Frank C. Park
+Notes taken from:
+
+[Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/index.php/Modern_Robotics) by Kevin M. Lynch and Frank C. Park, Cambridge University Press, 2017
