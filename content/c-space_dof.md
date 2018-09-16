@@ -14,7 +14,7 @@ A joint:
 - provides freedoms to allow one rigid body to move relative to another.
 - provides constraints on the possible motions of the two rigid bodies it connects.
 
-$dof (of joint) = dof (of rigid body) - number of constraints (of joint)$
+$dof\ (of\ joint) = dof\ (of\ rigid\ body) - number\ of\ constraints\ (of\ joint)$
 
 
 ## Typical Joints
@@ -23,7 +23,7 @@ $dof (of joint) = dof (of rigid body) - number of constraints (of joint)$
 |---------------------------------------------------------------------------|-----------|-----------------------|-----------------------|
 | [Revolute (Scharnier)](https://en.wikipedia.org/wiki/Revolute_joint)      |        1  |           2           |           5           |
 | [Prismatic (Schubgelenk)](https://en.wikipedia.org/wiki/Prismatic_joint)  |        1  |           2           |           5           |
-| [Cylindrical(Drehschubgelenk)](https://en.wikipedia.org/wiki/Cylindrical_joint) |  2  |           -           |           4           |
+| [Cylindrical (Drehschubgelenk)](https://en.wikipedia.org/wiki/Cylindrical_joint) |  2 |           -           |           4           |
 | [Universal (Kardangelenk)](https://en.wikipedia.org/wiki/Universal_joint) |        2  |           -           |           4           |
 | [Spherical (Kugelgelenk)](https://en.wikipedia.org/wiki/Ball_joint)       |        3  |           -           |           3           |
 
@@ -35,8 +35,8 @@ Configuration: a specification of the positions of all points of the robot.
 
 Configuration space (C-space):
 
--The space of all configurations.
--The n-dimensional space containing all possible configurations of the robot.
+- The space of all configurations.
+- The n-dimensional space containing all possible configurations of the robot.
 
 The configuration of a robot is represented by a point in its C-space.
 
@@ -63,8 +63,7 @@ Degrees of freedom in 3D:
 - yaw
 
 
-$degrees of freedom = (sum of freedoms of the bodies) -
-(number of independent constraints)$
+$dof = (sum\ of\ freedoms\ of\ the\ bodies) - (number\ of\ independent\ constraints)$
 
 
 # Grübler's Formula
@@ -82,6 +81,8 @@ dof &= \underbrace{m(N-1)}_{rigid\ body \ freedoms} - \underbrace{\sum_{i=1}^Jc_
  &= m(N-1)-\sum_{i=1}^J(m-f_i)\\ 
  &= m(N-1-J)+\sum_{i=1}^Jf_i
 \end{align*}$$
+
+The formula holds only if all constraints for the joints are independent.
 
 # Literature
 
