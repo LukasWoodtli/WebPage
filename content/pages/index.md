@@ -62,7 +62,7 @@ var tagList = [new TagInfos("C", "/tags.html#c-ref", 70),
                new TagInfos("Lisp", "/tags.html#lisp-ref", 25),
                new TagInfos("Embedded Systems", "/tags.html#embedded_systems-ref", 50),
                new TagInfos("Robotics", "/tags.html#robotics-ref", 40),
-               new TagInfos("Robotics", "/categories.html#mechanics-ref", 50)
+               new TagInfos("Mechanics", "/categories.html#mechanics-ref", 50)
 ];
 
 
