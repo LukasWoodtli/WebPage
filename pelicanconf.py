@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
-from os.path import expanduser, join
+from os.path import expanduser, join, realpath, split
 import string
+
+REPO_DIRECTORY = realpath(__file__)
+REPO_DIRECTORY = split(REPO_DIRECTORY)[0]
 
 AUTHOR = u'Lukas Woodtli'
 AUTHORS = { AUTHOR: "pages/contact.html" }
@@ -44,7 +47,7 @@ AUTHOR_SAVE_AS = 'author/lukas_woodtli.html'  # The location to save an author.
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-home = expanduser("~")
+home = join(REPO_DIRECTORY, "..")
 PLUGIN_PATHS = ["plugins", home, join(home, "pelican-plugins")]
 PLUGINS = ["render_math", "pelican-bootstrapify", "extract_toc", "tipue_search", "sitemap", "neighbors", "filetime_from_git"]
 DIRECT_TEMPLATES = (('index', 'tags', 'categories','archives', 'search', '404'))
