@@ -75,33 +75,12 @@ Stores informations about groups.
 
 # Shell
 
+Configurations:
 
-> Work in Progress
-
-
-## System Settings
-
-| Shell type              | System settings |
-|-------------------------|-----------------|
-| Interactive Login Shell | `/etc/profile`  |
-
-## User Settings
-
-| Shell type                    | Bourne Shell | Bash                        |
-|-------------------------------|--------------|-----------------------------|
-| Interactive Login Shell       | `~/.profile` | `~/.bash_profile`           |
-| Interactive (Non-Login) Shell |              | `~/bashrc` (or `$BASH_ENV`) |
-
-### Bash
-
-For an *interactive login shell* the Bash searches for profile files in the following order:
-
-1. `~/.bash_profile`
-2. `~/.bash_login`
-3. `~/.profile`
+- bash: use `~/.bashrc` and source it in `~/.bash_profie`
+- zsh: use `~/.zshrc`
 
 ## References
-[Bash Reference Manual](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html)
-[Bash shell startup files](http://cdwilson.us/articles/bash-shell-startup-files/)
-[Bash Guide for Beginners](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_01.html)
-[Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/shell_010_008.htm#RxxKap01000804004F0A1F024172)
+
+[Zsh/Bash startup files loading order](https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/)
+
