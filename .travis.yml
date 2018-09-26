@@ -1,3 +1,6 @@
+sudo: required
+
+services: docker
 
 language: python
 python: '2.7'
@@ -6,20 +9,13 @@ branches:
   only:
   - master
 
-before_install:
-- pip install --upgrade pip
-
-install:
-- pip install -r requirements.txt
 
 before_script:
-- git config --global user.name "travis (Lukas Woodtli)"
-- git config --global user.email lukas_woodtli@travis.example.com
 - git fetch --unshallow # needed by filetime_from_git plugin
 - git pull origin master
 
 script:
-- python generate_page.py
+- docker run -it --rm -v $(pwd):/work/WebPage  -w=/work/WebPage -e DEPLOY_KEY=$DEPLOY_KEY lukaswoodtli/webpage generate_page.py
 # it's not working??? - linkchecker http://lukaswoodtli.github.io
 
 env:

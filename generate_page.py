@@ -12,8 +12,8 @@ from os.path import expanduser
 
 REPO_DIRECTORY = os.path.realpath(__file__)
 REPO_DIRECTORY = os.path.split(REPO_DIRECTORY)[0]
-HOME = expanduser("~")
-print("HOME: ", HOME)
+ROOTDIR_FOR_REPOS = os.path.join(REPO_DIRECTORY, "..")
+print("ROOTDIR_FOR_REPOS: ", ROOTDIR_FOR_REPOS)
 
 GITHUB_USERPAGE_REPO = "https://github.com/LukasWoodtli/LukasWoodtli.github.io"
 try:
@@ -38,20 +38,19 @@ def clone_repository(repo, local_path):
     remove_local_repository(local_path)
     print("Cloning repo to ", local_path)
     sh.git.clone(["--depth=1", "--recursive", repo, local_path])
-   
 
 def clone_needed_repositories():
     for repo in REPOSITORIES:
-        local_path = os.path.join(HOME, repo[1]) 
-        clone_repository(repo[0], local_path)    
- 
+        local_path = os.path.join(ROOTDIR_FOR_REPOS, repo[1])
+        clone_repository(repo[0], local_path)
+
 def remove_working_copies_of_repositories():
     for repo in REPOSITORIES:
-        local_path = os.path.join(HOME, repo[1])
+        local_path = os.path.join(ROOTDIR_FOR_REPOS, repo[1])
         remove_local_repository(local_path)
 
 def build_web_page():
-    pelican_theme_path = os.path.join(HOME, PELICAN_THEME)
+    pelican_theme_path = os.path.join(ROOTDIR_FOR_REPOS, PELICAN_THEME)
     print("Installing pelican-elegant theme from path: ", pelican_theme_path)
     subprocess.call(["pelican-themes", "--remove", PELICAN_THEME, "--verbose"])
     subprocess.call(["pelican-themes", "-i", pelican_theme_path, "--verbose"])
@@ -66,7 +65,7 @@ def build_web_page():
 
     # copy output to user page repo
     root_src_dir = os.path.join(REPO_DIRECTORY, "output")
-    root_dest_dir = os.path.join(HOME, "github-userpage")
+    root_dest_dir = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage")
 
     # clean up repository
     try:
@@ -89,7 +88,7 @@ def build_web_page():
             shutil.move(src_file, dst_dir)
 
 def publish_web_page():
-     userpage_local_repo = os.path.join(HOME, "github-userpage")
+     userpage_local_repo = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage")
      repo = sh.git.bake(_cwd=userpage_local_repo)
      repo.add("*")
      repo.commit(["-m", "Update Github page automated."])
