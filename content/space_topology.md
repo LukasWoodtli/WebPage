@@ -6,10 +6,10 @@ Tags: Robotics
 
 - Euclidian space: $\mathbb{E}^n$ or $\mathbb{R}^n$
 - Sphere: $S^n$
-- Torus: $T^n^$ ($T^2 = S^1 \times S^1$)
+- Torus: $T^n$ ($T^2 = S^1 \times S^1$)
 
 
-$\mathbb{R}^n$ is the $n$-dimensional Euclidian space, $S^n$ the $n$-dimensional surface of a sphere and $T^n$ is the $n$-dimensional 
+$\mathbb{R}^n$ is the $n$-dimensional Euclidian space, $S^n$ the $n$-dimensional surface of a sphere and $T^n$ is the $n$-dimensional
 surface of a torus in a $(n + 1) dimensional space.
 
 > $S^1 \times S^1 \times S^1 \times \cdots \times S^1 = T^n$ for $n$ copies of $S^1$
