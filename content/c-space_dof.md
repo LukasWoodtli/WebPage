@@ -47,13 +47,27 @@ Degrees of freedom: smallest number of *real-valued* coordinates needed to repre
 It's the dimension of the C-space or minimum number of real-valued numbers needed to represent the configuration.
 
 
-Rigid body (number of degrees of freedom):
+$$dof = (sum\ of\ freedoms\ of\ the\ bodies) - (number\ of\ independent\ constraints)$$
+
+Degree of freedom depends on:
+
+- Number of links
+- Number of joints
+- Types of joints
+- Distribution of joints within mechanism
+
+It does not depend on length of links.
+
+
+
+
+## Rigid body (number of degrees of freedom)
 
 - 2D (planar bodies): 3
 - 3D (spatial bodies): 6
 
 
-Degrees of freedom in 3D:
+## Degrees of freedom in 3D:
 
 - x
 - y
@@ -62,8 +76,6 @@ Degrees of freedom in 3D:
 - pitch
 - yaw
 
-
-$dof = (sum\ of\ freedoms\ of\ the\ bodies) - (number\ of\ independent\ constraints)$
 
 
 # Grübler's Formula
