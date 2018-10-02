@@ -5,11 +5,59 @@ Category: Programming
 Tags: C++, Python, OOP
 
 
+# General
+
+- Use [Coding conventions](https://en.wikipedia.org/wiki/Coding_conventions)
+- [Keep it simple, stupid (KISS)](https://en.wikipedia.org/wiki/KISS_principle)
+- Boy Scout Rule: "Always leave the campground cleaner than you found it” - Robert C. Martin
+- [Broken Window Theory](https://pragprog.com/the-pragmatic-programmer/extracts/software-entropy): Don't Live with Broken Windows
+- Fix root cause (root cause analysis, no workaraounds): otherwise it will get you again
+- [You aren't gonna need it (YAGNI)]: implement things when you need them
+
+
+# Class Design
+
+## SOLID
+
+- *S*: Single responsibility principle (only one reason to change)
+- *O*: Open/closed principle (open for extension, closed for modification)
+- *L*: Liskov substitution principle
+- *I*: Interface segregation principle
+- *D*: Dependency inversion principle (dependency injection can be used)
+
+See [SOLID](https://en.wikipedia.org/wiki/SOLID)
+
+
+# Package Design
+
+See [Package principles](https://en.wikipedia.org/wiki/Package_principles)
+
+## Package Cohesion
+
+### Reuse-release Equivalence Principle (REP)
+
+- A package must contain reusable classes
+- All of the classes inside the package are reusable (or none of them are)
+- The classes must be of the same family
+
+### Common-Reuse Principle (CRP)
+
+Classes that are reused together belong in the same package
+
+### Common-Closure Principle (CCP)
+    
+- A package should not have more than one reason to change
+- Changes to an application shall occur only in one package
+- If classes are tightly coupled, they belong to the same package
+
+
+
+# References
+
+- [97 Things Every Programmer Should Know](https://97-things-every-x-should-know.gitbooks.io/97-things-every-programmer-should-know/content/en/index.html)
 - [Encapsulate](https://en.wikipedia.org/wiki/Encapsulation_%28computer_programming%29) what varies ([Encapsulation Is Not Information Hiding](http://c2.com/cgi/wiki?EncapsulationIsNotInformationHiding))
 - [Prefer Composition to inheritance](https://en.wikipedia.org/wiki/Composition_over_inheritance)
 - Program to Interface, not Implementation: [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
 - [Cohesion](https://en.wikipedia.org/wiki/Cohesion_%28computer_science%29): Objects should only interact with 'friends' (objects in their neighborhood)
 - Ineracting Objects should aim for [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling)
-- [Open-Closed principle](https://en.wikipedia.org/wiki/Open/closed_principle): Classes should be open for extension, but closed for modification
 - [Tell don't ask](http://martinfowler.com/bliki/TellDontAsk.html): Tell Objects what to do with their data, don't ask for the data to operate on it
-- [Single-Responibility-Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle): A class should have only one responsibility (one reason to change)
