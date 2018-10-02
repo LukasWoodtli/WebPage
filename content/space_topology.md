@@ -29,6 +29,21 @@ Some spaces ([c-spaces]({filename}/c-space_dof.md)) can be represented as Cartes
 
 > A numerical representation is not fundamental as the topology of a space. It involves always a choice.
 
+## Explicit parametrisation
+
+- Min. Number of coordinates needed
+- For example
+    - Cartesian coordinates $(x, y, z)$
+    - latitude/longitude
+
+## Implicit representation
+
+- Surface embedded in a higher dimensional space with constraints
+- For example
+    - One constraint on three coordinates results in two degrees of freedom (2-D c-space)
+    - $(x, y, z)$ such that $x^2 + y^2 + z^2 = 1$
+
+
 Implicit representations don't have *singularities* but have more numbers than the number of degrees of freedom.
 
 - [Unit quaternion](https://en.wikipedia.org/wiki/Quaternion#Unit_quaternion)
