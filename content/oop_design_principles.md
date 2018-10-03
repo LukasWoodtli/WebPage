@@ -4,6 +4,8 @@ Modified: 2018-05-31
 Category: Programming
 Tags: C++, Python, OOP
 
+[TOC]
+
 
 # General
 
@@ -66,6 +68,19 @@ Classes that are reused together belong in the same package
 
 - Stable packages should be abstract, so that it can be easier extended
 - Unstable packages should be concrete, it's easier to change
+
+
+# Development Environment and Infrastructure
+
+- Building the software needs to be possible with just one command
+- Running a single test needs to be possible with just one command
+- Running all tests needs to be possible with just one command
+- Integrate unit tests into build
+- Source control (e.g. git) for everything: source, docs, reference data, tools...
+- Use static and dynamic analysis tools
+- Set highest warning level of compilers, use multiple different compilers
+- Write documentation: Wiki, Doxygen, Markdown...
+- Apply CI/CD, pipeline as code
 
 
 # References
