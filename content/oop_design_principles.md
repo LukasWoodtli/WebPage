@@ -12,7 +12,7 @@ Tags: C++, Python, OOP
 - Boy Scout Rule: "Always leave the campground cleaner than you found it” - Robert C. Martin
 - [Broken Window Theory](https://pragprog.com/the-pragmatic-programmer/extracts/software-entropy): Don't Live with Broken Windows
 - Fix root cause (root cause analysis, no workaraounds): otherwise it will get you again
-- [You aren't gonna need it (YAGNI)]: implement things when you need them
+- [You aren't gonna need it (YAGNI)](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it): implement things when you need them
 
 
 # Class Design
@@ -51,6 +51,22 @@ Classes that are reused together belong in the same package
 - If classes are tightly coupled, they belong to the same package
 
 
+## Package Coupling
+
+### Acyclic Dependencies Principle (ADP)
+
+- No cycles are allowed in the dependency structure
+- Dependencies form a tree (or DAG)
+
+## Stable-Dependencies Principle (SDP)
+
+- Packages that are changed frequently shall not depend on packages that are difficult to change
+
+## Stable-Abstractions Principle (SAP)
+
+- Stable packages should be abstract, so that it can be easier extended
+- Unstable packages should be concrete, it's easier to change
+
 
 # References
 
@@ -61,3 +77,5 @@ Classes that are reused together belong in the same package
 - [Cohesion](https://en.wikipedia.org/wiki/Cohesion_%28computer_science%29): Objects should only interact with 'friends' (objects in their neighborhood)
 - Ineracting Objects should aim for [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling)
 - [Tell don't ask](http://martinfowler.com/bliki/TellDontAsk.html): Tell Objects what to do with their data, don't ask for the data to operate on it
+- [List of Design Patterns]({filename}/design_patterns.md)
+
