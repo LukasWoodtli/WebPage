@@ -21,7 +21,7 @@ Some spaces ([c-spaces]({filename}/c-space_dof.md)) can be represented as Cartes
 | Rigid body in plane | $\mathbb{R}^2\times S^1$ | x-y-coordinates and an angle                           |
 | PR robot arm        | $\mathbb{R}^1\times S^1$ | prismatic joint: $\mathbb{R}^1$, revolute joint: $S^1$ |
 | 2R robot arm        | $S^1 \times S^1 = T^2$   | 2 times revolute joint                                 |
-| planar rigid body with 2R robot arm | $\mathbb{R}^2\times S^1\timesT^2 = \mathbb{R}^2\times T^3$ |      |
+| planar rigid body with 2R robot arm | $\mathbb{R}^2 \times S^1\timesT^2 = \mathbb{R}^2\times T^3$ |      |
 | rigid body in 3-D   | $\mathbb{R}^3\times S^2\times S^1$ | 1 point in 3-D, a point on a 2-D sphere and a point an a circle |
 
 
