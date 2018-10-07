@@ -14,18 +14,21 @@ Where:
 - $A(q) \in \mathbb{R}^{k \times n}$
 - $\dot{q}$: derivative of $q$ with respect to time
 - $k$: number of constraints
-- $n$: number of dimensions of C-space
+- $n$: number of variables needed to define robots configuration (implicit representation)
+
 
 ## Holonomic Constraints
 
-- Holonomic constraints can be defined independent of $\dot{q}$ ($f(q,t)= 0$)
+- Holonomic constraints can be defined independent of $\dot{q}$ (i.e. $f(q,t)= 0$)
 - Holonomic constraints reduce the dimension of the C-space (geometric limitation)
 - C-space can be viewed as a surface of dimension $n-k$ embedded in $\mathbb{R}^n$
-    - $n$: dimension of the C-space (implicit representation)
-    - $k$:  independent constraints
+    - $n$: number of variables to define robots configuration
+    - $k$: independent holonomic constraints
+    - $n-k$: dimension of C-space, degree of freedom
 - Integrable constraints:
     - Kinematic constraints may be integrable. In this case, the constraints are geometric constraints
     - the velocity constraints that they imply can be integrated to give equivalent configuration (geometric) constraints
+
 
 ## Nonholonomic Constraints
 
