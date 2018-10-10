@@ -4,8 +4,14 @@ Tags: Robotics
 
 > This page is work in progress
 
-Space frame $\{s\}$
-Body frame $\{b\}$
+
+# Rotation
+
+
+Space frame: $\{s\}$
+
+Body frame: $\{b\}$
+
 
 Expressing orientation of $\{b\}$ relative to $\{s\}$:
 
@@ -54,31 +60,33 @@ $$R_{sb}=\begin{bmatrix}
 
 Where:
 
-- $R_{sb}:
+- $R_{sb}$:
     - Subscript $s$: Reference frame
-    - Subscript $b$: frame whose orientation is being represented
+    - Subscript $b$: Frame whose orientation is being represented
 
 
-Constraints:
+## Constraints:
 
 There are only $3$ dimensions for orientation of a rigid body in space. But the $3 \times 3$ rotation matrix has $9$ numbers.
-So $6$ constraints are required.
+So $6$ constraints are required:
 
 
 - All $3$ column vectors are *unit vectors*
-- Dot product of any $2$ column vectors is zero (they are all orthogonal to each other
+- Dot product of any $2$ column vectors is zero (they are all orthogonal to each other)
 
-> These constraints ensure that the determinant or $R$ is $1$ for right-handed frames
+> These constraints ensure that the determinant of $R$ is $1$ for right-handed frames
 
 $$R^TR = I$$
 
 Where:
 
-- $I = \begin{bmatrix}
+- $I$: Identity matrix
+
+$$I = \begin{bmatrix}
 1 & 0 & 0\\ 
 0 & 1 & 0\\ 
 0 & 0 & 1
-\end{bmatrix}$: Identity matrix
+\end{bmatrix}$$
 
 
 ## Special Orthogonal Group
