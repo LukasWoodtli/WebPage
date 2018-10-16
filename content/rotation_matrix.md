@@ -98,6 +98,9 @@ $$R^TR = RR^T = I$$
 
 $$det R = 1$$
 
+We refer to $SO(3)$ as the *rotation group* of $\mathbb{R}^3$
+
+The rotation group $SO(3)$ is referred to as the *configuration space* of the system and a trajectory of the system is a curve $R(t) \in SO(3)$ for $t \in [0,T]$
 
 ## Properties of Rotation Matrices
 
@@ -105,6 +108,8 @@ $$det R = 1$$
 - Closure: $R_1 R_2 \in SO(3)$
 - Associative $(R_1 R_2) R_3 = R_1 (R_2 R_3)$
 - *Not* commutative: $R_1 R_2 \neq R_2 R_1$
+- Identity element: $R I = I R = R$
+- Composition Rule for Rotations (Combining by matrix multiplication): $R_{ac} = R_{ab} R_{bc}$
 - Rotating a vector doesn't change its length: $x \in \mathbb{R}^3, \left \| Rx \right \| = \left \| x \right \|$
 
 
