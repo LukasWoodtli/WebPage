@@ -11,7 +11,7 @@ Some notes on what to do to setup a new machine for my development projects.
 - Setup `/etc/fstab` for NFS mounts
 - Setup `/etc/exports` and `/etc/samba/smb.conf` for exported mounts
 - Install:
-    - with package manager: mc tmux vim zsh ranger docker kate gcc clang make cmake python3 doxygen graphviz cgdb docker git htop icdiff meld direnv xdg-utils ack
+    - with package manager: mc tmux vim zsh ranger docker kate gcc clang make cmake ninja python3 doxygen graphviz cgdb docker git htop icdiff meld direnv xdg-utils ack
     - fzf: use git and install script (otherwithe key bindings are not setup properly)
 - Restore keys in `~/.ssh/`
 - Restore shell config files (.bashrc, .zshrc, .commonrc?) and oh-my-zsh

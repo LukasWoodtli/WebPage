@@ -6,26 +6,6 @@ Tags: Tools, Cheat Sheet, Unix, Linux
 
 [TOC]
 
-# Function Keys
-
-The function keys (`F1` - `F10`) can be emulated by using `ESC + 1` - `ESC + 0`
-
-# `mc-wrapper`
-
-The `mc-wrapper` script allows that the shell changes to the current directory when exiting `mc`.
-
-It can be activated by setting an alias.
-
-On Linux:
-
-    :::bash
-    alias mc='. /usr/libexec/mc/mc-wrapper.sh'
-
-On macOS (homebrew):
-
-    :::bash
-     alias mc='. /usr/local/opt/midnight-commander/libexec/mc/mc-wrapper.sh'
-
 
 # Panels
 
@@ -81,13 +61,35 @@ On macOS (homebrew):
 | Keys          | Function         |
 |---------------|------------------|
 | `F3`          | Internal viewer  |
-| `SHIFT + F3`  | View rav content |
+| `SHIFT + F3`  | View raw content |
 | `F4`          | Edit             |
 
 The editor can be changed:
 
 - Disable `Options > Configuration > Use internal edit`
 - Set envronment variable `EDIT` to preferred editor
+
+
+# Function Keys
+
+The function keys (`F1` - `F10`) can be emulated by using `ESC + 1` - `ESC + 0`
+
+# Wrapper Script (`mc-wrapper`)
+
+The `mc-wrapper` script allows that the shell changes to the current directory when exiting `mc`.
+
+It can be activated by setting an alias.
+
+On Linux:
+
+    :::bash
+    alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+
+On macOS (homebrew):
+
+    :::bash
+     alias mc='. /usr/local/opt/midnight-commander/libexec/mc/mc-wrapper.sh'
+
 
 # Terminal Emulator Settings
 
