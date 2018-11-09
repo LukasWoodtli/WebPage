@@ -8,10 +8,12 @@ Tags: Robotics
 
 # Rotation
 
+A rotation $R$ in 3D is specified by a *rotation angle* $\theta$ and a unit vector **u** (the *rotation axis*).
 
-Space frame: $\{s\}$
+## Frames
 
-Body frame: $\{b\}$
+- Space frame: $\{s\}$
+- Body frame: $\{b\}$
 
 
 Expressing orientation of $\{b\}$ relative to $\{s\}$:
@@ -66,7 +68,7 @@ Where:
     - Subscript $b$: Frame whose orientation is being represented
 
 
-## Constraints:
+## Constraints
 
 There are only $3$ dimensions for orientation of a rigid body in space. But the $3 \times 3$ rotation matrix has $9$ numbers.
 So $6$ constraints are required:
@@ -90,7 +92,7 @@ $$I = \begin{bmatrix}
 \end{bmatrix}$$
 
 
-## Special Orthogonal Group $SO(3)$
+## Special Orthogonal Group *SO(3)*
 
 The Special Orthogonal Group $SO(3)$ is the set of all possible $3 \times 3$ real matrices $R$ that satisfy:
 
@@ -135,8 +137,6 @@ A system of forces acting on a rigid body can be replaced by a single force alon
 Notes taken from:
 
 [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/index.php/Modern_Robotics) by Kevin M. Lynch and Frank C. Park, Cambridge University Press, 2017
-
-and
 
 [A Mathematical Introduction to Robotic Manipulation](http://www.cds.caltech.edu/~murray/mlswiki/index.php?title=Main_Page) by Richard M. Murray, Zexiang Li and S. Shankar Sastry, CRC Press, 1994
 
