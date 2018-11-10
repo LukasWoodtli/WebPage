@@ -516,5 +516,146 @@ Example:
     -e 0x80008000 -n 'Linux' -d zImage uImage
 
 
+# Chapter 4. Configuring and Building the Kernel
+
+## What does the kernel do?
+
+*"The system call interface uses an architecture-specific method, such as a trap or a software interrupt, to switch the CPU from low privilege user mode to high privilege kernel mode, which allows access to all memory addresses and CPU registers."*
+
+*"Interrupts can only be handled in a device driver, never by a user space application."*
+
+## Stable and long term support releases
+
+*"[...] stable releases and long term releases. After the release of a mainline kernel (maintained by Linus Torvalds) it is moved to the stable tree (maintained by Greg Kroah-Hartman)."*
 
 
+*"some kernels are labeled **long term** and maintained for two or more years. There is at least one long term kernel release each year."*
+
+[https://www.kernel.org/](www.kernel.org)
+
+[http://kernelnewbies.org/LinuxVersions](kernelnewbies.org)
+
+
+## Vendor support
+
+*"You may find support for your board or SoC from independent open source projects, Linaro or the Yocto Project, for example, or from companies providing third party support for embedded Linux, but in many cases you will be obliged to look to the vendor of your SoC or board for a working kernel."*
+
+## Licensing
+
+*"The Linux source code is licensed under GPL v2"*
+
+*"it is now accepted practice that the GPL does not **necessarily** apply to kernel modules. This is codified by the kernel `MODULE_LICENSE` macro, which may take the value `Proprietary` to indicate that it is not released under the GPL."*
+
+*"[...] an oft-quoted e-mail thread titled "Linux GPL and binary module exception clause?" which is archived at [http://yarchive.net/comp/linux/gpl_modules.html](http://yarchive.net)
+
+## Getting the source
+
+*"The main directories of interest are:*
+
+- `arch`: *architecture-specific files, one subdirectory per architecture.*
+- `Documentation`: *kernel documentation. Always look here first *
+- `drivers`: *device drivers, a subdirectory for each type of driver.*
+- `fs`: *filesystem code.*
+- `include`: *kernel header files, including those required when building the toolchain.*
+- `init`: *the kernel start-up code.*
+- `kernel`: *core functions, including scheduling, locking, timers, power management, and debug/trace code.*
+- `mm`: *memory management.*
+- `net`: *network protocols.*
+- `scripts`: *many useful scripts, including the device tree compiler, DTC.*
+- `tools`: *many useful tools."*
+
+
+## Understanding kernel configuration - Kconfig
+
+*"The value you put into `ARCH` is one of the subdirectories you find in directory arch, with the oddity that `ARCH=i386` and `ARCH=x86_64` both source `arch/x86/Kconfig`.
+
+*"[search function] in `menuconfig` by pressing the forward slash key, `/`".
+
+*"There are a set of known working configuration files in `arch/$ARCH/configs`, each containing suitable configuration values for a single SoC or a group of SoCs."*
+
+*"[There is a] target named `oldconfig`. This takes an existing `.config` file and asks you to supply configuration values for any options that don't have them. You would use it when moving a configuration to a newer kernel version; copy `.config` from the old kernel to the new source directory and run the `make ARCH=arm oldconfig` command to bring it up to date. It can also be used to validate a `.config` file that you have edited manually"*
+
+## Using LOCALVERSION to identify your kernel
+
+
+    :::bash
+    make ARCH=arm kernelversion
+
+*"If you change the configuration from the default, it is advisable to append your own version information, which you can configure by setting `CONFIG_LOCALVERSION`"*
+
+## Kernel modules
+
+
+*"[A] few cases where kernel modules are a good idea in embedded systems:*
+
+
+- *proprietary modules*
+- *reduce boot time by deferring the loading of non-essential drivers*
+- *[it] would take up too much memory to compile [all drivers] statically*
+
+## Finding out which kernel target to build
+
+*"To build a kernel image, you need to know what your bootloader expects.*
+
+- **U-Boot**: *Traditionally, U-Boot has required `uImage`, but newer versions can load a `zImage` file using the `bootz` command*
+- **x86 targets**: *Requires a `bzImage `file*
+- **Most other bootloaders**: *Require a `zImage` file"*
+
+*"There is a small issue with building a uImage file for ARM with multi-platform support [...]. It allows a single kernel binary to run on multiple platforms and is a step on the road toward having a small number of kernels for all ARM devices. The kernel selects the correct platform by reading the machine number or the device tree passed to it by the bootloader.
+The problem occurs because the location of physical memory might be different for each platform, and so the relocation address for the kernel (usually `0x8000` bytes from the start of physical RAM) might also be different."*
+
+*"The `uImage` format is not compatible with multi-platform images."*
+
+*"You can still create a uImage binary from a multi-platform build, so long as you give the `LOADADDR` of the particular SoC you are hoping to boot this kernel on. You can find the load address by looking in `mach -[your SoC]/Makefile.boot` and noting the value of `zreladdr-y`:"*
+
+    ::bash
+    CROSS_COMPILE=arm-cortex_a8-linux-gnueabihf- LOADADDR=0x80008000 uImage
+
+## Build artifacts
+
+*"If you have compiled your kernel with debug enabled (`CONFIG_DEBUG_INFO=y`), it will contain debug symbols which can be used with debuggers like `kgdb`"*
+
+*"`System.map` contains the symbol table in a human readable form."*
+
+*"Most bootloaders cannot handle ELF code directly. There is a further stage of processing which takes vmlinux and places those binaries in `arch/$ARCH/boot that are suitable for the various bootloaders:*
+
+
+- `Image`: *`vmlinux` converted to raw binary format.*
+- `zImage`: *For the PowerPC architecture, this is just a compressed version of `Image` [...] the bootloader must do the decompression. For all other architectures, [`Image` contains] a stub of code that decompresses and relocates it.*
+- `uImage`: *`zImage` plus a 64-byte U-Boot header.*"
+
+
+## Compiling device trees
+
+*"The `dtbs` target builds device trees according to the rules in `arch/$ARCH/boot/dts/Makefile`"* , using the device tree source files in that directory."*
+
+    :::bash
+    make ARCH=arm dtbs
+
+*"The compiled `.dtb` files are generated in the same directory as the sources."*
+
+## Compiling modules
+
+*"Build [modules] separately using the `modules` target:"*
+
+    :::bash
+    make -j 4 ARCH=arm CROSS_COMPILE=arm-cortex_a8-linux-gnueabihf- modules
+
+
+*"The compiled modules have a `.ko` suffix and are generated in the same directory as the source code"*
+
+*"Use the `modules_install` `make` target to install them in the right place."*
+
+*"To install them into the staging area of your root filesystem [...], provide the path using `INSTALL_MOD_PATH`:"*
+
+    :::bash
+    CROSS_COMPILE=arm-cortex_a8-linux-gnueabihf- INSTALL_MOD_PATH=$HOME/rootfs modules_install
+
+
+## Cleaning kernel sources
+
+Make targets:
+
+- "`clean`: *Removes object files and most intermediates.*
+- `mrproper`: *Removes all intermediate files, including the `.config` file. [Return] the source tree to the state it was in immediately after cloning*
+- `distclean`: *This is the same as `mrproper`, but also deletes editor backup files, patch files, and other artifacts of software development.*"
