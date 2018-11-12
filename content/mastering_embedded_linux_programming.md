@@ -659,3 +659,91 @@ Make targets:
 - "`clean`: *Removes object files and most intermediates.*
 - `mrproper`: *Removes all intermediate files, including the `.config` file. [Return] the source tree to the state it was in immediately after cloning*
 - `distclean`: *This is the same as `mrproper`, but also deletes editor backup files, patch files, and other artifacts of software development.*"
+
+
+## Early user space
+
+*"In order to transition from kernel initialization to user space, the kernel has to mount a root filesystem and execute a program in that root filesystem. This can be achieved via a ramdisk or by mounting a real filesystem on a block device."*
+
+*"The code for all of this is in `init/main.c`, starting with the function `rest_init()`, which creates the first thread with PID 1 and runs the code in `kernel_init()`."*
+
+*"If there is a ramdisk, it will try to execute the program `/init` [...]. If fails to find and run `/init`, it tries to mount a filesystem by calling the function `prepare_namespace()` in `init/do_mounts.c`. This requires a `root=` command line to give the name of the block device to use for mounting, usually in the form:"*
+
+    :::bash
+    root=/dev/<disk name><partition number>
+
+*"Or, for SD cards and eMMC:"*
+
+    :::bash
+    root=/dev/<disk name>p<partition number>
+
+*"If the mount succeeds, it will try to execute `/sbin/init`, followed by `/etc/init`, `/bin/init`, and then `/bin/sh`, stopping at the first one that works."*
+
+
+## Kernel messages
+
+
+| Level        | Value | Meaning                           |
+|--------------|-------|-----------------------------------|
+| KERN_EMERG   |   0   | The system is unusable            |
+| KERN_ALERT   |   1   | Action must be taken immediately  |
+| KERN_CRIT    |   2   | Critical conditions               |
+| KERN_ERR     |   3   | Error conditions                  |
+| KERN_WARNING |   4   | Warning conditions                |
+| KERN_NOTICE  |   5   | Normal but significant conditions |
+| KERN_INFO    |   6   | Informational                     |
+| KERN_DEBUG   |   7   | Debug-level messages              |
+
+
+*"They are first written to a buffer, `__log_buf`, the size of which is two to the power of `CONFIG_LOG_BUF_SHIFT`."*
+
+*"You can dump the entire buffer using the command `dmesg`."*
+
+*"The default console log level is `7`, meaning that messages of level `6` and lower are displayed"*
+
+
+## Kernel command line
+
+*"[The kernel command line string can be set] via the `bootargs` variable in the case of U-Boot; it can also be defined in the device tree, or set as part of the kernel configuration in `CONFIG_CMDLINE`."*
+
+*"There is a complete list in `Documentation/kernel-parameters.txt`"*
+
+- `debug`: Sets the console log level to the highest level `8`
+- `init=`: The init program to run from a mounted root filesystem (default: `/sbin/init`)
+- `lpj=`: Sets `loops_per_jiffy` to a given constant
+- `panic=` when the kernel panics: if the value is greater than zero, it gives the number of seconds before rebooting; if it is zero, it waits forever (default); or if it is less than zero, it reboots without any delay.
+- `quiet` suppressing all but emergency messages
+- `rdinit=`: The init program to run from a ramdisk (defaults: `/init`)
+- `ro`: Mounts the root device as read-only (no effect on a ramdisk)
+- `root=`: Device to mount the root filesystem
+- `rootdelay=`: The number of seconds to wait before trying to mount the root device (default: zero)
+
+- `rootfstype=`: The filesystem type for the root device. In many cases, it is auto-detected (required for `jffs2` filesystems)
+- `rootwait`: Waits indefinitely for the root device to be detected. Usually necessary with mmc devices.
+- `rw`: Mounts the root device as read-write (default).
+
+
+*"During initialization, the kernel loops for approximately 250 ms to calibrate a delay loop. The value is stored in the variable `loops_per_jiffy`"*
+
+
+*"If the kernel always runs on the same hardware, it will always calculate the same value. You can shave 250 ms off the boot time by adding `lpj=<value_reported_to_console>` to the command line."*
+
+
+## Porting Linux to a new board
+
+*"The organization of architecture-specific code in `arch/$ARCH` differs from one system to another."*
+
+
+*"The x86 architecture is pretty clean because most hardware details are detected at runtime. [...]. The ARM architecture, on the other hand, is quite messy, in part because there is a lot of variability between the many ARM-based SoCs. Platform-dependent code is put in directories named `mach-\*` , approximately one per SoC. There are other directories named `plat-\*` which contain code common to several versions of an SoC. In the case of the BeagleBone Black, the relevant directory is `arch/arm/mach-omap2`. [...] it contains support for OMAP2, 3, and 4 chips, as well as the AM33xx family of chips that the BeagleBone uses."*
+
+
+## Summary
+
+*"The customization of the kernel for a particular target may consist of changes to the core kernel code, additional drivers for devices that are not in mainline Linux, a default kernel configuration file, and a device tree source file."*
+
+*"One of the things you should consider [...] is whether the kernel features and drivers should be compiled as modules or built-in."*
+
+*"Building the kernel produces a compressed kernel image file, named `zImage`, `bzImage`, or `uImage`, depending on the bootloader you will be using and the target architecture. A kernel build will also generate any kernel modules (as `.ko` files) that you have configured, and device tree binaries (as `.dtb` files) if your target requires them."*
+
+*"The root filesystem can be a ramdisk or a filesystem accessed via a block device,"*
+
