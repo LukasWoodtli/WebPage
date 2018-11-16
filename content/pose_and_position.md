@@ -20,8 +20,8 @@ $$\mathcal{A}^\mathbf{r}AB$$
 
 With:
 
-- $\mathcal{A}$: Frame $\mathcal{A}$ is used to express position vector $\mathbf{r}AB$
-- $\mathbf{r}_AB$: Position vector of point $B$ with with respect to the origin of frame $\mathcal{A}$
+- $\mathcal{A}$: Frame $\mathcal{A}$ is used to express position vector $\mathbf{r}_{AB}$
+- $\mathbf{r}_{AB}$: Position vector of point $B$ with with respect to the origin of frame $\mathcal{A}$
 
 
 The unit vectors $\left ( \mathbf{e}^\mathcal{A}_x, \mathbf{e}^\mathcal{A}_y, \mathbf{e}^\mathcal{A}_z \right )$ of frame $\mathcal{A}$ form an ortho-normal basis of $\mathbb{R}^3$.
@@ -43,12 +43,13 @@ The position vector is given by
 
 $$\mathcal{A}^\mathbf{r} = x\mathbf{e}^\mathcal{A}_x + y\mathbf{e}^\mathcal{A}_y + z\mathbf{e}^\mathcal{A}_z =
 \begin{pmatrix}
-x \\ 
-y \\ 
+x \\
+y \\
 z
 \end{pmatrix}$$
 
 Where:
 
 - $\mathbf{e}^\mathcal{A}_i$: Unit vector of dimension $i$ in frame $\mathcal{A}$
+
 
