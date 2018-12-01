@@ -106,7 +106,9 @@ The rotation group $SO(3)$ is referred to as the *configuration space* of the sy
 
 ## Properties of Rotation Matrices
 
-- Inverse: $R^{-1} = R^T \in SO(3)$
+- Inverse:
+    - $R^{-1} = R^T \in SO(3)$
+    - $R R^{-1} = R^{-1} R = I$
 - Closure: $R_1 R_2 \in SO(3)$
 - Associative $(R_1 R_2) R_3 = R_1 (R_2 R_3)$
 - *Not* commutative: $R_1 R_2 \neq R_2 R_1$
