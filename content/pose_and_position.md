@@ -53,3 +53,42 @@ Where:
 - $\mathbf{e}^\mathcal{A}_i$: Unit vector of dimension $i$ in frame $\mathcal{A}$
 
 
+## Cylindrical coordinates
+
+$$\mathbf{\chi}_{Pz} = \begin{pmatrix}
+\rho  \\ 
+\theta  \\ 
+z
+\end{pmatrix}$$
+
+A position vector is given by
+
+$$\mathcal{A}^\mathbf{r} = 
+ \begin{pmatrix}
+\rho \cos \theta \\ 
+\rho \sin \theta  \\ 
+z
+\end{pmatrix}$$
+
+
+## Spherical coordinates
+
+$$\mathbf{\chi}_{Pz} = \begin{pmatrix}
+r \\ 
+\theta  \\ 
+\phi 
+\end{pmatrix}$$
+
+A position vector is given by
+
+$$\mathbf{\chi}_{Pz} = \begin{pmatrix}
+r \cos \theta \sin \phi \\ 
+r \sin \theta \sin \phi \\
+r \cos \phi 
+\end{pmatrix}$$
+
+
+Where:
+
+- $\theta$: azimuthal angle
+- $\phi$: polar angle (sometimes $\varphi$)
