@@ -8,6 +8,8 @@ Tags: Robotics
 
 # Rotation
 
+The configuration of a point is fully described by a position, bodies additionally require a rotation to define their pose.
+
 A rotation $R$ in 3D is specified by a *rotation angle* $\theta$ and a unit vector **u** (the *rotation axis*).
 
 ## Frames
@@ -102,7 +104,10 @@ $$det R = 1$$
 
 We refer to $SO(3)$ as the *rotation group* of $\mathbb{R}^3$
 
-The rotation group $SO(3)$ is referred to as the *configuration space* of the system and a trajectory of the system is a curve $R(t) \in SO(3)$ for $t \in [0,T]$
+The rotation group $SO(3)$ is referred to as the *configuration space* of the system and a trajectory of the system is a curve $R(t) \in SO(3)$ for $t \in [0,T]$.
+
+Because a rotation matrix $R$ lives in $SO(3)$, there is *no* numerical equivalent to a position *such as angular position*.
+
 
 ## Properties of Rotation Matrices
 
@@ -113,8 +118,66 @@ The rotation group $SO(3)$ is referred to as the *configuration space* of the sy
 - Associative $(R_1 R_2) R_3 = R_1 (R_2 R_3)$
 - *Not* commutative: $R_1 R_2 \neq R_2 R_1$
 - Identity element: $R I = I R = R$
-- Composition Rule for Rotations (Combining by matrix multiplication): $R_{ac} = R_{ab} R_{bc}$
+- Composition Rule for Rotations (Combining by matrix multiplication): $R_{ac} = R_{ab} R_{bc}$ (subscript cancellation)
 - Rotating a vector doesn't change its length: $x \in \mathbb{R}^3, \left \| Rx \right \| = \left \| x \right \|$
+
+
+## Elementary Rotations
+
+$$R_{sb}=R_x(\varphi) = \begin{pmatrix}
+1 &   0         & 0           \\
+0 & \cos \varphi & -\sin \varphi \\
+0 & \sin \varphi &  \cos \varphi
+\end{pmatrix}$$
+
+
+$$R_{sb}=R_y(\varphi) = \begin{pmatrix}
+\cos \varphi & 0 & \sin \varphi \\
+0 &   1         & 0           \\
+-\sin \varphi & 0 & \cos \varphi
+\end{pmatrix}$$
+
+$$R_{sb}=R_z(\varphi) = \begin{pmatrix}
+\cos \varphi & -\sin \varphi & 0\\
+\sin \varphi & \cos \varphi & 0 \\
+0 &   0         & 1           \\
+\end{pmatrix}$$
+
+
+## Composition of Rotations
+
+The coordinates of a vector $\mathbf{u}$ can be mapped from frame $B$ to frame $A$ by writing:
+
+$${}_A\mathbf{u} = R_{AB} \cdot {}_B\mathbf{u}$$
+
+The vector $\mathbf{u}$ can also be mapped from frame $C$ to frame $C$ by writing:
+
+$${}_B\mathbf{u} = R_{BC} \cdot {}_C\mathbf{u}$$
+
+Combining these equations:
+
+$$\begin{align*}
+{}_A\mathbf{u} &= R_{AB} \cdot (R_{BC} \cdot {}_C\mathbf{u}) \\
+ &= R_{AC} \cdot {}_C\mathbf{u}
+\end{align*}$$
+
+
+The resulting rotation matrix $R_{AC} = R_{AB} \cdot R_{BC}$ (s.a. subscript cancellation) can be interpreted as the rotation obtained by rotating frame $A$ until it coincides with frame $B$, and then rotating frame $B$ until it coincides with frame $C$.
+
+## Active vs Passive Rotation
+
+### Passive Rotation (rotation transformations)
+
+Mapping between coordinate frames. A passive rotation $R_{sb}$ maps the same object $\mathbf{u}$ from frame $b$ to frame $s$:
+
+$${}_s\mathbf{u} = R_{sb} \cdot {}_b\mathbf{u}$$
+
+### Active Rotation
+
+An active rotation, often indicated with a $3 \times 3$ matrix $R$, is an *operator* that rotates a
+vector $A^u$ to a vector $A^v$ in the same reference frame $A$ (${}_Av = R \cdot {}_Au$).
+
+> Active rotations are not very relevant for robotics!
 
 
 # Screw, Twist and Wrench

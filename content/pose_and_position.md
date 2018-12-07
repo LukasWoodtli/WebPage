@@ -32,8 +32,8 @@ The unit vectors $\left ( \mathbf{e}^\mathcal{A}_x, \mathbf{e}^\mathcal{A}_y, \m
 ## Cartesian Coordinates
 
 $$\mathbf{\chi}_{Pc} = \begin{pmatrix}
-x \\ 
-y \\ 
+x \\
+y \\
 z
 \end{pmatrix}$$
 
@@ -56,17 +56,17 @@ Where:
 ## Cylindrical coordinates
 
 $$\mathbf{\chi}_{Pz} = \begin{pmatrix}
-\rho  \\ 
-\theta  \\ 
+\rho  \\
+\theta \\
 z
 \end{pmatrix}$$
 
 A position vector is given by
 
-$$\mathcal{A}^\mathbf{r} = 
+$$\mathcal{A}^\mathbf{r} =
  \begin{pmatrix}
-\rho \cos \theta \\ 
-\rho \sin \theta  \\ 
+\rho \cos \theta \\
+\rho \sin \theta  \\
 z
 \end{pmatrix}$$
 
@@ -74,15 +74,15 @@ z
 ## Spherical coordinates
 
 $$\mathbf{\chi}_{Pz} = \begin{pmatrix}
-r \\ 
-\theta  \\ 
-\phi 
+r \\
+\theta \\
+\phi
 \end{pmatrix}$$
 
 A position vector is given by
 
-$$\mathbf{\chi}_{Pz} = \begin{pmatrix}
-r \cos \theta \sin \phi \\ 
+$$\mathcal{A}^\mathbf{r} = \begin{pmatrix}
+r \cos \theta \sin \phi \\
 r \sin \theta \sin \phi \\
 r \cos \phi 
 \end{pmatrix}$$
