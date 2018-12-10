@@ -98,6 +98,7 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 *"programming languages impose restrictions on the ways in which computational elements can be manipulated. Elements with the fewest restrictions are said to have first-class status."*
 
 *"Some of the 'rights and privileges' of first-class elements are:*
+
 - *They may be named by variables.*
 - *They may be passed as arguments to procedures.*
 - *They may be returned as the results of procedures.*
