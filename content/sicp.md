@@ -27,25 +27,28 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 ### Evaluating Combinations
 
 *"To evaluate a combination, do the following:*
+
 - *Evaluate the subexpressions of the combination.*
 - *Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).*"
 
-*"[...] first perform the evaluation process on each element of the combination. Thus, the evaluation rule is**recursive** in nature"*
+*"[...] first perform the evaluation process on each element of the combination. Thus, the evaluation rule is **recursive** in nature"*
+
 
 ### The Substitution Model for Procedure Application
+
 #### Applicative order versus normal order
 
-*"interpreter first evaluates the operator and operands and then applies the resulting procedure to the resulting arguments"*
+*"[The] interpreter first evaluates the operator and operands and then applies the resulting procedure to the resulting arguments."*
 
-*"[An] alternative evaluation model would not evaluate the operands until their values were needed. Instead it would first substitute operand expressions for parameters until it obtained an expression involving only primitive operators, and would then perform the evaluation"*
+*"[An] alternative evaluation model would not evaluate the operands until their values were needed. Instead it would first substitute operand expressions for parameters until it obtained an expression involving only primitive operators, and would then perform the evaluation."*
 
-*"This alternative 'fully expand and then reduce' evaluation method is known as **normal-order evaluation**, in contrast to the 'evaluate the arguments and then apply' method that the interpreter actually uses, which is called **applicative-order evaluation**"*
+*"This alternative 'fully expand and then reduce' evaluation method is known as **normal-order evaluation**, in contrast to the 'evaluate the arguments and then apply' method that the interpreter actually uses, which is called **applicative-order evaluation**."*
 
-*"normal-order and applicative-order evaluation produce the same value"*
+*"Normal-order and applicative-order evaluation produce the same value."*
 
-*"Lisp uses applicative-order evaluation"*
+*"Lisp uses applicative-order evaluation."*
 
-*"Lisp obeys the convention that every expression has a value"*
+*"Lisp obeys the convention that every expression has a value."*
 
 ### The Substitution Model for Procedure Application
 
@@ -59,6 +62,7 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 
 
 ## Formulating Abstractions with Higher-Order Procedures
+
 ### Constructing Procedures Using `lambda`
 
 #### Using `let` to create local variables
