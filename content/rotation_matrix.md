@@ -166,6 +166,13 @@ The resulting rotation matrix $R_{AC} = R_{AB} \cdot R_{BC}$ (s.a. subscript can
 
 ## Active vs Passive Rotation
 
+There are three uses for a rotation matrix:
+
+- To represent an [orientation]({filename}/pose_and_position.md)
+- To change the reference frame in which a vector or a frame is represented (passive rotation)
+- To rotate a vector or a frame (active rotation)
+
+
 ### Passive Rotation (rotation transformations)
 
 Mapping between coordinate frames. A passive rotation $R_{sb}$ maps the same object $\mathbf{u}$ from frame $b$ to frame $s$:
