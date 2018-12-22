@@ -141,3 +141,85 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 *"Unlike Lisp with its pairs, these languages have no built-in general-purpose glue that makes it easy to manipulate compound data in a uniform way."*
 
 
+# 3 Modularity, Objects, and State
+
+## 3.1 Assignment and Local State
+
+### 3.1.1 Local State Variables
+
+*"The `set!` special form, whose syntax is:"*
+
+    :::scheme
+    set! <name> <new-value>
+
+*"Here `<name>` is a symbol and `<new-value>` is any expression.
+`Set!` changes `<name>` so that its value is the result obtained by
+evaluating `<new-value>`."*
+
+*"The value of a `set!` expression is implementation-dependent. `Set!` should be used only for its effect, not for its value."*
+
+
+### 3.1.2 The Benefits of Introducing Assignment
+
+*"From the point of view of one part of a complex process, the other parts appear to change with time. They have hidden time-varying local state. If we wish to write computer programs whose structure reflects this decomposition, we make computational objects whose behavior changes with time. We model state with local state variables, and we model the changes of state with assignments to those variables."*
+
+
+### 3.1.3 The Costs of Introducing Assignment 
+
+#### Sameness and change
+
+*"A language that supports the concept that "equals can be substituted for equals" in an expression without changing the value of the expression is said to be referentially transparent. Referential transparency is violated when we include `set!` in our computer language. This makes it tricky to determine when we can simplify expressions by substituting equivalent expressions. Consequently, reasoning about programs that use assignment becomes drastically more difficult."*
+
+*"The phenomenon of a single computational object being accessed by more than one name is known as aliasing."*
+
+#### Pitfalls of imperative programming
+
+*"programs written in imperative style are susceptible to bugs that cannot occur in functional programs."*
+
+
+## 3.2 The Environment Model of Evaluation
+
+*"Once we admit assignment into our programming language […], a variable can no longer be considered to be merely a name for a value. Rather, a variable must somehow designate a "place" in which values can be stored. In our new model of evaluation, these places will be maintained in structures called environments."*
+
+*"An environment is a sequence of frames. Each frame is a table (possibly empty) of bindings, which associate variable names with their corresponding values."*
+
+*"Each frame also has a pointer to its enclosing environment […]. The value of a variable with respect to an environment is the value given by the binding of the variable in the first frame in the environment that contains a binding for that variable. If no frame in the sequence specifies a binding for the variable, then the variable is said to be unbound in the environment."*
+
+*"Indeed, one could say that expressions in a programming language do not, in themselves, have any meaning. Rather, an expression acquires a meaning only with respect to some environment in which it is evaluated."*
+
+
+### 3.2.1 The Rules for Evaluation
+
+*"In the environment model of evaluation, a procedure is always a pair consisting of some code and a pointer to an environment. Procedures are created in one way only: by evaluating a $\lambda$-expression. This produces a procedure whose code is obtained from the text of the $\lambda$-expression and whose environment is the environment in which the $\lambda$-expression was evaluated to produce the procedure."*
+
+*"In general, `define` creates definitions by adding bindings to frames."*
+
+*"Now that we have seen how procedures are created, we can describe how procedures are applied. The environment model specifies: To apply a procedure to arguments, create a new environment containing a frame that binds the parameters to the values of the arguments. The enclosing environment of this frame is the environment specified by the procedure. Now, within this new environment, evaluate the procedure body."*
+
+
+*"The environment model of procedure application can be summarized by two rules:*
+
+- *A procedure object is applied to a set of arguments by constructing a frame, binding the formal parameters of the procedure to the arguments of the call, and then evaluating the body of the procedure in the context of the new environment constructed. The new frame has as its enclosing environment the environment part of the procedure object being applied.*
+
+- *A procedure is created by evaluating a $\lambda$-expression relative to a given environment. The resulting procedure object is a pair consisting of the text of the $\lambda$-expression and a pointer to the environment in which the procedure was created."*
+
+
+*"We also specify that defining a symbol using `define` creates a binding in the current environment frame and assigns to the symbol the indicated value."*
+
+*"Evaluating the expression (`set! <variable> <value>`) in some environment locates the binding of the variable in the environment and changes that binding to indicate the new value. That is, one finds the first frame in the environment that contains a binding for the variable and modifies that frame. If the variable is unbound in the environment, then `set!` signals an error."*
+
+## 3.3 Modeling with Mutable Data
+
+### 3.3.1 Mutable List Structure
+
+#### Sharing and identity
+
+*"One way to detect sharing in list structures is to use the predicate `eq?`, […] as a way to test whether two symbols are equal. More generally, (`eq? x y`) tests whether `x` and `y` are the same object (that is, whether `x` and `y` are equal as pointers)."*
+
+#### Mutation is just assignment
+
+*"We can implement mutable data objects as procedures using assignment and local state."*
+
+*"Assignment is all that is needed, theoretically, to account for the behavior of mutable data. As soon as we admit `set!` to our language, we raise all the issues, not only of assignment, but of mutable data in general."*
+
+*"On the other hand, from the viewpoint of implementation, assignment requires us to modify the environment, which is itself a mutable data structure. Thus, assignment and mutation are equipotent: Each can be implemented in terms of the other."*
