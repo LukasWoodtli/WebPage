@@ -195,7 +195,9 @@ A rigid body can be moved from one position to any other by rotation around a li
 
 ## Twist
 
-An infinitesimal screw motion is called a twist. It describes the instantaneous velocity of a rigid in terms of its linear and angular components.
+The instantaneous spatial velocity of a rigid body in terms of its linear and angular components is called a twist.
+It can be represented as a point in $\mathbb{R}^6$, defined by 3 angular and 3 linear velocities.
+A twist can be seen as an infinitesimal screw motion.
 
 ## Wrench
 
