@@ -14,9 +14,9 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 
 [TOC]
 
-# Building Abstractions with Procedures
+# 1 Building Abstractions with Procedures
 
-## The Elements of Programming
+## 1.1 The Elements of Programming
 
 *"[The] language provides for combining simple ideas to form more complex ideas.  Every powerful language has three mechanisms for accomplishing this:*
 
@@ -24,7 +24,7 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 - ***means of combination**, by which compound elements are built from simpler ones, and*
 - ***means of abstraction**, by which compound elements can be named and manipulated as units."*
 
-### Evaluating Combinations
+### 1.1.3 Evaluating Combinations
 
 *"To evaluate a combination, do the following:*
 
@@ -34,7 +34,7 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 *"[...] first perform the evaluation process on each element of the combination. Thus, the evaluation rule is **recursive** in nature"*
 
 
-### The Substitution Model for Procedure Application
+### 1.1.5 The Substitution Model for Procedure Application
 
 #### Applicative order versus normal order
 
@@ -50,7 +50,7 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 
 *"Lisp obeys the convention that every expression has a value."*
 
-### The Substitution Model for Procedure Application
+### 1.2.1 Linear Recursion and Iteration
 
 *"In the iterative case, the program variables provide a complete description of the state of the process at any point."*
 
@@ -61,9 +61,9 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 *"any iterative process can be realized 'in hardware' as a machine that has a fixed set of registers and no auxiliary memory. In contrast, realizing a recursive process requires a machine that uses an auxiliary data structure known as a **stack**."*
 
 
-## Formulating Abstractions with Higher-Order Procedures
+## 1.3 Formulating Abstractions with Higher-Order Procedures
 
-### Constructing Procedures Using `lambda`
+### 1.3.2 Constructing Procedures Using `lambda`
 
 #### Using `let` to create local variables
 
@@ -104,9 +104,9 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 - *They may be returned as the results of procedures.*
 - *They may be included in data structures."*
 
-# Building Abstractions with Data
+# 2 Building Abstractions with Data
 
-### What Is Meant by Data?
+### 2.1.3 What Is Meant by Data?
 
 *"In general, we can think of data as defined by some collection of selectors and constructors, together with specified conditions that these procedures must fulfill in order to be a valid representation."*
 
@@ -123,13 +123,12 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
     (define (car z)(z 0))
     (define (cdr z) (z 1))
 
-## Hierarchical Data and the Closure Property
+## 2.2 Hierarchical Data and the Closure Property
 
 *"The ability to create pairs whose elements are pairs is the essence of list structure's importance as a representational tool. We refer to this ability as the **closure property** of cons. In general, an operation for combining data objects satisfies the closure property if the results of combining things with that operation can themselves be combined using the same operation."*
 
 
-
-### Sequences as Conventional Interfaces
+### 2.2.3 Sequences as Conventional Interfaces
 
 #### Sequence Operations
 
@@ -140,3 +139,5 @@ See also [Scheme (Lisp)]({filename}/scheme.rst)
 *"The Lisp community also (unfortunately) uses the word “closure” to describe a totally unrelated concept: A closure is an implementation technique for representing procedures with free variables."*
 
 *"Unlike Lisp with its pairs, these languages have no built-in general-purpose glue that makes it easy to manipulate compound data in a uniform way."*
+
+
