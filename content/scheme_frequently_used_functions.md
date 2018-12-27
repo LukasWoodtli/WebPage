@@ -84,7 +84,22 @@ If `reduce` is not available (e.g in Racket) it can be defined in terms of `fold
 
 - `(memq  v lst)`: find element `v` in list `lst` and return the rest of the list starting at the found element. If element is not found `#f` is returned. Similar functions: `member`, `memv`, `memf`
 
-## Dotted-tail Notation
+
+# Local Binding
+
+`let` is syntactic sugar for a procedure call:
+
+    :::scheme
+    (let ((<var> <exp>)) <body>)
+
+
+is interpreted as an alternate syntax for
+
+    :::scheme
+    ((lambda (<var>) <body>) <exp>)
+
+
+# Dotted-tail Notation
 
 - Used for functions with arbitrary number of arguments
 
