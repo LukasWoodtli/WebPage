@@ -92,3 +92,10 @@ Where:
 
 - $\theta$: azimuthal angle
 - $\phi$: polar angle (sometimes $\varphi$)
+
+
+# Pose
+
+To fully describe the configuration of a rigid body (pose) a position and a rotation is needed.
+
+
