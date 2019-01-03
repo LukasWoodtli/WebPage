@@ -798,27 +798,23 @@ Make targets:
 
 ## POSIX file access permissions
 
-$$
-\begin{matrix}
+$$\begin{matrix}
 \left.\begin{matrix}
 400 & r & - & - & - & - & - & - & - & -\\ 
 200 & - & w & - & - & - & - & - & - & -\\ 
 100 & - & - & x & - & - & - & - & - & -
 \end{matrix}\right\} \text{Owner permissions}\\ 
-
 \left.\begin{matrix}
 040 & - & - & - & r & - & - & - & - & -\\ 
 020 & - & - & - & - & w & - & - & - & -\\ 
 010 & - & - & - & - & - & x & - & - & -
 \end{matrix}\right\} \text{Group permissions}\\ 
-
 \left.\begin{matrix}
 004 & - & - & - & - & - & - & r & - & -\\ 
 002 & - & - & - & - & - & - & - & w & -\\ 
 001 & - & - & - & - & - & - & - & - & x
 \end{matrix}\right\} \text{World permissions}
-\end{matrix}
-$$
+\end{matrix}$$
 
 *"There is a further group of three bits that have special meanings:*
 
