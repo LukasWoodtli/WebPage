@@ -747,3 +747,50 @@ Make targets:
 
 *"The root filesystem can be a ramdisk or a filesystem accessed via a block device,"*
 
+
+# Building a Root Filesystem
+
+## What should be in the root filesystem?
+
+*"The kernel will get a root filesystem, either an `initramfs`, passed as a pointer from the bootloader, or by mounting the block device given on the kernel command line by the `root=` parameter. Once it has a root filesystem, the kernel will execute the first program, by default named `init`"*
+
+
+*"To make a minimal root filesystem, you need these components:*
+
+- *`init`: This is the program that starts everything off, usually by running a series of scripts.*
+- *Shell: You need a shell to give you a command prompt but, more importantly, also to run the shell scripts called by init and other programs.*
+- *Daemons: A daemon is a background program that provides a service to others.*
+- *Shared libraries: Most programs are linked with shared libraries, and so they must be present in the root filesystem.*
+- *Configuration files: The configuration for `init` and other daemons is stored in a series of text files, usually in the `/etc` directory.*
+- *Device nodes: These are the special files that give access to various device drivers.*
+- *`/proc` and `/sys`: These two pseudo filesystems represent kernel data structures as a hierarchy of directories and files. Many programs and library functions depend on proc and sys.*
+- *Kernel modules: If you have configured some parts of your kernel to be modules, they need to be installed in the root filesystem, usually in `/lib/modules/[kernel version]`"*
+
+
+## The directory layout
+
+*"The Linux kernel does not care about the layout of files and directories beyond the existence of the program named by `init=` or `rdinit=`"*
+
+*"However, many programs expect certain files to be in certain places"*
+
+*"The basic layout of a Linux system is defined in the [Filesystem Hierarchy Standard (FHS)](http://refspecs.linuxfoundation.org/fhs.shtml)"*
+
+
+*"Embedded devices tend to use a subset based on their needs, but it usually includes the following:*
+
+- `/bin`: *Programs essential for all users*
+- `/dev`: *Device nodes and other special files*
+- `/etc`: *System configuration files*
+- `/lib`: *Essential shared libraries* [i.e. the C-library]
+- `/proc`: *The `proc` filesystem*
+- `/sbin`: *Programs essential to the system administrator*
+- `/sys`: *The `sysfs` filesystem*
+- `/tmp`: *A place to put temporary or volatile files*
+- `/usr`: *Additional programs, libraries, and system administrator utilities, in the directories `/usr/bin`, `/usr/lib` and `/usr/sbin`, respectively*
+- `/var`: *A hierarchy of files and directories that may be modified at runtime, for example, log messages, some of which must be retained after boot*"
+
+
+
+*"The difference between `/bin` and `/sbin` is simply that the latter need not be included in the search path for non-root users."*
+
+*"The significance of `/usr` is that it maybe in a separate partition from the root filesystem, so it cannot contain anything that is needed to boot the system up."*
