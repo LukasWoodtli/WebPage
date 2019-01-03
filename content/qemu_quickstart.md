@@ -39,4 +39,6 @@ For configuring the network interface the command `tunctl` is used:
 
 `sudo tunctl -u $(whoami) -t tap0`
 
-The `tunctl` command is available from the *User Mode Linux (UML)* project.
+This creates a network interface named `tap0` which is connected to the network controller in the emulated QEMU machine.
+
+The `tunctl` command is available from the *User Mode Linux (UML)* project (uml-utilites).
