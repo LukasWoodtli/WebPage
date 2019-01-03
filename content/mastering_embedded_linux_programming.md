@@ -825,3 +825,59 @@ $$\begin{matrix}
 
 *"The SUID bit is probably used most often. It gives non-root users a temporary privilege escalation to superuser to perform a task. [...] for normal users to use `ping`, [which] is owned by user `root` and has the SUID bit set so that when you run `ping`, it executes with UID 0 regardless of your UID."*
 
+
+## BusyBox to the rescue!
+
+*"BusyBox tools implement a subset of the functions of the desktop equivalents, but they do enough of it to be useful in the majority of cases. Another trick BusyBox employs is to combine all the tools together into a single binary"*
+
+*"BusyBox has over three hundred applets including an init program, several shells of varying levels of complexity, and utilities for most admin tasks. There is even a simple version of the vi editor, so you can change text files on your device."*
+
+
+## ToyBox - an alternative to BusyBox
+
+*"ToyBox has the same aim as BusyBox, but with more emphasis on complying with standards, especially POSIX-2008 and LSB 4.1"*
+
+*"it implements fewer applets [than BusyBox]"*
+
+*"[The] main difference is the license, which is BSD rather than GPL v2."*
+
+
+## Reducing the size by stripping
+
+    :::bash
+    arm-cortex_a8-linux-gnueabihf-strip rootfs/lib/libc-2.22.so
+
+> Be careful about stripping kernel modules. Some symbols are required by the module loader to relocate the module code, and so the module will fail to load if they are stripped out. Use this command to remove debug symbols while keeping those used for relocation: strip --strip-unneeded <module name>.
+
+
+## Device nodes
+
+*"[...] Unix philosophy that everything is a file (except network interfaces, which are sockets)."*
+
+*"Block devices are mass storage devices, such as SD cards or hard drives. A character device is pretty much anything else, once again with the exception of network interfaces."*
+
+*"Device nodes are created using the program named `mknod` (short for make node):*"
+
+    :::bash
+    mknod <name> <type> <major> <minor>
+
+
+*"The parameters to `mknod` are as follows:*
+
+- *`name` is the name of the device node that you want to create.*
+- *`type` is either `c` for character devices or `b` for a block.* 
+- *`major` and `minor` are a pair of numbers, which are used by the kernel to route file requests to the appropriate device driver code. There is a list of standard major and minor numbers in the kernel source in the file `Documentation/devices.txt`."*
+
+
+*"In a really minimal root filesystem, you need just two nodes to boot with BusyBox: `console` and `null`."*
+
+
+*"The `console` only needs to be accessible to `root`, the owner of the device node, so the access permissions are `600`. The `null` device should be readable and writable by everyone, so the mode is `666`. You can use the `-m` option for `mknod` to set the mode when creating the node. You need to be `root` to create device nodes, as shown here:"*
+
+    :::bash
+    sudo mknod -m 666 dev/null c 1 3
+    sudo mknod -m 600 dev/console c 5 1
+
+
+*"You can delete device nodes using the standard `rm` command: there is no `rmnod` command because, once created, they are just files."*
+
