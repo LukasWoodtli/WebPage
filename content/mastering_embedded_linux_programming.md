@@ -794,3 +794,38 @@ Make targets:
 *"The difference between `/bin` and `/sbin` is simply that the latter need not be included in the search path for non-root users."*
 
 *"The significance of `/usr` is that it maybe in a separate partition from the root filesystem, so it cannot contain anything that is needed to boot the system up."*
+
+
+## POSIX file access permissions
+
+$$
+\begin{matrix}
+\left.\begin{matrix}
+400 & r & - & - & - & - & - & - & - & -\\ 
+200 & - & w & - & - & - & - & - & - & -\\ 
+100 & - & - & x & - & - & - & - & - & -
+\end{matrix}\right\} \text{Owner permissions}\\ 
+
+\left.\begin{matrix}
+040 & - & - & - & r & - & - & - & - & -\\ 
+020 & - & - & - & - & w & - & - & - & -\\ 
+010 & - & - & - & - & - & x & - & - & -
+\end{matrix}\right\} \text{Group permissions}\\ 
+
+\left.\begin{matrix}
+004 & - & - & - & - & - & - & r & - & -\\ 
+002 & - & - & - & - & - & - & - & w & -\\ 
+001 & - & - & - & - & - & - & - & - & x
+\end{matrix}\right\} \text{World permissions}
+\end{matrix}
+$$
+
+*"There is a further group of three bits that have special meanings:*
+
+- *SUID (4): If the file is executable, it changes the effective UID of the process to that of the owner of the file when the program is run.*
+- *SGID (2): Similar to SUID, this changes the effective GID of the process to that of the group of the file.*
+- *Sticky (1): In a directory, this restricts deletion so that one user cannot delete files that are owned by another user. This is usually set on `/tmp` and `/var/tmp`."*
+
+
+*"The SUID bit is probably used most often. It gives non-root users a temporary privilege escalation to superuser to perform a task. [...] for normal users to use `ping`, [which] is owned by user `root` and has the SUID bit set so that when you run `ping`, it executes with UID 0 regardless of your UID."*
+
