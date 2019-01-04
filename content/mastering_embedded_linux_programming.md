@@ -908,4 +908,122 @@ $$\begin{matrix}
 *"the role of `sysfs` is to present the kernel driver model to user space. It exports a hierarchy of files relating to devices and device drivers and the way they are connected to each other."*
 
 
+## Mounting filesystems
 
+*"The `mount` command allows us to attach one filesystem to a directory within another, forming a hierarchy of filesystems."*
+
+*"The format of the mount command is as follows:"*
+
+    :::bash
+    mount [-t vfstype] [-o options] device directory
+
+[man 8 mount](http://man7.org/linux/man-pages/man8/mount.8.html)
+
+*"Looking at the example of mounting the `proc` filesystem, there is something odd: there is no device node, such as `/dev/proc`, since it is a pseudo filesystem and not a real one. But the `mount` command requires a device parameter. Consequently, we have to give a string where `device` should go, but it does not matter much what that string is."*
+
+
+## Kernel modules
+
+*"Kernel modules [...] need to be installed into the root filesystem, using the kernel make target `modules_install`"*
+
+*"This will copy them into the directory called `/lib/modules/<kernel version>` together with the configuration files needed by the `modprobe` command."*
+
+
+## Transferring the root filesystem to the target
+
+Multiple posibilities:
+
+- *"initramfs: Also known as a ramdisk, [...] a filesystem image that is loaded into RAM by the bootloader. Ramdisks are easy to create and have no dependencies on mass storage drivers. They can be used in fallback maintenance mode when the main root filesystem needs updating. They can even be used as the main root filesystem in small embedded devices, and they are commonly used as the early user space in mainstream Linux distributions. [...] the contents of the root filesystem are volatile, and any changes [...] will be lost when the system next boots."*
+- *"Disk image: This is a copy of the root filesystem formatted and ready to be loaded onto a mass storage device on the target. [...] Creating a disk image is probably the most common option."*
+- *"Network filesystem: The staging directory can be exported to the network via an NFS server and mounted by the target at boot time. This is often done during the development phase"*
+
+
+## Creating a boot initramfs
+
+*"`initramfs` is a compressed `cpio` archive."*
+
+*"You need to configure your kernel with `CONFIG_BLK_DEV_INITRD` to support `initramfs`."*
+
+*"there are three different ways to create a boot ramdisk: as a standalone `cpio` archive, as a `cpio` archive embedded in the kernel image, and as a device table which the kernel build system processes as part of the build."*
+
+
+## Booting with QEMU
+
+*"QEMU has the option called `-initrd` to load `initramfs` into memory."*
+
+    :::bash
+    QEMU_AUDIO_DRV=none \
+    qemu-system-arm -m 256M -nographic -M versatilepb \
+    -kernel zImage -append "console=ttyAMA0 rdinit=/bin/sh" \
+    -dtb versatile-pb.dtb -initrd initramfs.cpio.gz
+
+
+## Building an initramfs into the kernel image
+
+*"Linux can be configured to incorporate `initramfs` into the kernel image. To do this [...] set `CONFIG_INITRAMFS_SOURCE` to the full path of the `cpio` archive. [...] Note that it has to be the uncompressed `cpio` file ending in `.cpio`, not the gzipped version. [...] Booting is the same as before, except that there is no ramdisk file."*
+
+For QEMU:
+
+    :::bash
+    QEMU_AUDIO_DRV=none qemu-system-arm -m 256M \
+    -nographic -M versatilepb -kernel zImage \
+    -append "console=ttyAMA0 rdinit=/bin/sh" \
+    -dtb versatile-pb.dtb
+
+
+For BeagleBone Black (U-Boot):
+
+    :::bash
+    fatload mmc 0:1 0x80200000 zImage
+    fatload mmc 0:1 0x80f00000 am335x-boneblack.dtb setenv bootargs console=ttyO0,115200 rdinit=/bin/sh bootz 0x80200000 – 0x80f00000
+
+
+## Building an initramfs using a device table
+
+*"A device table is a text file that lists the files, directories, device nodes, and links that go into an archive or filesystem image. The overwhelming advantage is that it allows you to create entries in the archive file that are owned by the `root` user, or any other UID, without having root privileges yourself."*
+
+*"It is only when it is expanded by Linux at boot time that real files and directories get created, using the attributes you have specified."*
+
+*"You write the device table file, and then point `CONFIG_INITRAMFS_SOURCE` at it. Then, when you build the kernel, it creates the `cpio` archive from the instructions in the device table. At no point do you need root access."*
+
+*"Creating an `initramfs` device table from scratch is made easier by a script in the kernel source code in `scripts/gen_initramfs_list.sh`, which creates a device table from a given directory."*
+
+
+## The old initrd format
+
+*"There is an older format for a Linux ramdisk, known as `initrd`. It was the only format available before Linux 2.6 and is still needed if you are using the mmu-less variant of Linux, uClinux. It is pretty obscure [...]. There is more information in the kernel source in `Documentation/initrd.txt`"*
+
+## The init program
+
+*"The init program [of BusyBox] begins by reading the configuration file, `/etc/inittab`."*
+
+## Adding user accounts to the root filesystem
+
+*"Add to your staging directory the files `etc/passwd`, `etc/shadow`, and `etc/group` [...]. Make sure that the permissions of `shadow` are `0600`. Next, you need to initiate the login procedure by starting a program called `getty`."*
+
+
+## A better way of managing device nodes
+
+*"There are other ways to create device nodes automatically on demand:*
+
+- `devtmpfs`: *This is a pseudo filesystem that you mount over `/dev` at boot time. The kernel populates it with device nodes for all the devices that the kernel currently knows about [...]. Take a look at the Linux source file: `drivers/char/mem.c` and see how `struct memdev` is initialized.*
+- `mdev`: *This is a BusyBox applet that is used to populate a directory with device nodes and to create new nodes as needed. There is a configuration file, `/etc/mdev.conf`, which contains rules for ownership and the mode of the nodes.*
+- `udev`: This is the mainstream equivalent of `mdev`. You will find it on desktop Linux and in some embedded devices. [...] It is now part of `systemd`."*
+
+## An example using devtmpfs
+
+*"Support for the `devtmpfs` filesystem is controlled by kernel configuration variable: `CONFIG_DEVTMPFS`."*
+
+*"If you enable `CONFIG_DEVTMPFS_MOUNT` in your kernel configuration, the kernel will automatically mount `devtmpfs` just after mounting the root filesystem. However, this option has no effect when booting `initramfs`"*
+
+## An example using mdev
+
+*"While `mdev` is a bit more complex to set up, it does allow you to modify the permissions of device nodes as they are created. You begin by running `mdev` with the `-s` option, which causes it to scan the `/sys` directory looking for information about current devices. From this information, it populates the `/dev` directory with the corresponding nodes. If you want to keep track of new devices coming online and create nodes for them as well, you need to make `mdev` a hot plug client by writing to `/proc/sys/kernel/hotplug."*
+
+*"[It] is documented in the BusyBox source code in `docs/mdev.txt`"*
+
+
+## Additional reading
+
+- [Filesystem Hierarchy Standard, Version 3.0](http://refspecs.linuxfoundation.org/fhs.shtml)
+- *ramfs*, *rootfs* and *initramfs*, Rob Landley, October 17, 2005, which is part of the Linux source in `Documentation/filesystems/ramfs-rootfs-initramfs.txt`
