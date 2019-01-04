@@ -847,7 +847,7 @@ $$\begin{matrix}
     :::bash
     arm-cortex_a8-linux-gnueabihf-strip rootfs/lib/libc-2.22.so
 
-> Be careful about stripping kernel modules. Some symbols are required by the module loader to relocate the module code, and so the module will fail to load if they are stripped out. Use this command to remove debug symbols while keeping those used for relocation: strip --strip-unneeded <module name>.
+> Be careful about stripping kernel modules. Some symbols are required by the module loader to relocate the module code, and so the module will fail to load if they are stripped out. Use this command to remove debug symbols while keeping those used for relocation: strip `--strip-unneeded <module name>`.
 
 
 ## Device nodes
@@ -880,4 +880,32 @@ $$\begin{matrix}
 
 
 *"You can delete device nodes using the standard `rm` command: there is no `rmnod` command because, once created, they are just files."*
+
+
+## The proc and sysfs filesystems
+
+*"`proc` and `sysfs` are two pseudo filesystems"*
+
+*"when you read one of the files [in `proc` or `sysfs`], the contents you see do not come from disk storage; it has been formatted on-the-fly by a function in the kernel. Some files are also writable, meaning that a kernel function is called with the new data you have written and, if it is of the correct format and you have sufficient permissions, it will modify the value stored in the kernel's memory. In other words, `proc` and `sysfs` provide another way to interact with device drivers and other kernel code."*
+
+
+*"The `proc` and `sysfs` filesystems should be mounted on the directories called `/proc` and `/sys`:*"
+
+    :::bash
+    mount -t proc proc /proc
+    mount -t sysfs sysfs /sys
+
+*"[The] purpose [of `proc`] was to expose information about processes to user space"*
+
+*"there is a directory for each process named `/proc/<PID>`, which contains information about its state."*
+
+*"there are files that give information about other parts of the kernel, for example, `/proc/cpuinfo` tells you about the CPU, `/proc/interrupts` has information about interrupts"*
+
+*"in `/proc/sys`, there are files that display and control the state and behavior of kernel subsystems, especially scheduling, memory management, and networking."*
+
+[man 5 proc](http://man7.org/linux/man-pages/man5/proc.5.html)
+
+*"the role of `sysfs` is to present the kernel driver model to user space. It exports a hierarchy of files relating to devices and device drivers and the way they are connected to each other."*
+
+
 
