@@ -1027,3 +1027,95 @@ For BeagleBone Black (U-Boot):
 
 - [Filesystem Hierarchy Standard, Version 3.0](http://refspecs.linuxfoundation.org/fhs.shtml)
 - *ramfs*, *rootfs* and *initramfs*, Rob Landley, October 17, 2005, which is part of the Linux source in `Documentation/filesystems/ramfs-rootfs-initramfs.txt`
+
+
+# Updating Software in the Field
+
+## Bootloader
+
+*"Updating the bootloader is risky: what happens if the system powers down midway? Consequently, most update solutions leave the bootloader alone. This is not a big problem, because the bootloader only runs for a short time at power-on and is not normally a great source of run- time bugs."*
+
+## Kernel
+
+*"There are several parts to the kernel [that need to be updated]:*
+
+- *A binary image loaded by the bootloader, often stored in the root filesystem.*
+- *Many devices also have a Device Tree Binary (DTB) [...]. The DTB is usually stored alongside the kernel binary.*
+- *There may be kernel modules in the root filesystem."*
+
+
+## Root filesystem
+
+*"The root filesystem contains the essential system libraries, utilities, and scripts needed to make the system work. It is very desirable to be able to replace and upgrade all of these. The mechanism depends on the implementation."*
+
+## System applications
+
+*"[The system applications] may be bundled with the root filesystem, but it is also common for them to be placed in a separate filesystem to make updating easier and to maintain separation between the system files, which are usually open source, and the application files, which are often proprietary."*
+
+## Device-specific data
+
+*"[Files that comntain] settings, logs, user-supplied data, and the like. It is not often that they need to be updated, but they do need to be preserved during an update"*
+
+## Making updates robust
+
+*"The update as a whole must be atomic: there should be no stage at which part of the system is updated but not other parts. There must be a single, uninterruptible change to the system that switches to the new version of software."*
+
+## Making updates fail-safe
+
+*"[It's possible to configure] the kernel to reboot a number of seconds after a panic. You can do this either when you build the kernel by setting `CONFIG_PANIC_TIMEOUT` or by setting the kernel command line to panic [e.g `panic=5` for reboot after 5 seconds]."*
+
+*"To enable panic on Oops in the kernel configuration, set `CONFIG_PANIC_ON_OOPS=y` or, on the kernel command line, `oops=panic`."*
+
+*"If you are using systemd, you can use the inbuilt watchdog function"*
+
+*"[Otherwise] you may want to enable the watchdog support built into Linux, as described in the kernel source code in `Documentation/watchdog`."*
+
+## Making updates secure
+
+*"Remote update [...] need a secure transfer channel, such as HTTPS."*
+
+*"[...] secure boot protocol in the bootloader. If the kernel image is signed at the factory with a digital key, the bootloader can check the key before it loads the kernel and refuse to load it if the keys do not match"*
+
+*"U-Boot implements such a mechanism, which is described in the U-Boot source code in `doc/uImage.FIT/verified-boot.txt`."*
+
+
+## Types of update mechanism
+
+### Symmetric image update
+
+*"There are several open source projects that implement symmetric image update. One is the **Mender** client operating in standalone mode [...]. Another is **SWUpdate** [...]. A third example is **RAUC**, the **Robust Auto-Update Controller**"*
+
+*"There are some drawbacks with this scheme. One is that by updating an entire filesystem image, the size of the update package is large."*
+
+*"A second drawback is the need to keep storage space for a redundant copy of the root filesystem and other components."*
+
+### Asymmetric image update
+
+*"You can reduce storage requirements by keeping a minimal recovery operating system purely for updating the main one"*
+
+*"Once the Recovery OS is running, it can stream updates to the main operating system image."*
+
+*"The Recovery OS is usually a lot smaller than the main operating system, maybe only a few megabytes."*
+
+*"For open source implementations of asymmetric image update, you could consider **SWUpdate** or **RAUC**"*
+
+### Atomic file updates
+
+*"Another approach is to have redundant copies of a root filesystem present in multiple directories of a single filesystem and then use the `chroot(8)` command to choose one of them at boot time."*
+
+*"The OSTree project, now renamed libOSTree, is the most popular implementation of this idea"*
+
+*"It is one of the update methods available in **Automotive Grade Linux (AGL)**, and it is available in the Yocto Project through the meta-update layer, which is supported by **Advanced Telematic Systems (ATS)**."*
+
+
+## OTA updates
+
+*"Two examples of open source projects [...] for OTA update:*
+
+- *Mender in managed mode*
+- *The hawkBit in conjunction with an updater client such as **SWUpdate** or **RAUC**"*
+
+## Summary
+
+*"The approach used most often, and also the one with most real-world testing, is the symmetric image (**A/B**) update, or its cousin the asymmetric (recovery) image update. Here, you have the choice of SWUpdate, RAUC, and Mender."*
+
