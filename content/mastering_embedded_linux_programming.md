@@ -1119,3 +1119,58 @@ For BeagleBone Black (U-Boot):
 
 *"The approach used most often, and also the one with most real-world testing, is the symmetric image (**A/B**) update, or its cousin the asymmetric (recovery) image update. Here, you have the choice of SWUpdate, RAUC, and Mender."*
 
+
+# Interfacing with Device Drivers
+
+*"In many cases, you will find that there are device drivers provided for you, and you can achieve everything you want without writing any kernel code. For example, you can manipulate GPIO pins and LEDs using files in **sysfs**, and there are libraries to access serial buses, including **SPI (Serial Peripheral Interface)** and **I2C (Inter-Integrated Circuit)**."*
+
+## The role of device drivers
+
+*"One driver may control multiple devices of the same kind."*
+
+*"Kernel device driver code runs at a high privilege level, as does the rest of the kernel. It has full access to the processor address space and hardware registers. It can handle interrupts and DMA transfers."*
+
+*"Device drivers should be as simple as possible by just providing information to applications where the real decisions are made."*
+
+*"In Linux, there are three main types of device driver:*
+
+- *Character: This is for an unbuffered I/O with a rich range of functions and a thin layer between the application code and the driver. It is the first choice when implementing custom device drivers.*
+- *Block: This has an interface tailored for block I/O to and from mass storage devices. There is a thick layer of buffering designed to make disk reads and writes as fast as possible, which makes it unsuitable for anything else.*
+- *Network: This is similar to a block device but is used for transmitting and receiving network packets rather than disk blocks."*
+
+*"There is also a fourth type that presents itself as a group of files in one of the pseudo file systems. For example, you might access the GPIO driver through a group of files in `/sys/class/gpio`"*
+
+
+## Character devices
+
+*"Character devices are identified in user space by a special file called a **device node**. This file name is mapped to a device driver using the major and minor numbers associated with it. Broadly speaking, the **major number** maps the device node to a particular device driver, and the **minor number** tells the driver which interface is being accessed."*
+
+*"The list of standard major and minor numbers can be found in the kernel documentation in `Documentation/devices.txt`. The list does not get updated very often."*
+
+*"When you open a character device node, the kernel checks to see whether the major and minor numbers fall into a range registered by a character device driver. If so, it passes the call to the driver, otherwise the open call fails. The device driver can extract the minor number to find out which hardware interface to use."*
+
+
+*"[One could use] the stream I/O functions, `fopen(3)`, `fread(3)`, and `fclose(3)` instead [of `open(2)`, `read(2)`, and `close(2)`], but the buffering implicit in these functions often causes unexpected behavior."*
+
+
+## Block devices
+
+*"Although character and block devices are identified using major and minor numbers, they are in different namespaces. A character driver with a major number 4 is in no way related to a block driver with a major number 4."*
+
+*"With block devices, the major number is used to identify the device driver and the minor number is used to identify the partition."*
+
+*"Both the MMC and SCSI block drivers expect to find a partiton table at the start of the disk. The partition table is created using utilities such as `fdisk`, `sfidsk`, or `parted`."*
+
+*"Both the MMC and SCSI block drivers expect to find a partiton table at the start of the disk. The partition table is created using utilities such as fdisk, sfidsk, or parted."*
+
+
+## Network devices
+
+*"Network devices are not accessed through device nodes, and they do not have major and minor numbers. Instead, a network device is allocated a name by the kernel, based on a string and an instance number."*
+
+*"[User space programs] interact with the network driver indirectly by opening sockets"*
+
+*"It is possible to access network devices directly from user space by creating a socket and using the ioctl commands listed in `include/linux/sockios.h`"*
+
+
+
