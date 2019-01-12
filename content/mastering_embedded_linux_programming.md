@@ -1173,4 +1173,129 @@ For BeagleBone Black (U-Boot):
 *"It is possible to access network devices directly from user space by creating a socket and using the ioctl commands listed in `include/linux/sockios.h`"*
 
 
+## Finding out about drivers at runtime
+
+*"You can find out a lot by reading the files in `/proc` and `/sys`."*
+
+    :::bash
+    cat /proc/devices
+
+*"For each driver, you can see the major number and the base name."*
+
+*"network devices do not appear in this list, because they do not have device nodes."*
+
+    :::bash
+    ip link show
+
+
+### Getting information from `sysfs`
+
+*"`sysfs` [is a] representation of kernel objects, attributes, and relationships. A kernel object is a directory, an attribute is a file, and a relationship is a symbolic link from one object to another"*
+
+*"You can see the kernel's view of the system laid out before you by looking in `/sys`."*
+
+#### The devices: `/sys/devices`
+
+*"There are three directories that are present on all systems:*
+
+- *`system/`: This contains devices at the heart of the system, including CPUs and clocks.*
+- *`virtual/`: This contains devices that are memory-based. You will find the memory devices that appear as `/dev/null`, `/dev/random`, and `/dev/zero` in `virtual/mem`. You will find the loopback device, `lo`, in `virtual/net`.*
+- *`platform/`: This is a catch-all for devices that are not connected via a conventional hardware bus. This maybe almost everything on an embedded device.*"
+
+*"The other devices appear in directories that correspond to actual system buses."*
+
+
+*"Navigating this hierarchy is quite hard, because it requires some knowledge of the topology of your system, and the path-names become quite long and hard to remember. To make life easier, `/sys/class` and `/sys/block` offer two different views of the devices."*
+
+#### The drivers: `/sys/class`
+*"This is a view of the device drivers presented by their type. In other words, it is a software view rather than a hardware view."*
+
+##### The block drivers: `/sys/block`
+
+*"There is a subdirectory for each block device."*
+
+*"The conclusion, then, is that you can learn a lot about the devices (the hardware) and the drivers (the software) that are present on a system by reading `sysfs`."*
+
+## Finding the right device driver
+
+*"Where do you start to look for device drivers to support all of these peripherals?"*
+
+*"There maybe support in your kernel already: there are many thousands of drivers in mainline Linux and there are many vendor-specific drivers in the vendor kernels. Begin by running `make menuconfig` (or `xconfig`) and search for the product name or number."*
+
+*"Next, try searching through the code in the drivers directory"*
+
+## Device drivers in user space
+
+*"There are generic device drivers for many common types of device that allow you to interact with hardware directly from user space without having to write a line of kernel code. User space code is certainly easier to write and debug. It is also not covered by the GPL."*
+
+*"These drivers fall into two broad categories: those that you control through files in `sysfs`, including GPIO and LEDs, and serial buses that expose a generic interface through a device node, such as $I^2C$."*
+
+
+### GPIO
+
+*"Each [pin] can be in one of two states: either high or low. In most cases you can configure the GPIO pin to be either an input or an output. You can even use a group of GPIO pins to create higher level interfaces such as $I^2C$ or SPI by manipulating each bit in software, a technique that is called **bit banging**."*
+
+*"Generally speaking, it is hard to achieve timer accuracy better than a millisecond unless you configure a real-time kernel."*
+
+*"More common use cases for GPIO are for reading push buttons and digital sensors and controlling LEDs, motors, and relays."*
+
+*"All this diversity is handled by a kernel subsystem known as `gpiolib`, which is not actually a library but the infrastructure GPIO drivers use to expose I/O in a consistent way. There are details about the implementation of gpiolib in the kernel source in `Documentation/gpio` and the code for the drivers themselves is in `drivers/gpio`."*
+
+*"Applications can interact with gpiolib through files in the `/sys/class/gpio` directory."*
+
+*"The file named `base` contains the number of the first GPIO pin in the register and `ngpio` contains the number of bits in the register."*
+
+*"To control a GPIO bit from user space, you first have to export it from kernel space, which you do by writing the GPIO number to `/sys/class/gpio/export`."*
+
+*"You can remove a GPIO from user space control by writing the GPIO number to `/sys/class/gpio/unexport`."*
+
+#### Handling interrupts from GPIO
+
+*"If the GPIO bit can generate interrupts, the file called `edge`    exists. Initially, it has the value called `none`, meaning that it does not generate interrupts. To enable interrupts, you can set it to one of these values:*
+
+- *`rising`: Interrupt on rising edge*
+- *`falling`: Interrupt on falling edge*
+- *`both`: Interrupt on both rising and falling edges*
+- *`none`: No interrupts (default)"*
+
+
+### LEDs
+
+*"LEDs are often controlled though a GPIO pin, but there is another kernel subsystem that offers more specialized control specific to the purpose. The `leds` kernel subsystem adds the ability to set brightness, should the LED have that ability, and it can handle LEDs connected in other ways than a simple GPIO pin."*
+
+*"You will have to configure your kernel with the option, `CONFIG_LEDS_CLASS`, and with the LED trigger actions that are appropriate to you. There is more information on `Documentation/leds/`, and the drivers are in `drivers/leds/`."*
+
+*"LEDs are controlled through an interface in `sysfs` in the directory `/sys/class/leds`."*
+
+
+### $I^2C$
+
+*"There is a related standard known as **system management bus** (**SMBus**) that is found on PCs, which is used to access temperature and voltage sensors. SMBus is a subset of I2C."*
+
+*"$I^2C$ is a master-slave protocol with the master being one or more host controllers on the SoC. Slaves have a 7-bit address assigned by the manufacturer (read the data sheet)."*
+
+*"The master may initiate a read or write transactions with one of the slaves. Frequently, the first byte is used to specify a register on the slave, and the remaining bytes are the data read from or written to that register."*
+
+*"There is one device node for each host controller"*
+
+    :::bash
+    ls -l /dev/i2c*
+
+*"The device interface provides a series of `ioctl` commands that query the host controller and send the `read` and `write` commands to $I^2C$ slaves. There is a package named i2c-tools."*
+
+*"The `i2c-tools` package is available in Buildroot and the Yocto Project as well as most mainstream distributions."*
+
+
+### Serial Peripheral Interface (SPI)
+
+*"The SPI bus is similar to I2C, but is a lot faster, up to tens of MHz."*
+
+*"There is a generic SPI device driver, which you can enable through the kernel configuration `CONFIG_SPI_SPIDEV`."*
+
+*"The device nodes are named `spidev[bus].[chip select]`"*
+
+    :::bash
+    ls -l /dev/spi*
+
+*"[There is] example code in `Documentation/spi`."*
 
