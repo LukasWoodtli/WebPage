@@ -1299,3 +1299,43 @@ For BeagleBone Black (U-Boot):
 
 *"[There is] example code in `Documentation/spi`."*
 
+
+## Writing a kernel device driver
+
+*"Character drivers are the most flexible and should cover 90% of all your needs."*
+
+## Designing a character driver interface
+
+*"There are other ways to communicate with device drivers than just `read` and `write` [check the book for more details]:*
+
+- *`ioctl`: The kernel maintainers dislike `ioctl` because it makes kernel code and application code too interdependent*
+- *`sysfs`: This is the preferred way now*
+- *`mmap`: You can get direct access to kernel buffers and hardware registers by mapping kernel memory into user space, bypassing the kernel.*
+- *`debugfs`: This is another pseudo filesystem. [...] There is a good description of `debugfs` in the kernel documentation, `Documentation/filesystems/debugfs.txt`.*
+- *`netlink`: creates a socket that links kernel space to user space.*"
+
+
+## Compiling kernel modules
+
+*"Kernel modules are not binary compatible between kernel releases and configurations: the module will only load on the kernel it was compiled with."*
+
+
+## Loading kernel modules
+
+*"You can load, unload, and list modules using the simple `insmod`, `lsmod`, and `rmmod` commands"*
+
+*"If the module is placed in a subdirectory in `/lib/modules/<kernel release>`, you can create a **modules dependency database** using the command, `depmod -a`"*
+
+## Discovering the hardware configuration
+
+*"Devices on a discoverable bus such as PCI or USB have a query mode, which returns resource requirements and a unique identifier."*
+
+*"Most of the hardware blocks on an embedded board do not have such identifiers. You have to provide the information yourself in the form of a **device tree** or as C structures known as **platform data**."*
+
+## Linking hardware with device drivers
+
+*"For most drivers, specific bindings are documented in `Documentation/devicetree/bindings`."*
+
+## Summary
+
+*"Character driver interface is the most flexible and therefore, the most common. Linux drivers fit into a framework known as the driver model, which is exposed through `sysfs`. Pretty much the entire state of the devices and drivers is visible in `/sys`."*
