@@ -40,7 +40,7 @@ My code examples can be found here: [GitHub](https://github.com/LukasWoodtli/Mas
 
 *"Debugging and optimizing performance (chapters 12 and 13) describe how to trace, profile, and debug your code in both the applications and the kernel."*
 
-## The four elements of embedded Linux
+### The four elements of embedded Linux
 
 - *"Toolchain: This consists of the compiler and other tools needed to create code for your target device. Everything else depends on the toolchain."*
 - *"Bootloader: This is necessary to initialize the board and to load and boot the Linux kernel."*
@@ -79,7 +79,7 @@ My code examples can be found here: [GitHub](https://github.com/LukasWoodtli/Mas
 *"of the header files in the include directory of your kernel source code. Those headers are intended for use in the kernel only and contain definitions that will cause conflicts if used in their raw state to compile regular Linux applications. Instead, you will need to generate a set of sanitized kernel headers"*
 
 
-## Types of toolchain - native versus cross toolchain
+### Types of toolchain - native versus cross toolchain
 
 *"here are two types of toolchain:*
 
@@ -91,7 +91,7 @@ My code examples can be found here: [GitHub](https://github.com/LukasWoodtli/Mas
 *"there is a counter argument in favor of native development. Cross development creates the burden of cross-compiling all the libraries and tools that you need for your target."*
 
 
-## CPU architectures
+### CPU architectures
 
 *"toolchain has to be built according to the capabilities of the target CPU:*
 
@@ -101,12 +101,12 @@ My code examples can be found here: [GitHub](https://github.com/LukasWoodtli/Mas
 - *Application Binary Interface (ABI): The calling convention used for passing parameters between function calls"*
 
 
-### ARM OABI, EABI and EABIHF
+#### ARM OABI, EABI and EABIHF
 
 *"With many architectures, the ABI is constant across the family of processors. One notable exception is ARM. The ARM architecture transitioned to the *Extended Application Binary Interface* (**EABI**) in the late 2000's, resulting in the previous ABI being named the *Old Application Binary Interface* (**OABI**). While the OABI is now obsolete, you continue to see references to EABI. Since then, the *EABI has split into two*, based on the way that floating point parameters are passed. The *original EABI uses general purpose (integer)* registers* while the *newer **EABIHF** uses floating point registers. The EABIHF is significantly faster at floating point operations since it removes the need for copying between integer and floating point registers, but it is not compatible with CPUs that do not have a floating point unit. The choice, then, is between two incompatible ABIs: *you cannot mix and match the two* and so you have to decide at this stage."*
 
 
-### GNU prefix tuple
+#### GNU prefix tuple
 
 *"GNU uses a prefix to the tools to identify the various combinations that can be generated, consisting of a tuple of three or four components separated by dashes:*
 
@@ -118,7 +118,7 @@ My code examples can be found here: [GitHub](https://github.com/LukasWoodtli/Mas
 *"You can find the tuple used when building the toolchain by using the `-dumpmachine` option of `gcc`"*
 
 
-## Choosing the C library
+### Choosing the C library
 
 *"The programming interface to the Unix operating system is defined in the C language, which is now defined by the **POSIX** standards. The C library is the implementation of that interface"*
 
@@ -524,7 +524,9 @@ Example:
 
 *"Interrupts can only be handled in a device driver, never by a user space application."*
 
-## Stable and long term support releases
+## Choosing a kernel
+
+### Stable and long term support releases
 
 *"[...] stable releases and long term releases. After the release of a mainline kernel (maintained by Linus Torvalds) it is moved to the stable tree (maintained by Greg Kroah-Hartman)."*
 
@@ -536,11 +538,11 @@ Example:
 [http://kernelnewbies.org/LinuxVersions](kernelnewbies.org)
 
 
-## Vendor support
+### Vendor support
 
 *"You may find support for your board or SoC from independent open source projects, Linaro or the Yocto Project, for example, or from companies providing third party support for embedded Linux, but in many cases you will be obliged to look to the vendor of your SoC or board for a working kernel."*
 
-## Licensing
+### Licensing
 
 *"The Linux source code is licensed under GPL v2"*
 
@@ -548,7 +550,9 @@ Example:
 
 *"[...] an oft-quoted e-mail thread titled "Linux GPL and binary module exception clause?" which is archived at [http://yarchive.net/comp/linux/gpl_modules.html](http://yarchive.net)
 
-## Getting the source
+## Building the kernel
+
+### Getting the source
 
 *"The main directories of interest are:*
 
@@ -565,7 +569,7 @@ Example:
 - `tools`: *many useful tools."*
 
 
-## Understanding kernel configuration - Kconfig
+### Understanding kernel configuration - Kconfig
 
 *"The value you put into `ARCH` is one of the subdirectories you find in directory arch, with the oddity that `ARCH=i386` and `ARCH=x86_64` both source `arch/x86/Kconfig`.
 
@@ -575,7 +579,7 @@ Example:
 
 *"[There is a] target named `oldconfig`. This takes an existing `.config` file and asks you to supply configuration values for any options that don't have them. You would use it when moving a configuration to a newer kernel version; copy `.config` from the old kernel to the new source directory and run the `make ARCH=arm oldconfig` command to bring it up to date. It can also be used to validate a `.config` file that you have edited manually"*
 
-## Using LOCALVERSION to identify your kernel
+### Using LOCALVERSION to identify your kernel
 
 
     :::bash
@@ -583,7 +587,7 @@ Example:
 
 *"If you change the configuration from the default, it is advisable to append your own version information, which you can configure by setting `CONFIG_LOCALVERSION`"*
 
-## Kernel modules
+### Kernel modules
 
 
 *"[A] few cases where kernel modules are a good idea in embedded systems:*
@@ -593,7 +597,9 @@ Example:
 - *reduce boot time by deferring the loading of non-essential drivers*
 - *[it] would take up too much memory to compile [all drivers] statically*
 
-## Finding out which kernel target to build
+## Compiling - Kbuild
+
+### Finding out which kernel target to build
 
 *"To build a kernel image, you need to know what your bootloader expects.*
 
@@ -611,7 +617,7 @@ The problem occurs because the location of physical memory might be different fo
     ::bash
     CROSS_COMPILE=arm-cortex_a8-linux-gnueabihf- LOADADDR=0x80008000 uImage
 
-## Build artifacts
+### Build artifacts
 
 *"If you have compiled your kernel with debug enabled (`CONFIG_DEBUG_INFO=y`), it will contain debug symbols which can be used with debuggers like `kgdb`"*
 
@@ -625,7 +631,7 @@ The problem occurs because the location of physical memory might be different fo
 - `uImage`: *`zImage` plus a 64-byte U-Boot header.*"
 
 
-## Compiling device trees
+### Compiling device trees
 
 *"The `dtbs` target builds device trees according to the rules in `arch/$ARCH/boot/dts/Makefile`"* , using the device tree source files in that directory."*
 
@@ -634,7 +640,7 @@ The problem occurs because the location of physical memory might be different fo
 
 *"The compiled `.dtb` files are generated in the same directory as the sources."*
 
-## Compiling modules
+### Compiling modules
 
 *"Build [modules] separately using the `modules` target:"*
 
@@ -652,7 +658,7 @@ The problem occurs because the location of physical memory might be different fo
     CROSS_COMPILE=arm-cortex_a8-linux-gnueabihf- INSTALL_MOD_PATH=$HOME/rootfs modules_install
 
 
-## Cleaning kernel sources
+### Cleaning kernel sources
 
 Make targets:
 
@@ -661,7 +667,9 @@ Make targets:
 - `distclean`: *This is the same as `mrproper`, but also deletes editor backup files, patch files, and other artifacts of software development.*"
 
 
-## Early user space
+## Booting the kernel
+
+### Early user space
 
 *"In order to transition from kernel initialization to user space, the kernel has to mount a root filesystem and execute a program in that root filesystem. This can be achieved via a ramdisk or by mounting a real filesystem on a block device."*
 
@@ -680,7 +688,7 @@ Make targets:
 *"If the mount succeeds, it will try to execute `/sbin/init`, followed by `/etc/init`, `/bin/init`, and then `/bin/sh`, stopping at the first one that works."*
 
 
-## Kernel messages
+### Kernel messages
 
 
 | Level        | Value | Meaning                           |
@@ -702,7 +710,7 @@ Make targets:
 *"The default console log level is `7`, meaning that messages of level `6` and lower are displayed"*
 
 
-## Kernel command line
+### Kernel command line
 
 *"[The kernel command line string can be set] via the `bootargs` variable in the case of U-Boot; it can also be defined in the device tree, or set as part of the kernel configuration in `CONFIG_CMDLINE`."*
 
@@ -748,7 +756,7 @@ Make targets:
 *"The root filesystem can be a ramdisk or a filesystem accessed via a block device,"*
 
 
-# Building a Root Filesystem
+# Chapter 5. Building a Root Filesystem
 
 ## What should be in the root filesystem?
 
@@ -767,7 +775,7 @@ Make targets:
 - *Kernel modules: If you have configured some parts of your kernel to be modules, they need to be installed in the root filesystem, usually in `/lib/modules/[kernel version]`"*
 
 
-## The directory layout
+### The directory layout
 
 *"The Linux kernel does not care about the layout of files and directories beyond the existence of the program named by `init=` or `rdinit=`"*
 
@@ -796,7 +804,7 @@ Make targets:
 *"The significance of `/usr` is that it maybe in a separate partition from the root filesystem, so it cannot contain anything that is needed to boot the system up."*
 
 
-## POSIX file access permissions
+### POSIX file access permissions
 
 $$\begin{matrix}
 \left.\begin{matrix}
@@ -825,15 +833,16 @@ $$\begin{matrix}
 
 *"The SUID bit is probably used most often. It gives non-root users a temporary privilege escalation to superuser to perform a task. [...] for normal users to use `ping`, [which] is owned by user `root` and has the SUID bit set so that when you run `ping`, it executes with UID 0 regardless of your UID."*
 
+### Programs for the root filesystem
 
-## BusyBox to the rescue!
+#### BusyBox to the rescue!
 
 *"BusyBox tools implement a subset of the functions of the desktop equivalents, but they do enough of it to be useful in the majority of cases. Another trick BusyBox employs is to combine all the tools together into a single binary"*
 
 *"BusyBox has over three hundred applets including an init program, several shells of varying levels of complexity, and utilities for most admin tasks. There is even a simple version of the vi editor, so you can change text files on your device."*
 
 
-## ToyBox - an alternative to BusyBox
+#### ToyBox - an alternative to BusyBox
 
 *"ToyBox has the same aim as BusyBox, but with more emphasis on complying with standards, especially POSIX-2008 and LSB 4.1"*
 
@@ -841,8 +850,9 @@ $$\begin{matrix}
 
 *"[The] main difference is the license, which is BSD rather than GPL v2."*
 
+### Libraries for the root filesystem
 
-## Reducing the size by stripping
+#### Reducing the size by stripping
 
     :::bash
     arm-cortex_a8-linux-gnueabihf-strip rootfs/lib/libc-2.22.so
@@ -850,7 +860,7 @@ $$\begin{matrix}
 > Be careful about stripping kernel modules. Some symbols are required by the module loader to relocate the module code, and so the module will fail to load if they are stripped out. Use this command to remove debug symbols while keeping those used for relocation: strip `--strip-unneeded <module name>`.
 
 
-## Device nodes
+### Device nodes
 
 *"[...] Unix philosophy that everything is a file (except network interfaces, which are sockets)."*
 
@@ -882,7 +892,7 @@ $$\begin{matrix}
 *"You can delete device nodes using the standard `rm` command: there is no `rmnod` command because, once created, they are just files."*
 
 
-## The proc and sysfs filesystems
+### The proc and sysfs filesystems
 
 *"`proc` and `sysfs` are two pseudo filesystems"*
 
@@ -908,7 +918,7 @@ $$\begin{matrix}
 *"the role of `sysfs` is to present the kernel driver model to user space. It exports a hierarchy of files relating to devices and device drivers and the way they are connected to each other."*
 
 
-## Mounting filesystems
+#### Mounting filesystems
 
 *"The `mount` command allows us to attach one filesystem to a directory within another, forming a hierarchy of filesystems."*
 
@@ -922,7 +932,7 @@ $$\begin{matrix}
 *"Looking at the example of mounting the `proc` filesystem, there is something odd: there is no device node, such as `/dev/proc`, since it is a pseudo filesystem and not a real one. But the `mount` command requires a device parameter. Consequently, we have to give a string where `device` should go, but it does not matter much what that string is."*
 
 
-## Kernel modules
+### Kernel modules
 
 *"Kernel modules [...] need to be installed into the root filesystem, using the kernel make target `modules_install`"*
 
@@ -947,7 +957,7 @@ Multiple posibilities:
 *"there are three different ways to create a boot ramdisk: as a standalone `cpio` archive, as a `cpio` archive embedded in the kernel image, and as a device table which the kernel build system processes as part of the build."*
 
 
-## Booting with QEMU
+### Booting with QEMU
 
 *"QEMU has the option called `-initrd` to load `initramfs` into memory."*
 
@@ -958,7 +968,7 @@ Multiple posibilities:
     -dtb versatile-pb.dtb -initrd initramfs.cpio.gz
 
 
-## Building an initramfs into the kernel image
+### Building an initramfs into the kernel image
 
 *"Linux can be configured to incorporate `initramfs` into the kernel image. To do this [...] set `CONFIG_INITRAMFS_SOURCE` to the full path of the `cpio` archive. [...] Note that it has to be the uncompressed `cpio` file ending in `.cpio`, not the gzipped version. [...] Booting is the same as before, except that there is no ramdisk file."*
 
@@ -978,7 +988,7 @@ For BeagleBone Black (U-Boot):
     fatload mmc 0:1 0x80f00000 am335x-boneblack.dtb setenv bootargs console=ttyO0,115200 rdinit=/bin/sh bootz 0x80200000 – 0x80f00000
 
 
-## Building an initramfs using a device table
+### Building an initramfs using a device table
 
 *"A device table is a text file that lists the files, directories, device nodes, and links that go into an archive or filesystem image. The overwhelming advantage is that it allows you to create entries in the archive file that are owned by the `root` user, or any other UID, without having root privileges yourself."*
 
@@ -989,7 +999,7 @@ For BeagleBone Black (U-Boot):
 *"Creating an `initramfs` device table from scratch is made easier by a script in the kernel source code in `scripts/gen_initramfs_list.sh`, which creates a device table from a given directory."*
 
 
-## The old initrd format
+### The old initrd format
 
 *"There is an older format for a Linux ramdisk, known as `initrd`. It was the only format available before Linux 2.6 and is still needed if you are using the mmu-less variant of Linux, uClinux. It is pretty obscure [...]. There is more information in the kernel source in `Documentation/initrd.txt`"*
 
@@ -997,7 +1007,7 @@ For BeagleBone Black (U-Boot):
 
 *"The init program [of BusyBox] begins by reading the configuration file, `/etc/inittab`."*
 
-## Adding user accounts to the root filesystem
+### Adding user accounts to the root filesystem
 
 *"Add to your staging directory the files `etc/passwd`, `etc/shadow`, and `etc/group` [...]. Make sure that the permissions of `shadow` are `0600`. Next, you need to initiate the login procedure by starting a program called `getty`."*
 
@@ -1010,13 +1020,13 @@ For BeagleBone Black (U-Boot):
 - `mdev`: *This is a BusyBox applet that is used to populate a directory with device nodes and to create new nodes as needed. There is a configuration file, `/etc/mdev.conf`, which contains rules for ownership and the mode of the nodes.*
 - `udev`: This is the mainstream equivalent of `mdev`. You will find it on desktop Linux and in some embedded devices. [...] It is now part of `systemd`."*
 
-## An example using devtmpfs
+### An example using devtmpfs
 
 *"Support for the `devtmpfs` filesystem is controlled by kernel configuration variable: `CONFIG_DEVTMPFS`."*
 
 *"If you enable `CONFIG_DEVTMPFS_MOUNT` in your kernel configuration, the kernel will automatically mount `devtmpfs` just after mounting the root filesystem. However, this option has no effect when booting `initramfs`"*
 
-## An example using mdev
+### An example using mdev
 
 *"While `mdev` is a bit more complex to set up, it does allow you to modify the permissions of device nodes as they are created. You begin by running `mdev` with the `-s` option, which causes it to scan the `/sys` directory looking for information about current devices. From this information, it populates the `/dev` directory with the corresponding nodes. If you want to keep track of new devices coming online and create nodes for them as well, you need to make `mdev` a hot plug client by writing to `/proc/sys/kernel/hotplug."*
 
@@ -1029,9 +1039,11 @@ For BeagleBone Black (U-Boot):
 - *ramfs*, *rootfs* and *initramfs*, Rob Landley, October 17, 2005, which is part of the Linux source in `Documentation/filesystems/ramfs-rootfs-initramfs.txt`
 
 
-# Updating Software in the Field
+# Chapter 8. Updating Software in the Field
 
-## Bootloader
+## What to update?
+
+### Bootloader
 
 *"Updating the bootloader is risky: what happens if the system powers down midway? Consequently, most update solutions leave the bootloader alone. This is not a big problem, because the bootloader only runs for a short time at power-on and is not normally a great source of run- time bugs."*
 
@@ -1044,23 +1056,25 @@ For BeagleBone Black (U-Boot):
 - *There may be kernel modules in the root filesystem."*
 
 
-## Root filesystem
+### Root filesystem
 
 *"The root filesystem contains the essential system libraries, utilities, and scripts needed to make the system work. It is very desirable to be able to replace and upgrade all of these. The mechanism depends on the implementation."*
 
-## System applications
+### System applications
 
 *"[The system applications] may be bundled with the root filesystem, but it is also common for them to be placed in a separate filesystem to make updating easier and to maintain separation between the system files, which are usually open source, and the application files, which are often proprietary."*
 
-## Device-specific data
+### Device-specific data
 
 *"[Files that comntain] settings, logs, user-supplied data, and the like. It is not often that they need to be updated, but they do need to be preserved during an update"*
 
-## Making updates robust
+## The basics of software update
+
+### Making updates robust
 
 *"The update as a whole must be atomic: there should be no stage at which part of the system is updated but not other parts. There must be a single, uninterruptible change to the system that switches to the new version of software."*
 
-## Making updates fail-safe
+### Making updates fail-safe
 
 *"[It's possible to configure] the kernel to reboot a number of seconds after a panic. You can do this either when you build the kernel by setting `CONFIG_PANIC_TIMEOUT` or by setting the kernel command line to panic [e.g `panic=5` for reboot after 5 seconds]."*
 
@@ -1070,7 +1084,7 @@ For BeagleBone Black (U-Boot):
 
 *"[Otherwise] you may want to enable the watchdog support built into Linux, as described in the kernel source code in `Documentation/watchdog`."*
 
-## Making updates secure
+### Making updates secure
 
 *"Remote update [...] need a secure transfer channel, such as HTTPS."*
 
@@ -1120,7 +1134,7 @@ For BeagleBone Black (U-Boot):
 *"The approach used most often, and also the one with most real-world testing, is the symmetric image (**A/B**) update, or its cousin the asymmetric (recovery) image update. Here, you have the choice of SWUpdate, RAUC, and Mender."*
 
 
-# Interfacing with Device Drivers
+# Chapter 9. Interfacing with Device Drivers
 
 *"In many cases, you will find that there are device drivers provided for you, and you can achieve everything you want without writing any kernel code. For example, you can manipulate GPIO pins and LEDs using files in **sysfs**, and there are libraries to access serial buses, including **SPI (Serial Peripheral Interface)** and **I2C (Inter-Integrated Circuit)**."*
 
@@ -1208,6 +1222,7 @@ For BeagleBone Black (U-Boot):
 *"Navigating this hierarchy is quite hard, because it requires some knowledge of the topology of your system, and the path-names become quite long and hard to remember. To make life easier, `/sys/class` and `/sys/block` offer two different views of the devices."*
 
 #### The drivers: `/sys/class`
+
 *"This is a view of the device drivers presented by their type. In other words, it is a software view rather than a hardware view."*
 
 ##### The block drivers: `/sys/block`
@@ -1304,7 +1319,7 @@ For BeagleBone Black (U-Boot):
 
 *"Character drivers are the most flexible and should cover 90% of all your needs."*
 
-## Designing a character driver interface
+### Designing a character driver interface
 
 *"There are other ways to communicate with device drivers than just `read` and `write` [check the book for more details]:*
 
@@ -1315,12 +1330,12 @@ For BeagleBone Black (U-Boot):
 - *`netlink`: creates a socket that links kernel space to user space.*"
 
 
-## Compiling kernel modules
+### Compiling kernel modules
 
 *"Kernel modules are not binary compatible between kernel releases and configurations: the module will only load on the kernel it was compiled with."*
 
 
-## Loading kernel modules
+### Loading kernel modules
 
 *"You can load, unload, and list modules using the simple `insmod`, `lsmod`, and `rmmod` commands"*
 
@@ -1332,7 +1347,7 @@ For BeagleBone Black (U-Boot):
 
 *"Most of the hardware blocks on an embedded board do not have such identifiers. You have to provide the information yourself in the form of a **device tree** or as C structures known as **platform data**."*
 
-## Linking hardware with device drivers
+### Linking hardware with device drivers
 
 *"For most drivers, specific bindings are documented in `Documentation/devicetree/bindings`."*
 
