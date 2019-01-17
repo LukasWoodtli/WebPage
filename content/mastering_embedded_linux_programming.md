@@ -1694,3 +1694,27 @@ to `conf/local.conf` or to your image recipe."*
 ## Summary
 
 *"Character driver interface is the most flexible and therefore, the most common. Linux drivers fit into a framework known as the driver model, which is exposed through `sysfs`. Pretty much the entire state of the devices and drivers is visible in `/sys`."*
+
+
+# Chapter 10. Starting Up - The init Program
+
+*"There are many possible implementations of `init`."*
+
+*"The three main ones [are]: BusyBox `init`, System V `init`, and `systemd`."*
+
+## After the kernel has booted
+
+*"The `init` program has `root` privilege, and since it is the first process to run, it has a process ID (`PID`) of `1`."*
+
+*"The tasks it has to perform are as follows:*
+
+- *At boot, it starts daemon programs and configures system parameters and [...] get the system into a working state.
+Optionally, it launches a login daemon, such as `getty`, on Terminals that allow a
+login shell.*
+- *It adopts processes that become orphaned as a result of their immediate parent terminating and there being no other processes in the thread group.*
+- *It responds to any of the `init`'s immediate children terminating by catching the signal `SIGCHLD` and collecting the return value to prevent them becoming zombie processes.*
+- *Optionally, it restarts those daemons that have terminated.*
+- *It handles the system shutdown."*
+
+*"[`systemd` also handles] other runtime events, such as a new hardware and the loading and unloading of modules."*
+
