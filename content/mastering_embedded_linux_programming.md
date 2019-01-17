@@ -1039,6 +1039,346 @@ For BeagleBone Black (U-Boot):
 - *ramfs*, *rootfs* and *initramfs*, Rob Landley, October 17, 2005, which is part of the Linux source in `Documentation/filesystems/ramfs-rootfs-initramfs.txt`
 
 
+# Chapter 7. Creating a Storage Strategy
+
+## Storage options
+
+*"There have been several generations of flash memory in that time,
+progressing from NOR to NAND to managed flash such as eMMC."*
+
+- NOR flash:
+    - expensive
+    - reliable
+    - can be mapped into CPU address space
+    - allows to execute code directly from flash
+    - low capacity (ranging from a few megabytes to a few gigabyte)
+- NAND flash:
+    - much cheaper than NOR
+    - available in higher capacities(range of tens of megabytes to tens of gigabytes)
+    - needs a lot of hardware and software support
+- Managed flash memory
+    - consists of one or more NAND flash chips with a controller
+    - hardware interface similar as hard disk
+
+
+### NOR flash
+
+*"The memory cells in NOR flash chips are arranged into erase blocks of,
+for example, 128 KiB.
+Erasing a block sets all the bits to 1. It can be programmed one word at
+a time. Each erase cycle damages the memory cells slightly, and after a
+number of cycles, the erase block becomes unreliable and cannot be
+used anymore. [see data sheet for number of erase cycles, usually in the
+range of 100K to 1M]. The data can be read word by word. The chip is
+usually mapped into the CPU address space, which means that you can
+execute code directly from NOR flash. This makes it a convenient place
+to put the bootloader code"*
+
+
+*"There is a standard register-level interface for NOR flash chips called the Common Flash Interface or CFI,
+which all modern chips support."*
+
+[The CFI is described in standard JESD68](https://www.jedec.org/)
+
+### NAND flash
+
+Different genrations:
+
+- single-level cell (SLC, one bit per cell)
+- multi-level cell (MLC, two bits per cell)
+- tri-level cell (TLC, three bits per cell)
+
+*"Where reliability is a concern, you should make sure you are using SLC NAND flash chips."*
+
+*"NAND flash is organized into erase blocks ranging in size from 16 KiB to 512 KiB [...] erasing a block sets
+all the bits to 1."*
+
+*"The number of erase cycles before the block becomes unreliable is [...] typically as few as 1K cycles for TLC chips
+and up to 100K for SLC."*
+
+*"NAND flash can only be read and written in pages, usually of 2 or 4 KiB."*
+
+*"They cannot be mapped into the address space and so code and data have to be copied into RAM
+before they can be accessed."*
+
+*"Data transfers to and from the chip are prone to bit flips, which can be detected and corrected using
+error-correction codes (ECCs)."*
+
+*"There is an extra area of memory per page known as the out-of-band (OOB) area, or the spare area."*
+
+*"Many parts of the system are interested in the layout of the OOB area: the SoC ROM boot code, the bootloader,
+the kernel MTD driver, the filesystem code, and the tools to create filesystem images."*
+
+*"It is up to you to make sure that they all agree."*
+
+*"There is a standard register-level interface for NAND flash chips known as the Open NAND Flash Interface or ONFi , which most modern chips adhere to. See http://www.onfi.org/"*
+
+### Managed flash
+
+*"The most important types of chips for embedded systems are Secure Digital (SD)
+cards and the embedded variant known as eMMC."*
+
+
+#### MultiMediaCard and Secure Digital cards
+
+*"Newer versions of the SD specification allow smaller packaging (mini SD and microSD, which is often written as uSD)
+and larger capacities: high capacity SDHC up to 32 GB and extended capacity
+SDXC up to 2TB."*
+
+*"The hardware interface for MMC and SD cards is very similar, and it is
+possible to use full-sized MMC cards in full-sized SD card slots (but not the other
+way round)."*
+
+*"There is a command set for reading and writing memory in sectors of 512 bytes."*
+
+## Accessing flash memory from the bootloader
+
+### U-Boot and NOR flash
+
+*"U-Boot has drivers for NOR CFI chips in `drivers/mtd`"*
+
+### U-Boot and NAND flash
+
+*"For NAND flash, you need a driver for the NAND flash controller on your
+SoC, which you can find in the U-Boot source code in the directory
+`drivers/mtd/nand`."*
+
+*"U-Boot can also read files stored in the JFFS2 , YAFFS2 , and UBIFS filesystems."*
+
+### U-Boot and MMC, SD, and eMMC
+
+*"U-Boot has drivers for several MMC controllers in `drivers/mmc`."*
+
+*"U-boot can also read files from the FAT32 and ext4 filesystems on MMC storage."*
+
+
+## Accessing flash memory from Linux
+
+*"NOR and NAND flash memory is handled by the **Memory Technology Device** subsystem, or **MTD**."*
+
+*"In the case of NAND flash, there are also functions to handle the OOB area and to identify bad blocks."*
+
+*"MMC/SD cards and eMMC use the `mmcblk` driver; CompactFlash and hard drives use the SCSI disk driver, `sd`.
+USB flash drives use the `usb_storage` driver together with the `sd` driver."*
+
+### Memory technology devices
+
+*"MTD consists of three layers: a core set of functions, a set of drivers
+for various types of chips, and user-level drivers that present the flash
+memory as a character device or a block device."*
+
+*"Only a small number of drivers are needed for NOR flash chips, enough to cover the CFI standard and
+variations plus a few non-compliant chips."*
+
+
+*"For NAND flash, you will need a driver for the NAND flash controller you are using; this is usually supplied
+as part of the board support package."*
+
+*"There are drivers [...] in the directory `drivers/mtd/nand`."*
+
+
+#### MTD partitions
+
+*"You can see a summary of the configuration at runtime by reading `/proc/mtd`:"*
+
+    :::bash
+    cat /proc/mtd
+
+*"There is more detailed information for each partition in `/sys/class/mtd`,
+[that] is nicely summarized using `mtdinfo`:"*
+
+    :::bash
+    mtdinfo /dev/mtd0
+
+#### MTD device drivers
+
+*"The upper level of the MTD subsystem is a pair of device drivers:*
+
+- *A character device, with a major number of 90. There are two device nodes per MTD partition number, `N`: `/dev/mtdN` [...] and `/dev/mtdNro` [...]. The latter is just a read-only version of the former.*
+- *A block device, with a major number of 31 and a minor number of `N`. The device nodes are in the form `/dev/mtdblockN`."*
+
+#### The MTD character device, mtd
+
+*"The character devices are the most important: they allow you to access the underlying flash memory as an array of bytes so that you can read and write (program)
+the flash. It also implements a number of `ioctl` functions that allow you to erase blocks and to manage the OOB area on NAND chips.
+[See for a list of `ioctl`s]: `include/uapi/mtd/mtd-abi.h` [and the book]."*
+
+*"There is a set of utility programs known as `mtd-utils` for manipulating flash memory."*
+
+*"You must always erase flash memory before writing new contents to it."*
+
+*"To program NOR flash, you simply copy bytes to the MTD device node using a file copy command such as `cp`.
+Unfortunately, this doesn't work with NAND memory as the copy will fail at the first bad block. Instead,
+use `nandwrite`, which skips over any bad blocks. To read back NAND memory, you should use `nanddump`,
+which also skips bad blocks."*
+
+#### Logging kernel oops to MTD
+
+*"A kernel error, or oops, is normally logged via the klogd and syslogd daemons to a circular memory buffer or a file."*
+
+*"A more reliable method is to write oops and kernel panics to an MTD partition as a circular log buffer.
+You enable it with `CONFIG_MTD_OOPS` and add `console=ttyMTDN` to the kernel command line,
+`N` being the MTD device number to write the messages to."*
+
+#### Simulating NAND memory
+
+*"The NAND simulator emulates a NAND chip using system RAM."*
+
+*"In particular, the ability to simulate bad blocks, bit flips, and other errors allows you to test code paths that are difficult to exercise using real flash memory."*
+
+*"The code is in `drivers/mtd/nand/nandsim.c`. Enable it with the kernel configuration `CONFIG_MTD_NAND_NANDSIM`."*
+
+### The MMC block driver
+
+*"MMC/SD cards and eMMC chips are accessed using the mmcblk block driver."*
+
+*"The drivers are located in the Linux source code in `drivers/mmc/host`."*
+
+
+## Filesystems for flash memory
+
+*"There are several challenges when making efficient use of flash memory for mass storage:
+the mismatch between the size of an erase block and a disk sector, the limited number of erase
+cycles per erase block, and the need for bad block handling on NAND chips. These differences
+are resolved by a **Flash translation layer**, or **FTL**."*
+
+
+## Filesystems for NOR and NAND flash memory
+
+- **JFFS2 (Journaling Flash File System 2)**:
+    - first available flash filesystem for Linux
+    - still in use
+    - works for NOR and NAND memory
+    - slow during mount
+- **YAFFS2 (Yet Another Flash File System 2)"":
+    - similar to JFFS2
+    - specifically for NAND flash memory
+- **UBIFS (Unsorted Block Image File System)**:
+    - works in conjunction with the UBI block driver
+    - reliable flash filesystem
+    - works with NOR and NAND memory
+    - better performance than JFFS2 or YAFFS2
+    - should be the preferred solution for new designs!
+
+All of these use MTD as the common interface to flash memory.
+
+
+### JFFS2
+
+*"[Journaling Flash File System] is a log-structured filesystem that uses MTD to
+access flash memory."*
+
+#### Creating a JFFS2 filesystem
+
+*"Creating an empty JFFS2 filesystem [:] erasing an MTD partition with clean markers
+and then mounting it. There is no formatting step because a blank JFFS2 filesystem
+consists entirely of free blocks. [see book for examples]"*
+
+
+### YAFFS2
+
+*"YAFFS is also a log-structured filesystem following the same design principles as JFFS2."*
+
+*"it has a faster mount-time scan, simpler and faster garbage collection, and has no compression."*
+
+*"YAFFS is not limited to Linux; it has been ported to a wide range of operating systems."*
+
+*""YAFFS code has never been merged into mainline Linux, so you will have to patch your kernel.*
+
+#### Creating a YAFFS2 filesystem
+
+*"As with JFFS2, to create a YAFFS2 filesystem at runtime, you only need to erase the partition and mount it [see book for examples]."*
+
+
+### UBI and UBIFS
+
+Unsorted Block Image (UBI) driver and and corresponding filesystem (UBIFS).
+
+#### UBI
+
+*"UBI provides an idealized, reliable view of a flash chip by mapping **physical erase blocks** (**PEB**)
+to **logical erase blocks** (**LEB**). Bad blocks are not mapped to LEBs and so are never used. If a block
+cannot be erased, it is marked as bad and dropped from the mapping."*
+
+*"UBI accesses the flash memory through the MTD layer."*
+
+*"`ubiformat` needs to know the minimum unit of I/O, which for most NAND flash chips is the page size,
+but some chips allow reading and writing in sub pages that are a half or a quarter of the page size.
+Consult the chip data sheet for details and, if in doubt, use the page size."*
+
+*"The first time you attach to an MTD partition after a `ubiformat`, there will be no volumes.
+You can create volumes using `ubimkvol`."*
+
+There is a tool `ubinfo`:
+
+    :::bash
+    ubinfo -a /dev/ubi0
+
+
+#### UBIFS
+
+*"UBIFS uses a UBI volume to create a robust filesystem. It adds sub-allocation and garbage collection to create a complete
+flash translation layer."*
+
+*"UBIFS has a journal for fast recovery in the event of power down."*
+
+*"Creating a filesystem image for UBIFS is a two-stage process: first you create a UBIFS image using
+`mkfs.ubifs`, and then embed it into a UBI volume using `ubinize`."*
+
+## Filesystems for managed flash
+
+### Flashbench
+
+*"To make optimum use of the underlying flash memory, you need to know the erase block size and page size.
+Manufacturers do not publish these numbers as a rule, but it is possible to deduce them by observing the
+behavior of the chip or card [using flashbench, see book for more details]."*
+
+### Ext4
+
+*"**ext4** is very stable and well tested and has a journal that makes recovery from an unscheduled shutdown fast
+and mostly painless. It is a good choice for managed flash devices"*
+
+## Read-only compressed filesystems
+
+### squashfs
+
+*"The resulting filesystem is read-only, so there is no mechanism to modify any of the files at runtime. The only
+way to update a `squashfs` filesystem is to erase the whole partition and program in a new image. `squashfs` is not
+bad-block aware and so must be used with reliable flash memory such as NOR flash. However, it can be used on NAND
+flash as long as you use UBI to create an emulated, reliable MTD."*
+
+
+## Temporary filesystems
+
+*"You can create a temporary RAM-based filesystem by simply mounting `tmpfs`:"*
+
+*"As with `procfs` and `sysfs`, there is no device node associated with `tmpfs`, so you have to supply a place-keeper
+string."*
+
+*"It would be a disaster if `tmpfs` grew to be that large, so it is a very good idea to cap it with a `-o size` parameter."*
+
+    :::bash
+    mount -t tmpfs -o size=1m tmp_files /tmp
+
+*"In addition to `/tmp`, some subdirectories of `/var` contain volatile data"*
+
+*"In the Yocto Project, `/run` and `/var/volatile` are `tmpfs` mounts."*
+
+
+## Making the root filesystem read-only
+
+*"You need to make your target device able to survive unexpected events, including file corruption, and still be able to boot
+and achieve at least a minimum level of function. Making the root filesystem read-only is a key part of achieving this ambition
+because it eliminates accidental overwrites. Making it read-only is easy: replace `rw` with `ro` on the kernel command line or
+use an inherently read-only filesystem such as `squashfs`.
+However, you will find that there are a few files and directories that are traditionally writable
+[see book for more details]."*
+
+
+*"If you are using the Yocto Project, you can create a read-only root filesystem by adding `IMAGE_FEATURES = "read-only-rootfs"`
+to `conf/local.conf` or to your image recipe."*
+
+
 # Chapter 8. Updating Software in the Field
 
 ## What to update?
