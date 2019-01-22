@@ -1718,3 +1718,60 @@ login shell.*
 
 *"[`systemd` also handles] other runtime events, such as a new hardware and the loading and unloading of modules."*
 
+## BusyBox init
+
+*"`init` begins by reading `/etc/inittab`. This contains a list of programs to run, one per line."*
+
+Check the book for details about the format of `/etc/inittab` for BusyBox.
+
+## System V init
+
+*"Compared to the BusyBox `init`, System V `init` has two advantages. Firstly, the boot scripts are written in a well-known,
+modular format, making it easy to add new packages at build time or runtime. Secondly, it has the concept of **runlevels**, which allow a
+collection of programs to be started or stopped in one go when switching from one runlevel to another."*
+
+*"There are 8 runlevels numbered from 0 to 6, plus S:*
+
+- *`S`: Runs startup tasks*
+- *`0`: Halts the system*
+- *`1` to `5`: Available for general use*
+- *`6`: Reboots the system"*
+
+*"Levels 1 to 5 can be used as you please. On the desktop Linux distributions, they are conventionally assigned as follows:*
+
+- *`1`: Single user*
+- *`2`: Multi-user with no network configuration*
+- *`3`: Multi-user with network configuration*
+- *`4`: Not used*
+- *`5`: Multi-user with graphical login"*
+
+*"The `init` program starts the default `runlevel` given by the `initdefault` line in `/etc/inittab`.
+You can change the runlevel at runtime using the command `telinit [runlevel]`, which sends a message to `init`.
+You can find the current runlevel and the previous one using the `runlevel` command."*
+
+*"The `halt` and `reboot` commands switch to runlevels called `0` and `6` respectively."*
+
+*"Runlevels are not used that much in embedded Linux: most devices simply 
+boot to the default runlevel and stay there."*
+
+> Runlevels are a simple and convenient way to switch between modes, for
+example, from production to maintenance mode.
+
+### inittab
+
+*"The `init` program begins by reading `/etc/inttab`, which contains entries that define what happens at each runlevel."*
+
+Check the book for details about the format of `/etc/inittab` for System V `init`.
+
+### The init.d scripts
+
+*"Each component that needs to respond to a runlevel change has a script in `/etc/init.d` to perform the change.
+The script should expect two parameters: `start` and `stop`."*
+
+### Starting and stopping services
+
+*"You can interact with the scripts in `/etc/init.d` by calling them directly."*
+
+*"All scripts implement `start` and `stop`, and they should also implement `help`.
+Some implement `status` as well, which will tell you whether the service is running or not.
+Mainstream distributions that still use System V `init` have a command named `service` to start and stop services, which hide the details of calling the scripts directly."*
