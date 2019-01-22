@@ -1775,3 +1775,113 @@ The script should expect two parameters: `start` and `stop`."*
 *"All scripts implement `start` and `stop`, and they should also implement `help`.
 Some implement `status` as well, which will tell you whether the service is running or not.
 Mainstream distributions that still use System V `init` have a command named `service` to start and stop services, which hide the details of calling the scripts directly."*
+
+
+## systemd
+
+*"[`systemd` is a] set of tools for managing a Linux system based around an `init` daemon. It also includes device management (`udev`) and logging,
+among other things. `systemd? is state of the art and is still evolving rapidly."*
+
+*"how is it better than System V `init` for embedded systems?*
+
+- *The configuration is simpler and more logical (once you understand it). Rather than the sometimes convoluted shell scripts of System V `init`, `systemd` has unit configuration files, which are written in a well-defined format.*
+- *There are explicit dependencies between services rather than a two digit code that merely sets the sequence in which the scripts are run.*
+- *It is easy to set the permissions and resource limits for each service, which is important for the security.*
+- *It can monitor services and restart them if needed.*
+- *There are watchdogs for each service and for `systemd` itself.*
+- *Services are started in parallel, potentially reducing boot time."*
+
+
+### Introducing targets, services, and units
+
+*"[There are] three key concepts:*
+
+- ***Unit**, which is a configuration file that describes a target, a service, and several other things. Units are text files that contain properties and values.*
+- ***Service**, which is a daemon that can be started and stopped, very much like a System V `init` service.*
+- ***Target**, which is a group of services, similar to, but more general than, a System V `init` runlevel. There is a default target which is the group of services that are started at boot time."*
+
+*"You can change states and find out what is going on using the `systemctl` command."*
+
+#### Units
+
+*"The basic item of configuration is the unit file. Unit files are found in three different places:*
+- `/etc/systemd/system`: *Local configuration*
+- `/run/systemd/system`: *Runtime configuration*
+- `/lib/systemd/system`: *Distribution-wide configuration"*
+
+
+*"When looking for a unit, `systemd` searches the directories in that order, stopping as soon as
+it finds a match, and allowing you to override the behavior of a distribution-wide unit by
+placing a unit of the same name in `/etc/systemd/system`. You can disable a unit
+completely by creating a local file that is empty or linked to `/dev/null`."*
+
+*"Dependencies in the Unit section are expressed though the keywords `Requires`, `Wants`,
+and `Conflicts`:*
+
+- `Requires`: This is a list of units that this unit depends on, which are started when this unit is started*
+- `Wants`: This is a weaker form of `Requires`; the units listed are started but the current unit is not stopped if any of them fail*
+- `Conflicts`: This is a negative dependency; the units listed are stopped when this one is started and, conversely, if one of them is started, this one is stopped"*
+
+*"These three keywords define **outgoing dependencies**. They are used mostly to create dependencies between targets. There is another sort of dependency called an
+**incoming dependency**, which is used to create a link between a service and a target. In other words, outgoing dependencies are used to create the list of targets
+that need to be started as the system goes from one state to another, and incoming dependencies are used to determine the services that should be started or stopped
+in any particular state. Incoming dependencies are created by the `WantedBy` keyword."*
+
+
+*"Processing the dependencies produces a list of units that should be started or stopped. The keywords `Before` and `After determine the order in which they
+are started. The order of stopping is just the reverse of the start order:*
+
+- *`Before`: This unit should be started before the units listed*
+- *`After`: This unit should be started after the units listed"*
+
+#### Services
+
+*"A service is a daemon that can be started and stopped, equivalent to a System V `init` service."*
+
+*"Refer to the manual page for `systemd.service(5)` [and to the book for more information]."*
+
+#### Targets
+
+*"A target is another type of unit, which groups services (or other types of unit). It is a type of unit that only has dependencies."*
+
+*"A target is a desired state, which performs the same role as System V `init` runlevels."*
+
+### How systemd boots the system
+
+*"[...] how `systemd` implements the bootstrap. `systemd` is run by the kernel as a result of `/sbin/init` being symbolically linked to `/lib/systemd/systemd`.
+It runs the default target, `default.target`, which is always a link to a desired target."*
+
+*"You can also list all the services and their current state using:"*
+
+    :::bash
+    systemctl list-units --type service
+
+*"And the same for targets using:"*
+
+    :::bash
+    systemctl list-units --type target
+
+### Adding a watchdog
+
+*"On most embedded SoCs,
+there is a hardware watchdog, which can be accessed via the `/dev/watchdog` device node."*
+
+*"The interface with the watchdog driver is described in the kernel source 
+in `Documentation/watchdog` and the code for the drivers is in `drivers/watchdog`."*
+
+*"`systemd` has a useful feature that distributes the watchdog between multiple services."*
+
+*"`systemd` can be configured to expect a regular keepalive call from a service and take action if it is not received,
+creating a per-service software watchdog. For this to work, you have to add code to the daemon to send the `keepalive` messages."*
+
+*"There are examples in the `systemd` source code."*
+
+*"If `systemd` itself fails, the kernel crashes, or the hardware locks up.
+In those cases, we need to tell `systemd` to use the watchdog driver"*
+
+## Summary
+
+*"In terms of reducing boot time, `systemd` is faster than System V `init`
+for a similar workload. However, if you are looking for a very fast boot,
+nothing can beat a simple BusyBox `init` with minimal boot scripts."*
+
