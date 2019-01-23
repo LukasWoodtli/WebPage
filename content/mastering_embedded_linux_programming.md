@@ -1885,3 +1885,185 @@ In those cases, we need to tell `systemd` to use the watchdog driver"*
 for a similar workload. However, if you are looking for a very fast boot,
 nothing can beat a simple BusyBox `init` with minimal boot scripts."*
 
+
+# Chapter 11. Managing Power
+
+*"Even for devices running on mains power, reducing power usage has
+benefits in reducing the need for cooling and energy costs."*
+
+## Measuring power usage
+
+*"Measuring power externally, from outside the system, we just need an
+ammeter to measure the current and a voltmeter to measure the voltage, and
+then multiply the two together in order to get the wattage."*
+
+*"[There are] monitoring systems that are built into Linux. You will find
+that plenty of information is reported to you via `sysfs`.
+There is also a very useful program called **PowerTOP**, which gathers
+information together from various sources and presents it in a single place."*
+
+    :::bash
+    cat /sys/power/state
+
+
+## Scaling the clock frequency
+
+*"Reducing the frequency may actually increase the power budget because it
+takes longer for the CPU to enter an idle state. So, in these conditions, 
+it is best to use the highest frequency possible so that the CPU can go
+back to idle quickly. This is called the **race to idle**."*
+
+*"There is another motivation to reduce frequency: **thermal management**.
+It may become necessary to operate at a lower frequency just to keep the
+temperature of the package within bounds."*
+
+*"Therefore, if we want to save power, we have to be able to change the
+voltage that the CPU core operates at. But for any given voltage, there
+is a maximum frequency beyond which the switching of the gates become 
+unreliable."*
+
+
+*"Many SoCs implement such a feature: it is called
+**Dynamic Voltage and Frequency Scaling**, or **DVFS**. Manufacturers
+calculate optimum combinations of core frequency and voltage. Each
+combination is called **Operating Performance Point**, or **OPP**.
+The ACPI specification refers to them as P-states, with `P0` being
+the OPP with the highest frequency. Although an OPP is a combination
+of a frequency and a voltage, they are most often referred to by the
+frequency component alone."*
+
+
+### The CPUFreq driver
+
+*"Linux has a component named `CPUFreq` that manages the transitions
+between OPPs. It is part of the board support for the package for each
+SoC. `CPUFreq` consists of drivers in `drivers/cpufreq`"*
+
+*"It is controlled per-CPU via the `/sys/devices/system/cpu/cpuN/cpufreq`
+directory, with `N` being the CPU number."*
+
+## Selecting the best idle state
+
+*"Most CPUs have multiple idle states that use varying amounts of power.
+Usually, there is a trade-off between the power usage and the latency, or
+the length of time, it takes to exit the state. In the ACPI specification,
+they are called **C-states**."*
+
+*"The key to selecting the right idle state is to have a good idea of how 
+long the CPU is going to be quiescent."*
+
+*"[Monitor] the current CPU load: if it is high now, it is likely to
+continue to be so in the immediate future, so a deep sleep would not be
+beneficial. Even if the load is low, it is worth looking to see whether 
+there is a timer event that expires soon. If there is no load and
+no timer, then a deeper idle state is justified."*
+
+*"The part of Linux that selects the best idle state is the CPUIdle 
+driver. There is a good deal of information about it in the kernel source
+code in the `Documentation/cpuidle` directory."*
+
+### The CPUIdle driver
+
+*"CPUIdle exposes information about each of the idle states in the
+`/sys/devices/system/cpu/cpu0/cpuidle` directory, in which there is a
+subdirectory for each of the sleep states, named `state0` to `stateN`.
+`state0` is the **lightest** sleep and `stateN` the deepest. Note that
+the numbering does not match that of the C-states and that
+CPUIdle does not have a state equivalent to `C0` (running)"*
+
+### Tickless operation
+
+*"A related topic is the tickles, or `NOHZ`, option. If the system is
+truly idle, the most likely source of interruptions will be the system
+timer, which is programmed to generate a regular time tick at a rate of
+`HZ` per second, where `HZ` is typically 100. Historically, Linux uses the
+timer tick as the main time base for measuring time-outs."*
+
+*"And yet it is plainly wasteful to wake the CPU up to process a timer 
+interruption if no timer events are registered for that particular moment.
+The dynamic tick kernel configuration option, `CONFIG_NO_HZ`, looks at the
+timer queue at the end of the timer processing routine
+and schedules the next interruption at the time of the next event"*
+
+*"In any power-sensitive application, the kernel should be configured
+with this option enabled."*
+
+## Powering down peripherals
+
+*"This is managed by the **runtime power management** system, or
+**runtime pm** for short. It works with drivers that support runtime pm,
+shutting down those that are not in use and waking them again when they
+are next needed. It is dynamic and should be transparent to user space."*
+
+*"The runtime power management is exposed via a `sysfs` interface. Each
+device has a subdirectory named `power`, in which you will find 
+[different] files."*
+
+Check the book for more information about the files.
+
+*"For more information on runtime pm, look in the kernel source code at
+`Documentation/power/runtime_pm.txt`."*
+
+
+## Putting the system to sleep
+
+*"In the Linux kernel, this is known as **system sleep**. It is usually
+user-initiated"*
+
+*"There are usually two options: suspend or hibernate. The first,
+also known as **suspend to RAM**, shuts everything down except the
+system memory, so the machine is still consuming a little power."*
+
+*"If I select the **hibernate** option, the contents of memory are saved
+to the hard drive. The system consumes no power at all, and so it can stay
+in this state indefinitely, but on wake-up, it takes some time to restore
+the memory from disk. Hibernate is very seldom used in embedded systems"*
+
+*"For more information, look at the kernel source code in the `Documentation/power` directory."*
+
+### Power states
+
+*"In the ACPI specification, the sleep states are called **S-states**. Linux supports four sleep states."*
+
+See the book for more details.
+
+*"Not all systems have support for all states. You can find out which are available by reading the `/sys/power/state` file"*
+
+*"To enter one of the system sleep states, you just have to write the 
+desired state to `/sys/power/state`."*
+
+    :::bash
+    echo mem > /sys/power/state
+
+### Wakeup events
+
+*"Before you suspend a device, you must have a method of waking it again."*
+
+*"Some parts of the system have to remain powered on even during the
+deepest sleep. This usually involves the **Power Management IC** 
+(**PMIC**), the **real-time clock** (**RTC**), and may additionally 
+include interfaces such as GPIO, UART, and Ethernet."*
+
+*"Wakeup events are controlled through `sysfs`. Each device in
+`/sys/device` has a subdirectory power containing a `wakeup` file"*
+
+See the book for more information.
+
+*"To get a list of devices that can generate wakeups, we can search for
+all devices where wakeup contains either `enabled` or `disabled`:"*
+
+    :::bash
+    find /sys/devices -name wakeup | xargs grep “abled”
+
+### Timed wakeups from the real-time clock
+
+*"Most systems have an RTC that can generate alarm interruptions up to
+24 hours in the future. If so, the directory `/sys/class/rtc/rtc0` will
+exist. It should contain the `wakealarm` file. Writing a number to
+`wakealarm` will cause it to generate an alarm that number of seconds
+later. If you also enable wake up events from `rtc`, it will resume a
+suspended device."*
+
+## Summary
+
+*"The majority of the power management is done for you by the BSP."*
