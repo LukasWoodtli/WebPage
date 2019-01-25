@@ -2067,3 +2067,117 @@ suspended device."*
 ## Summary
 
 *"The majority of the power management is done for you by the BSP."*
+
+# Chapter 12. Learning About Processes and Threads
+
+## Processes
+
+*"A process holds the environment in which threads can run: it holds the memory mappings, the file descriptors, the user and group IDs, and more."*
+
+*"Creating a new process The POSIX function to create a process is 
+`fork(2)`. It is an odd function because for each successful call,
+there are two returns: one in the process that made the call,
+known as the `Parent`, and one in the newly created process, known
+as the `Child`."*
+
+*"Immediately after the call, the child is an exact copy of the
+parent: it has the same stack, the same heap, the same file
+descriptors, and it executes the same line of code, the one
+following `fork`. The only way the programmer can tell them apart 
+is by looking at the return value of `fork`: it is zero for the 
+child and greater than zero for the parent. Actually, the value 
+returned to the parent is the PID of the newly created child 
+process. There is a third possibility, which is that the return 
+value is negative, which means that the fork call failed and there
+is still only one process."*
+
+*"Although the two processes are initially identical, they are in 
+separate address spaces."*
+
+
+### Terminating a process
+
+*"[A process can be stopped by] calling the `exit(3)` function or,
+involuntarily, by receiving a signal that is not handled. One
+signal, in particular, `SIGKILL`, cannot be handled and so will
+always kill a process."*
+
+*"[When a process is terminated] the system sends a signal, 
+`SIGCHLD`, to the parent so that it knows this has happened."*
+
+*"Processes have a return value that is composed of either the 
+argument to `exit`, if it terminated normally, or the signal 
+number if it was killed."*
+
+*"The child process inherits most of the attributes of the parent, 
+including the user and group IDs, all open file descriptors, 
+signal handling, and scheduling characteristics."*
+
+### Running a different program
+
+*"The `fork` function creates a copy of a running program, but it 
+does not run a different program. For that, you need one of the 
+`exec` functions."*
+
+*"If the function [`exec\*`] succeeds, the kernel discards all the 
+resources of the current process, including memory and file 
+descriptors, and allocates memory to the new program being loaded. 
+When the thread that called `exec\*` returns, it returns not to 
+the line of code after the call but to the `main()` function of 
+the new program."*
+
+*"It is common for a `fork` to be followed almost immediately by 
+one of the `exec` functions."*
+
+### Inter-process communication
+
+*"Message-based protocols are usually easier to program and debug 
+than shared memory but are slow if the messages are large or many."*
+
+#### Summary of message-based IPC
+
+*"Unix sockets are used most often because they offer all that is 
+needed, except perhaps message priority."*
+
+*"There are also higher-level abstractions, in particular, D-Bus, 
+which are moving from mainstream Linux to embedded devices. D-Bus 
+uses Unix sockets and shared memory under the surface."*
+
+#### Shared memory-based IPC
+
+*"Sharing memory removes the need for copying data between address
+spaces, but introduces the problem of synchronizing accesses to
+it. Synchronization between processes is commonly achieved using
+semaphores."*
+
+
+## Threads
+
+### Creating a new thread
+
+*"[When running `ps`] LWP stands for **Light Weight Process**,
+which, in this context, is another name for a thread."*
+
+### Terminating a thread
+
+*"Note that if a multithreaded program calls `fork`, only the thread 
+that made the call will exist in the new child process. Fork does 
+not replicate all threads."*
+
+### Compiling a program with threads
+
+*"When building a threaded program, you must add the `-pthread`
+switch in the compile and link stages."*
+
+### Changing conditions
+
+*"Cooperating threads need a method of alerting one another that
+something has changed and needs attention. That thing is called a
+condition and the alert is sent through a **condition variable**."*
+
+*"A condition is just something that you can test to give a `true`
+or `false` result."*
+
+*"The only complexity [of condition variables] is that the
+condition is, by definition, a shared resource and so has to be
+protected by a mutex."*
