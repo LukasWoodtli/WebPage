@@ -2181,3 +2181,92 @@ or `false` result."*
 *"The only complexity [of condition variables] is that the
 condition is, by definition, a shared resource and so has to be
 protected by a mutex."*
+
+
+## Scheduling
+
+*"The Linux scheduler has a queue of threads that are ready to
+run, and its job is to schedule them on CPUs as they become
+available. Each thread has a scheduling policy that may be
+time-shared or real-time. The time-shared threads have a niceness
+value that increases or reduces their entitlement to CPU time. The
+real-time threads have a priority such that a higher prior"*
+
+*"The scheduler runs when:*
+
+- *A thread is blocked by calling `sleep()` or another blocking system call*
+- *A time-shared thread exhausts its time slice*
+- *An interruption causes a thread to be unblocked, for example, because of I/O completing"*
+
+
+### Fairness versus determinism
+
+*"If you have a real-time program, fairness is not helpful.
+Instead, you then want a policy that is deterministic, which will
+give you at least minimal guarantees that your real-time threads
+will be scheduled at the right time so that they don't miss their
+deadlines. This means that a real-time thread must preempt
+time-shared threads. Real-time threads also have a static priority
+that the scheduler can use to choose between them "*
+
+*"Both types of thread can coexist. Those requiring deterministic
+scheduling are scheduled first and the time remaining is divided
+between the time-shared threads."*
+
+### Time-shared policies
+
+*"The scheduler used has been **Completely Fair Scheduler**
+(**CFS**). It does not use timeslices in the normal sense of the
+word. Instead, it calculates a running tally of the length of time
+a thread would be entitled to run if it had its fair share of CPU
+time, and it balances that with the actual amount of time it has
+run for. If it exceeds its entitlement and there are other
+time-shared threads waiting to run, the scheduler will suspend the
+thread and run a waiting thread instead."*
+
+*"The time-shared policies are as follows:*
+
+- *`SCHED_NORMAL` (also known as `SCHED_OTHER`): This is the default policy. The vast majority of Linux threads use this policy.*
+- *`SCHED_BATCH`: This is similar to `SCHED_NORMAL` except that threads are scheduled with a larger granularity [...]. The intention is to reduce the number of context switches for background processing (batch jobs) and reduce the amount of CPU cache churn.*
+- *`SCHED_IDLE`: These threads are run only when there are no threads of any other policy ready to run. It is the lowest possible priority."*
+
+#### Niceness
+
+*"A thread becomes `nice` by reducing its load on the system, or moves in the opposite direction by increasing it. The range of values is from `19`, which is really nice, to `-20`, which is really not nice. The default value is `0`."*
+
+*"The nice value can be changed for `SCHED_NORMAL` and `SCHED_BATCH` threads."*
+
+*"You can use a TID in place of a PID to change the `nice` value of an individual thread. "*
+
+###  Real-time policies
+
+*"Real-time policies are intended for determinism. The real-time
+scheduler will always run the highest priority real-time thread
+that is ready to run. Real-time threads always preempt timeshare
+threads. In essence, by selecting a real-time policy over a
+timeshare policy, you are saying that you have inside knowledge of
+the expected scheduling of this thread and wish to override the
+scheduler's built-in assumptions.*"
+
+
+*"There are two real-time policies:*
+
+- *`SCHED_FIFO`: This is a run to completion algorithm, which means that once the thread starts to run, it will continue until it is preempted by a higher priority real-time thread, it is blocked in a system call, or until it terminates (completes).*
+- *`SCHED_RR`: This a round robin algorithm that will cycle between threads of the same priority if they exceed their time slice, which is 100 ms by default. [It is] possible to control the timeslice value through /proc/sys/kernel/sched_rr_timeslice_ms. Apart from this, it behaves in the same way as SCHED_FIFO."*
+
+*"Each real-time thread has a priority in the range 1 to 99, with 99 being the highest."*
+
+
+*"The scheduler has, by default, reserved 5% of CPU time for non- real-time threads so that even a runaway real-time thread cannot completely halt the system. It is configured via two kernel controls:*
+
+- *`/proc/sys/kernel/sched_rt_period_us`*
+- *`/proc/sys/kernel/sched_rt_runtime_u`"*
+
+*"[Another] option is to use a watchdog, either hardware or software, to monitor the execution of key threads."*
+
+### Choosing a real-time priority
+
+*"The most widely used procedure for choosing priorities is known 
+as **Rate Monotonic Analysis** (**RMA**)."*
+
+*"The goal is to balance the load so that all threads can complete their execution phase before the next period."*
