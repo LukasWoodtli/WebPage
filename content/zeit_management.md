@@ -15,19 +15,20 @@ Tags: German
 4. Plan
 5. Motivation
 
-### Ziele
+## Ziele
 
 - Realisierare Ziele
 - Kurz-, mittel- und langfristige Ziele
+- Wo will ich in 5 Jahren sein? (Rückblick auf die letzten 5 Jahre)
 
-### Übersicht
+## Übersicht
 
 - Ziel-Mittel Analyse
     - Welche Mittel stehen zur Verfügung
     - Welche Vor- und Nachteile gibt es bei Alternativen
 - Mind-Map
 
-### Prioritäten
+## Prioritäten
 
 - ABC-Analyse
     - A: Sehr wichtig, hohe Priorität
@@ -54,16 +55,23 @@ Unterscheiden zwischen *wichtig*/*unwichtig* und *dringend*/*nicht dringend*:
     - Aufgaben in überschaubare Schritte aufteilen
 - Delegieren
     - Falls jemand die Aufgabe besset/schneller erledigen kann
-- Planen
-    - Agenda/Kalender
-    - To-Do-Listen
-    - Tages-, Wochen-, Monats- und Jahrespläne
-    - *ALPEN*
-        - **A**ufgaben (Aktivitäten, Termine) in Tagesplan aufschreiben, optimal, wenn am Vortag, Reihenfolge nicht berücksichtigen
-        - **L**änge schätzen, möglichs realistisch, nicht zu knapp, Zeitlimit, genaue Uhrzeit für Termine
-        - **P**ufferzeit: maximal 60% der Zeit verplanen, 40% Puffer
-        - **E**ntscheidungen: Prioritäten setzen, Kürzen, Streichen, Weglassen, Delegieren
-        - **N**achkontrolle: Ende des Tages bzw. der Woche, einzelne Punkte und Planung kontrollieren, vergessene/unvollständige Punkte finden, Planung für nächsten Tag beginnen
+
+## Planen
+- Agenda/Kalender
+- To-Do-Listen
+- Tages-, Wochen-, Monats- und Jahrespläne
+- Schriftlich (auch Ziele)
+- Am Morgen 5-8 min Tag planen
+- Am Abend (vor dem nach Hause gehen):
+    - Aufgaben durchgehen, soll-ist Analyse
+    - Nächsten Tag planen, v. A. Hauptaufgaben
+    - Kleine, unerledigte Aufgaben durchführen (Mails, aufräumen...)
+- *ALPEN*
+    - **A**ufgaben (Aktivitäten, Termine) in Tagesplan aufschreiben, optimal, wenn am Vortag, Reihenfolge nicht berücksichtigen
+    - **L**änge schätzen, möglichs realistisch, nicht zu knapp, Zeitlimit, genaue Uhrzeit für Termine
+    - **P**ufferzeit: maximal 60% der Zeit verplanen, 40% Puffer
+    - **E**ntscheidungen: Prioritäten setzen, Kürzen, Streichen, Weglassen, Delegieren
+    - **N**achkontrolle: Ende des Tages bzw. der Woche, einzelne Punkte und Planung kontrollieren, vergessene/unvollständige Punkte finden, Planung für nächsten Tag beginnen
 - Leistungskurve
     - Tägliche Leistungskurve einplanen
     - Pausen und Snacks einplanen
@@ -261,3 +269,10 @@ Alle E-Mails auf einen Account sammeln.
 - Kleine Aufgaben sinnvoll zusammenfassen
 - Morgen-/Abendroutinen festlegen (privat & geschäftlich)
 - Routinen (Privat und Geschäftlich) aufschreiben und planen, bis sie gefestigt sind
+
+# Work/Life-Balance
+
+- Körper/Gesundheit
+- Sinn/Kultur
+- Familie/Soziales
+- Leistung/Arbeit
