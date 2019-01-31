@@ -2401,3 +2401,119 @@ and then terminates those with the highest score until there is enough free memo
 *"You can influence the badness score for a process by writing an adjustment value to
 `/proc/<PID>/oom_score_adj`."*
 
+
+# Chapter 14. Debugging with GDB
+
+## Preparing to debug
+
+*"In most cases, `-g` suffices: reserve `-g3` or `-ggdb3` for if you are having problems stepping through code, especially if it contains macros."*
+
+*"You will most likely need to compile without optimization, leaving out the `-O` compile switch, or using `-Og`, which enables optimizations that do not interfere with debugging."*
+
+*"On some architectures, GCC will not generate stack-frame pointers with the higher levels of optimization (`-O2` and above). If you find yourself in the situation that you really have to compile with `-O2` but still want backtraces, you can override the default behavior with `-fno-omit-frame-pointer`."*
+
+## Remote debugging using gdbserver
+
+*"`gdbserver` connects to a copy of GDB running on the host machine via a network connection or a serial interface."*
+
+*"Debugging through `gdbserver` is almost, but not quite, the same as debugging natively. The differences are mostly centered around the fact that there are two computers involved and they have to be in the right state for debugging to take place. Here are some things to look out for [check the book for more details]:*
+
+- *GDB, running on the host, needs to be told where to look for debug symbols and source code, especially for shared libraries.*
+- *The GDB `run` command does not work as expected.*
+- *You need debug symbols and source code for the binaries you want to debug on the host, but not on the target. Often, there is not enough storage space for them on the target, and they will need to be stripped before deploying to the target*
+- *The GDB/gdbserver combination does not support all the features of natively running GDB: for example, gdbserver cannot follow the child process after a `fork`, whereas native GDB can."*
+
+*"For applications and shared libraries, `--strip-all` (the default) is fine, but when it comes to kernel modules, you will find that it will stop the module from loading. Use `--strip-unneeded` instead. "*
+
+## Connecting GDB and gdbserver
+
+*" In the case of a network connection, you launch `gdbserver` with the TCP port number to listen on and, optionally, an IP address to accept connections from. In most cases, you don't care which IP address is going to connect, so you can just provide the port number. In this example, `gdbserver` waits for a connection on port 10000 from any host:"*
+
+    :::bash
+    gdbserver :10000 ./hello-world
+
+*"Next, start the copy of GDB from your toolchain, pointing it at an unstripped copy of the program so that GDB can load the symbol table:"*
+
+    :::bash
+    arm-poky-linux-gnueabi-gdb hello-world
+
+*"In GDB, use the command `target remote` to make the connection to `gdbserver`, giving it the IP address or hostname of the target and the port it is waiting on:"*
+
+    :::bash
+    (gdb) target remote 192.168.1.101:10000
+
+*"The procedure is similar for a serial connection. On the target, you tell gdbserver which serial port to use:"*
+
+    :::bash
+    gdbserver /dev/ttyO0 ./hello-world
+
+*"You may need to configure the port baud rate beforehand using `stty(1)` or a similar program"*
+
+*"The port must not be being used for anything else. For example, you can't use a port that is being used as the system console.
+"*
+
+*"On the host, you make the connection to gdbserver using `target remote` plus the serial device at the host end of the cable. In most cases, you will want to set the baud rate of the host serial port first, using the GDB command `set serial baud`:"*
+
+    :::bash
+    (gdb) set serial baud 115200
+    (gdb) target remote /dev/ttyUSB0
+
+## Setting the sysroot
+
+*GDB needs to know where to find debug information and source code for the program and shared libraries you are debugging. When debugging natively, the paths are well known and built in to GDB, but when using a cross toolchain, GDB has no way to guess where the root of the target filesystem is. You have to give it this information."*
+
+    :::bash
+     (gdb) set sysroot /opt/poky/2.2.1/sysroots/cortexa8hf-neon-poky-linux-gnueabi
+
+*"GDB also needs to find the source code for the files you are debugging. GDB has a search path for source files, which you can see using the command `show directories`."*
+
+
+*"`$cwd` is the current working directory of the GDB instance running on the host; `$cdir` is the directory where the source was compiled. The latter is encoded into the object files with the tag `DW_AT_comp_dir`. You can see these tags using `objdump --dwarf`."*
+
+*"You may have additional shared libraries that are stored outside the `sysroot`. In that case, you can use `set solib-search-path`, which can contain a colon-separated list of directories to search for shared libraries."*
+
+*"[Another] way of telling GDB where to look for source code, for both libraries and programs, is using the `directory` command. [...] Paths added in this way take precedence because they are searched before those from `sysroot` or `solib-search-path`."*
+
+## Just-in-time debugging
+
+*"In the case of remote debugging, you need to find the PID of the process to be debugged and pass it to `gdbserver` with the `--attach` option."*
+
+    :::bash
+    gdbserver --attach :10000 109
+
+*"When you are done, you can detach, allowing the program to continue running without the debugger:"*
+
+    :::bash
+    (gdb) detach
+
+## Debugging forks and threads
+
+*"Does the debug session follow the parent process or the child? This behavior is controlled by `follow-fork-mode`, which may be `parent` or `child`, with `parent` being the default. Unfortunately, current versions of `gdbserver` do not support this option, so it only works for native debugging."*
+
+*"There is a way to modify the way in which GDB handles stopped threads, through a parameter called `scheduler-locking`. Normally it is `off`, but if you set it to `on`, only the thread that was stopped at the breakpoint is resumed and the others remain stopped, giving you a chance to see what the thread alone does without interference. This continues to be the case until you turn `scheduler-locking off`. Gdbserver supports this feature."*
+
+## Core files
+
+
+*"Core files are not created by default, but only when the core file resource limit for the process is non-zero. You can change it for the current shell using `ulimit -c`."*
+
+*"There are two files that control the naming and placement of core files. The first is `/proc/sys/kernel/core_uses_pid`. Writing a `1` to it causes the PID number of the dying process to be appended to the filename. [...] Much more useful is `/proc/sys/kernel/core_pattern`, which gives you a lot more control over core files."*
+
+*"You can also use a pattern that begins with an absolute directory name so that all core files are gathered together in one place."*
+
+## Using GDB to look at core files
+
+*"Here is a sample GDB session looking at a core file:"*
+
+    :::bash
+    arm-poky-linux-gnueabi-gdb sort-debug /tmp/corefiles/core.sort-debug.1431425613
+
+[Then use following commands]
+
+    :::bash
+    (gdb) list
+    ...
+    ...
+    (gdb) bt
+    ...
+
