@@ -2270,3 +2270,134 @@ scheduler's built-in assumptions.*"
 as **Rate Monotonic Analysis** (**RMA**)."*
 
 *"The goal is to balance the load so that all threads can complete their execution phase before the next period."*
+
+
+# Chapter 13. Managing Memory
+
+## Virtual memory basics
+
+*"Linux divides this virtual address space into an area for applications, called **user space**, and an area for the kernel, called **kernel space**. The split between the two is set by a kernel configuration parameter named `PAGE_OFFSET`."*
+
+*"The user address space is allocated per process so that each process runs in a sandbox, separated from the others. The kernel address space is the same for all processes: there is only one kernel."*
+
+*"Each page of virtual memory may be:*
+
+- *Unmapped, so that trying to access these addresses will result in a `SIGSEGV`*
+- *Mapped to a page of physical memory that is private to the process*
+- *Mapped to a page of physical memory that is shared with other processes*
+- *Mapped and shared with a copy on write (CoW) flag set: a write is trapped in the kernel, which makes a copy of the page and maps it to the process in place of the original page before allowing the write to take place*
+- *Mapped to a page of physical memory that is used by the kernel"*
+
+*"The kernel may additionally map pages to reserved memory regions, for example, to access registers and memory buffers in device drivers."*
+
+*"The default allocation strategy is to over-commit, which leads to tricky out-of-memory situations."*
+
+*"The delays introduced by the memory management code in handling exceptions - page faults - make the system less deterministic, which is important for real-time programs."*
+
+## Kernel space memory layout
+
+*"Kernel memory [...] is not demand-paged, which means that for every allocation using `kmalloc()` or a similar function, there is real physical memory. Kernel memory is never discarded or paged out."*
+
+### How much memory does the kernel use?
+
+*"You can see the memory taken up by the kernel code and data in the kernel log [...] or you can use the `size` command, as follows:"*
+
+    :::bash
+    arm-poky-linux-gnueabi-size vmlinux
+
+
+*"There is an ongoing effort to allow small kernels to be built: [...] [Linux Kernel Tinification](https://tiny.wiki.kernel.org)."*
+
+*"You can get more information about memory usage by reading `/proc/meminfo`."*
+
+*"There is a description of each of [the] fields on the manual page `proc(5)`. "*
+
+*"With modules, you can use `lsmod` to find out the memory space taken up"*
+
+## User space memory layout
+
+*"Linux employs a lazy allocation strategy for user space, only mapping physical pages of memory when the program accesses it."*
+
+*"For example, allocating a buffer [...] using `malloc(3)` returns a pointer to a block of memory addresses but no actual physical memory. A flag is set in the page 
+table entries such that any read or write access is trapped by the kernel. This is known as a **page fault**. Only at this point does the kernel attempt to find a page 
+of physical memory and add it to the page table mapping for the process."*
+
+*"There are two kinds of page faults: **minor** and **major**. With a minor fault, the kernel just has to find a page of physical memory and map it to the process 
+address space [...]. A major page fault occurs when the virtual memory is mapped to a file, for example, using `mmap(2)`"*
+
+*"Major faults are much more expensive in time and system resources."*
+
+## The process memory map
+
+*"You can see the memory map for a process through the `proc` filesystem."*
+
+*"The maximum size of [the heap and stack] is controlled by the process's ulimit:*
+
+- *Heap: `ulimit -d`, default unlimited*
+- *Stack: `ulimit -s`, default 8 MiB"*
+
+*"Allocations that exceed the limit are rejected by `SIGSEGV`."*
+
+## Swapping
+
+*"On a system that has too little real memory for the workload it is carrying and so swapping becomes the main activity. This is sometimes known as
+**disk thrashing**."*
+
+*"Swap is seldom used on embedded devices because it does not work well with flash storage, where constant writing would wear it out quickly. However, you may want to 
+consider swapping to compressed RAM (zram)."*
+​
+## Mapping memory with mmap
+
+*"A process can also manipulate its memory map in an explicit way
+using `mmap(2)`"*
+
+### Using mmap to access device memory
+
+*"One example is the Linux framebuffer, `/dev/fb0`. The interface is
+defined in `/usr/include/linux/fb.h`, including an `ioctl` function to get
+the size of the display and the bits per pixel. You can then use `mmap` to
+ask the video driver to share the framebuffer with the application and
+read and write pixels."*
+
+## How much memory does my application use?
+
+*"Linux believes that free memory is wasted memory and the kernel uses
+free memory for buffers and caches with the knowledge that they can be
+shrunk when the need arises."*
+
+## Per-process memory usage
+
+*"The ps and top commands [show]:*
+
+- *Vss [virtual set size]: Called VSZ in the `ps` command and VIRT in `top`, this is the total amount of memory mapped by a process. It is the sum of all the regions shown in `/proc/<PID>/map`. This number is of limited interest since only part of the virtual memory is committed to physical memory at any time.*
+- *Rss [resident memory size]: Called RSS in `ps` and RES in `top`, this is the sum of memory that is mapped to physical pages of memory. This gets closer to the actual memory budget of the process, but there is a problem: if you add the Rss of all the processes, you will get an overestimate of the memory in use because some pages will be shared."*
+
+### Using smem
+
+*"[There are 2 more metrics]: **unique set size**, or **Uss**, and **proportional set size**, or **Pss**"*
+
+Check the book for more information.
+
+*"Information about Pss is available in `/proc/<PID>/smaps`"*
+
+*"There is a tool named **smem** that collates information from the smaps files and presents it in various ways"*
+
+## Identifying memory leaks
+
+### mtrace
+
+*"**mtrace** is a component of glibc that traces calls to malloc , free , and related functions."*
+
+## Running out of memory
+
+*"There is a tuning parameter for kernel allocations in `/proc/sys/vm/overcommit_memory`"*
+
+*"There is another important variable in `/proc/meminfo:Committed_AS`. This is the total
+amount of memory that is needed to fulfill all the allocations made so far."*
+
+*"The final defense is `oom-killer`. It uses a heuristic method to calculate a badness score between 0 and 1,000 for each process,
+and then terminates those with the highest score until there is enough free memory."*
+
+*"You can influence the badness score for a process by writing an adjustment value to
+`/proc/<PID>/oom_score_adj`."*
+
