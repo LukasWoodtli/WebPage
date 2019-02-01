@@ -2412,7 +2412,9 @@ and then terminates those with the highest score until there is enough free memo
 
 *"On some architectures, GCC will not generate stack-frame pointers with the higher levels of optimization (`-O2` and above). If you find yourself in the situation that you really have to compile with `-O2` but still want backtraces, you can override the default behavior with `-fno-omit-frame-pointer`."*
 
-## Remote debugging using gdbserver
+## Debugging applications
+
+### Remote debugging using gdbserver
 
 *"`gdbserver` connects to a copy of GDB running on the host machine via a network connection or a serial interface."*
 
@@ -2425,7 +2427,9 @@ and then terminates those with the highest score until there is enough free memo
 
 *"For applications and shared libraries, `--strip-all` (the default) is fine, but when it comes to kernel modules, you will find that it will stop the module from loading. Use `--strip-unneeded` instead. "*
 
-## Connecting GDB and gdbserver
+## Starting to debug
+
+### Connecting GDB and gdbserver
 
 *" In the case of a network connection, you launch `gdbserver` with the TCP port number to listen on and, optionally, an IP address to accept connections from. In most cases, you don't care which IP address is going to connect, so you can just provide the port number. In this example, `gdbserver` waits for a connection on port 10000 from any host:"*
 
@@ -2458,7 +2462,7 @@ and then terminates those with the highest score until there is enough free memo
     (gdb) set serial baud 115200
     (gdb) target remote /dev/ttyUSB0
 
-## Setting the sysroot
+### Setting the sysroot
 
 *GDB needs to know where to find debug information and source code for the program and shared libraries you are debugging. When debugging natively, the paths are well known and built in to GDB, but when using a cross toolchain, GDB has no way to guess where the root of the target filesystem is. You have to give it this information."*
 
@@ -2494,14 +2498,13 @@ and then terminates those with the highest score until there is enough free memo
 
 ## Core files
 
-
 *"Core files are not created by default, but only when the core file resource limit for the process is non-zero. You can change it for the current shell using `ulimit -c`."*
 
 *"There are two files that control the naming and placement of core files. The first is `/proc/sys/kernel/core_uses_pid`. Writing a `1` to it causes the PID number of the dying process to be appended to the filename. [...] Much more useful is `/proc/sys/kernel/core_pattern`, which gives you a lot more control over core files."*
 
 *"You can also use a pattern that begins with an absolute directory name so that all core files are gathered together in one place."*
 
-## Using GDB to look at core files
+### Using GDB to look at core files
 
 *"Here is a sample GDB session looking at a core file:"*
 
@@ -2516,4 +2519,38 @@ and then terminates those with the highest score until there is enough free memo
     ...
     (gdb) bt
     ...
+
+## Debugging kernel code
+
+### Debugging kernel code with kgdb
+
+*"The kernel is a complex system, with real-time behaviors. Don't expect debugging to be as easy as it is for applications. Stepping through code that changes the memory mapping or switches context is likely to produce odd results."*
+
+*"`kgdb` is the name given to the kernel GDB stubs that have been part of mainline Linux for many years now. There is a user manual in the kernel DocBook, and you can find an online version at https://www.kernel.org/doc/htmldocs/kgdb/index.html."*
+
+*"In addition to the `zImage` or `uImage` compressed kernel image, you will need the kernel image in ELF object format so that GDB can load the symbols into memory. This is the file called `vmlinux` that is generated in the directory where Linux is built."*
+
+### Debugging modules
+
+*"The relocation addresses for each section of the module are stored in `/sys/module/<module name>/sections` [see also for hidden files, i.e .text]."*
+
+### Debugging kernel code with kdb
+
+*"Although `kdb` does not have the features of `kgdb` and GDB, it does have its uses, and being self-hosted, there are no external dependencies to worry about. kdb has a simple command-line interface that you can use on a serial console. You can use it to inspect memory, registers, process lists, and `dmesg` and even set breakpoints to stop at a certain location."*
+
+*"`kdb` is not a source-level debugger, so you can't see the source code or single-step. However, you can display a backtrace using the `bt` command"*
+
+### Looking at an Oops
+
+*"When the kernel performs an invalid memory access or executes an illegal instruction, a kernel Oops message is written to the kernel log."*
+
+*"[One] can use the GDB command disassemble with the `/s` modifier so that it shows source and assembler code together."*
+
+    :::bash
+    arm-poky-linux-gnueabi-gdb mbx.ko
+
+    :::bash
+    (gdb) disassemble /s mbx_write
+
+> The offsets are displayed in decimal, not hex!
 
