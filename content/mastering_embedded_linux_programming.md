@@ -2646,3 +2646,29 @@ made by a program and, optionally, its children"*
 *"`strace` uses the `ptrace(2)` function to hook calls as they are
 made from user space to the kernel."*
 
+
+# Chapter 16. Real-Time Programming
+
+## What is real time?
+
+*"A task is a real-time task if it has to complete before a
+certain point in time, known as the **deadline**."*
+
+*"The other important thing to consider is the consequence of missing the deadline."*
+
+
+- ***Soft real-time**: The deadline is desirable but is sometimes
+missed without the system being considered a failure.*
+- ***Hard real-time**: Here, missing a deadline has a serious
+effect. We can further subdivide hard real-time into mission-
+critical systems, in which there is a cost to missing the
+deadline [...] and safety-critical systems, in which there is a 
+danger to life and limb"*
+
+*"A well-configured Linux system using a mainline kernel is good
+for soft real-time tasks with deadlines down to tens of
+milliseconds, and a kernel with the `PREEMPT_RT` patch is good for
+soft and hard real-time mission-critical systems with deadlines
+down to several hundreds of microseconds."*
+
+> It is a myth of real-time computing that it is fast. This is not so, the more deterministic a system is, the lower the maximum throughput.
