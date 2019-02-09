@@ -2554,6 +2554,7 @@ and then terminates those with the highest score until there is enough free memo
 
 > The offsets are displayed in decimal, not hex!
 
+
 # Chapter 15. Profiling and Tracing
 
 ## Poor man's profiler
@@ -2570,7 +2571,7 @@ and then terminates those with the highest score until there is enough free memo
 
 *"You will also need debug symbols on the target for the binaries that you are interested in profiling; otherwise, `perf` will not be able to resolve addresses to meaningful symbols."*
 
-## Profiling with perf
+### Profiling with perf
 
 *"You can use `perf` to sample the state of a program using one of
 the event counters and accumulate samples over a period of time to
@@ -2586,13 +2587,13 @@ using the `cycles` counter."*
 need, and may be the cause of an observer effect. Try with lower
 rates: 100 Hz is enough for most cases, in my experience."*
 
-## Call graphs
+### Call graphs
 
 *"[To] see where [...] functions are being called from. You can do 
 that by capturing the backtrace from each sample, which you can do
 with the `-g` option to `perf record`."*
 
-## perf annotate
+### perf annotate
 
 *"Now that you know which functions to look at, it would be nice
 to step inside and see the code and to have hit counts for each
@@ -2644,3 +2645,4 @@ made by a program and, optionally, its children"*
 
 *"`strace` uses the `ptrace(2)` function to hook calls as they are
 made from user space to the kernel."*
+
