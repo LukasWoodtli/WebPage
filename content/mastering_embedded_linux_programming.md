@@ -2554,3 +2554,93 @@ and then terminates those with the highest score until there is enough free memo
 
 > The offsets are displayed in decimal, not hex!
 
+# Chapter 15. Profiling and Tracing
+
+## Poor man's profiler
+
+*"You can profile an application just by using GDB to stop it at arbitrary intervals to see what it is doing. This is the **poor man's profiler**. It is easy to set up and is one way of gathering profile data."*
+
+[http://poormansprofiler.org](http://poormansprofiler.org)
+
+## Introducing perf
+
+### Configuring the kernel for perf
+
+*"You need a kernel that is configured for `perf_events`, and you need the `perf` command cross compiled to run on the target. The relevant kernel configuration is `CONFIG_PERF_EVENTS`."*
+
+*"You will also need debug symbols on the target for the binaries that you are interested in profiling; otherwise, `perf` will not be able to resolve addresses to meaningful symbols."*
+
+## Profiling with perf
+
+*"You can use `perf` to sample the state of a program using one of
+the event counters and accumulate samples over a period of time to
+create a profile. This is another example of statistical
+profiling. The default event counter is called cycles, which is a
+generic hardware counter that is mapped to a PMU register
+representing a count of cycles at the core clock frequency."*
+
+*"By default, `perf record` samples at a frequency of 1000 Hz 
+using the `cycles` counter."*
+
+*"A sampling frequency of 1000 Hz may be higher than you really
+need, and may be the cause of an observer effect. Try with lower
+rates: 100 Hz is enough for most cases, in my experience."*
+
+## Call graphs
+
+*"[To] see where [...] functions are being called from. You can do 
+that by capturing the backtrace from each sample, which you can do
+with the `-g` option to `perf record`."*
+
+## perf annotate
+
+*"Now that you know which functions to look at, it would be nice
+to step inside and see the code and to have hit counts for each
+instruction. That is what `perf annotate` does, by calling down to
+a copy of `objdump` installed on the target. You just need to use
+`perf annotate` in place of `perf report`."*
+
+## Introducing Ftrace
+
+*"[The kernel function tracer]  is entirely implemented through 
+virtual files in the `debugfs` filesystem."*
+
+
+## Using LTTng
+
+*"[LTTng covers] user space traces as well as the kernel."*
+
+*"LTTng consists of three components:*
+- *A core session manager*
+- *A kernel tracer implemented as a group of kernel modules*
+- *A user space tracer implemented as a library"*
+
+*"In addition to those, you will need a trace viewer such as 
+[Babeltrace](http://www.efficios.com/babeltrace) or the **Eclipse
+Trace Compass plugin**."*
+
+### Using LTTng for kernel tracing
+
+*"LTTng can use the set of `ftrace` events [...] as potential 
+trace points. Initially, they are disabled."*
+
+## Using Valgrind
+
+### Callgrind
+
+*"Callgrind is only useful if your bottleneck is CPU bound. It's 
+not useful if heavy I/O or multiple processes are involved."*
+
+### Helgrind
+
+*"This is a thread-error detector for detecting synchronization
+errors in C, C++, and Fortran programs that include POSIX
+threads."*
+
+## Using strace
+
+*"[`strace`] is a very simple tracer that captures system calls
+made by a program and, optionally, its children"*
+
+*"`strace` uses the `ptrace(2)` function to hook calls as they are
+made from user space to the kernel."*
