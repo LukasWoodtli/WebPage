@@ -5,26 +5,31 @@ An eigenvector of a linear transformation is a vector (non-zero) that, when the 
 
 $$A \cdot \overrightarrow{v} = \lambda \cdot \overrightarrow{v}$$
 
-￼Where:
+Where:
 
 - $A$: Transformation Matrix
 - $ \overrightarrow{v}$: Eigenvector
 - $\lambda$: Eigenvalue
 
 
-We always need to find first the Eigenvalues and then we can calculate the Eigenvectors.
-
+To calculate the Eigenvectors we need to find the Eigenvalues first.
 
 # Finding the Eigenvalues
 
-$A \cdot \overrightarrow{v} = \lambda \cdot \overrightarrow{v} \rightarrow A \cdot \overrightarrow{v}
-= \lambda \cdot I \cdot \overrightarrow{v}$
+From
 
-$$(A -  \lambda  I) \cdot \overrightarrow{v} = 0$$
+$$A \cdot \overrightarrow{v} = \lambda \cdot \overrightarrow{v} \rightarrow A \cdot \overrightarrow{v}
+= \lambda \cdot I \cdot \overrightarrow{v}$$
 
-that is only solvable if $det(A -  \lambda  I) = 0$ (characteristic equation), meaning $(A -  \lambda  I)$ not invertible.
+follows
 
-The solution of the characteristic equation ($det(A -  \lambda  I) = 0$) are the eigenvalues.
+$$(A - \lambda I) \cdot \overrightarrow{v} = 0$$
+
+which is only solvable if $det(A - \lambda I) = 0$ (characteristic equation).
+
+This means $(A - \lambda  I)$ not invertible.
+
+The solution of the characteristic equation ($det(A - \lambda I) = 0$) are the eigenvalues.
 
 # Eigenvectors
 
@@ -32,6 +37,6 @@ There is one independent Eigenvector for each Eigenvalue.
 
 For each Eigenvalue solve
 
-$$(A -  \lambda  I) \cdot \overrightarrow{v} = 0$$
+$$(A - \lambda I) \cdot \overrightarrow{v} = 0$$
 
 to get the corresponding Eigenvector $\overrightarrow{v}$ for a given Eigenvalue $\lambda$.
