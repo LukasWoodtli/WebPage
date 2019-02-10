@@ -2671,4 +2671,185 @@ milliseconds, and a kernel with the `PREEMPT_RT` patch is good for
 soft and hard real-time mission-critical systems with deadlines
 down to several hundreds of microseconds."*
 
-> It is a myth of real-time computing that it is fast. This is not so, the more deterministic a system is, the lower the maximum throughput.
+> It is a myth of real-time computing that it is fast. This is not so,
+> the more deterministic a system is, the lower the maximum throughput.
+
+
+## Identifying sources of non-determinism
+
+*"Here are some problem areas:*
+
+- ***Scheduling**: Real-time threads must be scheduled before others, and so they must have a real-time policy, `SCHED_FIFO` or `SCHED_RR`. Additionally, they should have priorities assigned in descending order starting with the one with the shortest deadline, according to the theory of Rate Monotonic Analysis*
+- ***Scheduling latency**: The kernel must be able to reschedule as soon as an event such as an interrupt or timer occurs, and not be subject to unbounded delays.*
+- ***Priority inversion**: This is a consequence of priority-based scheduling, which leads to unbounded delays when a high-priority thread is blocked on a mutex held by a low-priority thread [...] User space has priority inheritance and priority ceiling mutexes; in kernel space, we have rt-mutexes, which implement priority inheritance [...]*
+- ***Accurate timers**: If you want to manage deadlines in the region of low milliseconds or microseconds, you need timers that match. High-resolution timers are crucial and are a configuration option on almost all kernels.*
+- ***Page faults**: A page fault while executing a critical section of code will upset all timing estimates. You can avoid them by locking memory*
+- ***Interrupts**: They occur at unpredictable times and can result in an unexpected processing overhead if there is a sudden flood of them. There are two ways to avoid this. One is to run interrupts as kernel threads, and the other, on multi-core devices, is to shield one or more CPUs from interrupt handling.*
+- ***Processor caches**: These provide a buffer between the CPU and the main memory and, like all caches, are a source of non-determinism, especially on multi-core devices.*
+- ***Memory bus contention*: When peripherals access memory directly through a DMA channel, they use up a slice of memory bus bandwidth, which slows down access from the CPU core (or cores) and so contributes to non-deterministic execution of the program."*
+
+## Kernel preemption
+
+*"Mainline Linux has three settings for preemption:*
+
+- *`CONFIG_PREEMPT_NONE`: No preemption*
+- *`CONFIG_PREEMPT_VOLUNTARY`: This enables additional checks for requests for preemption*
+- *`CONFIG_PREEMPT: This allows the kernel to be preempted"*
+
+*"With preemption set to `none`, kernel code will continue without
+rescheduling until it either returns via a `syscall` back to user
+space, where preemption is always allowed, or it encounters a
+sleeping wait that stops the current thread. [...]  It is the
+default for servers and some desktop kernels, where throughput is
+more important than responsiveness."*
+
+*"[`CONFIG_PREEMPT`] is often described as a soft real-time option, and most embedded kernels are configured in this way."*
+
+## The real-time Linux kernel (PREEMPT_RT)
+
+*"The central plan is to reduce the amount of time the kernel spends running in an **atomic context**, which is where it is not safe to call the scheduler and switch to a different thread. Typical atomic contexts are when the kernel is in the following states:*
+
+- *Running an interrupt or trap handler.*
+- *Holding a spinlock or in an RCU critical section. Spin lock and RCU are kernel-locking primitives*
+- *Between calls to `preempt_disable()` and `preempt_enable()`.*
+- *Hardware interrupts are disabled (IRQs off)"*
+
+
+*"The changes that are part of `PREEMPT_RT` fall into two main
+areas: one is to reduce the impact of interrupt handlers by
+turning them into kernel threads, and the other is to make locks
+preemptible so that a thread can sleep while holding one. [...]
+there is a large overhead in these changes, which makes
+average-case interrupt handling slower but much more deterministic."*
+
+### Threaded interrupt handlers
+
+*"Not all interrupts are triggers for real-time tasks, but all
+interrupts steal cycles from real-time tasks. Threaded interrupt
+handlers allow a priority to be associated with the interrupt and
+for it to be scheduled at an appropriate time."*
+
+*"You can make threaded IRQs the default by configuring the kernel 
+with `CONFIG_IRQ_FORCED_THREADING=y`"*
+
+*"When you apply the `PREEMPT_RT` patches, interrupts are, by 
+default, configured as threads in this way."*
+
+*"It is normal that the timer interrupt handler be run inline."*
+
+*"[See the book for a] suggested order of descending thread 
+priorities"*
+
+*"You can change the priorities using the `chrt` command as 
+part of the boot script."*
+
+## Preemptible kernel locks
+
+*"A spin lock is a busy-wait mutex that does not require a context 
+switch in the contended case, and so it is very efficient as long 
+as the lock is held for a short time. Ideally, they should be 
+locked for less than the time it would take to reschedule twice."*
+
+*"In mainline Linux, locking a spin lock disables kernel
+preemption, creating an atomic context. This means that a low
+priority thread that holds a spin lock can prevent a high-priority
+thread from being scheduled."*
+
+*"The solution adopted by `PREEMPT_RT` is to replace almost all
+spin locks with RT-mutexes. A mutex is slower than a spin lock,
+but it is fully preemptible. Not only that, but RT-mutexes
+implement priority inheritance and so are not susceptible to
+priority inversion."*
+
+### Getting the PREEMPT_RT patches
+
+*"The RT developers do not create patch sets for every kernel version because of the amount of effort involved."*
+
+*"The patches are available at
+[https://www.kernel.org/pub/linux/kernel/projects/rt](https://www.kernel.org/pub/linux/kernel/projects/rt)."*
+
+*"If you are using the Yocto Project, there is an `rt` version
+of the kernel already."*
+
+## High-resolution timers
+
+*"Timer resolution is important if you have precise timing
+requirements, which is typical for real-time applications. The
+default timer in Linux is a clock that runs at a configurable
+rate, typically 100 Hz for embedded systems and 250 Hz for servers
+and desktops. The interval between two timer ticks is known as a
+**jiffy** and [is for example] 10 milliseconds on an embedded
+SoC and four milliseconds on a server."*
+
+## Avoiding page faults
+
+*"A page fault occurs when an application reads or writes to
+memory that is not committed to physical memory. It is impossible
+(or very hard) to predict when a page fault will happen, so they
+are another source of non-determinism in computers.
+Fortunately, there is a function that allows you to commit all the
+memory used by the process and lock it down so that it cannot
+cause a page fault. It is `mlockall(2)`"*
+
+## Interrupt shielding
+
+*"Using a multi-core processor, you can take a different approach
+and shield one or more cores from processing interrupts
+completely, allowing them to be dedicated to real-time tasks
+instead. This works either with a normal Linux kernel or a
+`PREEMPT_RT` kernel."*
+
+*"You can set the CPU affinity of a thread or process using the
+command-line tool `taskset`, or you can use the
+`sched_setaffinity(2)` and `pthread_setaffinity_np(3)` functions."*
+
+*"To set the affinity of an interrupt, first note that there is a
+subdirectory for each interrupt number in
+`/proc/irq/<IRQ number>`. The control files for the interrupt
+are in there."*
+
+## Measuring scheduling latencies
+
+### cyclictest
+
+*"`cyclictest` measures scheduling latencies by comparing the
+actual time taken for a sleep to the requested time. If there was
+no latency, they would be the same, and the reported latency would
+be zero. `cyclictest` assumes a timer resolution of less than one
+microsecond."*
+
+*"To be of real use, you would run tests over a 24-hour period
+or longer while running a load representative of the maximum you
+expect."*
+
+*"Of the numbers produced by `cyclictest`, the maximum latency is
+the most interesting, but it would be nice to get an idea of the
+spread of the values. You can get that by adding `-h <N>` to
+obtain a histogram of samples that are up to `N`
+microseconds late."*
+
+### Using Ftrace
+
+*"The kernel function tracer has tracers to help track down
+kernel latencies."*
+
+*"Be aware that running Ftrace adds a lot of latency, in the order
+of tens of milliseconds, every time it captures a new maximum,
+which Ftrace itself can ignore. However, it skews the results of
+user space tracers such as cyclictest. [...] ignore the results of
+`cyclictest` if you run it while capturing traces."*
+
+### Combining cyclictest and Ftrace
+
+*"If `cyclictest` reports unexpectedly long latencies, you can use
+the `breaktrace` option to abort the program and trigger `ftrace`
+to obtain more information."*
+
+## Summary
+
+*"Tuning Linux and your application to handle real-time events
+means making it more deterministic so that the real-time threads
+can meet their deadlines reliably."*
+
+*"To improve determinism, you need to consider both the
+application and the kernel."*
