@@ -1039,6 +1039,155 @@ For BeagleBone Black (U-Boot):
 - *ramfs*, *rootfs* and *initramfs*, Rob Landley, October 17, 2005, which is part of the Linux source in `Documentation/filesystems/ramfs-rootfs-initramfs.txt`
 
 
+# Chapter 6. Selecting a Build System
+
+## Build systems
+
+*"A build system should be able to build, from upstream source code, some or all of the following:*
+
+- *A toolchain*
+- *A bootloader*
+- *A kernel*
+- *A root filesystem"*
+
+*"A build system has to be able to do the following:*
+
+1. *Download the source code from upstream, either directly from the source code control system or as an archive, and cache it locally.*
+2. *Apply patches to enable cross compilation, fix architecture-dependent*
+3. *Build the various components.*
+4. *Create a staging area and assemble a root filesystem.*
+5. *Create image files in various formats ready to be loaded onto the target."*
+
+*"[In the Yocto project] every component is generated as a binary
+package, by default, using the RPM format, and then the packages
+are combined together to make the filesystem image. Furthermore,
+you can install a package manager in the filesystem image, which
+allows you to update packages at runtime."*
+
+## The Yocto Project
+
+*"[With the Yocto project one can] build toolchains, bootloaders,
+kernels, and root filesystems [...] it can generate an entire
+Linux distribution for you with binary packages that can be
+installed at runtime. The Yocto Project is primarily a group of
+recipes, [...] written using a combination of Python and shell
+script, together with a task scheduler called **BitBake**"*
+
+### Background
+
+*"The Yocto Project collects together several components, the most
+important of which are the following:*
+
+- ***OE-Core**: This is the core metadata, which is shared with OpenEmbedded*
+- ***BitBake**: This is the task scheduler, which is shared with OpenEmbedded and other projects*
+- ***Poky**: This is the reference distribution*
+- ***Documentation**: This is the user's manuals and developer's guides for each component*
+- ***Toaster**: This is a web-based interface to BitBake and its metadata"*
+
+### Configuring
+
+*"You must source [a] script each time you want to work on [a] project."*
+
+    :::bash
+    source oe-init-build-env <build-dir>
+
+*"This will put you into the directory: `<build-dir>`"*
+
+*"Initially, the build directory contains only one subdirectory 
+named `conf/`, which contains the configuration files for this
+project:*
+
+- `local.conf`: *This contains a specification of the device you are going to build and the build environment.*
+- `bblayers.conf`: *This contains paths of the meta layers you are going to use.*
+- `templateconf.cfg`: This contains the name of a directory, which contains various `conf` files. By default, it points to `meta-poky/conf/`."*
+
+### Building
+
+*"Run BitBake, telling it which root filesystem image you want to create. Some common images are as follows:*
+
+- `core-image-minimal`: *This is a small console-based system which is useful for tests and as the basis for custom images.*
+- `core-image-minimal-initramfs`: *This is similar to core-image-minimal, but built as a ramdisk.*
+- `core-image-x11`: *This is a basic image with support for graphics through an X11 server and the xterminal terminal app.* - `core-image-sato`: *This is a full graphical system based on Sato, which is a mobile graphical environment built on X11, and GNOME. The image includes several apps including a Terminal, an editor, and a file manager."*
+
+*"When [the build] is complete, you will find several new directories in the build directory [...] You should see the following in `tmp/`:*
+
+- `work/`: *This contains the build directory and the staging area for the root filesystem.*
+- `deploy/`: *This contains the final binaries to be deployed on the target:*
+    - `deploy/images/[machine name]/`: *Contains the bootloader, the kernel, and the root filesystem images ready to be run on the target*
+    - `deploy/rpm/`: *This contains the RPM packages that went to make up the images*
+    - `deploy/licenses/`: *This contains the license files extracted from each package"*
+
+### Running the QEMU target
+
+*"When you build a QEMU target, an internal version of QEMU is generated."*
+
+*"There is a wrapper script named `runqemu` to run this version of
+QEMU. To run the QEMU emulation, make sure that you have sourced
+`oe-init-build-env`, and then just type this:"*
+
+    :::bash
+    runqemu qemuarm
+    
+    # or
+    runqemu qemuarm nographic
+
+For help run: `runqemu help`
+
+### Layers
+
+*"The core layers of the Yocto Project are as follows:*
+
+- `meta`: *This is the OpenEmbedded core with some changes for Poky*
+- `meta-poky`: *This is the metadata specific to the Poky distribution*
+- `meta-yocto-bsp`: *This contains the board support packages for the machines that the Yocto Project supports"*
+
+*"The list of layers in which BitBake searches for recipes is stored in `<your build directory>/conf/bblayers.conf`"*
+
+*"Each meta layer has to have at least one configuration file,
+named `conf/layer.conf`, and it should also have the `README` file 
+and a license."*
+
+*"There is a handy helper script:
+`scripts/yocto-layer create <layer-name>`"*
+
+*"The layer priority is used if the same recipe appears in several layers: the one in the layer with the highest priority wins."*
+
+#### BitBake and recipes
+
+*"BitBake processes metadata of several different types, which include the following:*
+
+- ***Recipes**: Files ending in `.bb`. These contain information about building a unit of software, including how to get a copy of the source code, the dependencies on other components, and how to build and install it.*
+- ***Append**: Files ending in `.bbappend`. These allow some details of a recipe to be overridden or extended. A `bbappend` file simply appends its instructions to the end of a recipe (`.bb` ) file of the same root name.*
+- ***Include**: Files ending in `.inc`. These contain information that is common to several recipes, allowing information to be shared among them. The files maybe included using the **include** or **require** keywords. The difference is that **require** produces an error if the file does not exist, whereas **include** does not.*
+- ***Classes**: Files ending in `.bbclass`. These contain common build information, for example, how to build a kernel or how to build an autotools project. The classes are inherited and extended in recipes and other classes using the **inherit** keyword. The class `classes/base.bbclass` is implicitly inherited in every recipe.*
+- ***Configuration**: Files ending in `.conf`. They define various configuration variables that govern the project's build process."*
+
+
+*"A recipe is a collection of tasks written in a combination of
+Python and shell script. The tasks have names such as `do_fetch`, 
+`do_unpack`, `do_patch`, `do_configure`, `do_compile`, and 
+`do_install`. The default task is `do_build`."*
+
+*"You can list the tasks available in a recipe using `bitbake -c listtasks [recipe]`."*
+
+*"The tasks that need to be defined are `do_compile`
+and `do_install`."*
+
+### Writing an image recipe
+
+*"If you want to create an image that is to be shared with other 
+developers or to be loaded onto a production system, then you 
+should put the changes into an **image recipe**."*
+
+### Creating an SDK
+
+*"It is very useful to be able to create a standalone toolchain 
+that other developers can install, avoiding the need for everyone
+in the team to have a full installation of the Yocto Project."*
+
+*"You can do that for any image using the `populate_sdk`."*
+
+
 # Chapter 7. Creating a Storage Strategy
 
 ## Storage options
