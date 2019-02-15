@@ -5,6 +5,4 @@ Category: Programming
 
 Swiss German keyboard layout for OS X, useful for programming.
 
-Download the Logitech [keymap](/files/LogitechSwissGerman.tar.bz2)
-
-Original taken from [here](https://www.krenger.ch/blog/mac-os-x-standard-de_ch-keymap/)
+Download the keymap from [github](https://github.com/LukasWoodtli/macOSKeymapSwissGerman)
