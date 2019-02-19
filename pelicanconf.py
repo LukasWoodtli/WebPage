@@ -34,7 +34,7 @@ AUTHOR_FEED_RSS = None
 
 DEFAULT_PAGINATION = 5
 
-SLUG_SUBSTITUTIONS = [(' ', '_'), ('+', 'p')]
+SLUG_REGEX_SUBSTITUTIONS = [(r' ', '_'), (r'\+', 'p')]
 
 
 CATEGORY_URL = 'category/{slug}.html' 	  # The URL to use for a category.
