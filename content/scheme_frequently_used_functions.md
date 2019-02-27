@@ -99,6 +99,32 @@ is interpreted as an alternate syntax for
     ((lambda (<var>) <body>) <exp>)
 
 
+# Delayed Evaluation
+
+`delay` is a special form that returns a *delayed object*. It is a 
+*promise* to evaluate the given expression at some future time.
+
+`force` takes a *delayed object* and performs the evaluation. It forces
+the `delay` to fulfill its promise.
+
+
+Delay can be a special form such that:
+
+    :::scheme
+    (delay <exp>)
+
+is syntactic sugar for
+
+    :::scheme
+    (lambda () <exp>)
+
+Force simply calls the procedure (of no arguments) pro-
+duced by delay, so we can implement force as a proce-
+dure:
+
+    :::scheme
+    (define (force delayed-object) (delayed-object))
+
 # Dotted-tail Notation
 
 - Used for functions with arbitrary number of arguments
