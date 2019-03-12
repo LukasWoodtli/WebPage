@@ -223,3 +223,190 @@ evaluating `<new-value>`."*
 *"Assignment is all that is needed, theoretically, to account for the behavior of mutable data. As soon as we admit `set!` to our language, we raise all the issues, not only of assignment, but of mutable data in general."*
 
 *"On the other hand, from the viewpoint of implementation, assignment requires us to modify the environment, which is itself a mutable data structure. Thus, assignment and mutation are equipotent: Each can be implemented in terms of the other."*
+
+
+# 4 Metalinguistic Abstraction
+
+## 4.1 The Metacircular Evaluator
+
+*"The model has two basic parts:*
+
+1. *To evaluate a combination (a compound expression other than a special form), evaluate the subexpressions and then apply the value of the operator subexpression to the values of the operand subexpressions.*
+2. *To apply a compound procedure to a set of arguments, evaluate the body of the procedure in a new environment. To construct this environment, extend the environment part of the procedure object by a frame in which the formal parameters of the procedure are bound to the arguments to which the procedure is applied."*
+
+*"The job of the evaluator is not to specify the primitives of the language, but rather to
+provide the connective tissue - the means of combination and the means of abstraction - that
+binds a collection of primitives to form a language. Specifically:*
+
+- *The evaluator enables us to deal with nested expressions.*
+- *The evaluator allows us to use variables. [...] We need an evaluator to keep track of variables and obtain their values before invoking the primitive procedures.*
+- *The evaluator allows us to define compound procedures. This involves keeping track of procedure definitions, knowing how to use these definitions in* evaluating expressions, and providing a mechanism that enables procedures to accept arguments.*
+- *The evaluator provides the special forms, which must be evaluated differently from procedure calls."*
+
+### 4.1.1 The Core of the Evaluator
+
+*"The evaluation process can be described as the interplay between two procedures:
+`eval` and `apply`."*
+
+#### Eval
+
+*"`Eval` takes as arguments an expression and an environment. It classifies the expression
+and directs its evaluation. `Eval` is structured as a case analysis of the syntactic type
+of the expression to be evaluated."*
+
+*"Each type of expression has a predicate that tests for it and an abstract means for
+selecting its parts. This **abstract syntax** makes it easy to see how we can change the
+syntax of the language by using the same evaluator."*
+
+#### Primitive expressions
+
+- *"For self-evaluating expressions, such as numbers, eval returns the expression itself.*
+- *Eval must look up variables in the environment to find their values.*
+- *For quoted expressions, `eval` returns the expression that was quoted.*
+- *An assignment to (or a definition of) a variable must recursively call eval to compute the new value to be associated with the variable. The environment must be modified to change (or create) the binding of the variable.*
+- *An `if` expression requires special processing of its parts, so as to evaluate the consequent if the predicate is true, and otherwise to evaluate the alternative.*
+- *A `lambda` expression must be transformed into anapplicable procedure by packaging together the parameters and body specified by the `lambda` expression with the environment of the evaluation.*
+- *A `begin` expression requires evaluating its sequence of expressions in the order in which they appear.*
+- *A case analysis (`cond`) is transformed into a nest of `if` expressions and then evaluated."*
+
+
+### 4.1.4 Running the Evaluator as a Program
+
+*"Our evaluator program reduces expressions ultimately to the application
+of primitive procedures."*
+
+*"We thus set up a global environment that associates unique objects with the names
+of the primitive procedures that can appear in the expressions we will be evaluating."*
+
+*"The global environment also includes bindings for the symbols `true` and `false`."*
+
+
+### 4.1.5 Data as Programs
+
+*"Turing presented a simple computational model - now known
+as a **Turing machine** - and argued that any "effective process"
+can be formulated as a program for such a machine. (This argument
+is known as the **Church-Turing thesis**.) Turing then implemented
+a universal machine, i.e., a Turing machine that behaves
+as an evaluator for Turing-machine programs."*
+
+*"An evaluator, which is
+implemented by a relatively simple procedure, can emulate programs
+that are more complex than the evaluator itself. The existence
+of a universal evaluator machine is a deep and wonderful
+property of computation."*
+
+
+### 4.2.1 Normal Order and Applicative Order
+
+*"We noted that Scheme is an **applicativeorder**
+language, namely, that all the arguments to Scheme
+procedures are evaluated when the procedure is applied.
+In contrast, **normal-orde**r languages delay evaluation of
+procedure arguments until the actual argument values are
+needed. Delaying evaluation of procedure arguments until
+the last possible moment (e.g., until they are required by a
+primitive operation) is called **lazy evaluation**"*
+
+### 4.2.2 An Interpreter with Lazy Evaluation
+
+*"The basic idea is that, when applying a procedure, the interpreter
+must determine which arguments are to be evaluated
+and which are to be delayed. The delayed arguments
+are not evaluated; instead, they are transformed into objects
+called **thunks**."*
+
+*"The word **thunk** was invented by an informal working group that
+was discussing the implementation of call-by-name in Algol 60.
+They observed that most of the analysis of ("thinking about") the
+expression could be done at compile time; thus, at run time, the
+expression would already have been "thunk" about"*
+
+
+## 4.3 Variations on a Scheme - Nondeterministic Computing
+
+*"With nondeterministic evaluation, an expression
+represents the exploration of a set of possible worlds,
+each determined by a set of choices. Some of the possible
+worlds lead to dead ends, while others have useful values.
+The nondeterministic program evaluator supports the illusion
+that time branches, and that our programs have different
+possible execution histories. When we reach a dead
+end, we can revisit a previous choice point and proceed
+along a different branch."*
+
+
+### 4.3.1 Amb and Search
+
+*"Abstractly, we can imagine that evaluating an `amb` expression
+causes time to split into branches, where the
+computation continues on each branch with one of the
+possible values of the expression. We say that `amb` represents
+a nondeterministic choice point."*
+
+*"It is better to **systematically search** all possible execution paths.
+The amb evaluator [...] implements a systematic search as follows:
+When the evaluator encounters an application of `amb, it
+initially selects the first alternative. This selection may itself
+lead to a further choice. The evaluator will always initially
+choose the first alternative at each choice point. If
+a choice results in a failure, then the evaluator **automagically**
+backtracks to the most recent choice point and tries
+the next alternative."*
+
+
+### 4.3.3 Implementing the Amb Evaluator
+
+*"The evaluation of an ordinary Scheme expression may return
+a value, may never terminate, or may signal an error.
+In nondeterministic Scheme the evaluation of an expression
+may in addition result in the discovery of a dead
+end, in which case evaluation must backtrack to a previous
+choice point. The interpretation of nondeterministic
+Scheme is complicated by this extra case."*
+
+#### Execution procedures and continuations
+
+*"Recall that the execution procedures for the ordinary evaluator
+take one argument: the environment of execution.
+In contrast, the execution procedures in the `amb` evaluator
+take three arguments: the environment, and two procedures
+called **continuation procedures**. The evaluation of
+an expression will finish by calling one of these two continuations:
+If the evaluation results in a value, the **success
+continuation** is called with that value; if the evaluation results
+in the discovery of a dead end, the **failure continuation**
+is called."*
+
+*"The failure continuation
+in hand at that point will cause the most recent choice
+point to choose another alternative. If there are no more
+alternatives to be considered at that choice point, a failure
+at an earlier choice point is triggered, and so on."*
+
+*"In addition, if a side-effect operation (such as assignment
+to a variable) occurs on a branch of the process resulting
+from a choice, it may be necessary, when the process
+finds a dead end, to undo the side effect before making
+a new choice."*
+
+*"When the failure continuation for an `amb` runs out of
+choices, it calls the failure continuation that was originally
+given to the `amb`, in order to propagate the failure
+back to the previous choice point or to the top level."*
+
+
+## 4.4 Logic Programming
+
+*"Computer science deals with
+imperative (how to) knowledge, whereas mathematics
+deals with declarative (what is) knowledge."*
+
+*"In a nondeterministic language, expressions
+can have more than one value, and, as a result, the
+computation is dealing with relations rather than with
+single-valued functions. Logic programming extends this
+idea by combining a relational vision of programming
+with a powerful kind of symbolic pattern matching called
+**unification**."*
+
