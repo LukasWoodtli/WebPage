@@ -67,6 +67,18 @@ They are placed in a separate standardized directory hierarchy.
 | `rosnode cleanup`          | Remove killed nodes from the list |
 
 
+## Topics and Messages
+
+| Command                      | Function                                           |
+|------------------------------|----------------------------------------------------|
+| `rostopic list`              | Print all topics currently published or subscribed |
+| `rostopic list -v`           | Print also publishers and subscribers              |
+| `rostopic echo <topic>`      | Print data published on a topic                    |
+| `rostopic type <topic>`      | Get the message type published on a topic          |
+| `rosmsg show <msg-type>`     | Get the fields of a message type                   |
+| `rostopic pub <topic> <msg-type> -- <args>` | Publish on a topic (use `TAB` completion to get a template message) |
+
+
 # References
 
 - [A Gentle Introduction to ROS](https://cse.sc.edu/~jokane/agitr/)
