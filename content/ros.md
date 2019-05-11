@@ -80,6 +80,10 @@ They are placed in a separate standardized directory hierarchy.
 | `rostopic pub <topic> <msg-type> -- <args>` | Publish on a topic (use `TAB` completion to get a template message) |
 
 
+# Checking for Problems
+
+- `roswtf`: Perform sanity checks for the running ROS system
+
 # References
 
 - [A Gentle Introduction to ROS](https://cse.sc.edu/~jokane/agitr/)
