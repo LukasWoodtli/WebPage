@@ -85,7 +85,7 @@ MARKDOWN = {
             'output_format': 'html5',
 }
 
-DOCUTILS_SETTINGS = {'table_style' : 'borderless', 'math_output': 'mathjax https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'}
+DOCUTILS_SETTINGS = {'table_style' : 'borderless', 'math_output': 'mathjax https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js'}
 
 THEME = "pelican-elegant"
 
@@ -107,5 +107,4 @@ MENUITEMS = [
     ('Blog', 'pages/blog.html'),
     ('Contact', 'pages/contact.html')
 ]
-
 
