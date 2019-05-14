@@ -80,6 +80,39 @@ They are placed in a separate standardized directory hierarchy.
 | `rostopic pub <topic> <msg-type> -- <args>` | Publish on a topic (use `TAB` completion to get a template message) |
 
 
+# Workspaces and Packages
+
+All packages belonging to one project should be placed in one workspace.
+
+## Creating a Workspaces
+
+    :::bash
+    mkdir -p <workspace-name>/src    # don't forget the `src` subdirectory
+    cd  <workspace-name>/
+    catkin_make
+
+## Creating a Package
+
+    :::bash
+    cd  <workspace-name>/src
+    catkin_create_pkg <package-name> [list of dependencies]
+
+## Building a Workspace
+
+    :::bash
+    cd  <workspace-name>/
+    catkin_make
+
+## Running a Node from Workspace
+
+A master is required to run before running any nodes.
+
+    :::bash
+    cd  <workspace-name>/
+    source devel/setup.zsh
+    rosrun <package-name> <executable-name>
+
+
 # Checking for Problems
 
 - `roswtf`: Perform sanity checks for the running ROS system
