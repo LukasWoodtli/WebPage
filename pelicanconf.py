@@ -85,7 +85,7 @@ MARKDOWN = {
             'output_format': 'html5',
 }
 
-DOCUTILS_SETTINGS = {'table_style' : 'borderless', 'math_output': 'mathjax http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'}
+DOCUTILS_SETTINGS = {'table_style' : 'borderless'}
 
 THEME = "pelican-elegant"
 

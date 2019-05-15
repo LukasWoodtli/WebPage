@@ -29,6 +29,7 @@ Tags: Tools, Cheat Sheet, Unix, Linux
 |------|--------------------------------|
 | `x`  | Delete (cut) char under cursor |
 | `dd` | Delete (cut) current line      |
+| `p`  | Paste                          |
 
 
 # Help
