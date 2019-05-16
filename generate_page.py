@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from __future__ import print_function
 
@@ -25,7 +25,6 @@ except:
 PELICAN_THEME = "pelican-elegant" # needs to be set in pelicanconf.py
 
 REPOSITORIES = [("https://github.com/LukasWoodtli/" + PELICAN_THEME,     PELICAN_THEME),  # Pelican theme
-                ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
                 ("https://github.com/getpelican/pelican-plugins", "pelican-plugins"),
                 (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
 
