@@ -8,5 +8,5 @@ RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 RUN git config --global user.name "travis (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@travis.example.com
 
 
-ENTRYPOINT ["python"]
+ENTRYPOINT ["python3"]
 
