@@ -27,6 +27,14 @@ With:
 The unit vectors $\left ( \mathbf{e}^\mathcal{A}_x, \mathbf{e}^\mathcal{A}_y, \mathbf{e}^\mathcal{A}_z \right )$ of frame $\mathcal{A}$ form an ortho-normal basis of $\mathbb{R}^3$.
 
 
+An alternative notation:
+
+$${}^A \mathbf{p}_B$$
+
+Meaning: Vector $\mathbf{p}$ to $B$ with respect to coordinate frame ${A}$.
+
+
+
 # Representation of Positions
 
 ## Cartesian Coordinates
@@ -98,4 +106,18 @@ Where:
 
 To fully describe the configuration of a rigid body (pose) a position and a rotation is needed.
 
+A pose $\xi$ in 2D has 3 parameters $(x, y, \theta)$. It can be considered as the motion (translation
+and rotation) of a coordinate frame.
 
+The pose of a coordinate frame can be described with respect to another coordinate frame:
+
+$${}^A\xi_B$$
+
+Meaning: Pose $\xi$ of coordinate frame ${B}$ with respect to frame ${A}$.
+
+
+# Sources
+
+Notes taken from:
+
+[Robot Academy](https://robotacademy.net.au/)
