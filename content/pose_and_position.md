@@ -32,7 +32,8 @@ An alternative notation:
 $${}^A \mathbf{p}_B$$
 
 Meaning: Vector $\mathbf{p}$ to $B$ with respect to coordinate frame ${A}$.
-
+(The bound vector $\mathbf{p}$ pointing from the origin of ${A}$ to the point $B$,
+Where everything is in the coordnate frame ${A}$).
 
 
 # Representation of Positions
