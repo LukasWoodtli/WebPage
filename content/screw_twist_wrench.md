@@ -6,7 +6,7 @@ Tags: Robotics
 
 # Screw
 
-A rigid body can be moved from one position to any other by rotation around a line (vector) and translation along that line. This is called a screw motion.
+A rigid body can be moved from one position to any other by rotation around a line (vector) and translation along that line. This is called a screw motion. The concept of screw can be applied to motion (twist) or to forces and momentum (wrench).
 
 # Twist
 
@@ -28,3 +28,5 @@ Similar to angular and linear velocities are packed into a vector in $\mathbb{R}
 Notes taken from:
 
 [Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/index.php/Modern_Robotics) by Kevin M. Lynch and Frank C. Park, Cambridge University Press, 2017
+
+[StackExchange: Physics](https://physics.stackexchange.com/a/298159)
