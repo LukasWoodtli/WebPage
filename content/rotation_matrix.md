@@ -120,7 +120,9 @@ Because a rotation matrix $R$ lives in $SO(3)$, there is *no* numerical equivale
 - Identity element: $R I = I R = R$
 - Composition Rule for Rotations (Combining by matrix multiplication): $R_{ac} = R_{ab} R_{bc}$ (subscript cancellation)
 - Rotating a vector doesn't change its length: $x \in \mathbb{R}^3, \left \| Rx \right \| = \left \| x \right \|$
-
+- A rotation matrix (in 2D) has 3 eigenvectors:
+    - One real eigenvector corresponding to to eigenvalue $1$
+    - Two complex eigenvectors with eigenvalues: $\lambda = \cos \theta \pm j \sin \theta$ where $\theta$ is the rotation angle
 
 ## Elementary Rotations
 
