@@ -19,6 +19,7 @@ Where:
 
 ## Holonomic Constraints
 
+- A holonomic mechanical system can move in arbitrary directions (in its C-space)
 - Holonomic constraints can be defined independent of $\dot{q}$ (i.e. $f(q,t)= 0$)
 - Holonomic constraints reduce the dimension of the C-space (geometric limitation)
 - C-space can be viewed as a surface of dimension $n-k$ embedded in $\mathbb{R}^n$
@@ -32,7 +33,7 @@ Where:
 
 ## Nonholonomic Constraints
 
-- A nonholonomic mechanical system cannot move in arbitrary directions (in its C-space)
+- A nonholonomic mechanical system *cannot* move in arbitrary directions (in its C-space)
 - Constraints can not be integrated
 - They reduce the dimension of the feasible velocities of the system (kinematic/velocity limitation)
 - They do not reduce the dimension of the reachable C-space
