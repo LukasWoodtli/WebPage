@@ -410,3 +410,97 @@ idea by combining a relational vision of programming
 with a powerful kind of symbolic pattern matching called
 **unification**."*
 
+
+# 5 Computing with Register Machines
+
+## 5.1 Designing Register Machines
+
+*"To design a register machine, we must design its **data paths** (registers and operations) and the **controller** that sequences these operations."*
+
+### 5.1.4 Using a Stack to Implement Recursion
+
+*"Since there is no a priori limit on the depth of nested re- cursive calls, we may need to save an arbitrary number of register values. These values must be restored in the re- verse of the order in which they were saved, since in a nest of recursions the last subproblem to be entered is the first to be finished. This dictates the use of a **stack**."*
+
+
+*"Although in principle the factorial computation requires an infinite machine, the machine in [...] is actually finite except for the stack, which is potentially unbounded."*
+
+*"When a recursive sub- problem is encountered, we save on the stack the registers whose current values will be required after the subproblem is solved, solve the recursive subproblem, then restore the saved registers and continue execution on the main problem."*
+
+*"[The] registers that need to be saved depends on the particular machine, since not all recursive computations need the original values of registers that are modified during solution of the subproblem."*
+
+### 5.2.2 The Assembler
+
+*"The assembler transforms the sequence of controller expressions for a machine into a corresponding list of machine instructions, each with its execution procedure."*
+
+## 5.3 Storage Allocation and Garbage Collection
+
+### 5.3.1 Memory as Vectors
+
+*"Memory addresses can be incremented to support sequential access to some set of the cubbyholes. More generally, many important data operations require that memory addresses be treated as data, which can be stored in memory locations and manipulated in machine registers. The representation of list structure is one application of such **address arithmetic**."*
+
+*"In order to describe memory operations, we use two primitive Scheme procedures for manipulating vectors:"*
+
+- `(vector-ref <vector> <n>)` returns the $n^{th}$ element of the vector.
+- `(vector-set! <vector> <n> <value>)` sets the $n^{th}$ element of the vector to the designated value.
+
+#### Representing Lisp data
+
+*"Let us imagine that computer memory is divided into two vectors: `the-cars` and `the-cdrs`. We will represent list structure as follows: A pointer to a pair is an index into the two vectors. The `car` of the pair is the entry in `the-cars` with the designated index, and the `cdr` of the pair is the entry in `the-cdrs` with the designated index. We also need a representation for objects other than pairs (such as numbers and symbols) and a way to distinguish one kind of data from another. [...] using **typed pointers**, that is, to extending the notion of “pointer” to include information on data type."*
+
+
+### 5.3.2 Maintaining the Illusion of Infinite Memory
+
+*"Garbage collection is based on the observation that, at any moment in a Lisp interpretation, the only objects that can affect the future of the computation are those that can be reached by some succession of `car` and `cdr` operations starting from the pointers that are currently in the machine registers."*
+
+*"We assume here that the stack is represented as a list [...], so that items on the stack are accessible via the pointer in the stack register."*
+
+### 5.4.1 The Core of the Explicit-Control Evaluator
+
+#### Evaluating simple expressions
+
+*"Numbers and strings (which are self-evaluating), variables, quotations, and `lambda` expressions have no subexpressions to be evaluated."*
+
+#### Evaluating procedure applications
+
+*"A procedure application is specified by a combination containing an operator and operands. The operator is a subexpression whose value is a procedure, and the operands are subexpressions whose values are the arguments to which the procedure should be applied."*
+
+*"Saving registers whose contents will not be needed later may also hold onto useless data that could otherwise be garbage-collected, freeing space to be reused."*
+
+
+### 5.4.4 Running the Evaluator
+
+*"we have explored successively more precise models of the evaluation process. 
+We started with the relatively informal substitution model, then extended this
+[...] to the environment model, which enabled us to deal with state and change.
+In the metacircular evaluator [...], we used Scheme itself as a language for
+making more explicit the environment structure constructed during evaluation of
+an expression. Now, with register machines, we have taken a close look at the
+evaluator’s mechanisms for storage management, argument passing, and control. At
+each new level of description, we have had to raise issues and resolve
+ambiguities that were not apparent at the previous, less precise treatment of
+evaluation. To understand the behavior of the explicit-control evaluator, we can
+simulate it and monitor its performance."*
+
+*"There are two common strategies for bridging the gap between higher-level languages and register-machine languages."*
+
+*"An interpreter written in the native language of a machine configures the
+machine to execute programs written in a language (called the **source language**)
+that may differ from the native language of the machine performing the
+evaluation. The primitive procedures of the source language are implemented as a
+library of subroutines written in the native language of the given machine. A
+program to be interpreted (called the **source program**) is represented as a data
+structure. The interpreter traverses this data structure, analyzing the source
+program. As it does so, it simulates the intended behavior of the source program
+by calling appropriate primitive subroutines from the library."*
+
+*"[...] the alternative strategy of **compilation**. A compiler for a given
+source language and machine translates a source program into an equivalent
+program (called the **object program**) written in the machine’s native
+language."*
+
+*"In view of the complementary advantages of compi-lation and interpretation,
+modern program-development environments pursue a mixed strategy. Lisp
+interpreters are generally organized so that interpreted procedures and
+compiled procedures can call each other."*
+
+
