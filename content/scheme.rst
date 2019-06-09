@@ -133,3 +133,13 @@ Quotation
 *"Allowing quotation in a language wreaks havoc with the ability to reason about the language in simple terms, because it destroys the notion that equals can be substituted for equals. For example, three is one plus two, but the word “three” is not the phrase “one plus two”. Quotation is powerful because it gives us a way to build expressions that manipulate other expressions"*
 
 `SICP section 2.3.1 Quotation <https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-16.html#%_sec_2.3.1>`_
+
+
+Backquote
+=========
+
+Preceding a list with a backquote symbol (`) is much like quoting it, except that anything in the list that is flagged with a comma is evaluated.
+
+`SICP section 5.5.2 Compiling Expressions <https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-35.html#%_sec_5.5.2>`_
+
+

@@ -504,3 +504,64 @@ interpreters are generally organized so that interpreted procedures and
 compiled procedures can call each other."*
 
 
+### 5.5.1 Structure of the Compiler
+
+#### Targets and linkages
+
+*"`Compile` and the code generators that it calls take two arguments 
+in addition to the expression to compile. There is a **target**,
+which specifies the register in which the compiled code is to return 
+the value of the expression. There is also a **linkage descriptor**, 
+which describes how the code resulting from the compilation of the
+expression should proceed when it has finished its execution. The
+linkage descriptor can require that the code do one of the following
+three things:*
+
+- *continue at the next instruction in sequence (this is specified by the linkage descriptor `next`),*
+- *return from the procedure being compiled (this is spec- ified by the linkage descriptor `return`), or*
+- *jump to a named entry point (this is specified by using the designated label as the linkage descriptor)."*
+
+
+#### Instruction sequences and stack usage
+
+*"An instruction sequence will contain three pieces of information:*
+
+- *the set of registers that must be initialized before the instructions in the sequence are executed (these registers are said to be **needed** by the sequence),*
+- *the set of registers whose values are modified by the instructions in the sequence, and**
+- *the actual instructions (also called **statements**) in the sequence."*
+
+
+### 5.5.6 Lexical Addressing
+
+*"One of the most common optimizations performed by compilers is the optimization of variable lookup."*
+
+*"Because our language is lexically scoped, the runtime environment
+for any expression will have a structure that parallels the lexical
+structure of the program in which the expression appears."*
+
+*"This is not true if we allow internal definitions, unless we scan them out."*
+
+*"We can exploit this fact by inventing a new kind of
+variable-lookup operation, `lexical-address-lookup`, that takes as
+arguments an environment and a **lexical address** that consists of
+two numbers: a **frame number**, which specifies how many frames to
+pass over, and a **displacement number**, which specifies how many
+variables to pass over in that frame."*
+
+*"In order to generate such code, the compiler must be able to 
+determine the lexical address of a variable it is about to compile a 
+reference to."*
+
+### 5.5.7 Interfacing Compiled Code to the Evaluator
+
+#### Interpretation and compilation
+
+*"An interpreter raises the machine to the level of the user
+program; a compiler lowers the user program to the level of the 
+machine language. We can regard the Scheme language (or any
+programming language) as a coherent family of abstractions erected
+on the machine language."*
+
+*"We incur significant overhead if we insist that errors encountered 
+in execution of a user program be detected and signaled, rather than 
+being allowed to kill the system or produce wrong answers."*
