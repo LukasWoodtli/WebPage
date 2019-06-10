@@ -85,6 +85,13 @@ Title: Books
 | Version Control with Subversion                   | C. Michael Pilato et al.                          | O'Reilly                                          |
 
 
+# Robotics
+
+| Name                                          | Authors                                           | Publisher                                         |
+|-----------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| A Gentle Introduction to ROS                  | Jason M. O'Kane                                   | University of South Carolina                      |
+
+
 # Mechanical Engineering
 
 | Name                                              | Authors                                           | Publisher                                         |
