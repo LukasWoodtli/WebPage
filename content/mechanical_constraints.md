@@ -31,9 +31,15 @@ Where:
     - the velocity constraints that they imply can be integrated to give equivalent configuration (geometric) constraints
 
 
+Holonomic constraints $g(q(t)) = 0$ can be differentiated with respect to $t$ to yield:
+
+$$\frac{\partial g}{\partial q}(q)\dot{q}=0$$
+
+
 ## Nonholonomic Constraints
 
 - A nonholonomic mechanical system *cannot* move in arbitrary directions (in its C-space)
 - Constraints can not be integrated
 - They reduce the dimension of the feasible velocities of the system (kinematic/velocity limitation)
-- They do not reduce the dimension of the reachable C-space
+- They do *not* reduce the dimension of the reachable C-space
+- e.g. rolling without slipping
