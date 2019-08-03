@@ -42,4 +42,4 @@ $$\frac{\partial g}{\partial q}(q)\dot{q}=0$$
 - Constraints can not be integrated
 - They reduce the dimension of the feasible velocities of the system (kinematic/velocity limitation)
 - They do *not* reduce the dimension of the reachable C-space
-- e.g. rolling without slipping
+- e.g. rolling without slipping, differential drive, car (Ackermann steering)
