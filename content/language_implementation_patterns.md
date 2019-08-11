@@ -308,3 +308,112 @@ table information to guide the parse."*
 *"Predicates are also useful when a parser must recognize multiple versions of an input language. For example, the GCC C
 compiler adds a number of extensions beyond C. Java 5.0 introduced the enum keyword to support enumerated types."*
 
+
+# Analyzing Languages
+
+## Chapter 4 Building Intermediate Form Trees
+
+*"Only the simplest language applications get away with reading 
+input and directly generating output. Such applications are called
+**syntax-directed** applications"*
+
+*"The key characteristic of syntax-directed applications is that 
+they translate input phrase by phrase using a single pass over
+the input."*
+
+*"Most language applications, however, need to build an
+**intermediate representation** (IR) or intermediate form."*
+
+
+*"The goal of an application's reader component is to fill an IR 
+data structure with elements of interest from the input stream."*
+
+*"to get a computer to understand a nontrivial sentence, we have to 
+break it down into a series of operations and operands."*
+
+*"Once we identify the operators and operands among the input 
+tokens, we need to build an IR data structure. For most language 
+applications, that means building a tree data structure. In 
+particular, we’ll build an **abstract syntax tree** (AST)."*
+
+*"ASTs are the **lingua franca** spoken by the various stages in a 
+language application. Each stage performs a computation, rewrites 
+the tree, or creates another data structure before passing the tree 
+along to the next stage."*
+
+
+### Why We Build Trees
+
+*"Many languages have subphrases and nested structures."*
+
+*"trees are the perfect data structure to represent ordered and
+nested structures. There are two general kinds of trees we’re going
+to look at: **parse trees** and **abstract syntax trees**."*
+
+*"Parse trees record the sequence of rules a parser applies as well 
+as the tokens it matches. Interior parse tree nodes represent rule 
+applications, and leaf nodes represent token matches."*
+
+*"a parser execution trace isn’t really the best IR. Certainly we
+need to pinpoint the various substructures, but we don’t need to 
+name them explicitly."*
+
+### Building Abstract Syntax Trees
+
+*"An IR tree should be the following:*
+
+- ***Dense**: No unnecessary nodes*
+- ***Convenient**: Easy to walk*
+- ***Meaningful**: Emphasize operators, operands, and the relationship between them rather than artifacts from the grammar"*
+
+*"it should be easy and fast to identify patterns in the tree. 
+Language applications that use intermediate trees usually make 
+multiple passes over the trees in order to analyze or build other 
+data structures. The structure of intermediate trees should be 
+brain-dead simple."*
+
+*"the tree structure should be insensitive to changes in the 
+grammar"*
+
+*"Computers only care about operators and operands."*
+
+*"By condensing the input to its essential elements, we decouple it 
+from the original syntax. So, for example, assignment syntax boils 
+down to an assignment operator and two operands. Decoupling does two 
+things. First, it gets us closer to the operator-operand model of 
+the CPU. Second, we can have different languages share a common 
+intermediate form."*
+
+*"The key idea behind AST structure is that tokens representing 
+operators or operations become subtree roots. All other tokens 
+become operands (children of operator nodes)."*
+
+### Representing Pseudo-operations in ASTs
+
+*"Not all programming language constructs map directly to
+executable code."*
+
+*"In some cases, there is no reasonable input token to use as a
+subtree root. We must invent an **imaginary token**, a token for 
+which there is no corresponding input token. For example, variable
+declarations in languages derived from C usually need an imaginary
+token."*
+
+### Implementing ASTs in Java
+
+*"technically, we need only one data type: a generic tree node with
+a list of children. What we really care about is the tree structure
+(relationships between nodes), not necessarily the node
+implementation type(s) themselves."*
+
+*"Trees built from a single data type are called
+**homogeneous trees**."*
+
+### Enforcing Tree Structure with the Type System
+
+*"To avoid creating improperly structured ASTs, we can co-opt the implementation language’s static type system to enforce structure."*
+
+*"The best way to create ASTs and to verify their structure is with a formal mechanism."*
+
+
+
