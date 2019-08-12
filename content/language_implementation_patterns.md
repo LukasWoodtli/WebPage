@@ -324,7 +324,6 @@ the input."*
 *"Most language applications, however, need to build an
 **intermediate representation** (IR) or intermediate form."*
 
-
 *"The goal of an application's reader component is to fill an IR 
 data structure with elements of interest from the input stream."*
 
@@ -336,10 +335,20 @@ tokens, we need to build an IR data structure. For most language
 applications, that means building a tree data structure. In 
 particular, we’ll build an **abstract syntax tree** (AST)."*
 
+*"Abstract syntax tree (AST) [...] hold the key tokens from the input
+stream and record grammatical relationships discovered during the parse."*
+
 *"ASTs are the **lingua franca** spoken by the various stages in a 
 language application. Each stage performs a computation, rewrites 
 the tree, or creates another data structure before passing the tree 
 along to the next stage."*
+
+*"The four most common IR tree patterns:"*
+
+- *"**Parse trees** record how a parser recognizes an input sentence. The interior nodes are rule names, and the leaves are tokens. Although parse trees are less suitable than ASTs for most language applications, parsers can create them automatically."*
+- *"**Homogeneous AST** [...]: If all the nodes have the same type, we say that they are homogeneous. With a single node type, there can be no specialty fields to reference child subtrees. Nodes track children with lists of child pointers."*
+- *"**Normalized Heterogeneous AST** [...]: Trees with a multitude of node types are called heterogeneous trees. Normalized het erogeneous trees use a normalized list of children like homogeneous trees."*
+- *"**Irregular Heterogeneous AST** [...]: When we refer to an AST as heterogeneous, we also assume that the nodes have irregular children. Instead of a normalized child list, the nodes have named fields, one per child."*
 
 
 ### Why We Build Trees
@@ -411,9 +420,31 @@ implementation type(s) themselves."*
 
 ### Enforcing Tree Structure with the Type System
 
-*"To avoid creating improperly structured ASTs, we can co-opt the implementation language’s static type system to enforce structure."*
+*"To avoid creating improperly structured ASTs, we can co-opt the implementation
+language’s static type system to enforce structure."*
 
 *"The best way to create ASTs and to verify their structure is with a formal mechanism."*
 
+### Constructing ASTs with ANTLR Grammars
 
+*" The key is that we are declaring what the AST should look like, not how to build it.
+It is analogous to using a grammar to specify syntax rather than building a parser."*
 
+*"We looked at two different ways to structure intermediate representations (parse trees and ASTs)
+and three different ways to implement ASTs."*
+
+- *"Pattern 8, Parse Tree [...]:*
+  - *Pros: Parser generators can automatically build these for us.*
+  - *Cons: Parse trees are full of noise (unnecessary nodes). They are sensitive to changes in the grammar unrelated to syntax. If a parser generator generates heterogeneous node types, there can be literally hundreds of class definitions.*"
+- *"Pattern 9, Homogeneous AST [...]:*
+  - *Pros: Homogeneous trees are very simple.*
+  - *Cons: It’s cumbersome to annotate AST nodes because the single node type has the union of all needed fields. There is no way to add methods specific to a particular kind of node."*
+- *"Pattern 10, Normalized Heterogeneous AST [...]:*
+  - *Pros: It’s easy to add operator or operand-specific data and methods.*
+  - *Cons: Large grammars like Java’s need about 200 class definitions to be fully heterogeneous. That’s a lot of files to read and write."*
+- *"Pattern 11, Irregular Heterogeneous AST [...].*
+  - *Pros: It’s easy to add operator- or operand-specific data and methods. Sometimes code operating on nodes is more readable because the children (operands) have names rather than positions like `children[0]`. Building tree-walking methods for a small set of heterogeneous nodes is quick and easy.*
+  - *Cons: As with Pattern 10, Normalized Heterogeneous AST [...], there are lots of AST classes to read and write. Having irregular children makes building external visitors difficult. Most of the time we have to build tree walkers by hand using Pattern 12, Embedded Heterogeneous Tree Walker [...]"*
+
+*"If you're in doubt about which is best in your situation, choosing Pattern 10, Normalized Heterogeneous AST [...]
+is a safe bet."*
