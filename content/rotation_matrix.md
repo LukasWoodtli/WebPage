@@ -66,8 +66,8 @@ $$R_{sb}=\begin{bmatrix}
 Where:
 
 - $R_{sb}$:
-    - Subscript $s$: Reference frame
-    - Subscript $b$: Frame whose orientation is being represented
+  - Subscript $s$: Reference frame
+  - Subscript $b$: Frame whose orientation is being represented
 
 
 ## Constraints
@@ -78,8 +78,6 @@ So $6$ constraints are required:
 
 - All $3$ column vectors are *unit vectors*
 - Dot product of any $2$ column vectors is zero (they are all mutually orthogonal to each other)
-
-> These constraints ensure that the determinant of $R$ is $1$ for right-handed frames
 
 $$R^TR = I$$
 
@@ -93,10 +91,14 @@ $$I = \begin{bmatrix}
 0 & 0 & 1
 \end{bmatrix}$$
 
+Furthermore for right-handed frames the following must hold:
 
-## Special Orthogonal Group *SO(3)*
+$$\det R = 1$$
 
-The Special Orthogonal Group $SO(3)$ is the set of all possible $3 \times 3$ real matrices $R$ that satisfy:
+## Special Orthogonal Group *SO(2)* and  *SO(3)*
+
+The Special Orthogonal Group $SO(2)$ and $SO(3)$ is the set of all possible $2 \times 2$ or $3 \times 3$
+real matrices $R$ that satisfy:
 
 $$R^TR = RR^T = I$$
 
@@ -111,18 +113,20 @@ Because a rotation matrix $R$ lives in $SO(3)$, there is *no* numerical equivale
 
 ## Properties of Rotation Matrices
 
+These properties hold for $SO(2)$ and $SO(3)$.
+
 - Inverse:
-    - $R^{-1} = R^T \in SO(3)$
-    - $R R^{-1} = R^{-1} R = I$
-- Closure: $R_1 R_2 \in SO(3)$
+  - $R^{-1} = R^T \in SO(n)$
+  - $R R^{-1} = R^{-1} R = I$
+- Closure: $R_1 R_2 \in SO(n)$
 - Associative $(R_1 R_2) R_3 = R_1 (R_2 R_3)$
 - *Not* commutative: $R_1 R_2 \neq R_2 R_1$
 - Identity element: $R I = I R = R$
 - Composition Rule for Rotations (Combining by matrix multiplication): $R_{ac} = R_{ab} R_{bc}$ (subscript cancellation)
 - Rotating a vector doesn't change its length: $x \in \mathbb{R}^3, \left \| Rx \right \| = \left \| x \right \|$
 - A rotation matrix (in 2D) has 3 eigenvectors:
-    - One real eigenvector corresponding to to eigenvalue $1$
-    - Two complex eigenvectors with eigenvalues: $\lambda = \cos \theta \pm j \sin \theta$ where $\theta$ is the rotation angle
+  - One real eigenvector corresponding to to eigenvalue $1$
+  - Two complex eigenvectors with eigenvalues: $\lambda = \cos \theta \pm j \sin \theta$ where $\theta$ is the rotation angle
 
 ## Elementary Rotations
 
