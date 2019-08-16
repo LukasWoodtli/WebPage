@@ -128,27 +128,6 @@ These properties hold for $SO(2)$ and $SO(3)$.
   - One real eigenvector corresponding to to eigenvalue $1$
   - Two complex eigenvectors with eigenvalues: $\lambda = \cos \theta \pm j \sin \theta$ where $\theta$ is the rotation angle
 
-## Elementary Rotations
-
-$$R_{sb}=R_x(\varphi) = \begin{pmatrix}
-1 &   0         & 0           \\
-0 & \cos \varphi & -\sin \varphi \\
-0 & \sin \varphi &  \cos \varphi
-\end{pmatrix}$$
-
-
-$$R_{sb}=R_y(\varphi) = \begin{pmatrix}
-\cos \varphi & 0 & \sin \varphi \\
-0 &   1         & 0           \\
--\sin \varphi & 0 & \cos \varphi
-\end{pmatrix}$$
-
-$$R_{sb}=R_z(\varphi) = \begin{pmatrix}
-\cos \varphi & -\sin \varphi & 0\\
-\sin \varphi & \cos \varphi & 0 \\
-0 &   0         & 1           \\
-\end{pmatrix}$$
-
 
 ## Composition of Rotations
 
@@ -170,7 +149,7 @@ $$\begin{align*}
 
 The resulting rotation matrix $R_{AC} = R_{AB} \cdot R_{BC}$ (s.a. subscript cancellation) can be interpreted as the rotation obtained by rotating frame $A$ until it coincides with frame $B$, and then rotating frame $B$ until it coincides with frame $C$.
 
-## Active vs Passive Rotation
+## Uses of Roatation Matrices
 
 There are three uses for a rotation matrix:
 
@@ -178,20 +157,111 @@ There are three uses for a rotation matrix:
 - To change the reference frame in which a vector or a frame is represented (passive rotation)
 - To rotate a vector or a frame (active rotation)
 
+In the first use, $R$ is thought of as representing a frame; in the 
+second and third uses, $R$ is thought of as an operator that acts on a
+vector or frame.
 
-### Passive Rotation (rotation transformations)
+### Representing Orientation
 
-Mapping between coordinate frames. A passive rotation $R_{sb}$ maps the same object $\mathbf{u}$ from frame $b$ to frame $s$:
+$R_c$ means implicit the orientation of frame ${c}$ relative to the reference 
+frame ${s}$. Explicit notation would be $R_{sc}$.
 
-$${}_s\mathbf{u} = R_{sb} \cdot {}_b\mathbf{u}$$
+$R_c = R_{sc}$
 
-### Active Rotation
+Properties:
 
-An active rotation, often indicated with a $3 \times 3$ matrix $R$, is an *operator* that rotates a
-vector $A^u$ to a vector $A^v$ in the same reference frame $A$ (${}_Av = R \cdot {}_Au$).
+- $R_{ac} R_{ca} = I$
+- $R_{ac} = R_{ca}^{-1} = R_{ca}^T$
 
-> Active rotations are not very relevant for robotics!
 
+### Changing the reference Frame (Passive Rotation)
+
+$$R_{ac} = \underbrace{R_{ab}}_{operator} \times \overbrace{R_{bc}}^{orientation}$$
+
+Meaning: $R_{ac} = change\_reference\_frame\_from\_b\_to\_a(R_{bc})$
+
+$R_{bc}$ can be viewed as a representation of the **orientation** of ${c}$.
+$R_{ab}$ can be viewed as a mathematical **operator** that changes the reference frame from ${b}$ to ${a}$.
+
+Subscript cancellation rule:
+$R_{ab} R_{bc}  = R_{a\not{b}} R_{\not{b}c} = R_{ac}$
+
+The reference frame of a vector can also be changed by a rotation matrix:
+$R_{ab} p_b  = R_{a\not{b}} p_{\not{b}} = p_a$
+
+
+### Rotating a vector or a frame (Active Rotation)
+
+$R$ as a rotation operator can be written:
+
+$$R = Rot(\hat{\omega}, \theta)$$
+
+
+
+#### Elementary Rotations
+
+$$Rot(\hat{x}, \theta) = \begin{pmatrix}
+1 &   0         & 0           \\
+0 & \cos \varphi & -\sin \varphi \\
+0 & \sin \varphi &  \cos \varphi
+\end{pmatrix}$$
+
+
+$$Rot(\hat{y}, \theta)= \begin{pmatrix}
+\cos \varphi & 0 & \sin \varphi \\
+0 &   1         & 0           \\
+-\sin \varphi & 0 & \cos \varphi
+\end{pmatrix}$$
+
+$$Rot(\hat{z}, \theta) = \begin{pmatrix}
+\cos \varphi & -\sin \varphi & 0\\
+\sin \varphi & \cos \varphi & 0 \\
+0 &   0         & 1           \\
+\end{pmatrix}$$
+
+#### General form of Rotation
+
+$$Rot(\hat{\omega}, \theta) =
+\begin{bmatrix}
+\cos \theta + \hat{\omega}_1^2(1-\cos \theta) &
+\hat{\omega}_1 \hat{\omega}_2(1-\cos \theta) - \hat{\omega}_3 \sin \theta &
+\hat{\omega}_1 \hat{\omega}_3(1-\cos \theta) - \hat{\omega}_2 \sin \theta  \\
+\hat{\omega}_1 \hat{\omega}_2(1-\cos \theta) - \hat{\omega}_3 \sin \theta&
+\cos \theta + \hat{\omega}_2^2(1-\cos \theta) &
+\hat{\omega}_2 \hat{\omega}_3(1-\cos \theta) - \hat{\omega}_1 \sin \theta\\
+\hat{\omega}_1 \hat{\omega}_3(1-\cos \theta) - \hat{\omega}_2 \sin \theta&
+\hat{\omega}_2 \hat{\omega}_3(1-\cos \theta) - \hat{\omega}_1 \sin \theta&
+\cos \theta + \hat{\omega}_3^2(1-\cos \theta)
+\end{bmatrix}$$
+
+with: $\hat{\omega} = (\hat{\omega}_1, \hat{\omega}_2, \hat{\omega}_3)$
+
+
+#### Properties
+- Any $R \in SO(3)$ can be obtained by rotating from the identity matrix $I$ by some $\theta$ about some $\hat{\omega}$
+- $Rot(\hat{\omega},\theta) = Rot(-\hat{\omega},-\theta)$
+
+
+#### Reference Frame for Rotation
+
+When rotating a frame ${b}$  by $Rot(\hat{\omega}, \theta)$ and $R_{sb}$ represents the orientation
+of ${b}$ relative to ${s}$, it's important to express if the rotation
+axis $\hat{\omega}$ is in ${s}$ or in ${b}$ coordinates.
+
+Given $R = Rot(\hat{\omega}, \theta)$:
+
+- Rotate by $R$ in ${s}$ frame:
+    - $R_{s{b}'} = RR_{sb}$
+    - Premultiplying by $R$: $\hat{\omega}$ considered in the fixed frame
+- Rotate by $R$ in ${b}$ frame:
+    - $R_{s{b}''} = R_{sb}R$
+    - Postmulitplying by $R$: $\hat{\omega}$ considered in the body frame.
+
+
+To rotate a vector $v$, there is only one frame involved. $\hat{\omega}$
+has to be interpreted as being in the frame in which $v$ is represented:
+
+$${v}' = Rv$$
 
 # Literature
 

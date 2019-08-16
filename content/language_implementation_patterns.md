@@ -434,17 +434,17 @@ It is analogous to using a grammar to specify syntax rather than building a pars
 and three different ways to implement ASTs."*
 
 - *"Pattern 8, Parse Tree [...]:*
-  - *Pros: Parser generators can automatically build these for us.*
-  - *Cons: Parse trees are full of noise (unnecessary nodes). They are sensitive to changes in the grammar unrelated to syntax. If a parser generator generates heterogeneous node types, there can be literally hundreds of class definitions.*"
+    - *Pros: Parser generators can automatically build these for us.*
+    - *Cons: Parse trees are full of noise (unnecessary nodes). They are sensitive to changes in the grammar unrelated to syntax. If a parser generator generates heterogeneous node types, there can be literally hundreds of class definitions.*"
 - *"Pattern 9, Homogeneous AST [...]:*
-  - *Pros: Homogeneous trees are very simple.*
-  - *Cons: It’s cumbersome to annotate AST nodes because the single node type has the union of all needed fields. There is no way to add methods specific to a particular kind of node."*
+    - *Pros: Homogeneous trees are very simple.*
+    - *Cons: It’s cumbersome to annotate AST nodes because the single node type has the union of all needed fields. There is no way to add methods specific to a particular kind of node."*
 - *"Pattern 10, Normalized Heterogeneous AST [...]:*
-  - *Pros: It’s easy to add operator or operand-specific data and methods.*
-  - *Cons: Large grammars like Java’s need about 200 class definitions to be fully heterogeneous. That’s a lot of files to read and write."*
+    - *Pros: It’s easy to add operator or operand-specific data and methods.*
+    - *Cons: Large grammars like Java’s need about 200 class definitions to be fully heterogeneous. That’s a lot of files to read and write."*
 - *"Pattern 11, Irregular Heterogeneous AST [...].*
-  - *Pros: It’s easy to add operator- or operand-specific data and methods. Sometimes code operating on nodes is more readable because the children (operands) have names rather than positions like `children[0]`. Building tree-walking methods for a small set of heterogeneous nodes is quick and easy.*
-  - *Cons: As with Pattern 10, Normalized Heterogeneous AST [...], there are lots of AST classes to read and write. Having irregular children makes building external visitors difficult. Most of the time we have to build tree walkers by hand using Pattern 12, Embedded Heterogeneous Tree Walker [...]"*
+    - *Pros: It’s easy to add operator- or operand-specific data and methods. Sometimes code operating on nodes is more readable because the children (operands) have names rather than positions like `children[0]`. Building tree-walking methods for a small set of heterogeneous nodes is quick and easy.*
+    - *Cons: As with Pattern 10, Normalized Heterogeneous AST [...], there are lots of AST classes to read and write. Having irregular children makes building external visitors difficult. Most of the time we have to build tree walkers by hand using Pattern 12, Embedded Heterogeneous Tree Walker [...]"*
 
 *"If you're in doubt about which is best in your situation, choosing Pattern 10, Normalized Heterogeneous AST [...]
 is a safe bet."*
