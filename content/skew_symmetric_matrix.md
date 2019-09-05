@@ -12,10 +12,9 @@ or expressed differently:
 
 $$a_{{ij}}=-a_{{ji}}\qquad \forall i,j\in \{1,\ldots ,n\}$$
 
-
 It can be formed from a vector $v = \left ( a_1 a_2 a_3 \right )$ as
 
-$${\displaystyle [a]_{\times }={\begin{pmatrix}0&-a_{3}&a_{2}\\a_{3}&0&-a_{1}\\-a_{2}&a_{1}&0\end{pmatrix}}}$$
+$${\displaystyle [a]={\begin{pmatrix}0&-a_{3}&a_{2}\\a_{3}&0&-a_{1}\\-a_{2}&a_{1}&0\end{pmatrix}}}$$
 
 For real valued skew-symmetric matrices $A\in \mathbb {R}^{n\times n}$ the
 diagonal values are $0$ and the eigenvalues are pure imaginary or $0$.
@@ -36,8 +35,8 @@ vector cross product as a matrix multiplication.
 The cross product of two vectors $a\in {\mathbb  {R}}^{3}$ and
 $b\in {\mathbb  {R}}^{3}$  can be expressed as:
 
-$$a\times b=[a]_{{\times }}\cdot b$$
+$$a\times b=[a] \cdot b$$
 
 This allows to differentiate formula with a cross product:
 
-$${\frac  {\partial }{\partial b}}(a\times b)=[a]_{{\times }}$$
+$${\frac  {\partial }{\partial b}}(a\times b)=[a]$$
