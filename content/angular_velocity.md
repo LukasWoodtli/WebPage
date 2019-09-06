@@ -48,11 +48,11 @@ $[\omega_s]$ is a $3 \times 3$ [skew-symmetric matrix]({filename}/skew_symmetric
 # General Relations
 
 
-$$\dot{R}_{sb}R_{sb}^{-1} = [\omega_s]$$
+$$[\omega_s] = \dot{R}_{sb}R_{sb}^{-1} = \dot{R}_{sb}R_{sb}^T$$
 
 and
 
-$$R_{sb}^{-1}\dot{R}_{sb} = [\omega_b]$$
+$$[\omega_b] = R_{sb}^{-1}\dot{R}_{sb}= R_{sb}^T\dot{R}_{sb}$$
 
 Where
 
@@ -61,11 +61,13 @@ Where
 
 # Subscript Cancellation Rule
 
-An angular velocity expressed in an arbitrary frame $\{d\}$ can be 
-represented in another frame $\{c\}$ using the subscript cancellation rule:
+An angular velocity expressed in an arbitrary frame $\{d\}$
+can be represented in another frame $\{c\}$ using the 
+subscript cancellation rule:
 
-$$\omega_c = R_{cd}\omega_d$$
+$$\omega_b = R_{bs}\omega_s = R^{-1}_{sb}\omega_s = R^T_{sb}\omega_s$$
 
+$$\omega_s = R_{sb}\omega_b$$
 
 # Literature
 
