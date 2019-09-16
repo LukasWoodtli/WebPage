@@ -448,3 +448,84 @@ and three different ways to implement ASTs."*
 
 *"If you're in doubt about which is best in your situation, choosing Pattern 10, Normalized Heterogeneous AST [...]
 is a safe bet."*
+
+
+### Pattern 8: Parse Tree
+
+#### Purpose
+
+*"A parse tree describes how a parser recognized an input sentence.
+A parse tree is sometimes called a syntax tree (as opposed to an abstract
+syntax tree). Despite not being that useful for building interpreters and
+translators [they] are heavily used
+by development environments and text rewriting systems."*
+
+#### Discussion
+
+*"Parse trees record the sequence of rules a parser applies as well as the tokens
+it matches. Interior parse tree nodes represent rule applications, and leaf
+nodes represent token matches."*
+
+*"Parse trees are really easy to build by hand and are so regular that tools like
+ANTLR can automate the process for us."*
+
+*"Parse
+trees are full of noise because of all the interior rule nodes. They are also very
+sensitive to changes in the grammar."*
+
+*"An AST captures just the essential information from the input: all of the input
+tokens and the appropriate structure. The interior nodes are operators or
+operations rather than rule names."*
+
+*"Parse trees mirror the function call graphs of a recursive-descent parser"*
+
+### Pattern 9: Homogeneous AST
+
+#### Purpose
+
+*"A homogeneous tree implements an abstract syntax tree (AST) using a single
+node data type and a normalized child list representation."*
+
+#### Discussion
+
+*"The key idea behind an AST is the operator-operand tree structure, not the
+node data type."*
+
+*"We don't need to use the type system of our implementation language to distinguish
+between nodes."*
+
+*"In fact, homogeneous ASTs are the only
+convenient choice for non-object-oriented languages like C."*
+
+*"Homogeneous ASTs necessarily use a normalized child representation:
+`List<AST>`. This makes it particularly easy to build external visitors."*
+
+### Pattern 10: Normalized Heterogeneous AST
+
+#### Purpose
+
+*"This pattern implements an abstract syntax tree (AST) using more than a single
+node data type but with a normalized child list representation."*
+
+#### Discussion
+
+*"This pattern makes the most sense when we need to store node-specific data"*
+
+*"The normalized child list makes it much easier to build external visitors."*
+
+### Pattern 11: Irregular Heterogeneous AST
+
+#### Purpose
+
+*"This pattern implements an abstract syntax tree (AST) using more than a single
+node data type and with an irregular child list representation."*
+
+#### Discussion
+
+*"Instead of a uniform list of children, each node data type has specific
+(named) child fields. In this sense, the child pointers are irregular.
+In some cases, named fields lead to more readable code."*
+
+*"It's very natural to name the fields of a class, in this case naming the children of
+a node. The big downside to using nodes with irregular children is that it's
+much less convenient to build tree walkers"*
