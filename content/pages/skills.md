@@ -31,6 +31,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Qt                                       | very good                                |
 | STL                                      | very good                                |
 | Boost                                    | very good                                |
+| Spring                                   | good                                     |
 | Cocoa Touch                              | basic                                    |
 
 
@@ -50,7 +51,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 
 - Intel x86 & x64
 - ARM Cortex-M3 (Silicon Labs, STMicroelectronics)
-- ARM Cortex-A7 (Raspberry Pi 2)
+- ARM Cortex-A7/A8 (Raspberry Pi 2, BeagleBone Black)
 - Atmel Atmega
 - Freescale ColdFire
 
@@ -59,6 +60,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 
 | IDE                                      | Knowledge                                |
 |------------------------------------------|------------------------------------------|
+| CLion, IntelliJ, PyCharm                 | very good                                |
 | Qt Creator                               | very good                                |
 | Visual Studio                            | very good                                |
 | Eclipse                                  | very good                                |
@@ -71,7 +73,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | OS                                       | Knowledge                                |
 |------------------------------------------|------------------------------------------|
 | OS X                                     | very good                                |
-| Linux                                    | very good                                |
+| Linux (RHEL, Fedora, Ubuntu)             | very good                                |
 | Windows                                  | good                                     |
 
 
@@ -84,7 +86,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Travis CI                                | very good                                |
 | Jenkins (pipelines)                      | very good                                |
 | Gerrit                                   | good                                     |
-
+| GitLab                                   | good                                     |
 
 # Unit Tests
 
@@ -96,6 +98,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Qt Test                                  | good                                     |
 | Test Coverage (gcov & gcovr)             | good                                     |
 | boost::di (dependency injection)         | good                                     |
+| Trompeloeil                              | good                                     |
 
 
 # Skills
@@ -104,15 +107,15 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 |--------------------------------------------------|------------------------------------------|
 | OOP/OOD                                          | very good                                |
 | Design/Architecture Patterns                     | very good                                |
-| Regexp                                           | good                                     |
-| UX/UI Design                                     | basic                                    |
+| Regexp                                           | very good                                |
 | UML                                              | very good                                |
 | Project Management / Scrum / XP                  | very good                                |
 | Legacy Code (refactoring, testing, improving...) | very good                                |
-| XML                                              | good                                     |
 | JSON                                             | very good                                |
-| SQL                                              | basic                                    |
 | Debugging (gdb, Visual Studio)                   | very good                                |
+| XML                                              | good                                     |
+| SQL                                              | basic                                    |
+| UX/UI Design                                     | basic                                    |
 
 
 # Documentation
@@ -139,7 +142,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 
 | Tool                                     | Knowledge                                |
 |------------------------------------------|------------------------------------------|
-| Sanitizers (gcc, clang)                  | good                                     |
+| Sanitizers (gcc, clang)                  | very good                                |
 | Valgrind                                 | basic                                    |
 | Instruments (XCode)                      | basic                                    |
 | Perf                                     | basic                                    |
