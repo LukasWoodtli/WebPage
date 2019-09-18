@@ -76,7 +76,6 @@ MARKDOWN = {
             'extension_configs': {
                         'markdown.extensions.codehilite': {'css_class': 'highlight'},
                         'markdown.extensions.extra': {},
-                        'markdown.extensions.headerid': {},
                         'markdown.extensions.sane_lists': {},
                         'markdown.extensions.toc': {},
                         'markdown.extensions.footnotes': {},
