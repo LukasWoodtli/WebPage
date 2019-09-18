@@ -41,9 +41,9 @@ Title: Books
 | UML 2.0                                           | Dan Pilone                                        | O'Reilly                                          |
 | [Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation) | Tom Stuart    | O'Reilly                                          |
 | [Structure and Interpretation of Computer Programs](https://github.com/LukasWoodtli/SchemeCourse) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
-| [tmux (Productive Mouse-Free Development)]({filename}/tmux.md) | Brian P. Hogan    | The Pragmatic Bookshelf                           |
+| [tmux (Productive Mouse-Free Development)]({filename}/tmux.md) | Brian P. Hogan    | The Pragmatic Bookshelf                                              |
 | Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
-
+| [Mastering Spring 5.0](https://github.com/LukasWoodtli/mastering-spring/) | Ranga Karanam             | Packt Publishing                                  |
 
 # Agile Software Development and Scrum
 
@@ -61,7 +61,7 @@ Title: Books
 | FreeRTOS Reference Manual                         | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
 | [Linux-UNIX-Programmierung](https://github.com/LukasWoodtli/LinuxUnixDevelopment) | Jürgen Wolf       | Rheinwerk                                         |
 | [Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/index.htm) | Jürgen Wolf | Rheinwerk                                      |
-| [What You Need to Know about Docker]({filename}/docker.md) | Scott Gallagher                          | Packt Publishing                                  |
+| [What You Need to Know about Docker]({filename}/docker.md) | Scott Gallagher                           | Packt Publishing                                  |
 | TCP/IP für Dummies                                | Candace Leiden, Marshall Wilensky                 | Wiley-VCH Verlag GmbH                             |
 
 
