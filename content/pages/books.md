@@ -87,10 +87,11 @@ Title: Books
 
 # Robotics
 
-| Name                                          | Authors                                           | Publisher                                         |
-|-----------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| A Gentle Introduction to ROS                  | Jason M. O'Kane                                   | University of South Carolina                      |
-
+| Name                                          | Authors                                            | Publisher                                         |
+|-----------------------------------------------|----------------------------------------------------|---------------------------------------------------|
+| A Gentle Introduction to ROS                  | Jason M. O'Kane                                    | University of South Carolina                      |
+| [Modern Robotics](https://github.com/LukasWoodtli/ModernRobotics/) | Kevin M. Lynch, Frank C. Park | Cambridge University Press                        |
+| [Learning Robotics Using Python](https://github.com/LukasWoodtli/LearningRoboticsUsingPython) | Lentin Joseph | Packt Publishing                       |
 
 # Mechanical Engineering
 
