@@ -187,6 +187,25 @@ A master is required to run before running any nodes.
     rosrun <package-name> <executable-name>
 
 
+# URDF and Xacro
+
+To generate an URFD file from a xacro file:
+
+    :::bash
+    xacro input.xacro > output.urdf
+
+
+Checking URDF files:
+
+    :::bash
+    check_urdf file.urdf
+
+Create graph for URDF:
+
+    :::bash
+    urdf_to_graphiz file.urdf  # note the missing 'v' in graphiz
+
+
 # Checking for Problems
 
 - `roswtf`: Perform sanity checks for the running ROS system
