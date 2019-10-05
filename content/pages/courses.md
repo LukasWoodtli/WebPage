@@ -24,6 +24,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 | Topic                           | Course                                                                                       |
 |---------------------------------|----------------------------------------------------------------------------------------------|
 | Designing RESTful APIs          | [Udacity](https://www.udacity.com)                                                           |
+| Building Cloud Services with the Java Spring Framework | https://www.coursera.org/learn/cloud-services-java-spring-framework/home/welcome |
 | JavaScript Basics               | [Udacity](https://www.udacity.com)                                                           |
 | How to Use Git and GitHub       | [Udacity](https://www.udacity.com)                                                           |
 | Advanced Operating Systems      | [Udacity](https://www.udacity.com)                                                           |
