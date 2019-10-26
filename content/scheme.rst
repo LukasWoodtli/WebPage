@@ -127,6 +127,17 @@ Sequences as Conventional Interfaces
 `SICP section 2.2.3 Sequences as Conventional Interfaces <https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.3>`_
 
 
+
+Lazy Evaluation
+===============
+
+Normal-order (lazy) evaluation doesn't work well in some cases:
+
+- Tail recursion (Iterative Process): the stack frame can’t be reused because computation of a promise is not executed until it’s needed. The delayed promises let the stack grow until their computation is forced.
+- Side effects: Setting variables to values calculated by promises is difficult because it’s not clear when the promise is forced to calculate the value. The time decoupling mechanism of promises (streams) doesn’t work well with statefull models where time is of essence.
+
+
+
 Quotation
 =========
 
