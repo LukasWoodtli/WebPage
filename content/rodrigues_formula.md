@@ -23,3 +23,24 @@ $e^{[\hat{\omega}] \theta} R = Rot(\hat{\omega}, \theta)R$ is the orientation ac
 
 $Re^{[\hat{\omega}] \theta} = R Rot(\hat{\omega}, \theta)$ is the orientation achieved by rotating $R$ by $\theta$ about the axis $\hat{\omega}$ in the *body frame*.
 
+
+## Exponentiation
+
+Exponentiation integrates the angular velocity $\hat{\omega}$ for time $\theta$ seconds going from the identity matrix $I$ to the final rotation matrix $R$.
+
+Exp: $[\hat{\omega}]\theta \in so(3) \rarr R \in SO(3)$
+
+> Matrix exponential is like integration
+
+
+## Logarithm
+
+The inverse of th matrix exponential (matrix logarithm) takes a rotation matrix $R$ and returns the skew-symmetric representation of the exponential coordinates that achieve it starting from the identity orientation $I$.
+
+Log: $R \in SO(3) \rarr [\hat{\omega}]\theta \in so(3)$
+
+> Matrix log is like differentiation
+ 
+It returns the angular velocity and the integration time that achieves the rotation matrix $R$.
+
+The matrix logarithm is an algorithm that inverts Rodrigues' formula.
