@@ -7,7 +7,7 @@ This page collects notes and citations from the book:
 
 [Language Implementation Patterns by Terence Parr](https://pragprog.com/book/tpdsl/language-implementation-patterns)
 
-Some of my examples can be foudn [here](LukasWoodtli/LanguageImplementationPatterns)
+Some of my examples can be found [here](LukasWoodtli/LanguageImplementationPatterns)
 
 
 [TOC]
@@ -529,3 +529,98 @@ In some cases, named fields lead to more readable code."*
 *"It's very natural to name the fields of a class, in this case naming the children of
 a node. The big downside to using nodes with irregular children is that it's
 much less convenient to build tree walkers"*
+
+
+## Walking and Rewriting Trees
+
+*"Tree walking is one of the key processes going on in a large language application."*
+
+*"In real applications, though, tree walking gets surprisingly complicat- ed. There are a number of different variations, sometimes even within the same application."*
+
+
+*"The variation we choose depends on whether we have the source code for our tree nodes, whether the trees have normalized children, whether the trees are homogeneous or heterogeneous, whether we need to rewrite trees while walking, and even in which order we need to walk the nodes."*
+
+
+### Walking Trees and Visitation Order
+
+- *"Preorder traversal or top-down traversal: $+ 1 2$. Visit a (parent) node before visiting its children.*
+- *Inorder traversal: $1 + 2$. Visit a node in between visiting children.*
+- *Postorder traversal or bottom-up traversal: $1 2 +$. Visit a node after visiting its children."*
+
+
+### Pattern 12: Embedded Heterogeneous Tree Walker
+
+#### Purpose
+
+*"This pattern walks heterogeneous ASTs using a set of recursive methods defined within the node class definitions."*
+
+#### Discussion
+
+*"This is the easiest tree-walking pattern to understand, but, ultimately, this approach doesn’t scale well. Because it distributes tree-walking code across all node definitions, it works best when there are only a few node definitions."*
+
+
+### Pattern 13: External Tree Visitor
+
+#### Purpose
+
+*"This pattern encapsulates all tree-walking code associated with a particular task into a single visitor class.
+Visitors combine tree walking and action execution code outside the AST node definitions. Consequently, we can change the functionality of the tree walker without having to change the AST class definitions and can even switch visitors on the fly. An external visitor can walk either heterogeneous or homogeneous AST nodes."*
+
+#### Discussion
+
+*"The visitor pattern is the workhorse of choice for tree walking in most language applications. Ultimately you might get tired of manually building visitors, though"*
+
+
+#### Implementation
+
+*"There are two ways to implement this pattern. The first is more traditional and relies on the node types themselves. The second relies on the node’s token type instead."*
+
+
+##### Visitor Switching on Node Type
+
+*"The traditional implementation of the visitor pattern originally specified in
+'Design Patterns: Elements of Reusable Object-Oriented Software'
+relies on a 'double-dispatch' method within each AST node. The double-dispatch method redirects `visit()`
+ calls on a node to an appropriate method in a visitor servicing that node type. The visitor is like a set of callback methods."*
+
+
+##### Switching on the Token Type to Build Independent Visitors
+
+*"For language applications, we build trees from tokens. Since we can distinguish between tokens using the token type, we can also 
+distinguish between AST nodes using the token type. By switching on the token type rather than the AST node type, we can avoid
+the `visit()` method in each AST node. In its place, we use just one dispatch method inside the visitor."*
+
+
+### Pattern 14: Tree Grammar
+
+#### Purpose
+
+*"Tree grammars are a terse and formal way of building an external visitor."*
+
+#### Discussion
+
+*"Tree grammars look just like conventional parser grammars except that we can match subtree patterns as well.
+As with parser grammars, we can embed actions to extract information or reorganize the input (a tree, in this case)."*
+
+*"ANTLR generates tree walkers from tree grammars that literally act like parsers."*
+
+*"Tree grammars do not care about the implementation language classes used to represent AST nodes (they work with both homogeneous and heterogeneous AST nodes)."*
+
+
+### Pattern 15: Tree Pattern Matcher
+
+#### Purpose
+
+*"This pattern walks trees, triggering actions or tree rewrites as it encounters tree patterns of interest.
+The process of matching and rewriting trees is formally called term rewriting."*
+
+#### Discussion
+
+*"Using a tree pattern matcher differs from using a tree grammar in two important ways:*
+
+- *We have to specify patterns only for the subtrees we care about.*
+- *We don’t need to direct the tree walk."*
+
+*"A tree pattern matcher is analogous to text rewriting tools such as `awk`, `sed`, and `perl`."*
+
+
