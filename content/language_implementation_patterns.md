@@ -700,3 +700,55 @@ order of the output elements to the input model traversal order.
 Besides, computing output strings in a general-purpose programming
 language ain't exactly pretty."*
 
+### Organizing Translated Phrases into a Nested Model
+
+*"In general, translators need to track a few locations
+in the output model. These locations are typically things such as
+the current file object, the current class object, or the current method
+object."*
+
+### Pattern 29: Syntax-Directed Translator
+
+#### Purpose
+
+*"This pattern generates text using a grammar, or equivalent hand-built parser,
+embedded with actions."*
+
+#### Discussion
+
+*"Syntax-directed translators are little more than grammars salted with actions
+(code snippets). They don't build internal models and then walk them to
+generate output.
+Putting actions directly in a grammar sometimes makes the grammar difficult
+to read. It also locks the grammar into a single bit of translator functionality."*
+
+### Pattern 30: Rule-Based Translator
+
+#### Purpose
+
+*"A rule-based translator expresses a translation with a set of 'x becomes y'
+rules, written in the DSL of a pattern-matching engine."*
+
+#### Discussion
+
+*"To use a rule-based system, we have to feed it two things: a grammar that
+describes input sentences and a set of translation rules."*
+
+*"Although it looks like we're doing text-to-text transformations,
+the underlying engine is actually doing tree rewrites.
+For complicated translators, we need to build a lot of ancillary data structures
+beyond trees such as symbol tables and control-flow graphs."*
+
+
+### Pattern 31: Target-Specific Generator Classes
+
+#### Purpose
+
+*"This pattern describes a class library whose sole purpose is to represent and
+generate output constructs in a particular language."*
+
+#### Discussion
+
+*"Rather than use print statements to generate programs or data, generator
+classes let us insulate application code from the exact syntax of an output
+language. [...] we're defining a special class for each output element."*
