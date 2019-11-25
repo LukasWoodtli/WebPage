@@ -1,7 +1,7 @@
 Title: Language Implementation Patterns
 Category: Programming
 Tags: Computer Science, Parsing, Design Patterns
-Date: 2017-12-14
+
 
 This page collects notes and citations from the book:
 
@@ -634,7 +634,7 @@ an appropriate output construct, and filling it with elements from
 the input model."*
 
 *"We usually have to create an input model like an AST because we
-can’t always do semantic analysis properly as we parse."*
+can't always do semantic analysis properly as we parse."*
 
 
 *"According to the needs of the task at hand, we compute everything we
@@ -654,7 +654,7 @@ formal, and beautiful."*
 translation rules, translations can be slow."*
 
 *"The rule engines themselves are black boxes, which can
-make it hard to understand what’s gone wrong in a translation.
+make it hard to understand what's gone wrong in a translation.
 Some of these systems were also designed to be the center of the
 universe, making them tricky to integrate into applications."*
 
@@ -663,14 +663,14 @@ universe, making them tricky to integrate into applications."*
 *"In a model-driven translator, everything centers around an input
 model created by the parser."*
 
-*"From the AST input model, we’re going to learn how to derive an
+*"From the AST input model, we're going to learn how to derive an
 appropriate output model instead of immediately generating output."*
 
-*"As we walk the input model, we’ll match subtrees and create
+*"As we walk the input model, we'll match subtrees and create
 output objects to represent translated phrases"*
 
 *"Using a hierarchy of output objects to represent the output makes
-sense because it’s equivalent to a syntax tree."*
+sense because it's equivalent to a syntax tree."*
 
 ### Decoupling Input Model Traversal from Output Order
 
@@ -679,7 +679,7 @@ we can walk the tree [multiple times]."*
 
 *"This works but is inefficient because we have to walk the
 (potentially very large) tree [multiple times]. This is an
-output-driven approach because it “pulls” information
+output-driven approach because it 'pulls' information
 from the input model according to the output order."*
 
 *"The second choice is to walk the input model a single time,
@@ -688,15 +688,15 @@ directly emitting text"*
 
 *"This input-driven approach lets us decouple the input and output
 order, albeit at the cost of buffering up the various output pieces.
-It’s totally worth it, though."*
+It's totally worth it, though."*
 
 *"We know that the translation process is about creating an input
 model, enriching it with semantic information, and then creating an
 appropriate output model. Target-specific generator classes
 are familiar and well-structured, but building them is a lot of work,
-and they’re often a hassle to use. Visitors that generate text directly
+and they're often a hassle to use. Visitors that generate text directly
 are much more convenient. Unfortunately, print statements lock the
 order of the output elements to the input model traversal order.
 Besides, computing output strings in a general-purpose programming
-language ain’t exactly pretty."*
+language ain't exactly pretty."*
 
