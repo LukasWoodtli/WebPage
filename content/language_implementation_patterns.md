@@ -624,3 +624,79 @@ The process of matching and rewriting trees is formally called term rewriting."*
 *"A tree pattern matcher is analogous to text rewriting tools such as `awk`, `sed`, and `perl`."*
 
 
+
+# Translating and Generating Languages
+
+## Translating Computer Languages
+
+*"Translation involves fully understanding each input phrase, picking
+an appropriate output construct, and filling it with elements from
+the input model."*
+
+*"We usually have to create an input model like an AST because we
+can’t always do semantic analysis properly as we parse."*
+
+
+*"According to the needs of the task at hand, we compute everything we
+need to know about the input and then make a decision about mapping an
+input phrase to an output phrase."*
+
+### Rule-Based Translation
+
+*"Rule-based systems are particularly good at legacy code conversions
+because we want the translated code to be natural."*
+
+*"These rule engines let us say what to do, not how to do it.
+They are powerful, implementation-language independent, expressive,
+formal, and beautiful."*
+
+*"These systems tend to be complex beasts. With a large number of
+translation rules, translations can be slow."*
+
+*"The rule engines themselves are black boxes, which can
+make it hard to understand what’s gone wrong in a translation.
+Some of these systems were also designed to be the center of the
+universe, making them tricky to integrate into applications."*
+
+### Model-Driven Translation
+
+*"In a model-driven translator, everything centers around an input
+model created by the parser."*
+
+*"From the AST input model, we’re going to learn how to derive an
+appropriate output model instead of immediately generating output."*
+
+*"As we walk the input model, we’ll match subtrees and create
+output objects to represent translated phrases"*
+
+*"Using a hierarchy of output objects to represent the output makes
+sense because it’s equivalent to a syntax tree."*
+
+### Decoupling Input Model Traversal from Output Order
+
+*"There are two ways to solve input-output ordering mismatches. First,
+we can walk the tree [multiple times]."*
+
+*"This works but is inefficient because we have to walk the
+(potentially very large) tree [multiple times]. This is an
+output-driven approach because it “pulls” information
+from the input model according to the output order."*
+
+*"The second choice is to walk the input model a single time,
+collecting the declarations and definitions in lists instead of
+directly emitting text"*
+
+*"This input-driven approach lets us decouple the input and output
+order, albeit at the cost of buffering up the various output pieces.
+It’s totally worth it, though."*
+
+*"We know that the translation process is about creating an input
+model, enriching it with semantic information, and then creating an
+appropriate output model. Target-specific generator classes
+are familiar and well-structured, but building them is a lot of work,
+and they’re often a hassle to use. Visitors that generate text directly
+are much more convenient. Unfortunately, print statements lock the
+order of the output elements to the input model traversal order.
+Besides, computing output strings in a general-purpose programming
+language ain’t exactly pretty."*
+
