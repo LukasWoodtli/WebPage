@@ -28,7 +28,7 @@ $Re^{[\hat{\omega}] \theta} = R Rot(\hat{\omega}, \theta)$ is the orientation ac
 
 Exponentiation integrates the angular velocity $\hat{\omega}$ for time $\theta$ seconds going from the identity matrix $I$ to the final rotation matrix $R$.
 
-Exp: $[\hat{\omega}]\theta \in so(3) \rarr R \in SO(3)$
+Exp: $[\hat{\omega}]\theta \in so(3) \rightarrow R \in SO(3)$
 
 > Matrix exponential is like integration
 
@@ -37,7 +37,7 @@ Exp: $[\hat{\omega}]\theta \in so(3) \rarr R \in SO(3)$
 
 The inverse of th matrix exponential (matrix logarithm) takes a rotation matrix $R$ and returns the skew-symmetric representation of the exponential coordinates that achieve it starting from the identity orientation $I$.
 
-Log: $R \in SO(3) \rarr [\hat{\omega}]\theta \in so(3)$
+Log: $R \in SO(3) \rightarrow [\hat{\omega}]\theta \in so(3)$
 
 > Matrix log is like differentiation
  
