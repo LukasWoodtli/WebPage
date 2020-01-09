@@ -25,6 +25,16 @@ Title: Books
 | [Software Architecture Patterns](https://www.oreilly.com/programming/free/software-architecture-patterns.csp) | Mark Richards | O'Reilly |
 
 
+# Testing and QA
+
+| Name                                              | Authors                                           | Publisher                                         |
+|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Test Driven Development for Embedded C            | James W. Grenning                                 | The Pragmatic Bookshelf                           |
+| Using Node.js for UI Testing                      | Pedro Teixeira                                    | Packt Publishing                                  |
+| Hacking mit Python                                | Justin Seitz                                      | dpunkt.verlag                                     |
+| Aus dem Tagebuch eines Bughunters                 | Tobias Klein                                      | dpunkt.verlag                                     |
+
+
 # Skills & Tools
 
 | Name                                              | Authors                                           | Publisher                                         |
@@ -36,8 +46,6 @@ Title: Books
 | [Language Implementation Patterns](https://github.com/LukasWoodtli/LanguageImplementationPatterns) | Terence Parr | The Pragmatic Bookshelf               |
 | Learning GNU Emacs                                | Debra Cameron, et al.                             | O'Reilly                                          |
 | Programming Collective Intelligence               | Toby Segaran                                      | O'Reilly                                          |
-| Hacking mit Python                                | Justin Seitz                                      | dpunkt.verlag                                     |
-| Aus dem Tagebuch eines Bughunters                 | Tobias Klein                                      | dpunkt.verlag                                     |
 | UML 2.0                                           | Dan Pilone                                        | O'Reilly                                          |
 | [Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation) | Tom Stuart    | O'Reilly                                          |
 | [Structure and Interpretation of Computer Programs](https://github.com/LukasWoodtli/SchemeCourse) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
@@ -69,7 +77,6 @@ Title: Books
 
 | Name                                              | Authors                                           | Publisher                                         |
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Test Driven Development for Embedded C            | James W. Grenning                                 | The Pragmatic Bookshelf                           |
 | Vom Gatter zu VHDL                                | M. Künzli                                         | vdf Lehrbuch                                      |
 | Technische Informatik I+II                        | T. Müller et al.                                  | vdf Lehrbuch                                      |
 | [x86-64 Assembly Language Programming with Ubuntu](https://github.com/LukasWoodtli/LinuxAssemblyProgramming) | Ed Jorgensen   | Ed Jorgensen              |

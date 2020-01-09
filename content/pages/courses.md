@@ -25,6 +25,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 |---------------------------------|----------------------------------------------------------------------------------------------|
 | Designing RESTful APIs          | [Udacity](https://www.udacity.com)                                                           |
 | Building Cloud Services with the Java Spring Framework | https://www.coursera.org/learn/cloud-services-java-spring-framework/home/welcome |
+| Cucumber with Java Build Automation Framework [...] | [Packt](https://www.packtpub.com/application-development/cucumber-java-build-automation-framework-less-code-video) |
 | JavaScript Basics               | [Udacity](https://www.udacity.com)                                                           |
 | How to Use Git and GitHub       | [Udacity](https://www.udacity.com)                                                           |
 | Advanced Operating Systems      | [Udacity](https://www.udacity.com)                                                           |

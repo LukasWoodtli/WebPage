@@ -88,17 +88,20 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Gerrit                                   | good                                     |
 | GitLab                                   | good                                     |
 
-# Unit Tests
+# Unit Tests and Quality Engineering
 
 | Test Tool                                | Knowledge                                |
 |------------------------------------------|------------------------------------------|
-| Catch                                    | very good                                |
+| Catch2                                   | very good                                |
 | Google Test                              | basic                                    |
 | Boost Test                               | basic                                    |
 | Qt Test                                  | good                                     |
 | Test Coverage (gcov & gcovr)             | good                                     |
 | boost::di (dependency injection)         | good                                     |
 | Trompeloeil                              | good                                     |
+| Serenity BDD                             | good                                     |
+| Cucumber                                 | good                                     |
+| REST-assured                             | good                                     |
 
 
 # Skills
