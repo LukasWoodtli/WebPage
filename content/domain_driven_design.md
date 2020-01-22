@@ -7,7 +7,7 @@ Tags: Agile, Scrum, XP, Software Development Methodology
 
 # Introduction
 
-Domain Driven Design (DDD) is a set of methodologies, tools and patterns that help to develop complex software systems. 
+Domain Driven Design (DDD) is a set of methodologies, tools and patterns that help to develop complex software systems.
 
 The design techniques are divided into two major groups: strategical and tactical.
 
@@ -69,7 +69,7 @@ The classes and methods of the software are a direct mapping of the model and ub
 
 Anybody that works on the code needs to know how to express the model in code. It is necessary that all developers are involved into the discussions about the model with the domain experts.
 
-If the design of the system or of central components don’t reflect the model, the correctness of the software is in danger. 
+If the design of the system or of central components don’t reflect the model, the correctness of the software is in danger.
 
 
 # Building Blocks and Patterns
@@ -85,14 +85,14 @@ The classical DDD system uses a layered architecture. But other architecture sty
 
 This is a list of traditional layers in an n-tier application:
 
-- UI: Represent information to the user and allow interaction. 
+- UI: Represent information to the user and allow interaction.
 - Application Layer: Coordination of application logic. It contains no business logic.
 - Domain Layer: Business logic and objects.
 - Infrastructure Layer: Persistency, Networking, I/O
 
 ### Building Blocks
 
-#### Entities 
+#### Entities
 
 Business objects that have an identity. The identity is usually a field or a combination of fields which is unique. Two objects with the same identity are considered as the same object. Special care needs to be taken to guarantee that distinct objects don’t get the same identity.
 
@@ -119,13 +119,13 @@ Business processes should be implemented as services.
 
 Services can not only be used in the domain layer but also in the application or infrastructure layer. Domain and application services usually act on domain entities and value objects. It needs to be reassured that the layers are kept isolated from each other.
 
-#### Modules 
+#### Modules
 
-Large and complex models are split into modules. 
+Large and complex models are split into modules.
 
 Modules should have low coupling between each other and high cohesion inside them. Together with well defined interfaces this allows for good testing.
 
-Module names become part of the ubiquitous language. 
+Module names become part of the ubiquitous language.
 
 #### Aggregates
 
@@ -199,7 +199,7 @@ Everybody working on the system needs to know and understand the context map.
 The Context Map can also show problems with badly defined Bounded Contexts. For example if two (or more) contexts share a part of the system.
 
 
-# Common Patterns 
+# Common Patterns
 
 ## Shared Kernel
 
@@ -207,7 +207,7 @@ If there is a part of the system that is present in two (or more) contexts is it
 
 It’s also possible to actively to decide that two teams share a part of the system and maintain this part collectively. This reduces the effort of duplication and has the benefit of a partly common Ubiquitous Language.
 
-The scope of the Shared Kernel has to be clearly defined. And any changes to it needs coordination between the teams that share it. 
+The scope of the Shared Kernel has to be clearly defined. And any changes to it needs coordination between the teams that share it.
 
 
 ## Customer-Supplier
@@ -236,8 +236,16 @@ These parts have a focus on different aspects of the domain:
 This contains the main functionality of the application. It is the unique selling point. The best developers should be assigned to work on that part of the domain.
 The core should stay as small as possible. It contains a lot of business logic.
 
-# Subdomains
+### Subdomains
 
-The other parts of the model is implemented in subdomains. They should be generic and do not contain any specialities. Ideally they could be reused for other applications.
+The other parts of the model is implemented in subdomains.
 
 They could be developed by an other company or could even be an generic third party tool that is integrated into the system.
+
+#### Generic Subdomains
+
+They should be generic and do not contain any specialties. Ideally they could be reused for other applications.
+
+#### Supporting Subdomains
+
+They are part of the specific domain of the application. But they don't contain core functionality.
