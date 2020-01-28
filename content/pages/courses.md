@@ -14,7 +14,7 @@ Here is a list of the most important courses I attended in the last few years.
 | Legic Identification (RFID) | [Legic Wetzikon](http://www.legic.com/) |
 | SMD Soldering               | [Meili Data](http://www.meili-data.ch/) |
 | C++ for Embedded Systems    | [HSR Rapperswil](http://www.hsr.ch/)    |
-| Agile Development           | [Golo Roden](https://www.thenativeweb.io) |
+| Agile Software Development  | [Golo Roden](https://www.thenativeweb.io) |
 
 
 Online Courses
@@ -24,7 +24,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 | Topic                           | Course                                                                                       |
 |---------------------------------|----------------------------------------------------------------------------------------------|
 | Designing RESTful APIs          | [Udacity](https://www.udacity.com)                                                           |
-| Building Cloud Services with the Java Spring Framework | https://www.coursera.org/learn/cloud-services-java-spring-framework/home/welcome |
+| Building Cloud Services with the Java Spring Framework | [Coursera](https://www.coursera.org/learn/cloud-services-java-spring-framework) |
 | Cucumber with Java Build Automation Framework [...] | [Packt](https://www.packtpub.com/application-development/cucumber-java-build-automation-framework-less-code-video) |
 | JavaScript Basics               | [Udacity](https://www.udacity.com)                                                           |
 | How to Use Git and GitHub       | [Udacity](https://www.udacity.com)                                                           |
