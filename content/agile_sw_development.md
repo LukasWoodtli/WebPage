@@ -548,12 +548,8 @@ Literature and Links
 
 [Pigs and Chickens](http://scrum-master.de/Scrum-Rollen/Scrum-Rollen_Pigs_Chickens)
 
-[My Notes](/images/scrumidable_notizen.pdf)
-
 [A good page with Podcasts (German)](http://www.scrumidable.de/)
 
 [Cheat Sheet](http://media.agile42.com/content/Scrum_in_a_nutshell.pdf)
 
 [Scrum Checklist](https://www.crisp.se/gratis-material-och-guider/scrum-checklist)
-
-[Retromat](http://www.plans-for-retrospectives.com/)

@@ -22,7 +22,9 @@ Title: Books
 | Head First Design Patterns                        | Eric Freeman et al.                               | O'Reilly                        |
 | Refactoring                                       | Martin Fowler                                     | Addison-Wesley                  |
 | Effektives Arbeiten mit Legacy Code               | Michael C. Feathers                               | mitp                            |
+| [Fundamentals of Software Architecture](https://www.oreilly.com/library/view/fundamentals-of-software/9781492043447/) | Neal Ford, Mark Richards | O'Reilly |
 | [Software Architecture Patterns](https://www.oreilly.com/programming/free/software-architecture-patterns.csp) | Mark Richards | O'Reilly |
+| [Domain Driven Design Quickly](https://www.infoq.com/minibooks/domain-driven-design-quickly/) | Abel Avram, et al. | InfoQ              | 
 
 
 # Testing and QA
@@ -33,6 +35,7 @@ Title: Books
 | Using Node.js for UI Testing                      | Pedro Teixeira                                    | Packt Publishing                                  |
 | Hacking mit Python                                | Justin Seitz                                      | dpunkt.verlag                                     |
 | Aus dem Tagebuch eines Bughunters                 | Tobias Klein                                      | dpunkt.verlag                                     |
+| Cucumber Cookbook                                 | Shankar Garg                                      | Packt Publishing                                  |
 
 
 # Skills & Tools
