@@ -49,7 +49,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 
 # Processor Architectures
 
-- Intel x86 & x64
+- Intel/AMD x86 & x64
 - ARM Cortex-M3 (Silicon Labs, STMicroelectronics)
 - ARM Cortex-A7/A8 (Raspberry Pi 2, BeagleBone Black)
 - Atmel Atmega
@@ -86,22 +86,23 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Travis CI                                | very good                                |
 | Jenkins (pipelines)                      | very good                                |
 | Gerrit                                   | good                                     |
-| GitLab                                   | good                                     |
+| GitLab/Github                            | good                                     |
 
 # Unit Tests and Quality Engineering
 
-| Test Tool                                | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| Catch2                                   | very good                                |
-| Google Test                              | basic                                    |
-| Boost Test                               | basic                                    |
-| Qt Test                                  | good                                     |
-| Test Coverage (gcov & gcovr)             | good                                     |
-| boost::di (dependency injection)         | good                                     |
-| Trompeloeil                              | good                                     |
-| Serenity BDD                             | good                                     |
-| Cucumber                                 | good                                     |
-| REST-assured                             | good                                     |
+| Test Tool                                 | Knowledge                                |
+|-------------------------------------------|------------------------------------------|
+| Catch2                                    | very good                                |
+| Google Test                               | basic                                    |
+| Boost Test                                | basic                                    |
+| Qt Test                                   | good                                     |
+| Test Coverage (gcc, clang)                | good                                     |
+| boost::di (dependency injection)          | good                                     |
+| Mocking Frameworks (Trompeloeil, Mockito) | good                                     |
+| ApprovalTests                             | very good                                |
+| Serenity BDD                              | good                                     |
+| Cucumber                                  | good                                     |
+| REST-assured                              | good                                     |
 
 
 # Skills
@@ -137,7 +138,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Analysis Tool                            | Knowledge                                |
 |------------------------------------------|------------------------------------------|
 | CppCheck                                 | good                                     |
-| Clang static analyzer (scan-build)       | good                                     |
+| Clang static analyzer, clang tidy        | good                                     |
 | OCLint                                   | basic                                    |
 
 
@@ -147,6 +148,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 |------------------------------------------|------------------------------------------|
 | Sanitizers (gcc, clang)                  | very good                                |
 | Valgrind                                 | basic                                    |
+| system tap                               | basic                                    |
 | Instruments (XCode)                      | basic                                    |
 | Perf                                     | basic                                    |
 
