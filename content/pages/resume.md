@@ -50,6 +50,11 @@ See my page about the [courses](courses.html) I attended.
 - English: Good writing and speaking knowledge
 - French: Some basic knowledge
 
+
+# Memberships
+
+[Association for Computing Machinery (ACM)](https://www.acm.org/)
+
 # Online Profiles and Social Networks
 
 - [Home page](http://lukaswoodtli.github.io/)
