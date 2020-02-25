@@ -9,9 +9,16 @@ title: Projects
 ## Profidata AG
 
 
-Currently I am working as a senior software developer at Profidata. My main task there is to extend the highly scalable and parallelized server application Xentis with REST services to provide its functionality to be used outside of the core application.
+Currently I am working as a senior software developer at Profidata. My current task there is to ensure software quality of the highly scalable and parallelized
+server application Xentis. I implemented system tests to check our REST API's, integration tests and unit tests. To test a big legacy application I found that 
+characterization tests help to increase code quality and capture current behavior.
 
-The development is done in modern and generic C++ on Linux. I am also learning a lot about financial markets, investment and fintech.
+Previous tasks included the extension of the Xentis server application with REST services to provide its functionality to be used outside of the core application.
+I also worked on the implementation of different functional modules such as investment performance and price services. 
+
+The development is done with modern and generic C++ on Linux and with Java. Part of the testing infrastructure is written in Python.
+
+I am also learning a lot about financial markets, investment and fintech.
 
 Another responsibility of mine is the maintenance of our build environment and continuous integration infrastructure (CMake, Jenkins pipeline, Gerrit), integration of static and dynamic analysis tools (Sanitizers, Clang Static Analyzer), as well as regression- and unit-tests. I also became an expert in development on Linux.
 
@@ -78,15 +85,15 @@ The bachelor thesis was rewarded with a grade of **5.5** (of 6).
 
 More information on the project can be found on the homepage: [www.reely.ethz.ch](http://www.reely.ethz.ch)
 
+
 # Private Projects
 
-## Design by Contract for C++
+## PX4 Firmware for Drones
 
-This small [library](https://github.com/LukasWoodtli/DesignByContractPlusPlus) allows to define contracts in C++ that are checked at specific points (for example at scope exit). It can help to improve the quality of code and is a good addition to unit tests.
+From time to time I'm contributing to the [PX4](https://px4.io/) project. It provides an open source auto pilot firmware for drones. The framework is used in several
+commercial and industrial applications.
 
+## Cucumber
 
-## Markdown Generator for Python
-
-I started to develop [this library](https://github.com/LukasWoodtli/MarkdownGen) for personal use. The aim was to generate some Markdown files for my homepage. I used just a part of the library for my home page.
-But I keep working on the project anyway. It is also a good exercise for me doing a complete Python project from start to end.
-
+Recently I started to contribute to the C++ implementation of [Cucumber](https://github.com/cucumber/cucumber-cpp). My main motivation is to modernize it's codebase
+and to remove it's dependency on the Ruby implementation of Cucumber.
