@@ -34,7 +34,7 @@ Usually the model is not fully defined from the beginning. It is refined and imp
 
 To define a useful and solid model it is necessary that the software engineers (developers, architects, testers) that build the software collaborate with the business experts (analysts, users...) and figure out the essential concepts and the functionality that the software will implement.
 
-This is an iterative process where the model is constantly refined, extended and cleaned up.
+This is an iterative process where the model is constantly refined, extended and cleaned up. Also the Ubiquitous Language is evolved and refined in this process.
 
 The communication is bidirectional and defining the model is a combined effort. The resulting model needs to be understood by all participants. If a business expert doesn’t understand a part of the model then there is probably something wrong with it.
 
@@ -138,6 +138,10 @@ Each aggregate has one root which is the entry point for objects outside of the 
 Only the root should be obtainable through queries from the database.
 
 
+#### Domain Events
+
+These objects model the events that the users of the system (and the domain experts) are interested in. Usually they are implemented as value objects. 
+
 #### Factories
 
 Construction of complex business objects (like aggregates and entities) should be done by factories (factory method, abstract factory, ...). Usually it is not feasible to build a complete object tree in a constructor of a single class.
@@ -197,6 +201,8 @@ The contexts and their relationships should be documented with a context map. Th
 Everybody working on the system needs to know and understand the context map.
 
 The Context Map can also show problems with badly defined Bounded Contexts. For example if two (or more) contexts share a part of the system.
+
+When getting started with DDD it's a good starting point to draw a context map of the system.
 
 
 # Common Patterns
