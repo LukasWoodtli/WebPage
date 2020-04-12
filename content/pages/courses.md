@@ -23,6 +23,8 @@ I also like to attend online courses. It's a flexible way to learn new things.
 
 | Topic                           | Course                                                                                       |
 |---------------------------------|----------------------------------------------------------------------------------------------|
+| Agile Testing Essentials        | [informit](https://www.informit.com/store/agile-testing-essentials-livelessons-video-training-9780134683263) |
+| Effective Modern C++ live!      | [O'Reilly](https://www.oreilly.com/pub/e/3357)                                               |
 | Designing RESTful APIs          | [Udacity](https://www.udacity.com)                                                           |
 | Building Cloud Services with the Java Spring Framework | [Coursera](https://www.coursera.org/learn/cloud-services-java-spring-framework) |
 | Cucumber with Java Build Automation Framework [...] | [Packt](https://www.packtpub.com/application-development/cucumber-java-build-automation-framework-less-code-video) |
@@ -34,5 +36,4 @@ I also like to attend online courses. It's a flexible way to learn new things.
 | iOS Development                 | [iTunes U](https://itunes.apple.com/us/course/developing-ios-7-apps-for/id733644550)         |
 | Scheme (Lisp) | [MIT OpenCourseWare](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/) |
 | UX Design for Mobile Developers | [Udacity](https://www.udacity.com/course/ud849)                                              |
-| Emacs Lisp                      | [Casting Spels](http://www.lisperati.com/casting-spels-emacs/html/casting-spels-emacs-1.html)|
 | Finance and capital markets     | [Khan Academy](https://www.khanacademy.org/economics-finance-domain/core-finance)            |
