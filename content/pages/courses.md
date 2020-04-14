@@ -25,6 +25,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 |---------------------------------|----------------------------------------------------------------------------------------------|
 | Agile Testing Essentials        | [informit](https://www.informit.com/store/agile-testing-essentials-livelessons-video-training-9780134683263) |
 | Effective Modern C++ live!      | [O'Reilly](https://www.oreilly.com/pub/e/3357)                                               |
+| Getting Started with C++17 Programming | [Packt](https://www.packtpub.com/application-development/getting-started-c17-programming-video) |
 | Designing RESTful APIs          | [Udacity](https://www.udacity.com)                                                           |
 | Building Cloud Services with the Java Spring Framework | [Coursera](https://www.coursera.org/learn/cloud-services-java-spring-framework) |
 | Cucumber with Java Build Automation Framework [...] | [Packt](https://www.packtpub.com/application-development/cucumber-java-build-automation-framework-less-code-video) |
