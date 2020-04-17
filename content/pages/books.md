@@ -5,7 +5,8 @@ Title: Books
 
 | Name                                              | Authors                                           | Publisher                |
 |---------------------------------------------------|---------------------------------------------------|--------------------------|
-| Effektiv C++ Programmieren                        | Scott Meyers                                      | Addison-Wesley           |
+| Effective Modern C++                              | Scott Meyers                                      | Addison-Wesley           |
+| Effective C++                                     | Scott Meyers                                      | Addison-Wesley           |
 | Die C++ Programmiersprache                        | Bjarne Stroustrup                                 | Addison-Wesley           |
 | [Modern C++ Design](https://github.com/LukasWoodtli/ModernCppDesign) | Andrei Alexandrescu            | Addison-Wesley           |
 | Secure Coding in C and C++                        | Robert C. Seacord                                 | Addison-Wesley           |
