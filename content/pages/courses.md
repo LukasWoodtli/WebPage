@@ -25,6 +25,8 @@ I also like to attend online courses. It's a flexible way to learn new things.
 |----------------------------------------|----------------------------------------------------------------------------------------------------|
 | Agile Testing Essentials               | [informit](https://www.informit.com/store/agile-testing-essentials-livelessons-video-training-9780134683263) |
 | Software Architecture Fundamentals     | [O'Reilly](https://www.oreilly.com/library/view/software-architecture-fundamentals/9781491998991/) |
+| The Zen of Software Architecture       | [O'Reilly](https://www.oreilly.com/library/view/the-zen-of/9781491934913/)                         |
+| Moving to Microservices: Using Domain-Driven Design [...] | [O'Reilly](https://www.oreilly.com/library/view/moving-to-microservices/9780134779270/) |
 | Effective Modern C++ live!             | [O'Reilly](https://www.oreilly.com/pub/e/3357)                                                     |
 | Getting Started with C++17 Programming | [Packt](https://www.packtpub.com/application-development/getting-started-c17-programming-video)    |
 | Designing RESTful APIs                 | [Udacity](https://www.udacity.com)                                                                 |
