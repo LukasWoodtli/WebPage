@@ -137,6 +137,18 @@ Each aggregate has one root which is the entry point for objects outside of the 
 
 Only the root should be obtainable through queries from the database.
 
+##### Rules for Modeling Aggregates
+
+1. Design small aggregates
+2. Protect business invariants inside of aggregates
+3. Reference other aggregates only by identity
+4. Make a dependecy graph of the aggregates
+5. Define acceptable time frame for updates to dependent aggregates (together with domain experts)
+    - immediate
+    - eventually (`n` seconds)
+6. Put all components that need immediate update in the same aggregate
+7. The other aggregates will be updated eventually
+
 
 #### Domain Events
 
@@ -182,7 +194,7 @@ A Bounded Context is a part of the domain. It is built with one model using its 
 
 Ideally each Bounded Context is developed and maintained by one team.
 
-The boundaries of the Context (and its model) need to be explicit. The model has to be contained completely in the Bounded Context.
+The boundaries of the Context (and its model) need to be explicit. The model has to be contained completely in the Bounded Context. It's also important to define whant isn't part  of a bounded context.
 
 A Bounded Context contains usually multiple modules.
 
