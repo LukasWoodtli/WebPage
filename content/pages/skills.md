@@ -11,9 +11,9 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | C++                                      | very good                                |
 | C                                        | very good                                |
 | Python                                   | very good                                |
+| Java                                     | good                                     |
 | Assembler (x86, ARM)                     | good                                     |
 | Shell scripting (bash, dash, sh, zsh)    | good                                     |
-| Java                                     | good                                     |
 | Matlab/Simulink                          | basic                                    |
 | Lisp (Scheme, Clojure)                   | basic                                    |
 | Scala                                    | basic                                    |
@@ -33,6 +33,8 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Boost                                    | very good                                |
 | Spring                                   | good                                     |
 | Cocoa Touch                              | basic                                    |
+| Spring                                   | basic                                    |
+| JavaRx                                   | basic                                    |
 
 
 # Electronic and Control
@@ -83,6 +85,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 |------------------------------------------|------------------------------------------|
 | CMake                                    | very good                                |
 | Make                                     | good                                     |
+| Gradle                                   | good                                     |
 | Travis CI                                | very good                                |
 | Jenkins (pipelines)                      | very good                                |
 | Gerrit                                   | good                                     |
@@ -137,8 +140,8 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 
 | Analysis Tool                            | Knowledge                                |
 |------------------------------------------|------------------------------------------|
-| CppCheck                                 | good                                     |
 | Clang static analyzer, clang tidy        | good                                     |
+| CppCheck                                 | good                                     |
 | OCLint                                   | basic                                    |
 
 

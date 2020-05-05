@@ -51,7 +51,7 @@ See my page about the [courses](courses.html) I attended.
 - French: Some basic knowledge
 
 
-# Memberships
+# Membership
 
 [Association for Computing Machinery (ACM)](https://www.acm.org/)
 

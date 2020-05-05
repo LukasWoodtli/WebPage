@@ -9,11 +9,12 @@ title: Projects
 ## Profidata AG
 
 
-Currently I am working as a senior software developer at Profidata. My current task there is to ensure software quality of the highly scalable and parallelized
-server application Xentis. I implemented system tests to check our REST API's, integration tests and unit tests. To test a big legacy application I found that 
-characterization tests help to increase code quality and capture current behavior.
+Currently I am working as a senior software developer at Profidata. My current task there is to ensure software quality of the highly scalable and parallelized server application Xentis. 
+I implemented system tests to check our REST API's as well as integration tests and unit tests. To test a big legacy application I found that characterization tests help to increase code quality and capture current behavior. With my experience in quality
+software design and testing techinques I support other developpers with testing and refactoring the huge legacy codebase.
 
-Previous tasks included the extension of the Xentis server application with REST services to provide its functionality to be used outside of the core application.
+Previous tasks included the extension of the Xentis server application with REST services. This enables other systems to
+use the functionality of Xentis outside of the core application.
 I also worked on the implementation of different functional modules such as investment performance and price services. 
 
 The development is done with modern and generic C++ on Linux and with Java. Part of the testing infrastructure is written in Python.
