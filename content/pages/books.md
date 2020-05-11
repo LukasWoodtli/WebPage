@@ -59,6 +59,16 @@ Title: Books
 | Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
 | [Mastering Spring 5.0](https://github.com/LukasWoodtli/mastering-spring/) | Ranga Karanam             | Packt Publishing                                  |
 
+
+# Presentations
+
+| Name                                              | Authors                                           | Publisher                                         |
+|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Presentation Patterns: Techniques for Crafting Better Presentations | Neal Ford, Matthew McCullough, Nate Schutta | Addison-Wesley                        |
+| Instant HTML5 Presentations How-to                | Davi Ferreira                                     | Packt Publishing                                  |
+
+
+
 # Agile Software Development and Scrum
 
 | Name                                                                                                            | Authors         | Publisher          |
