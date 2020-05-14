@@ -1,6 +1,6 @@
 Title: Timezones on Unix
 Category: Programming
-Tags: Unix, Linuy
+Tags: Unix, Linux
 
 - There is an extensive time zones database maintained by IANA: [tz database](https://en.wikipedia.org/wiki/Tz_database)
 - Informations about time zones supported by the systems are found in `/usr/share/zoneinfo/`
