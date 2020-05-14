@@ -1,4 +1,4 @@
-Title: Language Implementation Patterns
+Title: Seven Concurrency Models in Seven Weeks
 Category: Programming
 Tags: Computer Science, Design Patterns, Lisp, OOP, OS
 
