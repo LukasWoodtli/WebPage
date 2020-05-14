@@ -34,6 +34,7 @@ Title: Books
 |---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Agile Testing: A Practical Guide for Testers and Agile Teams | Lisa Crispin, Janet Gregory            | Addison-Wesley                                    |
 | More Agile Testing: Learning Journeys for the Whole Team     | Lisa Crispin, Janet Gregory            | Addison-Wesley                                    |
+| The Art of Unit Testing, 2nd Edition              | Roy Osherove                                      | Manning Publications                              | 
 | Test Driven Development for Embedded C            | James W. Grenning                                 | The Pragmatic Bookshelf                           |
 | Using Node.js for UI Testing                      | Pedro Teixeira                                    | Packt Publishing                                  |
 | Hacking mit Python                                | Justin Seitz                                      | dpunkt.verlag                                     |
