@@ -46,8 +46,6 @@ Some of my examples are [here](https://github.com/LukasWoodtli/SevenConcurrencyM
 
 *"[Threads] also provide almost no help to the poor programmer, making programs very difficult to get right in the first place and even more difficult to maintain."*
 
-### they also provide almost no help to the poor programmer, making programs very difficult to get right in the first place and even more difficult to maintain.
-
 
 ## Day 1: Mutual Exclusion and Memory Models
 
