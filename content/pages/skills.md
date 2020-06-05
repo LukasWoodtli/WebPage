@@ -36,36 +36,6 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Cocoa Touch                              | basic                                    |
 
 
-# Electronic and Control
-
-| Skill                                   | Level     |
-|-----------------------------------------|-----------|
-| Embedded Systems and Micro Controllers  | very good |
-| Control Systems Engeneering             | good      |
-| Signals and Systems                     | good      |
-| RFID                                    | good      |
-| Digital Signal Processing               | basic     |
-| Hardware Development (Analog & Digital) | basic     |
-
-
-# Processor Architectures
-
-- Intel/AMD x86 & x64
-- ARM Cortex-M3 (Silicon Labs, STMicroelectronics)
-- ARM Cortex-A7/A8 (Raspberry Pi 2, BeagleBone Black)
-- Atmel Atmega
-- Freescale ColdFire
-
-
-# OS's
-
-| OS                                       | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| OS X                                     | very good                                |
-| Linux (RHEL, Fedora, Ubuntu)             | very good                                |
-| Windows                                  | good                                     |
-
-
 # Build Tools
 
 | Tool                                     | Knowledge                                |
@@ -77,6 +47,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Jenkins (pipelines)                      | very good                                |
 | Gerrit                                   | good                                     |
 | GitLab/Github                            | good                                     |
+
 
 # Unit Tests and Quality Engineering
 
@@ -95,12 +66,50 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | REST-assured                              | good                                     |
 
 
+# Static Analysis
+
+| Analysis Tool                            | Knowledge                                |
+|------------------------------------------|------------------------------------------|
+| Clang static analyzer, clang tidy        | good                                     |
+| CppCheck                                 | good                                     |
+| Pylint                                   | good                                     |
+| OCLint                                   | basic                                    |
+
+
+# Dynamic Analysis
+
+| Tool                                     | Knowledge                                |
+|------------------------------------------|------------------------------------------|
+| Sanitizers (gcc, clang)                  | very good                                |
+| Valgrind                                 | basic                                    |
+| system tap                               | basic                                    |
+| Instruments (XCode)                      | basic                                    |
+| Perf                                     | basic                                    |
+
+
+# Version Control
+
+| VCS                                      | Knowledge                                |
+|------------------------------------------|------------------------------------------|
+| Git                                      | very good                                |
+| SVN                                      | very good                                |
+
+# OS's
+
+| OS                                       | Knowledge                                |
+|------------------------------------------|------------------------------------------|
+| OS X                                     | very good                                |
+| Linux (RHEL, Fedora, Ubuntu)             | very good                                |
+| Windows                                  | good                                     |
+
+
 # Skills
 
 | Skill                                            | Knowledge                                |
 |--------------------------------------------------|------------------------------------------|
 | OOP/OOD                                          | very good                                |
 | Design/Architecture Patterns                     | very good                                |
+| Clean Code, SOLID, TDD, ...                      | very good                                |
 | Regexp                                           | very good                                |
 | UML                                              | very good                                |
 | Project Management / Scrum / XP                  | very good                                |
@@ -123,34 +132,6 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | LaTeX                                    | good                                     |
 
 
-# Static Analysis
-
-| Analysis Tool                            | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| Clang static analyzer, clang tidy        | good                                     |
-| CppCheck                                 | good                                     |
-| OCLint                                   | basic                                    |
-
-
-# Dynamic Analysis
-
-| Tool                                     | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| Sanitizers (gcc, clang)                  | very good                                |
-| Valgrind                                 | basic                                    |
-| system tap                               | basic                                    |
-| Instruments (XCode)                      | basic                                    |
-| Perf                                     | basic                                    |
-
-
-# Version Control
-
-| VCS                                      | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| Git                                      | very good                                |
-| SVN                                      | very good                                |
-
-
 # IDE's
 
 | IDE                                      | Knowledge                                |
@@ -161,6 +142,26 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Eclipse                                  | good                                     |
 | XCode                                    | good                                     |
 | IAR Studio                               | good                                     |
+
+# Electronic and Control
+
+| Skill                                   | Level     |
+|-----------------------------------------|-----------|
+| Embedded Systems and Micro Controllers  | very good |
+| Control Systems Engeneering             | good      |
+| Signals and Systems                     | good      |
+| RFID                                    | good      |
+| Digital Signal Processing               | basic     |
+| Hardware Development (Analog & Digital) | basic     |
+
+
+# Processor Architectures
+
+- Intel/AMD x86 & x64
+- ARM Cortex-M3 (Silicon Labs, STMicroelectronics)
+- ARM Cortex-A7/A8 (Raspberry Pi 2, BeagleBone Black)
+- Atmel Atmega
+- Freescale ColdFire
 
 
 # Mechanics
