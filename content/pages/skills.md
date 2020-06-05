@@ -31,10 +31,9 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Qt                                       | very good                                |
 | STL                                      | very good                                |
 | Boost                                    | very good                                |
-| Spring                                   | good                                     |
-| Cocoa Touch                              | basic                                    |
 | Spring                                   | basic                                    |
 | JavaRx                                   | basic                                    |
+| Cocoa Touch                              | basic                                    |
 
 
 # Electronic and Control
@@ -56,18 +55,6 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 - ARM Cortex-A7/A8 (Raspberry Pi 2, BeagleBone Black)
 - Atmel Atmega
 - Freescale ColdFire
-
-
-# IDE's
-
-| IDE                                      | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| CLion, IntelliJ, PyCharm                 | very good                                |
-| Qt Creator                               | very good                                |
-| Visual Studio                            | very good                                |
-| Eclipse                                  | very good                                |
-| XCode                                    | good                                     |
-| IAR Studio                               | good                                     |
 
 
 # OS's
@@ -96,10 +83,10 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Test Tool                                 | Knowledge                                |
 |-------------------------------------------|------------------------------------------|
 | Catch2                                    | very good                                |
-| Google Test                               | basic                                    |
-| Boost Test                                | basic                                    |
+| Google Test                               | good                                     |
+| Boost Test                                | good                                     |
 | Qt Test                                   | good                                     |
-| Test Coverage (gcc, clang)                | good                                     |
+| Test Coverage (gcc, clang, Java)          | good                                     |
 | boost::di (dependency injection)          | good                                     |
 | Mocking Frameworks (Trompeloeil, Mockito) | good                                     |
 | ApprovalTests                             | very good                                |
@@ -162,6 +149,18 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 |------------------------------------------|------------------------------------------|
 | Git                                      | very good                                |
 | SVN                                      | very good                                |
+
+
+# IDE's
+
+| IDE                                      | Knowledge                                |
+|------------------------------------------|------------------------------------------|
+| CLion, IntelliJ, PyCharm                 | very good                                |
+| Qt Creator                               | very good                                |
+| Visual Studio & Visual Studio Code       | good                                     |
+| Eclipse                                  | good                                     |
+| XCode                                    | good                                     |
+| IAR Studio                               | good                                     |
 
 
 # Mechanics
