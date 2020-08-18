@@ -5,7 +5,7 @@ Date: 2018-03-06
 
 This shows a basic use for QEMU.
 
-Mostly taken from: [Mastering Embedded Linux Programming](https://www.packtpub.com/mapt/book/all_books/9781784392536)
+See also [QEMU Documentation](https://www.qemu.org/docs/master/system/index.html)
 
 
 QEMU can emulate different processor architectures:

@@ -5,7 +5,7 @@ Category: Programming
 tags: Computer Science
 
 
-Most notes are from [Mastering Python Regular Expressions](https://www.packtpub.com/application-development/mastering-python-regular-expressions)
+See also [the Python Standard Library Documentation](https://docs.python.org/3/library/re.html)
 
 My Repository on [GitHub](https://github.com/LukasWoodtli/MasteringPythonRegularExpressions)
 

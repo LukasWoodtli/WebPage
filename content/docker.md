@@ -3,8 +3,7 @@ Category: Programming
 Tags: Linux, OS
 Date: 2018-03-19
 
-These notes are mainly taken from
-[What You Need to Know about Docker](https://www.packtpub.com/packt/free-ebook/what-you-need-know-about-docker).
+See also: [Docker Documentation](https://docs.docker.com/reference/).
 
 [TOC]
 
