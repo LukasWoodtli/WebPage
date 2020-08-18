@@ -20,7 +20,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Ruby                                     | basic                                    |
 | Objective C                              | basic                                    |
 | Oberon                                   | basic                                    |
-| JavaScript                               | basic                                    |
+| JavaScript / Typescript                  | basic                                    |
 | VHDL                                     | basic                                    |
 
 
@@ -34,6 +34,7 @@ Please check also the page with [my projects]({filename}/pages/projects.md).
 | Spring                                   | basic                                    |
 | JavaRx                                   | basic                                    |
 | Cocoa Touch                              | basic                                    |
+| Angular                                  | basic                                    |
 
 
 # Build Tools

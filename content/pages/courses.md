@@ -28,6 +28,8 @@ I also like to attend online courses. It's a flexible way to learn new things.
 | The Zen of Software Architecture       | [O'Reilly](https://www.oreilly.com/library/view/the-zen-of/9781491934913/)                         |
 | Domain-Driven Design Distilled         | [O'Reilly](https://www.oreilly.com/library/view/domain-driven-design-distilled/9780134593449/)     |
 | Moving to Microservices: Using Domain-Driven Design [...] | [O'Reilly](https://www.oreilly.com/library/view/moving-to-microservices/9780134779270/) |
+| Angular 8 - The Complete Guide         | [O'Reilly](https://www.oreilly.com/library/view/angular-8-/9781788998437/) |
+| Angular Crash Course                   | [O'Reilly](https://www.oreilly.com/library/view/angular-crash-course/9781800209824/) |
 | Learning Qt 5                          | [Packt](https://www.packtpub.com/application-development/learning-qt-5-video)                      |
 | Effective Modern C++ live!             | [O'Reilly](https://www.oreilly.com/pub/e/3357)                                                     |
 | Getting Started with C++17 Programming | [Packt](https://www.packtpub.com/application-development/getting-started-c17-programming-video)    |
