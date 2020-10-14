@@ -35,6 +35,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 | Getting Started with C++17 Programming | [Packt](https://www.packtpub.com/application-development/getting-started-c17-programming-video)    |
 | Designing RESTful APIs                 | [Udacity](https://www.udacity.com)                                                                 |
 | Building Cloud Services with the Java Spring Framework | [Coursera](https://www.coursera.org/learn/cloud-services-java-spring-framework)    |
+| gRPC [Java] Master Class [...]  |[Packt](https://www.packtpub.com/product/grpc-java-master-class-build-modern-api-and-microservices-video/9781838558048)|
 | Cucumber with Java Build Automation Framework [...]    | [Packt](https://www.packtpub.com/application-development/cucumber-java-build-automation-framework-less-code-video) |
 | JavaScript Basics               | [Udacity](https://www.udacity.com)                                                                        |
 | How to Use Git and GitHub       | [Udacity](https://www.udacity.com)                                                                        |
