@@ -40,6 +40,8 @@ Title: Books
 | Hacking mit Python                                | Justin Seitz                                      | dpunkt.verlag                                     |
 | Aus dem Tagebuch eines Bughunters                 | Tobias Klein                                      | dpunkt.verlag                                     |
 | Cucumber Cookbook                                 | Shankar Garg                                      | Packt Publishing                                  |
+| Testing Angular Applications                      | Corinna Cohn, Craig Nishina, Jesse Palmer, Michael Giambalvo | Manning Publications                   |
+
 
 
 # Skills & Tools
@@ -49,6 +51,7 @@ Title: Books
 | Mastering Regular Expressions                     | Jeffrey E.F. Friedl                               | O'Reilly                                          |
 | [Mastering Python Regular Expressions](https://github.com/LukasWoodtli/MasteringPythonRegularExpressions) | Félix López, Víctor Romero | Packt Publishing |
 | [Seven Concurrency Models [...]](https://github.com/LukasWoodtli/SevenConcurrencyModelsInSevenWeeks) | Paul Butcher | The Pragmatic Bookshelf             |
+| gRPC: Up and Running                              | Danesh Kuruppu, Kasun Indrasiri                   | O'Reilly                                          |
 | Mastering CMake                                   | Ken Martin, Bill Hofmann                          | Kitware                                           |
 | [Language Implementation Patterns](https://github.com/LukasWoodtli/LanguageImplementationPatterns) | Terence Parr | The Pragmatic Bookshelf               |
 | Learning GNU Emacs                                | Debra Cameron, et al.                             | O'Reilly                                          |
