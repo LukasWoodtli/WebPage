@@ -276,3 +276,64 @@ The memory model defines when changes to memory made by one thread become visibl
 Deadlock is a danger whenever a thread tries to hold more than one lock. 
 Happily, there is a simple rule that guarantees you will never deadlock - always acquire locks in a fixed, global order.
 
+
+# Chapter 3 Functional Programming
+
+*"In contrast to an imperative program, which consists of a series of statements that change global state when executed, a **functional program** models computation as the evaluation of expressions. Those expressions are built from pure mathematical functions that are both first-class (can be manipulated like any other value) and side effect-free. It’s particularly useful when dealing with concurrency because the lack of side effects makes reasoning about thread safety much easier."*
+
+## If It Hurts, Stop Doing It
+
+*"Functional programs have no mutable state, so they cannot suffer from any of the problems associated with shared mutable state."*
+
+## Day 1: Programming Without Mutable State
+
+### It’s Good to Be Lazy
+
+*"Sequences in Clojure are lazy - elements of a lazy sequence are generated only when they're needed."*
+
+*Realizing* a (lazy) sequence means to fully evaluate it.
+
+*"One final aspect of lazy sequences is that not only do we not need to generate the elements at the end of a sequence until we need them (which might be never), but we can discard the elements at the front if we’ve finished with them (if we don't “hold on to our head”)."*
+
+
+## Day 2: Functional Parallelism
+
+### Reducers
+
+*"A reducer is a recipe that describes how to reduce a collection. The normal version of `map` takes a function and a (possibly lazy) sequence and returns another (possibly lazy) sequence"*
+
+*"A reducible isn't a directly usable value - it's just something that can subsequently be passed to `reduce` [or `into`, which uses `reduce` internally]"*
+
+
+*"A reducer [...], returns a recipe for creating a result - a recipe that isn't executed until it's passed to either `reduce` or `fold`. This has two primary benefits:*
+
+- *It's more efficient than a chain of functions returning lazy sequences, because no intermediate sequences need to be created.*
+- *It allows fold to parallelize the entire chain of operations on the underlying collection."*
+
+
+## Day 3: Functional Concurrency
+
+### Same Structure, Different Evaluation Order
+
+*"Functional languages have a much more declarative feel [than OOP or procedual languages (imperative)]."*
+
+### Futures
+
+*"A future takes a body of code and executes it in another thread. Its return value is a future object."*
+
+*"We can retrieve the value of a future by dereferencing it with either `deref` or the shorthand `@`"*
+
+*"Dereferencing a future will block until the value is available (or realized)."*
+
+### Promises
+
+*"A promise is very similar to a future in that it’s a value that's realized asynhronously and accessed with `deref` or `@`, which will block until it's realized. The difference is that creating a promise does not cause any code to run - instead its value is set with deliver."*
+
+A promse can be used to pass a result from one thread to another one.
+
+
+## Wrap-Up
+
+### Weaknesses
+
+*"Many people expect that functional code will be less efficient than its impertive equivalent. Although there are performance implications for some types of problem, the penalty is likely to be less than you fear. And any small performance hit is likely to be more than worth it for the payoff of increased robustness and scalability."*
