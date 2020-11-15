@@ -79,6 +79,8 @@ So $6$ constraints are required:
 - All $3$ column vectors are *unit vectors*
 - Dot product of any $2$ column vectors is zero (they are all mutually orthogonal to each other)
 
+These 6 constraints can also be written as:
+
 $$R^TR = I$$
 
 Where:
@@ -94,6 +96,8 @@ $$I = \begin{bmatrix}
 Furthermore for right-handed frames the following must hold:
 
 $$\det R = 1$$
+
+This means that all rotation matrices are elements of the Special Orthogonal Group $SO(n)$.
 
 ## Special Orthogonal Group *SO(2)* and  *SO(3)*
 
