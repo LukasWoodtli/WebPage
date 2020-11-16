@@ -337,3 +337,162 @@ A promse can be used to pass a result from one thread to another one.
 ### Weaknesses
 
 *"Many people expect that functional code will be less efficient than its impertive equivalent. Although there are performance implications for some types of problem, the penalty is likely to be less than you fear. And any small performance hit is likely to be more than worth it for the payoff of increased robustness and scalability."*
+
+
+# Chapter 4 The Clojure Way - Separating Identity from State
+
+## Day 1: Atoms and Persistent Data Structures
+
+### Atoms
+
+*"An atom is an atomic variable [...]  (in fact, Clojure’s atoms are built on top of `java.util.concurrent.atomic`)."*
+
+### Persistent Data Structures
+
+*"Persistence in this case doesn't have anything to do with persistence on disk or within a database. Instead it refers to a data structure that always preserves its previous version when it's modified, which allows code to have a consistent view of the data in the face of modifications."*
+
+*"Persistent data structures behave **as though** a complete copy is made each time they’re modified."*
+
+*"The implementation is much more clever than that and makes use of structure sharing."*
+
+### Identity or State?
+
+*"Persistent data structures are invaluable for concurrent programming because once a thread has a reference to a data structure, it will see no changes made by any other thread. Persistent data structures separate identity from state."*
+
+*"A variable in an imperative language complects (interweaves, interconnects) identity and state - a single identity can only ever have a single value, making it easy to lose sight of the fact that **the state is really a sequence of values over time**. Persistent data structures separate identity from state - if we retrieve the current state associated with an identity, that state is immutable and unchanging, no matter what happens to the identity from which we retrieved it in the future."*
+
+### Retries
+
+*"Atoms can be lockless - internally they make use of the `compareAndSet` method in `java.util.concurrent.AtomicReference`.
+That means that they're very fast and don't block. [...] But it also means that `swap!` needs to handle the case where the value of the atom has been changed by another thread in between it calling the function to generate a new value and it trying to change that value."*
+
+*"If that happens, `swap!` will retry. It will discard the value returned by the function and call it again with the atom's new value. [...] This means that it's essential that the function passed to `swap!` has no side effects"*
+
+### Day 1 Wrap-Up
+
+*"Because functional data structures are persistent, changes made by one thread will not affect a second thread that already has a reference to that data structure."*
+
+*"This allows us to separate identity from state, recognizing the fact that the state associated with an identity is really a sequence of values over time."*
+
+## Day 2: Agents and Software Transactional Memory
+
+### Agents
+
+*"An **agent** is similar to an atom in that it encapsulates a reference to a single value"*
+
+*"If multiple threads call send concurrently, execution of the functions passed to send is serialized: only one will execute at a time. This means that they will not be retried and can therefore contain side effects."*
+
+
+#### Is an Agent an Actor?
+
+*"An agent has a value that can be retrieved directly with `deref`. An actor encapsulates state but provides no direct means to access it."*
+
+*"An actor encapsulates behavior; an agent does not"*
+
+*"Actors provide sophisticated support for error detection and recovery."*
+
+*"Actors can be remote [distributed]."*
+
+*"Composing actors can deadlock"*
+
+
+#### Waiting for Agent Actions to Complete
+
+*"Clojure provides the `await` function, which blocks until all actions dispatched from the current thread to the given agent(s) have completed."*
+
+
+#### Error Handling
+
+*"Like atoms, agents also support both validators and watchers."*
+
+*"Once an agent experiences an error, it enters a **failed** state by default, and attempts to dispatch new actions fail. We can find out if an agent is failed (and if it is, why) with `agent-error`, and we can restart it with `restart-agent`"*
+
+
+### Software Transactional Memory
+
+*"**Refs** are more sophisticated than atoms and agents, providing software transactional memory (**STM**)"*
+
+#### Transactions
+
+ *"STM transactions are atomic, consistent, and isolated [but not durable]"*
+
+*"Everything within the body of `dosync` constitutes a single transaction."*
+
+#### Multiple Refs
+
+*" If the STM runtime detects that concurrent transactions are trying to make conflicting changes, one or more of the transactions will be retried. This means that, as when modifying an atom, **transactions should not have side effects**."*
+
+
+#### Safe Side Effects in Transactions
+
+*"Agents are transaction aware"*
+
+*"If you use `send` to modify an agent within a transaction, that send will take place only if the transaction succeeds. Therefore, if you want to achieve some side effect when a transaction succeeds, using `send` is an excellent way to do so."*
+
+
+#### What’s with the Exclamation Marks?
+
+ *"Clojure uses an exclamation mark to indicate that functions [...] are **not transaction-safe**."*
+
+### Shared Mutable State in Clojure
+
+*"An **atom** allows you to make synchronous changes to a single value - synchronous because when `swap!` returns, the update has taken place. Updates to one atom are not coordinated with other updates."*
+
+*"An **agent** allows you to make asynchronous changes to a single value - asynchronous because the update takes place after `send` returns. Updates to one agent are not coordinated with other updates."*
+
+*"**Refs** allow you to make synchronous, coordinated changes to multiple values."*
+
+### Day 2 Wrap-Up
+
+- *"Atoms enable independent, synchronous changes to single values.*
+- *Agents enable independent, asynchronous changes to single values.*
+- *Refs enable coordinated, synchronous changes to multiple values."*
+
+## Day 3: In Depth
+
+### Atoms or STM?
+
+*"Atoms enable independent changes to single values, whereas refs enable coordinated changes to multiple values."*
+
+*"whenever we need to coordinate modifications of multiple values we can either use multiple refs and coordinate access to them with transactions or collect those values together into a compound data structure stored in a single atom"*
+
+*"Experienced Clojure programmers tend to find that atoms suffice for most problems, as the language’s functional nature leads to minimal use of mutable data"*
+
+#### What Is Loop/Recur?
+
+*"The `loop` macro defines a target that recur can `jump` to"*
+
+
+## Wrap-Up
+
+### Final Thoughts
+
+*"Clojure has found a good balance between functional programming and mutable state, allowing programmers with experience in imperative languages to get started more easily than they might in a pure functional language. And yet it does so while retaining most of functional programming's benefits, in particular its excellent support for concurrency."*
+
+
+## Additional Notes
+
+###  Atom
+
+- Create: `(atom <initial-val>)`
+- Read: `(defef <agent>)` (or `@`)
+- Update (with function): `(swap! <atom> <fn> <args>)`
+- Set value: `(reset! <atom> <value>`
+
+### Agent 
+
+- Writes are serialized, no retries occur
+- Create: `(agent <initial-val>)`
+- Read: `(defef <agent>)` (or `@`) 
+- Update (with function): `(send <agent> <update-fn> <args>)`
+- Wait for completion: `(await <agent>)`
+
+### Refs
+
+- Software Transactional Memory
+- Modification only possible in transaction: `(dosync <...>)`
+- Create: `(ref <initial-val>)`
+- Read:`(defef <ref>)` (or `@`)
+- Update (with function): `(alter <ref> <update-fn> <args>)`
+- Set value: `(ref-set <ref> <val>)`
+- Protect ref from modification by other transaction: `(ensure <ref>)`
