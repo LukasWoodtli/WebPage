@@ -158,8 +158,8 @@ The resulting rotation matrix $R_{AC} = R_{AB} \cdot R_{BC}$ (s.a. subscript can
 There are three uses for a rotation matrix:
 
 - To represent an [orientation]({filename}/pose_and_position.md)
-- To change the reference frame in which a vector or a frame is represented (passive rotation)
-- To rotate a vector or a frame (active rotation)
+- To change the reference frame in which a vector or a frame is represented (operator for passive rotation)
+- To rotate a vector or a frame (operator for active rotation)
 
 In the first use, $R$ is thought of as representing a frame; in the 
 second and third uses, $R$ is thought of as an operator that acts on a
@@ -167,8 +167,8 @@ vector or frame.
 
 ### Representing Orientation
 
-$R_c$ means implicit the orientation of frame ${c}$ relative to the reference 
-frame ${s}$. Explicit notation would be $R_{sc}$.
+$R_c$ means implicit the orientation of frame ${c}$ relative to the 
+fixed reference frame ${s}$. Explicit notation would be $R_{sc}$.
 
 $R_c = R_{sc}$
 
@@ -180,7 +180,7 @@ Properties:
 
 ### Changing the reference Frame (Passive Rotation)
 
-$$R_{ac} = \underbrace{R_{ab}}_{operator} \times \overbrace{R_{bc}}^{orientation}$$
+$$R_{ac} = \underbrace{R_{ab}}_{operator} \cdot \overbrace{R_{bc}}^{orientation}$$
 
 Meaning: $R_{ac} = change\_reference\_frame\_from\_b\_to\_a(R_{bc})$
 
@@ -249,8 +249,8 @@ with: $\hat{\omega} = (\hat{\omega}_1, \hat{\omega}_2, \hat{\omega}_3)$
 #### Reference Frame for Rotation
 
 When rotating a frame ${b}$  by $Rot(\hat{\omega}, \theta)$ and $R_{sb}$ represents the orientation
-of ${b}$ relative to ${s}$, it's important to express if the rotation
-axis $\hat{\omega}$ is in ${s}$ or in ${b}$ coordinates.
+of ${b}$ relative to ${s}$, it's important to express if the **rotation
+axis $\hat{\omega}$ is defined in ${s}$ or in ${b}$ coordinates**.
 
 Given $R = Rot(\hat{\omega}, \theta)$:
 
