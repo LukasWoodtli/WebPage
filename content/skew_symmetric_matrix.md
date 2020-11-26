@@ -2,7 +2,6 @@ Title: Skew-symmetric matrix
 Category: Mathematics
 Tags: Robotics
 
-> This page is work in progress
 
 A skew-symmetric matrix has the property:
 
@@ -40,3 +39,21 @@ $$a\times b=[a] \cdot b$$
 This allows to differentiate formula with a cross product:
 
 $${\frac  {\partial }{\partial b}}(a\times b)={\frac  {\partial }{\partial b}}([a] b)=[a]$$
+
+# Relation to Rotation Matrices
+
+$$[\omega_s] = \dot{R}_{sb}R^{-1}_{sb}$$
+
+$$[\omega_b] = R^{-1}_{sb}\dot{R}_{sb}$$
+
+Where $[\omega_c] \in so(3)$ and $[\omega_b] \in so(3)$ are the angular velocities represented in the the reference frame $\{s\}$ and the body frame $\{b\}$, respectively, as skew-symmetric matrices.
+
+Note:
+
+$R$ and $\dot{R}$ individually depend on both $\{s\}$ and $\{b\}$.
+
+But:
+
+- $\dot{R}R^{-1}$ is independent of $\{b\}$
+- $R^{-1}\dot{R}$ is independent of $\{s\}$
+
