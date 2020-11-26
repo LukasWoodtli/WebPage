@@ -32,8 +32,8 @@ $$\dot{r}_z = \omega_s \times r_{\hat{z}}$$
 
 Where:
 
-- $r_i$: unit axes $\hat{x}$, $\hat{y}$ and $\hat{z}$ in fixed frame coordinates
-- $\dot{r_i}$: rate of change (angular velocity) of axis $i$
+- $r_i$: unit axes $\hat{x}$, $\hat{y}$ and $\hat{z}$ in fixed frame coordinates (the columns of the rotation matrix representing the fixed frame)
+- $\dot{r_i}$: rate of change (angular velocity) of axis $i$ around the rotation axis
 
 
 These equations can be combined:
@@ -45,8 +45,8 @@ $$\dot{R}_{sb} = \begin{bmatrix}
 
 Where:
 
-- $R_{sb}$ be the rotation matrix that describes the orientation of frame $\{b\}$ with respect to the fixed frame $\{s\}$
-- $\dot{R}_{sb}$ it its rate of change
+- $R_{sb}$: the rotation matrix that describes the orientation of frame $\{b\}$ with respect to the fixed frame $\{s\}$
+- $\dot{R}_{sb}$: its rate of change
 
 This can be simplified to:
 
@@ -79,7 +79,7 @@ subscript cancellation rule:
 
 $$\omega_c = R_{cd}\omega_d$$
 
-$$\omega_d = R_{dc}\omega_c = R^{-1}_{cd}\omega_c = R^T_{cd}\omega_d$$
+$$\omega_d = R_{dc}\omega_c = R^{-1}_{cd}\omega_c = R^T_{cd}\omega_c$$
 
 # Literature
 
