@@ -39,4 +39,4 @@ $$a\times b=[a] \cdot b$$
 
 This allows to differentiate formula with a cross product:
 
-$${\frac  {\partial }{\partial b}}(a\times b)=[a]$$
+$${\frac  {\partial }{\partial b}}(a\times b)={\frac  {\partial }{\partial b}}([a] b)=[a]$$

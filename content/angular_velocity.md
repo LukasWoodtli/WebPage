@@ -19,16 +19,22 @@ Where:
 To represent the angular velocity $w$ in coordinates a reference
 frame needs to be chosen. For example the stationary frame $\{s\}$.
 
-Let $R_{sb}(t)$ be the rotation matrix that describes the orientation of
-frame $\{b\}$  with respect to the fixed frame $\{s\}$.
-$\dot{R}_{sb}(t)$ it its rate of change.
 
-The columns $r_i(t)$ describe the the unit axes $\hat{x}$, $\hat{y}$ and  $\hat{z}$ respectively in fixed frame coordinates.
+## Angular Velocity
 
-Let $\omega_s \in \mathbb{R}^3$ be the angular velocity $w$ expressed in
+$\omega_s \in \mathbb{R}^3$ is the angular velocity $w$ expressed in
 fixed frame $\{s\}$ coordinates.
 
-$$\dot{r}_i = \omega_s \times r_i \qquad \forall i \in \{1,\ldots ,3\}$$
+$$\dot{r}_x = \omega_s \times r_{\hat{x}}$$
+$$\dot{r}_y = \omega_s \times r_{\hat{y}}$$
+$$\dot{r}_z = \omega_s \times r_{\hat{z}}$$
+
+
+Where:
+
+- $r_i$: unit axes $\hat{x}$, $\hat{y}$ and $\hat{z}$ in fixed frame coordinates
+- $\dot{r_i}$: rate of change (angular velocity) of axis $i$
+
 
 These equations can be combined:
 
@@ -36,16 +42,22 @@ $$\dot{R}_{sb} = \begin{bmatrix}
 \omega_s \times r_1 & \omega_s \times r_2 &  \omega_s \times r_3
 \end{bmatrix} = \omega_s \times R_{sb}$$
 
-this can be simplified to:
+
+Where:
+
+- $R_{sb}$ be the rotation matrix that describes the orientation of frame $\{b\}$ with respect to the fixed frame $\{s\}$
+- $\dot{R}_{sb}$ it its rate of change
+
+This can be simplified to:
 
 $$\dot{R}_{sb} = [\omega_s]R_{sb}$$
 
 where:
 
-$[\omega_s]$ is a $3 \times 3$ [skew-symmetric matrix]({filename}/skew_symmetric_matrix.md) representation of $\omega_s \in \mathbb{R}^3$.
+$[\omega_s]$ is a $3 \times 3$ [skew-symmetric matrix]({filename}/skew_symmetric_matrix.md) representation of  the angular velocity $\omega_s \in \mathbb{R}^3$ represented in the coordinate frame $\{s\}$.
 
 
-# General Relations
+## General Relations
 
 
 $$[\omega_s] = \dot{R}_{sb}R_{sb}^{-1} = \dot{R}_{sb}R_{sb}^T$$
@@ -56,18 +68,18 @@ $$[\omega_b] = R_{sb}^{-1}\dot{R}_{sb}= R_{sb}^T\dot{R}_{sb}$$
 
 Where
 
-- $[\omega_s] \in so(3)$: fixed frame representation of the angular velocity $w$
-- $[\omega_b] \in so(3)$: body frame representation of the angular velocity $w$
+- $[\omega_s] \in so(3)$: fixed frame $\{s\}$ representation of the angular velocity $w$ in skew-symmetric matrix representation
+- $[\omega_b] \in so(3)$: body frame $\{b\}$  representation of the angular velocity $w$ in skew-symmetric matrix representation 
 
-# Subscript Cancellation Rule
+# Conversion between Frames
 
-An angular velocity expressed in an arbitrary frame $\{d\}$
+An angular velocity $\omega$ expressed in an arbitrary frame $\{d\}$
 can be represented in another frame $\{c\}$ using the 
 subscript cancellation rule:
 
-$$\omega_b = R_{bs}\omega_s = R^{-1}_{sb}\omega_s = R^T_{sb}\omega_s$$
+$$\omega_c = R_{cd}\omega_d$$
 
-$$\omega_s = R_{sb}\omega_b$$
+$$\omega_d = R_{dc}\omega_c = R^{-1}_{cd}\omega_c = R^T_{cd}\omega_d$$
 
 # Literature
 
