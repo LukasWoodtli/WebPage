@@ -28,7 +28,7 @@ With:
 - $Rot(\hat{\omega}, \theta) \in SO(3)$: Matrix exponential of $\hat{\omega}\theta$
 - $\hat{\omega} \in \mathbb{R}^3$: Rotation axis (unit vector)
 - $\theta\in \mathbb{R}$: Rotation angle
-- $[\hat{\omega}]\theta = [\hat{\omega}\theta] \in \mathbb{R}^3$: Skew-symmetric matrix form of axis-angle representation
+- $[\hat{\omega}]\theta = [\hat{\omega}\theta] \in so(3)$: Skew-symmetric matrix form of axis-angle representation
 
 The matrix exponential is used to construct a rotation matrix from a rotation axis $\hat{\omega}$ and an angle of rotaion $\theta$. The resulting rotation matrix represents the final orientation. The initial orientation is the identity matrix $I$.
 
@@ -44,14 +44,14 @@ $e^{[\hat{\omega}]\theta}p$ has the effect of rotating $p \in \mathbb{R}^3$ abou
 
 ## Rotation of a Frame
 
-$R' = e^{[\hat{\omega}] \theta} R = Rot(\hat{\omega}, \theta)R$ is the orientation achieved by rotating $R$ by $\theta$ about the axis $\hat{\omega}$ in the *fixed frame*.
+$R' = e^{[\hat{\omega}] \theta} R = Rot(\hat{\omega}, \theta) R$ is the orientation achieved by rotating $R$ by $\theta$ about the axis $\hat{\omega}$ in the *fixed frame*.
 
 
 $R'' = Re^{[\hat{\omega}] \theta} = R Rot(\hat{\omega}, \theta)$ is the orientation achieved by rotating $R$ by $\theta$ about the axis $\hat{\omega}$ in the *body frame*.
 
 ## Logarithm
 
-The inverse of th matrix exponential (matrix logarithm) takes a rotation matrix $R$ and returns the skew-symmetric representation of the exponential coordinates that achieve it starting from the identity orientation $I$.
+The inverse of the matrix exponential (matrix logarithm) takes a rotation matrix $R$ and returns the skew-symmetric representation of the exponential coordinates that achieve it starting from the identity orientation $I$.
 
 It returns the angular velocity and the integration time that achieves the rotation matrix $R$.
 
@@ -67,7 +67,7 @@ The matrix logarithm is an algorithm that inverts Rodrigues' formula:
 > If $\hat{\omega}$ is a solution so is $-\hat{\omega}$ as well
 
 Every $R \in SO(3)$ satisfies one of the three cases of the algorithm.
-That means that for every $R$ there exists a matrix logarithm $[\hat{\omega}]\theta$ and thus also a set of exponential coordinates $\hat{\omega}\theta$.
+That means that for every $R$ there exists a matrix logarithm $[\hat{\omega}]\theta$ and thus also a set of exponential coordinates $\hat{\omega}\theta$ such that $R = e^{[\hat{\omega}]\theta}$.
 
 
 Log: $R \in SO(3) \rightarrow [\hat{\omega}]\theta \in so(3)$
