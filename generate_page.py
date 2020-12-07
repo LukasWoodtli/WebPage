@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 
-from __future__ import print_function
-
 import sys
 import os
 import shutil
-import sh
 import subprocess
-from os.path import expanduser
+import sh
 
 
 REPO_DIRECTORY = os.path.realpath(__file__)
@@ -18,15 +15,20 @@ print("ROOTDIR_FOR_REPOS: ", ROOTDIR_FOR_REPOS)
 GITHUB_USERPAGE_REPO = "https://github.com/LukasWoodtli/LukasWoodtli.github.io"
 try:
     GIT_HUB_TOKEN =  os.environ['DEPLOY_KEY']
-    GITHUB_USERPAGE_REPO = "https://{}github.com/LukasWoodtli/LukasWoodtli.github.io".format(GIT_HUB_TOKEN + "@")
+    GITHUB_USERPAGE_REPO =\
+        "https://{}github.com/LukasWoodtli/LukasWoodtli.github.io"\
+            .format(GIT_HUB_TOKEN + "@")
 except:
     pass
 
 PELICAN_THEME = "pelican-elegant" # needs to be set in pelicanconf.py
 
-REPOSITORIES = [("https://github.com/LukasWoodtli/" + PELICAN_THEME,     PELICAN_THEME),  # Pelican theme
-                ("https://github.com/ingwinlu/pelican-bootstrapify",  "pelican-bootstrapify"), # Pelican bootstrapify plug-in
-                ("https://github.com/getpelican/pelican-plugins", "pelican-plugins"),
+REPOSITORIES = [("https://github.com/LukasWoodtli/" + PELICAN_THEME,
+                 PELICAN_THEME),  # Pelican theme
+                ("https://github.com/ingwinlu/pelican-bootstrapify",
+                 "pelican-bootstrapify"), # Pelican bootstrapify plug-in
+                ("https://github.com/getpelican/pelican-plugins",
+                 "pelican-plugins"),
                 (GITHUB_USERPAGE_REPO, "github-userpage")] # github repo for publishing
 
 
@@ -60,8 +62,8 @@ def build_web_page():
     print("Create html in path: ", REPO_DIRECTORY)
     ret = subprocess.call(["pelican", "./content", "-o", "./output", "-s", "./pelicanconf.py"])
     if ret != 0:
-      print("Error while running main")
-      exit(1)
+        print("Error while running main")
+        sys.exit(1)
 
     # copy output to user page repo
     root_src_dir = os.path.join(REPO_DIRECTORY, "output")
@@ -69,13 +71,13 @@ def build_web_page():
 
     # clean up repository
     try:
-      gitRepo = sh.git.bake(_cwd=root_dest_dir)
-      gitRepo.rm("-rf", "*")
+        git_repo = sh.git.bake(_cwd=root_dest_dir)
+        git_repo.rm("-rf", "*")
     except sh.ErrorReturnCode:
-      pass
+        pass
 
     # from http://stackoverflow.com/a/7420617
-    for src_dir, dirs, files in os.walk(root_src_dir):
+    for src_dir, _, files in os.walk(root_src_dir):
         dst_dir = src_dir.replace(root_src_dir, root_dest_dir)
         if not os.path.exists(dst_dir):
             os.mkdir(dst_dir)
@@ -88,11 +90,11 @@ def build_web_page():
             shutil.move(src_file, dst_dir)
 
 def publish_web_page():
-     userpage_local_repo = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage")
-     repo = sh.git.bake(_cwd=userpage_local_repo)
-     repo.add("*")
-     repo.commit(["-m", "Update Github page automated."])
-     repo.push(["origin"])
+    userpage_local_repo = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage")
+    repo = sh.git.bake(_cwd=userpage_local_repo)
+    repo.add("*")
+    repo.commit(["-m", "Update Github page automated."])
+    repo.push(["origin"])
 
 
 if __name__ == "__main__":
@@ -101,4 +103,3 @@ if __name__ == "__main__":
     build_web_page()
     publish_web_page()
     remove_working_copies_of_repositories()
-
