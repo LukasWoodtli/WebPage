@@ -7,7 +7,7 @@ This page collects notes and citations from the book:
 
 [Language Implementation Patterns by Terence Parr](https://pragprog.com/book/tpdsl/language-implementation-patterns)
 
-Some of my examples can be found [here](LukasWoodtli/LanguageImplementationPatterns)
+Some of my examples can be found [here](https://github.com/LukasWoodtli/LanguageImplementationPatterns)
 
 
 [TOC]
