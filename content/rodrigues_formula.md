@@ -62,9 +62,9 @@ The matrix logarithm is an algorithm that inverts Rodrigues' formula:
     - $$\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{33})}}\begin{bmatrix} r_{13}\\r_{23}\\ 1 + r_{33}\end{bmatrix}$$
     - $$\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{22})}}\begin{bmatrix} r_{12}\\1+r_{22}\\ r_{32}\end{bmatrix}$$
     - $$\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{11})}}\begin{bmatrix} 1+ r_{11}\\r_{21}\\ r_{31}\end{bmatrix}$$
+    - Note: f $\hat{\omega}$ is a solution so is $-\hat{\omega}$ as well
 3. otherwise $\theta = cos^{-1}(\frac{1}{2}(tr R - 1)) \in [0, \pi)$ and $[\hat{\omega}] = \frac{1}{2 sin \theta}(R - R^T)$
 
-> If $\hat{\omega}$ is a solution so is $-\hat{\omega}$ as well
 
 Every $R \in SO(3)$ satisfies one of the three cases of the algorithm.
 That means that for every $R$ there exists a matrix logarithm $[\hat{\omega}]\theta$ and thus also a set of exponential coordinates $\hat{\omega}\theta$ such that $R = e^{[\hat{\omega}]\theta}$.
