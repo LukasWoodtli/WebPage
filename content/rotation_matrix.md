@@ -139,7 +139,13 @@ The coordinates of a vector $\mathbf{u}$ can be mapped from frame $B$ to frame $
 
 $${}_A\mathbf{u} = R_{AB} \cdot {}_B\mathbf{u}$$
 
-The vector $\mathbf{u}$ can also be mapped from frame $C$ to frame $C$ by writing:
+Where:
+- ${}_A\mathbf{u}$: Vector $\mathbf{u}$ expressed in frame $\{A\}$ coordinates
+- ${}_B\mathbf{u}$: Vector $\mathbf{u}$ expressed in frame $\{B\}$ coordinates
+- $R_{AB}$: Rotation matrix that converts the representation of the vector from $\{B\}$ frames coordiante representation to $\{A\}$ coordinates representation
+
+
+The vector $\mathbf{u}$ can also be mapped from frame $C$ to frame $B$ by writing:
 
 $${}_B\mathbf{u} = R_{BC} \cdot {}_C\mathbf{u}$$
 
@@ -157,7 +163,7 @@ The resulting rotation matrix $R_{AC} = R_{AB} \cdot R_{BC}$ (s.a. subscript can
 
 There are three uses for a rotation matrix:
 
-- To represent an [orientation]({filename}/pose_and_position.md)
+- To represent an orientation
 - To change the reference frame in which a vector or a frame is represented (operator for passive rotation)
 - To rotate a vector or a frame (operator for active rotation)
 
