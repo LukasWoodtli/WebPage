@@ -123,21 +123,21 @@ $$T = Trans(p)Rot(\hat{\omega}, \theta)$$
 
 With:
 
-$Trans(p) =
+$$Trans(p) =
 \begin{bmatrix}
  1 & 0 & 0 & p_x \\
  0 & 1 & 0 & p_y \\
  0 & 0 & 1 & p_z \\
  0 & 0 & 0 & 1 
-\end{bmatrix}$
+\end{bmatrix}$$
 
-$Rot(\hat{\omega}, \theta) =
+$$Rot(\hat{\omega}, \theta) =
 \begin{bmatrix}
   &  &  & 0 \\
   & e^{[\hat{\omega}]\theta} &  & 0 \\
   &  &  & 0 \\
  0 & 0 & 0 & 1 
-\end{bmatrix}$
+\end{bmatrix}$$
 
 
 ### Space-Frame Transformation
