@@ -117,7 +117,7 @@ $$T_{ab} v_b = T_{a\not{b}} v_{\not{b}} = v_a $$
 
 ## Displace a Frame or Vector
 
-A displacement of a frame or a vector can be seen as a translation along a vector $p$ ($Trans(p)$) and a rotation around the axis $\hat{\omega}$ with angle $\theta$ ($Rot(\hat{\omega}, \theta)$).
+A displacement (rotation and translaation) of a frame or a vector can be seen as a translation along a vector $p$ ($Trans(p)$) and a rotation around the axis $\hat{\omega}$ with angle $\theta$ ($Rot(\hat{\omega}, \theta)$).
 
 $$T = Trans(p)Rot(\hat{\omega}, \theta)$$
 
@@ -148,7 +148,7 @@ $$T_{sb'} = TT_{sb} = Trans(p)Rot(\hat{\omega}, \theta)T_{sb}$$
 
 The order of the operations is:
 
-1. rotation
+1. rotation (this will cause the origin of $\{b\}$ to move if it is not coincident with the origin of $\{s\}$)
 2. translation
 
 ### Body-Frame Transformation
@@ -160,7 +160,7 @@ $$T_{sb''} = T_{sb}T = T_{sb}Trans(p)Rot(\hat{\omega}, \theta)$$
 The order of the operations is:
 
 1. translation
-2. rotation
+2. rotation (this does not move the origin of the frame)
 
 
 # Literature
