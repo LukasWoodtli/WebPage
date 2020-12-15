@@ -10,7 +10,7 @@ There are some requirements that a new position has to meet to catch my attentio
 
 ## Musts:
 
-- Embedded Software: I prefer Firmware development to programming of PC or server applications.
+- Embedded Software: I prefer Firmware development to programming of PC or server applications. It doesn't need to be only Embedded Software development but it needs to be part of the job.
 - C/C++: I like C but C++ is even better. There must be at least some C++ development involved.
 - Working site in Zürich or near (max. 30 minutes by public transport): I just don't like to lose too much time commuting.
 - Possibility to work part time (80%): This is an absolute must. I have a family that I need to take care of.
@@ -20,7 +20,7 @@ There are some requirements that a new position has to meet to catch my attentio
 ## Mustn't:
 
 <!-- - no .NET (C#, Visual Basic, F#): I just don't like it! I won't take any job that contains .NET development! -->
-- no Windows centric development: It's just not as nice and powerful as UNIX/Linux and it lacks a lot of important tools.
+<!-- - no Windows centric development: It's just not as nice and powerful as UNIX/Linux and it lacks a lot of important tools. -->
 - I'll never work for the weapons industry: I don't like wars!
 
 
