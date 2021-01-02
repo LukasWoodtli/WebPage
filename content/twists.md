@@ -164,9 +164,7 @@ S_{\omega} \\ S_v
 \end{bmatrix} =
 \begin{bmatrix}
 \textit{angular velocity when: } \dot{\theta} = 1 \\
-\textit{linear velocity of origin when: } \dot{\theta} = 1 \\
-\end{bmatrix}
-
+\textit{linear velocity of origin when: } \dot{\theta} = 1 \end{bmatrix}
 \in \mathbb{R}^6$$
 
 Where:
@@ -195,7 +193,7 @@ $$[S] =
 
 with:
 
-- $[\omega] \in s0(3)$: the screw-symmetric representation of $\omega$
+- $[\omega] \in so(3)$: the screw-symmetric representation of $\omega$
 
 
 ### Conversion of Screw Axes
