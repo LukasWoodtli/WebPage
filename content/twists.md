@@ -125,30 +125,24 @@ And the body-frame representation $V_b$ of the same twist does not depend on the
 
 ### Properties of the Adjoint Map
 
-#### Composition
-Given:
-
-- $T_1, T_2 \in SE(3)$
-- $V = (\omega, v)$
-
-Then:
-
-$Ad_{T_1}(Ad_{T_2}(V)) = Ad_{T_1T_2}(V)$
-
-or
-
-$[Ad_{T_1}][Ad_{T_2}]V = [Ad_{T_1T_2}]V$
-
-#### Inverse
-
-For any $T \in SE(3)$:
-
-$$[Ad_T]^{-1} = [Ad_{T^{-1}}]$$$
-
+- Composition:
+    - $Ad_{T_1}(Ad_{T_2}(V)) = Ad_{T_1T_2}(V)$
+    - or: $[Ad_{T_1}][Ad_{T_2}]V = [Ad_{T_1T_2}]V$
+    - with:
+      - $T_1, T_2 \in SE(3)$
+      - $V = (\omega, v)$
+- Inverse:
+    - $[Ad_T]^{-1} = [Ad_{T^{-1}}]$ for any $T \in SE(3)$:
 
 # Screw interpretation of a Twist
 
 A twist $V$ can be viewed as a screw axis $S$ and a velocity $\dot{\theta}$ (just like an angular velocity $\omega$ can be combined as $\hat{\omega}\dot{\theta}$).
+
+$$V =
+\begin{bmatrix}
+  \omega \\ v  
+\end{bmatrix} =
+S\dot{\theta}$$
 
 The screw axis $S$ is defined using a normalized version of any twist $V = (\omega, v)$ corresponting to motion along the screw:
 
@@ -164,16 +158,29 @@ The screw axis $S$ is defined using a normalized version of any twist $V = (\ome
 
 A *unit* screw axis is a noramlized twist defined as:
 
-$$S = \begin{bmatrix}\omega \\ v\end{bmatrix} \in \mathbb{R}^6$$
+$$S =
+\begin{bmatrix}
+S_{\omega} \\ S_v
+\end{bmatrix} =
+\begin{bmatrix}
+\textit{angular velocity when: } \dot{\theta} = 1 \\
+\textit{linear velocity of origin when: } \dot{\theta} = 1 \\
+\end{bmatrix}
+
+\in \mathbb{R}^6$$
 
 Where:
 
-- either $\left\| \omega \right\| = 1$
-  - then: $v = -\omega \times q + h\omega$
-    - $q$: a point on the screw axis
-    - $h$: pitch of the screw ($h=0$ for pure rotation)
-- or $\omega = 0$ and $\left\| v \right\| = 1$
-    - $h \to \infty$: pitch of the screw ($h=0$ for pure rotation)
+- either pitch $h$ is finite
+    - $\left\| S_{\omega} \right\| = 1$ (equivalent: $\left\| \omega \right\| = 1$)
+    - $\dot{\theta}$: rotational speed
+    - then: $v = -\omega \times q + h\omega$
+        - $q$: a point on the screw axis
+        - $h$: pitch of the screw ($h=0$ for pure rotation)
+- or pitch $h$ is infinite ($h \to \infty$)
+    - $S_{\omega} = 0$ (equivalent: $\omega = 0$)
+    - $\left\| S_{v} \right\| = 1$ (equivalent: $\left\| v \right\| = 1$)
+    - $\dot{\theta}$: linear speed
     - pure translation along the axis defined by $v$
 
 A screw axis $S$ is just a normalized twist. It can be represented as a $4 \times 4$ matrix $[S]$ of $S = (\omega, v)$:
