@@ -17,9 +17,9 @@ With:
 # Matrix Exponential of Rigid-Body Motions
 
 
-With $S = (\omega, v)$ as screw axis:
+With $S = (\omega, v) = (S_{\omega}, S_v)$ as screw axis:
 
-- if $\left\| \omega \right\| = 1$ then for any distance $\theta \in \mathbb{R}$ moved along $S$:
+- if $\left\| S_{\omega} \right\| = 1$ ($\left\| \omega \right\| = 1$) then for any distance $\theta \in \mathbb{R}$ moved along $S$:
 
 $$e^{[S]\theta} =
 \begin{bmatrix}
@@ -28,7 +28,7 @@ I\theta + (1 - \cos \theta) [\omega] + (\theta - \sin \theta) [\omega]^2 v \\
 0 & 1
 \end{bmatrix}$$
 
-- if $\omega = 0$ and $\left\| v \right\| = 1$ then:
+- if $S_\omega = 0$ ($\omega = 0$) and $\left\| S_v \right\| = 1$ ($\left\| v \right\| = 1$) then:
 
 $$e^{[S]\theta} =
 \begin{bmatrix}
@@ -71,3 +71,15 @@ Algorithm:
 Log: $T \in SE(3) \rightarrow [S]\theta \in se(3)$
 
 > Matrix log is like differentiation
+
+
+# Displacement of a Frame
+
+## Fixed Frame (Space Frame)
+
+$T_{sb'} = e^{[S_b]\theta}T_{sb}$ is the configuration achieved if $S$ is expressed in the *fixed frame* $\{s\}$.
+
+## Body Frame
+
+$T_{sb''} = T_{sb}e^{[S_b]\theta}$ is the configuration achieved if $S$ is expressed in the *body frame* $\{b\}$.
+
