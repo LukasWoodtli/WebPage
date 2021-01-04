@@ -78,7 +78,7 @@ Where:
 ## Conversion between Body-Frame and Space-Frame (adjoint map)
 
 
-From body frame $\{b\}$ to body space $\{s\}$:
+### From body frame $\{b\}$ to space frame $\{s\}$:
 
 $$V_s =
 \begin{bmatrix}
@@ -95,7 +95,7 @@ v_b
 \end{bmatrix} =
 [Ad_{T_{sb}}]V_b$$
 
-From space frame $\{s\}$ to body frame $\{b\}$:
+### From space frame $\{s\}$ to body frame $\{b\}$:
 
 $$V_b =
 \begin{bmatrix}
