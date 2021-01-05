@@ -24,7 +24,7 @@ With $S = (\omega, v) = (S_{\omega}, S_v)$ as screw axis:
 $$e^{[S]\theta} =
 \begin{bmatrix}
 e^{[\omega]\theta} &
-I\theta + (1 - \cos \theta) [\omega] + (\theta - \sin \theta) [\omega]^2 v \\
+(I\theta + (1 - \cos \theta) [\omega] + (\theta - \sin \theta) [\omega]^2) v \\
 0 & 1
 \end{bmatrix}$$
 
