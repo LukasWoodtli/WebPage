@@ -63,7 +63,7 @@ $$F_s = Ad_{T_{bs}}^T(F_b)= [Ad_{T_{bs}}]^TF_b$$
 
 ### From Space Frame to Body Frame
 
-$$F_b = Ad_{T_{sb}}^T(F_s)= [Ad_{T_{sb}}]^TF_b$$
+$$F_b = Ad_{T_{sb}}^T(F_s)= [Ad_{T_{sb}}]^TF_s$$
 
 # Literature
 
