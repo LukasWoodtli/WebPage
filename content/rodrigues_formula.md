@@ -74,3 +74,8 @@ Log: $R \in SO(3) \rightarrow [\hat{\omega}]\theta \in so(3)$
 
 > Matrix log is like differentiation
  
+ # Literature
+
+Notes taken from:
+
+[Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/index.php/Modern_Robotics) by Kevin M. Lynch and Frank C. Park, Cambridge University Press, 2017

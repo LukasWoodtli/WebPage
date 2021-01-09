@@ -83,3 +83,9 @@ $T_{sb'} = e^{[S_b]\theta}T_{sb}$ is the configuration achieved if $S$ is expres
 
 $T_{sb''} = T_{sb}e^{[S_b]\theta}$ is the configuration achieved if $S$ is expressed in the *body frame* $\{b\}$.
 
+
+# Literature
+
+Notes taken from:
+
+[Modern Robotics: Mechanics, Planning, and Control](http://hades.mech.northwestern.edu/index.php/Modern_Robotics) by Kevin M. Lynch and Frank C. Park, Cambridge University Press, 2017
