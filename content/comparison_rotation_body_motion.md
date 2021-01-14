@@ -123,7 +123,7 @@ With a Homogeneous Translation Matrix $$T = \begin{bmatrix}R & p \\ 0 & 1 \end{b
 $$[Ad_T] =
 \begin{bmatrix}
 R & 0 \\ 
-[p]R & T
+[p]R & R
 \end{bmatrix} \in \mathbb{R}^{6\times 6}
 $$
 
