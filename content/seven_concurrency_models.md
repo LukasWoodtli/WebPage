@@ -496,3 +496,95 @@ That means that they're very fast and don't block. [...] But it also means that 
 - Update (with function): `(alter <ref> <update-fn> <args>)`
 - Set value: `(ref-set <ref> <val>)`
 - Protect ref from modification by other transaction: `(ensure <ref>)`
+
+
+# Chapter 5 Actors
+
+*"The actor model [...] targets both shared- and distributed-memory architectures, facilitates geographical distribution, and provides especially strong support for fault tolerance and resilience."* 
+
+## More Object-Oriented than Objects
+
+*"Actor programming [...] retains mutable state but avoids sharing it."*
+
+## Day 1: Messages and Mailboxes
+
+### Mailboxes are Queues
+
+*"Messages are sent **asynchronously**. Instead of being sent directly to an actor, they are placed in a mailbox"*
+
+*"Actors are **decoupled** - actors run at their own speed and don’t block when sending messages."*
+
+*"An actor runs concurrently with other actors but handles messages sequentially, in the order they were added to the mailbox"*
+
+*"We only have to worry about concurrency when sending messages. "*
+
+## Day 2: Error Handling and Resilience
+
+### Supervising a Process
+
+*"A supervisor, a system process that monitors one or more worker processes and takes appropriate action if they fail."*
+
+### The Error-Kernel Pattern
+
+
+*"A software system’s error kernel is the part that must be correct if the system is to function correctly. Well-written programs make this error kernel as small and as simple as possible"*
+
+*"This leads to a hierarchy of error kernels in which risky operations are pushed down toward the lower-level actors"*
+
+
+### Let It Crash!
+
+*"Actor programs tend to avoid defensive programming and subscribe to the “let it crash” philosophy"*
+
+*"This has multiple benefits, including these:*
+
+- *Our code is simpler and easier to understand, with a clear separation between 'happy path' and fault-tolerant code.*
+- *Actors are separate from one another and don’t share state, so there’s little danger that a failure in one actor will adversely affect another. In particular, a failed actor’s supervisor cannot crash because the actor it’s supervising crashes.*
+- *As well as fixing the error, a supervisor can log it so that instead of sweeping problems under the carpet, we become aware of them and can take remedial action."*
+
+
+## Day 3: Distribution
+
+*"Sending a message to an actor on another machine is just as easy as sending it to one running locally."*
+
+### What Is a Restart Strategy?
+
+*"If a single worker fails, a supervisor using the one-for-all strategy will stop and restart all its workers (even those that didn’t fail). A supervisor using a one-for-one strategy, by contrast, will only restart the failed worker."*
+
+### Day 3 Wrap-Up
+
+*"Elixir allows us to create clusters of nodes. An actor on one node can send messages to an actor running on another in exactly the same way as it can to one running locally. As well as allowing us to create systems that leverage multiple distributed computers, it allows us to recover from the failure of one of those computers. "*
+
+
+## Wrap-Up
+
+*"We can think of actors as the logical extension of object-oriented programming to the concurrent world. Indeed, you can think of actors as more object-oriented than objects, with stricter message passing and encapsulation."*
+
+### Strengths
+
+#### Messaging and Encapsulation
+
+*"Actors do not share state"*
+
+*"We need only worry about concurrency when considering message flows between actors."*
+
+*"An actor can be tested in isolation and, as long as our tests accurately represent the types of messages that might be delivered and in what order, we can have high confidence that it behaves as it should. And if we do find ourselves faced with a concurrency-related bug, we know where to look - the message flows between actors."*
+
+#### Fault Tolerance
+
+*"Fault tolerance is built into actor programs from the outset. This enables not only more resilient programs but also simpler and clearer code (through the “let it crash” philosophy)."*
+
+#### Distributed Programming
+
+*"It allows an actor program to scale to solve problems of almost any size."*
+
+*"It allows us to address problems [with] geographical distribution"*
+
+*"Distribution is a key enabler for resilient and fault-tolerant systems. "*
+
+
+### Weaknesses
+
+*"Actors are still susceptible to problems like deadlock plus a few failure modes unique to actors (such as overflowing an actor’s mailbox)."*
+
+*"Actors provide no direct support for parallelism. Parallel solutions need to be built from concurrent building blocks, raising the specter of nondeterminism. "*
