@@ -34,6 +34,8 @@ with
 - $\dot{p}$: linear velocity of origin of $\{b\}$ expressed in $\{s\}$ coordinates
 - $R^T\dot{p} = v_b$: linear velocity (expressed in $\{b\}$ cooridnates)
 
+A twist is the velocity of a screw motion.
+
 
 # Matrix Representation of a Twist (Spatial Velocity)
 

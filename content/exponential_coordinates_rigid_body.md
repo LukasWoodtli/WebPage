@@ -36,6 +36,7 @@ $$e^{[S]\theta} =
     0 & 1
 \end{bmatrix}$$
 
+Every $SE(3)$ transformation can be expressed as an exponential function of a twist ($se(3)$).
 
 Exp: $[S]\theta \in se(3) \rightarrow T \in SE(3)$
 
