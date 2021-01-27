@@ -1,9 +1,7 @@
-Title: Enums in C and C++
+Title: Evaluation strategy
 Date: 2016-07-12
 Category: Programming
 Tags: Computer Science
-
-# Evaluation strategy
 
 See also: [Wikipedia: Evaluation
 strategy](https://en.wikipedia.org/wiki/Evaluation_strategy)
