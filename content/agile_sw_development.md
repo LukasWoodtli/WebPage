@@ -462,6 +462,10 @@ Handling items on index cards can also simplify the Sprint Planning Meeting or t
 
 It's a good idea to add a mark (sticker) on a index card for each day the issue is in the progress state. The marks can have different colors (i.e Coding, Testing, Documentation ...)
 
+> The index card is a promise to have a disussion about the topic on it.
+
+The index card forms the basis of discussion with the team, PO, stakeholders ...
+
 
 Definition of Donne
 -------------------
