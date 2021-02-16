@@ -10,7 +10,7 @@ Notes to the book
 
 [My Github repository with examples](https://github.com/LukasWoodtli/SchemeCourse)
 
-See also [Scheme (Lisp)]({filename}/scheme.rst)
+See also [Scheme (Lisp)]({filename}/scheme.md)
 
 [TOC]
 
