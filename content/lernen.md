@@ -1,6 +1,11 @@
-Lernen
+Title: Lernen
+Category: Misc
+Tags: German
 
-Vorgang
+[TOC]
+
+
+# Vorgang
 
 - Umfang/Thema definieren
 - Lernmaterialien zusammentragen
@@ -28,7 +33,7 @@ Vorgang
     - idealerweise 6x wiederholen
 - Verschiedene Lernmethoden ausprobieren, verbessern
 
-Umgebung
+# Umgebung
 
 - Angenehmer Ort fürs lernen suchen
 - Ruhe
@@ -43,7 +48,7 @@ Umgebung
 - Tageszeit einplanen: wenn möglich am Morgen lernen
 - Kurze Lerneinheiten, oft, regelmässig
 
-Lernmethoden
+# Lernmethoden
 
 - Karteikarten
 - Papier oder Computer
@@ -57,7 +62,7 @@ Lernmethoden
 - Lernplan anpassen, Vorgehen verbessern
 - Wiederholen nach 1 Tag, 1 Woche, 1 Monat …
 
-Sonstiges
+# Sonstiges
 
 - Genügend schlafen
 - Viel Wasser trinken
