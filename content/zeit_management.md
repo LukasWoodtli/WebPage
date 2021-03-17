@@ -270,6 +270,16 @@ Alle E-Mails auf einen Account sammeln.
 - Morgen-/Abendroutinen festlegen (privat & geschäftlich)
 - Routinen (Privat und Geschäftlich) aufschreiben und planen, bis sie gefestigt sind
 
+
+# Procrastination
+
+Gründe für Procrastination:
+
+- Zwang zu etwas, das man nicht tun will
+- Eigener Druck um die anstehende Aufgabe perfekt zu erledigen 
+- Angst vor Fehlern und Kritik 
+
+
 # Work/Life-Balance
 
 - Körper/Gesundheit
