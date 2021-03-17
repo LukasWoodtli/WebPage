@@ -1,0 +1,13 @@
+<p>
+  <mat-toolbar color="primary">
+    <span class = "gap">
+      <button mat-button routerLink="/">Lukas Woodtli</button>
+    </span>
+    <span class = "filler"></span>
+    <span *ngFor="let menuItem of menuItems">
+      <button mat-button routerLink="/{{menuItem.toLowerCase()}}">
+        {{menuItem}}
+      </button>
+    </span>
+  </mat-toolbar>
+</p>
