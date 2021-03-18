@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {MarkdownService} from "ngx-markdown";
 
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.sass']
+  styleUrls: ['./resume.component.sass'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ResumeComponent implements OnInit {
 
@@ -14,15 +15,21 @@ export class ResumeComponent implements OnInit {
 
     this.markdownService.renderer.table = (header, body) => {
       return '<div class="mat-table">' +
-      '<div class="mat-header-row">' +
         header +
-        '</div>' + body + '</div>';
+        body + '</div>';
     };
 
+    let isFirstRow = true;
     this.markdownService.renderer.tablerow = (content: string) => {
+      if (isFirstRow) {
+        isFirstRow = false;
+        return '<div class="mat-header-row">' + content + '</div>';
+      }
       return '<div class="mat-row">' + content + '</div>';
     };
     this.markdownService.renderer.tablecell = (content: string, flags) => {
+      if (flags.header)
+        return '<div class="mat-header-cell">' + content + '</div>';
       return '<div class="mat-cell">' + content + '</div>';
     };
   }

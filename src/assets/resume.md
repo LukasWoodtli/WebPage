@@ -1,0 +1,1 @@
+../../content/pages/resume.md
