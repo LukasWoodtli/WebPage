@@ -50,7 +50,7 @@ export class StaticSiteComponent implements OnInit {
       let anchorPrefix = this.markdownService.options.headerPrefix;
       anchorPrefix = anchorPrefix ? anchorPrefix : '';
       const anchor =  anchorPrefix  + raw.toLowerCase().replace(/[^\w]+/g, '-');
-      this.tableOfContent.push(new TocEntry(level, text, anchor));
+      this.tableOfContent.push(new TocEntry(level, raw, anchor));
       const headerTag = `<h${level} id='${anchor}'>${text}</h${level}>`;
 
       return headerTag;
