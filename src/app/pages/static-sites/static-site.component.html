@@ -1,0 +1,15 @@
+<div class="document-wrapper">
+  <div *ngIf="showToc">
+  <h1 id="table-of-contents">Contents</h1>
+  <ul>
+  <div *ngFor="let tocEntry of tableOfContent">
+    <li>
+      <a [routerLink]='"."' [fragment]='tocEntry.anchor'>
+      {{tocEntry.text}}
+    </a></li>
+  </div>
+</ul>
+</div>
+
+  <markdown [src]="pathToMdFile"></markdown>
+</div>

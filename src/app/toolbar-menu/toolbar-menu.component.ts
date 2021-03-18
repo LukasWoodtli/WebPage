@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {StaticPages} from '../static-pages';
 
 @Component({
   selector: 'app-toolbar-menu',
@@ -9,15 +10,7 @@ export class ToolbarMenuComponent implements OnInit {
 
   constructor() { }
 
-  menuItems: string[] = [
-    'Home',
-    'Resume',
-    'Skills',
-    'Books',
-    'Courses',
-    'Projects',
-    'Blog',
-    'Contact'];
+  menuItems = StaticPages;
 
   ngOnInit(): void {
   }
