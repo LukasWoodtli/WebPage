@@ -93,8 +93,3 @@ More information on the project can be found on the homepage: [www.reely.ethz.ch
 
 From time to time I'm contributing to the [PX4](https://px4.io/) project. It provides an open source auto pilot firmware for drones. The framework is used in several
 commercial and industrial applications.
-
-## Cucumber
-
-Recently I started to contribute to the C++ implementation of [Cucumber](https://github.com/cucumber/cucumber-cpp). My main motivation is to modernize it's codebase
-and to remove it's dependency on the Ruby implementation of Cucumber.
