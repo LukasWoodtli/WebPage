@@ -588,3 +588,215 @@ That means that they're very fast and don't block. [...] But it also means that 
 *"Actors are still susceptible to problems like deadlock plus a few failure modes unique to actors (such as overflowing an actor’s mailbox)."*
 
 *"Actors provide no direct support for parallelism. Parallel solutions need to be built from concurrent building blocks, raising the specter of nondeterminism. "*
+
+
+# Cahpter 6: Communicating Sequential Processes
+
+## Communication Is Everything
+
+*"CSP focuses on the channels over which they are sent. Channels are first class [...] can be independently created, written to, read from, and passed between processes."*
+
+## Day 1: Channels and Go Blocks
+
+### Channels
+
+*"A channel is a thread-safe queue - any task with a reference to a channel can add messages to one end, and any task with a reference to it can remove messages from the other."*
+
+### Buffering
+
+*"By default, channels are synchronous (or unbuffered) - writing to a channel blocks until something reads from it"*
+
+### Closing Channels
+
+*"[Channels] can be closed with `close!`. Reading from an empty closed channel returns `nil`, and writing to a closed channel silently discards the message. [...] writing `nil` to a channel is an error."*
+
+
+### What - No Automatically Growing Buffer?
+
+*"[There ]three types of buffer provided by `core.async` as standard - blocking, dropping, and sliding. It would be quite possible to create one that simply grows as it needs to accommodate more messages. So why isn’t this provided as standard?"*
+
+*"The reason is the age - old lesson that, whenever you have an “inexhaustible” resource, sooner or later you will exhaust it."*
+
+*"Better to think about how you want to handle a full buffer today and nip the problem in the bud."*
+
+
+### Go Blocks
+
+#### The Problem with Blocking
+
+*"State and concurrency really don't mix."*
+
+*"Go blocks provide an alternative that gives us the best of both worlds—the efficiency of event-driven code without having to compromise its structure or readability. They achieve this by transparently rewriting sequential code into event-driven code under the hood."*
+
+
+#### Inversion of Control
+
+*" Code within a `go` block is transformed into a state machine. Instead of blocking when it reads from or writes to a channel, the state machine *parks*, relinquishing control of the thread it’s executing on. When it’s next able to run, it performs a state transition and continues execution, potentially on another thread. "*
+
+*"This represents an inversion of control, allowing the `core.async` runtime to efficiently multiplex many `go` blocks over a limited thread pool."*
+
+
+#### What Happens If I Block in a Go Block?
+
+*"If you call a blocking function, such as `<!!`, in a go block, you will simply block the thread it happens to be running on."*
+
+
+#### Go Blocks Are Cheap
+
+*"Because (unlike threads) go blocks are cheap, we can create many of them without running out of resources."*
+
+### Day 1 Wrap-Up
+
+#### What We Learned in Day 1
+
+*"The twin pillars of `core.async` are channels and go blocks:*
+
+- *By default, channels are synchronous (unbuffered)—writing to a channel blocks until something reads from it.*
+- *Alternatively, channels can be buffered. [Full buffers can] block, discard the oldest value (sliding buffer), or discard the most recently written value (dropping buffer).*
+- *Go blocks utilize inversion of control to rewrite sequential code as a state machine."*
+
+### Wrap-Up
+
+#### Strength
+
+*"In an actor program, the medium of communication is tightly coupled to the unit of execution - each actor has precisely one mailbox. In a CSP program, by contrast, channels are first class and can be independently created, written to, read from, and passed between tasks."*
+
+#### Weaknesses
+
+*"[Compared to actors two topics are missing:] distribution and fault tolerance. Although there’s nothing whatsoever to stop CSP-based languages from supporting both, historically neither has had the same level of focus and support as either has had within actor-based languages"*
+
+*"CSP programs are susceptible to deadlock and have no direct support for parallelism. Parallel solutions need to be built from concurrent building blocks, raising the specter of nondeterminism."*
+
+#### Final Thoughts
+
+*"The actor community has concentrated on fault tolerance and distribution, and the CSP community on efficiency and expressiveness."*
+
+
+# Chapter 7: Data Parallelism
+
+## Day 1: GPGPU Programming
+
+### Graphics Processing and Data Parallelism
+
+*"Data parallelism can be implemented in many different ways. We'll look briefly at a couple of them: pipelining and multiple ALUs."*
+
+
+#### A Confused Picture
+
+*"To achieve their performance, real-world GPUs combine pipelining and multiple ALUs with a wide range of other techniques."*
+
+*"OpenCL targets multiple architectures by defining a C-like language that allows us to express a parallel algorithm abstractly. Each different GPU manufacturer then provides its own compilers and drivers that allow that program to be compiled and run on its hardware."*
+
+
+#### Work-Items
+
+*"Typically, if each task performs too little work, your code performs badly because thread creation and communication overheads dominate."*
+
+*"OpenCL work-items, by contrast, are typically very small."*
+
+*"Your task as a programmer is to divide your problem into the smallest work-items you can. The OpenCL compiler and runtime then worry about how best to schedule those work-items on the available hardware so that that hardware is utilized as efficiently as possible."*
+
+#### Kernels
+
+*"We specify how each work-item should be processed by writing an OpenCL kernel."*
+
+*"To create a complete program, we need to embed our kernel in a host program that performs the following steps:*
+
+- *Create a context within which the kernel will run together with a command queue.*
+- *Compile the kernel.*
+- *Create buffers for input and output data.*
+- *Enqueue a command that executes the kernel once for each work-item.*
+- *Retrieve the results."*
+
+### Day 1: Wrap-Up
+
+#### What We Learned in Day 1
+
+*"OpenCL parallelizes a task by dividing it up into work-items."*
+
+*"We specify how each work-item should be processed by writing a kernel. "*
+
+*"To execute a kernel, a host program [is needed]."*
+
+
+## Day 2: Multiple Dimensions and Work-Groups
+
+### Platform Model
+
+*"An OpenCL platform consists of a host that’s connected to one or more devices. Each device has one or more compute units, each of which provides a number of processing elements"*
+
+
+*"Work.items execute on processing elements. A collection of work-items executing on a single compute unit is a work-group. The work-items in a work-group share local memory"*
+
+
+### Memory Model
+
+*"A work-item executing a kernel has access to four different memory regions:*
+
+- Global memory
+- Constant memory (global)
+- Local memory: local to work-groop used for communication between work-items
+- Private memory: private to a work-item
+
+### Wrap-Up
+
+#### Strength
+
+*"Data parallelism is ideal whenever you’re faced with a problem where large amounts of numerical data needs to be processed."*
+
+#### Weaknesses
+
+*"Optimizing an OpenCL kernel can be tricky, and effective optimization often depends on understanding underlying architectural details"*
+
+*"For some problems, the need to copy data from the host to the device can dominate execution time, negating or reducing the benefit to be gained from parallelizing the computation."*
+
+# Chapter 8 The Lambda Architecture
+
+## Day 1: MapReduce
+
+### What We Learned in Day 1
+
+*"Hadoop is a MapReduce system that does the following:"
+
+- *It splits input between a number of mappers, each of which generates key/value pairs.*
+- *These are then sent to reducers, which generate the final output (typically also a set of key/value pairs).*
+- *Keys are partitioned between reducers such that all pairs with the same key are handled by the same reducer."*
+
+## Day 2: The Batch Layer
+
+### Data Is Better Raw
+
+*"Immutability and parallelism are a marriage made in heaven."*
+
+### Can We Generate Batch Views Incrementally?
+
+*"Much of the power of the Lambda Architecture derives from the fact that we can always rebuild from scratch if we need to."*
+
+### Almost Nirvana
+
+*"Because it only ever operates on immutable raw data, the batch layer can easily exploit parallelism. Raw data can be distributed across a cluster of machines, enabling batch views to be recomputed in an acceptable period of time even when dealing with terabytes of input."*
+
+*"The immutability of raw data also means that the system is intrinsically hardened against both technical failure and human error. Not only is it much easier to back up raw data, but if there’s a bug, the worst that can happen is that batch views are temporarily incorrect-we can always correct them by fixing the bug and recomputing them."*
+
+### Day 2 Wrap-Up
+
+#### What We Learned in Day 2
+
+*"Information can be divided into raw data and derived information. Raw data is eternally true and therefore immutable. The batch layer of the Lambda Architecture leverages this to allow us to create systems that are*
+
+- *highly parallel, enabling terabytes of data to be processed;*
+- *simple, making them both easier to create and less error prone;*
+- *tolerant of both technical failure and human error; and*
+- *capable of supporting both day-to-day operations and historical reporting and analysis."*
+
+*"The primary drawback of the batch layer is latency, which the Lambda Architecture addresses by running the speed layer alongside."*
+
+## Day 3: The Speed Layer
+
+*"The batch layer of the Lambda Architecture solves all the problems we identified with traditional data systems, but it does so at the expense of latency."*
+
+*"As new data arrives, we both append it to the raw data that the batch layer works on and send it to the speed layer. The speed layer generates real-time views, which are combined with batch views to create fully up-to-date answers to queries."*
+
+### Designing the Speed Layer
+
+*"The speed layer only needs to handle that portion of our data that hasn’t already been handled by the batch layer."*
