@@ -4,7 +4,7 @@ import {StaticSiteComponent} from "./pages/static-sites/static-site.component";
 import {StaticPages} from './static-pages';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' }
+  { path: '', redirectTo: 'index', pathMatch: 'full' }
 ];
 
 for (const entry of StaticPages) {

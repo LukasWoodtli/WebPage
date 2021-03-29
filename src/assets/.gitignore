@@ -1,0 +1,8 @@
+## The files in this folders are synced from the 'content' folder
+*.md
+*.md.tmp
+
+documents
+images
+pages
+scripts

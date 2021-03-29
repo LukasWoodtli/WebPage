@@ -43,7 +43,7 @@ export class StaticSiteComponent implements OnInit {
   ngOnInit(): void {
 
     this.url = this.router.url.split('#')[0];
-    this.pathToMdFile = `assets${this.url}.md`;
+    this.pathToMdFile = `assets/pages/${this.url}.md`;
 
     this.markdownService.renderer.heading = (text, level, raw) => {
 
