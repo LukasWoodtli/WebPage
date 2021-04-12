@@ -86,7 +86,7 @@ $$S =
 \end{bmatrix} =
 \begin{bmatrix}
 \hat s \\
-  - \hat s \times q \times h \hat s
+  - \hat s \times q + h \hat s
 \end{bmatrix}
 $$
 
