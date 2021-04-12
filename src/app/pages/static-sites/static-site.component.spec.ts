@@ -1,14 +1,27 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StaticSiteComponent } from './static-site.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {MarkdownService} from 'ngx-markdown';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
-describe('ResumeComponent', () => {
+
+class MockRenderer {}
+
+class MarkdownServiceMock {
+  renderer: MockRenderer = new MockRenderer();
+}
+
+describe('StaticSiteComponent', () => {
   let component: StaticSiteComponent;
   let fixture: ComponentFixture<StaticSiteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StaticSiteComponent ]
+      imports: [RouterTestingModule.withRoutes([])],
+      declarations: [ StaticSiteComponent ],
+      providers: [{provide: MarkdownService, useClass: MarkdownServiceMock}],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   });

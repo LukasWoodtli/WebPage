@@ -5,8 +5,8 @@
     </span>
     <span class = "filler"></span>
     <span *ngFor="let menuItem of menuItems">
-      <button mat-button routerLink="/{{menuItem.file_name}}">
-        {{menuItem.display_name}}
+      <button mat-button routerLink="/{{menuItem.fileName}}">
+        {{menuItem.displayName}}
       </button>
     </span>
   </mat-toolbar>

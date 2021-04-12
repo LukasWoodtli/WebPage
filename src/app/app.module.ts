@@ -1,5 +1,4 @@
 import {NgModule, SecurityContext} from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -9,8 +8,20 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { ToolbarMenuComponent } from './toolbar-menu/toolbar-menu.component';
 import { StaticSiteComponent } from './pages/static-sites/static-site.component';
 
-import { MarkdownModule } from 'ngx-markdown';
+import {MarkdownModule, MarkdownService} from 'ngx-markdown';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {STATIC_PAGES} from './static-pages';
+
+
+const routes: Routes = [
+  { path: '', redirectTo: 'index', pathMatch: 'full' }
+];
+
+for (const entry of STATIC_PAGES) {
+  routes.push({path: entry.fileName, component: StaticSiteComponent});
+}
+
 
 @NgModule({
   declarations: [
@@ -19,7 +30,10 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     StaticSiteComponent
   ],
   imports: [
-    AppRoutingModule,
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
+    }),
     BrowserAnimationsModule,
     MatButtonModule,
     MatTabsModule,
