@@ -27,7 +27,7 @@ Tags: C++, Python, OOP
 - *I*: Interface segregation principle
 - *D*: Dependency inversion principle (dependency injection can be used)
 
-See [SOLID](https://en.wikipedia.org/wiki/SOLID)
+See [SOLID](https://en.wikipedia.org/wiki/SOLID) and [SOLID Design Principles]({filename}/solid.md).
 
 
 # Package Design
