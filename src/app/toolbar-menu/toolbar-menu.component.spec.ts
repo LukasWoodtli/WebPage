@@ -10,6 +10,7 @@ describe('ToolbarMenuComponent', () => {
   let component: ToolbarMenuComponent;
   let fixture: ComponentFixture<ToolbarMenuComponent>;
   let htmlElement: DebugElement;
+  let buttons: DebugElement[];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -26,8 +27,12 @@ describe('ToolbarMenuComponent', () => {
     htmlElement = fixture.debugElement;
   });
 
+  beforeEach(() => {
+    buttons = htmlElement.queryAll(By.css('button'));
+  });
+
   it('should have the toolbar button names', () => {
-    const buttons: DebugElement[] = htmlElement.queryAll(By.css('button'));
+
     const buttonsTexts: string[] = buttons.map((item) => item.nativeElement.textContent.trim());
 
     expect(buttonsTexts)
@@ -41,5 +46,22 @@ describe('ToolbarMenuComponent', () => {
         'Projects',
         'Blog',
         'Contact']);
+  });
+
+  it('should have a unique id for each button', () =>
+  {
+    const buttonIds: string[] = buttons.map((item) => item.nativeElement.id);
+
+    expect(buttonIds).toEqual([
+      'page-title-button-id',
+      'index-button-id',
+      'resume-button-id',
+      'skills-button-id',
+      'books-button-id',
+      'courses-button-id',
+      'projects-button-id',
+      'blog-button-id',
+      'contact-button-id'
+    ]);
   });
 });
