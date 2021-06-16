@@ -62,6 +62,7 @@ Title: Books
 | [tmux (Productive Mouse-Free Development)]({filename}/tmux.md) | Brian P. Hogan    | The Pragmatic Bookshelf                                              |
 | Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
 | [Mastering Spring 5.0](https://github.com/LukasWoodtli/mastering-spring/) | Ranga Karanam             | Packt Publishing                                  |
+| [Full Stack Development with JHipster - Second Edition](https://www.packtpub.com/product/full-stack-development-with-jhipster-second-edition/9781838824983) | Deepu K Sasidharan, Sendil Kumar N  | Packt Publishing |
 
 
 # Presentations
@@ -118,7 +119,9 @@ Title: Books
 |-----------------------------------------------|----------------------------------------------------|---------------------------------------------------|
 | A Gentle Introduction to ROS                  | Jason M. O'Kane                                    | University of South Carolina                      |
 | [Modern Robotics](https://github.com/LukasWoodtli/ModernRobotics/) | Kevin M. Lynch, Frank C. Park | Cambridge University Press                        |
-| [Learning Robotics Using Python](https://github.com/LukasWoodtli/LearningRoboticsUsingPython) | Lentin Joseph | Packt Publishing                       |
+| [Learning Robotics Using Python](https://github.com/LukasWoodtli/LearningRoboticsUsingPython)      | Lentin Joseph | Packt Publishing                  |
+| Einführung in die Robotik                     | Klaus Brillowski                                   | Shaker Verlag                                     |
+
 
 # Mechanical Engineering
 
