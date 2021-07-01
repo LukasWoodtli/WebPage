@@ -65,6 +65,23 @@ They are placed in a separate standardized directory hierarchy.
 | `roslaunch <package-name> <launch-file-name>` | Launch nodes from launch file in package |
 | `roslaunch <launch-file-path>` | Launch nodes from launch file given with full path      |
 
+
+### Launch File Structure (XML Tags and Arguments)
+
+- `<launch>`: Root element of launch file
+- `<node name="listener" pkg="roscpp_tutorials" type="listener" output="screen" />`: A ROS node to be launched
+    - `name`: Name of the node (free to choose)
+    - `pkg`: The ROS package name containing the node executable
+    - `type`: Type of the node in the package
+    - `output`: Where to output log messages (`screen` or `log`)
+- `<arg name="arg_name" default="default_value"/>`: Define arguments (variables)
+    - `$(arg arg_name)`: Reference arguments
+    - `roslaunch launch_file.launch arg_name:=value`: Provide arguments when running a launchfile
+- `<include file="package_name"/>`: Include other launchfile
+    - `$(find package_name)`: Find other package in workspace
+
+
+
 Notes about how to writ launch files can be found at [roslaunch/XML](http://wiki.ros.org/roslaunch/XML) and
 [Roslaunch tips for large projects](http://wiki.ros.org/ROS/Tutorials/Roslaunch%20tips%20for%20larger%20projects)
 
@@ -163,7 +180,8 @@ All packages belonging to one project should be placed in one workspace.
     :::bash
     mkdir -p <workspace-name>/src    # don't forget the `src` subdirectory
     cd  <workspace-name>/
-    catkin_make
+    catkin build  # don't use catkin_make
+    source devel/setup.zsh
 
 ## Creating a Package
 
@@ -175,7 +193,16 @@ All packages belonging to one project should be placed in one workspace.
 
     :::bash
     cd  <workspace-name>/
-    catkin_make
+    catkin build  # don't use catkin_make
+    source devel/setup.zsh
+
+
+## Configuring build in a Workspace
+
+    :::bash
+    cd  <workspace-name>/
+    catkin config
+    source devel/setup.zsh
 
 ## Running a Node from Workspace
 
@@ -186,6 +213,50 @@ A master is required to run before running any nodes.
     source devel/setup.zsh
     rosrun <package-name> <executable-name>
 
+## Cleaning the Workspace
+
+    :::bash
+    cd  <workspace-name>/
+    catkin clean
+
+
+# Client Libraries
+
+## Node Handles
+
+| Node Handle      | C++ Code                              | Namespace for Topics    |
+|------------------|---------------------------------------|-------------------------|
+| Default (public) | `nh_ = ros::NodeHandle();`            | `/namespace/topic`      |
+| Private          | `nh_private_ = ros::NodeHandle("~");` | `/namespace/node/topic` |
+| Namespaced       | `nh_eth_ = ros::NodeHandle("eth");`   | `/namespace/eth/topic`  |
+
+It's also possible to use global node handlers. But it is not recomended.
+
+
+## Time Library
+
+It's recomended to always use the ROS Time APIs (and not the standard library).
+
+This allows to handle simulated time properly.
+
+- `ros::Time`:
+
+    :::cpp
+    ros::Time begin = ros::Time::now();
+    double secs = begin.toSec();
+
+- `ros::Duration`:
+
+    :::cpp
+    duration(0.5); // 0.5s
+    ros::Duration passed = ros::Time()::now() - begin;
+
+- `ros::Rate`:
+
+    :::cpp
+    ros::Rate rate(10); // 10Hz
+
+If wall time is required, use `ros::WallTime`, `ros::WallDuration` and `ros::WallRate`
 
 # URDF and Xacro
 
