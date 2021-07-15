@@ -24,7 +24,6 @@ export CYPRESS_CACHE_FOLDER="${SCRIPT_DIR}/cypress_cache"
 
 npm install
 
-npm run ng analytics off
 
 npm run lint
 npm run build
