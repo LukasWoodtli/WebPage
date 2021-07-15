@@ -111,3 +111,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+# Cypress.io
+cypress/videos/
