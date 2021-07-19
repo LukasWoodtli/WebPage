@@ -28,3 +28,4 @@ npm install
 npm run lint
 npm run build
 npm run test -- --karma-config karma.conf.ci.js
+npm run e2e:ci
