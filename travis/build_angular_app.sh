@@ -12,7 +12,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 echo Working dir
 pwd
 
-apk add --no-cache chromium xvfb
+apk add --no-cache chromium xvfb xauth libxtst libnotify-dev nss alsa-lib
 
 export CHROME_BIN=/usr/bin/chromium-browser
 
