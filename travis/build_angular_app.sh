@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 set -u
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
+
+export CYPRESS_CACHE_FOLDER="${SCRIPT_DIR}/cypress_cache"
 
 # Run this script in container:
 # docker run -it --rm -v `pwd`:/workdir -w /workdir cypress/browsers:node14.17.0-chrome88-ff89 sh
