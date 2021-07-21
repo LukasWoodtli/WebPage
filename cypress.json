@@ -1,6 +1,7 @@
 {
   "integrationFolder": "cypress/integration",
   "supportFile": "cypress/support/index.ts",
+  "video": false,
   "videosFolder": "cypress/videos",
   "screenshotsFolder": "cypress/screenshots",
   "pluginsFile": "cypress/plugins/index.ts",
