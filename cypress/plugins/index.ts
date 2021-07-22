@@ -5,4 +5,4 @@ module.exports = (on, config) => {
     launchOptions.args.push('--disable-gpu');
     launchOptions.args.push('--disable-software-rasterizer');
     return launchOptions;
-  });
+  })};

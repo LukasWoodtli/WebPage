@@ -10,8 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run"
   },
   "private": true,
   "dependencies": {

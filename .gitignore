@@ -97,6 +97,8 @@ speed-measure-plugin*.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+.vscode
+
 
 # misc
 /.sass-cache
@@ -112,6 +114,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
-
 # Cypress.io
 cypress/videos/
+
+# Python virtualenv
+.venv
+
