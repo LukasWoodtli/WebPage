@@ -9,7 +9,7 @@ export CYPRESS_CACHE_FOLDER="${SCRIPT_DIR}/cypress_cache"
 export npm_config_cache="${SCRIPT_DIR}/.npm"
 
 # Run this script in container:
-# docker run -it --rm -v `pwd`:/workdir -w /workdir cypress/browsers:node14.17.0-chrome88-ff89 sh
+# docker run -it --rm -v `pwd`:/workdir -w /workdir cypress/browsers:node14.17.0-chrome91-ff89 sh
 
 
 echo Working dir
