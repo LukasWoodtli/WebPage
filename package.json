@@ -9,9 +9,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run",
+    "e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run:chrome",
     "cypress:open": "npx cypress open",
-    "cypress:run": "npx cypress run"
+    "cypress:run": "npx cypress run",
+    "cypress:run:chrome": "npx cypress run --browser chrome",
   },
   "private": true,
   "dependencies": {
