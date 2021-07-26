@@ -12,7 +12,7 @@
     "e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run:chrome",
     "cypress:open": "npx cypress open",
     "cypress:run": "npx cypress run",
-    "cypress:run:chrome": "npx cypress run --browser chrome",
+    "cypress:run:chrome": "npx cypress run --browser chrome"
   },
   "private": true,
   "dependencies": {
