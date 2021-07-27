@@ -14,6 +14,7 @@ class MarkdownServiceMock {
 
 describe('StaticSiteComponent', () => {
   let component: StaticSiteComponent;
+  let componentProto: any;
   let fixture: ComponentFixture<StaticSiteComponent>;
 
   beforeEach(async () => {
@@ -29,10 +30,20 @@ describe('StaticSiteComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StaticSiteComponent);
     component = fixture.componentInstance;
+    // Inspired by https://stackoverflow.com/a/61658365
+    componentProto = Object.getPrototypeOf(component);
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('metadata tag: Title', () => {
+    expect(componentProto.isMetadataTag("Title:")).toBeTruthy();
+  });
+
+  it('metadata tag: slug', () => {
+    expect(componentProto.isMetadataTag("slug:")).toBeTruthy();
+  });
+
+  it('not metadata tag: abc', () => {
+    expect(componentProto.isMetadataTag("abc:")).toBeFalsy();
   });
 });

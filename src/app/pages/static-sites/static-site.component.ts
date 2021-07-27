@@ -22,7 +22,7 @@ export class StaticSiteComponent implements OnInit {
 
   public tableOfContent: TocEntry[] = [];
 
-  readonly metadataTags = ['Title:', 'slug:', 'save_as:', 'URL:'];
+ 
 
 
     constructor(private router: Router,
@@ -85,11 +85,10 @@ export class StaticSiteComponent implements OnInit {
   }
 
   private isMetadataTag(text: string): boolean {
-    for (const metadataTag of this.metadataTags) {
-      if (text.trim().startsWith(metadataTag)) {
-        return true;
-      }
-    }
-    return false;
+    const textTrimed = text.trim();
+
+    const metadataTags = ['Title:', 'slug:', 'save_as:', 'URL:'];;
+
+    return metadataTags.some(x => textTrimed.startsWith(x));
   }
 }

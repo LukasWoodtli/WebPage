@@ -21,10 +21,10 @@ npm install -g npm@7.9.0
 echo "Building Web Page"
 
 npm ci
-npx cypress install --force
+#npx cypress install --force
 
 
 npm run lint
 npm run build
 npm run test -- --karma-config karma.conf.ci.js
-npm run e2e:ci
+#npm run e2e:ci
