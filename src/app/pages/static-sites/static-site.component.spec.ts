@@ -36,14 +36,14 @@ describe('StaticSiteComponent', () => {
   });
 
   it('metadata tag: Title', () => {
-    expect(componentProto.isMetadataTag("Title:")).toBeTruthy();
+    expect(componentProto.isMetadataTag('Title:')).toBeTruthy();
   });
 
   it('metadata tag: slug', () => {
-    expect(componentProto.isMetadataTag("slug:")).toBeTruthy();
+    expect(componentProto.isMetadataTag('slug:')).toBeTruthy();
   });
 
   it('not metadata tag: abc', () => {
-    expect(componentProto.isMetadataTag("abc:")).toBeFalsy();
+    expect(componentProto.isMetadataTag('abc:')).toBeFalsy();
   });
 });

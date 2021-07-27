@@ -22,9 +22,6 @@ export class StaticSiteComponent implements OnInit {
 
   public tableOfContent: TocEntry[] = [];
 
- 
-
-
     constructor(private router: Router,
                 private activatedRoute: ActivatedRoute,
                 private markdownService: MarkdownService) {
