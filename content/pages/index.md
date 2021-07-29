@@ -3,11 +3,11 @@ slug: index
 save_as: index.html
 URL:
 
-This page is about my profesional life as a developer. Im mainly a software/firmware developer. But I know also a lot about electronical and mechanical engineering.
+This page is about my professional life as a developer. Im mainly a software/firmware developer. But I know also a lot about electronic and mechanical engineering.
 
 There is an overview about my [resume]({filename}/pages/resume.md) and my main [skills]({filename}/pages/skills.md). There are also some notes about my [knowledge]({filename}/pages/books.md) and what I've [learned]({filename}/pages/courses.md) so far.
 
-I also write casually some small [blog]({filename}/pages/blog.md) articles.
+I also write occasionally some small [blog]({filename}/pages/blog.md) articles.
 
 
 <div id="sourrounding_div" style="height:500px">

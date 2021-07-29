@@ -11,7 +11,7 @@ title: Projects
 
 Currently I am working as a senior software developer at Profidata. My current task there is to ensure software quality of the highly scalable and parallelized server application Xentis. 
 I implemented system tests to check our REST API's as well as integration tests and unit tests. To test a big legacy application I found that characterization tests help to increase code quality and capture current behavior. With my experience in quality
-software design and testing techinques I support other developpers with testing and refactoring the huge legacy codebase.
+software design and testing techniques I support other developer's with testing and refactoring the huge legacy codebase.
 
 Previous tasks included the extension of the Xentis server application with REST services. This enables other systems to
 use the functionality of Xentis outside of the core application.
@@ -19,7 +19,7 @@ I also worked on the implementation of different functional modules such as inve
 
 The development is done with modern and generic C++ on Linux and with Java. Part of the testing infrastructure is written in Python.
 
-I am also learning a lot about financial markets, investment and fintech.
+I am also learning a lot about financial markets, investment and FinTech.
 
 Another responsibility of mine is the maintenance of our build environment and continuous integration infrastructure (CMake, Jenkins pipeline, Gerrit), integration of static and dynamic analysis tools (Sanitizers, Clang Static Analyzer), as well as regression- and unit-tests. I also became an expert in development on Linux.
 
@@ -43,8 +43,6 @@ Besides programming, I defined functional requirements, specifications and maint
 
 
 [www.dormakaba.com](https://www.dormakaba.com/ch-de/produkte-loesungen/produkte/zutritt-und-zeit/zutrittsleser-peripherie/zutrittsleser---peripherie-301956)
-
-
 
 
 ## CodeCheck AG
@@ -88,6 +86,17 @@ More information on the project can be found on the homepage: [www.reely.ethz.ch
 
 
 # Private Projects
+
+## Robot
+
+Recently I started to build a robot based on ROS. It is still in a very early stage. As I will make more progress, I am going to write about it in more detail.
+
+## Web Page
+
+Currently I'm building a new Web Page using Angular and Typescript. This way I learn a lot
+about front-end development and design. I also do some unit- and e2e-testing using Jasmin,
+Karma and Cypress.
+
 
 ## PX4 Firmware for Drones
 
