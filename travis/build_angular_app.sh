@@ -59,6 +59,7 @@ cp "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/index.html" "${GITHUB_USERPAGE_ANGULAR_P
 
 # .gitignore file is only for 'master' in main repo not for gh-pages
 rm -f "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/assets/.gitignore"
+git config user.name "travis (Lukas Woodtli)" &&  git config user.email lukas_woodtli@travis.example.com
 git add "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/"
 git commit -m"Update Github angular page automated."
 git push origin
