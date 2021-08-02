@@ -50,8 +50,7 @@ echo DEBUG
 pwd
 echo "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 ls "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
-ls "${SCRIPT_DIR}/../"
-ls "${SCRIPT_DIR}/../dist/"
+ls "${SCRIPT_DIR}/../dist/web-page/"
 echo DEBUG END
 
 cp -r "${SCRIPT_DIR}/../dist/web-page/*" "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
