@@ -1,12 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {MarkdownService} from 'ngx-markdown';
 import {ActivatedRoute, Router} from '@angular/router';
-
-class TocEntry {
-  constructor(readonly level: number,
-              readonly text: string,
-              readonly anchor: string){}
-}
+import {TableOfContent, TableOfContentEntry} from '../table-of-contents/table-of-content';
 
 @Component({
   selector: 'app-static-site',
@@ -16,11 +11,9 @@ class TocEntry {
 })
 export class StaticSiteComponent implements OnInit {
 
-  public pathToMdFile: string;
+  pathToMdFile: string;
 
-  public showToc = false;
-
-  public tableOfContent: TocEntry[] = [];
+  tableOfContent: TableOfContent = [];
 
   private isFirstTableRow = true;
 
@@ -28,7 +21,6 @@ export class StaticSiteComponent implements OnInit {
                 private activatedRoute: ActivatedRoute,
                 private markdownService: MarkdownService) {
     this.isFirstTableRow = true;
-    this.tableOfContent = [];
   }
 
   ngOnInit(): void {
@@ -45,6 +37,8 @@ export class StaticSiteComponent implements OnInit {
     this.markdownService.renderer.tablerow = (content: string) => this.renderTableRow(content);
 
     this.markdownService.renderer.tablecell = this.renderTableCell;
+
+    this.markdownService.renderer.link = this.renderLink;
   }
 
   private configureMarkDownFileName(): void {
@@ -65,7 +59,7 @@ export class StaticSiteComponent implements OnInit {
     let anchorPrefix = this.markdownService.options.headerPrefix;
     anchorPrefix = anchorPrefix ? anchorPrefix : '';
     const anchor =  anchorPrefix  + raw.toLowerCase().replace(/[^\w]+/g, '-');
-    this.tableOfContent.push(new TocEntry(level, raw, anchor));
+    this.tableOfContent.push(new TableOfContentEntry(level, raw, anchor));
     const headerTag = `<h${level} id='${anchor}'>${text}</h${level}>`;
 
     return headerTag;
@@ -73,7 +67,6 @@ export class StaticSiteComponent implements OnInit {
 
   private renderText(text: string): string {
     if (text.trim() === '[TOC]') {
-      this.showToc = true;
       return '';
     }
 
@@ -111,5 +104,22 @@ export class StaticSiteComponent implements OnInit {
     const metadataTags = ['Title:', 'slug:', 'save_as:', 'URL:'];
 
     return metadataTags.some(x => textTrimmed.startsWith(x));
+  }
+
+  private renderLink(href: string | null, title: string | null, text: string): string {
+    console.log(`href: ${href}, title: ${title}, text: ${text}`)
+    const staticPagePrefix = '{filename}/pages';
+    const documentsPrefix = '/documents/';
+    let url = href;
+    if(href.startsWith(staticPagePrefix)) {
+      url = href.replace(staticPagePrefix, '');
+      url = url.replace('.md', '');
+      console.log(`Warning fixing link: ${href} to ${url}`);
+    }
+    else if(href.startsWith(documentsPrefix)) {
+      url = href.replace(documentsPrefix, '/assets/documents/')
+      console.log(`Warning fixing link: ${href} to ${url}`);
+    }
+    return `<a href="${url}">${text}</a>`;
   }
 }

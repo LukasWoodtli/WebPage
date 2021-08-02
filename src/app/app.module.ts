@@ -12,6 +12,7 @@ import {MarkdownModule, MarkdownService} from 'ngx-markdown';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {STATIC_PAGES} from './static-pages';
+import { TableOfContentsComponent } from './pages/table-of-contents/table-of-contents.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,8 @@ for (const entry of STATIC_PAGES) {
   declarations: [
     AppComponent,
     ToolbarMenuComponent,
-    StaticSiteComponent
+    StaticSiteComponent,
+    TableOfContentsComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {

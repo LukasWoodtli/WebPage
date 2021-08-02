@@ -147,4 +147,22 @@ describe('StaticSiteComponent', () => {
       });
     });
   });
+
+  describe('renderLink', () => {
+    const renderLinkTestData = [
+      { href: '{filename}/pages/skills.md', text: 'skills', expectedLinkHtml: '<a href="/skills">skills</a>'},
+      { href: '{filename}/pages/resume.md', text: 'resume', expectedLinkHtml: '<a href="/resume">resume</a>'},
+      { href: '{filename}/pages/books.md', text: 'knowledge', expectedLinkHtml: '<a href="/books">knowledge</a>'},
+      { href: '{filename}/pages/courses.md', text: 'learned', expectedLinkHtml: '<a href="/courses">learned</a>'},
+      { href: '{filename}/pages/blog.md', text: 'blog', expectedLinkHtml: '<a href="/blog">blog</a>'},
+      { href: '{filename}/pages/contact.md', text: 'contact', expectedLinkHtml: '<a href="/contact">contact</a>'},
+      { href: '/documents/Application_Documents_Lukas_Woodtli.zip', text: 'Application Documents', expectedLinkHtml: '<a href="/assets/documents/Application_Documents_Lukas_Woodtli.zip">Application Documents</a>'},
+    ];
+    renderLinkTestData.forEach((testCase) => {
+      it(`link to : ${testCase.text}`, () => {
+        expect(componentProto.renderLink(testCase.href, null, testCase.text))
+          .toBe(testCase.expectedLinkHtml);
+      });
+    });
+  });
 });
