@@ -26,7 +26,7 @@ npm ci
 
 
 npm run lint
-npm run build
+npm run build --base-href https://lukaswoodtli.github.io/newpage/
 npm run test -- --karma-config karma.conf.ci.js
 #npm run e2e:ci
 
@@ -45,13 +45,6 @@ touch "${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll"
 git add "${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll"
 
 rm -rf "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}" && mkdir -p "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
-
-echo DEBUG
-pwd
-echo "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
-ls "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
-ls "${SCRIPT_DIR}/../dist/web-page/"
-echo DEBUG END
 
 cp -r "${SCRIPT_DIR}/../dist/web-page/"* "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 
