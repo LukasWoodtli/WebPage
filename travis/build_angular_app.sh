@@ -53,7 +53,7 @@ ls "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 ls "${SCRIPT_DIR}/../dist/web-page/"
 echo DEBUG END
 
-cp -r "${SCRIPT_DIR}/../dist/web-page/*" "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
+cp -r "${SCRIPT_DIR}/../dist/web-page/"* "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 
 cp "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/index.html" "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/404.html"
 
