@@ -2,6 +2,7 @@
 
 set -e
 set -u
+set -x
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 
@@ -40,16 +41,16 @@ git clone ${GITHUB_USERPAGE_REPO} ${GITHUB_USERPAGE_CHECKOUT_DIR}
 pushd ${GITHUB_USERPAGE_CHECKOUT_DIR}
 
 # Don't use jekyll for gh-userpage
-touch ${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll
-git add ${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll
+touch "${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll"
+git add "${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll"
 
-rm -rf ${GITHUB_USERPAGE_ANGULAR_PAGE_DIR} && mkdir -p ${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}
+rm -rf "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}" && mkdir -p "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 
-cp -r ${SCRIPT_DIR}/../dist/web-page/ ${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}
-cp ${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/index.html ${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/404.html
+cp -r "${SCRIPT_DIR}/../dist/web-page/" "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
+cp "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/index.html" "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/404.html"
 
 # .gitignore file is only for 'master' in main repo not for gh-pages
-rm -f ${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/assets/.gitignore
-git add ${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/
+rm -f "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/assets/.gitignore"
+git add "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}/"
 git commit -m"Update Github angular page automated."
 git push origin
