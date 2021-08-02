@@ -46,7 +46,7 @@ git add "${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll"
 
 rm -rf "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}" && mkdir -p "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 
-cp -r "${SCRIPT_DIR}/../dist/web-page/" "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
+cp -r "${SCRIPT_DIR}/../dist/web-page/*" "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 
 echo DEBUG
 pwd
