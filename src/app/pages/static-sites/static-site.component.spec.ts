@@ -78,7 +78,6 @@ describe('StaticSiteComponent', () => {
     it('TOC', () => {
       expect(componentProto.renderText('[TOC]'))
         .toBe('');
-      expect(componentProto.showToc).toBeTrue();
     });
 
     it('filter metadata tag', () => {
@@ -156,7 +155,8 @@ describe('StaticSiteComponent', () => {
       { href: '{filename}/pages/courses.md', text: 'learned', expectedLinkHtml: '<a href="/courses">learned</a>'},
       { href: '{filename}/pages/blog.md', text: 'blog', expectedLinkHtml: '<a href="/blog">blog</a>'},
       { href: '{filename}/pages/contact.md', text: 'contact', expectedLinkHtml: '<a href="/contact">contact</a>'},
-      { href: '/documents/Application_Documents_Lukas_Woodtli.zip', text: 'Application Documents', expectedLinkHtml: '<a href="/assets/documents/Application_Documents_Lukas_Woodtli.zip">Application Documents</a>'},
+      { href: '/documents/Application_Documents_Lukas_Woodtli.zip', text: 'Application Documents',
+        expectedLinkHtml: '<a href="/assets/documents/Application_Documents_Lukas_Woodtli.zip">Application Documents</a>'},
     ];
     renderLinkTestData.forEach((testCase) => {
       it(`link to : ${testCase.text}`, () => {

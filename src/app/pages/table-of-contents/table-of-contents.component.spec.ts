@@ -23,7 +23,7 @@ describe('TableOfContentsComponent', () => {
   });
 
   it('check TOC', () => {
-    let toc: TableOfContent = [];
+    const toc: TableOfContent = [];
     const tocEntry = new TableOfContentEntry(1, 'Hello', 'hello-anchor');
     toc.push(tocEntry);
     component.tableOfContent = toc;
@@ -32,7 +32,7 @@ describe('TableOfContentsComponent', () => {
 
     const rootElement = fixture.debugElement;
     const aElement = rootElement.query(By.css('a'));
-    expect(aElement.properties['href']).toBe('/#hello-anchor');
+    expect(aElement.properties.href).toBe('/#hello-anchor');
     const aElementText = aElement.nativeElement.innerHTML.trim();
     expect(aElementText).toBe('Hello');
   });

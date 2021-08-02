@@ -107,7 +107,7 @@ export class StaticSiteComponent implements OnInit {
   }
 
   private renderLink(href: string | null, title: string | null, text: string): string {
-    console.log(`href: ${href}, title: ${title}, text: ${text}`)
+    console.log(`href: ${href}, title: ${title}, text: ${text}`);
     const staticPagePrefix = '{filename}/pages';
     const documentsPrefix = '/documents/';
     let url = href;
@@ -117,7 +117,7 @@ export class StaticSiteComponent implements OnInit {
       console.log(`Warning fixing link: ${href} to ${url}`);
     }
     else if(href.startsWith(documentsPrefix)) {
-      url = href.replace(documentsPrefix, '/assets/documents/')
+      url = href.replace(documentsPrefix, '/assets/documents/');
       console.log(`Warning fixing link: ${href} to ${url}`);
     }
     return `<a href="${url}">${text}</a>`;
