@@ -108,22 +108,31 @@ export class StaticSiteComponent implements OnInit {
 
   private renderLink(href: string | null, title: string | null, text: string): string {
     console.log(`href: ${href}, title: ${title}, text: ${text}`);
-    const staticPagePrefix = '{filename}/pages';
+    const staticPagePrefix = '{filename}/pages/';
     const documentsPrefix = '/documents/';
+    const absoluteUrlPattern = /^https?:\/\//i;
+
     let url = href;
+    let openInNewTab = '';
     if(href.startsWith(staticPagePrefix)) {
       url = href.replace(staticPagePrefix, '');
       url = url.replace('.md', '');
       console.log(`Warning fixing link: ${href} to ${url}`);
     }
     else if(href.startsWith(documentsPrefix)) {
-      url = href.replace(documentsPrefix, '/assets/documents/');
+      url = href.replace(documentsPrefix, 'assets/documents/');
       console.log(`Warning fixing link: ${href} to ${url}`);
     }
     else if(href === 'courses.html') {
-      url = '/courses';
+      url = 'courses';
       console.log(`Warning fixing link: ${href} to ${url}`);
     }
-    return `<a href="${url}">${text}</a>`;
+    else if (absoluteUrlPattern.test(href))
+    {
+      console.log(`Warning opening: ${href} in new tab`);
+      openInNewTab = ' target="_blank"';
+    }
+
+    return `<a href="${url}"${openInNewTab}>${text}</a>`;
   }
 }

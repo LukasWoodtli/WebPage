@@ -3,7 +3,7 @@
   <ul>
     <div *ngFor="let tocEntry of tableOfContent">
       <li>
-        <a [routerLink]='"."' [fragment]='tocEntry.anchor'>
+        <a [routerLink]='"."' [fragment]='tocEntry.anchor' routerLinkActive="true">
           {{tocEntry.text}}
         </a></li>
     </div>
