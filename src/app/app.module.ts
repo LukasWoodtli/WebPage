@@ -13,6 +13,9 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {STATIC_PAGES} from './static-pages';
 import { TableOfContentsComponent } from './pages/table-of-contents/table-of-contents.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 const routes: Routes = [
@@ -40,7 +43,10 @@ for (const entry of STATIC_PAGES) {
     MatButtonModule,
     MatTabsModule,
     MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
     HttpClientModule,
+    FlexLayoutModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       sanitize: SecurityContext.NONE

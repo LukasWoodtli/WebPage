@@ -4,7 +4,26 @@
       <button mat-button routerLink="/">Lukas Woodtli</button>
     </span>
     <span class = "filler"></span>
-    <span *ngFor="let menuItem of menuItems">
+
+    <!-- Items in menu -->
+    <div fxShow fxHide.gt-sm="true">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let menuItem of menuItems"
+                mat-menu-item
+                color="alert"
+                routerLink="/{{menuItem.fileName}}">
+          {{menuItem.displayName}}
+        </button>
+      </mat-menu>
+      </div>
+
+      <!-- All items in Toolbar -->
+      <span fxShow fxHide.lt-md="true"
+          *ngFor="let menuItem of menuItems">
       <button mat-button routerLink="/{{menuItem.fileName}}">
         {{menuItem.displayName}}
       </button>
