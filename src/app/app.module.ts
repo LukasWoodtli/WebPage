@@ -8,7 +8,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { ToolbarMenuComponent } from './toolbar-menu/toolbar-menu.component';
 import { StaticSiteComponent } from './pages/static-sites/static-site.component';
 
-import {MarkdownModule, MarkdownService} from 'ngx-markdown';
+import {MarkdownModule} from 'ngx-markdown';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {STATIC_PAGES} from './static-pages';
@@ -16,7 +16,7 @@ import { TableOfContentsComponent } from './pages/table-of-contents/table-of-con
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'index', pathMatch: 'full' }
+  { path: '', redirectTo: 'index', pathMatch: 'prefix' }
 ];
 
 for (const entry of STATIC_PAGES) {

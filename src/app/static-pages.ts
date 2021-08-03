@@ -8,8 +8,8 @@ export const STATIC_PAGES = [
   {displayName: 'Courses', fileName: 'courses'},
   {displayName: 'Projects', fileName: 'projects'},
   {displayName: 'Blog', fileName: 'blog'},
-  {displayName: 'Contact', fileName: 'contact'}
-//  {display_name: '', file_name: 'recruiters_headhunters'},
+  {displayName: 'Contact', fileName: 'contact'},
+  {displayName: 'mmm', fileName: 'recruiters_headhunters', exclueFromMenu: true},
 ];
 
 

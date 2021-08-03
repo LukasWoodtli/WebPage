@@ -7,7 +7,11 @@ import {STATIC_PAGES} from '../static-pages';
   styleUrls: ['./toolbar-menu.component.sass']
 })
 export class ToolbarMenuComponent implements OnInit {
-  menuItems = STATIC_PAGES;
+  menuItems = STATIC_PAGES.filter((element) => {
+    if (!element.exclueFromMenu) {
+      return element;
+    }
+  });
 
   constructor() { }
 

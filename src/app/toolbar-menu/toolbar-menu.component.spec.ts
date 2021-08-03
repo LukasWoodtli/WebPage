@@ -10,6 +10,7 @@ describe('ToolbarMenuComponent', () => {
   let component: ToolbarMenuComponent;
   let fixture: ComponentFixture<ToolbarMenuComponent>;
   let htmlElement: DebugElement;
+  let buttonsTexts: string[];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,12 +25,13 @@ describe('ToolbarMenuComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     htmlElement = fixture.debugElement;
+
+    const buttons: DebugElement[] = htmlElement.queryAll(By.css('button'));
+    buttonsTexts = buttons.map((item) => item.nativeElement.textContent.trim());
+
   });
 
   it('should have the toolbar button names', () => {
-    const buttons: DebugElement[] = htmlElement.queryAll(By.css('button'));
-    const buttonsTexts: string[] = buttons.map((item) => item.nativeElement.textContent.trim());
-
     expect(buttonsTexts)
       .toEqual([
         'Lukas Woodtli',
