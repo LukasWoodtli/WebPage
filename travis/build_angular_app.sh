@@ -26,7 +26,7 @@ npm ci
 
 
 npm run lint
-npm run build -- --base-href https://lukaswoodtli.github.io/newpage/
+npm run build -- --base-href /newpage/
 npm run test -- --karma-config karma.conf.ci.js
 #npm run e2e:ci
 
