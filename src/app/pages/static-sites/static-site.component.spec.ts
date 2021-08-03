@@ -157,6 +157,8 @@ describe('StaticSiteComponent', () => {
       { href: '{filename}/pages/contact.md', text: 'contact', expectedLinkHtml: '<a href="/contact">contact</a>'},
       { href: '/documents/Application_Documents_Lukas_Woodtli.zip', text: 'Application Documents',
         expectedLinkHtml: '<a href="/assets/documents/Application_Documents_Lukas_Woodtli.zip">Application Documents</a>'},
+      { href: 'courses.html', text: 'courses', expectedLinkHtml: '<a href="/courses">courses</a>'},
+
     ];
     renderLinkTestData.forEach((testCase) => {
       it(`link to : ${testCase.text}`, () => {

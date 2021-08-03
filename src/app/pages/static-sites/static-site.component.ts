@@ -120,6 +120,10 @@ export class StaticSiteComponent implements OnInit {
       url = href.replace(documentsPrefix, '/assets/documents/');
       console.log(`Warning fixing link: ${href} to ${url}`);
     }
+    else if(href === 'courses.html') {
+      url = '/courses';
+      console.log(`Warning fixing link: ${href} to ${url}`);
+    }
     return `<a href="${url}">${text}</a>`;
   }
 }
