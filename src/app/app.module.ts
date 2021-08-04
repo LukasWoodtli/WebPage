@@ -16,6 +16,8 @@ import { TableOfContentsComponent } from './pages/table-of-contents/table-of-con
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 
 const routes: Routes = [
@@ -45,6 +47,8 @@ for (const entry of STATIC_PAGES) {
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    MatSidenavModule,
+    MatListModule,
     HttpClientModule,
     FlexLayoutModule,
     MarkdownModule.forRoot({

@@ -137,6 +137,7 @@ describe('StaticSiteComponent', () => {
   describe('isMetadataTag', () => {
     const isMetadataTagTestData = [
       {tag: 'Title:', expectedResult: true},
+      {tag: 'title:', expectedResult: true},
       {tag: 'slug:', expectedResult: true},
       {tag: 'abc:', expectedResult: false}];
 

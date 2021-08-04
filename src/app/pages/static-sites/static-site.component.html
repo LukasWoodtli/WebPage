@@ -1,5 +1,16 @@
-<div class="document-wrapper">
-  <app-table-of-contents [tableOfContent]="tableOfContent"></app-table-of-contents>
-
-  <markdown [src]="pathToMdFile"></markdown>
-</div>
+<mat-sidenav-container hasBackdrop=false>
+  <mat-sidenav [opened]="tableOfContent.length > 0"
+               mode="side"
+               fxShow
+               fxHide.lt-md="true">
+    <app-table-of-contents fxShow fxHide.lt-md="true" [tableOfContent]="tableOfContent"></app-table-of-contents>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="document-wrapper">
+      <div class="document-wrapper">
+        <app-table-of-contents fxShow fxHide.gt-sm="true" [tableOfContent]="tableOfContent"></app-table-of-contents>
+        <markdown [src]="pathToMdFile"></markdown>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

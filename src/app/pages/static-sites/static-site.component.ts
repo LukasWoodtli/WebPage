@@ -99,11 +99,11 @@ export class StaticSiteComponent implements OnInit {
   }
 
   private isMetadataTag(text: string): boolean {
-    const textTrimmed = text.trim();
+    const textTrimmed = text.trim().toLowerCase();
 
     const metadataTags = ['Title:', 'slug:', 'save_as:', 'URL:'];
 
-    return metadataTags.some(x => textTrimmed.startsWith(x));
+    return metadataTags.some(x => textTrimmed.startsWith(x.toLowerCase()));
   }
 
   private renderLink(href: string | null, title: string | null, text: string): string {
