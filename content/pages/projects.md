@@ -27,7 +27,7 @@ Another responsibility of mine is the maintenance of our build environment and c
 
 ## Kaba:
 
-### Portable Configuration and Programming Device (PD1460)
+### Portable Programming Device
 At first I was responsible for the development of the firmware for a programming device. The programmer consists of a lot of peripheral devices including a LCD display, a keypad, NFC, USB, RS-232 and SD card. It runs on an ARM controller. The firmware was developed in C.
 
 ### Electronic Locks
@@ -62,7 +62,7 @@ I not only learned a lot of technical stuff but also about medical engineering.
 As side projects I set up automated integration testing for the GUI of an ECG application and evaluated installer tools for Windows and Linux.
 
 
-## AIM Industrielle Montage AG
+## AIM Industrielle Montage
 
 After my apprenticeship I worked at AIM as mechanical engineer.
 There I assembled mechanical devices and fabricated small series and individual mechanical parts. I also made some improvements on existing parts.
