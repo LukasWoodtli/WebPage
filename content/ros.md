@@ -101,6 +101,7 @@ Flags:
 | `rosnode kill <node-name>` | Stop and remove a running node    |
 | `rosnode cleanup`          | Remove killed nodes from the list |
 
+# Communication and Data Sharing
 
 ## Topics and Messages
 
@@ -155,7 +156,18 @@ Information about writing services and clients in C++ can be found here
 | data types      | `rosmsg`   | `rossrv`     |
 
 
-## Bag files
+## Overview
+
+|             | Topics                  | Services                              | Actions                                  | Parameters                 | Dynamic Reconfigure          |
+|-------------|-------------------------|---------------------------------------|------------------------------------------|----------------------------|------------------------------|
+| Description | Continuous data streams | Blocking call for processing requests | Non-blocking, preemptable, goal oriented | Global constant parameters | Local, changeable parameters |
+| Application | One-way data flow       | Short triggers or calculations        | Task executions and robot actions        | Constant settings          | Tuning parameters            |
+| Examples    | Sensor data, robot state | Trigger change, request state, compute quantity | Navigation, grasping, motion execution | Topic names, camera settings, calibration data, robot setup | Controller parameters |
+
+
+
+
+# Bag files
 
 | Command                                    | Function                                       |
 |--------------------------------------------|------------------------------------------------|
