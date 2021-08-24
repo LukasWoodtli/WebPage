@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { ContactLinksComponent } from './contact-links/contact-links.component';
 
 
 const routes: Routes = [
@@ -34,7 +36,8 @@ for (const entry of STATIC_PAGES) {
     AppComponent,
     ToolbarMenuComponent,
     StaticSiteComponent,
-    TableOfContentsComponent
+    TableOfContentsComponent,
+    ContactLinksComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {
@@ -42,6 +45,7 @@ for (const entry of STATIC_PAGES) {
       anchorScrolling: 'enabled'
     }),
     BrowserAnimationsModule,
+    FontAwesomeModule,
     MatButtonModule,
     MatTabsModule,
     MatToolbarModule,

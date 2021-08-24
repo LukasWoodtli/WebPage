@@ -7,10 +7,12 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="document-wrapper">
-      <div class="document-wrapper">
-        <app-table-of-contents fxShow fxHide.gt-sm="true" [tableOfContent]="tableOfContent"></app-table-of-contents>
-        <markdown [src]="pathToMdFile"></markdown>
-      </div>
+      <app-table-of-contents fxShow fxHide.gt-sm="true" [tableOfContent]="tableOfContent"></app-table-of-contents>
+      <markdown [src]="pathToMdFile"></markdown>
     </div>
+    <div class="grow-content"></div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+<footer>
+  <app-contact-links></app-contact-links>
+</footer>
