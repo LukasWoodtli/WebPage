@@ -120,3 +120,5 @@ cypress/videos/
 # Python virtualenv
 .venv
 
+.scully/
+src/assets/scully-routes.json

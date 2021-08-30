@@ -21,6 +21,7 @@ import {MatListModule} from '@angular/material/list';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { ContactLinksComponent } from './contact-links/contact-links.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 
 const routes: Routes = [
@@ -61,6 +62,7 @@ for (const entry of STATIC_PAGES) {
       sanitize: SecurityContext.NONE
     }),
     NoopAnimationsModule
+    ScullyLibModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

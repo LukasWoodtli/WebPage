@@ -12,7 +12,9 @@
     "e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run:chrome",
     "cypress:open": "npx cypress open",
     "cypress:run": "npx cypress run",
-    "cypress:run:chrome": "npx cypress run --browser chrome"
+    "cypress:run:chrome": "npx cypress run --browser chrome",
+    "scully": "npx scully --",
+    "scully:serve": "npx scully serve --"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +29,9 @@
     "@angular/platform-browser": "~12.1.4",
     "@angular/platform-browser-dynamic": "~12.1.4",
     "@angular/router": "~12.1.4",
+    "@scullyio/init": "^1.1.4",
+    "@scullyio/ng-lib": "^1.0.0",
+    "@scullyio/scully": "^1.0.0",
     "ngx-markdown": "^11.1.2",
     "npm-cli": "^0.1.0",
     "rxjs": "~6.6.0",
