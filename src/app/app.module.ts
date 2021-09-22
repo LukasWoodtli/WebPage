@@ -25,7 +25,9 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'index', pathMatch: 'prefix' }
+  { path: '', redirectTo: 'index', pathMatch: 'prefix' },
+  { path: 'blogposts', loadChildren: () => import('./blogposts/blogposts.module').then(m => m.BlogpostsModule) },
+  { path: 'bloghome', loadChildren: () => import('./bloghome/bloghome.module').then(m => m.BloghomeModule) }
 ];
 
 for (const entry of STATIC_PAGES) {

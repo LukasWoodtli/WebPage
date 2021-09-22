@@ -4,7 +4,13 @@ export const config: ScullyConfig = {
   projectRoot: "./src",
   projectName: "web-page",
   outDir: './dist/static',
-  routes: {},
+  routes: {
+    '/blogposts/:title': {
+      type: 'contentFolder',
+      title: {
+        folder: "./markdown-blog"
+      }
+    },},
   extraRoutes: [
     '/index',
     '/resume',
@@ -14,5 +20,7 @@ export const config: ScullyConfig = {
     '/projects',
     '/blog',
     '/contact',
-    '/recruiters_headhunters']
+    '/recruiters_headhunters',
+    '/blogposts'
+  ]
 };
