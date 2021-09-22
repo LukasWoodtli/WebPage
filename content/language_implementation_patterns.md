@@ -625,6 +625,101 @@ The process of matching and rewriting trees is formally called term rewriting."*
 
 
 
+## Chapter 6 Tracking and Identifying Program Symbols
+
+
+### Collecting Information About Program Entities
+
+*"what we need to know for each symbol"*
+
+- *Name*
+- *Category*: class, method, variable, label...
+- *Type*
+
+
+### Grouping Symbols into Scopes
+
+- *Static vs. dynamic scoping*
+- *Nesting*
+- *Contents*: declarations, statements or both
+- *Visibility*
+
+### Resolving Symbols
+
+*"to resolve a symbol reference, we look for it in its semantic context, starting with the current scope. If `resolve()` doesn't find the symbol in the current scope, it asks the enclosing scope if it can find the symbol. `resolve()` recursively walks toward the root of the scope tree until it finds the symbol or runs out of scopes."*
+
+## Chapter 7 Managing Symbol Tables for Data Aggregates
+
+### Building Scope Trees for Structs
+
+*"We also have to resolve symbols within struct scopes from the outside. In other words, a language application might have to figure out which field `«expr».x` refers to."*
+
+*"The general (recursive) rule for resolving `«expr».x` is to determine the type of `«expr»` and then look up `x` in that scope."*
+
+*"we need two different resolve methods: one for looking up isolated symbols like `d` and another for resolving member access expressions like `d.i`."*
+
+
+### Building Scope Trees for Classes
+
+*"Per the usual object-oriented language conventions, [...] we want to look up the inheritance chain before looking in the global scope."*
+
+*"To handle [...] forward references [...]. We can make two passes over the input, one to define symbols and another to resolve them"*
+
+
+## Chapter 8 Enforcing Static Typing Rules
+
+
+*"Sometimes, though, we write code that make no sense even if the syntax is correct. Such programs violate a language’s semantic rules."*
+
+*"Languages typically have lots and lots of semantic rules. Some rules are run-time constraints (dynamic semantics), and some are compile-time constraints (static semantics)."*
+
+*"Some languages enforce the same rule statically and then again dynamically to guard against hostile programs. For example, Java does type checking at compile-time as well as at run-time."*
+
+
+# Building Interpreters
+
+## Chapter 9 Building High-Level Interpreters
+
+*"High-level interpreters directly execute source code instructions or the AST equivalent. (Low-level interpreters execute instructions called bytecodes that are close to CPU machine instructions.)"*
+
+*"An interpreter simulates an idealized computer in software. Such “computers” have a processor, code memory, data memory, and (usually) a stack. The processor pulls instructions from the code memory, decodes them, and exe- cutes them. An instruction can read or write to the data memory or onto the stack. Function calls save return addresses so they can return to the instruction following the function call."*
+
+*"There are three things to consider when building an interpreter: how to store data, how and when to track symbols, and how to execute instructions."*
+
+
+### Designing High-Level Interpreter Memory Systems
+
+*"High-level interpreters store values according to variable names, not memory addresses (like low-level interpreters and CPUs do). That means we’ve got to represent memory with a dictionary mapping names to values. There are three kinds of memory spaces to worry about for most programming languages: global memory, function spaces (for parameters and locals), and data aggregate instances (structs or objects)."*
+
+### Processing Instructions
+
+*"fetch-decode-execute cycle: First, we load an instruction from code memory. Then, we decode the instruction to find the operation and operands. Finally, we execute the operation. Rinse and repeat."*
+
+
+## Chapter 10 Building Bytecode Interpreters
+
+### Bytecode Machine Architecture
+
+*"A bytecode interpreter simulates a computer with the following components:"*
+
+- *Code memory*: the assembled bytecode (instructions and operands)
+- *ip register*: pointing at the next instruction to be executed
+- *Global memory*: space for variables
+- *CPU*: executes instructions
+- *Constant pool*: holds the constants (known at assembly time)
+- *Function call stack*: for parameters, local variables and return values
+- *fp register*: points to the top of the function call stack
+
+In addition a Stack-Based interpreter has:
+
+- *Operand stack*: for temporary values (instead of registers)
+- *sp register*: points to the top of the operand stack
+
+A Register-Based interpreter has (instead of a operand stack):
+
+- *infinite register set per function call*: parameters, local variables and return values
+
+
 # Translating and Generating Languages
 
 ## Translating Computer Languages
