@@ -216,6 +216,13 @@ All packages belonging to one project should be placed in one workspace.
     catkin config
     source devel/setup.zsh
 
+
+### Provide Arguments to CMake
+
+    :::bash
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Debug
+
+
 ## Running a Node from Workspace
 
 A master is required to run before running any nodes.
@@ -229,7 +236,7 @@ A master is required to run before running any nodes.
 
     :::bash
     cd  <workspace-name>/
-    catkin clean
+    catkin clean --all
 
 
 # Client Libraries
@@ -292,6 +299,11 @@ Create graph for URDF:
 # Checking for Problems
 
 - `roswtf`: Perform sanity checks for the running ROS system
+- `rosnode info`: Get information about nodes
+- `rostopic echo`: Show data published on a topic
+- `rqt_graph`: Show nodes and topics as graphs
+- `rviz`: Visualize data
+- `rqt`: Generic GUI with a lot of plugins
 
 # References
 
