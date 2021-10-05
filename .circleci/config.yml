@@ -1,0 +1,20 @@
+version: 2.0
+
+orbs:
+  python: cimg/python@3.9
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.9.7
+    working_directory: ~/WebPage
+    steps:
+      - checkout
+      - run: pip install -r requirements.txt
+      - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
+      - add_ssh_keys:
+          fingerprints:
+            - "65:30:10:9d:94:4d:de:28:56:c6:3e:8c:a2:57:84:52"
+      - run:
+          name: Build Web Page
+          command: ./generate_page.py
+
