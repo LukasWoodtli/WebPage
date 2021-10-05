@@ -1,7 +1,5 @@
-version: 2.0
+version: 2.1
 
-orbs:
-  python: cimg/python@3.9
 jobs:
   build:
     docker:
@@ -11,10 +9,21 @@ jobs:
       - checkout
       - run: pip install -r requirements.txt
       - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
-      - add_ssh_keys:
-          fingerprints:
-            - "65:30:10:9d:94:4d:de:28:56:c6:3e:8c:a2:57:84:52"
       - run:
           name: Build Web Page
           command: ./generate_page.py
-
+  build_angular_page:
+    docker:
+      - image: cypress/browsers:node14.15.0-chrome86-ff82
+    working_directory: ~/WebPage
+    steps:
+      - checkout
+      - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
+      - run:
+          name: Build Angular Web Page
+          command: ./travis/build_angular_app.sh
+workflows:
+  build-both-pages:
+    jobs:
+      - build
+      - build_angular_page
