@@ -11,7 +11,7 @@ AUTHOR = u'Lukas Woodtli'
 AUTHORS = { AUTHOR: "pages/contact.html" }
 
 SITENAME = u'Lukas Woodtli'
-SITEURL = 'http://lukaswoodtli.github.io'
+SITEURL = 'http://lukaswoodtli.github.io/blog'
 
 LOAD_CONTENT_CACHE = False # Caching not helpful when developing
 DELETE_OUTPUT_DIRECTORY = True

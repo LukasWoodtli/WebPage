@@ -26,7 +26,7 @@ npm ci
 
 
 npm run lint
-npm run build -- --base-href https://lukaswoodtli.github.io/newpage/
+npm run build -- --base-href https://lukaswoodtli.github.io/
 npm run test -- --karma-config karma.conf.ci.js
 #npm run e2e:ci
 
@@ -34,7 +34,7 @@ npm run test -- --karma-config karma.conf.ci.js
 GITHUB_USERPAGE_REPO="https://${DEPLOY_KEY}@github.com/LukasWoodtli/LukasWoodtli.github.io"
 
 GITHUB_USERPAGE_CHECKOUT_DIR="${SCRIPT_DIR}/github-userpage-angular"
-GITHUB_USERPAGE_ANGULAR_PAGE_DIR="${GITHUB_USERPAGE_CHECKOUT_DIR}/newpage"
+GITHUB_USERPAGE_ANGULAR_PAGE_DIR="${GITHUB_USERPAGE_CHECKOUT_DIR}/"
 
 git clone ${GITHUB_USERPAGE_REPO} ${GITHUB_USERPAGE_CHECKOUT_DIR}
 
@@ -43,8 +43,6 @@ pushd ${GITHUB_USERPAGE_CHECKOUT_DIR}
 # Don't use jekyll for gh-userpage
 touch "${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll"
 git add "${GITHUB_USERPAGE_CHECKOUT_DIR}/.nojekyll"
-
-rm -rf "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}" && mkdir -p "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 
 cp -r "${SCRIPT_DIR}/../dist/web-page/"* "${GITHUB_USERPAGE_ANGULAR_PAGE_DIR}"
 
