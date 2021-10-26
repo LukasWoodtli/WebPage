@@ -67,7 +67,7 @@ def build_web_page():
 
     # copy output to user page repo
     root_src_dir = os.path.join(REPO_DIRECTORY, "output")
-    root_dest_dir = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage")
+    root_dest_dir = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage", "blog")
 
     # clean up repository
     try:
@@ -90,7 +90,7 @@ def build_web_page():
             shutil.move(src_file, dst_dir)
 
 def publish_web_page():
-    userpage_local_repo = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage", "blog")
+    userpage_local_repo = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage")
     repo = sh.git.bake(_cwd=userpage_local_repo)
     repo.add("*")
     repo.commit(["-m", "Update Github page automated."])
