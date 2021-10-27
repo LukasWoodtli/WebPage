@@ -99,15 +99,9 @@ SOCIAL = [('LinkedIn', 'https://www.linkedin.com/in/lukaswoodtli'),
           ('email','/pages/contact.html')]
 
 # Keep the generated blog index but save it under different name
-INDEX_SAVE_AS = 'blog_index.html'
+#INDEX_SAVE_AS = 'blog_index.html'
 
-MENUITEMS = [
-    ('Resume', 'pages/resume.html'),
-    ('Skills', 'pages/skills.html'),
-    ('Books', 'pages/books.html'),
-    ('Courses', 'pages/courses.html'),
-    ('Projects', 'pages/projects.html'),
-    ('Blog', 'pages/blog.html'),
-    ('Contact', 'pages/contact.html')
-]
+#MENUITEMS = [
+#    ('Blog', 'pages/blog_index.html'),
+#]
 
