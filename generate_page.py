@@ -67,9 +67,7 @@ def build_web_page():
 
     # copy output to user page repo
     root_src_dir = os.path.join(REPO_DIRECTORY, "output")
-    root_dest_dir = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage", "blog")
-    if not os.path.isdir(root_dest_dir):
-        os.mkdir(root_dest_dir)
+    root_dest_dir = os.path.join(ROOTDIR_FOR_REPOS, "github-userpage")
 
     # clean up repository
     try:
