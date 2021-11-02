@@ -106,6 +106,7 @@ Use `ApplicationContext` to launch an IoC container:
     class SpringContext {
     }
 
+
 # Spring Boot
 
 `@SpringBootApplication` is a shortcut for:
@@ -129,6 +130,123 @@ The value can be read from Java:
     public class MyService {
       @Value("${myservice.url}")
       private String url;  // this will contain: http://myservice
+    }
+
+
+
+# REST Services
+
+## Controller
+
+| Class Annotation  | Use                                          |
+|-------------------|----------------------------------------------|
+| `@RestController` | Create REST controller, combination of `@ResponseBody` and `@Controller` |
+
+
+## Handler Methods
+
+There are method annotations for handling a path with a HTTP method:
+
+- `@GetMapping("/path")`
+- `@PostMapping("/path")`
+- `@PutMapping("/path")`
+- `@DeleteMapping("/path")`
+- ...
+
+
+### Parameters to Handler Methods
+
+These annotations can be added to the arguments of the handler method:
+
+| Argument Annotation | Use                     |
+|---------------------|-------------------------|
+| `@PathVariable`     | Capture a path argument |
+| `@PathVariable`     | Capture a path argument |
+
+
+    :::java
+    @GetMapping("/hello/{name}")
+    public MyBean hello(@PathVariable String name,
+                        @RequestBody MyDto body) {
+      return new MyBean();
+    }
+
+
+### Return Values
+
+Usually either a bean (DTO) is returned (which is usually converted to a JSON) or
+a `ResponseEntity<>` can be used to provide some information to the client.
+
+
+## Validation
+| Annotation     | Use                                                |
+|----------------|----------------------------------------------------|
+| `@Valid`       | Argument annotation of a handler method to validate incoming data |
+| `@AssertTrue`  | Checks if boolean field is true                    |
+| `@AssertFalse` | Checks if boolean field is false                   |
+| `@Future`      | Date must be in the future                         |
+| `@Past`        | Date must be in the past                           |
+| `@Max`         | Number must be lower or equal to the given maximum |
+| `@Min`         | Number must be lower or equal to the given minimum |
+| `@NotNull`     | Element cannot be `null`                           |
+| `@Pattern`     | Element must match the given regular expression    |
+| `@Size`        | Element size must be within given boundaries       |
+
+
+
+
+    :::java
+    // contoller
+    @GetMapping("/hello/{name}")
+    public MyBean hello(@PathVariable String name,
+                        @Valid @RequestBody MyDto body) { // validate MyDto here
+      // ...
+    }
+
+    // bean
+    public class MyDto {
+      @NotNull
+      private Date date;
+
+      @Size(min = 5)
+      private String string;
+    }
+
+    }
+
+## Testing
+
+
+### Unit Testing the Controller
+
+    :::java
+    @ExtendWith(SpringExtension.class)  // before Junit 5 use `@RunWith(SpringRunner.class)`
+    @WebMvcTest(value = MyController.class)
+    public class MyControllerTest {
+      @Autowired
+      private MockMvc mvc;
+
+      @MockBean  // mocking with Mockito
+      private MyService service;
+
+      // write tests with `@Test`
+    }
+
+
+### Integration Testing
+
+
+    :::java
+    @ExtendWith(SpringExtension.class)  // before Junit 5 use `@RunWith(SpringRunner.class)`
+    @SpringBootTest(classes = MyApplication.class,
+                    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+      public class MyControllerIT {
+
+      @Autowired
+      private TestRestTemplate template;
+
+      // We are testing also the service layer. So it is not mocked here.
+      // Data access could be mocked with @MockBean
     }
 
 
