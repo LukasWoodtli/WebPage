@@ -105,3 +105,96 @@ Use `ApplicationContext` to launch an IoC container:
     @ComponentScan(basePackages = { "com.mycompany.mypackage" })
     class SpringContext {
     }
+
+# Spring Boot
+
+`@SpringBootApplication` is a shortcut for:
+
+  - `@Configuration`: Spring application context cofiguration
+  - `@EnableAutoConfiguration`: Automatic configuration with sensible (opiniated) defaults
+  - `@ComponentScan`: Scans for Spring beans in the package of this class and all its subpackages
+
+# Custom Configuration
+
+Put a configuration variable as key-value pair into `src/main/resources/application.properties`:
+
+    :::
+    myservice.url=http://myservice
+
+
+The value can be read from Java:
+
+    :::java
+    @Component
+    public class MyService {
+      @Value("${myservice.url}")
+      private String url;  // this will contain: http://myservice
+    }
+
+
+# Spring Security
+
+The Spring Security Filter Chain checks authentication and authorization for every request.
+
+Most important filters:
+
+- `UsernamePasswordAuthenticationFilter`: executed for request with authentication form form submission (`POST`). Responds to the URL `/login` per default.
+- `BasicAuthenticationFilter`: for requests with basic authentication header.
+- `AnonymousAuthenticationFilter`: if no authentication credentials are provided.
+- `ExceptionTranslationFilter`: translates authentication exceptions to HTTP responses.
+- `FilterSecurityInterceptor`: implements security handling via filter implementations.
+- `HeaderWriterFilter`: add security related headers to responses (`X-Frame-Options`, `X-XSS-Protection`, `X-Content-Type-Options`, ...)
+- `CsrfFilter`: enforces Cross-Site Request Forgery (CSRF) protection.
+
+The filters usually call a `Authentication Manager` (default implementation: `ProviderManager`) which itself calls multiple `AuthenticationProvider`s.
+Each authentication provider authenticates the user with a different backend technology:
+
+- `DaoAuthenticationProvider `: uses `UserDetailsService` to authenticate the user.
+    - Spring Security provides *in-memory* and *JDBC* implementations of `UserDetailsService`
+- LDAP support is implemented using the `LdapAuthenticator`
+
+
+## Authorization
+
+`AccessDecisionManager` uses multiple `AccessDecisionVoter` implementations to make access decisions.
+
+Each voter returns one of these results:
+
+- `ACCESS_GRANTED`
+- `ACCESS_ABSTAIN`
+- `ACCESS_DENIED`
+
+
+Default implementations of `AccessDecisionManager`:
+
+- `AffirmativeBased`: grants access if any `AccessDecisionManager` returns a positive response
+- `ConsensusBased`: grants access if the majority of `AccessDecisionManager`s returns a positive response
+- `UnanimousBased`: grants access if all `AccessDecisionManager`s returns a positive response
+
+
+Some implementations of `AccessDecisionVoter`:
+
+- `RoleVoter`: returns a vote based on the role of the user
+- `AuthenticatedVoter`: returns a vote based authentication status of the user
+- `Jsr250Voter`: returns vote based on JSR-250 annotations
+
+
+## Spring Security Annotations
+
+Method level security:
+
+- Add `@EnableGlobalMethodSecurity` on a Spring configuration class.
+- Use `@Secured("ROLE_ADMIN)` on a service method (it's also possible to provide multiple roles).
+
+
+### JSR-250 Annotations
+
+- Add `@EnableGlobalMethodSecurity(jsr250Enabled = true)` on a Spring configuration class.
+- Use `@RolesAllowed("ROLE_ADMIN)` on a service method (it's also possible to provide multiple roles).
+
+
+### Pre and Post Annotation
+
+- Add `@EnableGlobalMethodSecurity(prePostEnabled = true)` on a Spring configuration class.
+- Use `@PreAuthorize(..)` or `@PostAuthorize(..)` to provide extensive checks.
+
