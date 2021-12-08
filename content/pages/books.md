@@ -61,7 +61,7 @@ Title: Books
 | [Structure and Interpretation of Computer Programs](https://github.com/LukasWoodtli/SchemeCourse) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
 | [tmux (Productive Mouse-Free Development)]({filename}/tmux.md) | Brian P. Hogan    | The Pragmatic Bookshelf                                              |
 | Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
-| [Mastering Spring 5.0](https://github.com/LukasWoodtli/mastering-spring/) | Ranga Karanam             | Packt Publishing                                  |
+| [Mastering Spring](https://github.com/LukasWoodtli/mastering-spring/) | Ranga Karanam                 | Packt Publishing                                  |
 | [Full Stack Development with JHipster - Second Edition](https://www.packtpub.com/product/full-stack-development-with-jhipster-second-edition/9781838824983) | Deepu K Sasidharan, Sendil Kumar N  | Packt Publishing |
 
 
@@ -73,13 +73,13 @@ Title: Books
 | Instant HTML5 Presentations How-to                | Davi Ferreira                                     | Packt Publishing                                  |
 
 
-
 # Agile Software Development and Scrum
 
 | Name                                                                                                            | Authors         | Publisher          |
 |-----------------------------------------------------------------------------------------------------------------|-----------------|--------------------|
 | [Scrum and XP from the Trenches (second edition)](https://www.infoq.com/minibooks/scrum-xp-from-the-trenches-2) |  Henrik Kniberg | InfoQ              |
 | [Co-Pilot](https://buchundnetz.com/werke/co-pilot/)  |  Till Bay, Benno Baumgartner, Matthias Hüni, Eva Jutzeler, Michela Pedroni | buch & netz        |
+
 
 # Operating Systems and Networking
 
