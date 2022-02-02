@@ -30,6 +30,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 | Moving to Microservices: Using Domain-Driven Design [...] | [O'Reilly](https://www.oreilly.com/library/view/moving-to-microservices/9780134779270/) |
 | Angular 8 - The Complete Guide         | [O'Reilly](https://www.oreilly.com/library/view/angular-8-/9781788998437/) |
 | Angular Crash Course                   | [O'Reilly](https://www.oreilly.com/library/view/angular-crash-course/9781800209824/) |
+| Rust in Motion                         | [Manning](https://www.manning.com/livevideo/rust-in-motion)                                        |
 | Learning Qt 5                          | [Packt](https://www.packtpub.com/application-development/learning-qt-5-video)                      |
 | Effective Modern C++ live!             | [O'Reilly](https://www.oreilly.com/pub/e/3357)                                                     |
 | Getting Started with C++17 Programming | [Packt](https://www.packtpub.com/application-development/getting-started-c17-programming-video)    |
