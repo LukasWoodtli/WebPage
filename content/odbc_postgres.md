@@ -1,6 +1,6 @@
 Title: ODBC and PostgreSQL
 Category: Programming
-Tags: S
+Tags: SQL
 
 This page collects just some random, incomplete information about ODBC and PostgreSQL on Linux.
 
