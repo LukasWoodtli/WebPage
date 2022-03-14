@@ -39,7 +39,7 @@ def remove_local_repository(local_path):
 def clone_repository(repo, local_path):
     remove_local_repository(local_path)
     print("Cloning repo to ", local_path)
-    sh.git.clone(["--depth=1", "--recursive", repo, local_path])
+    sh.git.clone(["--recursive", repo, local_path])
 
 def clone_needed_repositories():
     for repo in REPOSITORIES:

@@ -1,6 +1,8 @@
-Title: Angular Velocity 
-Category: Mathematics
-Tags: Robotics
+---
+title: "Angular Velocity"
+category: "Mathematics"
+tags: "Robotics"
+---
 
 Rotation of a body in space can be represented with a unit rotation vector
 (axis) and an angle of rotation around this axis.
