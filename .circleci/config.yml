@@ -12,18 +12,7 @@ jobs:
       - run:
           name: Build Web Page
           command: ./generate_page.py
-  build_angular_page:
-    docker:
-      - image: cypress/browsers:node14.15.0-chrome86-ff82
-    working_directory: ~/WebPage
-    steps:
-      - checkout
-      - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
-      - run:
-          name: Build Angular Web Page
-          command: ./.circleci/build_angular_app.sh
 workflows:
-  build-both-pages:
+  build-page:
     jobs:
       - build
-      - build_angular_page

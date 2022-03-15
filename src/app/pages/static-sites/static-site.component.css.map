@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,UAAU;EACR,OAAO,EAAE,KAAK;;AAGhB;eAAS;EAEP,OAAO,EAAE,IAAI;EACb,mBAAmB,EAAE,GAAG;EACxB,mBAAmB,EAAE,KAAK;EAC1B,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,MAAM;;AAGjB;gBAAU;EAER,IAAI,EAAE,CAAC;EACP,QAAQ,EAAE,MAAM;EAChB,SAAS,EAAE,UAAU",
-"sources": ["resume.component.sass"],
-"names": [],
-"file": "resume.component.css"
-}
