@@ -1,8 +1,9 @@
-Title: Linux System Calls
-Category: Programming
-Tags: Assembler, Computer Science, OS, Linux
-Date: 2017-11-06
-
+---
+title: Linux System Calls
+category: Programming
+tags: [Assembler, Computer Science, OS, Linux]
+date: 2017-11-06
+---
 A system call is the basic interface between applications and the kernel.
 
 Linux has more than 300 [system calls](http://man7.org/linux/man-pages/man2/syscalls.2.html).

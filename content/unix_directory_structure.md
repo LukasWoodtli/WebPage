@@ -1,9 +1,10 @@
-Title: Unix Directory Structure
-Category: Programming
-Tags: Computer Science, OS, Linux, Unix
-Date: 2016-09-30
-Modified: 2016-09-30
-
+---
+title: Unix Directory Structure
+category: Programming
+tags: [Computer Science, OS, Linux, Unix]
+date: 2016-09-30
+modified: 2016-09-30
+---
 
 # Linux
 

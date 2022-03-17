@@ -1,8 +1,9 @@
-Title: Software Development Priorities
-Date: 2017-03-31
-Category: Programming
-Tags: Software Development Methodology
-
+---
+title: Software Development Priorities
+date: 2017-03-31
+category: Programming
+tags: [Software Development Methodology]
+---
 
 > This page is still work in progress
 

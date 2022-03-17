@@ -1,8 +1,9 @@
-Title: Linking and Loading
-Date: 2015-08-11
-Category: Programming
-Tags: Computer Science, OS, Linux, Unix
-
+---
+title: Linking and Loading
+date: 2015-08-11
+category: Programming
+tags: [Computer Science, OS, Linux, Unix]
+---
 The different forms of Linking
 
 There are two major forms of linking: static and dynamic. But there are some subtle details in each form of linking.

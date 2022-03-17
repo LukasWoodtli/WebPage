@@ -1,8 +1,9 @@
-Title: Evaluation strategy
-Date: 2016-07-12
-Category: Programming
-Tags: Computer Science
-
+---
+title: Evaluation strategy
+date: 2016-07-12
+category: Programming
+tags: [Computer Science]
+---
 See also: [Wikipedia: Evaluation
 strategy](https://en.wikipedia.org/wiki/Evaluation_strategy)
 

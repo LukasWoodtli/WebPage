@@ -1,8 +1,9 @@
-Title: FreeRTOS
-Category: Programming
-Tags: Computer Science, OS, FreeRTOS, Embedded Systems
-Date: 2017-06-16
-
+---
+title: FreeRTOS
+category: Programming
+tags: [Computer Science, OS, FreeRTOS, Embedded Systems]
+date: 2017-06-16
+---
 This page contains some random notes for FreeRTOS.
 
 See also: [FreeRtosExamples](https://github.com/LukasWoodtli/FreeRtosExamples)

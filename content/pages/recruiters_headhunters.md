@@ -1,5 +1,6 @@
-Title: Note to Recruiters and Headhunters
-
+---
+title: Note to Recruiters and Headhunters
+---
 If you are a recruiter (headhunter) and are looking to hire me, please read this page before [contacting me]({filename}/pages/contact.md).
 
 I'm currently *not* looking for a new job. But I'm always open for new interesting challenges.

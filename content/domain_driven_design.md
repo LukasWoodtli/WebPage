@@ -1,7 +1,8 @@
-Title: Domain Driven Design
-Category: Programming
-Tags: Agile, Scrum, XP, Software Development Methodology
-
+---
+title: Domain Driven Design
+category: Programming
+tags: [Agile, Scrum, XP, Software Development Methodology]
+---
 [TOC]
 
 

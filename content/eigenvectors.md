@@ -1,6 +1,7 @@
-Title: Eigenvectors and Eigenvalues
-Category: Mathematics
-
+---
+title: Eigenvectors and Eigenvalues
+category: Mathematics
+---
 An eigenvector of a linear transformation is a vector (non-zero) that, when the linear transformation is applied to it, changes by only a scalar factor. This scalar factor is called eigenvalue.
 
 $$A \cdot \overrightarrow{v} = \lambda \cdot \overrightarrow{v}$$

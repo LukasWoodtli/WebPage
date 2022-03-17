@@ -1,9 +1,10 @@
-Title: Synchronization Primitives (Read-Modify-Write)
-Category: Programming
-Tags: Assembler
-Date: 2015-03-17
-Modified: 2015-03-17
-
+---
+title: Synchronization Primitives (Read-Modify-Write)
+category: Programming
+tags: [Assembler]
+date: 2015-03-17
+modified: 2015-03-17
+---
 # Read-Modify-Write
 
 

@@ -1,8 +1,9 @@
-Title: Scheme: Frequently used Functions
-Date: 2016-10-14
-Category: Programming
-Tags: Lisp
-
+---
+title: Scheme
+date: 2016-10-14
+category: Programming
+tags: [Lisp]
+---
 
 # Pairs (`cons`, `car` and `cdr`)
 

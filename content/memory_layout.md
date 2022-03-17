@@ -1,9 +1,10 @@
-Title: Memory Layout
-Date: 2015-06-09
-Modified: 2015-07-06
-Category: Programming
-Tags: C, C++
-
+---
+title: Memory Layout
+date: 2015-06-09
+modified: 2015-07-06
+category: Programming
+tags: [C, C++]
+---
 
 When a process is started the operating system allocates memory for this process.
 On modern systems this memory is usually mapped to an virtual address space (using the MMU).

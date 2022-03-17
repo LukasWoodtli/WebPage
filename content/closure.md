@@ -1,8 +1,9 @@
-Title: Closure
-Date: 2016-10-13
-Category: Programming
-Tags: Lisp
-
+---
+title: Closure
+date: 2016-10-13
+category: Programming
+tags: [Lisp]
+---
 There are 2 concepts that are called *closure*
 
 # Lambdas

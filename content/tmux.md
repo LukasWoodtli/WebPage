@@ -1,7 +1,8 @@
-Title: tmux
-Category: Programming
-Tags: Tools, Cheat Sheet, Unix, Linux
-
+---
+title: tmux
+category: Programming
+tags: [Tools, Cheat Sheet, Unix, Linux]
+---
 [TOC]
 
 # Prefix Key

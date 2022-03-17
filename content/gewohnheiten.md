@@ -1,7 +1,8 @@
-Title: Gewohnheiten
-Category: Misc
-Tags: German
-
+---
+title: Gewohnheiten
+category: Misc
+tags: [German]
+---
 [TOC]
 
 

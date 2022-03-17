@@ -1,7 +1,8 @@
-Title: Twists
-Category: Mechanics
-Tags: Robotics
-
+---
+title: Twists
+category: Mechanics
+tags: [Robotics]
+---
 # Linear and Angular (Spacial) Velocities
 
 Given a transformation matrix that represents the configuration $\{b\}$ as seen from $\{s\}$

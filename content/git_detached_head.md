@@ -1,9 +1,10 @@
-Title: Git: Commit a older version to HEAD
-Date: 2015-11-18
-Modified: 2015-11-18
-Category: Programming
-Tags: Git, Version Control
-
+---
+title: Git Detached Head
+date: 2015-11-18
+modified: 2015-11-18
+category: Programming
+tags: [Git, Version Control]
+---
 If a `HEAD` has to be reset to a older version this is a possible workflow.
 
 The solution is from [stackoverflow](http://stackoverflow.com/a/5772882)

@@ -1,9 +1,10 @@
-Title: Vector Calculus
-Date: 2015-09-09
-Modified: 2015-09-09
-Category: Mathematics
-Tags: Calculus
-
+---
+title: Vector Calculus
+date: 2015-09-09
+modified: 2015-09-09
+category: Mathematics
+tags: [Calculus]
+---
 Some notes about Vector Calculus. Mainly Divergence, Gradient and Curl.
 
 [TOC]

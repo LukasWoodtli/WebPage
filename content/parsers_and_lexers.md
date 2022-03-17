@@ -1,9 +1,10 @@
-Title: Parsers and Lexers
-Category: Programming
-Tags: Parsing, Computer Science
-Date: 2017-01-08
-Modified: 2018-01-09
-
+---
+title: Parsers and Lexers
+category: Programming
+tags: [Parsing, Computer Science]
+date: 2017-01-08
+modified: 2018-01-09
+---
 > Most material on this page is from [Udacity: Programming Languages](https://de.udacity.com/course/programming-languages--cs262/)
 
 

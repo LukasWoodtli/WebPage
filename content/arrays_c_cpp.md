@@ -1,9 +1,10 @@
-Title: Arrays in C and C++
-Category: Programming
-Tags: C, C++
-Date: 2015-07-15
-Modified: 2015-07-15
-
+---
+title: Arrays in C and C++
+category: Programming
+tags: [C, C++]
+date: 2015-07-15
+modified: 2015-07-15
+---
 Arrays are simple but quite powerful constructs in C/C++.
 They are merely a representation of consecutive data in memory.
 

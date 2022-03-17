@@ -1,8 +1,9 @@
-Title: Preprocessor Defines
-Date: 2015-08-1
-Category: Programming
-Tags: C, C++
-
+---
+title: Preprocessor Defines
+date: 2015-08-1
+category: Programming
+tags: [C, C++]
+---
 Preprocessor Defines
 ====================
 

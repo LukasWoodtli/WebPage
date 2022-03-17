@@ -1,8 +1,9 @@
-Title: Macro Magic in C and C++
-Date: 2015-05-15
-Category: Programming
-Tags: C, C++
-
+---
+title: Macro Magic in C and C++
+date: 2015-05-15
+category: Programming
+tags: [C, C++]
+---
 
 Macro Tricks
 ============

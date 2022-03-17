@@ -1,9 +1,10 @@
-Title: ARM Cortex-M3 Architecture
-Category: Programming
-Tags: Computer Science, Assembler, Embedded Systems
-Date: 2015-07-03
-Modified: 2015-07-19
-
+---
+title: ARM Cortex-M3 Architecture
+category: Programming
+tags: [Computer Science, Assembler, Embedded Systems]
+date: 2015-07-03
+modified: 2015-07-19
+---
 This page collects my notes about the Cortex-M3 architecture.
 In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by
 [Silicon Labs](https://www.silabs.com/).

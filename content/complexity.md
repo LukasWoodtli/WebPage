@@ -1,7 +1,8 @@
-Title: Complexity
-Date: 2017-01-08
-Category: Programming
-
+---
+title: Complexity
+date: 2017-01-08
+category: Programming
+---
 
 > This page is work in progress
 

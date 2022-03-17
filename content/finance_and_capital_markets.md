@@ -1,7 +1,8 @@
-Title: Finance and Capital Markets
-Date: 2018-02-26
-Category: Finance
-
+---
+title: Finance and Capital Markets
+date: 2018-02-26
+category: Finance
+---
 > This article is work in progress
 
 Present Value (Barwert): value of expected income stream as of the valuation date (i.e. present). Concept of *time value of money*

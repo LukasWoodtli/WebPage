@@ -1,7 +1,8 @@
-Title: Skew-symmetric matrix 
-Category: Mathematics
-Tags: Robotics
-
+---
+title: Skew-symmetric matrix
+category: Mathematics
+tags: [Robotics]
+---
 
 A skew-symmetric matrix has the property:
 

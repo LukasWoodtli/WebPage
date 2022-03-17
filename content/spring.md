@@ -1,7 +1,8 @@
-Title: Spring
-Category: Programming
-Tags: OOP
-
+---
+title: Spring
+category: Programming
+tags: [OOP]
+---
 
 # Dependency Injection and Inversion of Control
 

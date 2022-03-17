@@ -1,8 +1,9 @@
-Title: x86 Calling Conventions
-Category: Programming
-Tags: Assembler, Embedded Systems, Computer Science
-Date: 2017-11-05
-
+---
+title: x86 Calling Conventions
+category: Programming
+tags: [Assembler, Embedded Systems, Computer Science]
+date: 2017-11-05
+---
 
 There are a lot of different calling conventions fir x86 processors.
 See also [Wikipedia:x86 calling conventions](https://en.m.wikipedia.org/wiki/X86_calling_conventions)

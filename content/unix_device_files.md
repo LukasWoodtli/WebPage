@@ -1,8 +1,9 @@
-Title: Unix Device Files
-Category: Programming
-Tags: Computer Science, OS, Linux, Unix
-Date: 2017-03-05
-
+---
+title: Unix Device Files
+category: Programming
+tags: [Computer Science, OS, Linux, Unix]
+date: 2017-03-05
+---
 Device files provide access to drivers through files.
 
 They are listed under `/dev`.

@@ -1,9 +1,10 @@
-Title: Midnight Commander
-Date: 2018-06-05
-Modified: 2018-06-05
-Category: Programming
-Tags: Tools, Cheat Sheet, Unix, Linux
-
+---
+title: Midnight Commander
+date: 2018-06-05
+modified: 2018-06-05
+category: Programming
+tags: [Tools, Cheat Sheet, Unix, Linux]
+---
 [TOC]
 
 

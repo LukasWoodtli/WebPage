@@ -1,9 +1,10 @@
-Title: Concepts of Object Oriented Programming
-Category: Programming
-Tags: C++, Python, OOP, ETH
-Date: 2015-07-27
-Modified: 2015-07-27
-
+---
+title: Concepts of Object Oriented Programming
+category: Programming
+tags: [C++, Python, OOP, ETH]
+date: 2015-07-27
+modified: 2015-07-27
+---
 [TOC]
 
 # Core Requirements to OOP Languages

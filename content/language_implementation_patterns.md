@@ -1,7 +1,8 @@
-Title: Language Implementation Patterns
-Category: Programming
-Tags: Computer Science, Parsing, Design Patterns
-
+---
+title: Language Implementation Patterns
+category: Programming
+tags: [Computer Science, Parsing, Design Patterns]
+---
 
 This page collects notes and citations from the book:
 

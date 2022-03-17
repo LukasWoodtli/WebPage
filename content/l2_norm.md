@@ -1,9 +1,10 @@
-Title: L2-Norm
-Category: Mathematics
-Tags: Data Minig, ETH
-Date: 2016-01-08
-Modified: 2016-01-08
-
+---
+title: L2-Norm
+category: Mathematics
+tags: [Data Minig, ETH]
+date: 2016-01-08
+modified: 2016-01-08
+---
 L2-Norm
 =======
 

@@ -1,6 +1,7 @@
-Title: Electrical Motors
-Category: Mechanics
-
+---
+title: Electrical Motors
+category: Mechanics
+---
 
 > This page is work in progress
 

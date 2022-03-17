@@ -1,7 +1,8 @@
-Title: Lernen
-Category: Misc
-Tags: German
-
+---
+title: Lernen
+category: Misc
+tags: [German]
+---
 [TOC]
 
 

@@ -1,7 +1,8 @@
-Title: Mechanical Constraints
-Category: Mechanics
-Tags: Robotics
-
+---
+title: Mechanical Constraints
+category: Mechanics
+tags: [Robotics]
+---
 
 # Pfaffian Constraints
 

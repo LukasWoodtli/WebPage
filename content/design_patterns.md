@@ -1,9 +1,10 @@
-Title: List of Design Patterns
-Date: 2015-09-17
-Modified: 2018-05-31
-Category: Programming
-Tags: C++, Python, OOP
-
+---
+title: List of Design Patterns
+date: 2015-09-17
+modified: 2018-05-31
+category: Programming
+tags: [C++, Python, OOP]
+---
 
 Overview of Design Patterns
 ---------------------------

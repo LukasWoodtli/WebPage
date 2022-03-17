@@ -1,8 +1,9 @@
-﻿Title: Understanding Computation
-Category: Programming
-Tags: Computer Science
-Date: 2016-09-12
-
+---
+title: Understanding Computation
+category: Programming
+tags: [Computer Science]
+date: 2016-09-12
+---
 This page collects notes and citations from the book:
 
 [Understanding Computation by Tom Stuart](http://computationbook.com/)

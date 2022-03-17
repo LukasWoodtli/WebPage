@@ -1,8 +1,9 @@
-Title: Sanitizers
-Category: Programming
-Tags: C, C++, Dynamic Analysis
-Date: 2018-03-05
-
+---
+title: Sanitizers
+category: Programming
+tags: [C, C++, Dynamic Analysis]
+date: 2018-03-05
+---
 [TOC]
 
 # Sanitizers

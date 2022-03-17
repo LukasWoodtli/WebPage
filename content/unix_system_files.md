@@ -1,8 +1,9 @@
-Title: Unix System Files
-Category: Programming
-Tags: Computer Science, OS, Linux, Unix
-Date: 2017-03-06
-
+---
+title: Unix System Files
+category: Programming
+tags: [Computer Science, OS, Linux, Unix]
+date: 2017-03-06
+---
 # `/etc/passwd`
 
 Contains user informations. The information fields are separated by a colon.

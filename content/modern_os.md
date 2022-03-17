@@ -1,9 +1,10 @@
-Title: Modern OS's
-Category: Programming
-Tags: Computer Science, OS
-Date: 2015-04-01
-Modified: 2018-05-30
-
+---
+title: Modern OS's
+category: Programming
+tags: [Computer Science, OS]
+date: 2015-04-01
+modified: 2018-05-30
+---
 This page collects some notes about different Operating System approaches.
 
 Most of the information gathered here is from the course [Advanced Operating Systems](https://www.udacity.com/course/ud189).

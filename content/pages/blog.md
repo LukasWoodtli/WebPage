@@ -1,5 +1,6 @@
-Title: Blog
-
+---
+title: Blog
+---
 This [blog](/blog_index.html) is mainly needed for me to write down my notes. But some of it
 might even be useful to others.
 

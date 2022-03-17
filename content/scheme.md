@@ -1,7 +1,8 @@
-Title: Scheme (Lisp)
-Category: Programming
-Tags: Lisp
-
+---
+title: Scheme (Lisp)
+category: Programming
+tags: [Lisp]
+---
 This page collects notes about Scheme (an Lisp in general).
 
 [TOC]

@@ -1,8 +1,9 @@
-Title: Visualization of Functions
-Date: 2017-04-03
-Category: Mathematics
-Tags: Calculus
-
+---
+title: Visualization of Functions
+date: 2017-04-03
+category: Mathematics
+tags: [Calculus]
+---
 Some notes how to visualize mathematical functions.
 
 [TOC]

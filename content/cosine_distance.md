@@ -1,9 +1,10 @@
-Title: Cosine Distance
-Category: Mathematics
-Tags: Data Minig, ETH
-Date: 2016-01-08
-Modified: 2016-01-08
-
+---
+title: Cosine Distance
+category: Mathematics
+tags: [Data Minig, ETH]
+date: 2016-01-08
+modified: 2016-01-08
+---
 - useful in spaces that have dimensions
     - Euclidian spaces
     - Discrete euclidian spaces (i.e vectors of integers, vector of bools)

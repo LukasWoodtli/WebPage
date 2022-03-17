@@ -1,5 +1,6 @@
-Title: Skills
-
+---
+title: Skills
+---
 [TOC]
 
 Please check also the page with [my projects]({filename}/pages/projects.md).

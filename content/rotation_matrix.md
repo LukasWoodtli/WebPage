@@ -1,7 +1,8 @@
-Title: Rotation Matrix
-Category: Mechanics
-Tags: Robotics
-
+---
+title: Rotation Matrix
+category: Mechanics
+tags: [Robotics]
+---
 > This page is work in progress
 
 [TOC]

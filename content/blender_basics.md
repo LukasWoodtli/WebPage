@@ -1,9 +1,10 @@
-Title: Blender Basics
-Date: 2018-04-14
-Modified: 2018-06-05
-Category: Misc
-Tags: Blender, Cheat Sheet
-
+---
+title: Blender Basics
+date: 2018-04-14
+modified: 2018-06-05
+category: Misc
+tags: [Blender, Cheat Sheet]
+---
 [TOC]
 
 Right-handed (Rechtshändiges) Cartesian coordinate system. Axes:

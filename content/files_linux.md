@@ -1,9 +1,10 @@
-Title: Files and File descriptors on Linux
-Category: Programming
-Tags: Computer Science, OS, Linux
-Date: 2016-06-03
-Modified: 2018-05-30
-
+---
+title: Files and File descriptors on Linux
+category: Programming
+tags: [Computer Science, OS, Linux]
+date: 2016-06-03
+modified: 2018-05-30
+---
 
 Some information on this page is taken from [here](http://openbook.rheinwerk-verlag.de/linux_unix_programmierung/Kap02-001.htm) (German).
 

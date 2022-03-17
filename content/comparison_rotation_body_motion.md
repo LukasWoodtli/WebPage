@@ -1,7 +1,8 @@
-Title: Comparison of Rotations and Rigid-Body Motions
-Category: Mechanics
-Tags: Robotics
-
+---
+title: Comparison of Rotations and Rigid-Body Motions
+category: Mechanics
+tags: [Robotics]
+---
 [TOC]
 
 # Analogies

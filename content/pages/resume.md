@@ -1,5 +1,6 @@
-Title: Resume
-
+---
+title: Resume
+---
 
 # Personal Data
 Lukas Woodtli

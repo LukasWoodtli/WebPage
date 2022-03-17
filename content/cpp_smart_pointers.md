@@ -1,8 +1,9 @@
-Title: Smart Pointers
-Category: Programming
-Tags: C++
-Date: 2017-03-20
-
+---
+title: Smart Pointers
+category: Programming
+tags: [C++]
+date: 2017-03-20
+---
 From:
 [Smart Pointers to boost your code](http://www.codeproject.com/Articles/8394/Smart-Pointers-to-boost-your-code)
 

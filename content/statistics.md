@@ -1,9 +1,10 @@
-Title: Introduction to Statistics
-Date: 2015-05-22
-Modified: 2015-06-01
-Category: Mathematics
-Tags: Statistics
-
+---
+title: Introduction to Statistics
+date: 2015-05-22
+modified: 2015-06-01
+category: Mathematics
+tags: [Statistics]
+---
 > This article is still work in progress!
 
 The notes on this page are from the Udacity course

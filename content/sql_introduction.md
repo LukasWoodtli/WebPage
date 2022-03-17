@@ -1,9 +1,10 @@
-Title: Intro to SQL
-Date: 2015-04-13
-Modified: 2016-06-26
-Category: Programming
-Tags: SQL
-
+---
+title: Intro to SQL
+date: 2015-04-13
+modified: 2016-06-26
+category: Programming
+tags: [SQL]
+---
 Most notes taken here are from the [Udacity SQL course](https://www.udacity.com/course/ud197)
 
 Aggregations

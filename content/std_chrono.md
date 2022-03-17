@@ -1,7 +1,8 @@
-Title: Notes on std::chrono
-Category: Programming
-Tags: C++
-
+---
+title: Notes on std
+category: Programming
+tags: [C++]
+---
 There is a good documentaion at [cppreference.com](https://en.cppreference.com/w/cpp/header/chrono)
 
 # General

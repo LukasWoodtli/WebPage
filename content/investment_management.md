@@ -1,8 +1,9 @@
-Title: Investment Management (Coursera Specialization)
-Date: 2017-07-28
-Category: Finance
-Tags: Investment Management
-
+---
+title: Investment Management (Coursera Specialization)
+date: 2017-07-28
+category: Finance
+tags: [Investment Management]
+---
 # Contents
 
 [TOC]

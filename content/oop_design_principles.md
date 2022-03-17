@@ -1,9 +1,10 @@
-Title: Object Oriented Design Principles
-Date: 2018-05-31
-Modified: 2018-05-31
-Category: Programming
-Tags: C++, Python, OOP
-
+---
+title: Object Oriented Design Principles
+date: 2018-05-31
+modified: 2018-05-31
+category: Programming
+tags: [C++, Python, OOP]
+---
 [TOC]
 
 

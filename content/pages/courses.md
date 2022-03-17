@@ -1,5 +1,6 @@
-Title: Courses
-
+---
+title: Courses
+---
 It's very important to stay up to date about technological progress and to improve own skills. One of the best way to keep the pace on this fast changig topcs is to attend to courses.
 
 Another one is to read [books]({filename}/pages/books.md) about the topics.

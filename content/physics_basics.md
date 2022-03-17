@@ -1,6 +1,7 @@
-Title: Physics Basics
-Category: Misc
-
+---
+title: Physics Basics
+category: Misc
+---
 
 ![Physics 1](/images/physics/physics_1.jpeg)
 ![Physics 2](/images/physics/physics_2.jpeg)

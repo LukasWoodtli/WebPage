@@ -1,9 +1,10 @@
-Title: Object Databases
-Category: Programming
-Tags: ETH, OOP
-Date: 2016-02-20
-Modified: 2016-02-20
-
+---
+title: Object Databases
+category: Programming
+tags: [ETH, OOP]
+date: 2016-02-20
+modified: 2016-02-20
+---
 
 [TOC]
 

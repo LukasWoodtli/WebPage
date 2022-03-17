@@ -1,9 +1,10 @@
-Title: Distance Functions and Metrics
-Category: Mathematics
-Tags: Data Minig
-Date: 2015-09-26
-Modified: 2015-09-26
-
+---
+title: Distance Functions and Metrics
+category: Mathematics
+tags: [Data Minig]
+date: 2015-09-26
+modified: 2015-09-26
+---
 
 Distant Functions
 =================

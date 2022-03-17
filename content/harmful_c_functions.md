@@ -1,7 +1,8 @@
-Title: Harmful C Functions and their replacements
-Category: Programming
-Tags: C, C++
-
+---
+title: Harmful C Functions and their replacements
+category: Programming
+tags: [C, C++]
+---
 [TOC]
 
 # Pre- and postfixes for printf and scanf

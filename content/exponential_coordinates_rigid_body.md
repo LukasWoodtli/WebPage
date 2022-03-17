@@ -1,7 +1,8 @@
-Title: Exponential Coordinate Representation of Rigid-Body Motions 
-Category: Mathematics
-Tags: Robotics
-
+---
+title: Exponential Coordinate Representation of Rigid-Body Motions
+category: Mathematics
+tags: [Robotics]
+---
 
 Every displacement of a rigid body can be expressed as a displacement along a fixed screw axis $S$ (*Chasles-Mozzi theorem*).
 

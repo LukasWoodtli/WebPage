@@ -14,4 +14,4 @@ sphinxcontrib-inlinesyntaxhighlight
 pyOpenSSL>=0.14.0
 bs4
 gitpython
-PyYAML>=6.0
+git+https://github.com/pR0Ps/pelican-yaml-metadata.git

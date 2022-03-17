@@ -1,7 +1,8 @@
-﻿Title: Practical C++ Metaprogramming
-Category: Programming
-Tags: C++
-
+---
+title: Practical C++ Metaprogramming
+category: Programming
+tags: [C++]
+---
 
 Notes taken from:
 

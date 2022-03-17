@@ -1,9 +1,10 @@
-Title: Regular Expressions
-Date: 2016-10-07
-Modified: 2016-10-07
-Category: Programming
-tags: Computer Science
-
+---
+title: Regular Expressions
+date: 2016-10-07
+modified: 2016-10-07
+category: Programming
+tags: [Computer Science]
+---
 
 See also [the Python Standard Library Documentation](https://docs.python.org/3/library/re.html)
 

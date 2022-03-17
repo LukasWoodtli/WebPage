@@ -1,7 +1,8 @@
-Title: Space Topology
-Category: Mechanics
-Tags: Robotics
-
+---
+title: Space Topology
+category: Mechanics
+tags: [Robotics]
+---
 # Space Topology
 
 - Euclidian space: $\mathbb{E}^n$ or $\mathbb{R}^n$

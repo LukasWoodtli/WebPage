@@ -1,7 +1,8 @@
-Title: Setup a new Machine
-Category: Programming
-Tags: Tools, Cheat Sheet, Unix, Linux
-
+---
+title: Setup a new Machine
+category: Programming
+tags: [Tools, Cheat Sheet, Unix, Linux]
+---
 Some notes on what to do to setup a new machine for my development projects.
 
 # Linux

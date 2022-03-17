@@ -1,7 +1,8 @@
-Title: Wrenches
-Category: Mechanics
-Tags: Robotics
-
+---
+title: Wrenches
+category: Mechanics
+tags: [Robotics]
+---
 
 A linear force $f$ acting on a rigid body at point $p$ creates a *torque* (*moment*) $m$ that can be represented in a reference frame $\{a\}$ as:
 

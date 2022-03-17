@@ -1,7 +1,8 @@
-Title: Pose and Position
-Category: Mechanics
-Tags: Robotics
-
+---
+title: Pose and Position
+category: Mechanics
+tags: [Robotics]
+---
 > This page is work in progress
 
 [TOC]

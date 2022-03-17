@@ -1,6 +1,7 @@
-Title: Open Source Software
-Category: Programming
-
+---
+title: Open Source Software
+category: Programming
+---
 
 # Open Source, Free Software, Proprietary and Companies interests
 

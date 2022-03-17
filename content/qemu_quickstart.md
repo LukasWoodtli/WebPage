@@ -1,8 +1,9 @@
-Title: QEMU Quickstart
-Category: Programming
-Tags: Embedded Systems, OS
-Date: 2018-03-06
-
+---
+title: QEMU Quickstart
+category: Programming
+tags: [Embedded Systems, OS]
+date: 2018-03-06
+---
 This shows a basic use for QEMU.
 
 See also [QEMU Documentation](https://www.qemu.org/docs/master/system/index.html)

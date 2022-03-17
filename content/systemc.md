@@ -1,9 +1,10 @@
-Title: SystemC
-Category: Programming
-Tags: Computer Science, C++, Embedded Systems
-Date: 2016-02-15
-Modified: 2016-02-19
-
+---
+title: SystemC
+category: Programming
+tags: [Computer Science, C++, Embedded Systems]
+date: 2016-02-15
+modified: 2016-02-19
+---
 SystemC is a system-level modeling language. It's implemented as a C++ library.
 
 The library is open source and platform independent.

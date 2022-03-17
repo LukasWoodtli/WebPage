@@ -1,8 +1,9 @@
-Title: Enums in C and C++
-Date: 2015-04-16
-Category: Programming
-Tags: C, C++
-
+---
+title: Enums in C and C++
+date: 2015-04-16
+category: Programming
+tags: [C, C++]
+---
 Enums in C and C++ are a very simple construct. It’s just a collection of identifiers that have (usually) distinctive values. 
 By default the values increase by one in the stated order. But the values can defined by the programmer.
 Even if enums are a simple language construct there are special precautions that need to be taken when using them:

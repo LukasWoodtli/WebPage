@@ -1,7 +1,8 @@
-Title: Configuration Space and Degrees of Freedoms
-Category: Mechanics
-Tags: Robotics
-
+---
+title: Configuration Space and Degrees of Freedoms
+category: Mechanics
+tags: [Robotics]
+---
 
 
 

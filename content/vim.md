@@ -1,7 +1,8 @@
-Title: vim
-Category: Programming
-Tags: Tools, Cheat Sheet, Unix, Linux
-
+---
+title: vim
+category: Programming
+tags: [Tools, Cheat Sheet, Unix, Linux]
+---
 [TOC]
 
 # Modes

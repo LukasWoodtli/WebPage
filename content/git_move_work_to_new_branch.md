@@ -1,9 +1,10 @@
-Title: Move actual work to a new Branch
-Date: 2015-05-29
-Modified: 2015-06-01
-Category: Programming
-Tags: Git, Version Control
-
+---
+title: Move actual work to a new Branch
+date: 2015-05-29
+modified: 2015-06-01
+category: Programming
+tags: [Git, Version Control]
+---
 This useful description is taken from: [git: fetch and merge, don’t pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 
 Suppose you're working on the main branch of a project (called 'master')

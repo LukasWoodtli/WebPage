@@ -1,8 +1,9 @@
-Title: Emacs Artist Mode
-Date: 2015-05-03
-Category: Programming
-Tags: Tools, Emacs
-
+---
+title: Emacs Artist Mode
+date: 2015-05-03
+category: Programming
+tags: [Tools, Emacs]
+---
 | Keys     | Command            | Description                              |
 |----------|--------------------|------------------------------------------|
 | -        | artist-mode        | Start artist mode                        |

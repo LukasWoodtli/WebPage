@@ -1,9 +1,10 @@
-Title: System Construction
-Category: Programming
-Tags: ETH, Assembler
-Date: 2015-11-07
-Modified: 2016-01-03
-
+---
+title: System Construction
+category: Programming
+tags: [ETH, Assembler]
+date: 2015-11-07
+modified: 2016-01-03
+---
 
 > My Notes for the *System Construction* Course at ETH
 

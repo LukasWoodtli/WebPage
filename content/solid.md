@@ -1,7 +1,8 @@
-Title: SOLID Design Principles
-Category: Programming
-Tags: C++, Python, OOP
-
+---
+title: SOLID Design Principles
+category: Programming
+tags: [C++, Python, OOP]
+---
 
 # The Single Responsibility Principle (SRP)
 

@@ -1,9 +1,10 @@
-Title: Endianness
-Date: 2015-06-17
-Modified: 2015-06-17
-Category: Programming
-Tags: C, C++
-
+---
+title: Endianness
+date: 2015-06-17
+modified: 2015-06-17
+category: Programming
+tags: [C, C++]
+---
 
 
 The endianness means the representation of a variable (if it is bigger than one byte) in the memory.

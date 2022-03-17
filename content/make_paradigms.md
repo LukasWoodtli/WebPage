@@ -1,8 +1,9 @@
-Title: Make as multi-paradigm language
-Date: 2017-11-29
-Category: Programming
-Tags: Build Tools, Computer Science
-
+---
+title: Make as multi-paradigm language
+date: 2017-11-29
+category: Programming
+tags: [Build Tools, Computer Science]
+---
 Make can be seen as a multi-paradigm programming language.
 
 It supports at least three paradigms:

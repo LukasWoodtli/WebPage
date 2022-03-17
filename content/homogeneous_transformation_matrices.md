@@ -1,7 +1,8 @@
-Title: Homogeneous Transformation Matrices 
-Category: Mathematics
-Tags: Robotics
-
+---
+title: Homogeneous Transformation Matrices
+category: Mathematics
+tags: [Robotics]
+---
 # Planar rigid-body motions
 
 A planar rigid body motion is defined as:

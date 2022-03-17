@@ -1,9 +1,10 @@
-Title: Agile Software Development
-Date: 2015-05-29
-Modified: 2018-05-30
-Category: Programming
-Tags: Agile, Scrum, XP, Software Development Methodology
-
+---
+title: Agile Software Development
+date: 2015-05-29
+modified: 2018-05-30
+category: Programming
+tags: [Agile, Scrum, XP, Software Development Methodology]
+---
 
 [TOC]
 

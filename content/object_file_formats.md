@@ -1,9 +1,10 @@
-Title: Object File Formats
-Date: 2015-08-05
-Modified: 2015-08-05
-Category: Programming
-Tags: OS
-
+---
+title: Object File Formats
+date: 2015-08-05
+modified: 2015-08-05
+category: Programming
+tags: [OS]
+---
 
 Most information of this page is taken from
 [Calling conventions for different C++ compilers and operating systems](http://www.agner.org/optimize/#manuals).

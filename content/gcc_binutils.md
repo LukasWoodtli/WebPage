@@ -1,8 +1,9 @@
-Title: GCC, binutils and other developer tools
-Category: Programming
-Tags: C, C++, OS, Linux
-Date: 2018-02-22
-
+---
+title: GCC, binutils and other developer tools
+category: Programming
+tags: [C, C++, OS, Linux]
+date: 2018-02-22
+---
 > Work in Progress!
 
 [TOC]

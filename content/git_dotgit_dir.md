@@ -1,8 +1,9 @@
-Title: Git: The .git Directory
-Date: 2017-06-29
-Category: Programming
-Tags: Git, Version Control
-
+---
+title: Dot Git Directory
+date: 2017-06-29
+category: Programming
+tags: [Git, Version Control]
+---
 
 Some notes about the contents of the `.git` directory that resides in the root of a git repository.
 

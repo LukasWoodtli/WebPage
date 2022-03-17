@@ -1,7 +1,8 @@
-Title: Structure and Interpretation of Computer Programs
-Category: Programming
-Tags: Lisp
-
+---
+title: Structure and Interpretation of Computer Programs
+category: Programming
+tags: [Lisp]
+---
 Notes to the book
 > Structure and Interpretation of Computer Programs, Second Edition
 > Harold Abelson, Gerald Jay Sussman, Julie Sussman

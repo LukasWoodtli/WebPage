@@ -1,8 +1,9 @@
-Title: C++ on Embedded Systems
-Date: 2017-03-31
-Category: Programming
-Tags: Embedded Systems, C++
-
+---
+title: C++ on Embedded Systems
+date: 2017-03-31
+category: Programming
+tags: [Embedded Systems, C++]
+---
 
 > This page is still work in progress
 

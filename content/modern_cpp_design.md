@@ -1,8 +1,9 @@
-Title: Modern C++ Design 
-Date: 2017-02-03
-Category: Programming
-Tags: C++
-
+---
+title: Modern C++ Design
+date: 2017-02-03
+category: Programming
+tags: [C++]
+---
 Part I. Techniques
 ==================
 

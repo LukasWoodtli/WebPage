@@ -1,9 +1,10 @@
-Title: Models of Computation
-Category: Programming
-Tags: Computer Science, ETH
-Date: 2016-02-29
-Modified: 2016-04-21
-
+---
+title: Models of Computation
+category: Programming
+tags: [Computer Science, ETH]
+date: 2016-02-29
+modified: 2016-04-21
+---
 [TOC]
 
 # Boolean Circuits

@@ -1,9 +1,10 @@
-Title: Hardware-Software Codesign
-Date: 2015-11-15
-Modified: 2015-11-15
-Category: Programming
-Tags: Computer Science, ETH
-
+---
+title: Hardware-Software Codesign
+date: 2015-11-15
+modified: 2015-11-15
+category: Programming
+tags: [Computer Science, ETH]
+---
 [TOC]
 
 # 0. Overview

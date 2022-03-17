@@ -1,7 +1,8 @@
-Title: Exponential Coordinates of Rotations (Rodrigues' formula) 
-Category: Mathematics
-Tags: Robotics
-
+---
+title: Exponential Coordinates of Rotations (Rodrigues' formula)
+category: Mathematics
+tags: [Robotics]
+---
 # Axis-Angle Representation of Rotation
 
 An alternative representation to rotation matrices is the **axis-angle** representation in the form:

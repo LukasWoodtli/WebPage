@@ -1,7 +1,8 @@
-Title: Seven Concurrency Models in Seven Weeks
-Category: Programming
-Tags: Computer Science, Design Patterns, Lisp, OOP, OS
-
+---
+title: Seven Concurrency Models in Seven Weeks
+category: Programming
+tags: [Computer Science, Design Patterns, Lisp, OOP, OS]
+---
 
 This page collects notes taken from
 [Seven Concurrency Models in Seven Weeks When Threads Unravel by Paul Butcher](https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks)

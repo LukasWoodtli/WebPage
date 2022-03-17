@@ -1,8 +1,9 @@
-Title: Zeit Management
-Date: 2018-03-01
-Category: Misc
-Tags: German
-
+---
+title: Zeit Management
+date: 2018-03-01
+category: Misc
+tags: [German]
+---
 [TOC]
 
 # Allgemeines
