@@ -1,19 +1,17 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import { Link } from "gatsby-theme-material-ui";
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Layout from "../layout/layout"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+const BlogIndex = ({ data }: any) => {
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
-        <Bio />
+      <Layout>
+        <GatsbySeo title="All posts" />
         <p>
           No blog posts found. Add markdown posts to "content" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -24,11 +22,10 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
-      <Bio />
+    <Layout>
+      <GatsbySeo title="All posts" />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
+        {posts.map((post: any) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
@@ -36,7 +33,6 @@ const BlogIndex = ({ data, location }) => {
               <article
                 className="post-list-item"
                 itemScope
-                itemType="http://schema.org/Article"
               >
                 <header>
                   <h2>
