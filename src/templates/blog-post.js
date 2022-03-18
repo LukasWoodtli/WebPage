@@ -1,16 +1,16 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import { Link } from "gatsby-theme-material-ui";
 
 import Layout from "../layout/layout"
 import { GatsbySeo } from "gatsby-plugin-next-seo/src/meta/gatsby-seo";
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <GatsbySeo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -19,17 +19,15 @@ const BlogPostTemplate = ({ data, location }) => {
         className="blog-post"
         itemScope
       >
-        <header>
+        <div>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
-        </header>
+        </div>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         <hr />
-        <footer>
-        </footer>
       </article>
       <nav className="blog-post-nav">
         <ul
