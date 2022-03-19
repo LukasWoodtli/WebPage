@@ -26,4 +26,14 @@ describe('MenuBar', () => {
       cy.contains(initial_page_text);
       hasButtons();
     });
+
+
+  it('Visits each menu button page', () => {
+    menu_items.forEach(element => {
+      cy.visit('/');
+      cy.contains(element.menu_item).click();
+      cy.contains(element.expected_text);
+    });
+    hasButtons();
+  });
 });

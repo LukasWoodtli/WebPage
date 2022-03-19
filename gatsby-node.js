@@ -33,9 +33,33 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
 
-  const allPosts = result.data.allMarkdownRemark.nodes;
+  const allMarkdownFiles = result.data.allMarkdownRemark.nodes;
 
-  const posts = allPosts.filter(element => {
+
+  const staticFiles = [
+    //"blog",
+    "books",
+    "contact",
+    "courses",
+    "index",
+    "projects",
+    "recruiters_headhunters",
+    "resume",
+    "skills",];
+
+  staticFiles.forEach(staticFile => {
+    const resumePage = allMarkdownFiles.find(fileName => fileName.fileAbsolutePath.endsWith(`pages/${staticFile}.md`));
+    createPage({
+      path: staticFile,
+      component: blogPost,
+      context: {
+        id: resumePage.id,
+      },
+    });
+  });
+
+
+  const posts = allMarkdownFiles.filter(element => {
     return !element.fileAbsolutePath.includes("/content/pages");
   });
 
@@ -59,6 +83,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
