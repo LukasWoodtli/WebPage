@@ -1,14 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `My personal Website`,
     author: {
       name: `Lukas Woodtli`,
-      summary: `blabla.`,
-    },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
-    social: {
-      twitter: `kylemathews`,
+      summary: `Personal Website and Blog.`,
     },
   },
   plugins: [
