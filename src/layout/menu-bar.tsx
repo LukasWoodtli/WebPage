@@ -56,7 +56,7 @@ const MenuBar = () => {
                                 <div/>
                                 <Box>
                                     {pages.map((page) => (
-                                        <Link to={page.toLowerCase()}
+                                        <Link to={"/" + page.toLowerCase()}
                                               key={page + "_link"}>
                                             <Button
                                                 key={page + "_button"}
