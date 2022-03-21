@@ -81,7 +81,7 @@ const DashBoard = () => {
                         sm={6}
                         md={4}
                         lg={4}
-                        xl={2}
+                        xl={4}
                         display="flex"
                         key={card.title}
                     >
@@ -94,7 +94,7 @@ const DashBoard = () => {
                                     </Typography>
                                 }/>
                             <CardContent>
-                                <Typography variant="caption" align="left">
+                                <Typography variant="body1" align="left">
                                     {card.text}
                                 </Typography>
                             </CardContent>
