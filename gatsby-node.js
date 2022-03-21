@@ -4,8 +4,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Define a template for blog_old post
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const staticSite = path.resolve(`./src/templates/static-site.js`)
 
   // Get all markdown blog_old posts sorted by date
   const result = await graphql(
@@ -48,12 +48,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     "skills",];
 
   staticFiles.forEach(staticFile => {
-    const resumePage = allMarkdownFiles.find(fileName => fileName.fileAbsolutePath.endsWith(`pages/${staticFile}.md`));
+    const staticPageMarkdown = allMarkdownFiles.find(fileName => fileName.fileAbsolutePath.endsWith(`pages/${staticFile}.md`));
     createPage({
       path: staticFile,
-      component: blogPost,
+      component: staticSite,
       context: {
-        id: resumePage.id,
+        id: staticPageMarkdown.id,
       },
     });
   });

@@ -10,7 +10,7 @@ function Spacer() {
 
 function Layout({children} :any) {
     return (
-        <div className="App"
+        <div className="document-wrapper"
              style={{
                  display: "flex",
                  flexDirection: "column",
