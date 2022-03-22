@@ -3,6 +3,9 @@
     "jsx": "react",
     "sourceMap": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
     "lib": [
       "es6",
       "dom"
