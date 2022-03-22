@@ -9,7 +9,7 @@ describe('MenuBar', () => {
       {menu_item: 'Books', expected_text: 'C and C++'},
       {menu_item: 'Courses', expected_text: 'Traditional Classes'},
       {menu_item: 'Projects', expected_text: 'Work Experience'},
-      {menu_item: 'Blog', expected_text: 'This blog is mainly needed for me to write down my notes.'},
+      //{menu_item: 'Blog', expected_text: 'This blog is mainly needed for me to write down my notes.'},
       {menu_item: 'Contact', expected_text: 'Feel free to contact me'}];
 
     before(() => {
