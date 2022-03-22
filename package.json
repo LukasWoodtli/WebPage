@@ -37,8 +37,15 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/react-test-renderer": "^17.0.1",
+    "babel-jest": "^27.5.1",
+    "babel-preset-gatsby": "^2.10.0",
     "cypress": "^9.5.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
     "prettier": "^2.5.1",
+    "react-test-renderer": "^17.0.2",
     "start-server-and-test": "^1.14.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -57,7 +64,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test": "jest",
     "test:e2e": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test develop http://localhost:8000 cypress:open",
     "e2e:ci": "start-server-and-test 'gatsby develop -p 8000' http://localhost:8000 cypress:run",
     "cypress:open": "npx cypress open",
