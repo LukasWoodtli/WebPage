@@ -1,7 +1,7 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }: any) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     "skills",];
 
   staticFiles.forEach(staticFile => {
-    const staticPageMarkdown = allMarkdownFiles.find(fileName => fileName.fileAbsolutePath.endsWith(`pages/${staticFile}.md`));
+    const staticPageMarkdown = allMarkdownFiles.find((fileName: any) => fileName.fileAbsolutePath.endsWith(`pages/${staticFile}.md`));
     createPage({
       path: staticFile,
       component: staticSite,
@@ -59,16 +59,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 
 
-  const posts = allMarkdownFiles.filter(element => {
+  const posts = allMarkdownFiles.filter((element: any) => {
     return !element.fileAbsolutePath.includes("/content/pages");
   });
 
   // Create blog_old posts pages
-  // But only if there's at least one markdown file found at "content" (defined in gatsby-config.js)
+  // But only if there's at least one markdown file found at "content" (defined in gatsby-config.ts)
   // `context` is available in the template as a prop and as a variable in GraphQL
 
   if (posts.length > 0) {
-    posts.forEach((post, index) => {
+    posts.forEach((post: any, index: number) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
 
@@ -86,7 +86,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = ({ node, actions, getNode }: any) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -100,11 +100,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions }: any) => {
   const { createTypes } = actions
 
   // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.js
+  // This way those will always be defined even if removed from gatsby-config.ts
 
   // Also explicitly define the Markdown frontmatter
   // This way the "MarkdownRemark" queries will return `null` even when no
