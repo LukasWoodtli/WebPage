@@ -5,7 +5,7 @@ import Layout from "../layout/layout";
 import MarkdownPost from "../components/markdown-component";
 
 
-const BlogPostTemplate = ({ data }) => {
+const StaticSiteTemplate = ({ data }) => {
   const post = data.markdownRemark
   const title = post.frontmatter.title;
   const description = post.frontmatter.description || post.excerpt;
@@ -18,7 +18,7 @@ const BlogPostTemplate = ({ data }) => {
   )
 }
 
-export default BlogPostTemplate
+export default StaticSiteTemplate
 
 export const pageQuery = graphql`
   query StaticSiteBySlug(
