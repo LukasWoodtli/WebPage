@@ -37,15 +37,8 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.1",
-    "@types/react-test-renderer": "^17.0.1",
-    "babel-jest": "^27.5.1",
-    "babel-preset-gatsby": "^2.10.0",
     "cypress": "^9.5.2",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.5.1",
     "prettier": "^2.5.1",
-    "react-test-renderer": "^17.0.2",
     "start-server-and-test": "^1.14.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -58,6 +51,7 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
+    "generate-dates-file": "npx git-date-extractor --outputToFile=true --onlyIn='[content]'",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
