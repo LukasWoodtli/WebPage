@@ -1,0 +1,846 @@
+{
+  "content/agile_sw_development.md": {
+    "created": 1432917755,
+    "modified": 1647509701
+  },
+  "content/angular_velocity.md": {
+    "created": 1567714241,
+    "modified": 1647509701
+  },
+  "content/arm_cortex_m3_architecture.md": {
+    "created": 1435923840,
+    "modified": 1647509701
+  },
+  "content/arm_stack_frame.md": {
+    "created": 1442779935,
+    "modified": 1647509701
+  },
+  "content/arrays_c_cpp.md": {
+    "created": 1436980543,
+    "modified": 1647509701
+  },
+  "content/artist_mode.md": {
+    "created": 1430674717,
+    "modified": 1647509701
+  },
+  "content/blender_basics.md": {
+    "created": 1523736728,
+    "modified": 1647509701
+  },
+  "content/c-space_dof.md": {
+    "created": 1536956204,
+    "modified": 1647509701
+  },
+  "content/closure.md": {
+    "created": 1476383626,
+    "modified": 1647509701
+  },
+  "content/comparison_rotation_body_motion.md": {
+    "created": 1609863396,
+    "modified": 1647509701
+  },
+  "content/complexity.md": {
+    "created": 1483909188,
+    "modified": 1647509701
+  },
+  "content/concepts_of_object_oriented_programming.md": {
+    "created": 1438111438,
+    "modified": 1647509701
+  },
+  "content/cosine_distance.md": {
+    "created": 1452269256,
+    "modified": 1647509701
+  },
+  "content/cpp_on_embedded_systems.md": {
+    "created": 1490944029,
+    "modified": 1647509701
+  },
+  "content/cpp_smart_pointers.md": {
+    "created": 1490044364,
+    "modified": 1647509701
+  },
+  "content/design_patterns.md": {
+    "created": 1442526799,
+    "modified": 1647509701
+  },
+  "content/distance_functions.md": {
+    "created": 1443269737,
+    "modified": 1647509701
+  },
+  "content/docker.md": {
+    "created": 1521457955,
+    "modified": 1647509701
+  },
+  "content/documents/Application_Documents_Lukas_Woodtli.zip": {
+    "created": 1452190353,
+    "modified": 1640945761
+  },
+  "content/documents/Application_Documents_full_Lukas_Woodtli.zip": {
+    "created": 1452190353,
+    "modified": 1640945761
+  },
+  "content/documents/Bewerbungsunterlagen_Lukas_Woodtli.zip": {
+    "created": 1452190353,
+    "modified": 1640945761
+  },
+  "content/documents/Bewerbungsunterlagen_alle_Lukas_Woodtli.zip": {
+    "created": 1452190353,
+    "modified": 1640945761
+  },
+  "content/domain_driven_design.md": {
+    "created": 1578236249,
+    "modified": 1647509701
+  },
+  "content/eigenvectors.md": {
+    "created": 1549728399,
+    "modified": 1647509701
+  },
+  "content/electrical_motors.md": {
+    "created": 1546722418,
+    "modified": 1647509701
+  },
+  "content/endianness.md": {
+    "created": 1434570573,
+    "modified": 1647509701
+  },
+  "content/enums.md": {
+    "created": 1429200045,
+    "modified": 1647509701
+  },
+  "content/evaluation_strategy.md": {
+    "created": 1611739045,
+    "modified": 1647509701
+  },
+  "content/executable_loader.md": {
+    "created": 1439308725,
+    "modified": 1647509701
+  },
+  "content/exponential_coordinates_rigid_body.md": {
+    "created": 1609621786,
+    "modified": 1647509701
+  },
+  "content/files_linux.md": {
+    "created": 1464969399,
+    "modified": 1647509701
+  },
+  "content/finance_and_capital_markets.md": {
+    "created": 1519641543,
+    "modified": 1647509701
+  },
+  "content/floating_point.md": {
+    "created": 1638355956,
+    "modified": 1647509701
+  },
+  "content/free_rtos.md": {
+    "created": 1501854983,
+    "modified": 1647509701
+  },
+  "content/gcc_binutils.md": {
+    "created": 1519333430,
+    "modified": 1647509701
+  },
+  "content/gewohnheiten.md": {
+    "created": 1615997552,
+    "modified": 1647509701
+  },
+  "content/git_detached_head.md": {
+    "created": 1447881545,
+    "modified": 1647509701
+  },
+  "content/git_dotgit_dir.md": {
+    "created": 1498835703,
+    "modified": 1647509701
+  },
+  "content/git_move_work_to_new_branch.md": {
+    "created": 1432916275,
+    "modified": 1647509701
+  },
+  "content/git_reset.md": {
+    "created": 1506598521,
+    "modified": 1647509701
+  },
+  "content/harmful_c_functions.md": {
+    "created": 1429383800,
+    "modified": 1647509701
+  },
+  "content/homogeneous_transformation_matrices.md": {
+    "created": 1607807797,
+    "modified": 1647509701
+  },
+  "content/hw_sw_codesign.md": {
+    "created": 1447612371,
+    "modified": 1647509701
+  },
+  "content/images/arm_cortex_m3_modes_levels.dot": {
+    "created": 1436017532,
+    "modified": 1527714328
+  },
+  "content/images/arm_cortex_m3_modes_levels.svg": {
+    "created": 1436017532,
+    "modified": 1527714328
+  },
+  "content/images/arm_stack_frame_example.ditaa": {
+    "created": 1442779023,
+    "modified": 1527714328
+  },
+  "content/images/arm_stack_frame_example.png": {
+    "created": 1442779685,
+    "modified": 1527714328
+  },
+  "content/images/arm_stack_frame_general.ditaa": {
+    "created": 1442779023,
+    "modified": 1527714328
+  },
+  "content/images/arm_stack_frame_general.png": {
+    "created": 1442779023,
+    "modified": 1527714328
+  },
+  "content/images/array_based_queuing_lock.ditaa": {
+    "created": 1434050549,
+    "modified": 1527714328
+  },
+  "content/images/array_based_queuing_lock.png": {
+    "created": 1434050549,
+    "modified": 1527714328
+  },
+  "content/images/artist_mode.svg": {
+    "created": 1431712937,
+    "modified": 1527714328
+  },
+  "content/images/bayes_algorithm.svg": {
+    "created": 1433185053,
+    "modified": 1527714328
+  },
+  "content/images/burndown.png": {
+    "created": 1467021597,
+    "modified": 1527714328
+  },
+  "content/images/burndown.py": {
+    "created": 1467021597,
+    "modified": 1527714328
+  },
+  "content/images/contravariance.svg": {
+    "created": 1441372619,
+    "modified": 1527714328
+  },
+  "content/images/coop_non-null_and_construction_types.png": {
+    "created": 1450204831,
+    "modified": 1527714328
+  },
+  "content/images/coop_ownership_types_hierarchy.svg": {
+    "created": 1449094771,
+    "modified": 1527714328
+  },
+  "content/images/coop_subtyping_and_sets.svg": {
+    "created": 1449921066,
+    "modified": 1527714328
+  },
+  "content/images/covariance.svg": {
+    "created": 1441372619,
+    "modified": 1527714328
+  },
+  "content/images/create_dita_diagram.sh": {
+    "created": 1466973403,
+    "modified": 1527714328
+  },
+  "content/images/endianness.ditaa": {
+    "created": 1434570573,
+    "modified": 1527714328
+  },
+  "content/images/endianness.png": {
+    "created": 1434570573,
+    "modified": 1527714328
+  },
+  "content/images/floating_point/floating_point_1.jpg": {
+    "created": 1638355956,
+    "modified": 1638355956
+  },
+  "content/images/floating_point/floating_point_2.jpg": {
+    "created": 1638355956,
+    "modified": 1638355956
+  },
+  "content/images/floating_point/floating_point_3.jpg": {
+    "created": 1638355956,
+    "modified": 1638355956
+  },
+  "content/images/hscd_evolutionary_algorithm.dot": {
+    "created": 1453061424,
+    "modified": 1527714328
+  },
+  "content/images/hscd_evolutionary_algorithm.svg": {
+    "created": 1453061424,
+    "modified": 1527714328
+  },
+  "content/images/hscd_min_plus.svg": {
+    "created": 1454094302,
+    "modified": 1527714328
+  },
+  "content/images/hscd_partitioning_mapping.dot": {
+    "created": 1452094618,
+    "modified": 1527714328
+  },
+  "content/images/hscd_partitioning_mapping.svg": {
+    "created": 1452094618,
+    "modified": 1527714328
+  },
+  "content/images/hscd_plus_times.svg": {
+    "created": 1454094302,
+    "modified": 1527714328
+  },
+  "content/images/hscd_system_theories.tex": {
+    "created": 1454094302,
+    "modified": 1527714328
+  },
+  "content/images/hscd_wcet_calculation.png": {
+    "created": 1454008784,
+    "modified": 1527714328
+  },
+  "content/images/intel_architecture_jump.dot": {
+    "created": 1435677200,
+    "modified": 1527714328
+  },
+  "content/images/intel_architecture_jump.svg": {
+    "created": 1435760112,
+    "modified": 1527714328
+  },
+  "content/images/intel_div.svg": {
+    "created": 1436034034,
+    "modified": 1527714328
+  },
+  "content/images/intel_mul.svg": {
+    "created": 1436034034,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/addition.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/boolean_logic.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/church_numerals.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/function_application.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/function_creation.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/function_evaluation.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/function_evaluation_example.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/if_then_else.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/increment.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/ls.txt": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/multiplication.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/pair.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/lambda_calculus/pair_shifting.png": {
+    "created": 1461323008,
+    "modified": 1527714328
+  },
+  "content/images/language_implementation_patterns/alternatives.svg": {
+    "created": 1514309672,
+    "modified": 1527714328
+  },
+  "content/images/language_implementation_patterns/one_or_more.svg": {
+    "created": 1514309672,
+    "modified": 1527714328
+  },
+  "content/images/language_implementation_patterns/option.svg": {
+    "created": 1514309672,
+    "modified": 1527714328
+  },
+  "content/images/language_implementation_patterns/zero_or_more.svg": {
+    "created": 1514309672,
+    "modified": 1527714328
+  },
+  "content/images/memory_layout.ditaa": {
+    "created": 1433962229,
+    "modified": 1527714328
+  },
+  "content/images/memory_layout.png": {
+    "created": 1433962229,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/db_mappings.dot": {
+    "created": 1462132630,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/db_mappings.svg": {
+    "created": 1462132630,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/multi_index.ditaa": {
+    "created": 1467393180,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/multi_index.png": {
+    "created": 1467393454,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/nested_index.ditaa": {
+    "created": 1467392594,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/nested_index.png": {
+    "created": 1467392594,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/path_index.ditaa": {
+    "created": 1467393180,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/path_index.png": {
+    "created": 1467393180,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/versant_cache.ditaa": {
+    "created": 1468531892,
+    "modified": 1527714328
+  },
+  "content/images/object_databases/versant_cache.png": {
+    "created": 1468531892,
+    "modified": 1527714328
+  },
+  "content/images/physics/physics_1.jpeg": {
+    "created": 1638361905,
+    "modified": 1638361905
+  },
+  "content/images/physics/physics_2.jpeg": {
+    "created": 1638361905,
+    "modified": 1638361905
+  },
+  "content/images/physics/thermodynamik_1.jpeg": {
+    "created": 1638361905,
+    "modified": 1638361905
+  },
+  "content/images/physics/thermodynamik_2.jpeg": {
+    "created": 1638361905,
+    "modified": 1638361905
+  },
+  "content/images/scrum_board.svg": {
+    "created": 1434662477,
+    "modified": 1527714328
+  },
+  "content/images/si_units/si_einheiten_1.jpeg": {
+    "created": 1638363100,
+    "modified": 1638363100
+  },
+  "content/images/si_units/si_einheiten_2.jpeg": {
+    "created": 1638363100,
+    "modified": 1638363100
+  },
+  "content/images/statistics_probability.svg": {
+    "created": 1432324728,
+    "modified": 1527714328
+  },
+  "content/images/syscon_a2_activieties_states.dot": {
+    "created": 1451135403,
+    "modified": 1527714328
+  },
+  "content/images/syscon_a2_activieties_states.png": {
+    "created": 1451135403,
+    "modified": 1527714328
+  },
+  "content/images/syscon_aba_problem.png": {
+    "created": 1451322897,
+    "modified": 1527714328
+  },
+  "content/images/syscon_active_cells_3_toolchain.png": {
+    "created": 1451816074,
+    "modified": 1527714328
+  },
+  "content/images/syscon_minos_object_file.png": {
+    "created": 1450610292,
+    "modified": 1527714328
+  },
+  "content/images/syscon_oberon_history.dot": {
+    "created": 1446979710,
+    "modified": 1527714328
+  },
+  "content/images/syscon_oberon_history.png": {
+    "created": 1446979710,
+    "modified": 1527714328
+  },
+  "content/images/syscon_priority_inversion.png": {
+    "created": 1451226258,
+    "modified": 1527714328
+  },
+  "content/images/syscon_queue_data_structure.png": {
+    "created": 1451407262,
+    "modified": 1527714328
+  },
+  "content/images/systemc_simulation_engine.svg": {
+    "created": 1455653370,
+    "modified": 1527714328
+  },
+  "content/images/visualization_of_functions/1_2d_graph.png": {
+    "created": 1522784470,
+    "modified": 1527714328
+  },
+  "content/images/visualization_of_functions/2_3d_graph.png": {
+    "created": 1522784470,
+    "modified": 1527714328
+  },
+  "content/images/visualization_of_functions/3_contour_map.png": {
+    "created": 1522784470,
+    "modified": 1527714328
+  },
+  "content/images/visualization_of_functions/4_parametric_surfaces.png": {
+    "created": 1522784470,
+    "modified": 1527714328
+  },
+  "content/images/visualization_of_functions/5_vector_fields.png": {
+    "created": 1522784470,
+    "modified": 1527714328
+  },
+  "content/intel_architecture.md": {
+    "created": 1435001312,
+    "modified": 1647509701
+  },
+  "content/intel_assembler.md": {
+    "created": 1508257186,
+    "modified": 1647509701
+  },
+  "content/intel_calling_conventions.md": {
+    "created": 1509911811,
+    "modified": 1647509701
+  },
+  "content/investment_management.md": {
+    "created": 1501270765,
+    "modified": 1647509701
+  },
+  "content/l2_norm.md": {
+    "created": 1452267734,
+    "modified": 1647509701
+  },
+  "content/language_implementation_patterns.md": {
+    "created": 1514309672,
+    "modified": 1647509701
+  },
+  "content/lernen.md": {
+    "created": 1613479968,
+    "modified": 1647509701
+  },
+  "content/linking_and_loading.md": {
+    "created": 1511528760,
+    "modified": 1647509701
+  },
+  "content/linux_system_calls.md": {
+    "created": 1510001138,
+    "modified": 1647509701
+  },
+  "content/macro_magic.md": {
+    "created": 1431714260,
+    "modified": 1647509701
+  },
+  "content/make_paradigms.md": {
+    "created": 1511943789,
+    "modified": 1647509701
+  },
+  "content/mechanical_constraints.md": {
+    "created": 1538943773,
+    "modified": 1647509701
+  },
+  "content/memory_layout.md": {
+    "created": 1433862480,
+    "modified": 1647509701
+  },
+  "content/midnight_commander.md": {
+    "created": 1528210574,
+    "modified": 1647509701
+  },
+  "content/models_of_computation.md": {
+    "created": 1456782516,
+    "modified": 1647509701
+  },
+  "content/modern_cpp_design.md": {
+    "created": 1483448599,
+    "modified": 1647509701
+  },
+  "content/modern_os.md": {
+    "created": 1427927264,
+    "modified": 1647509701
+  },
+  "content/object_databases.md": {
+    "created": 1461155443,
+    "modified": 1647509701
+  },
+  "content/object_file_formats.md": {
+    "created": 1438859480,
+    "modified": 1647509701
+  },
+  "content/odbc_postgres.md": {
+    "created": 1639475363,
+    "modified": 1647509701
+  },
+  "content/oop_design_principles.md": {
+    "created": 1527780526,
+    "modified": 1647509701
+  },
+  "content/open_source.md": {
+    "created": 1453238812,
+    "modified": 1647509701
+  },
+  "content/osx_keyboard_layout.md": {
+    "created": 1476041217,
+    "modified": 1647509701
+  },
+  "content/pages/blog.md": {
+    "created": 1434390685,
+    "modified": 1647509701
+  },
+  "content/pages/books.md": {
+    "created": 1425945839,
+    "modified": 1647509701
+  },
+  "content/pages/contact.md": {
+    "created": 1427561392,
+    "modified": 1647509701
+  },
+  "content/pages/courses.md": {
+    "created": 1427657796,
+    "modified": 1647509701
+  },
+  "content/pages/index.md": {
+    "created": 1427559881,
+    "modified": 1647509701
+  },
+  "content/pages/projects.md": {
+    "created": 1425389231,
+    "modified": 1647509701
+  },
+  "content/pages/recruiters_headhunters.md": {
+    "created": 1499370356,
+    "modified": 1647509701
+  },
+  "content/pages/resume.md": {
+    "created": 1424728530,
+    "modified": 1647509701
+  },
+  "content/pages/skills.md": {
+    "created": 1425943139,
+    "modified": 1647509701
+  },
+  "content/parsers_and_lexers.md": {
+    "created": 1483908949,
+    "modified": 1647509701
+  },
+  "content/physics_basics.md": {
+    "created": 1638361905,
+    "modified": 1647509701
+  },
+  "content/pomodoro_technik.md": {
+    "created": 1615987283,
+    "modified": 1647509701
+  },
+  "content/pose_and_position.md": {
+    "created": 1541846344,
+    "modified": 1647509701
+  },
+  "content/practical_cpp_metaprogramming.md": {
+    "created": 1539787032,
+    "modified": 1647509701
+  },
+  "content/preprocessor_defines.md": {
+    "created": 1439301854,
+    "modified": 1647509701
+  },
+  "content/qemu_quickstart.md": {
+    "created": 1520365760,
+    "modified": 1647509701
+  },
+  "content/regex.md": {
+    "created": 1475875123,
+    "modified": 1647509701
+  },
+  "content/requirements_engineering.md": {
+    "created": 1467024762,
+    "modified": 1647509701
+  },
+  "content/rodrigues_formula.md": {
+    "created": 1570565294,
+    "modified": 1647509701
+  },
+  "content/ros.md": {
+    "created": 1555660355,
+    "modified": 1647509701
+  },
+  "content/rotation_matrix.md": {
+    "created": 1539116797,
+    "modified": 1647509701
+  },
+  "content/rwm_operations.md": {
+    "created": 1459980456,
+    "modified": 1647509701
+  },
+  "content/sanitizers.md": {
+    "created": 1520280309,
+    "modified": 1647509701
+  },
+  "content/scheme.md": {
+    "created": 1612193753,
+    "modified": 1647509701
+  },
+  "content/scheme_frequently_used_functions.md": {
+    "created": 1476416644,
+    "modified": 1647509701
+  },
+  "content/screw_twist_wrench.md": {
+    "created": 1545941210,
+    "modified": 1647509701
+  },
+  "content/scripts/wordcloud2.js": {
+    "created": 1453054838,
+    "modified": 1527714328
+  },
+  "content/setup_new_machine.md": {
+    "created": 1537354106,
+    "modified": 1647509701
+  },
+  "content/seven_concurrency_models.md": {
+    "created": 1589485004,
+    "modified": 1647509701
+  },
+  "content/si_units.md": {
+    "created": 1638363100,
+    "modified": 1647509701
+  },
+  "content/sicp.md": {
+    "created": 1478814818,
+    "modified": 1647509701
+  },
+  "content/skew_symmetric_matrix.md": {
+    "created": 1567194469,
+    "modified": 1647509701
+  },
+  "content/software_development_priorities.md": {
+    "created": 1490943716,
+    "modified": 1647509701
+  },
+  "content/solid.md": {
+    "created": 1620677180,
+    "modified": 1647509701
+  },
+  "content/space_topology.md": {
+    "created": 1537390006,
+    "modified": 1647509701
+  },
+  "content/spring.md": {
+    "created": 1632986411,
+    "modified": 1647509701
+  },
+  "content/sql_introduction.md": {
+    "created": 1428950217,
+    "modified": 1647509701
+  },
+  "content/statements_and_expressions.md": {
+    "created": 1467635511,
+    "modified": 1647509701
+  },
+  "content/statistics.md": {
+    "created": 1432324728,
+    "modified": 1647509701
+  },
+  "content/std_chrono.md": {
+    "created": 1561983523,
+    "modified": 1647509701
+  },
+  "content/svn_undo_committed_changes.md": {
+    "created": 1441117435,
+    "modified": 1647509701
+  },
+  "content/sw_development_priorities.md.tmp": {
+    "created": 1428358160,
+    "modified": 1527714328
+  },
+  "content/system_construction.md": {
+    "created": 1446931250,
+    "modified": 1647509701
+  },
+  "content/systemc.md": {
+    "created": 1455574730,
+    "modified": 1647509701
+  },
+  "content/tdd_history.md": {
+    "created": 1635315525,
+    "modified": 1647509701
+  },
+  "content/tmux.md": {
+    "created": 1530634694,
+    "modified": 1647509701
+  },
+  "content/twists.md": {
+    "created": 1609526950,
+    "modified": 1647509701
+  },
+  "content/tz_on_unix.md": {
+    "created": 1561984349,
+    "modified": 1647509701
+  },
+  "content/understanding_computation.md": {
+    "created": 1473709833,
+    "modified": 1647509701
+  },
+  "content/unix_device_files.md": {
+    "created": 1488745173,
+    "modified": 1647509701
+  },
+  "content/unix_directory_structure.md": {
+    "created": 1475252190,
+    "modified": 1647509701
+  },
+  "content/unix_system_files.md": {
+    "created": 1488833895,
+    "modified": 1647509701
+  },
+  "content/vector_calculus.md": {
+    "created": 1441810866,
+    "modified": 1647509701
+  },
+  "content/vim.md": {
+    "created": 1554404267,
+    "modified": 1647509701
+  },
+  "content/visualization_of_functions.md": {
+    "created": 1522784470,
+    "modified": 1647509701
+  },
+  "content/wrenches.md": {
+    "created": 1609790035,
+    "modified": 1647509701
+  },
+  "content/x_macros_1.md.tmp": {
+    "created": 1430288165,
+    "modified": 1527714328
+  },
+  "content/zeit_management.md": {
+    "created": 1519941050,
+    "modified": 1647509701
+  }
+}
