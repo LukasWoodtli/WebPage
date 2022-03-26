@@ -1,12 +1,8 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.createPages = async ({ graphql, actions, reporter }: any) => {
-  const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
-  const staticSite = path.resolve(`./src/templates/static-site.js`);
-
+async function collectMarkdownFiles(graphql: any) {
   // Get all markdown files
   const result = await graphql(
     `
@@ -22,20 +18,19 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
         }
       }
     `
-  )
+  );
 
   if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
-    return
+    throw {
+      name: "There was an error loading the markdown files",
+      message: result.errors
+    };
   }
 
+  return result.data.allMarkdownRemark.nodes;
+}
 
-  const allMarkdownFiles = result.data.allMarkdownRemark.nodes;
-
-
+function createStaticPages(allMarkdownFiles: any[], createPage: any) {
   const staticFiles = [
     //"blog",
     "books",
@@ -45,7 +40,9 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
     "projects",
     "recruiters_headhunters",
     "resume",
-    "skills",];
+    "skills"];
+
+  const staticSite = path.resolve(`./src/templates/static-site.js`);
 
   staticFiles.forEach(staticFile => {
     const staticPageMarkdown = allMarkdownFiles.find((fileName: any) => fileName.fileAbsolutePath.endsWith(`pages/${staticFile}.md`));
@@ -54,14 +51,18 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
       component: staticSite,
       context: {
         id: staticPageMarkdown.id
-      },
+      }
     });
   });
+}
 
 
+function createBlogPosts(allMarkdownFiles: any[], createPage: any) {
   const posts = allMarkdownFiles.filter((element: any) => {
     return !element.fileAbsolutePath.includes("/content/pages");
   });
+
+  const blogPost = path.resolve(`./src/templates/blog-post.js`);
 
   // Create blog posts pages
   posts.forEach((post: any, index: number) => {
@@ -81,8 +82,29 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
 }
 
 
+exports.createPages = async ({ graphql, actions, reporter }: any) => {
+  const { createPage } = actions;
+
+  let allMarkdownFiles = null;
+
+  try {
+    allMarkdownFiles = await collectMarkdownFiles(graphql);
+  } catch (e: any) {
+    reporter.panicOnBuild(
+      e.name,
+      e.result
+    );
+    return;
+  }
+
+  createStaticPages(allMarkdownFiles, createPage);
+
+  createBlogPosts(allMarkdownFiles, createPage);
+};
+
+
 exports.onCreateNode = ({ node, actions, getNode }: any) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode, basePath: `pages` });
