@@ -7,7 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
   const blogPost = path.resolve(`./src/templates/blog-post.js`);
   const staticSite = path.resolve(`./src/templates/static-site.js`);
 
-  // Get all markdown blog posts
+  // Get all markdown files
   const result = await graphql(
     `
       {
@@ -53,7 +53,7 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
       path: staticFile,
       component: staticSite,
       context: {
-        id: staticPageMarkdown.id,
+        id: staticPageMarkdown.id
       },
     });
   });
@@ -63,34 +63,29 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
     return !element.fileAbsolutePath.includes("/content/pages");
   });
 
-  // Create blog_old posts pages
-  // But only if there's at least one markdown file found at "content" (defined in gatsby-config.ts)
-  // `context` is available in the template as a prop and as a variable in GraphQL
+  // Create blog posts pages
+  posts.forEach((post: any, index: number) => {
+    const previousPostId = index === 0 ? null : posts[index - 1].id;
+    const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
 
-  if (posts.length > 0) {
-    posts.forEach((post: any, index: number) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId,
-        },
-      })
-    })
-  }
-
+    createPage({
+      path: post.fields.slug,
+      component: blogPost,
+      context: {
+        id: post.id,
+        previousPostId,
+        nextPostId
+      }
+    });
+  });
 }
+
 
 exports.onCreateNode = ({ node, actions, getNode }: any) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode, basePath: `pages` });
 
     createNodeField({
       name: `slug`,
@@ -103,12 +98,6 @@ exports.onCreateNode = ({ node, actions, getNode }: any) => {
 exports.createSchemaCustomization = ({ actions }: any) => {
   const { createTypes } = actions
 
-  // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.ts
-
-  // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` even when no
-  // blog_old posts are stored inside "content" instead of returning an error
   createTypes(`
     type SiteSiteMetadata {
       author: Author
