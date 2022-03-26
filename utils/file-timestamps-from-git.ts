@@ -23,7 +23,7 @@ export function getNeighbors(markdownFileName: string) {
   return getNeighborsImpl(data, markdownFileName);
 }
 
-function getNeighborsImpl(datesFromGit: any, markdownFileName: string) {
+function getNeighborsImpl(datesFromGit: any, markdownFileName: string): { previousPath: string | null, nextPath: string | null } {
 
   let dates = Object.entries(datesFromGit).map(([name, dates]) => {
     // @ts-ignore
@@ -36,14 +36,14 @@ function getNeighborsImpl(datesFromGit: any, markdownFileName: string) {
   const index = dates.findIndex((element: any) => (markdownFileName.endsWith(element.name)));
   if (index < 0) {
     return {
-      previousPost: null,
-      nextPost: null
+      previousPath: null,
+      nextPath: null
     };
   }
   const previousPost = index === 0 ? null : dates[index - 1].name;
   const nextPost = index === dates.length - 1 ? null : dates[index + 1].name;
   return {
-    previousPost: previousPost,
-    nextPost: nextPost
+    previousPath: previousPost,
+    nextPath: nextPost
   };
 }

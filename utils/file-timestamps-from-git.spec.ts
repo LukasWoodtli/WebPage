@@ -18,19 +18,19 @@ describe("Combine file information with dates", () => {
 
   it("gets correct neighbors for first entry", () => {
     const neighbors = getNeighbors("content/modern_os.md");
-    expect(neighbors.previousPost).toBeNull();
-    expect(neighbors.nextPost).toEqual("content/sql_introduction.md");
+    expect(neighbors.previousPath).toBeNull();
+    expect(neighbors.nextPath).toEqual("content/sql_introduction.md");
   });
 
   it("gets correct neighbors for middle entry", () => {
     const neighbors = getNeighbors("content/comparison_rotation_body_motion.md");
-    expect(neighbors.previousPost).toEqual("content/wrenches.md");
-    expect(neighbors.nextPost).toEqual("content/evaluation_strategy.md");
+    expect(neighbors.previousPath).toEqual("content/wrenches.md");
+    expect(neighbors.nextPath).toEqual("content/evaluation_strategy.md");
   });
 
   it("gets correct neighbors for last entry", () => {
     const neighbors = getNeighbors("content/odbc_postgres.md");
-    expect(neighbors.previousPost).toEqual("content/si_units.md");
-    expect(neighbors.nextPost).toBeNull();
+    expect(neighbors.previousPath).toEqual("content/si_units.md");
+    expect(neighbors.nextPath).toBeNull();
   });
 });

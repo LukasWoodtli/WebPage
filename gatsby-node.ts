@@ -1,3 +1,5 @@
+import { getFileDates, getNeighbors } from "./utils/file-timestamps-from-git";
+
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
@@ -14,6 +16,9 @@ async function collectMarkdownFiles(graphql: any) {
               slug
             }
             fileAbsolutePath
+            frontmatter {
+              title
+            }
           }
         }
       }
@@ -56,6 +61,30 @@ function createStaticPages(allMarkdownFiles: any[], createPage: any) {
   });
 }
 
+function getNeighborsData(posts: any[], previousPost: string | null, nextPost: string | null) {
+  const previous = getOneNeighborData(posts, previousPost);
+  const next = getOneNeighborData(posts, nextPost);
+  return {
+    previousPost: previous,
+    nextPost: next
+  };
+}
+
+function getOneNeighborData(posts: any[], neighborPost: string | null) {
+  if (!neighborPost) return null;
+  const neighborPostData = posts.find(post => post.fileAbsolutePath.endsWith(neighborPost));
+
+  let neighbor = null;
+  if (neighborPostData) {
+    neighbor = {
+      title: neighborPostData.frontmatter.title,
+      slug: neighborPostData.fields.slug
+    };
+  }
+
+  return neighbor;
+}
+
 
 function createBlogPosts(allMarkdownFiles: any[], createPage: any) {
   const posts = allMarkdownFiles.filter((element: any) => {
@@ -65,17 +94,19 @@ function createBlogPosts(allMarkdownFiles: any[], createPage: any) {
   const blogPost = path.resolve(`./src/templates/blog-post.js`);
 
   // Create blog posts pages
-  posts.forEach((post: any, index: number) => {
-    const previousPostId = index === 0 ? null : posts[index - 1].id;
-    const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
+  posts.forEach((post: any) => {
+    const dates = getFileDates(post.fileAbsolutePath);
+    const { previousPath, nextPath } = getNeighbors(post.fileAbsolutePath);
+    const { previousPost, nextPost } = getNeighborsData(posts, previousPath, nextPath);
 
     createPage({
       path: post.fields.slug,
       component: blogPost,
       context: {
         id: post.id,
-        previousPostId,
-        nextPostId
+        previousPost,
+        nextPost,
+        dates
       }
     });
   });

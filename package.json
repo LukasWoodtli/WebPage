@@ -51,7 +51,7 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "generate-dates-file": "npx git-date-extractor --outputToFile=true --outputFileName src/utils/timestamps.json --onlyIn='[content]'",
+    "generate-dates-file": "npx git-date-extractor --outputToFile=true --outputFileName utils/timestamps.json --onlyIn='[content]'",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

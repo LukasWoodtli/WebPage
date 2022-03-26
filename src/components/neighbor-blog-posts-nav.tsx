@@ -14,15 +14,15 @@ export default function NeighborBlogPostsNav(props: any) {
     >
       <li>
         {props.previous && (
-          <Link to={props.previous.fields.slug} rel="prev">
-            ← {props.previous.frontmatter.title}
+          <Link to={props.previous.slug} rel="prev">
+            ← {props.previous.title}
           </Link>
         )}
       </li>
       <li>
         {props.next && (
-          <Link to={props.next.fields.slug} rel="props.next">
-            {props.next.frontmatter.title} →
+          <Link to={props.slug} rel="props.next">
+            {props.next.title} →
           </Link>
         )}
       </li>
