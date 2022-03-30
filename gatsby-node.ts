@@ -91,7 +91,7 @@ function createBlogPosts(allMarkdownFiles: any[], createPage: any) {
     return !element.fileAbsolutePath.includes("/content/pages");
   });
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
 
   // Create blog posts pages
   posts.forEach((post: any) => {

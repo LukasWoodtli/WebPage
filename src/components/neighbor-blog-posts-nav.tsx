@@ -1,7 +1,17 @@
 import { Link } from "gatsby-theme-material-ui";
 import * as React from "react";
 
-export default function NeighborBlogPostsNav(props: any) {
+export interface NeighborData {
+  slug: string;
+  title: string;
+}
+
+export interface NeighborBlogPostsNavParams {
+  previous: NeighborData;
+  next: NeighborData;
+}
+
+export default function NeighborBlogPostsNav(props: NeighborBlogPostsNavParams) {
   return (<nav className="blog-post-nav">
     <ul
       style={{
@@ -21,7 +31,7 @@ export default function NeighborBlogPostsNav(props: any) {
       </li>
       <li>
         {props.next && (
-          <Link to={props.slug} rel="props.next">
+          <Link to={props.next.slug} rel="next">
             {props.next.title} →
           </Link>
         )}
