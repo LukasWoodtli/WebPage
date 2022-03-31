@@ -6,6 +6,7 @@ import NeighborBlogPostsNav, { NeighborData } from "../components/neighbor-blog-
 import MarkdownPost from "../components/markdown-component";
 import MetaDataSideBar from "../components/metadata-sidebar";
 import { Grid } from "@mui/material";
+import TableOfContents, { MarkdownHeading } from "../components/table-of-contents";
 
 
 interface BlogPostComponentParams {
@@ -39,6 +40,7 @@ const BlogPostTemplate = (props: any) => {
   const category = post.frontmatter.category;
   const tags = post.frontmatter.tags;
   const html = post.html;
+  const headings: MarkdownHeading[] = post.headings;
 
   return (
     <Layout>
@@ -47,7 +49,10 @@ const BlogPostTemplate = (props: any) => {
             justifyContent="space-between"
             alignItems="flex-start"
             spacing={0}>
-        <Grid item sm={12} md={8} lg={9}>
+        <Grid item md={2}>
+          <TableOfContents toc={headings}></TableOfContents>
+        </Grid>
+        <Grid item sm={12} md={8}>
           <BlogPostComponent title={title}
                              description={description}
                              html={html}
@@ -55,6 +60,7 @@ const BlogPostTemplate = (props: any) => {
                              nextPost={nextPost} />
         </Grid>
         <Grid item
+              md={2}
               sx={{ flexGrow: 1 }}>
           <MetaDataSideBar category={category} tags={tags} dates={dates} />
         </Grid>
@@ -82,6 +88,10 @@ export const pageQuery = graphql`
         title
         tags
         category
+      }
+      headings {
+        depth
+        value
       }
     }
   }
