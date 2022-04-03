@@ -8,19 +8,6 @@ import Layout from "../layout/layout";
 const BlogIndex = ({ data }: any) => {
   const posts = data.allMarkdownRemark.nodes;
 
-  if (posts.length === 0) {
-    return (
-      <Layout>
-        <GatsbySeo title="All posts" />
-        <p>
-          No blog posts found. Add markdown posts to "content" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
   return (
     <Layout>
       <GatsbySeo title="All posts" />
