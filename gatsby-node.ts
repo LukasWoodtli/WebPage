@@ -86,32 +86,48 @@ function getOneNeighborData(posts: any[], neighborPost: string | null) {
 }
 
 
-function createBlogPosts(allMarkdownFiles: any[], createPage: any) {
-  const posts = allMarkdownFiles.filter((element: any) => {
+function filterOnlyBlogPosts(allMarkdownFiles: any[]) {
+  return allMarkdownFiles.filter((element: any) => {
     return !element.fileAbsolutePath.includes("/content/pages");
   });
+}
 
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+function createBlogPosts(posts: any[], createPage: any) {
+
+  const blogPostsComponent = path.resolve(`./src/templates/blog-post.tsx`);
 
   // Create blog posts pages
   posts.forEach((post: any) => {
-    const dates = getFileDates(post.fileAbsolutePath);
-    const { previousPath, nextPath } = getNeighbors(post.fileAbsolutePath);
-    const { previousPost, nextPost } = getNeighborsData(posts, previousPath, nextPath);
-
     createPage({
       path: post.fields.slug,
-      component: blogPost,
+      component: blogPostsComponent,
       context: {
         id: post.id,
-        previousPost,
-        nextPost,
-        dates
+        previousPost: post.neighbors.previousPost,
+        nextPost: post.neighbors.nextPost,
+        dates: post.dates
       }
     });
   });
 }
 
+
+function getPostsWithDatesAndNeighbors(posts: any[]) {
+  return posts.map((post: any) => {
+    const dates = getFileDates(post.fileAbsolutePath);
+    const { previousPath, nextPath } = getNeighbors(post.fileAbsolutePath);
+    const { previousPost, nextPost } = getNeighborsData(posts, previousPath, nextPath);
+
+    return {
+      ...post,
+      dates: dates,
+      neighbors: {
+        previousPost: previousPost,
+        nextPost: nextPost
+      }
+    };
+  });
+}
 
 exports.createPages = async ({ graphql, actions, reporter }: any) => {
   const { createPage } = actions;
@@ -130,7 +146,9 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
 
   createStaticPages(allMarkdownFiles, createPage);
 
-  createBlogPosts(allMarkdownFiles, createPage);
+  const posts = filterOnlyBlogPosts(allMarkdownFiles);
+  const postsWithDatesAndNeighbors = getPostsWithDatesAndNeighbors(posts);
+  createBlogPosts(postsWithDatesAndNeighbors, createPage);
 };
 
 
