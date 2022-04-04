@@ -49,12 +49,12 @@ These key can also be used for navigation.
 
 # Navigation
 
-| Key | Movement  |
-|-----|-----------|
-| `h` | ← (left)  |
-| `j` | ↓ (down)  |
-| `k` | ↑ (up)    |
-| `l` | → (right) |
+| Key | Movement |
+|-----|----------|
+| `h` | left     |
+| `j` | down     |
+| `k` | up       |
+| `l` | right    |
 
 > Hint: `j` looks like an arrow pointing down
 
