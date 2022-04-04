@@ -12,7 +12,7 @@ tags: [C++, Python, OOP]
 
 - Use [Coding conventions](https://en.wikipedia.org/wiki/Coding_conventions)
 - [Keep it simple, stupid (KISS)](https://en.wikipedia.org/wiki/KISS_principle)
-- Boy Scout Rule: "Always leave the campground cleaner than you found it” - Robert C. Martin
+- Boy Scout Rule: "Always leave the campground cleaner than you found it" - Robert C. Martin
 - [Broken Window Theory](https://pragprog.com/the-pragmatic-programmer/extracts/software-entropy): Don't Live with Broken Windows
 - Fix root cause (root cause analysis, no workaraounds): otherwise it will get you again
 - [You aren't gonna need it (YAGNI)](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it): implement things when you need them

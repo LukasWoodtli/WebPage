@@ -294,7 +294,7 @@ Happily, there is a simple rule that guarantees you will never deadlock - always
 
 *Realizing* a (lazy) sequence means to fully evaluate it.
 
-*"One final aspect of lazy sequences is that not only do we not need to generate the elements at the end of a sequence until we need them (which might be never), but we can discard the elements at the front if we’ve finished with them (if we don't “hold on to our head”)."*
+*"One final aspect of lazy sequences is that not only do we not need to generate the elements at the end of a sequence until we need them (which might be never), but we can discard the elements at the front if we’ve finished with them (if we don't "hold on to our head")."*
 
 
 ## Day 2: Functional Parallelism
@@ -535,7 +535,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 ### Let It Crash!
 
-*"Actor programs tend to avoid defensive programming and subscribe to the “let it crash” philosophy"*
+*"Actor programs tend to avoid defensive programming and subscribe to the "let it crash" philosophy"*
 
 *"This has multiple benefits, including these:*
 
@@ -573,7 +573,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 #### Fault Tolerance
 
-*"Fault tolerance is built into actor programs from the outset. This enables not only more resilient programs but also simpler and clearer code (through the “let it crash” philosophy)."*
+*"Fault tolerance is built into actor programs from the outset. This enables not only more resilient programs but also simpler and clearer code (through the "let it crash" philosophy)."*
 
 #### Distributed Programming
 
@@ -616,7 +616,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 *"[There ]three types of buffer provided by `core.async` as standard - blocking, dropping, and sliding. It would be quite possible to create one that simply grows as it needs to accommodate more messages. So why isn’t this provided as standard?"*
 
-*"The reason is the age - old lesson that, whenever you have an “inexhaustible” resource, sooner or later you will exhaust it."*
+*"The reason is the age - old lesson that, whenever you have an "inexhaustible" resource, sooner or later you will exhaust it."*
 
 *"Better to think about how you want to handle a full buffer today and nip the problem in the bud."*
 

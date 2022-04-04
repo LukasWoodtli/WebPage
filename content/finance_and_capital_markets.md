@@ -19,8 +19,8 @@ $$PV = \frac{C}{(1+i)^n}$$
 
 $$Assets = Liabilities + Equity$$
 
-- Assets: Aktiva (“Vermögen”) , left side of balance sheet
-- Liabilities: Passiva (“Schulden”), right side of balance sheet
+- Assets: Aktiva ("Vermögen") , left side of balance sheet
+- Liabilities: Passiva ("Schulden"), right side of balance sheet
 - Equity: Eigenkapital
 
 

@@ -7,14 +7,14 @@ tags: [C++, Python, OOP]
 # The Single Responsibility Principle (SRP)
 
 - A class (function, module...) should have only one reason to change.
-- A responsibility is “a reason for change”.
+- A responsibility is "a reason for change".
 - Violation of Single Responsibility Principle leads to rigidity:
     - This rigidity forces the recompilation and redeployment of software parts more often than necessary.
 - Just apply Single Responsibility Principle if there is a need for it.
 
 # The Open-Closed Principle (OCP)
 
-- “Software Entities (Classes, Modules, Functions, Etc.) should be open for extension, but closed for modification.”
+- "Software Entities (Classes, Modules, Functions, Etc.) should be open for extension, but closed for modification."
 - Modules should be designed to never change.
 - When the requirements change the behavior of modules is extended by adding new code, not by changing old code that already works.
 - Abstraction (interfaces):
@@ -37,7 +37,7 @@ tags: [C++, Python, OOP]
 
 There is a strong relationship between the LSP and the concept of Design by Contract :
 
-*„...when redefining a routine [in a derivative], you may only replace its precondition by a weaker one, and its postcondition by a stronger one.“* - Bertrand Meyer
+*"...when redefining a routine [in a derivative], you may only replace its precondition by a weaker one, and its postcondition by a stronger one."* - Bertrand Meyer
 
 - When using an object through its base class interface, the user knows only the pre- and postconditions of the base class.
   - Preconditions: Derived objects must not expect the users to obey stronger preconditions. They must accept anything that the base class could accept.

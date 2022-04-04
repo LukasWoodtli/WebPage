@@ -683,7 +683,7 @@ The process of matching and rewriting trees is formally called term rewriting."*
 
 *"High-level interpreters directly execute source code instructions or the AST equivalent. (Low-level interpreters execute instructions called bytecodes that are close to CPU machine instructions.)"*
 
-*"An interpreter simulates an idealized computer in software. Such “computers” have a processor, code memory, data memory, and (usually) a stack. The processor pulls instructions from the code memory, decodes them, and exe- cutes them. An instruction can read or write to the data memory or onto the stack. Function calls save return addresses so they can return to the instruction following the function call."*
+*"An interpreter simulates an idealized computer in software. Such "computers" have a processor, code memory, data memory, and (usually) a stack. The processor pulls instructions from the code memory, decodes them, and exe- cutes them. An instruction can read or write to the data memory or onto the stack. Function calls save return addresses so they can return to the instruction following the function call."*
 
 *"There are three things to consider when building an interpreter: how to store data, how and when to track symbols, and how to execute instructions."*
 

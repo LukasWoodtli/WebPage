@@ -372,7 +372,7 @@ ODMG defines Extents.
 
 #### Difference to SQL
 
-This is illegal as the “dot” operator cannot be applied to a collection of objects:
+This is illegal as the "dot" operator cannot be applied to a collection of objects:
 
     :::SqlLexer
     select a.authors.title
@@ -686,7 +686,7 @@ Example:
 Example:
 
     :::java
-    List persons = session.createQuery(“FROM Persons”).list();
+    List persons = session.createQuery("FROM Persons").list();
     for (Object p: persons)
       { ... }
 

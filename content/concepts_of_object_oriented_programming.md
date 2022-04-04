@@ -55,7 +55,7 @@ Values don't have the above properties.
 
 - We can classify objects or fields (?)
 - Classifications can be *trees* or *DAGs*
-- Classifications of objects form “is-a” relation
+- Classifications of objects form "is-a" relation
 - Classes can be abstract or concrete
 
 > Substitution Principle: Objects of subtypes can be used wherever
@@ -424,7 +424,7 @@ Some Languages Support Multiple Dispatch:
 Method calls are bound on dynamic types of several arguments.
 
 - Performance overhead
-- Extra requirements are needed to ensure there is a “unique best method” for every call
+- Extra requirements are needed to ensure there is a "unique best method" for every call
 
 
 # Multiple Inheritance

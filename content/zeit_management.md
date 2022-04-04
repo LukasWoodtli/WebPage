@@ -252,7 +252,7 @@ Alle E-Mails auf einen Account sammeln.
 - Überlange To-Do-Listen sind ein Problem
 - Punkte auf Liste halbieren, ein paar Tage später nochmal halbieren
 - Alles was einem seinem (Jahres-)Ziel nicht näher bringt streichen: was hat am meisten Wert
-- Verpflichtungen streiche, „Nein“ sagen, Zusagen zurückziehen (wo möglich)
+- Verpflichtungen streiche, "Nein" sagen, Zusagen zurückziehen (wo möglich)
 - Max. 3 wichtige Aufgaben pro Tag
 - kleinere Aufgaben zusammenfassen, an einem Stück erledigen (ca. 30 min)
 - Unwichtiges von Listen/Kalender... streichen (Ziele beachten)

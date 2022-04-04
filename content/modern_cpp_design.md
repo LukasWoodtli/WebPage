@@ -116,7 +116,7 @@ Partial specialization is not allowed:
 
 ### Summary
 
-*"The mechanics of policies consist of a combination of templates with multiple inheritance. A class that uses policies - a host class - is a template with many template parameters (often, template template parameters), each parameter being a policy. The host class “indirects” parts of its functionality through its policies and acts as a receptacle that combines several policies in a coherent aggregate."*
+*"The mechanics of policies consist of a combination of templates with multiple inheritance. A class that uses policies - a host class - is a template with many template parameters (often, template template parameters), each parameter being a policy. The host class "indirects" parts of its functionality through its policies and acts as a receptacle that combines several policies in a coherent aggregate."*
 
 *"Policy-based classes support flexibility when it comes to conversions. If you use policy-by-policy copying, each policy can control which other policies it accepts, or converts to, by providing the appropriate conversion constructors, conversion operators, or both."*
 
@@ -253,7 +253,7 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
       : spImpl_(new FunctorHandler<Functor, Fun>(fun))
     { }
 
-*"The two template parameter sets are necessary: The `template <typename R, class TList>` stands for the class template `Functor`, and `template <typename Fun>` stands for the parameter that the constructor itself takes. [...] is known as an 'out-of-class member template definition'.”*
+*"The two template parameter sets are necessary: The `template <typename R, class TList>` stands for the class template `Functor`, and `template <typename Fun>` stands for the parameter that the constructor itself takes. [...] is known as an 'out-of-class member template definition'."*
 
 ### Argument and Return Type Conversions
 
@@ -261,7 +261,7 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 *"pointers to member functions and their two related operators - `.*` and `->*` - reveals strange features. There is no C++ type for the result of `geronimo.*pActivity` and `pGeronimo->*pActivity`. Both are binary operators [that] return something to which you can apply the function-call operator immediately, but that 'something' does not have a type."*
 
-*"The standard says, 'If the result of `.*` or `->*` is a function, then that result can be used only as the operand for the function call `operator()`.”*
+*"The standard says, 'If the result of `.*` or `->*` is a function, then that result can be used only as the operand for the function call `operator()`."*
 
 *"You cannot store the result of `operator.*` or `operator->*` in any way, although there is an entity that holds the fusion between your object and the pointer to a member function"*
 

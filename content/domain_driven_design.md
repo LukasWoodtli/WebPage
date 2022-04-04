@@ -233,7 +233,7 @@ The scope of the Shared Kernel has to be clearly defined. And any changes to it 
 
 If one subsystem depends strongly on another one they are in a Customer-Supplier relationship.
 
-The teams developing these subsystems need to meet regularly. The „customer“ has to specify its requirements. The „supplier“ team has to implement them.
+The teams developing these subsystems need to meet regularly. The "customer" has to specify its requirements. The "supplier" team has to implement them.
 
 There should be automated acceptance tests that guarantee the proper implementation.
 

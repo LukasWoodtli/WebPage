@@ -8,7 +8,7 @@ tags: [German]
 
 Diese Notizen sind grösstenteils inspiriert von:
 
-„Atomic Habits“ - James Clear
+"Atomic Habits" - James Clear
 
 
 > Nicht auf Motivation setzen!
@@ -131,7 +131,7 @@ Man sollte auch Alternativen einplanen, dass man mal die gewünschte Gewohnheit 
 
 Ausserdem kann man den Grund ergänzen, wieso man eine Gewohnheit durchführen will:
 
-"Um [Zeit] in [Ort] werde ich [Gewohnheit machen], damit ich [Belohnung/Ziel erreiche].“
+"Um [Zeit] in [Ort] werde ich [Gewohnheit machen], damit ich [Belohnung/Ziel erreiche]."
 
 Ausser Zeit und Ort für die Gewohnheit zu definieren kann man auch Emotionen, andere Leute oder unmittelbar vorangehende Gewohnheiten (Gewohnheiten Aneinanderreihen) als Auslöser verwenden.
 
@@ -139,7 +139,7 @@ Ausser Zeit und Ort für die Gewohnheit zu definieren kann man auch Emotionen, a
 
 Eine einfache Methode um sich neue Gewohnheiten anzueignen ist, wenn man sie immer direkt nach einer bestehenden Gewohnheit ausführt (Habit Stacking):
 
-"Ich beginne mit [neue Gewohnheit], nachdem ich [bestehende Gewohnheit] beendet habe.“
+"Ich beginne mit [neue Gewohnheit], nachdem ich [bestehende Gewohnheit] beendet habe."
 
 Dies kann man auch mit Alternativen und einem Grund ergänzen wie bei *Implementation Intetion*.
 
@@ -274,13 +274,13 @@ Verhalten, das unmittelbar bestraft wird, wird gemieden.
 
 1. Aktuelle Gewohnheiten aufschreiben und bewerten (Habit Scorecard)
 2. Gewohnheiten planen (Implementation Intentions): "Um [Zeit] in [Ort] werde ich [Gewohnheit machen] ."
-3. Gewohnheiten aneinanderreihen (Habit Stacking): "Ich beginne mit [neue Gewohnheit], nachdem ich [bestehende Gewohnheit] beendet habe.“
+3. Gewohnheiten aneinanderreihen (Habit Stacking): "Ich beginne mit [neue Gewohnheit], nachdem ich [bestehende Gewohnheit] beendet habe."
 4. Die Umgebung so gestalten, dass gute Gewohnheiten offensichtlich und einfach sing
 
 ### 2. Gesetz: Gestalte es Attraktiv
 
 1. Eine Aktivität die man *will* mit einer Aktivität die man *muss* kombinieren (Temptation Bundling)
-2. Einer „Community“ beitreten, bei der das gewünschte Verhalten als normal angesehen wird
+2. Einer "Community" beitreten, bei der das gewünschte Verhalten als normal angesehen wird
 3. Motivations Ritual: Etwas erfreuliches machen bevor man mit einer schwierigen Aufgabe/Gewohnheit beginn
 
 ### 3. Gesetz: Gestalte es Einfach
@@ -296,7 +296,7 @@ Verhalten, das unmittelbar bestraft wird, wird gemieden.
 ### 4. Gesetz: Gestalte es Befriedigend
 
 1. Positive Verstärkung nutzen: Belohnung direkt nach dem ausführen einer Gewohnheit
-2. Gewohnheiten tracken: „don’t break the chain“
+2. Gewohnheiten tracken: "don’t break the chain"
 3. Höchstens ein mal auslassen: Wenn eine Gewohnheit mal nicht durchgeführt wird, muss man schnell wieder weitermachen
 
 ## Schlechte Gewohnheiten Abgewöhnen
@@ -307,7 +307,7 @@ Verhalten, das unmittelbar bestraft wird, wird gemieden.
 
 ### 2. Gesetz: Gestalte es Unattraktiv
 
-- Gestalte „nichts machen“ als angenehm.
+- Gestalte "nichts machen" als angenehm.
 
 ### 3. Gesetz: Gestalte es Schwierig
 
