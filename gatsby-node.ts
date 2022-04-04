@@ -19,6 +19,7 @@ async function collectMarkdownFiles(graphql: any) {
             frontmatter {
               title
             }
+            excerpt
           }
         }
       }
@@ -111,6 +112,20 @@ function createBlogPosts(posts: any[], createPage: any) {
   });
 }
 
+function createBlogIndex(posts: any[], createPage: any) {
+
+  const blogIndexComponent = path.resolve(`./src/templates/blog-index.tsx`);
+
+  createPage({
+    path: "/blog/",
+    component: blogIndexComponent,
+    context: {
+      allPosts: posts
+    }
+  });
+
+}
+
 
 function getPostsWithDatesAndNeighbors(posts: any[]) {
   return posts.map((post: any) => {
@@ -146,9 +161,13 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
 
   createStaticPages(allMarkdownFiles, createPage);
 
+
   const posts = filterOnlyBlogPosts(allMarkdownFiles);
   const postsWithDatesAndNeighbors = getPostsWithDatesAndNeighbors(posts);
+
   createBlogPosts(postsWithDatesAndNeighbors, createPage);
+
+  createBlogIndex(postsWithDatesAndNeighbors, createPage);
 };
 
 

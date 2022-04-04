@@ -1,6 +1,6 @@
 import { Chip, Divider, Grid, List, ListItem, ListItemText, Typography } from "@mui/material";
-import moment from "moment";
 import * as React from "react";
+import FormatDate from "./format-date";
 
 interface BadgesListParams {
   elements: string[];
@@ -47,7 +47,7 @@ const MetaDataSideBar = (props: any) => {
         </ListItemText>
       </ListItem>
       <ListItem key="created-date-content">
-        <Typography>{moment(props.dates.created * 1000).format("D. MMMM YYYY")}</Typography>
+        <FormatDate dateTimeStamp={props.dates.created} />
       </ListItem>
       <Divider />
       <ListItem key="modified-date-title">
@@ -56,7 +56,7 @@ const MetaDataSideBar = (props: any) => {
         </ListItemText>
       </ListItem>
       <ListItem key="modified-date-content">
-        <Typography>{moment(props.dates.modified * 1000).format("D. MMMM YYYY")}</Typography>
+        <FormatDate dateTimeStamp={props.dates.modified} />
       </ListItem>
       <Divider />
     </List>);
