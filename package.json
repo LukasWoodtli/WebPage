@@ -9,6 +9,7 @@
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.1",
+    "dayjs": "^1.11.0",
     "gatsby": "^4.10.0",
     "gatsby-plugin-feed": "^4.10.0",
     "gatsby-plugin-gatsby-cloud": "^4.10.0",
@@ -39,7 +40,7 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
-    "cypress": "^9.5.2",
+    "cypress": "^9.5.3",
     "prettier": "^2.5.1",
     "start-server-and-test": "^1.14.0"
   },
