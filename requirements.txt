@@ -1,4 +1,6 @@
 docutils>=0.14
+markupsafe==2.0.1
+jinja2==2.11.3
 pelican>=4.1.1
 sh>=1.12.10
 pyparsing>=2.0.2

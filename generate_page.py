@@ -101,5 +101,5 @@ if __name__ == "__main__":
     assert len(sys.argv) < 2
     clone_needed_repositories()
     build_web_page()
-    #publish_web_page()
-    #remove_working_copies_of_repositories()
+    publish_web_page()
+    remove_working_copies_of_repositories()
