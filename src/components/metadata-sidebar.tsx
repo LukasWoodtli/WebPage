@@ -18,7 +18,7 @@ const hasTags = (tags: string[] | null) => (tags && tags.length > 0);
 
 const MetaDataSideBar = (props: any) => {
   return (
-    <List>
+    <List data-test="metadata-sidebar">
       <Divider />
       <ListItem key="category-title">
         <ListItemText>
@@ -46,7 +46,7 @@ const MetaDataSideBar = (props: any) => {
           <Typography>Created</Typography>
         </ListItemText>
       </ListItem>
-      <ListItem key="created-date-content">
+      <ListItem key="created-date-content" data-test="created-date">
         <FormatDate dateTimeStamp={props.dates.created} />
       </ListItem>
       <Divider />
@@ -55,7 +55,7 @@ const MetaDataSideBar = (props: any) => {
           <Typography>Modified</Typography>
         </ListItemText>
       </ListItem>
-      <ListItem key="modified-date-content">
+      <ListItem key="modified-date-content" data-test="modified-date">
         <FormatDate dateTimeStamp={props.dates.modified} />
       </ListItem>
       <Divider />
