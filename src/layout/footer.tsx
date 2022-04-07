@@ -25,7 +25,7 @@ function Footer(props: FooterProps) {
                          sx={{marginLeft: "auto", mr: 5}}>
                 {icons.map(icon => (
                     <IconButton component="span" color="primary" key={icon.link}>
-                        <a href={icon.link} target="_blank" rel="noreferrer">
+                        <a href={icon.link} target="_blank" rel="noreferrer" data-testid={"footer-icon"}>
                             <FontAwesomeIcon icon={icon.icon}/>
                         </a>
                     </IconButton>))}
