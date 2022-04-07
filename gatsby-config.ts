@@ -5,6 +5,7 @@ module.exports = {
       name: `Lukas Woodtli`,
       summary: `Personal Website and Blog.`,
     },
+    siteUrl: `https://lukaswoodtli.github.io/`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -56,6 +57,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-next-seo`,
     `gatsby-theme-material-ui`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
