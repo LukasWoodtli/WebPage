@@ -2,8 +2,7 @@ import React from "react";
 import {Box, Card, CardContent, CardHeader, Container, Grid, Typography} from "@mui/material";
 import DashBoard from "../dashboard/dash-board";
 import Layout from "../layout/layout";
-
-const image = require('./img/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg');
+import { StaticImage } from "gatsby-plugin-image";
 
 
 function Index() {
@@ -32,11 +31,7 @@ function Index() {
                 >
                     <Grid
                         item
-                        xs={12}
-                        sm={6}
-                        md={6}
                         lg={6}
-                        xl={6}
                         alignItems="stretch"
                     >
                         <Card variant="outlined" sx={{border: 0}}>
@@ -54,16 +49,13 @@ function Index() {
                     </Grid>
                     <Grid
                         item
-                        xs={12}
-                        sm={6}
-                        md={6}
                         lg={6}
-                        xl={6}
                         alignItems="stretch"
                     >
                         <Card variant="outlined" sx={{border: 0}}>
                             <CardContent>
-                                <img width="100%" src={image} alt="Electronic board (by Alexandre Debieve)"/>
+                              <StaticImage src='./img/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg'
+                                           alt="Electronic board (by Alexandre Debieve)"/>
                             </CardContent>
                         </Card>
                     </Grid>
