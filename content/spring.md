@@ -8,7 +8,6 @@ tags: [OOP]
 
 The Spring IoC container needs to know which beans to create for Dependency Injection.
 
-
 ## Define Beans
 
 | Class Annotation | Use                         |
@@ -16,7 +15,6 @@ The Spring IoC container needs to know which beans to create for Dependency Inje
 | `@Component`     | generic Spring bean         |
 | `@Service`       | business service components |
 | `@Repository`    | Data Access Objects (DAO) with automatic transaction management |
-
 
 ## Inject Beans
 
@@ -33,7 +31,6 @@ If multiple candidate beans are available the expected one can be
 annotated with `@Primary`.
 
 Use `@Qualifier` for manual selection of a bean implementation:
-
 
 ```java
 @Component
@@ -53,7 +50,6 @@ class MyBean {
 }
 ```
 
-
 ## Scopes
 
 ### Generic Scopes
@@ -63,7 +59,6 @@ class MyBean {
 | `singleton` (default) | Only one instance of the bean in a IoC container |
 | `prototype` | A new instance of the bean is created each time it is requested from the IoC container |
 
-
 ### Web Context Scopes
 
 | Scope     | Use                                                          |
@@ -71,7 +66,6 @@ class MyBean {
 | `request` | A new instance of the bean is created for each HTTP request  |
 | `session` | A new instance of the bean is created for every HTTP session |
 | `application` | One instance of the bean for a web application           |
-
 
 ### Usage
 
@@ -81,7 +75,6 @@ class MyBean {
 public class MyServiceImpl implements MyService {}
 ```
 
-
 ## Lifecycle Hooks
 
 | Annotation       | Use                                                                        |
@@ -89,11 +82,9 @@ public class MyServiceImpl implements MyService {}
 | `@PostConstruct` | Method that is called once the bean is fully initialized with dependencies |
 | `@PreDestroy`    | Method that is called before the bean is removed from the IoC container    |
 
-
 ## Run Spring IoC container
 
 Use `ApplicationContext` to launch an IoC container:
-
 
 ### Configuration for Application Context
 
@@ -102,7 +93,6 @@ Use `ApplicationContext` to launch an IoC container:
 | `@Configuration` | Define a Spring configuration                |
 | `@ComponentScan` | Add information on where to search for beans |
 
-
 ```java
 @Configuration
 @ComponentScan(basePackages = { "com.mycompany.mypackage" })
@@ -110,14 +100,13 @@ class SpringContext {
 }
 ```
 
-
 # Spring Boot
 
 `@SpringBootApplication` is a shortcut for:
 
-  - `@Configuration`: Spring application context cofiguration
-  - `@EnableAutoConfiguration`: Automatic configuration with sensible (opiniated) defaults
-  - `@ComponentScan`: Scans for Spring beans in the package of this class and all its subpackages
+- `@Configuration`: Spring application context cofiguration
+- `@EnableAutoConfiguration`: Automatic configuration with sensible (opiniated) defaults
+- `@ComponentScan`: Scans for Spring beans in the package of this class and all its subpackages
 
 # Custom Configuration
 
@@ -126,7 +115,6 @@ Put a configuration variable as key-value pair into `src/main/resources/applicat
 ```
 myservice.url=http://myservice
 ```
-
 
 The value can be read from Java:
 
@@ -138,8 +126,6 @@ public class MyService {
 }
 ```
 
-
-
 # REST Services
 
 ## Controller
@@ -147,7 +133,6 @@ public class MyService {
 | Class Annotation  | Use                                          |
 |-------------------|----------------------------------------------|
 | `@RestController` | Create REST controller, combination of `@ResponseBody` and `@Controller` |
-
 
 ## Handler Methods
 
@@ -159,7 +144,6 @@ There are method annotations for handling a path with a HTTP method:
 - `@DeleteMapping("/path")`
 - ...
 
-
 ### Parameters to Handler Methods
 
 These annotations can be added to the arguments of the handler method:
@@ -169,7 +153,6 @@ These annotations can be added to the arguments of the handler method:
 | `@PathVariable`     | Capture a path argument |
 | `@PathVariable`     | Capture a path argument |
 
-
 ```java
 @GetMapping("/hello/{name}")
 public MyBean hello(@PathVariable String name,
@@ -178,14 +161,13 @@ public MyBean hello(@PathVariable String name,
 }
 ```
 
-
 ### Return Values
 
 Usually either a bean (DTO) is returned (which is usually converted to a JSON) or
 a `ResponseEntity<>` can be used to provide some information to the client.
 
-
 ## Validation
+
 | Annotation     | Use                                                |
 |----------------|----------------------------------------------------|
 | `@Valid`       | Argument annotation of a handler method to validate incoming data |
@@ -199,18 +181,15 @@ a `ResponseEntity<>` can be used to provide some information to the client.
 | `@Pattern`     | Element must match the given regular expression    |
 | `@Size`        | Element size must be within given boundaries       |
 
-
-
-
 ```java
-// contoller
+
 @GetMapping("/hello/{name}")
 public MyBean hello(@PathVariable String name,
                     @Valid @RequestBody MyDto body) { // validate MyDto here
   // ...
 }
 
-// bean
+
 public class MyDto {
   @NotNull
   private Date date;
@@ -221,7 +200,6 @@ public class MyDto {
 ```
 
 ## Testing
-
 
 ### Unit Testing the Controller
 
@@ -239,9 +217,7 @@ public class MyControllerTest {
 }
 ```
 
-
 ### Integration Testing
-
 
 ```java
 @ExtendWith(SpringExtension.class)  // before Junit 5 use `@RunWith(SpringRunner.class)`
@@ -256,7 +232,6 @@ public class MyControllerTest {
   // Data access could be mocked with @MockBean
 }
 ```
-
 
 # Spring Security
 
@@ -275,10 +250,9 @@ Most important filters:
 The filters usually call a `Authentication Manager` (default implementation: `ProviderManager`) which itself calls multiple `AuthenticationProvider`s.
 Each authentication provider authenticates the user with a different backend technology:
 
-- `DaoAuthenticationProvider `: uses `UserDetailsService` to authenticate the user.
-    - Spring Security provides *in-memory* and *JDBC* implementations of `UserDetailsService`
+- `DaoAuthenticationProvider`: uses `UserDetailsService` to authenticate the user.
+  - Spring Security provides *in-memory* and *JDBC* implementations of `UserDetailsService`
 - LDAP support is implemented using the `LdapAuthenticator`
-
 
 ## Authorization
 
@@ -290,20 +264,17 @@ Each voter returns one of these results:
 - `ACCESS_ABSTAIN`
 - `ACCESS_DENIED`
 
-
 Default implementations of `AccessDecisionManager`:
 
 - `AffirmativeBased`: grants access if any `AccessDecisionManager` returns a positive response
 - `ConsensusBased`: grants access if the majority of `AccessDecisionManager`s returns a positive response
 - `UnanimousBased`: grants access if all `AccessDecisionManager`s returns a positive response
 
-
 Some implementations of `AccessDecisionVoter`:
 
 - `RoleVoter`: returns a vote based on the role of the user
 - `AuthenticatedVoter`: returns a vote based authentication status of the user
 - `Jsr250Voter`: returns vote based on JSR-250 annotations
-
 
 ## Spring Security Annotations
 
@@ -312,15 +283,12 @@ Method level security:
 - Add `@EnableGlobalMethodSecurity` on a Spring configuration class.
 - Use `@Secured("ROLE_ADMIN)` on a service method (it's also possible to provide multiple roles).
 
-
 ### JSR-250 Annotations
 
 - Add `@EnableGlobalMethodSecurity(jsr250Enabled = true)` on a Spring configuration class.
 - Use `@RolesAllowed("ROLE_ADMIN)` on a service method (it's also possible to provide multiple roles).
 
-
 ### Pre and Post Annotation
 
 - Add `@EnableGlobalMethodSecurity(prePostEnabled = true)` on a Spring configuration class.
 - Use `@PreAuthorize(..)` or `@PostAuthorize(..)` to provide extensive checks.
-
