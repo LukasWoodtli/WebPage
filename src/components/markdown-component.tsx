@@ -1,7 +1,7 @@
 import * as React from "react";
 import { GatsbySeo } from "gatsby-plugin-next-seo/src/meta/gatsby-seo";
 
-export default function MarkdowPost(props: any) {
+export default function MarkdownPost(props: any) {
     return (
       <>
       <GatsbySeo
