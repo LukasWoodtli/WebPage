@@ -89,11 +89,13 @@ It does not depend on length of links.
 - where $\forall i;f_i + c_i = m$
 
 
-$$\begin{align*}
+$$
+\begin{align*}
 dof &= \underbrace{m(N-1)}_{rigid\ body \ freedoms} - \underbrace{\sum_{i=1}^Jc_i}_{joint\ constraints}\\ 
  &= m(N-1)-\sum_{i=1}^J(m-f_i)\\ 
  &= m(N-1-J)+\sum_{i=1}^Jf_i
-\end{align*}$$
+\end{align*}
+$$
 
 The formula holds only if all constraints for the joints are independent.
 

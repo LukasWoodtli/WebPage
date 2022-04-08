@@ -101,8 +101,8 @@ $$
 
 | Rotations (angular velocity)         | Rigid-Body Motions (twist) |
 |--------------------------------------|----------------------------|
-| for $\omega \in \mathbb{R}^3$ | for $$V = \begin{bmatrix} \omega \\ v\end{bmatrix} \in \mathbb{R}^6$$ |
-| $$[\omega] = \begin{bmatrix} 0 & -\omega_3 & \omega_2 \\ \omega_3 & 0 & -\omega_1 \\ -\omega_2 & \omega_1 & 0\end{bmatrix} \in so(3)$$ | $$[V] = \begin{bmatrix} [\omega] & v \\ 0 & 0 \end{bmatrix} \in se(3)$$  |
+| for $\omega \in \mathbb{R}^3$ | for $V = \begin{bmatrix} \omega \\ v\end{bmatrix} \in \mathbb{R}^6$ |
+| $[\omega] = \begin{bmatrix} 0 & -\omega_3 & \omega_2 \\ \omega_3 & 0 & -\omega_1 \\ -\omega_2 & \omega_1 & 0\end{bmatrix} \in so(3)$ | $[V] = \begin{bmatrix} [\omega] & v \\ 0 & 0 \end{bmatrix} \in se(3)$ |
 | $\dot{R}R^{-1} = [\omega_s]$         | $\dot{T}T^{-1} = [V_s]$    |
 | $R^{-1}\dot{R} =[\omega_b]$          | $T^{-1}\dot{T} = [V_b]$    |
 

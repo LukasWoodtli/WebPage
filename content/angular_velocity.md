@@ -39,9 +39,11 @@ Where:
 
 These equations can be combined:
 
-$$\dot{R}_{sb} = \begin{bmatrix}
+$$
+\dot{R}_{sb} = \begin{bmatrix}
 \omega_s \times r_1 & \omega_s \times r_2 &  \omega_s \times r_3
-\end{bmatrix} = \omega_s \times R_{sb}$$
+\end{bmatrix} = \omega_s \times R_{sb}
+$$
 
 
 Where:
@@ -51,7 +53,9 @@ Where:
 
 This can be simplified to:
 
-$$\dot{R}_{sb} = [\omega_s]R_{sb}$$
+$$
+\dot{R}_{sb} = [\omega_s]R_{sb}
+$$
 
 where:
 

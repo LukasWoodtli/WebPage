@@ -291,12 +291,16 @@ This is expressed as interface specifications (contracts)
 - *History* inheritance: same as for *invariants*
 - *Precondition* inheritance: Disjunctions (OR) of own contract and contracts of all supertypes
 
-$$PreEff_{S.m} = Pre_{S.m} || Pre_{T.m} || Pre_{T’.m} || ...$$
+$$
+PreEff_{S.m} = Pre_{S.m} || Pre_{T.m} || Pre_{T'.m} || ...
+$$
 
 - *Postcondition* inheritance: Satisfy *each* postcondition for which the corresponding precondition holds
     - Precondition needs to be evaluated with *old* state
 
-$$PostEff_{S.m} = (old(Pre_{S.m}) => Post_{S.m}) \&\& (old(Pre_{T.m}) => Post_{T.m}) \&\& ...$$
+$$
+PostEff_{S.m} = (old(Pre_{S.m}) => Post_{S.m}) \&\& (old(Pre_{T.m}) => Post_{T.m}) \&\& ...
+$$
 
 
 ### Types as Contracts
@@ -951,18 +955,24 @@ Field **Read** or Method **Parameters**:
 
 Is correctly typed if:
 
-$$\tau(v) :> \tau(e) \blacktriangleright \tau(f)$$
+$$
+\tau(v) :> \tau(e) \blacktriangleright \tau(f)
+$$
 
 Field **Write** or Method **Result**:
 
     :::java
     e.f = v;
 
-$$\tau(e) \blacktriangleright \tau(f) :> \tau(v)$$
+$$
+\tau(e) \blacktriangleright \tau(f) :> \tau(v)
+$$
 
 And
 
-$$\tau(e) \blacktriangleright \tau(f)$$
+$$
+\tau(e) \blacktriangleright \tau(f)
+$$
 
 is **not lost**.
 
