@@ -8,7 +8,7 @@ import FormatDate from "../components/format-date";
 
 const BlogIndex = (props: any) => {
   const { pageContext } = props;
-  const posts = pageContext.allPosts.sort((postA: any, postB: any) => (postA.dates.modified > postB.dates.modified));
+  const posts = pageContext.allPosts.sort((postA: any, postB: any) => (postA.dates.created < postB.dates.created));
 
   return (
     <Layout>
@@ -29,7 +29,7 @@ const BlogIndex = (props: any) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </Typography>
-                  <FormatDate dateTimeStamp={post.dates.modified} />
+                  <FormatDate dateTimeStamp={post.dates.created} />
                 </header>
                 <section>
                   <Typography
