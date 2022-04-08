@@ -2253,7 +2253,7 @@ Relationships:
 
 - [Dunbar's number](https://en.wikipedia.org/wiki/Dunbar%27s_number)
 - [Erdős number](https://en.wikipedia.org/wiki/Erd%C5%91s_number)
-- [Bacon’s number](https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon)
+- [Bacon's number](https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon)
 - [Small world phenomenon](https://en.wikipedia.org/wiki/Small-world_experiment)
 
 #### Node Properties
@@ -2547,8 +2547,8 @@ Comparison:
     - set of *6 boolean predicates*
     - give *qualitative* description of relative position
 
-- location changes continuously: condition satisfied *sometime* or *always* within $[t_b,t_e]
-- due to uncerainty: condition satisfied *possibly* or *definitely* at point $p \in [t_b,t_e]
+- location changes continuously: condition satisfied *sometime* or *always* within $[t_b,t_e]$
+- due to uncerainty: condition satisfied *possibly* or *definitely* at point $p \in [t_b,t_e]$
 
 - *possibly*: trajectory with uncretainity
 - *sometime*: don't care about time

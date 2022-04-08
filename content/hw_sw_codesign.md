@@ -305,7 +305,9 @@ Estimation is required to find *C*, *L*, *P* values, for each design point
 
 i.e
 
-$$f(C,L,P)= k_1 \cdot h_C(C,C_{max})+ k_2 \cdot h_L(L,L_{max})+ k_3 \cdot h_P(P,P_{max})$$
+$$
+f(C,L,P)= k_1 \cdot h_C(C,C_{max})+ k_2 \cdot h_L(L,L_{max})+ k_3 \cdot h_P(P,P_{max})
+$$
 
 - $h_C$, $h_L$, $h_P$: denote how strong $C$, $L$, $P$ violate design constraints $C_{max}$, $L_{max}$, $P_{max}$
 - $k_1$, $k_2$, $k_3$: weighting and normalization
@@ -359,11 +361,15 @@ Overview:
 
 Objective:
 
-$$C = \sum_{x_i\in X}a_ix_i\; with\; a_i \in \mathbb{R}, x_i \in \mathbb{N}$$
+$$
+C = \sum_{x_i\in X}a_ix_i\; with\; a_i \in \mathbb{R}, x_i \in \mathbb{N}
+$$
 
 Constraints:
 
-$$\forall j \in J: \sum_{x_i \in X}b_{i,j}x_i \geq c_j \; with \; b_{i,j}, c_j \in \mathbb{R}$$
+$$
+\forall j \in J: \sum_{x_i \in X}b_{i,j}x_i \geq c_j \; with \; b_{i,j}, c_j \in \mathbb{R}
+$$
 
 Integer programming problem:
 
@@ -442,7 +448,9 @@ This is not a linear problem!
 
 Solving 2 linear problems: split approach 2 into 2 linear problems:
 
-$$min \left \{ \left | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \underbrace{\sum_{i=0}^3 c_{i,1} x_{i,1}}_{l_2} \right | \right \}$$
+$$
+min \left \{ \left | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \underbrace{\sum_{i=0}^3 c_{i,1} x_{i,1}}_{l_2} \right | \right \}
+$$
 
 Becomes:
 
@@ -602,12 +610,16 @@ Network processor: High-performance, programmable device designed to efficiently
 
 - We intend to minimize a *vector-valued* ***objective function***
 
-$$f= (f_1; f_2; ... ; f_n): X \rightarrow R^n$$
+$$
+f= (f_1; f_2; ... ; f_n): X \rightarrow R^n
+$$
 
 - $X$ denotes the **decision space**. i.e the feasible set of alternatives for the optimization problem
 - The image of the decision space $X$ using the objective function $f$ is denoted as the **objective space** $Z \subset R^n$ with
 
-$$Z = \{f(x) |x \in X  \}$$
+$$
+Z = \{f(x) |x \in X  \}
+$$
 
 - A single alternative $x \in X$ is (sometimes) named *solution* and the corresponding object value $z = f(x) \in Z$ is named *objective vector*
 
@@ -624,7 +636,9 @@ Definition:
 A solution $a \in X$ weakly *Pareto-dominates* a solution $b \in X$, denoted as $a \preceq  b$, if it is at least as good in
 all objectives, i.e:
 
-$$f_i(a) \leq f_i(b)\; \forall 1 \leq i \leq n$$
+$$
+f_i(a) \leq f_i(b)\; \forall 1 \leq i \leq n
+$$
 
 
 - Dominance is transitive
@@ -657,7 +671,7 @@ Basic scheme (many variations exist):
 6. continue at 2.
 
 
-![Evolutionary Algorithm](/images/hscd_evolutionary_algorithm.svg){: style="float:right"}
+![Evolutionary Algorithm](/images/hscd_evolutionary_algorithm.svg)
 
 
 - Cross-over operator: Take best parts of two solutions
@@ -674,11 +688,15 @@ Basic scheme (many variations exist):
 Given a set of solutions $A \subseteq X$ and a set of *reference points* $R \subset \mathbb{R}^n$. Then the
 *hypervolume indicator* $I_H(A,R)$ of $A$ with respect to $R$ is defined as
 
-$$I_H(A,R) = \int_{z \in H(A,R)} dz$$
+$$
+I_H(A,R) = \int_{z \in H(A,R)} dz
+$$
 
 where $H(A,R)$ id the dominated space of $A$ regarding $R$:
 
-$$H(A,R) = \{ z \in \mathbb{R}^n | \exists a \in A : \exists r \in R : (f(a) \leq z \leq r) \}$$
+$$
+H(A,R) = \{ z \in \mathbb{R}^n | \exists a \in A : \exists r \in R : (f(a) \leq z \leq r) \}
+$$
 
 $z$: Objective
 
@@ -1132,7 +1150,9 @@ How to evaluate a system?
 - Describe system properties by *parameters* (e.g data rate)
 - Combine relations
 
-$$comm\_delay= \left \lceil \frac{\# words}{burst\_size}  \right \rceil \cdot comm\_time$$
+$$
+comm\_delay= \left \lceil \frac{\# words}{burst\_size}  \right \rceil \cdot comm\_time
+$$
 
 - Fast and simple estimation
 - But generally inaccurate modeling (e.g resource sharing not modeled)
@@ -1249,7 +1269,9 @@ $ub(s)$: Upper bound for statement $s$
 
 #### Sequence of Statements
 
-$$A \equiv A1;A2$$
+$$
+A \equiv A1;A2
+$$
 
 Constituents of $A$: $A1$ and $A2$
 
@@ -1618,7 +1640,9 @@ Reference to variable **s** in loop body (max $n$ iterations):
 ![Plus-times calculus](/images/hscd_plus_times.svg)
 
 
-$$h(t) = \underbrace{(f*g)}_{\text{convolution}}\underbrace{(t)}_{\text{time-domain}}= \int_0^t f(t-s)\cdot g(s) \;ds$$
+$$
+h(t) = \underbrace{(f*g)}_{\text{convolution}}\underbrace{(t)}_{\text{time-domain}}= \int_0^t f(t-s)\cdot g(s) \;ds
+$$
 
 
 
@@ -1634,7 +1658,9 @@ $$h(t) = \underbrace{(f*g)}_{\text{convolution}}\underbrace{(t)}_{\text{time-dom
 ![Min-plus calculus](/images/hscd_min_plus.svg)
 
 
-$$R'(t)\geq \underbrace{(R\otimes g)}_{\text{convolution}}(t)= \underset{0\leq \lambda\leq t}{inf}\{R(t-\lambda)+g(\lambda) \}$$
+$$
+R'(t)\geq \underbrace{(R\otimes g)}_{\text{convolution}}(t)= \underset{0\leq \lambda\leq t}{inf}\{R(t-\lambda)+g(\lambda) \}
+$$
 
 <!-- End of Notes Week 12 -->
 <!-- Beginning of Notes Week 13 -->

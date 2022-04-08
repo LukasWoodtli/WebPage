@@ -87,9 +87,8 @@ $$
 These properties hold for $SE(2)$ and $SE(3)$.
 
 - Inverse:
-    - $$T^{-1} = \begin{bmatrix} R & p \\ 0 & 1 \\
-\end{bmatrix}^{-1} =  \begin{bmatrix} R^T & -R^Tp \\ 0 & 1 \\
-\end{bmatrix} \in SE(n)$$
+  - $$T^{-1} = \begin{bmatrix} R & p \\ 0 & 1 \\ \end{bmatrix}^{-1} =  \begin{bmatrix} R^T & -R^Tp \\ 0 & 1 \\ \end{bmatrix} \in SE(n)$$
+
 - Closure: $T_1 T_2 \in SE(n)$
 - Associative $(T_1 T_2) T_3 = T_1 (T_2 T_3)$
 - *Not* commutative: $T_1 T_2 \neq T_2 T_1$

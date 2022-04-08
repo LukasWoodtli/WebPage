@@ -11,13 +11,17 @@ tags: [Robotics]
 
 Position of point $B$ relative to point $A$:
 
-$$\mathbf{r}_{AB}$$
+$$
+\mathbf{r}_{AB}
+$$
 
 In 3D space positions are represented by vectors $\mathbf{r} \in \mathbb{R}^3$
 
 It is necessary to define a reference frame $A$ and to express the vector in this frame:
 
-$$\mathcal{A}^\mathbf{r}AB$$
+$$
+\mathcal{A}^\mathbf{r}AB
+$$
 
 With:
 
@@ -30,7 +34,9 @@ The unit vectors $\left ( \mathbf{e}^\mathcal{A}_x, \mathbf{e}^\mathcal{A}_y, \m
 
 An alternative notation:
 
-$${}^A \mathbf{p}_B$$
+$$
+{}^A \mathbf{p}_B
+$$
 
 Meaning: Vector $\mathbf{p}$ to $B$ with respect to coordinate frame ${A}$.
 (The bound vector $\mathbf{p}$ pointing from the origin of ${A}$ to the point $B$,
@@ -41,22 +47,26 @@ Where everything is in the coordnate frame ${A}$).
 
 ## Cartesian Coordinates
 
-$$\mathbf{\chi}_{Pc} = \begin{pmatrix}
+$$
+\mathbf{\chi}_{Pc} = \begin{pmatrix}
 x \\
 y \\
 z
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 Where $\mathbf{\chi}_P$ are the stacked parameters of the position representation.
 
 The position vector is given by
 
-$$\mathcal{A}^\mathbf{r} = x\mathbf{e}^\mathcal{A}_x + y\mathbf{e}^\mathcal{A}_y + z\mathbf{e}^\mathcal{A}_z =
+$$
+\mathcal{A}^\mathbf{r} = x\mathbf{e}^\mathcal{A}_x + y\mathbf{e}^\mathcal{A}_y + z\mathbf{e}^\mathcal{A}_z =
 \begin{pmatrix}
 x \\
 y \\
 z
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 Where:
 
@@ -65,37 +75,45 @@ Where:
 
 ## Cylindrical coordinates
 
-$$\mathbf{\chi}_{Pz} = \begin{pmatrix}
+$$
+\mathbf{\chi}_{Pz} = \begin{pmatrix}
 \rho  \\
 \theta \\
 z
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 A position vector is given by
 
-$$\mathcal{A}^\mathbf{r} =
+$$
+\mathcal{A}^\mathbf{r} =
  \begin{pmatrix}
 \rho \cos \theta \\
 \rho \sin \theta  \\
 z
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 
 ## Spherical coordinates
 
-$$\mathbf{\chi}_{Pz} = \begin{pmatrix}
+$$
+\mathbf{\chi}_{Pz} = \begin{pmatrix}
 r \\
 \theta \\
 \phi
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 A position vector is given by
 
-$$\mathcal{A}^\mathbf{r} = \begin{pmatrix}
+$$
+\mathcal{A}^\mathbf{r} = \begin{pmatrix}
 r \cos \theta \sin \phi \\
 r \sin \theta \sin \phi \\
 r \cos \phi 
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 
 Where:
@@ -113,7 +131,9 @@ and rotation) of a coordinate frame.
 
 The pose of a coordinate frame can be described with respect to another coordinate frame:
 
-$${}^A\xi_B$$
+$$
+{}^A\xi_B
+$$
 
 Meaning: Pose $\xi$ of coordinate frame ${B}$ with respect to frame ${A}$.
 

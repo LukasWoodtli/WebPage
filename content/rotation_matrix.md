@@ -26,7 +26,8 @@ Expressing orientation of $\{b\}$ relative to $\{s\}$:
 
 Example:
 
-$$\begin{matrix}
+$$
+\begin{matrix}
 \hat{x}_b = \begin{bmatrix}
 0\\ 
 1\\ 
@@ -43,7 +44,8 @@ $$\begin{matrix}
 0\\ 
 1
 \end{bmatrix} 
-\end{matrix}$$
+\end{matrix}
+$$
 
 
 Where:
@@ -53,7 +55,8 @@ Where:
 
 Combined unit vectors:
 
-$$R_{sb}=\begin{bmatrix}
+$$
+R_{sb}=\begin{bmatrix}
 \hat{x}_b & \hat{y}_b & \hat{z}_b
 \end{bmatrix}
 = 
@@ -61,7 +64,8 @@ $$R_{sb}=\begin{bmatrix}
 0 & -1 & 0\\ 
 1 & 0 & 0\\ 
 0 & 0 & 1 
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 
 Where:
@@ -82,21 +86,27 @@ So $6$ constraints are required:
 
 These 6 constraints can also be written as:
 
-$$R^TR = I$$
+$$
+R^TR = I
+$$
 
 Where:
 
 - $I$: Identity matrix
 
-$$I = \begin{bmatrix}
+$$
+I = \begin{bmatrix}
 1 & 0 & 0\\ 
 0 & 1 & 0\\ 
 0 & 0 & 1
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 Furthermore for right-handed frames the following must hold:
 
-$$\det R = 1$$
+$$
+\det R = 1
+$$
 
 This means that all rotation matrices are elements of the Special Orthogonal Group $SO(n)$.
 
@@ -105,9 +115,13 @@ This means that all rotation matrices are elements of the Special Orthogonal Gro
 The Special Orthogonal Group $SO(2)$ and $SO(3)$ is the set of all possible $2 \times 2$ or $3 \times 3$
 real matrices $R$ that satisfy:
 
-$$R^TR = RR^T = I$$
+$$
+R^TR = RR^T = I
+$$
 
-$$det R = 1$$
+$$
+det R = 1
+$$
 
 We refer to $SO(3)$ as the *rotation group* of $\mathbb{R}^3$
 
@@ -138,7 +152,9 @@ These properties hold for $SO(2)$ and $SO(3)$.
 
 The coordinates of a vector $\mathbf{u}$ can be mapped from frame $B$ to frame $A$ by writing:
 
-$${}_A\mathbf{u} = R_{AB} \cdot {}_B\mathbf{u}$$
+$$
+{}_A\mathbf{u} = R_{AB} \cdot {}_B\mathbf{u}
+$$
 
 Where:
 - ${}_A\mathbf{u}$: Vector $\mathbf{u}$ expressed in frame $\{A\}$ coordinates
@@ -148,14 +164,18 @@ Where:
 
 The vector $\mathbf{u}$ can also be mapped from frame $C$ to frame $B$ by writing:
 
-$${}_B\mathbf{u} = R_{BC} \cdot {}_C\mathbf{u}$$
+$$
+{}_B\mathbf{u} = R_{BC} \cdot {}_C\mathbf{u}
+$$
 
 Combining these equations:
 
-$$\begin{align*}
+$$
+\begin{align*}
 {}_A\mathbf{u} &= R_{AB} \cdot (R_{BC} \cdot {}_C\mathbf{u}) \\
  &= R_{AC} \cdot {}_C\mathbf{u}
-\end{align*}$$
+\end{align*}
+$$
 
 
 The resulting rotation matrix $R_{AC} = R_{AB} \cdot R_{BC}$ (s.a. subscript cancellation) can be interpreted as the rotation obtained by rotating frame $A$ until it coincides with frame $B$, and then rotating frame $B$ until it coincides with frame $C$.
@@ -177,7 +197,9 @@ vector or frame.
 $R_c$ means implicit the orientation of frame ${c}$ relative to the 
 fixed reference frame ${s}$. Explicit notation would be $R_{sc}$.
 
-$R_c = R_{sc}$
+$$
+R_c = R_{sc}
+$$
 
 Properties:
 
@@ -187,7 +209,9 @@ Properties:
 
 ### Changing the reference Frame (Passive Rotation)
 
-$$R_{ac} = \underbrace{R_{ab}}_{operator} \cdot \overbrace{R_{bc}}^{orientation}$$
+$$
+R_{ac} = \underbrace{R_{ab}}_{operator} \cdot \overbrace{R_{bc}}^{orientation}
+$$
 
 Meaning: $R_{ac} = change\_reference\_frame\_from\_b\_to\_a(R_{bc})$
 
@@ -205,34 +229,43 @@ $R_{ab} p_b  = R_{a\not{b}} p_{\not{b}} = p_a$
 
 $R$ as a rotation operator can be written:
 
-$$R = Rot(\hat{\omega}, \theta)$$
+$$
+R = Rot(\hat{\omega}, \theta)
+$$
 
 
 
 #### Elementary Rotations
 
-$$Rot(\hat{x}, \theta) = \begin{pmatrix}
+$$
+Rot(\hat{x}, \theta) = \begin{pmatrix}
 1 &   0         & 0           \\
 0 & \cos \varphi & -\sin \varphi \\
 0 & \sin \varphi &  \cos \varphi
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 
-$$Rot(\hat{y}, \theta)= \begin{pmatrix}
+$$
+Rot(\hat{y}, \theta)= \begin{pmatrix}
 \cos \varphi & 0 & \sin \varphi \\
 0 &   1         & 0           \\
 -\sin \varphi & 0 & \cos \varphi
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
-$$Rot(\hat{z}, \theta) = \begin{pmatrix}
+$$
+Rot(\hat{z}, \theta) = \begin{pmatrix}
 \cos \varphi & -\sin \varphi & 0\\
 \sin \varphi & \cos \varphi & 0 \\
 0 &   0         & 1           \\
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 #### General form of Rotation
 
-$$Rot(\hat{\omega}, \theta) =
+$$
+Rot(\hat{\omega}, \theta) =
 \begin{bmatrix}
 \cos \theta + \hat{\omega}_1^2(1-\cos \theta) &
 \hat{\omega}_1 \hat{\omega}_2(1-\cos \theta) - \hat{\omega}_3 \sin \theta &
@@ -243,12 +276,13 @@ $$Rot(\hat{\omega}, \theta) =
 \hat{\omega}_1 \hat{\omega}_3(1-\cos \theta) - \hat{\omega}_2 \sin \theta&
 \hat{\omega}_2 \hat{\omega}_3(1-\cos \theta) - \hat{\omega}_1 \sin \theta&
 \cos \theta + \hat{\omega}_3^2(1-\cos \theta)
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 with: $\hat{\omega} = (\hat{\omega}_1, \hat{\omega}_2, \hat{\omega}_3)$
 
 
-#### Properties
+#### Properties
 - Any $R \in SO(3)$ can be obtained by rotating from the identity matrix $I$ by some $\theta$ about some $\hat{\omega}$
 - $Rot(\hat{\omega},\theta) = Rot(-\hat{\omega},-\theta)$
 
@@ -272,7 +306,9 @@ Given $R = Rot(\hat{\omega}, \theta)$:
 To rotate a vector $v$, there is only one frame involved. $\hat{\omega}$
 has to be interpreted as being in the frame in which $v$ is represented:
 
-$${v}' = Rv$$
+$$
+{v}' = Rv
+$$
 
 # Literature
 
