@@ -693,7 +693,7 @@ Communication
 
 [osdev.org](http://wiki.osdev.org)
 
-- SDM: Intel® 64 and IA-32 Architectures Software Developer’s Manual (4000 p., 3 volumes)
+- SDM: Intel® 64 and IA-32 Architectures Software Developer's Manual (4000 p., 3 volumes)
     1. Architecture
     2. Instruction Set Reference
     3. System Programming Guide
@@ -873,7 +873,7 @@ The supported operations are typically a lot slower than simple read and write o
 
 #### Intel (x86)
 
-From AMD64 Architecture Programmer’s Manual:
+From AMD64 Architecture Programmer's Manual:
 
 - `CMPXCHG mem, reg`
 
@@ -1798,7 +1798,7 @@ Compute the result via ALU
     wire [31:0] AA, A, B, imm;
     wire [32:0] aluRes;
 
-    assign A = (IR[10])? AA: {22’b0, imm}; // bit 10: immediate or register
+    assign A = (IR[10])? AA: {22'b0, imm}; // bit 10: immediate or register
 
     assign minusA = {1‘b0, ~A} + 33‘d1;
     assign aluRes =

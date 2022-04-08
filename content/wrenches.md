@@ -6,7 +6,9 @@ tags: [Robotics]
 
 A linear force $f$ acting on a rigid body at point $p$ creates a *torque* (*moment*) $m$ that can be represented in a reference frame $\{a\}$ as:
 
-$$m_a = r_a \times f_a$$
+$$
+m_a = r_a \times f_a
+$$
 
 With:
 
@@ -19,12 +21,14 @@ With:
 
 The *moment* and the *force* can be combined in a 6-dimensional vector (like with twists) called *wrench* (or *spacial force*).
 
-$$F_a =
+$$
+F_a =
 \begin{bmatrix}
 m_a \\
 f_a
 \end{bmatrix}
-\in \mathbb{R}^6$$
+\in \mathbb{R}^6
+$$
 
 - $F_a \in \mathbb{R}^6$: Wrench (spacial force)
 - $m_a \in \mathbb{R}^3$: Torque or moment on rigid body
@@ -36,7 +40,8 @@ f_a
 
 If multiple wreches act on a rigid body, the total wrench is the sum of all wrench vectors. The wrenches need to be represented in the same frame.
 
-$$F_a = F_{a1} + F_{a2} + \cdots + F_{aN} =
+$$
+F_a = F_{a1} + F_{a2} + \cdots + F_{aN} =
 \begin{bmatrix}
 m_{a1} \\
 f_{a1}
@@ -60,11 +65,15 @@ $$
 
 ### From Body Frame to Space Frame
 
-$$F_s = Ad_{T_{bs}}^T(F_b)= [Ad_{T_{bs}}]^TF_b$$
+$$
+F_s = Ad_{T_{bs}}^T(F_b)= [Ad_{T_{bs}}]^TF_b
+$$
 
 ### From Space Frame to Body Frame
 
-$$F_b = Ad_{T_{sb}}^T(F_s)= [Ad_{T_{sb}}]^TF_s$$
+$$
+F_b = Ad_{T_{sb}}^T(F_s)= [Ad_{T_{sb}}]^TF_s
+$$
 
 # Literature
 

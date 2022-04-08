@@ -265,7 +265,7 @@ Chruch numerals:
 
 *"Each number corresponds to a unique way of repeating an action: the number one corresponds to just performing the action; the number two corresponds to performing it and then performing it again; and so on. The number zero, unsurprisingly, corresponds to not performing the action at all."* - page 189
 
-*"[...] Church encoding after Alonzo Church, the inventor of the lambda calculus"* - page 190
+*"[...] Church encoding after Alonzo Church, the inventor of the lambda calculus"* - page 190
 
 
 *"[Church numeral to integer] conversion:*

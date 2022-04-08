@@ -28,7 +28,7 @@ Some of my examples are [here](https://github.com/LukasWoodtli/SevenConcurrencyM
 *"Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once."*
 
 
-### Beyond Sequencial Programming
+### Beyond Sequencial Programming
 
 *"[...] traditional threads and locks don't provide any direct support for parallelism."*
 
@@ -37,7 +37,7 @@ Some of my examples are [here](https://github.com/LukasWoodtli/SevenConcurrencyM
 *"Parallelism [...] doesn't necessarily imply nondetermism"*
 
 
-### Data Parallelism
+### Data Parallelism
 
 *"Data-parallel (sometimes called SIMD [...]) architectures are capable of performing the same operations on a large quantity of data in parallel."*
 
@@ -52,7 +52,7 @@ Some of my examples are [here](https://github.com/LukasWoodtli/SevenConcurrencyM
 
 *"[There is something very] basic you need to worry about when dealing with shared memory - the Memory Model."*
 
-### Creating a Thread
+### Creating a Thread
 
 *"Threads communicate with each other via shared memory."*
 
@@ -60,15 +60,15 @@ Some of my examples are [here](https://github.com/LukasWoodtli/SevenConcurrencyM
 
 - *"The compiler is allowed to statically optimize your code by reordering things."*
 - *"The JVM is allowed to dynamically optimize your code by reordering things."*
-- *"The hardware you’re running on is allowed to optimize performance by reordering things."*
+- *"The hardware you're running on is allowed to optimize performance by reordering things."*
 
-*"Sometimes effects don’t become visible to other threads at all."*
+*"Sometimes effects don't become visible to other threads at all."*
 
-### Memory Visibility
+### Memory Visibility
 
 *"The Java memory model defines when changes to memory made by one thread become visible to another thread.""*
 
-*"An important point that’s easily missed is that both threads need to use synchronization. It’s not enough for just the thread making changes to do so."*
+*"An important point that's easily missed is that both threads need to use synchronization. It's not enough for just the thread making changes to do so."*
 
 ### Multiple Locks
 
@@ -80,7 +80,7 @@ Some of my examples are [here](https://github.com/LukasWoodtli/SevenConcurrencyM
 *"avoid calling alien methods while holding a lock"*
 
 
-### Day 1 Wrap Up
+### Day 1 Wrap Up
 
 *"[...] three primary perils of threads and locks - race conditions, deadlock and memory visibility [...]
 rules that help us avoiding them:"*
@@ -96,9 +96,9 @@ rules that help us avoiding them:"*
 
 *"Intrinsic locks are convenient but limited."*
 
-- *"There is no way to interrupt a thread that’s blocked as a result of trying to acquire an intrinsic lock."*
+- *"There is no way to interrupt a thread that's blocked as a result of trying to acquire an intrinsic lock."*
 - *"There is no way to time out while trying to acquire an intrinsic lock."*
-- *"There’s exactly one way to acquire an intrinsic lock: a synchronized block."*
+- *"There's exactly one way to acquire an intrinsic lock: a synchronized block."*
 
 Synchronized block:
 
@@ -109,7 +109,7 @@ Synchronized block:
 
 *"This means that lock acquisition and release have to take place in the same method and have to be strictly nested."*
 
-*"Note that declaring a method as `synchronized` is just syntactic sugar for surrounding the method’s body with the following:"*
+*"Note that declaring a method as `synchronized` is just syntactic sugar for surrounding the method's body with the following:"*
 
     :::java
     ​synchronized ​(this) {​ 
@@ -129,10 +129,10 @@ Synchronized block:
 
 ### Hand-over-Hand Locking
 
-*"Hand-over-hand locking is an alternative in which we lock only a small portion of the list, allowing other threads unfettered access as long as they’re not looking at the particular nodes we’ve got locked."*
+*"Hand-over-hand locking is an alternative in which we lock only a small portion of the list, allowing other threads unfettered access as long as they're not looking at the particular nodes we've got locked."*
 
 
-### Condition Variables
+### Condition Variables
 
 *"Concurrent programming often involves waiting for something to happen. [...] This type of situation is what condition variables are designed to address."*
 
@@ -150,7 +150,7 @@ Synchronized block:
     }
 
 
-*"A condition variable is associated with a lock, and a thread must hold that lock before being able to wait on the condition. Once it holds the lock, it checks to see if the condition that it’s interested in is already true. If it is, then it continues with whatever it wants to do and unlocks the lock. If, however, the condition is not true, it calls `await`, which **atomically** unlocks the lock and blocks on the condition variable."*
+*"A condition variable is associated with a lock, and a thread must hold that lock before being able to wait on the condition. Once it holds the lock, it checks to see if the condition that it's interested in is already true. If it is, then it continues with whatever it wants to do and unlocks the lock. If, however, the condition is not true, it calls `await`, which **atomically** unlocks the lock and blocks on the condition variable."*
 
 *"An operation is atomic if, from the point of view of another thread, it appears to be a single operation that has either happened or not - it never appears to be halfway through."*
 
@@ -159,15 +159,15 @@ Synchronized block:
 
 ### Atomic Variables
 
-*"Using an atomic variable instead of locks has a number of benefits. First, it’s not possible to forget to acquire the lock when necessary."*
+*"Using an atomic variable instead of locks has a number of benefits. First, it's not possible to forget to acquire the lock when necessary."*
 
-*"Second, because no locks are involved, it’s impossible for an operation on an atomic variable to deadlock."*
+*"Second, because no locks are involved, it's impossible for an operation on an atomic variable to deadlock."*
 
 *"atomic variables are the foundation of non-blocking, lock-free algorithms, which achieve synchronization without locks or blocking."*
 
 > *If you think that programming with locks is tricky, then just wait until you try writing lock-free code.*
 
-#### What About Volatile?
+#### What About Volatile?
 
 *"Java allows us to mark a variable as `volatile`. Doing so guarantees that reads and writes to that variable will not be reordered."*
 
@@ -197,13 +197,13 @@ In C++ `volatile` has a different meaning. It indicates that the read of a varia
 
 *"The beauty of the producer-consumer pattern is that it allows us not only to produce and consume values in parallel, but also to have multiple producers and/or multiple consumers."*
 
-*"Unfortunately, synchronized collections don’t provide atomic read-modify-write methods, so this isn’t going to help us. If we want to use a `HashMap`, we’re going to have to synchronize access to it ourselves."*
+*"Unfortunately, synchronized collections don't provide atomic read-modify-write methods, so this isn't going to help us. If we want to use a `HashMap`, we're going to have to synchronize access to it ourselves."*
 
-*"Happily, we’re not beaten yet. `ConcurrentHashMap` in `java.util.concurrent` looks like exactly what we need. Not only does it provide atomic read-modify-write methods, but it’s been designed to support high levels of concurrent access (via a technique called lock striping)."*
+*"Happily, we're not beaten yet. `ConcurrentHashMap` in `java.util.concurrent` looks like exactly what we need. Not only does it provide atomic read-modify-write methods, but it's been designed to support high levels of concurrent access (via a technique called lock striping)."*
 
-*"Instead of put, we’re now using a combination of `putIfAbsent` and `replace`."*
+*"Instead of put, we're now using a combination of `putIfAbsent` and `replace`."*
 
-*"Here’s the documentation for `putIfAbsent`: If the specified key is not already associated with a value, associate it with the given value. This is equivalent to"*
+*"Here's the documentation for `putIfAbsent`: If the specified key is not already associated with a value, associate it with the given value. This is equivalent to"*
 
     :::java
     if (!map.containsKey(key))
@@ -246,17 +246,17 @@ In C++ `volatile` has a different meaning. It indicates that the read of a varia
 
 #### The Elephant in the Room
 
-*"[...] what makes multithreaded programming difficult is not that writing it is hard, but that **testing it is hard**. It’s not the pitfalls that you can fall into; it’s the fact that you don’t necessarily know whether you’ve fallen into one of them."*
+*"[...] what makes multithreaded programming difficult is not that writing it is hard, but that **testing it is hard**. It's not the pitfalls that you can fall into; it's the fact that you don't necessarily know whether you've fallen into one of them."*
 
 #### Maintenance
 
-*"It’s one thing to make sure that everything’s synchronized correctly, locks are acquired in the right order, and no foreign functions are called with locks held. It’s quite another to guarantee that it will remain that way after twelve months of maintenance by ten different programmers."*
+*"It's one thing to make sure that everything's synchronized correctly, locks are acquired in the right order, and no foreign functions are called with locks held. It's quite another to guarantee that it will remain that way after twelve months of maintenance by ten different programmers."*
 
-*"if you can’t reliably test for threading problems, you can’t reliably refactor multithreaded code."*
+*"if you can't reliably test for threading problems, you can't reliably refactor multithreaded code."*
 
-*"think very carefully about our multithreaded code. And then when we’ve done that, think about it very carefully some more."*
+*"think very carefully about our multithreaded code. And then when we've done that, think about it very carefully some more."*
 
-#### Other Languages
+#### Other Languages
 
 *"the general principles we covered in this chapter are broadly applicable. The rules about using synchronization to access shared variables; acquiring locks in a fixed, global order; and avoiding alien method calls while holding a lock are applicable to any language with threads and locks."*
 
@@ -268,7 +268,7 @@ In C++ `volatile` has a different meaning. It indicates that the read of a varia
 
 A race condition is the behavior of a software system where the output is dependent on the sequence or timing of other uncontrollable events. It becomes a bug when events do not happen in the order the programmer intended.
 
-#### Memory Visibility
+#### Memory Visibility
 
 The memory model defines when changes to memory made by one thread become visible to another thread.
 
@@ -280,7 +280,7 @@ Happily, there is a simple rule that guarantees you will never deadlock - always
 
 # Chapter 3 Functional Programming
 
-*"In contrast to an imperative program, which consists of a series of statements that change global state when executed, a **functional program** models computation as the evaluation of expressions. Those expressions are built from pure mathematical functions that are both first-class (can be manipulated like any other value) and side effect-free. It’s particularly useful when dealing with concurrency because the lack of side effects makes reasoning about thread safety much easier."*
+*"In contrast to an imperative program, which consists of a series of statements that change global state when executed, a **functional program** models computation as the evaluation of expressions. Those expressions are built from pure mathematical functions that are both first-class (can be manipulated like any other value) and side effect-free. It's particularly useful when dealing with concurrency because the lack of side effects makes reasoning about thread safety much easier."*
 
 ## If It Hurts, Stop Doing It
 
@@ -288,13 +288,13 @@ Happily, there is a simple rule that guarantees you will never deadlock - always
 
 ## Day 1: Programming Without Mutable State
 
-### It’s Good to Be Lazy
+### It's Good to Be Lazy
 
 *"Sequences in Clojure are lazy - elements of a lazy sequence are generated only when they're needed."*
 
 *Realizing* a (lazy) sequence means to fully evaluate it.
 
-*"One final aspect of lazy sequences is that not only do we not need to generate the elements at the end of a sequence until we need them (which might be never), but we can discard the elements at the front if we’ve finished with them (if we don't "hold on to our head")."*
+*"One final aspect of lazy sequences is that not only do we not need to generate the elements at the end of a sequence until we need them (which might be never), but we can discard the elements at the front if we've finished with them (if we don't "hold on to our head")."*
 
 
 ## Day 2: Functional Parallelism
@@ -328,14 +328,14 @@ Happily, there is a simple rule that guarantees you will never deadlock - always
 
 ### Promises
 
-*"A promise is very similar to a future in that it’s a value that's realized asynhronously and accessed with `deref` or `@`, which will block until it's realized. The difference is that creating a promise does not cause any code to run - instead its value is set with deliver."*
+*"A promise is very similar to a future in that it's a value that's realized asynhronously and accessed with `deref` or `@`, which will block until it's realized. The difference is that creating a promise does not cause any code to run - instead its value is set with deliver."*
 
 A promse can be used to pass a result from one thread to another one.
 
 
 ## Wrap-Up
 
-### Weaknesses
+### Weaknesses
 
 *"Many people expect that functional code will be less efficient than its impertive equivalent. Although there are performance implications for some types of problem, the penalty is likely to be less than you fear. And any small performance hit is likely to be more than worth it for the payoff of increased robustness and scalability."*
 
@@ -346,13 +346,13 @@ A promse can be used to pass a result from one thread to another one.
 
 ### Atoms
 
-*"An atom is an atomic variable [...]  (in fact, Clojure’s atoms are built on top of `java.util.concurrent.atomic`)."*
+*"An atom is an atomic variable [...]  (in fact, Clojure's atoms are built on top of `java.util.concurrent.atomic`)."*
 
 ### Persistent Data Structures
 
 *"Persistence in this case doesn't have anything to do with persistence on disk or within a database. Instead it refers to a data structure that always preserves its previous version when it's modified, which allows code to have a consistent view of the data in the face of modifications."*
 
-*"Persistent data structures behave **as though** a complete copy is made each time they’re modified."*
+*"Persistent data structures behave **as though** a complete copy is made each time they're modified."*
 
 *"The implementation is much more clever than that and makes use of structure sharing."*
 
@@ -431,7 +431,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 *"If you use `send` to modify an agent within a transaction, that send will take place only if the transaction succeeds. Therefore, if you want to achieve some side effect when a transaction succeeds, using `send` is an excellent way to do so."*
 
 
-#### What’s with the Exclamation Marks?
+#### What's with the Exclamation Marks?
 
  *"Clojure uses an exclamation mark to indicate that functions [...] are **not transaction-safe**."*
 
@@ -457,7 +457,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 *"whenever we need to coordinate modifications of multiple values we can either use multiple refs and coordinate access to them with transactions or collect those values together into a compound data structure stored in a single atom"*
 
-*"Experienced Clojure programmers tend to find that atoms suffice for most problems, as the language’s functional nature leads to minimal use of mutable data"*
+*"Experienced Clojure programmers tend to find that atoms suffice for most problems, as the language's functional nature leads to minimal use of mutable data"*
 
 #### What Is Loop/Recur?
 
@@ -509,11 +509,11 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 ## Day 1: Messages and Mailboxes
 
-### Mailboxes are Queues
+### Mailboxes are Queues
 
 *"Messages are sent **asynchronously**. Instead of being sent directly to an actor, they are placed in a mailbox"*
 
-*"Actors are **decoupled** - actors run at their own speed and don’t block when sending messages."*
+*"Actors are **decoupled** - actors run at their own speed and don't block when sending messages."*
 
 *"An actor runs concurrently with other actors but handles messages sequentially, in the order they were added to the mailbox"*
 
@@ -528,7 +528,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 ### The Error-Kernel Pattern
 
 
-*"A software system’s error kernel is the part that must be correct if the system is to function correctly. Well-written programs make this error kernel as small and as simple as possible"*
+*"A software system's error kernel is the part that must be correct if the system is to function correctly. Well-written programs make this error kernel as small and as simple as possible"*
 
 *"This leads to a hierarchy of error kernels in which risky operations are pushed down toward the lower-level actors"*
 
@@ -552,7 +552,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 *"If a single worker fails, a supervisor using the one-for-all strategy will stop and restart all its workers (even those that didn’t fail). A supervisor using a one-for-one strategy, by contrast, will only restart the failed worker."*
 
-### Day 3 Wrap-Up
+### Day 3 Wrap-Up
 
 *"Elixir allows us to create clusters of nodes. An actor on one node can send messages to an actor running on another in exactly the same way as it can to one running locally. As well as allowing us to create systems that leverage multiple distributed computers, it allows us to recover from the failure of one of those computers. "*
 
@@ -571,7 +571,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 *"An actor can be tested in isolation and, as long as our tests accurately represent the types of messages that might be delivered and in what order, we can have high confidence that it behaves as it should. And if we do find ourselves faced with a concurrency-related bug, we know where to look - the message flows between actors."*
 
-#### Fault Tolerance
+#### Fault Tolerance
 
 *"Fault tolerance is built into actor programs from the outset. This enables not only more resilient programs but also simpler and clearer code (through the "let it crash" philosophy)."*
 
@@ -584,7 +584,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 *"Distribution is a key enabler for resilient and fault-tolerant systems. "*
 
 
-### Weaknesses
+### Weaknesses
 
 *"Actors are still susceptible to problems like deadlock plus a few failure modes unique to actors (such as overflowing an actor’s mailbox)."*
 
@@ -662,7 +662,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 *"In an actor program, the medium of communication is tightly coupled to the unit of execution - each actor has precisely one mailbox. In a CSP program, by contrast, channels are first class and can be independently created, written to, read from, and passed between tasks."*
 
-#### Weaknesses
+#### Weaknesses
 
 *"[Compared to actors two topics are missing:] distribution and fault tolerance. Although there’s nothing whatsoever to stop CSP-based languages from supporting both, historically neither has had the same level of focus and support as either has had within actor-based languages"*
 
@@ -745,7 +745,7 @@ That means that they're very fast and don't block. [...] But it also means that 
 
 *"Data parallelism is ideal whenever you’re faced with a problem where large amounts of numerical data needs to be processed."*
 
-#### Weaknesses
+#### Weaknesses
 
 *"Optimizing an OpenCL kernel can be tricky, and effective optimization often depends on understanding underlying architectural details"*
 

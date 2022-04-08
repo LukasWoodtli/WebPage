@@ -476,7 +476,7 @@ We started with the relatively informal substitution model, then extended this
 In the metacircular evaluator [...], we used Scheme itself as a language for
 making more explicit the environment structure constructed during evaluation of
 an expression. Now, with register machines, we have taken a close look at the
-evaluator’s mechanisms for storage management, argument passing, and control. At
+evaluator's mechanisms for storage management, argument passing, and control. At
 each new level of description, we have had to raise issues and resolve
 ambiguities that were not apparent at the previous, less precise treatment of
 evaluation. To understand the behavior of the explicit-control evaluator, we can
@@ -496,7 +496,7 @@ by calling appropriate primitive subroutines from the library."*
 
 *"[...] the alternative strategy of **compilation**. A compiler for a given
 source language and machine translates a source program into an equivalent
-program (called the **object program**) written in the machine’s native
+program (called the **object program**) written in the machine's native
 language."*
 
 *"In view of the complementary advantages of compi-lation and interpretation,

@@ -53,7 +53,7 @@ Use `@Qualifier` for manual selection of a bean implementation:
     }
 
 
-## Scopes
+## Scopes
 
 ### Generic Scopes
 
@@ -63,7 +63,7 @@ Use `@Qualifier` for manual selection of a bean implementation:
 | `prototype` | A new instance of the bean is created each time it is requested from the IoC container |
 
 
-### Web Context Scopes
+### Web Context Scopes
 
 | Scope     | Use                                                          |
 |-----------|--------------------------------------------------------------|
@@ -137,7 +137,7 @@ The value can be read from Java:
 
 # REST Services
 
-## Controller
+## Controller
 
 | Class Annotation  | Use                                          |
 |-------------------|----------------------------------------------|
@@ -188,7 +188,7 @@ a `ResponseEntity<>` can be used to provide some information to the client.
 | `@Future`      | Date must be in the future                         |
 | `@Past`        | Date must be in the past                           |
 | `@Max`         | Number must be lower or equal to the given maximum |
-| `@Min`         | Number must be lower or equal to the given minimum |
+| `@Min`         | Number must be lower or equal to the given minimum |
 | `@NotNull`     | Element cannot be `null`                           |
 | `@Pattern`     | Element must match the given regular expression    |
 | `@Size`        | Element size must be within given boundaries       |

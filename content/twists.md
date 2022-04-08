@@ -7,11 +7,14 @@ tags: [Robotics]
 
 Given a transformation matrix that represents the configuration $\{b\}$ as seen from $\{s\}$
 
-$$T = T(t) = T_{sb}(t) = \begin{bmatrix} R(t) & p(t) \\ 0 & 1 \end{bmatrix}$$
+$$
+T = T(t) = T_{sb}(t) = \begin{bmatrix} R(t) & p(t) \\ 0 & 1 \end{bmatrix}
+$$
 
 the *spacial velocity* can be calculated analogous to the angular velocity.
 
-$$T^{-1}\dot{T} =
+$$
+T^{-1}\dot{T} =
 \begin{bmatrix}
 R^T & -R^Tp \\
 0 & 1
@@ -27,7 +30,8 @@ R^T\dot{R} & R^T\dot{p} \\
 \begin{bmatrix}
 [\omega_b] & v_b \\
 0 & 0
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 with
 
@@ -44,12 +48,14 @@ A twist is the velocity of a screw motion.
 
 The *spacial velocity* in the body frame, or *body twist* is (in matrix representation):
 
-$$[V_b] = T_{sb}^{-1}\dot{T}_{sb} = 
+$$
+[V_b] = T_{sb}^{-1}\dot{T}_{sb} = 
 \begin{bmatrix}
 [\omega_b] & v_b \\
 0 & 0
 \end{bmatrix}
-\in se(3)$$
+\in se(3)
+$$
 
 where:
 
@@ -66,12 +72,14 @@ $se(3)$ consists of all possible $\dot{T}$ (when $T= I$).
 
 The *spacial twist* (spacial velocity in the space frame) is analogous to the body twist 
 
-$$[V_s] = \dot{T}_{sb}T^{-1}_{sb} = 
+$$
+[V_s] = \dot{T}_{sb}T^{-1}_{sb} = 
 \begin{bmatrix}
 [\omega_s] & v_s \\
 0 & 0
 \end{bmatrix}
-\in se(3)$$
+\in se(3)
+$$
 
 Where:
 
@@ -83,7 +91,8 @@ Where:
 
 ### From body frame $\{b\}$ to space frame $\{s\}$:
 
-$$V_s =
+$$
+V_s =
 \begin{bmatrix}
 \omega_s \\
 v_s
@@ -96,11 +105,13 @@ R & 0 \\
 \omega_b \\
 v_b
 \end{bmatrix} =
-[Ad_{T_{sb}}]V_b$$
+[Ad_{T_{sb}}]V_b
+$$
 
 ### From space frame $\{s\}$ to body frame $\{b\}$:
 
-$$V_b =
+$$
+V_b =
 \begin{bmatrix}
 \omega_b \\
 v_b
@@ -113,14 +124,17 @@ R^T & 0 \\
 \omega_s \\
 v_s
 \end{bmatrix} =
-[Ad_{T_{bs}}]V_s$$
+[Ad_{T_{bs}}]V_s
+$$
 
 Where $[Ad_T] \in \mathbb{R}^{6 \times 6}$ is the *adjoint representation* (adjoint map) of $T = (R,p) \in SE(3)$.
 
-$$[Ad_T] = \begin{bmatrix}
+$$
+[Ad_T] = \begin{bmatrix}
 R & 0 \\
 [p]R & R
-\end{bmatrix} \in \mathbb{R}^{6 \times 6}$$
+\end{bmatrix} \in \mathbb{R}^{6 \times 6}
+$$
 
 The fixed-frame representation of a twist $V_s$ does *not* depend on the choice of the body frame $\{b\}$.
 
@@ -141,11 +155,13 @@ And the body-frame representation $V_b$ of the same twist does not depend on the
 
 A twist $V$ can be viewed as a screw axis $S$ and a velocity $\dot{\theta}$ (just like an angular velocity $\omega$ can be combined as $\hat{\omega}\dot{\theta}$).
 
-$$V =
+$$
+V =
 \begin{bmatrix}
   \omega \\ v  
 \end{bmatrix} =
-S\dot{\theta}$$
+S\dot{\theta}
+$$
 
 The screw axis $S$ is defined using a normalized version of any twist $V = (\omega, v)$ corresponting to motion along the screw:
 
@@ -161,14 +177,16 @@ The screw axis $S$ is defined using a normalized version of any twist $V = (\ome
 
 A *unit* screw axis is a noramlized twist defined as:
 
-$$S =
+$$
+S =
 \begin{bmatrix}
 S_{\omega} \\ S_v
 \end{bmatrix} =
 \begin{bmatrix}
 \textit{angular velocity when: } \dot{\theta} = 1 \\
 \textit{linear velocity of origin when: } \dot{\theta} = 1 \end{bmatrix}
-\in \mathbb{R}^6$$
+\in \mathbb{R}^6
+$$
 
 Where:
 
@@ -187,12 +205,14 @@ Where:
 A screw axis $S$ is just a normalized twist. It can be represented as a $4 \times 4$ matrix $[S]$ of $S = (\omega, v)$:
 
 
-$$[S] =
+$$
+[S] =
 \begin{bmatrix}
 [\omega] & v \\
 0 & 0
 \end{bmatrix}
-\in se(3)$$
+\in se(3)
+$$
 
 with:
 
@@ -203,7 +223,9 @@ with:
 
 A screw axis represented in any frame $\{a\}$ can be represented in another frame $\{b\}$ (with a modified version of the subscript cancellation rule):
 
-$$S_a = [Ad_{T_{a\not{b}}}]S_{\not{b}}$$
+$$
+S_a = [Ad_{T_{a\not{b}}}]S_{\not{b}}
+$$
 
 With:
 
