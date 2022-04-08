@@ -7,7 +7,8 @@ tags: [Robotics]
 
 A planar rigid body motion is defined as:
 
-$$T =
+$$
+T =
 \begin{bmatrix} R & p \\ 0 & 1 \\
 \end{bmatrix}
 = 
@@ -21,7 +22,8 @@ r_{21}& r_{22} & p_2 \\
 \cos \theta & -\sin \theta & p_1\\
 \sin \theta & \cos \theta & p_2 \\
 0 & 0  & 1 \\
-\end{bmatrix} \in SE(2)$$
+\end{bmatrix} \in SE(2)
+$$
 
 Where:
 - $T \in SE(2)$: A $3 \times 3$ real matrix representig a rigid body motion in $\mathbb{R}^2$
@@ -37,7 +39,8 @@ Where:
 
 A homogeneous transformation matrix (or rigid body motion) $T$ in $\mathbb{R}^3$ is defined as:
 
-$$T = (R, p) = \begin{bmatrix}
+$$
+T = (R, p) = \begin{bmatrix}
  R & p \\
  0 & 1 \\
 \end{bmatrix}
@@ -46,7 +49,8 @@ $$T = (R, p) = \begin{bmatrix}
  r_{21}& r_{22} & r_{23} & p_2 \\
  r_{31}& r_{32} & r_{33} & p_3 \\
  0 & 0  & 0 & 1 \\
-\end{bmatrix} \in SE(3)$$
+\end{bmatrix} \in SE(3)
+$$
 
 Where:
 
@@ -63,7 +67,8 @@ Sometimes it's useful to calculate $Rx + p$ (where $x \in \mathbb{R}^3$ and $(R,
 
 We then need to append a $1$ to $x$ to make it a $4 \times 1$ vector.
 
-$$T \begin{bmatrix} x \\ 1 \end{bmatrix} =
+$$
+T \begin{bmatrix} x \\ 1 \end{bmatrix} =
 \begin{bmatrix} R & p \\ 0 & 1 \end{bmatrix}
 \begin{bmatrix} x \\ 1 \end{bmatrix} =
 \begin{bmatrix} Rx + p \\ 1 \end{bmatrix}
@@ -73,7 +78,9 @@ Where
 - $[x^T 1]^T$: *homogeneous coordinates* representation of  $x$
 - $T \in SE(3)$: homogenous transformation
 
-$$Tx = Rx + p$$
+$$
+Tx = Rx + p
+$$
 
 # Properties of Transformation Matrices
 
@@ -112,40 +119,53 @@ $T_{sa} = (R_{sa}, p_{sa})$ represents the configuration of frame $a$ relative t
 
 Changing the reference frame of a vector or a frame is analogous to [rotation matirces]({filename}/rotation_matrix.md) using the subscript cancellation rule:
 
-$$T_{ab} T_{bc} = T_{a\not{b}} T_{\not{b}c} = T_{ac} $$
-$$T_{ab} v_b = T_{a\not{b}} v_{\not{b}} = v_a $$
+$$
+T_{ab} T_{bc} = T_{a\not{b}} T_{\not{b}c} = T_{ac}
+$$
+
+$$
+T_{ab} v_b = T_{a\not{b}} v_{\not{b}} = v_a
+$$
 
 
 ## Displace a Frame or Vector
 
 A displacement (rotation and translaation) of a frame or a vector can be seen as a translation along a vector $p$ ($Trans(p)$) and a rotation around the axis $\hat{\omega}$ with angle $\theta$ ($Rot(\hat{\omega}, \theta)$).
 
-$$T = Trans(p)Rot(\hat{\omega}, \theta)$$
+$$
+T = Trans(p)Rot(\hat{\omega}, \theta)
+$$
 
 With:
 
-$$Trans(p) =
+$$
+Trans(p) =
 \begin{bmatrix}
  1 & 0 & 0 & p_x \\
  0 & 1 & 0 & p_y \\
  0 & 0 & 1 & p_z \\
  0 & 0 & 0 & 1 
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
-$$Rot(\hat{\omega}, \theta) =
+$$
+Rot(\hat{\omega}, \theta) =
 \begin{bmatrix}
   &  &  & 0 \\
   & e^{[\hat{\omega}]\theta} &  & 0 \\
   &  &  & 0 \\
  0 & 0 & 0 & 1 
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 
 ### Space-Frame Transformation
 
 When a frame $T_{sb}$ is *premultiplied* by a transformation matrix $T$ the vectors $p$ and $\hat{\omega}$ are interpreted in the coordinate system of the $\{s\}$ frame (first subscript of $T_{sb}$):
 
-$$T_{sb'} = TT_{sb} = Trans(p)Rot(\hat{\omega}, \theta)T_{sb}$$
+$$
+T_{sb'} = TT_{sb} = Trans(p)Rot(\hat{\omega}, \theta)T_{sb}
+$$
 
 The order of the operations is:
 
@@ -156,7 +176,9 @@ The order of the operations is:
 
 When the frame $T_{sb}$ is *postmultiplied* by a transformation matrix $T$ the vectors $p$ and $\hat{\omega}$ are interpreted in the coordinate system of the $\{b\}$ frame (second subscript of $T_{sb}$):
 
-$$T_{sb''} = T_{sb}T = T_{sb}Trans(p)Rot(\hat{\omega}, \theta)$$
+$$
+T_{sb''} = T_{sb}T = T_{sb}Trans(p)Rot(\hat{\omega}, \theta)
+$$
 
 The order of the operations is:
 

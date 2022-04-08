@@ -396,35 +396,43 @@ Run Times:
 
 Cost $c_{i,k}$:
 
-$$\left.\begin{matrix}
-c_{0,0} = 5\\
-c_{0,1} = 10\\
+$$
+\left.\begin{matrix}
+c_{0,0} = 5 \\
+c_{0,1} = 10 \\
 \cdots
 \end{matrix}\right\}
 \begin{matrix}
-0 \leq i \leq 3\\
+0 \leq i \leq 3 \\
 0 \leq k \leq 1
-\end{matrix}$$
+\end{matrix}
+$$
 
 Binary variables $x_{i,k}$:
 
-$$\left.\begin{matrix}
-x_{0,0} + x_{0,1} = 1\\
-x_{1,0} + x_{1,1} = 1\\
+$$
+\left.\begin{matrix}
+x_{0,0} + x_{0,1} = 1 \\
+x_{1,0} + x_{1,1} = 1 \\
 \cdots
 \end{matrix}\right\}
-\sum_{k=0}^1 x_{k,i} = 1\; \forall\; 0 \leq i \leq 3$$
+\sum_{k=0}^1 x_{k,i} = 1\; \forall\; 0 \leq i \leq 3
+$$
 
 
 #### Approaches
 
 1. Approach:
 
-$$min\left \{ \sum_{i=0}^3 \sum_{k=0}^1 c_{i,k} x_{i,k} \right \}$$
+$$
+min\left \{ \sum_{i=0}^3 \sum_{k=0}^1 c_{i,k} x_{i,k} \right \}
+$$
 
 2\. Approach:
 
-$$min\left \{ \left | \sum_{i=0}^3  c_{i,0} x_{i,0} - \sum_{i=0}^3 c_{i,1} x_{i,1} \right |\right \}$$
+$$
+min\left \{ \left | \sum_{i=0}^3  c_{i,0} x_{i,0} - \sum_{i=0}^3 c_{i,1} x_{i,1} \right |\right \}
+$$
 
 This is not a linear problem!
 
@@ -438,10 +446,12 @@ $$min \left \{ \left | \underbrace{\sum_{i=0}^3  c_{i,0} x_{i,0}}_{l_1} - \under
 
 Becomes:
 
-$$\begin{matrix}
+$$
+\begin{matrix}
 l_0 \geq l_1: min\left \{ l_0 - l_1 \right \} \\
 l_1 \geq l_0: min\left \{ l_1 - l_0 \right \}
-\end{matrix}$$
+\end{matrix}
+$$
 
 
 2\. Solution:
@@ -450,15 +460,20 @@ Empirical approach: Run code and measure execution time and try to minimize it.
 
 Move tasks to different processors.
 
-$$\begin{matrix}
+$$
+\begin{matrix}
 l_0 = \sum_{(i)}  c_{i,0} x_{i,0}\\
 l_1 = \sum_{(i)}  c_{i,1} x_{i,1}
-\end{matrix}$$
+\end{matrix}
+$$
 
 
-$$min \{ B \}$$
+$$
+min \{ B \}
+$$
 
-$$\begin{matrix}
+$$
+\begin{matrix}
 B \geq l_0 \\
 B \geq l_1
 \end{matrix}
@@ -1240,33 +1255,43 @@ Constituents of $A$: $A1$ and $A2$
 
 Upper bound for $A$ is the sum of the upper bounds for $A1$ and $A2$
 
-$$ub(A) = ub(A1) + ub(A2)$$
+$$
+ub(A) = ub(A1) + ub(A2)
+$$
 
 #### Conditional Statement
 
-$$\begin{align*}
-A \equiv \; & if \; B \\
+$$
+\begin{align*}
+ A \equiv \; & if \; B \\
  & then \; A1 \\
  & else \; A2
-\end{align*}$$
+\end{align*}
+$$
 
 Constituents of $A$:
 
 1. Condition $B$
 2. Statements $A1$ and $A2$
 
-$$ub(A) = ub(b) + \mathbf{max}(ub(A1), ub(A2))$$
+$$
+ub(A) = ub(b) + \mathbf{max}(ub(A1), ub(A2))
+$$
 
 #### Loops
 
-$$\begin{align*}
+$$
+\begin{align*}
  A \equiv for\; & i \leftarrow 1\; to\; 100\; do \\
  & A1
-\end{align*}$$
+\end{align*}
+$$
 
 Precondition: Number of loops needs to be known (e.g 100)
 
-$$ub(A) = ub(i \leftarrow) + 100 \times (ub(i \leq 100) + ub(A1))+ ub(i\leq100)$$
+$$
+ub(A) = ub(i \leftarrow) + 100 \times (ub(i \leq 100) + ub(A1))+ ub(i\leq100)
+$$
 
 ### Modern Hardware Features
 
@@ -1318,7 +1343,9 @@ Determine basic blocks of a program
  A program consists of $N$ basic blocks, where each basic block $B_i$ has a worst-case execution time $c_i$ and is
  executed for exactly $x_i$ times:
 
-$$WCET = \sum_{i=1}^N c_i \cdot x_i$$
+$$
+WCET = \sum_{i=1}^N c_i \cdot x_i
+$$
 
 - The $c_i$ values are determined using the static analysis
 - Determine $x_i$
@@ -1331,7 +1358,8 @@ This image is taken from the lecture slides provided by Lothar Thiele.
 
 Flow Equations (sum of incoming edges equals sum of outgoing edges)
 
-$$\begin{align*}
+$$
+\begin{align*}
 d1 = d2 = x_1 \\
 d2 + d8 = d3 + d9 = x_2 \\
 d3 = d4 + d5 = x_3 \\
@@ -1339,7 +1367,8 @@ d4 = d6 = x_4 \\
 d5 = d7 = x_5 \\
 d6 + d7 = d8 = x_6 \\
 d9 = d10 = x_7
-\end{align*}$$
+\end{align*}
+$$
 
 Additional Constraints
 
@@ -1353,7 +1382,9 @@ The more information the better the result
 
 ILP with structural and additional constraints
 
-$$WCET = max\left \{ \sum_{i=1}^N c_i \cdot x_i | \underbrace{d_1=1}_{\text{program is executed once}} \land \underbrace{\sum_{j\in in(B_i)} d_j = \sum_{k\in out(B_i)}d_k=x_i, i=1\ldots N}_{\text{structural constraints}} \;\land \;\text{additional constraints} \right \}$$
+$$
+WCET = max\left \{ \sum_{i=1}^N c_i \cdot x_i | \underbrace{d_1=1}_{\text{program is executed once}} \land \underbrace{\sum_{j\in in(B_i)} d_j = \sum_{k\in out(B_i)}d_k=x_i, i=1\ldots N}_{\text{structural constraints}} \;\land \;\text{additional constraints} \right \}
+$$
 
 
 ### Abstract Interpretation (AI)

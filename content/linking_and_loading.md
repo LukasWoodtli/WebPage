@@ -8,7 +8,7 @@ The different forms of Linking
 
 There are two major forms of linking: static and dynamic. But there are some subtle details in each form of linking.
 
-This explanations are mainly for Linux. On other OS’s the same concepts apply but with some minor differences.
+This explanations are mainly for Linux. On other OS's the same concepts apply but with some minor differences.
 
 See also: [Executable Loader]({filename}/executable_loader.md)
 
@@ -38,16 +38,16 @@ Shared libraries (so, dll, dylib) are loaded at runtime.
 
 - Same mechanism as dynamic linking
 - But linking happens manually (programmatically)
-- ‘dlopen’ on Linux/UNIX
+- ‘dlopen' on Linux/UNIX
 - Can load library at run time
 - Used for plug-in mechanism
 
 ## Preloading
 
-- The dynamic linker looks for libraries in ‘LD_PATH’
-- Possible to hook into loading process with ‘LD_PRELOAD’
-- Libraries provided in ‘LD_PRELOAD’ are loaded instead of libraries in ‘LD_PATH’
-- Can be used for overwriting or extending system functions (e. g. allocators: ‘malloc’, ‘free’, ‘realloc’ ...)
+- The dynamic linker looks for libraries in ‘LD_PATH'
+- Possible to hook into loading process with ‘LD_PRELOAD'
+- Libraries provided in ‘LD_PRELOAD' are loaded instead of libraries in ‘LD_PATH'
+- Can be used for overwriting or extending system functions (e. g. allocators: ‘malloc', ‘free', ‘realloc' ...)
 - Special checks (security) are performed before library is preloaded
 
 

@@ -334,7 +334,7 @@ break it down into a series of operations and operands."*
 *"Once we identify the operators and operands among the input 
 tokens, we need to build an IR data structure. For most language 
 applications, that means building a tree data structure. In 
-particular, we’ll build an **abstract syntax tree** (AST)."*
+particular, we'll build an **abstract syntax tree** (AST)."*
 
 *"Abstract syntax tree (AST) [...] hold the key tokens from the input
 stream and record grammatical relationships discovered during the parse."*
@@ -357,15 +357,15 @@ along to the next stage."*
 *"Many languages have subphrases and nested structures."*
 
 *"trees are the perfect data structure to represent ordered and
-nested structures. There are two general kinds of trees we’re going
+nested structures. There are two general kinds of trees we're going
 to look at: **parse trees** and **abstract syntax trees**."*
 
 *"Parse trees record the sequence of rules a parser applies as well 
 as the tokens it matches. Interior parse tree nodes represent rule 
 applications, and leaf nodes represent token matches."*
 
-*"a parser execution trace isn’t really the best IR. Certainly we
-need to pinpoint the various substructures, but we don’t need to 
+*"a parser execution trace isn't really the best IR. Certainly we
+need to pinpoint the various substructures, but we don't need to 
 name them explicitly."*
 
 ### Building Abstract Syntax Trees
@@ -422,7 +422,7 @@ implementation type(s) themselves."*
 ### Enforcing Tree Structure with the Type System
 
 *"To avoid creating improperly structured ASTs, we can co-opt the implementation
-language’s static type system to enforce structure."*
+language's static type system to enforce structure."*
 
 *"The best way to create ASTs and to verify their structure is with a formal mechanism."*
 
@@ -439,12 +439,12 @@ and three different ways to implement ASTs."*
     - *Cons: Parse trees are full of noise (unnecessary nodes). They are sensitive to changes in the grammar unrelated to syntax. If a parser generator generates heterogeneous node types, there can be literally hundreds of class definitions.*"
 - *"Pattern 9, Homogeneous AST [...]:*
     - *Pros: Homogeneous trees are very simple.*
-    - *Cons: It’s cumbersome to annotate AST nodes because the single node type has the union of all needed fields. There is no way to add methods specific to a particular kind of node."*
+    - *Cons: It's cumbersome to annotate AST nodes because the single node type has the union of all needed fields. There is no way to add methods specific to a particular kind of node."*
 - *"Pattern 10, Normalized Heterogeneous AST [...]:*
-    - *Pros: It’s easy to add operator or operand-specific data and methods.*
-    - *Cons: Large grammars like Java’s need about 200 class definitions to be fully heterogeneous. That’s a lot of files to read and write."*
+    - *Pros: It's easy to add operator or operand-specific data and methods.*
+    - *Cons: Large grammars like Java's need about 200 class definitions to be fully heterogeneous. That's a lot of files to read and write."*
 - *"Pattern 11, Irregular Heterogeneous AST [...].*
-    - *Pros: It’s easy to add operator- or operand-specific data and methods. Sometimes code operating on nodes is more readable because the children (operands) have names rather than positions like `children[0]`. Building tree-walking methods for a small set of heterogeneous nodes is quick and easy.*
+    - *Pros: It's easy to add operator- or operand-specific data and methods. Sometimes code operating on nodes is more readable because the children (operands) have names rather than positions like `children[0]`. Building tree-walking methods for a small set of heterogeneous nodes is quick and easy.*
     - *Cons: As with Pattern 10, Normalized Heterogeneous AST [...], there are lots of AST classes to read and write. Having irregular children makes building external visitors difficult. Most of the time we have to build tree walkers by hand using Pattern 12, Embedded Heterogeneous Tree Walker [...]"*
 
 *"If you're in doubt about which is best in your situation, choosing Pattern 10, Normalized Heterogeneous AST [...]
@@ -557,7 +557,7 @@ much less convenient to build tree walkers"*
 
 #### Discussion
 
-*"This is the easiest tree-walking pattern to understand, but, ultimately, this approach doesn’t scale well. Because it distributes tree-walking code across all node definitions, it works best when there are only a few node definitions."*
+*"This is the easiest tree-walking pattern to understand, but, ultimately, this approach doesn't scale well. Because it distributes tree-walking code across all node definitions, it works best when there are only a few node definitions."*
 
 
 ### Pattern 13: External Tree Visitor
@@ -574,7 +574,7 @@ Visitors combine tree walking and action execution code outside the AST node def
 
 #### Implementation
 
-*"There are two ways to implement this pattern. The first is more traditional and relies on the node types themselves. The second relies on the node’s token type instead."*
+*"There are two ways to implement this pattern. The first is more traditional and relies on the node types themselves. The second relies on the node's token type instead."*
 
 
 ##### Visitor Switching on Node Type
@@ -620,7 +620,7 @@ The process of matching and rewriting trees is formally called term rewriting."*
 *"Using a tree pattern matcher differs from using a tree grammar in two important ways:*
 
 - *We have to specify patterns only for the subtrees we care about.*
-- *We don’t need to direct the tree walk."*
+- *We don't need to direct the tree walk."*
 
 *"A tree pattern matcher is analogous to text rewriting tools such as `awk`, `sed`, and `perl`."*
 
@@ -667,10 +667,10 @@ The process of matching and rewriting trees is formally called term rewriting."*
 *"To handle [...] forward references [...]. We can make two passes over the input, one to define symbols and another to resolve them"*
 
 
-## Chapter 8 Enforcing Static Typing Rules
+## Chapter 8 Enforcing Static Typing Rules
 
 
-*"Sometimes, though, we write code that make no sense even if the syntax is correct. Such programs violate a language’s semantic rules."*
+*"Sometimes, though, we write code that make no sense even if the syntax is correct. Such programs violate a language's semantic rules."*
 
 *"Languages typically have lots and lots of semantic rules. Some rules are run-time constraints (dynamic semantics), and some are compile-time constraints (static semantics)."*
 
@@ -690,7 +690,7 @@ The process of matching and rewriting trees is formally called term rewriting."*
 
 ### Designing High-Level Interpreter Memory Systems
 
-*"High-level interpreters store values according to variable names, not memory addresses (like low-level interpreters and CPUs do). That means we’ve got to represent memory with a dictionary mapping names to values. There are three kinds of memory spaces to worry about for most programming languages: global memory, function spaces (for parameters and locals), and data aggregate instances (structs or objects)."*
+*"High-level interpreters store values according to variable names, not memory addresses (like low-level interpreters and CPUs do). That means we've got to represent memory with a dictionary mapping names to values. There are three kinds of memory spaces to worry about for most programming languages: global memory, function spaces (for parameters and locals), and data aggregate instances (structs or objects)."*
 
 ### Processing Instructions
 

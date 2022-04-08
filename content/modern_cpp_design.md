@@ -79,7 +79,7 @@ Partial specialization is not allowed:
 
 *"First, you can change policies **from the outside** as easily as changing a template argument [...]. Second, you can provide your own policies that are specific to your concrete application."*
 
-*"[The author might] provide a default template argument for the policy that’s most commonly used:"*
+*"[The author might] provide a default template argument for the policy that's most commonly used:"*
 
     :::cpp
     template <template <class> class CreationPolicy = OpNewCreator> class WidgetManager ...
@@ -124,7 +124,7 @@ Partial specialization is not allowed:
 *"Two important guidelines."*
 
 1. *"One is to localize, name, and isolate design decisions in your class - things that are subject to a trade-off or could be sensibly implemented in various ways."*
-2. *"The other guideline is to look for orthogonal policies, that is, policies that don’t need to interact with each other and that can be changed independently."*
+2. *"The other guideline is to look for orthogonal policies, that is, policies that don't need to interact with each other and that can be changed independently."*
 
 
 Techniques
@@ -390,7 +390,7 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 *"Visitor gives you a surprising amount of flexibility in a certain area: You can add virtual functions to a class hierarchy without recompiling them or their existing clients. However, this flexibility comes at the expense of disabling features that designers take for granted: You cannot add a new leaf class to the hierarchy without recompiling the hierarchy and all its clients."*
 
-*"Visitor’s operational area is limited to very stable hierarchies (you seldom add new classes) and heavy processing needs (you often add new virtual functions)."*
+*"Visitor's operational area is limited to very stable hierarchies (you seldom add new classes) and heavy processing needs (you often add new virtual functions)."*
 
 *"Visitor goes against programmers' intuition; therefore, a careful implementation and rigorous discipline are essential to using it successfully."*
 

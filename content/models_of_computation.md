@@ -286,14 +286,16 @@ $$((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7$$
 
 Each number is a function that takes 2 arguments: $f$ and $x$:
 
-$$\begin{align*}
+$$
+\begin{align*}
 0 :&= \lambda f.\lambda x. x\\
 1 :&= \lambda f.\lambda x. f x\\
 2 :&= \lambda f.\lambda x. f (f x)\\
 3 :&= \lambda f.\lambda x. f (f (f x))\\
 \cdots \\
 n :&= \lambda f.\lambda x. f^n x
-\end{align*}$$
+\end{align*}
+$$
 
 
 > The number $n$ is a function that takes a function $f$ as argument and applies it $n$-times to the second argument $x$
@@ -338,7 +340,9 @@ Example:
 
 #### Increment
 
-$$\lambda k f x. f ( k f x)$$
+$$
+\lambda k f x. f ( k f x)
+$$
 
 Example:
 
@@ -401,7 +405,9 @@ $$
 
 This structure rebuilds itself infinitely:
 
-$$\Omega = (\lambda w. w w) (\lambda w. w w)$$
+$$
+\Omega = (\lambda w. w w) (\lambda w. w w)
+$$
 
 
 ### Y-Combinator
@@ -410,16 +416,20 @@ See [Wikipedia](https://en.wikipedia.org/wiki/Fixed-point_combinator#Fixed_point
 
 and [The Y Combinator (no, not that one)](https://medium.com/@ayanonagon/the-y-combinator-no-not-that-one-7268d8d9c46#.c11j5arpk).
 
-$$Y = \lambda f. (\lambda x. f (x\; x))(\lambda x. f (x \;x))$$
+$$
+Y = \lambda f. (\lambda x. f (x\; x))(\lambda x. f (x \;x))
+$$
 
 Beta recursion gives:
 
-$$\begin{align*}
+$$
+\begin{align*}
 Y g &= \lambda f. (\lambda x. f (x\; x))(\lambda x. f (x\; x)) g \\
  &= (\lambda x. g (x\; x)) (\lambda x. g (x\; x)) \\
  &= g ((\lambda x. g (x\; x)) (\lambda x. g (x\; x)))  \\
  &= g (Y\; g)
-\end{align*}$$
+\end{align*}
+$$
 
 - Only way to do a loop if you don't know in advance how many iterations the loop needs to be done
 - Functions can't see their own structure
@@ -487,25 +497,31 @@ Each representation has it's pros and cons.
 - the given rules show if $x$ is odd or even
 
 Example even:
-$$\begin{align*}
+$$
+\begin{align*}
 C_1 C_1 C_3 C_3 C_3 C_3 \rightarrow  \\
 C_3 C_3 C_3 C_3 C_2 O \rightarrow \\
 C_3 C_3 C_2 O \rightarrow \\
 C_2 O \rightarrow \\
 E
-\end{align*}$$
+\end{align*}
+$$
 
 Example odd:
+
+$$
 \begin{align*}
 C_1 C_1 C_3 C_3 C_3 \rightarrow  \\
 C_3 C_3 C_3 C_2 O \rightarrow \\
 C_3 C_2 O \rightarrow \\
 O
 \end{align*}
+$$
 
 
 ### Example: Power of Two
 
+$$
 \begin{align*}
 2^n &\rightarrow  n \\
 C_1 &\rightarrow C_1 C_2 C_4 C_5 \\
@@ -514,14 +530,18 @@ C_3 &\rightarrow C_3 \\
 C_4 &\rightarrow C_4 C_5 \\
 C_5 &\rightarrow C_6
 \end{align*}
+$$
 
 Starting with:
 
-$$(C_3)^{2n}C_1C_1 \rightarrow (C_6)^n$$
+$$
+(C_3)^{2n}C_1C_1 \rightarrow (C_6)^n
+$$
 
 For $n=2$:
 
-$$\begin{align*}
+$$
+\begin{align*}
 C_3 C_3 C_3 C_3 C_1 C_1 \rightarrow \\
 C_3 C_3 C_1 C_1 C_3 \rightarrow \\
 C_1 C_1 C_3 C_3 \rightarrow \\
@@ -532,7 +552,8 @@ C_2 C_4 C_5 C_4 C_5 C_3 \rightarrow \\
 C_5 C_4 C_5 C_3 \rightarrow \\
 C_5 C_3 C_6 \rightarrow \\
 C_6 C_6
-\end{align*}$$
+\end{align*}
+$$
 
 
 
@@ -665,13 +686,15 @@ How to compute?
 
 - Inspired by chemical reaction equations
 
-$$\begin{matrix}
+$$
+\begin{matrix}
 A & \rightarrow  & B \\ 
 C & \rightarrow & D \\ 
 B + C & \rightarrow & A \\ 
 A + D & \rightarrow & A + 2E\\ 
 B + E & \rightarrow & B + D
-\end{matrix}$$
+\end{matrix}
+$$
 
 - Nondeterministic: any reaction can happen at any time
 - Primitive Recursive Functions can always compute this in bounded time, even if answer is $\infty$.
