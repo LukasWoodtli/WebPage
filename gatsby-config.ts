@@ -3,18 +3,19 @@ module.exports = {
     title: `My personal Website`,
     author: {
       name: `Lukas Woodtli`,
-      summary: `Personal Website and Blog.`,
+      summary: `Personal Website and Blog.`
     },
-    siteUrl: `https://lukaswoodtli.github.io/`,
+    siteUrl: `https://lukaswoodtli.github.io/`
   },
+  trailingSlash: "never",
   plugins: [
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `./content`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,

@@ -25,7 +25,7 @@ const BlogIndex = (props: any) => {
               >
                 <header>
                   <Typography variant={"h2"}>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link to={post.fields.slug}>
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </Typography>
