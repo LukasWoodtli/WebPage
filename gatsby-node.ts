@@ -9,7 +9,7 @@ async function collectMarkdownFiles(graphql: any) {
   const result = await graphql(
     `
       {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: {fields: fileAbsolutePath, order: ASC}) {
           nodes {
             id
             fields {
@@ -27,6 +27,7 @@ async function collectMarkdownFiles(graphql: any) {
   );
 
   if (result.errors) {
+    console.log(result);
     throw {
       name: "There was an error loading the markdown files",
       message: result.errors
@@ -99,6 +100,7 @@ function createBlogPosts(posts: any[], createPage: any) {
 
   // Create blog posts pages
   posts.forEach((post: any) => {
+    console.log(`Processing: ${post.fileAbsolutePath}`);
     createPage({
       path: post.fields.slug,
       component: blogPostsComponent,
