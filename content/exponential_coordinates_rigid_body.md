@@ -8,7 +8,9 @@ Every displacement of a rigid body can be expressed as a displacement along a fi
 
 Exponential coordinates of a homogeneous transformation $T$:
 
-$$S\theta \in \mathbb{R}^6$$
+$$
+S\theta \in \mathbb{R}^6
+$$
 
 With:
 
@@ -22,20 +24,24 @@ With $S = (\omega, v) = (S_{\omega}, S_v)$ as screw axis:
 
 - if $\left\| S_{\omega} \right\| = 1$ ($\left\| \omega \right\| = 1$) then for any distance $\theta \in \mathbb{R}$ moved along $S$:
 
-$$e^{[S]\theta} =
+$$
+e^{[S]\theta} =
 \begin{bmatrix}
 e^{[\omega]\theta} &
 (I\theta + (1 - \cos \theta) [\omega] + (\theta - \sin \theta) [\omega]^2) v \\
 0 & 1
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 - if $S_\omega = 0$ ($\omega = 0$) and $\left\| S_v \right\| = 1$ ($\left\| v \right\| = 1$) then:
 
-$$e^{[S]\theta} =
+$$
+e^{[S]\theta} =
 \begin{bmatrix}
     I & v\theta \\
     0 & 1
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 Every $SE(3)$ transformation can be expressed as an exponential function of a twist ($se(3)$).
 
@@ -57,7 +63,9 @@ Find:
   
 Such that:
 
-$$e^{[S]\theta} = T$$
+$$
+e^{[S]\theta} = T
+$$
 
 - $S\theta \in \mathbb{R}^6$: vector comprising exponential coordinates of $T$
 - $[S]\theta \in se(3)$: matrix representing logarithm of $T$
@@ -81,7 +89,7 @@ Log: $T \in SE(3) \rightarrow [S]\theta \in se(3)$
 
 $T_{sb'} = e^{[S_b]\theta}T_{sb}$ is the configuration achieved if $S$ is expressed in the *fixed frame* $\{s\}$.
 
-## Body Frame
+## Body Frame
 
 $T_{sb''} = T_{sb}e^{[S_b]\theta}$ is the configuration achieved if $S$ is expressed in the *body frame* $\{b\}$.
 

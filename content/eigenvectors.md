@@ -4,7 +4,9 @@ category: Mathematics
 ---
 An eigenvector of a linear transformation is a vector (non-zero) that, when the linear transformation is applied to it, changes by only a scalar factor. This scalar factor is called eigenvalue.
 
-$$A \cdot \overrightarrow{v} = \lambda \cdot \overrightarrow{v}$$
+$$
+A \cdot \overrightarrow{v} = \lambda \cdot \overrightarrow{v}
+$$
 
 Where:
 
@@ -19,12 +21,16 @@ To calculate the Eigenvectors we need to find the Eigenvalues first.
 
 From
 
-$$A \cdot \overrightarrow{v} = \lambda \cdot \overrightarrow{v} \rightarrow A \cdot \overrightarrow{v}
-= \lambda \cdot I \cdot \overrightarrow{v}$$
+$$
+A \cdot \overrightarrow{v} = \lambda \cdot \overrightarrow{v} \rightarrow A \cdot \overrightarrow{v}
+= \lambda \cdot I \cdot \overrightarrow{v}
+$$
 
 follows
 
-$$(A - \lambda I) \cdot \overrightarrow{v} = 0$$
+$$
+(A - \lambda I) \cdot \overrightarrow{v} = 0
+$$
 
 which is only solvable if $det(A - \lambda I) = 0$ (characteristic equation).
 
@@ -38,6 +44,8 @@ There is one independent Eigenvector for each Eigenvalue.
 
 For each Eigenvalue solve
 
-$$(A - \lambda I) \cdot \overrightarrow{v} = 0$$
+$$
+(A - \lambda I) \cdot \overrightarrow{v} = 0
+$$
 
 to get the corresponding Eigenvector $\overrightarrow{v}$ for a given Eigenvalue $\lambda$.

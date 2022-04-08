@@ -296,7 +296,7 @@ Verhalten, das unmittelbar bestraft wird, wird gemieden.
 ### 4. Gesetz: Gestalte es Befriedigend
 
 1. Positive Verstärkung nutzen: Belohnung direkt nach dem ausführen einer Gewohnheit
-2. Gewohnheiten tracken: "don’t break the chain"
+2. Gewohnheiten tracken: "don't break the chain"
 3. Höchstens ein mal auslassen: Wenn eine Gewohnheit mal nicht durchgeführt wird, muss man schnell wieder weitermachen
 
 ## Schlechte Gewohnheiten Abgewöhnen

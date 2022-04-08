@@ -5,10 +5,10 @@ modified: 2015-06-01
 category: Programming
 tags: [Git, Version Control]
 ---
-This useful description is taken from: [git: fetch and merge, don’t pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
+This useful description is taken from: [git: fetch and merge, don't pull](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 
 Suppose you're working on the main branch of a project (called 'master')
-and realise later that what you’ve been doing might have been a bad
+and realise later that what you've been doing might have been a bad
 idea, and you would rather it were on a topic branch. If the commit
 graph looks like this:
 

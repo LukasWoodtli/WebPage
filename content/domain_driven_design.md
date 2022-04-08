@@ -37,9 +37,9 @@ To define a useful and solid model it is necessary that the software engineers (
 
 This is an iterative process where the model is constantly refined, extended and cleaned up. Also the Ubiquitous Language is evolved and refined in this process.
 
-The communication is bidirectional and defining the model is a combined effort. The resulting model needs to be understood by all participants. If a business expert doesn’t understand a part of the model then there is probably something wrong with it.
+The communication is bidirectional and defining the model is a combined effort. The resulting model needs to be understood by all participants. If a business expert doesn't understand a part of the model then there is probably something wrong with it.
 
-The discussions are a time consuming process. But it’s important to have a good model and a common language.
+The discussions are a time consuming process. But it's important to have a good model and a common language.
 
 
 ## Ubiquitous Language
@@ -70,7 +70,7 @@ The classes and methods of the software are a direct mapping of the model and ub
 
 Anybody that works on the code needs to know how to express the model in code. It is necessary that all developers are involved into the discussions about the model with the domain experts.
 
-If the design of the system or of central components don’t reflect the model, the correctness of the software is in danger.
+If the design of the system or of central components don't reflect the model, the correctness of the software is in danger.
 
 
 # Building Blocks and Patterns
@@ -95,11 +95,11 @@ This is a list of traditional layers in an n-tier application:
 
 #### Entities
 
-Business objects that have an identity. The identity is usually a field or a combination of fields which is unique. Two objects with the same identity are considered as the same object. Special care needs to be taken to guarantee that distinct objects don’t get the same identity.
+Business objects that have an identity. The identity is usually a field or a combination of fields which is unique. Two objects with the same identity are considered as the same object. Special care needs to be taken to guarantee that distinct objects don't get the same identity.
 
 #### Value Objects
 
-Value objects are domain objects that don’t have an identity. Looking at a single object, it doesn’t matter which object it is but what properties it has. Two objects with the same properties are considered to be the same value object.
+Value objects are domain objects that don't have an identity. Looking at a single object, it doesn't matter which object it is but what properties it has. Two objects with the same properties are considered to be the same value object.
 
 Value objects should be preferred over entities when designing the system.
 
@@ -110,7 +110,7 @@ Value objects can contain other value objects and even constant references to en
 
 #### Services
 
-Behavior that is important for a domain but doesn’t belong to only one class should be put into a service.
+Behavior that is important for a domain but doesn't belong to only one class should be put into a service.
 Services work on multiple objects, possibly from different classes.
 They are stateless and provide simply functionality (a concept) for the domain.
 
@@ -182,7 +182,7 @@ Internally they can use factories for creating an object tree and ensure that th
 
 The code as well as the domain model need constant refinement and refactoring.
 
-Working on the model and improving it is an continuous effort. Therefore it’s important to keep all the parts of the system aligned and up to date with the model.
+Working on the model and improving it is an continuous effort. Therefore it's important to keep all the parts of the system aligned and up to date with the model.
 
 The code needs to be flexible to allow to introduce new concepts. If the code is not flexible enough it needs to be refactored and improved.
 
@@ -203,7 +203,7 @@ It‘s important to keep the borders of the bonded contexts consistent. There ne
 
 All the Bounded Contexts need to be continuously be integrated in the system.
 
-It’s also important to check the correctness of the system with automated tests.
+It's also important to check the correctness of the system with automated tests.
 
 Bounded Contexts have a name that is part of the ubiquitous language.
 
@@ -224,7 +224,7 @@ When getting started with DDD it's a good starting point to draw a context map o
 
 If there is a part of the system that is present in two (or more) contexts is it called a Shared Kernel. This is a sign of uncoordinated teams working on closely related parts of the system.
 
-It’s also possible to actively to decide that two teams share a part of the system and maintain this part collectively. This reduces the effort of duplication and has the benefit of a partly common Ubiquitous Language.
+It's also possible to actively to decide that two teams share a part of the system and maintain this part collectively. This reduces the effort of duplication and has the benefit of a partly common Ubiquitous Language.
 
 The scope of the Shared Kernel has to be clearly defined. And any changes to it needs coordination between the teams that share it.
 
@@ -239,7 +239,7 @@ There should be automated acceptance tests that guarantee the proper implementat
 
 ## Anti-Corruption Layer
 
-When connecting with legacy systems or third party software it’s important that the domain model doesn’t get polluted by the other system. The anti-corruption layer sits between the domain model and the external model. It is a natural part of the domain model (with its ubiquitous language) but translates between the two systems.
+When connecting with legacy systems or third party software it's important that the domain model doesn't get polluted by the other system. The anti-corruption layer sits between the domain model and the external model. It is a natural part of the domain model (with its ubiquitous language) but translates between the two systems.
 
 Usually it is implemented as a service. Internally it uses the Facade and the Adapter patterns. It makes sense to implement even multiple services in the anti-corruption layer.
 
