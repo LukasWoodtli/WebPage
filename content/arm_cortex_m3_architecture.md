@@ -83,18 +83,20 @@ It's not necessary to use both stack pointers (SP_main and SP_process). Simple a
 
 PUSH and POP work with the actual *SP* (R13). The stack is 32-bit aligned.
 
-    :::nasm
-    PUSH {R3}  ; R13 = R13-4, memory[R13] = R3
-    POP {R3}   ; R3 = memory[R13], R13 = R13+4
+ ```nasm
+PUSH {R3}  ; R13 = R13-4, memory[R13] = R3
+POP {R3}   ; R3 = memory[R13], R13 = R13+4
+```
 
 It's also possible to to push and pop multiple registers in one instruction.
 
-    :::nasm
-    my_function
-        PUSH {R0-R3, R3, R7} ; Save registers
-        ...
-        POP {R0-R3, R3, R7}  ; Restore registers
-        BX R7                ; Return to caller
+ ```nasm
+my_function
+    PUSH {R0-R3, R3, R7} ; Save registers
+    ...
+    POP {R0-R3, R3, R7}  ; Restore registers
+    BX R7                ; Return to caller
+```
 
 It's possible to use *SP* instead of *R13* for accessing the actual Stack Pointer.
 For accessing a particular Stack Pointer the mnemonic MSP (for SP_main) or PSP (for SP_process) exist.
@@ -104,16 +106,15 @@ For accessing a particular Stack Pointer the mnemonic MSP (for SP_main) or PSP (
 The Link Register contains the return address of a subroutine/function.
 On function entry (BL) the return address is automatically saved on LR.
 
-    :::nasm
-    main
-       BL my_func; call funct. with branch and link. PC=my_func, LR=next instr in main
-
+ ```nasm
+main
+   BL my_func ; call funct. with branch and link. PC=my_func, LR=next instr in main
     ...
 
-    my_func
-        ...
-        BX LR ; return to address in LR
-
+my_func
+    ...
+    BX LR ; return to address in LR
+```
 
 ## Program Counter (R15, PC)
 
@@ -318,31 +319,33 @@ There are two bit-band region. One for memory and the other for peripherals.
 
 To access one bit through the bit-banding alias the mapping is performed by this code:
 
-    :::c
-    #define BIT_BANDING_ALIAS_OFFSET(byteOffsetInBitBandRegion, bitNumber)  ((byteOffsetInBitBandRegion * 32) + (bitNumber * 4))
-    #define BIT_BANDING_MEMORY_ALIAS_BASE    0x22000000
-    #define BIT_BANDING_PERIPERAL_ALIAS_BASE 0x42000000
+```c
+#define BIT_BANDING_ALIAS_OFFSET(byteOffsetInBitBandRegion, bitNumber)  ((byteOffsetInBitBandRegion * 32) + (bitNumber * 4))
+#define BIT_BANDING_MEMORY_ALIAS_BASE    0x22000000
+#define BIT_BANDING_PERIPERAL_ALIAS_BASE 0x42000000
 
-    #define BIT_BANDING_MEMORY_TO_ALIAS(byte, bit)  (BIT_BANDING_MEMORY_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
-    #define BIT_BANDING_PERIPHERAL_TO_ALIAS(byte, bit) (BIT_BANDING_PERIPHERAL_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
+#define BIT_BANDING_MEMORY_TO_ALIAS(byte, bit)  (BIT_BANDING_MEMORY_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
+#define BIT_BANDING_PERIPHERAL_TO_ALIAS(byte, bit) (BIT_BANDING_PERIPHERAL_ALIAS_BASE + BIT_BANDING_ALIAS_OFFSET(byte, bit))
+```
 
 It's also possible to calculate the address in the other direction from the alias region to the bit-banding region.
 But it's usually not nessecary to do the address translation in this direction.
 
 Here is a small example:
 
-    :::c
-    // Set pI to point to the first 32-bit value in the memory bit-banding region
-    volatile uint32_t * pI = (uint32_t *)(0x20000000);
-    // Set the value where pI is pointing to 0
-	*pI = 0;
+```c
+// Set pI to point to the first 32-bit value in the memory bit-banding region
+volatile uint32_t * pI = (uint32_t *)(0x20000000);
+// Set the value where pI is pointing to 0
+*pI = 0;
 
-    // Get the bit-banding alias address of bit 2 of the first byte in the bit-banding region
-	volatile uint32_t * pIAlias = (uint32_t *)BIT_BANDING_MEMORY_TO_ALIAS(0, 2);
-    // Seet this bit to one
-	*pIAlias = 1;
+// Get the bit-banding alias address of bit 2 of the first byte in the bit-banding region
+volatile uint32_t * pIAlias = (uint32_t *)BIT_BANDING_MEMORY_TO_ALIAS(0, 2);
+// Seet this bit to one
+*pIAlias = 1;
 
-    // *pI == 4. The bit two ot *pI is now set
+// *pI == 4. The bit two ot *pI is now set
+```
 
 # Bus Interfaces
 
@@ -609,51 +612,57 @@ the `MOV` commands are aliases for the shifting commands.
 
 #### Immediate
 
-    :::nasm
-    MOVS <Rd>,#<imm8>     /* Outside IT block */
-    MOV<c> <Rd>,#<imm8>   /* Inside IT block */
-    MOV{S}<c>.W <Rd>,#<const>
-    MOVW<c> <Rd>,#<imm16>
+ ```nasm
+MOVS <Rd>,#<imm8>     /* Outside IT block */
+MOV<c> <Rd>,#<imm8>   /* Inside IT block */
+MOV{S}<c>.W <Rd>,#<const>
+MOVW<c> <Rd>,#<imm16>
+```
 
 #### Register
 
-    :::nasm
-    MOV<c> <Rd>,<Rm>
-    MOVS <Rd>,<Rm>
-    MOV{S}<c>.W <Rd>,<Rm>
+ ```nasm
+MOV<c> <Rd>,<Rm>
+MOVS <Rd>,<Rm>
+MOV{S}<c>.W <Rd>,<Rm>
+```
 
 Examples:
 
-    :::nasm
-    MOV R3, R2; /* Move the value from R2 to R3 */
-    MVN R5, R6; /* Move the negated value of R6 to R5 */
+ ```nasm
+MOV R3, R2; /* Move the value from R2 to R3 */
+MVN R5, R6; /* Move the negated value of R6 to R5 */
+```
 
 #### Move to top half-word of Register (`MOVT`)
 
 Moves an immediate value to the top half of the given register. The
 bottom half of the register is not written.
 
-    :::nasm
-    MOVT<c><q> <Rd>, #<imm16>
+ ```nasm
+MOVT<c><q> <Rd>, #<imm16>
+```
 
 
 #### Move Special Register to Register (`MRS`)
 
 
-    :::nasm
-    MRS<c> <Rd>,<spec_reg>
+ ```nasm
+MRS<c> <Rd>,<spec_reg>
+```
 
 `MRS` is a system level instruction except when accessing the *APSR* or *CONTROL* register.
 
 
 #### Move Register to Special Register (`MSR`)
 
-    :::nasm
-    MSR<c> <spec_reg>,<Rn>
+ ```nasm
+MSR<c> <spec_reg>,<Rn>
+```
 
 `MRS` is a system level instruction except when accessing the *APSR* or *CONTROL* register.
 
-<!---### Move Data between Register and Memory
+### Move Data between Register and Memory
 
 The basic commands for moving data to and from memory are store and load.
 They exist with different operand sizes (byte, half word, word and double word).
@@ -662,7 +671,7 @@ With some commands a register operand can be updated after the operation with `!
 available it is optional.
 
 There are commands for storing or loading multiple registers at once.
---->
+
 
 ## Arithmetic Commands
 
@@ -672,49 +681,53 @@ Adds two values.
 
 #### Immediate
 
-    :::nasm
-    ADDS <Rd>,<Rn>,#<imm3>         /* Outside IT block */
-    ADD<c> <Rd>,<Rn>,#<imm3>       /* Inside IT block */
-    ADDS <Rdn>,#<imm8>             /* Outside IT block */
-    ADD<c> <Rdn>,#<imm8>           /* Inside IT block */
-    ADD{S}<c>.W <Rd>,<Rn>,#<const>
-    ADDW<c> <Rd>,<Rn>,#<imm12>
-    ADD{S}<c><q> {<Rd>,} <Rn>,  #<const>
-    ADDW<c><q> {<Rd>,} <Rn>,  #<const>
+ ```nasm
+ADDS <Rd>,<Rn>,#<imm3>         /* Outside IT block */
+ADD<c> <Rd>,<Rn>,#<imm3>       /* Inside IT block */
+ADDS <Rdn>,#<imm8>             /* Outside IT block */
+ADD<c> <Rdn>,#<imm8>           /* Inside IT block */
+ADD{S}<c>.W <Rd>,<Rn>,#<const>
+ADDW<c> <Rd>,<Rn>,#<imm12>
+ADD{S}<c><q> {<Rd>,} <Rn>,  #<const>
+ADDW<c><q> {<Rd>,} <Rn>,  #<const>
+```
 
 
 #### Register
 
 The second register operand can be shifted.
 
-    :::nasm
-    ADDS <Rd>,<Rn>,<Rm>     /* Outside IT block */
-    ADD<c> <Rd>,<Rn>,<Rm>   /* Inside IT block */
-    ADD<c> <Rdn>,<Rm>
-    ADD{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
-    ADD{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
+ ```nasm
+ADDS <Rd>,<Rn>,<Rm>     /* Outside IT block */
+ADD<c> <Rd>,<Rn>,<Rm>   /* Inside IT block */
+ADD<c> <Rdn>,<Rm>
+ADD{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+ADD{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
+```
 
 #### *SP* plus Immediate
 Adds an immediate value to the *SP*, writes the result to the destination register.
 
-    :::nasm
-    ADD<c> <Rd>,SP,#<imm8>
-    ADD<c> SP,SP,#<imm7>
-    ADD{S}<c>.W <Rd>,SP,#<const>
-    ADDW<c> <Rd>,SP,#<imm12>
-    ADD{S}<c><q> {<Rd>,} SP, #<const>
-    ADDW<c><q> {<Rd>,} SP, #<const>
+ ```nasm
+ADD<c> <Rd>,SP,#<imm8>
+ADD<c> SP,SP,#<imm7>
+ADD{S}<c>.W <Rd>,SP,#<const>
+ADDW<c> <Rd>,SP,#<imm12>
+ADD{S}<c><q> {<Rd>,} SP, #<const>
+ADDW<c><q> {<Rd>,} SP, #<const>
+```
 
 #### *SP* plus Register
 
 Adds an (optionally-shifted) register value to the *SP*,
 writes the result to the destination register.
 
-    :::nasm
-    ADD<c> <Rdm>, SP, <Rdm>
-    ADD<c> SP,<Rm>
-    ADD{S}<c>.W <Rd>,SP,<Rm>{,<shift>}
-    ADD{S}<c><q> {<Rd>,} SP, <Rm>{, <shift>}
+ ```nasm
+ADD<c> <Rdm>, SP, <Rdm>
+ADD<c> SP,<Rm>
+ADD{S}<c>.W <Rd>,SP,<Rm>{,<shift>}
+ADD{S}<c><q> {<Rd>,} SP, <Rm>{, <shift>}
+```
 
 
 ### Addition with Carry (`ADC`)
@@ -723,18 +736,20 @@ Adds values with carry.
 
 #### Immediate
 
-    :::nasm
-    ADC{S}<c>  <Rd>,<Rn>,#<const>
+ ```nasm
+ADC{S}<c>  <Rd>,<Rn>,#<const>
+```
 
 #### Register
 
 The register operand can be shifted.
 
-    :::nasm
-    ADCS <Rdn>,<Rm>     /* Outside IT block */
-    ADC<c> <Rdn>,<Rm>   /* Inside IT block */
-    ADC{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
-    ADC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
+ ```nasm
+ADCS <Rdn>,<Rm>     /* Outside IT block */
+ADC<c> <Rdn>,<Rm>   /* Inside IT block */
+ADC{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+ADC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
+```
 
 ### Multiply (`MUL`)
 
@@ -745,11 +760,12 @@ Can update flags.
 
 > Writing flags can reduce performance!
 
-    :::nasm
-    MULS <Rdm>,<Rn>,<Rdm>    /* Outside IT block */
-    MUL<c> <Rdm>,<Rn>,<Rdm>  /* Inside IT block */
-    MUL<c> <Rd>,<Rn>,<Rm>
-    MUL{S}<c><q> {<Rd>,} <Rn>,  <Rm>
+ ```nasm
+MULS <Rdm>,<Rn>,<Rdm>    /* Outside IT block */
+MUL<c> <Rdm>,<Rn>,<Rdm>  /* Inside IT block */
+MUL<c> <Rd>,<Rn>,<Rm>
+MUL{S}<c><q> {<Rd>,} <Rn>,  <Rm>
+```
 
 
 ## Logical Commands
@@ -760,20 +776,22 @@ Can update flags.
 
 Bit-wise *AND* of register and immediate value.
 
-    :::nasm
-    AND{S}<c>  <Rd>,<Rn>,#<const>
-    AND{S}<c><q> {<Rd>,} <Rn>,  #<const>
+ ```nasm
+AND{S}<c>  <Rd>,<Rn>,#<const>
+AND{S}<c><q> {<Rd>,} <Rn>,  #<const>
+```
 
 #### Register
 
 Bit-wise *AND* of a register and a second (optionally-shifted) register.
 The flags can be updated based on the result.
 
-    :::nasm
-    ANDS<Rdn>,<Rm>                       /* Outside IT block */
-    AND<c> <Rdn>,<Rm>                    /* Inside IT block */
-    AND{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
-    AND{S}<c><q> {<Rd>,} <Rn>, <Rm> {,<shift>}
+ ```nasm
+ANDS<Rdn>,<Rm>                       /* Outside IT block */
+AND<c> <Rdn>,<Rm>                    /* Inside IT block */
+AND{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+AND{S}<c><q> {<Rd>,} <Rn>, <Rm> {,<shift>}
+```
 
 ## Bit Commands
 
@@ -781,8 +799,9 @@ The flags can be updated based on the result.
 
 Clear a number of adjacent bits in a register.
 
-    :::nasm
-    BFC<c><q> <Rd>, #<lsb>, #<width>
+ ```nasm
+BFC<c><q> <Rd>, #<lsb>, #<width>
+```
 
 Where:
 
@@ -796,8 +815,9 @@ Where:
 Insert given number of the lowest bits from source register to
 a given position in the destination register.
 
-    :::nasm
-    BFI<c><q><Rd>, <Rn>, #<lsb>, #<width>
+ ```nasm
+BFI<c><q><Rd>, <Rn>, #<lsb>, #<width>
+```
 
 `<lsb>`: The least significant bit in destination where bits are copied to (Range: 0-31).
 
@@ -812,9 +832,10 @@ value.
 
 The flags can be updated.
 
-    :::nasm
-    BIC{S}<c>  <Rd>,<Rn>,#<const>
-    BIC{S}<c><q> {<Rd>,} <Rn>,  #<const>
+ ```nasm
+BIC{S}<c>  <Rd>,<Rn>,#<const>
+BIC{S}<c><q> {<Rd>,} <Rn>,  #<const>
+```
 
 #### Register
 
@@ -823,19 +844,21 @@ The second register can be shifted.
 
 The flags can be updated.
 
-    :::nasm
-    BICS<Rdn>,<Rm>    /* Outside IT block */
-    BIC<c> <Rdn>,<Rm> /* Inside IT block */
-    BIC{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
-    BIC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
+ ```nasm
+BICS<Rdn>,<Rm>    /* Outside IT block */
+BIC<c> <Rdn>,<Rm> /* Inside IT block */
+BIC{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+BIC{S}<c><q> {<Rd>,}  <Rn>, <Rm> {,<shift>}
+```
 
 
 ### Count Leading Zeros (`CLZ`)
 
 Returns the number of leading zero bits of a register.
 
-    :::nasm
-    CLZ<c><q> <Rd>, <Rm>
+ ```nasm
+CLZ<c><q> <Rd>, <Rm>
+```
 
 ## Shift and Rotate Commands
 
@@ -847,11 +870,12 @@ of it's *sign bit*.
 
 Can update flags.
 
-    :::nasm
-    ASRS <Rd>,<Rm>,#<imm5>    /* Outside IT block */
-    ASR<c> <Rd>,<Rm>,#<imm5>  /*Inside IT block */
-    ASR{S}<c>.W <Rd>,<Rm>,#<imm5>
-    ASR{S}<c><q> <Rd>, <Rm>,  #<imm5>
+ ```nasm
+ASRS <Rd>,<Rm>,#<imm5>    /* Outside IT block */
+ASR<c> <Rd>,<Rm>,#<imm5>  /*Inside IT block */
+ASR{S}<c>.W <Rd>,<Rm>,#<imm5>
+ASR{S}<c><q> <Rd>, <Rm>,  #<imm5>
+```
 
 #### Register
 Shifts a register by a variable number of bits, shifting in copies
@@ -860,11 +884,12 @@ to shift is read from the *bottom byte* of a register.
 
 Flags can be set.
 
-    :::nasm
-    ASRS<Rdn>,<Rm>             /* Outside IT block */
-    ASR<c> <Rdn>,<Rm>          /* Inside IT block */
-    ASR{S}<c>.W <Rd>,<Rn>,<Rm>
-    ASR{S}<c><q> <Rd>, <Rn>, <Rm>
+ ```nasm
+ASRS<Rdn>,<Rm>             /* Outside IT block */
+ASR<c> <Rdn>,<Rm>          /* Inside IT block */
+ASR{S}<c>.W <Rd>,<Rn>,<Rm>
+ASR{S}<c><q> <Rd>, <Rn>, <Rm>
+```
 
 ## Compare Commands
 
@@ -875,21 +900,23 @@ Compare values by subtracting an immediate value from a register.
 
 Updates the flags but discards result.
 
-    :::nasm
-    CMP<c> <Rn>,#<imm8>
-    CMP<c>.W <Rn>,#<const>
-    CMP<c><q> <Rn>, #<const>
-    
+ ```nasm
+CMP<c> <Rn>,#<imm8>
+CMP<c>.W <Rn>,#<const>
+CMP<c><q> <Rn>, #<const>
+```
+
 #### Register
 Compare values by subtracting an (optionally shifted) register
 from an other register.
 
 Updates the flags but discards result.
 
-    :::nasm
-    CMP<c> <Rn>,<Rm>    /* <Rn> and <Rm> both from R0-R7 */
-    CMP<c>.W <Rn>, <Rm> {,<shift>}
-    CMP<c><q> <Rn>, <Rm> {,<shift>}
+ ```nasm
+CMP<c> <Rn>,<Rm>    /* <Rn> and <Rm> both from R0-R7 */
+CMP<c>.W <Rn>, <Rm> {,<shift>}
+CMP<c><q> <Rn>, <Rm> {,<shift>}
+```
 
 ### Compare Negative (`CMN`)
 
@@ -898,10 +925,11 @@ Compare values by **adding** a register and an immediate value.
 
 Updates the flags but discards result.
 
-    :::nasm
-    CMN<c> <Rn>,#<const>
-    CMN<c><q> <Rn>, #<const>
-    
+ ```nasm
+CMN<c> <Rn>,#<const>
+CMN<c><q> <Rn>, #<const>
+```
+
 #### Register
 
 Compare values by **adding** to registers. The second register
@@ -909,11 +937,11 @@ can be shifted.
 
 Updates the flags but discards result.
 
-    :::nasm
-    CMN<c> <Rn>, <Rm>
-    CMN<c>.W <Rn>, <Rm>{, <shift>}
-    CMN<c><q> <Rn>, <Rm> {,<shift>}
-    
+ ```nasm
+CMN<c> <Rn>, <Rm>
+CMN<c>.W <Rn>, <Rm>{, <shift>}
+CMN<c><q> <Rn>, <Rm> {,<shift>}
+```
 
 ##  Branch Commands
 
@@ -940,17 +968,19 @@ All other branch instructions can only be conditional inside an *IT* block, and 
 
 Branch to a target addressed.
 
-    :::nasm
-    B<c> <label>
-    B<c>.W <label>
-    B<c><q> <label>
+ ```nasm
+B<c> <label>
+B<c>.W <label>
+B<c><q> <label>
+```
 
 ### Branch with Link (`BL`)
 
 Calls a function at PC-relative address.
 
-    :::nasm
-    BL<c><q> <label>
+ ```nasm
+BL<c><q> <label>
+```
 
 `<label>`: The label to jump to. The assembler calculates the offset
 of the `BL` instruction and the label.
@@ -964,9 +994,10 @@ It's the same as `BXL` but it **doesn't save** the next instruction in *LR*.
 
 > Be aware that the Cortex-M3 only supports Thumb! (see `BLX`)
 
-    :::nasm
-    BX<c> <Rm>   /* Outside or last in IT block */
-    BX<c><q> <Rm>
+ ```nasm
+BX<c> <Rm>   /* Outside or last in IT block */
+BX<c><q> <Rm>
+```
 
 
 Exceptions: UsageFault
@@ -981,9 +1012,10 @@ It saves the next instruction (after `BLX`) in *LR*.
 > Be aware that the Cortex-M3 only supports Thumb! An attempt to change to ARM Mode will
 > cause an *UsageFault* exception.
 
-    :::nasm
-    BLX<c> <Rm>          /* Outside or last in IT block */
-    BLX<c><q> <Rm>
+ ```nasm
+BLX<c> <Rm>          /* Outside or last in IT block */
+BLX<c><q> <Rm>
+```
 
 Exceptions: UsageFault
 
@@ -997,9 +1029,10 @@ The condition flags are not affected.
 
 > these instructions are not allowed inside an *IT* block.
 
-    :::nasm
-    CB{N}Z <Rn>,<label>    /* Not permitted in IT block */
-    CB{N}Z<q> <Rn>, <label>
+ ```nasm
+CB{N}Z <Rn>,<label>    /* Not permitted in IT block */
+CB{N}Z<q> <Rn>, <label>
+```
 
 `<Rn>`: Register must be in range *R0* - *R7*.
 
@@ -1016,13 +1049,14 @@ Calculate *PC* relative address.
 
 Add immediate value to *PC* and store result in register.
 
-    :::nasm
-    ADR<c> <Rd>,<label>
-    ADR<c>.W <Rd>,<label> /* <label> before current instruction */
-    SUB <Rd>,PC,#0.       /* Special case for zero offset */
-    ADR<c><q> <Rd>, <label>
-    ADD<c><q> <Rd>, PC,  #<const>
-    SUB<c><q> <Rd>, PC,  #<const> /* Special case */
+ ```nasm
+ADR<c> <Rd>,<label>
+ADR<c>.W <Rd>,<label> /* <label> before current instruction */
+SUB <Rd>,PC,#0.       /* Special case for zero offset */
+ADR<c><q> <Rd>, <label>
+ADD<c><q> <Rd>, PC,  #<const>
+SUB<c><q> <Rd>, PC,  #<const> /* Special case */
+```
 
 ### Break-point (`BKPT`)
 
@@ -1031,8 +1065,9 @@ Causes a *DebugMonitor* exception or a debug halt.
 It is a unconditional instruction and can be executed inside or
 outside an *TI* block.
 
-    :::nasm
-    BKPT<q>#<imm8>
+ ```nasm
+BKPT<q>#<imm8>
+```
 
 `<imm8>` is a 8-bit value that is ignored by the hardware
 but can be used to store some information by a debugger.
@@ -1044,26 +1079,19 @@ Exceptions: *DebugMonitor*
 Provides a hint to debug and trace systems.
 The debug architecture defines the use (if any).
 
-    :::nasm
-    DBG<c><q>#<option>
-    // Any decoding of 'option' is specified by the debug system
-    
-    
-    
+ ```nasm
+DBG<c><q>#<option>
+// Any decoding of 'option' is specified by the debug system
+```
+
+
 ### No Operation (`NOP`)
 
 The NOP does nothing.
 
-    :::nasm
-    NOP<c>
-    NOP<c>.W
-    
-    
+ ```nasm
+NOP<c>
+NOP<c>.W
+```
 
 
-<!-- TBD: Instructions have to be described later
-
-- CLREX 
-- CPS
-
--->

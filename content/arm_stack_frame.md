@@ -39,29 +39,33 @@ General Notes
 
 `PUSH`/`POP`: `STMFD`/`LDMFD` (Store multiple Full-Descent, Load multiple Full-Descent)
 
-    :::nasm
-    LDMFD SP, {R0-R3}
+```nasm
+LDMFD SP, {R0-R3}
+```
 
 is equvalent to:
 
-    :::nasm
-    LDR R0, [SP]
-    LDR R1, [SP, #4]
-    LDR R2, [SP, #8]
-    LDR R3, [SP, #12]
+```nasm
+LDR R0, [SP]
+LDR R1, [SP, #4]
+LDR R2, [SP, #8]
+LDR R3, [SP, #12]
+```
 
 To alter (update) `SP`:
 
-    :::nasm
-    LDMFD SP!, {R0-R3}
+```nasm
+LDMFD SP!, {R0-R3}
+```
 
 `LR` needs to be saved on stack for *non*-leaf functions
 
-    ::: nasm
-    _func:
-      STMFD SP!, {R4-R6, LR}
-      ; ... code of func
-      LDMFD SP!, {R4-R6, PC} ; Pushing stacked LR directly to PC => return to caller
+```nasm
+_func:
+  STMFD SP!, {R4-R6, LR}
+  ; ... code of func
+  LDMFD SP!, {R4-R6, PC} ; Pushing stacked LR directly to PC => return to caller
+```
 
 - The order of registers in `STMFD` and `LDMFD` is always the same: lower regisers at lower addresses
 
