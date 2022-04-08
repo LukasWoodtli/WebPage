@@ -35,11 +35,11 @@ const TableOfContents = (props: TableOfContentsParams) => {
           Content
         </Typography>
       </ListItemText>
-      {toc.map((heading: MarkdownHeading) => (
-        <Box sx={{ pl: heading.depth }} key={`${heading.value}` + "-box"}>
+      {toc.map((heading: MarkdownHeading, index: number) => (
+        <Box sx={{ pl: heading.depth }} key={`${heading.value}-${index}-box`}>
           <ListItemButton component="a" href={headerNameToFragment(heading.value)}
-                          key={`${heading.value}` + "-list-item-button"}>
-            <ListItemText primary={heading.value} key={`${heading.value}` + "-list-item-text"} />
+                          key={`${heading.value}-list-item-button`}>
+            <ListItemText primary={heading.value} key={`${heading.value}-${index}-list-item-text`} />
           </ListItemButton>
         </Box>
       ))}
