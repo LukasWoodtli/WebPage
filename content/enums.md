@@ -18,23 +18,24 @@ Iterating over enums
 Be careful if you iterate over an enum. If the enum is not continuously defined your code is probably doing some things you don't want it to do.
 For exampe:
 
-    :::c
-    typedef enum
-    {
-      VAL_1 = 10,
-      VAL_2 = 15,
-      VAL_3 = 20,
-      VAL_NB
-    } my_enum_t;
-    
-    int main()
-    {
-      int enum_var;
-      for (enum_var = VAL_1; enum_var < VAL_NB; ++enum_var)
-      {
-        printf("%i\n",enum_var);
-      }
-    }
+```c
+typedef enum
+{
+  VAL_1 = 10,
+  VAL_2 = 15,
+  VAL_3 = 20,
+  VAL_NB
+} my_enum_t;
+
+int main()
+{
+  int enum_var;
+  for (enum_var = VAL_1; enum_var < VAL_NB; ++enum_var)
+  {
+    printf("%i\n",enum_var);
+  }
+}
+```
 
 `printf` is called 11 times with the values 10 to 20. That's usually not what we want.
 
@@ -43,14 +44,15 @@ that I'll cover in another post.
 
 There is one exception. You can assign a value to the first enum type:
 
-    :::c
-    typedef enum
-    {
-        VAL_1 = 10,
-        VAL_2,
-        VAL_3,
-        VAL_NB
-    } my_enum_t;
+```c
+typedef enum
+{
+    VAL_1 = 10,
+    VAL_2,
+    VAL_3,
+    VAL_NB
+} my_enum_t;
+```
 
 If you call the same loop as above you'll get calls to `printf` with the values:
 
@@ -75,9 +77,10 @@ Size and endianness
 The size (and endianness) of a enum variable depends on the compiler and on the target platform. So if you write platform independent code (and you should always do that) take care of this.
 There are some language extension in different compilers to address this topic. For example in Visual Studio:
 
-    :::c
-    typedef enum : uint8_t
-    { VAL_1, VAL2, /* … */, VAL_NB} my_enum_t;
+```c
+typedef enum : uint8_t
+{ VAL_1, VAL2, /* … */, VAL_NB} my_enum_t;
+```
 
 For platform independent code you can do: `#define ENUM_AS_UINT8 : uint8_t`
 
