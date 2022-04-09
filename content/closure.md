@@ -24,12 +24,13 @@ From [SICP: 2.2 Hierarchical Data and the Closure Property](https://mitpress.mit
 
 Related to the closure property is the ability to create compound data (e.g pairs) only with functions:
 
-    :::scheme
-    (define (cons a b)
-      (lambda (p) (p a b)))
-    (define (car p)
-      (p (lambda (a b) a)))
-    (define (cdr p)
-      (p (lambda (a b) b)))
-    
+```scheme
+(define (cons a b)
+  (lambda (p) (p a b)))
+(define (car p)
+  (p (lambda (a b) a)))
+(define (cdr p)
+  (p (lambda (a b) b)))
+```
+
 [Wikipedia:Cons](https://en.m.wikipedia.org/wiki/Cons#Functional_Implementation)
