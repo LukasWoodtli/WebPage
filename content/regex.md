@@ -144,6 +144,6 @@ Benchmarking
 
 General for Python:
 
-    :::Python
-    import cProfile
-    cProfile.run("myFunction")
+```Python
+import cProfile
+cProfile.run("myFunction")

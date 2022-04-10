@@ -15,13 +15,15 @@ tags: [Cheat Sheet, Robotics]
 
 For Bash:
 
-    :::bash
-    source /opt/ros/melodic/setup.bash
+```bash
+source /opt/ros/melodic/setup.bash
+```
 
 or Zsh:
 
-    :::zsh
-    source /opt/ros/melodic/setup.zsh
+```zsh
+source /opt/ros/melodic/setup.zsh
+```
 
 ## Commands
 
@@ -52,8 +54,9 @@ They are placed in a separate standardized directory hierarchy.
 
 ## Start a node (`rosrun`)
 
-    :::bash
-    rosrun <package-name> <executable-name>
+```bash
+rosrun <package-name> <executable-name>
+```
 
 - `package-name`: the name of the node's package
 - `executable-name`: the executable name in that package
@@ -190,54 +193,61 @@ All packages belonging to one project should be placed in one workspace.
 
 ## Creating a Workspaces
 
-    :::bash
-    mkdir -p <workspace-name>/src    # don't forget the `src` subdirectory
-    cd  <workspace-name>/
-    catkin build  # don't use catkin_make
-    source devel/setup.zsh
+```bash
+mkdir -p <workspace-name>/src    # don't forget the `src` subdirectory
+cd  <workspace-name>/
+catkin build  # don't use catkin_make
+source devel/setup.zsh
+```
 
 ## Creating a Package
 
-    :::bash
-    cd  <workspace-name>/src
-    catkin_create_pkg <package-name> [list of dependencies]
+```bash
+cd  <workspace-name>/src
+catkin_create_pkg <package-name> [list of dependencies]
+```
 
 ## Building a Workspace
 
-    :::bash
-    cd  <workspace-name>/
-    catkin build  # don't use catkin_make
-    source devel/setup.zsh
+```bash
+cd  <workspace-name>/
+catkin build  # don't use catkin_make
+source devel/setup.zsh
+```
 
 
 ## Configuring build in a Workspace
 
-    :::bash
-    cd  <workspace-name>/
-    catkin config
-    source devel/setup.zsh
+```bash
+cd  <workspace-name>/
+catkin config
+source devel/setup.zsh
+```
 
 
 ### Provide Arguments to CMake
 
-    :::bash
-    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Debug
+```bash
+catkin config --cmake-args -DCMAKE_BUILD_TYPE=Debug
+```
 
 
 ## Running a Node from Workspace
 
 A master is required to run before running any nodes.
 
-    :::bash
-    cd  <workspace-name>/
-    source devel/setup.zsh
-    rosrun <package-name> <executable-name>
+```bash
+cd  <workspace-name>/
+source devel/setup.zsh
+rosrun <package-name> <executable-name>
+```
 
 ## Cleaning the Workspace
 
-    :::bash
-    cd  <workspace-name>/
-    catkin clean --all
+```bash
+cd  <workspace-name>/
+catkin clean --all
+```
 
 
 # Client Libraries
@@ -261,20 +271,23 @@ This allows to handle simulated time properly.
 
 - `ros::Time`:
 
-    :::cpp
-    ros::Time begin = ros::Time::now();
-    double secs = begin.toSec();
+```cpp
+ros::Time begin = ros::Time::now();
+double secs = begin.toSec();
+```
 
 - `ros::Duration`:
 
-    :::cpp
-    duration(0.5); // 0.5s
-    ros::Duration passed = ros::Time()::now() - begin;
+```cpp
+duration(0.5); // 0.5s
+ros::Duration passed = ros::Time()::now() - begin;
+```
 
 - `ros::Rate`:
 
-    :::cpp
-    ros::Rate rate(10); // 10Hz
+```cpp
+ros::Rate rate(10); // 10Hz
+```
 
 If wall time is required, use `ros::WallTime`, `ros::WallDuration` and `ros::WallRate`
 
@@ -282,19 +295,22 @@ If wall time is required, use `ros::WallTime`, `ros::WallDuration` and `ros::Wal
 
 To generate an URFD file from a xacro file:
 
-    :::bash
-    xacro input.xacro > output.urdf
+```bash
+xacro input.xacro > output.urdf
+```
 
 
 Checking URDF files:
 
-    :::bash
-    check_urdf file.urdf
+```bash
+check_urdf file.urdf
+```
 
 Create graph for URDF:
 
-    :::bash
-    urdf_to_graphiz file.urdf  # note the missing 'v' in graphiz
+```bash
+urdf_to_graphiz file.urdf  # note the missing 'v' in graphiz
+```
 
 
 # Checking for Problems

@@ -77,10 +77,11 @@ To suppress detection of concrete leaks foud by LSan a suppression file can be p
 
 Example of `lsan_suppressions.txt`
 
-    :::
-    leak:FooBar
-    leak:libmylibrary.so
-    leak:myexecutable
+```
+leak:FooBar
+leak:libmylibrary.so
+leak:myexecutable
+```
 
 There is also a similar suppression mechanism for ASan.
 
@@ -89,8 +90,9 @@ There is also a similar suppression mechanism for ASan.
 When out of memory errors occur when using the address sanatizer it can be of help to increase
 the number of virtual memory maps that a process can have.
 
-    :::bash
-    sysctl -w vm.max_map_count=1000000
+```bash
+sysctl -w vm.max_map_count=1000000
+```
 
 The number of maps needs to be adjusted per use case (just experiment).
 

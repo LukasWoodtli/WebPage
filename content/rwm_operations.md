@@ -17,8 +17,9 @@ modified: 2015-03-17
 
 This works:
 
-    :::C
-    load_link(R);
+```c
+load_link(R);
+```
 
     // ...
     
@@ -26,8 +27,9 @@ This works:
 
 But this fails:
 
-    :::C
-    load_link(R);
+```c
+load_link(R);
+```
 
     // ...
     
@@ -41,29 +43,32 @@ But this fails:
 
 Pseudo code:
 
-    :::C
-    // atomic
-    test_and_set(V: mem_address): // V in {0,1}
-        tmp := V
-        V := 1
-        return temp
+```c
+// atomic
+test_and_set(V: mem_address): // V in {0,1}
+    tmp := V
+    V := 1
+    return temp
+```
 
 Reset:
 
-    :::C
-    // normal write
-    reset(V: mem_address):
-        V := 1
+```c
+// normal write
+reset(V: mem_address):
+    V := 1
+```
 
 ## Generic RWM
 
 Pseudo code:
 
-    :::C
-    rwm(V: mem_address, f: function) return value
-        tmp := V
-        V := f(V)
-        return tmp
+```c
+rwm(V: mem_address, f: function) return value
+    tmp := V
+    V := f(V)
+    return tmp
+```
 
 
 # Mutex (Shared Memory)
