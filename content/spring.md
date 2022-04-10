@@ -35,22 +35,23 @@ annotated with `@Primary`.
 Use `@Qualifier` for manual selection of a bean implementation:
 
 
-    :::java
-    @Component
-    @Qualifier("bubblesort")
-    class BubbleSort implements Sort {
-      // ...
-    }
-    @Component
-    class SimpleSort implements Sort {
-      // ...
-    }
-    @Component
-    class MyBean {
-      @Autowired
-      @Qualifier("bubblesort")
-      Sort algorithm;
-    }
+```java
+@Component
+@Qualifier("bubblesort")
+class BubbleSort implements Sort {
+  // ...
+}
+@Component
+class SimpleSort implements Sort {
+  // ...
+}
+@Component
+class MyBean {
+  @Autowired
+  @Qualifier("bubblesort")
+  Sort algorithm;
+}
+```
 
 
 ## Scopes
@@ -74,10 +75,11 @@ Use `@Qualifier` for manual selection of a bean implementation:
 
 ### Usage
 
-    :::java
-    @Service 
-    @Scope("singleton")
-    public class MyServiceImpl implements MyService {}
+```java
+@Service
+@Scope("singleton")
+public class MyServiceImpl implements MyService {}
+```
 
 
 ## Lifecycle Hooks
@@ -101,11 +103,12 @@ Use `ApplicationContext` to launch an IoC container:
 | `@ComponentScan` | Add information on where to search for beans |
 
 
-    :::java
-    @Configuration
-    @ComponentScan(basePackages = { "com.mycompany.mypackage" })
-    class SpringContext {
-    }
+```java
+@Configuration
+@ComponentScan(basePackages = { "com.mycompany.mypackage" })
+class SpringContext {
+}
+```
 
 
 # Spring Boot
@@ -120,18 +123,20 @@ Use `ApplicationContext` to launch an IoC container:
 
 Put a configuration variable as key-value pair into `src/main/resources/application.properties`:
 
-    :::
-    myservice.url=http://myservice
+```
+myservice.url=http://myservice
+```
 
 
 The value can be read from Java:
 
-    :::java
-    @Component
-    public class MyService {
-      @Value("${myservice.url}")
-      private String url;  // this will contain: http://myservice
-    }
+```java
+@Component
+public class MyService {
+  @Value("${myservice.url}")
+  private String url;  // this will contain: http://myservice
+}
+```
 
 
 
@@ -165,12 +170,13 @@ These annotations can be added to the arguments of the handler method:
 | `@PathVariable`     | Capture a path argument |
 
 
-    :::java
-    @GetMapping("/hello/{name}")
-    public MyBean hello(@PathVariable String name,
-                        @RequestBody MyDto body) {
-      return new MyBean();
-    }
+```java
+@GetMapping("/hello/{name}")
+public MyBean hello(@PathVariable String name,
+                    @RequestBody MyDto body) {
+  return new MyBean();
+}
+```
 
 
 ### Return Values
@@ -196,59 +202,60 @@ a `ResponseEntity<>` can be used to provide some information to the client.
 
 
 
-    :::java
-    // contoller
-    @GetMapping("/hello/{name}")
-    public MyBean hello(@PathVariable String name,
-                        @Valid @RequestBody MyDto body) { // validate MyDto here
-      // ...
-    }
+```java
+// contoller
+@GetMapping("/hello/{name}")
+public MyBean hello(@PathVariable String name,
+                    @Valid @RequestBody MyDto body) { // validate MyDto here
+  // ...
+}
 
-    // bean
-    public class MyDto {
-      @NotNull
-      private Date date;
+// bean
+public class MyDto {
+  @NotNull
+  private Date date;
 
-      @Size(min = 5)
-      private String string;
-    }
-
-    }
+  @Size(min = 5)
+  private String string;
+}
+```
 
 ## Testing
 
 
 ### Unit Testing the Controller
 
-    :::java
-    @ExtendWith(SpringExtension.class)  // before Junit 5 use `@RunWith(SpringRunner.class)`
-    @WebMvcTest(value = MyController.class)
-    public class MyControllerTest {
-      @Autowired
-      private MockMvc mvc;
+```java
+@ExtendWith(SpringExtension.class)  // before Junit 5 use `@RunWith(SpringRunner.class)`
+@WebMvcTest(value = MyController.class)
+public class MyControllerTest {
+  @Autowired
+  private MockMvc mvc;
 
-      @MockBean  // mocking with Mockito
-      private MyService service;
+  @MockBean  // mocking with Mockito
+  private MyService service;
 
-      // write tests with `@Test`
-    }
+  // write tests with `@Test`
+}
+```
 
 
 ### Integration Testing
 
 
-    :::java
-    @ExtendWith(SpringExtension.class)  // before Junit 5 use `@RunWith(SpringRunner.class)`
-    @SpringBootTest(classes = MyApplication.class,
-                    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-      public class MyControllerIT {
+```java
+@ExtendWith(SpringExtension.class)  // before Junit 5 use `@RunWith(SpringRunner.class)`
+@SpringBootTest(classes = MyApplication.class,
+                webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+  public class MyControllerIT {
 
-      @Autowired
-      private TestRestTemplate template;
+  @Autowired
+  private TestRestTemplate template;
 
-      // We are testing also the service layer. So it is not mocked here.
-      // Data access could be mocked with @MockBean
-    }
+  // We are testing also the service layer. So it is not mocked here.
+  // Data access could be mocked with @MockBean
+}
+```
 
 
 # Spring Security

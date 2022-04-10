@@ -7,5 +7,6 @@ tags: [SVN, Version Control]
 ---
 To undo changes that are already committed in Subversion a back-merge can be applied:
 
-    :::
-    svn merge -r [current_version]:[previous_version] [repo_url]
+```bash
+svn merge -r [current_version]:[previous_version] [repo_url]
+```

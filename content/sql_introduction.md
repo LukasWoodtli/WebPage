@@ -56,14 +56,15 @@ Example:
 
 Example: Which animals eat fisch?
 
-    :::sql
-    SELECT
-      animals.name,
-      animals.species,
-      diet.food
-    FROM animals JOIN diet
-    ON animal.species = diet.species
-    WHERE food = 'fish';
+```sql
+SELECT
+  animals.name,
+  animals.species,
+  diet.food
+FROM animals JOIN diet
+ON animal.species = diet.species
+WHERE food = 'fish';
+```
 
 Unique Keys
 ===========
@@ -88,8 +89,9 @@ Select Clauses
     - which columns to use for aggregation
 
 Select example:
-    :::sql
-    SELECT name, birthday FROM animals WHERE species = 'gorilla' AND name = 'Max';
+```sql
+SELECT name, birthday FROM animals WHERE species = 'gorilla' AND name = 'Max';
+```
 
 - `SELECT`: selects *colums*
 - `FROM`: table to select from
