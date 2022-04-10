@@ -10,46 +10,66 @@ Macro Tricks
 
 Stringification
 ---------------
-The `#` operator allows to create a string out of a macro parameter. With the stringize trick any defined constant can be converted into a string literal.
+The `#` operator allows to create a string out of a macro parameter. With the 'stringize' trick any defined constant can be converted into a string literal.
 
-    :::C
-    #define stringize(s) _stringize(s)
-    #define _stringize(s) #s
-    #define IMPORTANT_CONST 23
+```c
+#define stringize(s) _stringize(s)
+#define _stringize(s) #s
+#define IMPORTANT_CONST 4
+```
 
-If you'd use the stingize operator `#` directly in a macro you won't get the intended string:
+If you'd use the 'stringize' operator `#` directly in a macro you won't get the intended string:
 
-    :::C
-    _stringize(IMPORTANT_CONST)
+```c
+_stringize(IMPORTANT_CONST)
+```
+would lead to:
 
-> "IMPORTANT_CONST"
+```c
+"IMPORTANT_CONST"
+```
 
-Thats why there is an other macro calling the first one:
+That's why there is another macro calling the first one:
 
-     stringize (IMPORTANT_CONST)
+```c
+stringize(IMPORTANT_CONST)
+```
 
-> stringize(4)  
+is replaced to:
 
-> _stringize(4)  
+```c
+stringize(4)  
+```
 
-> "4"  
+which leads to:
+
+```c
+_stringize(4)  
+```
+
+and finally:
+
+```c
+"4"  
+```
 
 Concatenation
 -------------
 
 With the `##` operator in a preprocessor macro it's possible to combine two tokens.
 
-    :::C
-    #define CREATE_ID(name) ID_##name
-    
-    CREATE_ID(IMPORTANT_THING)
+```c
+#define CREATE_ID(name) ID_##name
 
-> ID_IMPORTANT_THING
+CREATE_ID(IMPORTANT_THING)
+```
+
+```c
+ID_IMPORTANT_THING
+```
 
 
 Further Reading
 ---------------
 There is a good explanation in the GCC online docs:
 [Macros](https://gcc.gnu.org/onlinedocs/cpp/Macros.html#Macros)
-
-

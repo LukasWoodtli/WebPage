@@ -16,19 +16,21 @@ It supports at least three paradigms:
 
 Rules in makefiles are written in a declarative way:
 
-    :::make
-    %.o: %.c
-    	gcc -c $< -o $@
+```makefile
+%.o: %.c
+	gcc -c $< -o $@
+```
 
 
 # Imperative
 
 Conditionals can be used as an imperative way to describe alternative actions in makefiles .
 
-    :::make
-    ifeq ($(MSG),)
-    $(warning "No message provided")
-    endif
+```makefile
+ifeq ($(MSG),)
+$(warning "No message provided")
+endif
+```
 
 
 # Functional
@@ -37,7 +39,7 @@ Functions in make are evaluated in a functional way:
 
 Example: Calculate the factorial with help of `bc`
 
-    :::make
-    fact=$(if $(filter 0, $(1)), 1, $(shell echo "$(1) * \
-    	$(call fact, $(shell echo "$(1) - 1" | bc))" | bc))
-    result=$(call fact, 4) # 24
+```makefile
+fact=$(if $(filter 0, $(1)), 1, $(shell echo "$(1) * \
+	$(call fact, $(shell echo "$(1) - 1" | bc))" | bc))
+result=$(call fact, 4) # 24

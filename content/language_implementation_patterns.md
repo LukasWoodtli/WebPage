@@ -84,13 +84,15 @@ Some of my examples can be found [here](https://github.com/LukasWoodtli/Language
 
 *"The following rule yields a parser that does not terminate:*"
 
-    :::antlr-java
-    r : r X ;
+```antlr-java
+r : r X ;
+```
 
 *"we'd end up with a function that immediately called itself"*
 
-    :::java
-    void r() { r(); match(X); }
+```java
+void r() { r(); match(X); }
+```
 
 *"Besides left-recursive rules, there are other grammar constructs that yield **nondeterministic** recursive-descent recognizers. A nondeterministic recognizer cannot decide which path to take."*
 
@@ -107,23 +109,24 @@ Some of my examples can be found [here](https://github.com/LukasWoodtli/Language
 
 ![Alternatives](/images/language_implementation_patterns/alternatives.svg)
 
-    :::java
-    switch (<lookahead-token>) {
-      case <token1-predicting-alt1>:
-      case <token2-predicting-alt1>:
-        <match-alt1>
-        break;
-      case <token1-predicting-alt2>:
-      case <token2-predicting-alt2>:
-        <match-alt2>
-        break;
-      case <token1-predicting-altN>:
-      case <token2-predicting-altN>:
-        <match-altN>
-        break;
-      default:
-        <throw-exception>
-      }
+```java
+switch (<lookahead-token>) {
+  case <token1-predicting-alt1>:
+  case <token2-predicting-alt1>:
+    <match-alt1>
+    break;
+  case <token1-predicting-alt2>:
+  case <token2-predicting-alt2>:
+    <match-alt2>
+    break;
+  case <token1-predicting-altN>:
+  case <token2-predicting-altN>:
+    <match-altN>
+    break;
+  default:
+    <throw-exception>
+  }
+```
 
 
 
@@ -131,17 +134,19 @@ Some of my examples can be found [here](https://github.com/LukasWoodtli/Language
 
 ![Option](/images/language_implementation_patterns/option.svg)
 
-    :::java
-    if (<lookahead-is-T>) { match(T);} // no error else clause
+```java
+if (<lookahead-is-T>) { match(T);} // no error else clause
+```
 
 
 #### One or more `(...)+` subrules
 
 ![One or more](/images/language_implementation_patterns/one_or_more.svg)
 
-    :::java
-    do { <code-matching-alternatives> }
-    while(<lookahead-predicts-an-alt-of-subrule>);
+```java
+do { <code-matching-alternatives> }
+while(<lookahead-predicts-an-alt-of-subrule>);
+```
 
 
 #### Zero or more `(...)*` subrules
@@ -149,9 +154,10 @@ Some of my examples can be found [here](https://github.com/LukasWoodtli/Language
 ![Zero or more](/images/language_implementation_patterns/zero_or_more.svg)
 
 
-    :::java
-    while(<lookahead-predicts-an-alt-of-subrule>) {
-      <code-matching-alternatives> }
+```java
+while(<lookahead-predicts-an-alt-of-subrule>) {
+  <code-matching-alternatives> }
+```
 
 
 ### Pattern 2: LL(1) Recursive-Descent Lexer
@@ -190,13 +196,14 @@ Some of my examples can be found [here](https://github.com/LukasWoodtli/Language
 *"For example, we want to recognize input such as `[a, b=c, [d,e]]`"*
 
 
-    :::antlr-java
-    list : '[' elements ']' ;
-    elements : element ( ',' element)* ;
-    element : NAME '=' NAME
-            | NAME
-            | list
-            ;
+```antlr-java
+list : '[' elements ']' ;
+elements : element ( ',' element)* ;
+element : NAME '=' NAME
+        | NAME
+        | list
+        ;
+```
 
 *"`element` [is] non-LL(1) since the first two alternatives start with the same `NAME` token."*
 
@@ -210,9 +217,10 @@ Some of my examples can be found [here](https://github.com/LukasWoodtli/Language
 
 *"[Some] language constructs [...] only differ on the right side. For example, C++ function definitions and declarations are identical until the parser sees `;` or `{` :"*
 
-    :::cpp
-    void bar() {...} // a function definition
-    void bar(); // a function declaration
+```cpp
+void bar() {...} // a function definition
+void bar(); // a function declaration
+```
 
 *"function headers can be arbitrarily long, the distinguishing token does not appear at a fixed lookahead position from the left side of the statement."*
 
@@ -279,11 +287,12 @@ Unfortunately, some programming languages have context-sensitive phrases. To han
 *"For example, upon input `(3+4);`, a backtracking parser derived from the following rule invokes `expr` twice:"*
 
 
-    :::antlr-java
-    s : expr '!' // assume backtracking parser tries this alternative
-      | expr ';' // and then this one
-      ;
-    expr : ... ; // match input such as "(3+4)"
+```antlr-java
+s : expr '!' // assume backtracking parser tries this alternative
+  | expr ';' // and then this one
+  ;
+expr : ... ; // match input such as "(3+4)"
+```
 
 *"Rule `s` invokes `expr` to speculatively match the first alternative. `expr` succeeds, but `s` finds that the next 
 input symbol is `;` and not `!`. Rule `s` rewinds the input and tries the second alternative. The parser immediately calls
