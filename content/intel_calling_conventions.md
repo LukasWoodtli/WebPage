@@ -93,8 +93,9 @@ Output parameters need two steps to return a value:
 The caller is responsible for clearing the argument from the stack.
 This is usually donne by adjusting the `RSP`, instead of `POP` instructions.
 
-    :::nasm
-    add rsp, numberOfArguments * 8 ; number of arguments placed on stack
+```nasm
+add rsp, numberOfArguments * 8 ; number of arguments placed on stack
+```
 
 
 ## Stack Frame
@@ -114,11 +115,12 @@ It's also called activation record or call frame.
 
 To save and adjust `rbp`:
 
-    :::nasm
-    ; prologue
-    push rbp
-       ; save the 'old' `rbp` on the stack
-    mov rbp, rsp   ; adjust `rbp` to point to the just saved 'old' `rbp`
+```nasm
+; prologue
+push rbp
+   ; save the 'old' `rbp` on the stack
+mov rbp, rsp   ; adjust `rbp` to point to the just saved 'old' `rbp`
+```
 
 ## The Red Zone
 

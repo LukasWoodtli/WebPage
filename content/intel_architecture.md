@@ -361,14 +361,15 @@ Where:
 
 Examples:
 
-    ::::nasm
-    mov eax, dword [var]
-    mov rax, qword [rbx+rsi]
-    mov ax, word [lst+4]
-    mov bx, word [lst+rdx+2]
-    mov rcx, qword [lst+(rsi*8)]
-    mov al, byte [buffer-1+rcx]
-    mov eax, dword [rbx+(rsi*4)+16]
+```nasm
+mov eax, dword [var]
+mov rax, qword [rbx+rsi]
+mov ax, word [lst+4]
+mov bx, word [lst+rdx+2]
+mov rcx, qword [lst+(rsi*8)]
+mov al, byte [buffer-1+rcx]
+mov eax, dword [rbx+(rsi*4)+16]
+```
 
 Because addresses are always of 64-bit size (`qword`), a 64-bit 
 register is needed for memory addressing. Even when accessing 
@@ -386,12 +387,13 @@ practice to incule it.
 
 #### Examples
 
-    :::nasm
-    MOV DX, [BX];
-    MOV AL, [BX+4];
-    MOV CX, [CS:BX+SI];
-    MOV ES, [BX+DI+2];
-    MOV WORD [ES:BX+DI+8], AX;
+```nasm
+MOV DX, [BX];
+MOV AL, [BX+4];
+MOV CX, [CS:BX+SI];
+MOV ES, [BX+DI+2];
+MOV WORD [ES:BX+DI+8], AX;
+```
 
 
 
@@ -402,9 +404,10 @@ For addressing the memory the immediate, direct and indirect method can be used.
 A variable name without brackets is used to get the address of the variable.
 With brackets the value stored in the variable is taken.
 
-    :::nasm
-    mov rax, qword [var1] ; value of var1 in rax 
-    mov rax, var1         ; address of var1 in rax
+```nasm
+mov rax, qword [var1] ; value of var1 in rax
+mov rax, var1         ; address of var1 in rax
+```
 
 
 # Data Transfer Commands
@@ -413,8 +416,9 @@ With brackets the value stored in the variable is taken.
 
 Moves (copies) a value from a source to a destination.
 
-    :::nasm
-    MOV dest, src
+```nasm
+MOV dest, src
+```
 
 - `dest` can be a memory variable or a register (but not CS or IP) and not an immediate.
 - `src` can be a memory variable, a register or a constant.
@@ -425,10 +429,11 @@ Moves (copies) a value from a source to a destination.
 
 Example:
 
-    :::nasm
-    qFirstVal  dq  0xffffffffffffffff ; inital 64-bit value
-    dVar32     dd  0xabcdefab         ; 32-bit value
-    wVar16     dw  0xbdbd             ; 16-bit value
+```nasm
+qFirstVal  dq  0xffffffffffffffff ; inital 64-bit value
+dVar32     dd  0xabcdefab         ; 32-bit value
+wVar16     dw  0xbdbd             ; 16-bit value
+```
 
     ; 16-bit example
     mov     rax, qword [qFirstVal]    ; initialize rax
@@ -445,8 +450,9 @@ Example:
 
 Exchanges the values of the two operands (memory/registers).
 
-    :::nasm
-    XCHG op1, op2
+```nasm
+XCHG op1, op2
+```
 
 - Addressing memory/register is same as with `MOV`.
 - Segment Register and Immediate addressing is not possible.
@@ -459,11 +465,12 @@ Input/Output can only be done with accumulator register (AX/AL).
 
 Port address needs to be written to DX before calling the IN-/OUT-Command. As special case a 8-bit port address can be given directly.
 
-    :::nasm
-    IN AL, DX;
-    OUT DX, AX;
-    IN AX, 42h;
-    OUT 16h, AL;
+```nasm
+IN AL, DX;
+OUT DX, AX;
+IN AX, 42h;
+OUT 16h, AL;
+```
 
 It's not possible communicate directly between memory and ports. For this a DMA (Direct Memory Access) Hardware would be needed.
 
@@ -472,14 +479,16 @@ It's not possible communicate directly between memory and ports. For this a DMA 
 
 Loads an address:
 
-    :::nasm
-    lea   <reg64>, <mem> ; address of <mem> in reg64
+```nasm
+lea   <reg64>, <mem> ; address of <mem> in reg64
+```
 
 Examples:
 
-    :::nasm
-    lea   rcx, byte [bvar]
-    lea   rsi, dword [dVar]
+```nasm
+lea   rcx, byte [bvar]
+lea   rsi, dword [dVar]
+```
 
 
 # Conversion Instructions
@@ -687,8 +696,9 @@ Sizes (`mul`):
 
 `imul` allows more operands:
 
-    :::nasm
-    imul <source>
+```nasm
+imul <source>
+```
 
     imul <dest>, <src/imm>
     imul <dest>, <src>, <imm>
@@ -797,9 +807,10 @@ They are 128 bits (on later processors 256 bits) long.
 
 Copies a value to or from a `XMM` register.
 
-    :::nasm
-    movss dest, src
-    movsd dest, src
+```nasm
+movss dest, src
+movsd dest, src
+```
 
 - Only one operand can be memory
 - Operands can not be an immediate
@@ -816,45 +827,50 @@ Copies a value to or from a `XMM` register.
 
 ### Addition (`addss`, `addsd`)
 
-    :::nasm
-    addss dest, src
-    addsd dest, src
+```nasm
+addss dest, src
+addsd dest, src
+```
 
 - Destination operands must be an `XMM` register
 - Source operand can't be an immediate
 
 ### Substraction (`subss`, `subsd`)
 
-    :::nasm
-    subss dest, src
-    subsd dest, src
+```nasm
+subss dest, src
+subsd dest, src
+```
 
 - Destination operands must be an `XMM` register
 - Source operand can't be an immediate
 
 ### Multiplication (`mulss`, `mulsd`)
 
-    :::nasm
-    mulss dest, src
-    mulsd dest, src
+```nasm
+mulss dest, src
+mulsd dest, src
+```
 
 - Destination operands must be an `XMM` register
 - Source operand can't be an immediate
 
 ### Division (`divss`, `divsd`)
 
-    :::nasm
-    divss dest, src
-    divsd dest, src
+```nasm
+divss dest, src
+divsd dest, src
+```
 
 - Destination operands must be an `XMM` register
 - Source operand can't be an immediate
 
 ### Square Root (`sqrtss`, `sqrtsd`)
 
-    :::nasm
-    sqrtss dest, src
-    sqrtsd dest, src
+```nasm
+sqrtss dest, src
+sqrtsd dest, src
+```
 
 - Destination operands must be an `XMM` register
 - Source operand can't be an immediate
@@ -864,9 +880,10 @@ Copies a value to or from a `XMM` register.
 There are ordered and unordered floating point compare instructions.
 Here only the unordered floating point instructions shown.
 
-    :::nasm
-    ucomiss op1, op2
-    ucomisd op1, op2
+```nasm
+ucomiss op1, op2
+ucomisd op1, op2
+```
 
 - Operands are not changed
 - `op1` must be an `XMM` register
@@ -910,9 +927,10 @@ Rotate left (`ROL`) or right (`ROR`).
 
 Rotates the first operand (memory or register) by the constant **1** (immediate) or by the value given in *CL*.
 
-    ::::nasm
-    ROL 0x34, 1; Rotate by one.
-    ROR AX, CL; Rotate by value in CL.
+```nasm
+ROL 0x34, 1; Rotate by one.
+ROR AX, CL; Rotate by value in CL.
+```
 
 ### Affected Flags
 
@@ -1239,11 +1257,12 @@ the end of all the pop operations.
 
 ### Examples
 
-    :::nasm
-    PUSH result   ; variable result
-    PUSH [BX+7]   ; memory word at address [BX+7]
-    PUSH tab[SI]  ; memory word at address tab[SI]
-    POP AX        ; value from stack to AX
+```nasm
+PUSH result   ; variable result
+PUSH [BX+7]   ; memory word at address [BX+7]
+PUSH tab[SI]  ; memory word at address tab[SI]
+POP AX        ; value from stack to AX
+```
 
 ## `CALL` and `RET`
 
@@ -1258,8 +1277,9 @@ Functions need to be placed in the code segment.
 
 In [NASM](http://left404.com/2011/01/04/converting-x86-assembly-from-masm-to-nasm-3/) a function is defined as follows:
 
-    :::nasm
-    my_func:
+```nasm
+my_func:
+```
 
     ; code of the function...
 
@@ -1267,8 +1287,9 @@ In [NASM](http://left404.com/2011/01/04/converting-x86-assembly-from-masm-to-nas
 
 For calling the function:
 
-    :::nasm
-    call far my_func
+```nasm
+call far my_func
+```
 
 The pseudo commands `PROC and `ENDP` (as in MASM/TASM) are not supported by NASM.
 

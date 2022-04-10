@@ -33,16 +33,18 @@ It can be placed anywhere. Everything to the end of the line is ignored.
 
 # Constants
 
-    :::nasm
-    <name>  equ   <value>
+```nasm
+<name>  equ   <value>
+```
 
 Constants are substituted with their value during the assembly process.
 They are not assigned a memory location
 
 Example:
 
-    :::nasm
-    SIZE  equ   127
+```nasm
+SIZE  equ   127
+```
 
 
 # Initialized Variables (data)
@@ -60,20 +62,22 @@ Example:
 
 Format:
 
-    :::nasm
-    <varName>  <dataType>   <initialValue>
+```nasm
+<varName>  <dataType>   <initialValue>
+```
 
 Examples:
 
-    :::nasm
-    bVal db 2            ; byte
-    cVal db "H"          ; char
-    str db "Hello World" ; string
-    wVal dw 5000         ; 16-bit word
-    dVal dd 50000        ; 32-bit (double word)
-    arr dd 100, 200, 300 ; 3 element array
-    flt1 dd 3.14159      ; 32-bit float
-    qVar dq 1000000000   ; 64-bit (quad word)
+```nasm
+bVal db 2            ; byte
+cVal db "H"          ; char
+str db "Hello World" ; string
+wVal dw 5000         ; 16-bit word
+dVal dd 50000        ; 32-bit (double word)
+arr dd 100, 200, 300 ; 3 element array
+flt1 dd 3.14159      ; 32-bit float
+qVar dq 1000000000   ; 64-bit (quad word)
+```
 
 
 # Uninitialized Variables (BSS)
@@ -91,16 +95,18 @@ Examples:
 
 Format:
 
-    :::nasm
-    <varName>  <resType>   <count>
+```nasm
+<varName>  <resType>   <count>
+```
 
 Examples:
 
-    :::nasm
-    bArr resb 5   ; 5 element byte array
-    wArr resw 20  ; 20 element word array
-    dArr resd 30  ; 30 element double array
-    qArr resq 25  ; 25 element quad array
+```nasm
+bArr resb 5   ; 5 element byte array
+wArr resw 20  ; 20 element word array
+dArr resd 30  ; 30 element double array
+qArr resq 25  ; 25 element quad array
+```
 
 # Code (text)
 
@@ -109,9 +115,10 @@ Examples:
 
 For the standard linker (Linux) the entry point is defined:
 
-    :::nasm
-    global _start
-    _start:
+```nasm
+global _start
+_start:
+```
 
 
 # Assembler Directives
@@ -130,8 +137,9 @@ to CPU instrutions.
 
 Examples:
 
-    :::nasm
-    loopBegin:
-    end:
+```nasm
+loopBegin:
+end:
+```
 
 
