@@ -270,20 +270,22 @@ Chruch numerals:
 
 *"[Church numeral to integer] conversion:*
 
-    :::ruby
-    def to_integer(proc)
-        proc[-> n { n + 1 }][0]
-    end
+```ruby
+def to_integer(proc)
+    proc[-> n { n + 1 }][0]
+end
+```
 
 *This method takes a proc that represents a number and calls it with another proc (which just increments its argument) and the native Ruby number 0.*" - page 191
 
 
 Church to boolean:
 
-    :::ruby
-    def to_boolean(proc)
-        proc[true][false]
-    end
+```ruby
+def to_boolean(proc)
+    proc[true][false]
+end
+```
 
 *"This works by taking a proc that represents a Boolean and calling it with `true` as its first argument and `false` as its second. `TRUE` just returns its first argument, so `to_boolean(TRUE)` will return `true`, and likewise for `FALSE` [...]"* - 193
 
