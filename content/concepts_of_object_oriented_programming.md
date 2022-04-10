@@ -238,11 +238,12 @@ Ordering of types from more generic to more specific (in oposite direction of in
 | Return Values and Exceptions                           | Covariant     |
 | In- and Output Arguments (Mutable Reference Arguments) | Nonvariant    |
 
-    :::cpp
-    SuperReturnType Super::foo(SubParamType p); // |         ^ contra-
-    //  ..                        ^             // |         | variant
-    //   v                        ..            // | co-     |
-    SubReturnType   Sub::foo(SuperParamType p); // v variant |
+```cpp
+SuperReturnType Super::foo(SubParamType p); // |         ^ contra-
+//  ..                        ^             // |         | variant
+//   v                        ..            // | co-     |
+SubReturnType   Sub::foo(SuperParamType p); // v variant |
+```
 
 *Super* is more **general** than *Sub*.
 
@@ -499,11 +500,12 @@ TODO
 
 Wildcards can be seen as an [Existential Type](https://en.wikipedia.org/wiki/Type_system#Existential_types):
 
-    :::java
-    static void printAll(Collection<?> c) {
-        for (Object e : c) {System.out.println(e);
-        }
+```java
+static void printAll(Collection<?> c) {
+    for (Object e : c) {System.out.println(e);
     }
+}
+```
 
 > There exits a type argument `T` such that `c` has type `collection<T>`
 
@@ -515,15 +517,18 @@ Wildcards can be seen as an [Existential Type](https://en.wikipedia.org/wiki/Typ
 
 Instantiation of wildcards can change over time:
 
-    :::java
-    class Wrapper {
-        Cell<?> data;
-    }
+```java
+class Wrapper {
+    Cell<?> data;
+}
+```
 
-    // client code:
-    Wrapper w = new Wrapper();
-    w.data = new Cell<String>(); // w.data has type Cell<String>
-    w.data = new Call<Object>(); // now w.data has type Cell<Object>!
+```java
+// client code:
+Wrapper w = new Wrapper();
+w.data = new Cell<String>(); // w.data has type Cell<String>
+w.data = new Call<Object>(); // now w.data has type Cell<Object>!
+```
 
 - Generics with wildcards (and possibly with bounds) have a subtype relation if the type parameters have a relation
     - See [Java documentation](https://docs.oracle.com/javase/tutorial/java/generics/subtyping.html)
@@ -907,8 +912,9 @@ Traversing hierarchy:
 
 > *any* and *lost* are extistential types.
 
-    :::java
-    any T o;
+```java
+any T o;
+```
 
 There exitst an owner such that o ist an istance of T and has that owner.
 
@@ -950,8 +956,9 @@ $\tau(a)$: Type of a
 
 Field **Read** or Method **Parameters**:
 
-    :::java
-    v = e.f;
+```java
+v = e.f;
+```
 
 Is correctly typed if:
 
@@ -961,8 +968,9 @@ $$
 
 Field **Write** or Method **Result**:
 
-    :::java
-    e.f = v;
+```java
+e.f = v;
+```
 
 $$
 \tau(e) \blacktriangleright \tau(f) :> \tau(v)
@@ -987,19 +995,20 @@ is **not lost**.
 
 Example:
 
-    :::java
-    class Person {
-      private rep Address addr; // part of internal representation
-      public rep Address getAddr() {
-        return addr; // clients get lost-reference
-      }
-      public void setAddr(rep Address a) {
-        addr = a; // cannot be called by clients (lost) only by this bject
-      }
-      public void setAddr(any Address a) {
-        addr = new rep Address(a); // cloning necessary, can't assign any to rep
-      }
-    }
+```java
+class Person {
+  private rep Address addr; // part of internal representation
+  public rep Address getAddr() {
+    return addr; // clients get lost-reference
+  }
+  public void setAddr(rep Address a) {
+    addr = a; // cannot be called by clients (lost) only by this bject
+  }
+  public void setAddr(any Address a) {
+    addr = new rep Address(a); // cloning necessary, can't assign any to rep
+  }
+}
+```
 
 <!-- End of Notes Week 10 -->
 
@@ -1138,8 +1147,9 @@ No downcasts from unclassified to free or committed (no reasonable run-time chec
 
 Field access:
 
-    :::java
-    e.f
+```java
+e.f
+```
 
 | Field access |  f: `!` | f: `?` |
 |--------------|---------|--------|
@@ -1172,8 +1182,9 @@ Field access:
 
 A field write
 
-    :::java
-    a.f = b
+```java
+a.f = b
+```
 
 is well-typed if
 - `a` and `b` are well-typed
@@ -1219,10 +1230,11 @@ The type of `e.f` is:
 
 Construction-type for `this`:
 
-    :::java
-    String! free getId(String! n) {
-      return ...;
-    }
+```java
+String! free getId(String! n) {
+  return ...;
+}
+```
 
 - Overriding requires usual co- and contravariant rules
     - The receiver (`this`) counts as parameter
@@ -1258,32 +1270,34 @@ Construction-type for `this`:
 
 i.e
 
-    :::java
-    class Demo {
-      private Vector? data; // possibly-null
-      public Vector! getData() { // getter guarantees for non-null
-        Vectror? d = data; // needed for data flow analysis
-        if (d == null) {
-          d = new Vector(); data = d;
-        }
-        return d;
-      }
+```java
+class Demo {
+  private Vector? data; // possibly-null
+  public Vector! getData() { // getter guarantees for non-null
+    Vectror? d = data; // needed for data flow analysis
+    if (d == null) {
+      d = new Vector(); data = d;
     }
+    return d;
+  }
+}
+```
 
 
 ## Arrays
 
-    :::java
-    // Elements
-    //    |
-    //    v
-    Person! []! a; // Non-null array with non-null elements
-    Person? []! b; // Non-null array with possibly-null elements
-    Person! []? c; // Possibly-null array with non-null elements
-    Person? []? d; // Possibly-null array with possibly-null elements (default in Java)
-    //        ^
-    //        |
-    //      Array
+```java
+// Elements
+//    |
+//    v
+Person! []! a; // Non-null array with non-null elements
+Person? []! b; // Non-null array with possibly-null elements
+Person! []? c; // Possibly-null array with non-null elements
+Person? []? d; // Possibly-null array with possibly-null elements (default in Java)
+//        ^
+//        |
+//      Array
+```
 
 - Arrays have no constructors
 - Problem: Array initialization is often done with loops
@@ -1372,8 +1386,9 @@ i.e
 
 Example:
 
-    :::java
-    public T newInstance( ) throws InstantiationException, IllegalAccessException;
+```java
+public T newInstance( ) throws InstantiationException, IllegalAccessException;
+```
 
 If the constructor called internally by `newInstance` throws an exception (even a checked exception)
 it gets swalowed and rethrown as an unchecked exception.

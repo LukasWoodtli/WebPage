@@ -218,10 +218,11 @@ System synthesis from specification
 
 ### Data-Flow Graph (DFG)
 
-    :::c
-    x = *3a + B*b - c;
-    y = a + b*x;
-    z = b - c*(a + b);
+```c
+x = *3a + B*b - c;
+y = a + b*x;
+z = b - c*(a + b);
+```
 
 - no loops
 - parallelism
@@ -230,19 +231,20 @@ System synthesis from specification
 
 ### Control-Flow Graph (CFG)
 
-    :::c
-    what_is_this {
-        read(a, b);
-        done = FALSE;
-        repeat {
-            if (a>b)
-                a = a-b;
-            else if (b>a)
-                b = b-a;
-            else done = TRUE;
-        } until done;
-        write(a);
-    }
+```c
+what_is_this {
+    read(a, b);
+    done = FALSE;
+    repeat {
+        if (a>b)
+            a = a-b;
+        else if (b>a)
+            b = b-a;
+        else done = TRUE;
+    } until done;
+    write(a);
+}
+```
 
 - State machine
 - Conditional branches
@@ -537,18 +539,19 @@ Advantage:
 
 Possible implementation:
 
-    :::python
-    temp = temp_start
-    cost = c(P)
-    while Frozen() == False:
-        while Equilibrium() == False:
-            P_new = RandomMove(P)
-            cost_new = c(P_new)
-            deltacost = cost_new - cost
-            if Accept(deltacost, temp) > random(0,1)
-                P = P_new
-                cost = cost_new
-            temp = DecreaseTemp(temp)
+```python
+temp = temp_start
+cost = c(P)
+while Frozen() == False:
+    while Equilibrium() == False:
+        P_new = RandomMove(P)
+        cost_new = c(P_new)
+        deltacost = cost_new - cost
+        if Accept(deltacost, temp) > random(0,1)
+            P = P_new
+            cost = cost_new
+        temp = DecreaseTemp(temp)
+```
 
 
 Functions:
@@ -1343,12 +1346,13 @@ and exits at the end, without stopping in-between or branching (except at the en
 
 The branch instruction at the end of a basic block belongs to that block!
 
-    :::c
-    t1 := c - d
-    t2 := e * t1
-    t3 := b * t1
-    t4 := t2 + t3
-    if t4 < 10 goto L
+```c
+t1 := c - d
+t2 := e * t1
+t3 := b * t1
+t4 := t2 + t3
+if t4 < 10 goto L
+```
 
 Determine basic blocks of a program
 
@@ -1482,15 +1486,15 @@ How caches work:
 
 Statically precompute cache contents:
 
-    - Must Analysis
-        - For each program point (and calling context) find out which blocks *are in the cache*
-        - Determines safe information about cache hits
-        - Predicted cache hit *reduces* **WCET**
-    - May Analysis
-        - For each program point (and calling context) find out which blocks *may be in the cache*
-        - *Complement* says what is **not** in the cache
-        - Determines safe information about cache misses
-        - Each predicted cache miss *increases* **BCET**
+- Must Analysis
+    - For each program point (and calling context) find out which blocks *are in the cache*
+    - Determines safe information about cache hits
+    - Predicted cache hit *reduces* **WCET**
+- May Analysis
+    - For each program point (and calling context) find out which blocks *may be in the cache*
+    - *Complement* says what is **not** in the cache
+    - Determines safe information about cache misses
+    - Each predicted cache miss *increases* **BCET**
 
 ##### Must Cache
 

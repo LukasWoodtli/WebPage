@@ -96,8 +96,9 @@ most (if not all) stack overflows.
 
 The hook function has the prototype:
 
-    :::c
-    void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName);
+```c
+void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName);
+```
 
 Real recovery ofter a stack overflow is not possible.
 Since since the *TCB* may be corrupted the data privided to the
