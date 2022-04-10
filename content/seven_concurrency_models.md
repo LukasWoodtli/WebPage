@@ -102,30 +102,33 @@ rules that help us avoiding them:"*
 
 Synchronized block:
 
-    :::java
-    synchronized ​(object) {    
-      // use shared resources
-    } 
+```java
+synchronized ​(object) {
+  // use shared resources
+}
+```
 
 *"This means that lock acquisition and release have to take place in the same method and have to be strictly nested."*
 
 *"Note that declaring a method as `synchronized` is just syntactic sugar for surrounding the method's body with the following:"*
 
-    :::java
-    ​synchronized ​(this) {​ 
-        // method body
-    }
+```java
+​synchronized ​(this) {​
+    // method body
+}
+```
 
 *"ReentrantLock allows us to transcend these restrictions by providing explicit lock and unlock methods instead of using synchronized ."*
 
-    :::java
-    ​Lock ​lock = ​new ReentrantLock ​();
-    lock.lock();
-    try ​{
-        // use shared resources​ 
-    } finally {
-        lock.unlock();
-    }
+```java
+​Lock ​lock = ​new ReentrantLock ​();
+lock.lock();
+try ​{
+    // use shared resources​
+} finally {
+    lock.unlock();
+}
+```
 
 ### Hand-over-Hand Locking
 
@@ -136,18 +139,19 @@ Synchronized block:
 
 *"Concurrent programming often involves waiting for something to happen. [...] This type of situation is what condition variables are designed to address."*
 
-    :::java
-    ​ReentrantLock lock = new ReentrantLock ​();
-    Condition condition = lock.newCondition();
-    
-    lock.lock();
-    try {
-        while (!condition is true)
-            condition.await();
-        // use shared resources
-    } finally {
-        lock.unlock();
-    }
+```java
+​ReentrantLock lock = new ReentrantLock ​();
+Condition condition = lock.newCondition();
+
+lock.lock();
+try {
+    while (!condition is true)
+        condition.await();
+    // use shared resources
+} finally {
+    lock.unlock();
+}
+```
 
 
 *"A condition variable is associated with a lock, and a thread must hold that lock before being able to wait on the condition. Once it holds the lock, it checks to see if the condition that it's interested in is already true. If it is, then it continues with whatever it wants to do and unlocks the lock. If, however, the condition is not true, it calls `await`, which **atomically** unlocks the lock and blocks on the condition variable."*
@@ -205,24 +209,27 @@ In C++ `volatile` has a different meaning. It indicates that the read of a varia
 
 *"Here's the documentation for `putIfAbsent`: If the specified key is not already associated with a value, associate it with the given value. This is equivalent to"*
 
-    :::java
-    if (!map.containsKey(key))
-        return map.put(key, value);
-    else
-        return ​ map.get(key);
+```java
+if (!map.containsKey(key))
+    return map.put(key, value);
+else
+    return ​ map.get(key);
+```
 
 *"except that the action is performed atomically."*
 
 *"And for `replace`: Replaces the entry for a key only if currently mapped to a given value. This is equivalent to"*
 
-    :::java
-    if (map.containsKey(key) && map.get(key).equals(oldValue)) {
-        map.put(key, newValue);
-        return true;
-    } else
-        return false;
-        
-*"except that the action is performed atomically."*
+```java
+if (map.containsKey(key) && map.get(key).equals(oldValue)) {
+    map.put(key, newValue);
+    return true;
+} else
+    return false;
+```
+
+* "except that the action is performed atomically."*
+
 
 
 ### Day 3 Wrap-Up

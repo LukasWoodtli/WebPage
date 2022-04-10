@@ -72,22 +72,24 @@ See also [Scheme (Lisp)]({filename}/scheme.md)
 
 *The general form of a `let` expression is*
 
-    :::scheme
-    (let
-       ((<var 1> <exp 1>)
-        (<var 2> <exp 2>)
-        ...
-        (<var n> <exp n>))
-      <body>)
+```scheme
+(let
+   ((<var 1> <exp 1>)
+    (<var 2> <exp 2>)
+    ...
+    (<var n> <exp n>))
+  <body>)
+```
 
 *the `let` expression is interpreted as an alternate syntax for*
 
-    :::scheme
-    ((lambda (<var 1> ... <var n>)
-      <body>)
-        <exp 1>
-        ...
-        <exp n>)
+```scheme
+((lambda (<var 1> ... <var n>)
+  <body>)
+    <exp 1>
+    ...
+    <exp n>)
+```
 
 *No new mechanism is required in the interpreter in order to provide local variables. A `let` expression is simply syntactic sugar for the underlying lambda application."*
 
@@ -113,13 +115,14 @@ See also [Scheme (Lisp)]({filename}/scheme.md)
 
 *"we could implement `cons`, `car`, and `cdr` without using any data structures at all but only using procedures. Here are the definitions:*
 
-    :::scheme
-    (define (cons x y)
-      (define (dispatch m)
-          (cond ((= m 0) x)
-              ((= m 1) y)
-                  (else (error "Argument not 0 or 1: CONS" m))))
-       dispatch)
+```scheme
+(define (cons x y)
+  (define (dispatch m)
+      (cond ((= m 0) x)
+          ((= m 1) y)
+              (else (error "Argument not 0 or 1: CONS" m))))
+   dispatch)
+```
 
     (define (car z)(z 0))
     (define (cdr z) (z 1))
@@ -150,8 +153,9 @@ See also [Scheme (Lisp)]({filename}/scheme.md)
 
 *"The `set!` special form, whose syntax is:"*
 
-    :::scheme
-    set! <name> <new-value>
+```scheme
+set! <name> <new-value>
+```
 
 *"Here `<name>` is a symbol and `<new-value>` is any expression.
 `Set!` changes `<name>` so that its value is the result obtained by

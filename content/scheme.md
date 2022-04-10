@@ -20,18 +20,12 @@ Programs]({filename}/sicp.md)
 
 ## Evaluation Rules
 
-1.  If *self-evaluating*: return value
-
-2.  If *name*: return value of associated name in environment
-
-3.  If *special form*: do something special
-
-4.  
-
-    If *combination*:
-
-    :   a)  *evaluate* all subexpressions (in any order)
-        b)  *apply* operator on arguments and return result
+1. If *self-evaluating*: return value
+2. If *name*: return value of associated name in environment
+3. If *special form*: do something special
+4. If *combination*:
+    1.  *evaluate* all subexpressions (in any order)
+    2.  *apply* operator on arguments and return result
 
 ## Application Rules
 
@@ -68,25 +62,26 @@ A recursive function calls itself. But it can be implemented as
 
 ### Recursive Process
 
-    :::scheme
-    (define (factorial n)
-    (if (= n 1)
-        1
-        (* n (factorial (- n 1))))) ;; 'factorial' is part of bigger expression
+```scheme
+(define (factorial n)
+(if (= n 1)
+    1
+    (* n (factorial (- n 1))))) ;; 'factorial' is part of bigger expression
+```
 
 ### Iterative Process
 
-    :::scheme
-    (define (factorial n)
-      (fact-iter 1 1 n)) ;; inital values need to be provided
+```scheme
+(define (factorial n)
+  (fact-iter 1 1 n)) ;; inital values need to be provided
 
-    (define (fact-iter product counter max-count) ;; max-cout: intermediate result
-      (if (> counter max-count)
-           product
-           (fact-iter (* counter product)
-                      (+ counter 1)
-                      max-count))) ;; max-cout: supply intermediate result to next call
-
+(define (fact-iter product counter max-count) ;; max-cout: intermediate result
+  (if (> counter max-count)
+       product
+       (fact-iter (* counter product)
+                  (+ counter 1)
+                  max-count))) ;; max-cout: supply intermediate result to next call
+```
 
 -   Iterative algorithms have constant space
 -   Develop iterative algorithm:

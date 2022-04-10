@@ -27,10 +27,11 @@ Equivalent to `(cons (cons a0 (cons a1 (cons a2 (cons ... (cons (cons aN nil))..
 
 Example:
 
-    :::scheme
-    (define a (list 1 2 3))
-    (cons 10 a)
-    >> (10 1 2 3)
+```scheme
+(define a (list 1 2 3))
+(cons 10 a)
+>> (10 1 2 3)
+```
 
 - `(list-ref lst i)`: retrieves element at index `i` (index is zero-based)
 - `(length lst)`: returns the length of a list
@@ -43,12 +44,13 @@ The `map` function can be applied on multiple lists:
 
 *For example:*"
 
-    :::scheme
-    (map +
-        (list 1 2 3)
-        (list 40 50 60)
-        (list 700 800 900))
-    >>> (741 852 963)
+```scheme
+(map +
+    (list 1 2 3)
+    (list 40 50 60)
+    (list 700 800 900))
+>>> (741 852 963)
+```
 
     (map (lambda (x y) (+ x (* 2 y)))
         (list 1 2 3)
@@ -77,9 +79,10 @@ The `map` function can be applied on multiple lists:
 
 If `reduce` is not available (e.g in Racket) it can be defined in terms of `foldl`:
 
-    :::scheme
-    (define (reduce f xs)
-        (and (not (empty? xs)) (foldl f (first xs) (rest xs))))
+```scheme
+(define (reduce f xs)
+    (and (not (empty? xs)) (foldl f (first xs) (rest xs))))
+```
 
 [Stack Overflow](http://stackoverflow.com/a/25211454/1272072)
 
@@ -90,14 +93,16 @@ If `reduce` is not available (e.g in Racket) it can be defined in terms of `fold
 
 `let` is syntactic sugar for a procedure call:
 
-    :::scheme
-    (let ((<var> <exp>)) <body>)
+```scheme
+(let ((<var> <exp>)) <body>)
+```
 
 
 is interpreted as an alternate syntax for
 
-    :::scheme
-    ((lambda (<var>) <body>) <exp>)
+```scheme
+((lambda (<var>) <body>) <exp>)
+```
 
 
 # Delayed Evaluation
@@ -111,20 +116,23 @@ the `delay` to fulfill its promise.
 
 Delay can be a special form such that:
 
-    :::scheme
-    (delay <exp>)
+```scheme
+(delay <exp>)
+```
 
 is syntactic sugar for
 
-    :::scheme
-    (lambda () <exp>)
+```scheme
+(lambda () <exp>)
+```
 
 Force simply calls the procedure (of no arguments) pro-
 duced by delay, so we can implement force as a proce-
 dure:
 
-    :::scheme
-    (define (force delayed-object) (delayed-object))
+```scheme
+(define (force delayed-object) (delayed-object))
+```
 
 # Dotted-tail Notation
 
@@ -132,6 +140,6 @@ dure:
 
 Example:
 
-    :::scheme
-    (define (x a b . c) ...)
-    (x 1 2 3 4 5) ;; in the body of x: a=1, b=2, c='(3 4 5)
+```scheme
+(define (x a b . c) ...)
+(x 1 2 3 4 5) ;; in the body of x: a=1, b=2, c='(3 4 5)
