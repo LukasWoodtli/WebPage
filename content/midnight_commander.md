@@ -83,13 +83,15 @@ It can be activated by setting an alias.
 
 On Linux:
 
-    :::bash
-    alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+```bash
+alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+```
 
 On macOS (homebrew):
 
-    :::bash
-     alias mc='. /usr/local/opt/midnight-commander/libexec/mc/mc-wrapper.sh'
+```bash
+ alias mc='. /usr/local/opt/midnight-commander/libexec/mc/mc-wrapper.sh'
+```
 
 
 # Terminal Emulator Settings

@@ -25,27 +25,29 @@ Class templates are customizable in ways not supported by regular classes."*
 
 Member functions can be only fully specialized:
 
-    :::cpp
-    template <class T> 
-    class Widget { 
-        void Fun() { .. generic implementation ... }
-    };
-    
-    // ok: specialization allowed
-    template <>
-    void Widget<char>::Fun() { ... specialized implementation ... }
+```cpp
+template <class T>
+class Widget {
+    void Fun() { .. generic implementation ... }
+};
+
+// ok: specialization allowed
+template <>
+void Widget<char>::Fun() { ... specialized implementation ... }
+```
 
 Partial specialization is not allowed:
 
-    :::cpp
-    template <class T, class U>
-    class Gadget {
-        void Fun() { .. generic implementation ... } 
-    };
-    
-    // error: member functions can't be specialized partially
-    template <class U>
-    void Gadget<char, U>::Fun() { ... specialized implementation ... }
+```cpp
+template <class T, class U>
+class Gadget {
+    void Fun() { .. generic implementation ... }
+};
+
+// error: member functions can't be specialized partially
+template <class U>
+void Gadget<char, U>::Fun() { ... specialized implementation ... }
+```
 
 
 ### Policies and Policy Classes
@@ -69,11 +71,12 @@ Partial specialization is not allowed:
 
 *"Library code can use template template parameters for specifying policies"*
 
-    :::cpp
-    template <template <class Created>
-    class CreationPolicy> class WidgetManager : public CreationPolicy<Widget> { 
-        // ...
-    };
+```cpp
+template <template <class Created>
+class CreationPolicy> class WidgetManager : public CreationPolicy<Widget> {
+    // ...
+};
+```
 
 *"The `Created` symbol does not contribute to the definition of `WidgetManager`. You cannot use `Created` inside `WidgetManager` - it is a formal argument for `CreationPolicy` (not `WidgetManager`) and can be simply omitted."*
 
@@ -81,8 +84,9 @@ Partial specialization is not allowed:
 
 *"[The author might] provide a default template argument for the policy that's most commonly used:"*
 
-    :::cpp
-    template <template <class> class CreationPolicy = OpNewCreator> class WidgetManager ...
+```cpp
+template <template <class> class CreationPolicy = OpNewCreator> class WidgetManager ...
+```
 
 *"Policies are quite different from mere virtual functions. [...] policies come with [...] static binding."*
 
@@ -144,18 +148,19 @@ Techniques
 
 Overloading is the closest to partial specialization for functions:
 
-    :::cpp
-    // primary template
-    template <class T, class U>
-    T Fun(U obj);
-    
-    // illegal partial specialization
-    template <class U> 
-    void Fun<void, U>(U obj);
-    
-    // specialization legal (overloading)
-    template <class T>
-    T Fun (Window obj);
+```cpp
+// primary template
+template <class T, class U>
+T Fun(U obj);
+
+// illegal partial specialization
+template <class U>
+void Fun<void, U>(U obj);
+
+// specialization legal (overloading)
+template <class T>
+T Fun (Window obj);
+```
 
 
 ### Local Classes
@@ -246,12 +251,13 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 ### Handling Functors
 
-    :::cpp
-    template <typename R, class TList>
-    template <typename Fun> 
-    Functor<R, TList>::Functor(const Fun& fun) 
-      : spImpl_(new FunctorHandler<Functor, Fun>(fun))
-    { }
+```cpp
+template <typename R, class TList>
+template <typename Fun>
+Functor<R, TList>::Functor(const Fun& fun)
+  : spImpl_(new FunctorHandler<Functor, Fun>(fun))
+{ }
+```
 
 *"The two template parameter sets are necessary: The `template <typename R, class TList>` stands for the class template `Functor`, and `template <typename Fun>` stands for the parameter that the constructor itself takes. [...] is known as an 'out-of-class member template definition'."*
 
@@ -297,8 +303,9 @@ About "meta functions" (like `Length`) for `Typelist`s that are implemented in a
 
 *"Smart pointers have value semantics, whereas some simple pointers do not. An object with value semantics is an object that you can **copy** and **assign** to. A plain `int` is the perfect example of a first-class object. You can create, copy, and change integer values freely. A pointer that you use to iterate in a buffer also has value semantics - you initialize it to point to the beginning of the buffer, and you bump it until you reach the end. Along the way, you can copy its value to other variables to hold temporary results. With pointers that hold values allocated with `new`, however, the story is very different. Once you have written*
 
-    :::cpp
-    Widget* p = new Widget;
+```cpp
+Widget* p = new Widget;
+```
 
 *the variable `p` not only points to, but also **owns**, the memory allocated for the `Widget` object. This is because later you must issue `delete p` to ensure that the `Widget` object is destroyed and its memory is released."*
 

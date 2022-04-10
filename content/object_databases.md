@@ -141,43 +141,49 @@ DD, DM supported in Java. Querying is very limited.
 
 SQL
 
-    :::SqlLexer
-    CREATE TABLE name ...
+```sql
+CREATE TABLE name ...
+```
 
 Java
 
-    :::java
-    class Person {
-        String name;
-        String email;
-    }
+```java
+class Person {
+    String name;
+    String email;
+}
+```
 
 - DM
 
 SQL
 
-    :::SqlLexer
-    UPDATE name ...
+```sql
+UPDATE name ...
+```
 
 
 Java
 
 
-    :::java
-    new Person()
-    p.name = "Bill Stinnet"
+```java
+new Person()
+p.name = "Bill Stinnet"
+```
 
 - Querying
 
 SQL
 
-    :::SqlLexer
-    SELECT col_name ...
+```sql
+SELECT col_name ...
+```
 
 Java
 
-    :::java
-    ... = p.name
+```java
+... = p.name
+```
 
 
 LINQ is a powerful and compile time safe support for querying.
@@ -348,10 +354,11 @@ In some languages (PHP, JavaScript, ...) Objects and Associative Arrays are the 
 
 Based on ODMG Object Model and SQL-92
 
-    :::SqlLexer
-    select  list_of_values
-    from    list_of_collections_and_typical_members
-    where   condition
+```sql
+select  list_of_values
+from    list_of_collections_and_typical_members
+where   condition
+```
 
 
 - `SELECT`: Get attributes
@@ -374,17 +381,19 @@ ODMG defines Extents.
 
 This is illegal as the "dot" operator cannot be applied to a collection of objects:
 
-    :::SqlLexer
-    select a.authors.title
-    from   Authors a
-    where  a.name = "Tilmann Zaeschke"
+```sql
+select a.authors.title
+from   Authors a
+where  a.name = "Tilmann Zaeschke"
+```
 
 Correct solution based on *correlated* variables:
 
-    :::SqlLexer
-    select p.title
-    from Authors a, a.authors p
-    where a.name = "Tilmann Zaeschke"
+```sql
+select p.title
+from Authors a, a.authors p
+where a.name = "Tilmann Zaeschke"
+```
 
 #### Return Types
 
@@ -392,36 +401,42 @@ Correct solution based on *correlated* variables:
 
 As a default, queries return a *bag*
 
-    :::SqlLexer
-    select first: p.authored_by[1], p.title, p.year
-    from   Publications p
+```sql
+select first: p.authored_by[1], p.title, p.year
+from   Publications p
+```
 
 In Java:
 
-    :::java
-    Bag<Struct { Author first, string title, integer year }>
+```java
+Bag<Struct { Author first, string title, integer year }>
+```
 
 Queries with `DISTINCT` return a *set*
 
-    :::SqlLexer
-    select distinct a.name
-    from   Authors a
+```sql
+select distinct a.name
+from   Authors a
+```
 
 In Java:
 
-    :::java
-    Set<Struct { string name }>
+```java
+Set<Struct { string name }>
+```
 
 Queries with `ORDER BY` return a *list*
 
-    :::SqlLexer
-    select p.title
-    from Publications s order by p.year desc
+```sql
+select p.title
+from Publications s order by p.year desc
+```
 
 In Java:
 
-    :::java
-    List<Struct { string name }>
+```java
+List<Struct { string name }>
+```
 
 
 #### Extents
@@ -498,13 +513,14 @@ OMDG supports sub-collections
 
 ODL Syntax:
 
-    :::java
-    class name [ ( extent name, key name ) ] {
-      { exception name { { type name } } }
-      { attribute type name }
-      { relationship type name inverse relationship }
-      { type name({ (in|out|inout) type name })[raises ({ exception })] }
-    }
+```java
+class name [ ( extent name, key name ) ] {
+  { exception name { { type name } } }
+  { attribute type name }
+  { relationship type name inverse relationship }
+  { type name({ (in|out|inout) type name })[raises ({ exception })] }
+}
+```
 
 
 - extent and key of a class can be specified optionally
@@ -647,8 +663,9 @@ Requirements:
 
 Example:
 
-    :::java
-    SessionFactory factory = new Configuration().configure().buildSessionFactory();
+```java
+SessionFactory factory = new Configuration().configure().buildSessionFactory();
+```
 
 - Session
     - Connection to a database instance
@@ -662,22 +679,24 @@ Example:
 
 Example:
 
-    :::java
-    Session session = factory.openSession();
-    ...
-    session.save(person);
-    ...
-    session.close();
+```java
+Session session = factory.openSession();
+...
+session.save(person);
+...
+session.close();
+```
 
 - Transaction
     - Opened with a Session object `beginTransaction()` and closed using `commit()`
 
 Example:
 
-    :::java
-    Transaction tx = session.beginTransaction();
-    ...
-    tx.commit();
+```java
+Transaction tx = session.beginTransaction();
+...
+tx.commit();
+```
 
 - Query
     - Represents a query (e.g. `SELECT * FROM PERSONS`, HQL).
@@ -685,10 +704,11 @@ Example:
 
 Example:
 
-    :::java
-    List persons = session.createQuery("FROM Persons").list();
-    for (Object p: persons)
-      { ... }
+```java
+List persons = session.createQuery("FROM Persons").list();
+for (Object p: persons)
+  { ... }
+```
 
 - Criteria
     - An object-oriented representation of query criteria
@@ -706,13 +726,14 @@ Example:
 
 Example:
 
-    :::SqlLexer
-    CREATE TABLE AUTHOR(AUTHOR_ID BIGINT NOT NULL PRIMARY KEY, ...)
-    CREATE TABLE AUTHORSPUBLICATIONS(
-      AUTHOR_ID BIGINT NOT NULL,
-      PUBLICATION_ID BIGINT NOT NULL,
-      PRIMARY KEY(AUTHOR_ID, PUBLICATION_ID))
-    CREATE TABLE PUBLICATION(PUBLICATION_ID BIGINT NOT NULL PRIMARY KEY, ... )
+```sql
+CREATE TABLE AUTHOR(AUTHOR_ID BIGINT NOT NULL PRIMARY KEY, ...)
+CREATE TABLE AUTHORSPUBLICATIONS(
+  AUTHOR_ID BIGINT NOT NULL,
+  PUBLICATION_ID BIGINT NOT NULL,
+  PRIMARY KEY(AUTHOR_ID, PUBLICATION_ID))
+CREATE TABLE PUBLICATION(PUBLICATION_ID BIGINT NOT NULL PRIMARY KEY, ... )
+```
 
 ## Mapping Inheritance
 
@@ -1082,8 +1103,9 @@ Example:
 
 Enabling transparent persistence
 
-    :::java
-    config.add(new TransparentPersistenceSupport());
+```java
+config.add(new TransparentPersistenceSupport());
+```
 
 ## Activation
 
@@ -1103,11 +1125,12 @@ Enabling transparent persistence
 
 Methods for per class configuration of activation depth
 
-    :::java
-    ObjectClass#minimumActivationDepth(minDepth)
-    ObjectClass#maximumActivationDepth(maxDepth)
-    ObjectClass#cascadeOnActivate(bool)
-    ObjectClass#objectField(...).cascadeOnActivate(bool)
+```java
+ObjectClass#minimumActivationDepth(minDepth)
+ObjectClass#maximumActivationDepth(maxDepth)
+ObjectClass#cascadeOnActivate(bool)
+ObjectClass#objectField(...).cascadeOnActivate(bool)
+```
 
 ### Transparent Activation
 
@@ -1119,8 +1142,9 @@ Methods for per class configuration of activation depth
 
 Enabling the transparent activation framework
 
-    :::java
-    config.add(new TransparentActivationSupport());
+```java
+config.add(new TransparentActivationSupport());
+```
 
 ## db4o Transactions
 
@@ -1298,13 +1322,14 @@ Enabling the transparent activation framework
 
 Configuration interface:
 
-    :::java
-    // global setting (default: depends on environment)
-    CommonConfiguration#callConstructors(true)
-    // per class setting (default: depends on environment)
-    CommonConfiguration#objectClass(...).callConstructors(true)
-    // exceptions for debugging (default: true)
-    CommonConfiguration#exceptionsOnNotStorable(true)
+```java
+// global setting (default: depends on environment)
+CommonConfiguration#callConstructors(true)
+// per class setting (default: depends on environment)
+CommonConfiguration#objectClass(...).callConstructors(true)
+// exceptions for debugging (default: true)
+CommonConfiguration#exceptionsOnNotStorable(true)
+```
 
 - Bypassing Constructors
     - Constructors that cannot handle default values or `null` must be bypassed
@@ -1907,10 +1932,11 @@ Versant distinguishes first class and second class objects
 ### Creating Persistent Objects
 
 Use overloaded `new` operator:
-    :::cpp
-    os_database *db = os_database::open("publications.db", 0, 1);
-    Author *scheel = new(db, os_ts<Author>::get()) Author("Matthias Geel");
-    db->close();
+```cpp
+os_database *db = os_database::open("publications.db", 0, 1);
+Author *scheel = new(db, os_ts<Author>::get()) Author("Matthias Geel");
+db->close();
+```
 
 It's also possible to instantiate persistent array of objects.
 
@@ -1931,9 +1957,10 @@ It's also possible to instantiate persistent array of objects.
 
 Relationships:
 
-    :::cpp
-    // Relationship to the customers orders:
-    os_relationship_m_1(Customer,orders,Order,customer,os_List<Order*>) orders;
+```cpp
+// Relationship to the customers orders:
+os_relationship_m_1(Customer,orders,Order,customer,os_List<Order*>) orders;
+```
 
 
 - Cursors over Collections

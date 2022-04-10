@@ -54,9 +54,10 @@ My repository with examples on [Github](https://github.com/LukasWoodtli/Practica
 
 `std :: index_sequence`: *"The trick is to create an index sequence - whose sole purpose is to give us an index on which to apply the `...` operator - of the right size. This is done as follows:"*
 
-    :::cpp
-    static const std::size_t params_count = sizeof...(Params);
-    std::make_index_sequence<params_count>();
+```cpp
+static const std::size_t params_count = sizeof...(Params);
+std::make_index_sequence<params_count>();
+```
 
 *"At compile time, when you need to know how many elements you have in your list, you use sizeof...()."*
 
