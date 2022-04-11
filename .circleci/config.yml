@@ -21,6 +21,7 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm ci
+      - run: sudo apt update && sudo apt install git && git --version
       - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
       - run:
           name: Build Gatsby Web Page
