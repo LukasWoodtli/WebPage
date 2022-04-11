@@ -169,100 +169,113 @@ find the right documents.
 
 ###### `IF`
 
-    :::modula2
-    IF a = 0 THEN
-        (* statement sequence *)
-    END;
+```pascal
+IF a = 0 THEN
+    (* statement sequence *)
+END;
+```
 
 
 ###### `WHILE`
 
-    :::modula2
-    WHILE x<n DO
-        (* statement sequence *)
-    END;
+```pascal
+WHILE x<n DO
+    (* statement sequence *)
+END;
+```
 
 ###### `REPEAT`
 
-    :::modula2
-    REPEAT
-        (* statement sequence *)
-    UNTIL x=n;
+```pascal
+REPEAT
+    (* statement sequence *)
+UNTIL x=n;
+```
 
 
 ###### `FOR`
 
-    :::modula2
-    FOR i := 0 TO 100 DO
-        (* statement seq *)
-    END;
+```pascal
+FOR i := 0 TO 100 DO
+    (* statement seq *)
+END;
+```
 
 ##### Built-in Functions
 
 Increment and decrement
 
-    :::modula2
-    INC(x);
-    DEC(x);
-    INC(x,n);
-    DEC(x,n);
+```pascal
+INC(x);
+DEC(x);
+INC(x,n);
+DEC(x,n);
+```
 
 Sets
 
-    :::modula2
-    INCL(set, element);
-    EXCL(set, element);
+```pascal
+INCL(set, element);
+EXCL(set, element);
+```
 
 Assert and Halt
 
-    :::modula2
-    ASSERT(b<0);
-    HALT(100);
+```pascal
+ASSERT(b<0);
+HALT(100);
+```
 
 Allocation
 
-    :::modula2
-    NEW(x, ...);
+```pascal
+NEW(x, ...);
+```
 
 Shifts
 
-    :::modula2
-    ASH(x,y);
-    LSH(x,y);
-    ROT(x,y);
+```pascal
+ASH(x,y);
+LSH(x,y);
+ROT(x,y);
+```
 
 Conversion
 
-    :::modula2
-    SHORT(x);
-    LONG(x);
-    ORD(ch);
-    CHR(i);
-    ENTIER(r);
+```pascal
+SHORT(x);
+LONG(x);
+ORD(ch);
+CHR(i);
+ENTIER(r);
+```
 
 Arrays
 
-    :::modula2
-    LEN(x);
-    LEN(x,y);
-    DIM(t);
+```pascal
+LEN(x);
+LEN(x,y);
+DIM(t);
+```
 
 Misc
 
-    :::modula2
-    ABS(x);
-    MAX(type);
-    MIN(type);
-    ODD(i);
-    CAP(c);
+```pascal
+ABS(x);
+MAX(type);
+MIN(type);
+ODD(i);
+CAP(c);
+```
 
 Addresses and Sizes
 
-    :::modula2
-    ADDRESS OF x;
-    ADDRESSOF(x);
-    SIZE OF t;
-    SIZEOF(t);
+```pascal
+ADDRESS OF x;
+ADDRESSOF(x);
+SIZE OF t;
+SIZEOF(t);
+```
 
 #### Modules
 
@@ -287,162 +300,181 @@ Addresses and Sizes
 
 Direct Memory Access Functions
 
-    :::modula2
-    SYSTEM.PUT (a, x);
-    SYSTEM.GET (a, x);
-    SYSTEM.PUT8|16|32|64(a, x);
-    x := SYSTEM.GET8|16|32|64(a);
-    SYSTEM.MOVE(src, dest, length);
+```pascal
+SYSTEM.PUT (a, x);
+SYSTEM.GET (a, x);
+SYSTEM.PUT8|16|32|64(a, x);
+x := SYSTEM.GET8|16|32|64(a);
+SYSTEM.MOVE(src, dest, length);
+```
 
 Data Type
 
-    :::modula2
-    SYSTEM.BYTE
+```pascal
+SYSTEM.BYTE
+```
 
 Type Cast
 
-    :::modula2
-    b := SYSTEM.VAL(a, t);
+```pascal
+b := SYSTEM.VAL(a, t);
+```
 
 
 Example of Low-Level access
 
-    :::modula2
-    IMPORT SYSTEM;
+```pascal
+IMPORT SYSTEM;
 
-    PROCEDURE LetThereBeLight;
-    CONST GPSET0 = 03F20001CH;
-    BEGIN
-        SYSTEM.PUT(GPSET0, {21});
-    END LetThereBeLight;
+PROCEDURE LetThereBeLight;
+CONST GPSET0 = 03F20001CH;
+BEGIN
+    SYSTEM.PUT(GPSET0, {21});
+END LetThereBeLight;
+```
 
 ##### `SYSTEM`: ARM Specific
 
 Register Access
 
-    :::modula2
-    SYSTEM.SP();
-    SYSTEM.FP();
-    SYSTEM.LNK();
+```pascal
+SYSTEM.SP();
+SYSTEM.FP();
+SYSTEM.LNK();
 
-    SYSTEM.SETSP(x);
-    SYSTEM.SETFP(x);
-    SYSTEM.SETLR(x);
+SYSTEM.SETSP(x);
+SYSTEM.SETFP(x);
+SYSTEM.SETLR(x);
 
-    SYSTEM.LDPSR(b,x);
-    SYSTEM.STPSR(b,x);
-    SYSTEM.LDCPR(a,b,c);
-    SYSTEM.STCPR(a,b,c);
-    SYSTEM.FLUSH(x);
+SYSTEM.LDPSR(b,x);
+SYSTEM.STPSR(b,x);
+SYSTEM.LDCPR(a,b,c);
+SYSTEM.STCPR(a,b,c);
+SYSTEM.FLUSH(x);
+```
 
 Floating Point
 
-    :::modula2
-    SYSTEM.NULL(x);
-    SYSTEM.MULD(a,b,c);
+```pascal
+SYSTEM.NULL(x);
+SYSTEM.MULD(a,b,c);
+```
 
 
 #####  Interrupt Procedures
 
-    :::modula2
-    PROCEDURE Handler {INTERRUPT, PCOFFSET=k};
-    BEGIN (* k is the offset to the next instruction
-             cf. table of exceptions *)
-    END Handler;
+```pascal
+PROCEDURE Handler {INTERRUPT, PCOFFSET=k};
+BEGIN (* k is the offset to the next instruction
+         cf. table of exceptions *)
+END Handler;
+```
 
 ##### Special Flags and Features
 
 
 Procedure without activation frame
 
-    :::modula2
-    PROCEDURE {NOTAG}
+```pascal
+PROCEDURE {NOTAG}
+```
 
 Procedure that is linked to the beginning of a kernel
 
-    :::modula2
-    PROCEDURE {INITIAL}
+```pascal
+PROCEDURE {INITIAL}
+```
 
 Inline assembler block
 
-    :::modula2
-    CODE ... END
+```pascal
+CODE ... END
+```
 
 Alignment of a symbol (i. e variable)
 
-    :::modula2
-    symbol {ALIGNED(32)}
+```pascal
+symbol {ALIGNED(32)}
+```
 
 
 Pinning of a symbol
 
-    :::modula2
-    symbol {FIXED(0x8000))
+```pascal
+symbol {FIXED(0x8000))
+```
 
 Unsafe pointer that is assignment compatible with type `ADDRESS`
 
-    :::modula2
-    POINTER {UNSAFE} TO ...
+```pascal
+POINTER {UNSAFE} TO ...
+```
 
 Symbol that is invisible to a Garbage Collector
 
-    :::modula2
-    symbol {UNTRACED}
+```pascal
+symbol {UNTRACED}
+```
 
 
 ##### Type Declarations
 
-    :::modula2
-    TYPE
+```pascal
+TYPE
 
-    Device* = POINTER TO DeviceDesc;  (* Pointer to record (reference type)*)
-    DeviceDesc* = RECORD              (* Record: Value type *)
-        id*: INTEGER;
-        Open*: PROCEDURE(dev: Device);
-        Close*: PROCEDURE(dev: Device);
-        next*: Device;
-    END;
+Device* = POINTER TO DeviceDesc;  (* Pointer to record (reference type)*)
+DeviceDesc* = RECORD              (* Record: Value type *)
+    id*: INTEGER;
+    Open*: PROCEDURE(dev: Device);
+    Close*: PROCEDURE(dev: Device);
+    next*: Device;
+END;
 
-    (* Procedure type with signature *)
-    TrapHandler* = PROCEDURE(type, addr, fp: INTEGER; VAR res: INTEGER);
+(* Procedure type with signature *)
+TrapHandler* = PROCEDURE(type, addr, fp: INTEGER; VAR res: INTEGER);
 
-    NumberType* = REAL; (* Type alias *)
+NumberType* = REAL; (* Type alias *)
 
-    DeviceName* ARRAY DeviceNameLength OF CHAR; (* Array Type *)
+DeviceName* ARRAY DeviceNameLength OF CHAR; (* Array Type *)
 
-    Data* POINTER TO ARRAY OF CHAR; (* Dynamic array type *)
+Data* POINTER TO ARRAY OF CHAR; (* Dynamic array type *)
+```
 
 ##### Inheritance
 
-    :::modula2
-    Task* = POINTER TO TaskDesc;
-    TaskDesc* = RECORD
-        task task task
-        task task
-        proc:PROCEDURE(me:Task); (* This procedure is executed in the task *)
-        next: Task;              (* The next task in the list of tasks *)
-    END;
+```pascal
+Task* = POINTER TO TaskDesc;
+TaskDesc* = RECORD
+    task task task
+    task task
+    proc:PROCEDURE(me:Task); (* This procedure is executed in the task *)
+    next: Task;              (* The next task in the list of tasks *)
+END;
 
-    PeriodicTask* = POINTER TO PeriodicTaskDesc;
-    PeriodicTaskDesc* = RECORD (TaskDesc) (* inherits TaskDesc *)
-        priority: LONGINT; (* The priority determines the execution order *)
-        interval: LONGINT; (* The task is executed every "interval" msecs *)
-    END;
+PeriodicTask* = POINTER TO PeriodicTaskDesc;
+PeriodicTaskDesc* = RECORD (TaskDesc) (* inherits TaskDesc *)
+    priority: LONGINT; (* The priority determines the execution order *)
+    interval: LONGINT; (* The task is executed every "interval" msecs *)
+END;
+```
 
 Type Test
 
-    :::modula2
-    IF task IS PeriodicTask THEN ... END;
+```pascal
+IF task IS PeriodicTask THEN ... END;
+```
 
 Type Guard (cast)
 
-    :::modula2
-    IF task(PeriodicTask).priority = 1 THEN ... END;
+```pascal
+IF task(PeriodicTask).priority = 1 THEN ... END;
+```
 
 Type Test and Guard
 
-    :::modula2
-    WITH task: PeriodicTask DO ... END;
+```pascal
+WITH task: PeriodicTask DO ... END;
+```
 
 ##### Run-time Support for Inheritance
 
@@ -472,8 +504,9 @@ Type Test and Guard
 
 Compiler flags:
 
-    :::
-    Compiler.Compile -b=ARM --objectFile=Minos
+```bash
+Compiler.Compile -b=ARM --objectFile=Minos
+```
 
 - The object file is very compact
 - Key: Fingerprint
@@ -494,13 +527,14 @@ This image is taken from the lecture slides provided by Felix Friedrich
 
 Boot-Linking command in host system
 
-    :::
-    MinosLinker.Link minimalinit.img 108000H kernel.img OFSRamVolumes SerialLog Minos  ~
+```bash
+MinosLinker.Link minimalinit.img 108000H kernel.img OFSRamVolumes SerialLog Minos  ~
+```
 
-Image header: `minimalinit.img`
-Start address: `108000H`
-Image file name: `kernel.img`
-Object file names (compiled): `OFSRamVolumes SerialLog Minos  ~`
+- Image header: `minimalinit.img`
+- Start address: `108000H`
+- Image file name: `kernel.img`
+- Object file names (compiled): `OFSRamVolumes SerialLog Minos  ~`
 
 
 
@@ -811,43 +845,45 @@ Access mechanism
 
 Active Oberon:
 
-    :::modula2
-    Semaphore = OBJECT
-        number := 1: LONGINT;
+```pascal
+Semaphore = OBJECT
+    number := 1: LONGINT;
 
-        PROCEDURE enter;
-        BEGIN{EXCLUSIVE}
-            AWAIT number > 0;
-            DEC(number)
-        END enter;
+    PROCEDURE enter;
+    BEGIN{EXCLUSIVE}
+        AWAIT number > 0;
+        DEC(number)
+    END enter;
 
-        PROCEDURE exit;
-        BEGIN{EXCLUSIVE}
-            INC(number)
-        END exit;
+    PROCEDURE exit;
+    BEGIN{EXCLUSIVE}
+        INC(number)
+    END exit;
 
-    END Semaphore;
-
+END Semaphore;
+```
 
 Equivalent Java code:
 
-    :::java
-    class Semaphore{
-        int number = 1;
-        synchronized void enter() {
-            while (number <= 0)  // while needed!
-                try { wait();}
-                catch (InterruptedException e) { };
-            number--;
-        }
-
-        synchronized void exit() {
-            number++;
-            if (number > 0)
-                notify();  /* notifyAll() needed if different threads
-                              evaluate different conditions */
-        }
+```java
+class Semaphore{
+    int number = 1;
+    synchronized void enter() {
+        while (number <= 0)  // while needed!
+            try { wait();}
+            catch (InterruptedException e) { };
+        number--;
     }
+
+
+    synchronized void exit() {
+        number++;
+        if (number > 0)
+            notify();  /* notifyAll() needed if different threads
+                          evaluate different conditions */
+    }
+}
+```
 
 
 ### Monitors in Active Oberon
@@ -925,29 +961,30 @@ Atomic operation implemented in processor.
 Compares memory location with an value. If it's same a new (given) value is written at the
 memory address. Returns the previous value at memory position in any case.
 
-    :::c
-    int CAS(int* a, int old, int new)
+```c
+int CAS(int* a, int old, int new)
+```
 
 - If value `old` is at memory location of `a`: safe `new` at `a`
 - Return previous value at `a` in any case
 
 #### Implementation of a spinal using CAS
 
-    :::modula2
-    (* Initialisation *)
-    Init(lock)
-        lock = 0;
+```pascal
+(* Initialisation *)
+Init(lock)
+    lock = 0;
 
+(* Acquire Lock *)
+Acquire (var lock: word)
+    repeat
+        res := CAS(lock, 0, 1);
+    until res = 0;
 
-    (* Acquire Lock *)
-    Acquire (var lock: word)
-        repeat
-            res := CAS(lock, 0, 1);
-        until res = 0;
-
-    (* Release Lock *)
-    Release (var lock: word)
-        CAS(lock, 1, 0); (* atomicy not needed but visibility/ordering *)
+(* Release Lock *)
+Release (var lock: word)
+    CAS(lock, 1, 0); (* atomicy not needed but visibility/ordering *)
+```
 
 <!-- End of Notes Week 6 -->
 
@@ -1198,8 +1235,9 @@ Progress Conditions:
 
 Declaration:
 
-    :::modula2
-    PROCEDURE CAS(variable, old, new: BaseType): BaseType
+```pascal
+PROCEDURE CAS(variable, old, new: BaseType): BaseType
+```
 
 
 - Performance of `CAS`
@@ -1246,12 +1284,13 @@ This image is taken from the lecture slides provided by Felix Friedrich
 
 At regular intervals, the compiler inserts code to decrease the quantum and calls the scheduler if necessary
 
-    :::nasm
-       sub    [rcx + 88], 10   ; decrement quantum by 10
-       jge    skip             ; check if it is negative (jump if greater)
-       call   Switch           ; perform task switch
-    skip:
-       ; ...
+```nasm
+   sub    [rcx + 88], 10   ; decrement quantum by 10
+   jge    skip             ; check if it is negative (jump if greater)
+   call   Switch           ; perform task switch
+skip:
+   ; ...
+```
 
 - Uncooperative block (`UNCOOPERATIVE`): Guarantee that no scheduling happens
     - Not like a *lock* different processors can execute the code in parallel
@@ -1289,14 +1328,15 @@ This image is taken from the lecture slides provided by Felix Friedrich
 
 ##### Scheduling (Activities)
 
-    :::modula2
-    TYPE Activity* = OBJECT {DISPOSABLE} (Queues.Item) (* Queues.Item accessed via activity register *)
-    VAR
-        (* access to current processor *)
-        (* stack management *)
-        (* quantum and scheduling *)
-        (* active object *)
-    END Activity;
+```pascal
+TYPE Activity* = OBJECT {DISPOSABLE} (Queues.Item) (* Queues.Item accessed via activity register *)
+VAR
+    (* access to current processor *)
+    (* stack management *)
+    (* quantum and scheduling *)
+    (* active object *)
+END Activity;
+```
 
 
 ##### Task Switch Finalizer
@@ -1305,13 +1345,14 @@ Finest granular protection makes **races** possible that did not occur previousl
 
 Need to pass information to the new thread.
 
-    :::modula2
-    current := GetCurrentTask()
-    next := Dequeue(readyqueue)
-    Enqueue(current, readyqueue)
-    (* Here an other thread can dequeue and run (on the stack of)
-       the currently executing thread! *)
-    SwitchTo(next)
+```pascal
+current := GetCurrentTask()
+next := Dequeue(readyqueue)
+Enqueue(current, readyqueue)
+(* Here an other thread can dequeue and run (on the stack of)
+   the currently executing thread! *)
+SwitchTo(next)
+```
 
 - When switching to new thread
     - Enqueue runs on new thread
@@ -1319,10 +1360,11 @@ Need to pass information to the new thread.
 
 Solution with finalizer:
 
-    :::modula2
-    SwitchTo (nextActivity, Enqueue,  (* Enqueue runs on new thread *)
-              ADDRESS OF readyQueue[currentActivity.priority]);
-    FinalizeSwitch; (* Calls finalizer of previous thread *)
+```pascal
+SwitchTo (nextActivity, Enqueue,  (* Enqueue runs on new thread *)
+          ADDRESS OF readyQueue[currentActivity.priority]);
+FinalizeSwitch; (* Calls finalizer of previous thread *)
+```
 
 
 #### Stack Management
@@ -1341,21 +1383,23 @@ Solution with finalizer:
 
 Wait for interrupt:
 
-    :::modula2
-    Interrupts.Await(interrupt);
+```pascal
+Interrupts.Await(interrupt);
+```
 
 First level IRQ code affecting scheduler queues runs on a virtual processor
 
-    :::modula2
-    PROCEDURE Handle (index: SIZE);
-    BEGIN {UNCOOPERATIVE, UNCHECKED}
-        IF previousHandlers[index] # NIL THEN
-            previousHandlers[index] (index)
-        END;
-        Activities.CallVirtual(NotifyNext,
-                               ADDRESS OF awaitingQueues[index],
-                               processors[index]);
-    END Handle;
+```pascal
+PROCEDURE Handle (index: SIZE);
+BEGIN {UNCOOPERATIVE, UNCHECKED}
+    IF previousHandlers[index] # NIL THEN
+        previousHandlers[index] (index)
+    END;
+    Activities.CallVirtual(NotifyNext,
+                           ADDRESS OF awaitingQueues[index],
+                           processors[index]);
+END Handle;
+```
 
 - Very powerful to write IRQ handlers in to levels
 - Possible with cooperative multitasking
@@ -1622,44 +1666,47 @@ TRM Machine Language
 
 Example:
 
-    :::modula2
-    TYPE
-        Adder = cell (in1, in2: port in; result: port out); (* communication ports *)
-        VAR summand1, summand2: integer;
-        BEGIN
-            in1 ? summand1; (* blocking receive *)
-            in2 ? summand2;
-            result ! summand1 + summand2; (* non-blocking send *)
-        END Adder;
+```pascal
+TYPE
+    Adder = cell (in1, in2: port in; result: port out); (* communication ports *)
+    VAR summand1, summand2: integer;
+    BEGIN
+        in1 ? summand1; (* blocking receive *)
+        in2 ? summand2;
+        result ! summand1 + summand2; (* non-blocking send *)
+    END Adder;
+```
 
 Cell Constructors to parameterize cells during allocation time:
 
-    :::modula2
-    TYPE
-        Filter = cell (in: port in; result: port out);
-        VAR ...; filterLength: integer;
-        PROCEDURE & Init(filterLength: integer)  (* constructor *)
-        BEGIN self.filterLength := filterLength
-        END Init;
-    BEGIN
-        (* ... filter action ... *)
-    END Filter;
+```pascal
+TYPE
+    Filter = cell (in: port in; result: port out);
+    VAR ...; filterLength: integer;
+    PROCEDURE & Init(filterLength: integer)  (* constructor *)
+    BEGIN self.filterLength := filterLength
+    END Init;
+BEGIN
+    (* ... filter action ... *)
+END Filter;
 
-    VAR filter: Filter;
-    BEGIN
-        .... new(filter, 32); (* initialization parameter filterlength = 32 *)
+VAR filter: Filter;
+BEGIN
+    .... new(filter, 32); (* initialization parameter filterlength = 32 *)
+```
 
 Cells can be parametrized with capabilities or non-default values:
 
-    :::modula2
-    TYPE
-      (* Cell is a VectorTRM with 2k of Data Memory and has access to DDR2 memory *)
-      Filter = cell {Vector, DataMemory(2048), DDR2} (in: port in (64); result: port out);
-                                             (* in port is implemented with width of 64 bits *)
-      VAR ...
-      BEGIN
-          (* ... filter action ... *)
-      END Filter;
+```pascal
+TYPE
+  (* Cell is a VectorTRM with 2k of Data Memory and has access to DDR2 memory *)
+  Filter = cell {Vector, DataMemory(2048), DDR2} (in: port in (64); result: port out);
+                                         (* in port is implemented with width of 64 bits *)
+  VAR ...
+  BEGIN
+      (* ... filter action ... *)
+  END Filter;
+```
 
 - Hierarchic Composition: Cell Nets
     - Allocation of cells: `new` statement
@@ -1670,25 +1717,26 @@ Cells can be parametrized with capabilities or non-default values:
 
 Terminal Cellnet Example
 
-    :::modula2
-    cellnet Example;
-    import RS232;
-    TYPE
-        UserInterface = cell {RS232}(out1, out2: port out; in: port in)
-        (* ... *)
-        END UserInterface;
+```pascal
+cellnet Example;
+import RS232;
+TYPE
+    UserInterface = cell {RS232}(out1, out2: port out; in: port in)
+    (* ... *)
+    END UserInterface;
 
-        Adder = cell(in1, in2: port in; out: port out)
-        (* ... *)
-        END Adder;
-        VAR interface: UserInterface; adder: Adder
-        BEGIN
-            new(interface);
-            new(adder);
-            connect(interface.out1, adder.in1);
-            connect(interface.out2, adder.in2);
-            connect(adder.result, interface.in);
-    END Example.
+    Adder = cell(in1, in2: port in; out: port out)
+    (* ... *)
+    END Adder;
+    VAR interface: UserInterface; adder: Adder
+    BEGIN
+        new(interface);
+        new(adder);
+        connect(interface.out1, adder.in1);
+        connect(interface.out2, adder.in2);
+        connect(adder.result, interface.in);
+END Example.
+```
 
 - Communication between cells (CSP)
     - Receiving is blocking (`?`)
@@ -1727,34 +1775,37 @@ Terminal Cellnet Example
 - No notion of time
 
 Example:
-    :::modula2
-    VAR a,b,c: INTEGER;
-    a := 1;      (* unknown *)
-    b := 2;      (* mapping to *)
-    c := a + b;  (* machine cycles *)
+```pascal
+VAR a,b,c: INTEGER;
+a := 1;      (* unknown *)
+b := 2;      (* mapping to *)
+c := a + b;  (* machine cycles *)
+```
 
 
 ### Hardware Description Language
 
 Continuous execution (combinational logic):
 
-    :::verilog
-    wire [31:0] a,b,c;
-    assign c=a+b; // no
-    assign a=1;   // memory
-    assign b=2;   // associated
+```verilog
+wire [31:0] a,b,c;
+assign c=a+b; // no
+assign a=1;   // memory
+assign b=2;   // associated
+```
 
 Synchronous execution (register transfer):
 
-    :::verilog
-    reg [31:0] a,b,c;
+```verilog
+reg [31:0] a,b,c;
 
-    always @ (posedge clk)
-    begin
-        a <= 1;    // synchronous at
-        b <= 2;    // rising edge
-        c <= a+b;  // of the clock
-    end;
+always @ (posedge clk)
+begin
+    a <= 1;    // synchronous at
+    b <= 2;    // rising edge
+    c <= a+b;  // of the clock
+end;
+```
 
 ## Single/Cycle Datapath (TRM)
 
@@ -1773,18 +1824,19 @@ Synchronous execution (register transfer):
 
 Read source operands from register file
 
-    :::verilog
-    wire [2:0] rd, rs;
-    wire regWr;
-    wire [31:0] rdOut, rsOut;
-    source register
+```verilog
+wire [2:0] rd, rs;
+wire regWr;
+wire [31:0] rdOut, rsOut;
+source register
 
-    // register file
-    // ...
+// register file
+// ...
 
-    assign irs = IR[2:0];      // source register
-    assign ird = IR[13:11];
-    assign dst = (BL)? 7: ird; // destination register
+assign irs = IR[2:0];      // source register
+assign ird = IR[13:11];
+assign dst = (BL)? 7: ird; // destination register
+```
 
 - For `BL` the destination register is always the link register (7)
 - Otherwise the registers are read from the instuction register (*IR*)
@@ -1794,44 +1846,46 @@ Read source operands from register file
 
 Compute the result via ALU
 
-    :::verilog
-    wire [31:0] AA, A, B, imm;
-    wire [32:0] aluRes;
+```verilog
+wire [31:0] AA, A, B, imm;
+wire [32:0] aluRes;
 
-    assign A = (IR[10])? AA: {22'b0, imm}; // bit 10: immediate or register
+assign A = (IR[10])? AA: {22'b0, imm}; // bit 10: immediate or register
 
-    assign minusA = {1‘b0, ~A} + 33‘d1;
-    assign aluRes =
-    (MOV)? A:
-    (ADD)? {1‘b0, B} + {1‘b0, A} :
-    (SUB)? {1‘b0, B} + minusA :
-    (AND)? B & A :
-    (BIC)? B & ~A :
-    (OR)? B | A :
-    (XOR)? B ^ A :
-    ~A;
+assign minusA = {1‘b0, ~A} + 33‘d1;
+assign aluRes =
+(MOV)? A:
+(ADD)? {1‘b0, B} + {1‘b0, A} :
+(SUB)? {1‘b0, B} + minusA :
+(AND)? B & A :
+(BIC)? B & ~A :
+(OR)? B | A :
+(XOR)? B ^ A :
+~A;
+```
 
 ### Control Path
 
-    :::verilog
-    Control Path
-    assign vector = IR[10] & IR[9] & ~IR[8] & ~IR[7];
-    assign op = IR[17:14];
+```verilog
+Control Path
+assign vector = IR[10] & IR[9] & ~IR[8] & ~IR[7];
+assign op = IR[17:14];
 
-    assign MOV = (op == 0);
-    assign NOT = (op == 1);
-    assign ADD = (op == 2);
-    assign SUB = (op == 3);
-    assign AND = (op == 4);
-    assign BIC = (op == 5);
-    assign OR = (op == 6);
-    assign XOR = (op == 7);
-    assign MUL = (op == 8) & (~IR[10] | ~IR[9]); assign ROR = (op == 10);
-    assign BR = (op == 11) & IR[10] & ~IR[9]; assign LDR = (op == 12);
-    assign ST = (op == 13);
-    assign Bc = (op == 14);
-    assign BL = (op == 15);
-    assign LDH = MOV & IR[10] & IR[3]; assign BLR = (op == 11) & IR[10] & IR[9];
+assign MOV = (op == 0);
+assign NOT = (op == 1);
+assign ADD = (op == 2);
+assign SUB = (op == 3);
+assign AND = (op == 4);
+assign BIC = (op == 5);
+assign OR = (op == 6);
+assign XOR = (op == 7);
+assign MUL = (op == 8) & (~IR[10] | ~IR[9]); assign ROR = (op == 10);
+assign BR = (op == 11) & IR[10] & ~IR[9]; assign LDR = (op == 12);
+assign ST = (op == 13);
+assign Bc = (op == 14);
+assign BL = (op == 15);
+assign LDH = MOV & IR[10] & IR[3]; assign BLR = (op == 11) & IR[10] & IR[9];
+```
 
 
 | IR[17:14] | Function    |
@@ -1848,22 +1902,23 @@ Compute the result via ALU
 
 ### Write Result Back to `Rd`
 
-    :::verilog
-    wire [31:0] regmux; wire regwr;
+```verilog
+wire [31:0] regmux; wire regwr;
 
-    // ...
+// ...
 
-    assign regwr = (BL | BLR | LDR & ~IR[10] |
-        ~(IR[17] & IR[16]) & ~BR & ~vector)) & ~stall0;
+assign regwr = (BL | BLR | LDR & ~IR[10] |
+    ~(IR[17] & IR[16]) & ~BR & ~vector)) & ~stall0;
 
-    assign regmux =
-    (BL | BLR) ? {{{32-PAW}{1'b0}}, nxpc}:
-    (LDR & ~IoenbReg) ? dmout:  // data memory out
-    (LDR & IoenbReg)? InbusReg: // from IO
-    (MUL) ? mulRes[31:0]:
-    (ROR) ? s3:
-    (LDH) ? H:
-    aluRes;
+assign regmux =
+(BL | BLR) ? {{{32-PAW}{1'b0}}, nxpc}:
+(LDR & ~IoenbReg) ? dmout:  // data memory out
+(LDR & IoenbReg)? InbusReg: // from IO
+(MUL) ? mulRes[31:0]:
+(ROR) ? s3:
+(LDH) ? H:
+aluRes;
+```
 
 ### TRM Stalling
 
@@ -1876,64 +1931,65 @@ Compute the result via ALU
 
 ### Load (`LD`)
 
-    :::verilog
-    wire [31:0] dmout;
-    wire [DAW:0] dmadr;
-    wire [6:0] offset;
-    reg IoenbReg;
+```verilog
+wire [31:0] dmout;
+wire [DAW:0] dmadr;
+wire [6:0] offset;
+reg IoenbReg;
 
-    // register file
-    // ...
-                   // src register = lr (7) ignored: harward architecture
-    Assign dmadr = (irs == 7) ? {{{DAW-6}{1'b0}}, offset} :
-                      (AA[DAW:0] + {{{DAW-6}{1'b0}}, offset});
-    assign ioenb = &(dmadr[DAW:6]); // I/O space: uppermost 2^6 bytes in data memory
-    assign rfWd = ...
-        (LDR & ~IoenbReg)? dmout:
-        (LDR & IoenbReg)? InbusReg: //from IO
-        ...;
+// register file
+// ...
+// src register = lr (7) ignored: harward architecture
+Assign dmadr = (irs == 7) ? {{{DAW-6}{1'b0}}, offset} :
+    (AA[DAW:0] + {{{DAW-6}{1'b0}}, offset});
+assign ioenb = &(dmadr[DAW:6]); // I/O space: uppermost 2^6 bytes in data memory
+assign rfWd = ...
+    (LDR & ~IoenbReg)? dmout:
+    (LDR & IoenbReg)? InbusReg: //from IO
+    ...;
 
-    always @(posedge clk)
-        IoenbReg <= ioenb;
-
+always @(posedge clk)
+    IoenbReg <= ioenb;
+```
 
 ### Store (`ST`)
 
-    :::verilog
-    wire [31:0] dmin;
-    wire dmwr;
-    // register file
-    // ...
+```verilog
+wire [31:0] dmin;
+wire dmwr;
+// register file
+// ...
 
-    DM #(.BN(DMB)) dmx (.clk(clk),
-        .wrDat(dmin),
-            .wrAdr({{{31-DAW}{1'b0}},dmadr}),
-            .rdAdr({{{31-DAW}{1'b0}},dmadr}),
-            .wrEnb(dmwe),
-            .rdDat(dmout));
+DM #(.BN(DMB)) dmx (.clk(clk),
+    .wrDat(dmin),
+    .wrAdr({{{31-DAW}{1'b0}},dmadr}),
+    .rdAdr({{{31-DAW}{1'b0}},dmadr}),
+    .wrEnb(dmwe),
+    .rdDat(dmout));
 
-    assign dmwe = ST & ~IR[10] & ~ioenb;
-    assign dmin = B;
-
+assign dmwe = ST & ~IR[10] & ~ioenb;
+assign dmin = B;
+```
 
 ### Set Flag Registers
 
 
-    :::verilog
-    always @ (posedge clk, negedge rst) begin // flags handling
-    if (~rst) begin N <= 0; Z <= 0; C <= 0; V <= 0; end
-    else begin
-        if (regwr) begin
-            N <= aluRes[31];
-            Z <= (aluRes[31:0] == 0);
-            C <= (ROR & s3[0]) | (~ROR & aluRes[32]);
-            V <= ADD & ((~A[31] & ~B[31] & aluRes[31])
-                | (A[31] & B[31] & ~aluRes[31]))
-                | SUB & ((~B[31] & A[31] & aluRes[31])
-                | (B[31] & ~A[31] & ~aluRes[31]));
-        end
+```verilog
+always @ (posedge clk, negedge rst) begin // flags handling
+if (~rst) begin N <= 0; Z <= 0; C <= 0; V <= 0; end
+else begin
+    if (regwr) begin
+        N <= aluRes[31];
+        Z <= (aluRes[31:0] == 0);
+        C <= (ROR & s3[0]) | (~ROR & aluRes[32]);
+        V <= ADD & ((~A[31] & ~B[31] & aluRes[31])
+            | (A[31] & B[31] & ~aluRes[31]))
+            | SUB & ((~B[31] & A[31] & aluRes[31])
+            | (B[31] & ~A[31] & ~aluRes[31]));
     end
-    end
+end
+end
+```
 
 ### Branch instructions
 
@@ -1945,14 +2001,15 @@ Compute the result via ALU
 
 Code:
 
-    :::verilog
-    // pcmux logic
-    assign pcmux =
-        (~rst) ? 0 :
-        (stall0) ? PC:
-        (BL)? {{10{IR[BLS-1]}},IR[BLS-1: 0]}+ nxpc :
-        (Bc & cond) ? {{{PAW-10}{IR[9]}}, IR[9:0]} + nxpc : (BLR | BR ) ? A[PAW-1:0] :
-        nxpc;
+```verilog
+// pcmux logic
+assign pcmux =
+    (~rst) ? 0 :
+    (stall0) ? PC:
+    (BL)? {{10{IR[BLS-1]}},IR[BLS-1: 0]}+ nxpc :
+    (Bc & cond) ? {{{PAW-10}{IR[9]}}, IR[9:0]} + nxpc : (BLR | BR ) ? A[PAW-1:0] :
+    nxpc;
+```
 
 ### Separate Compilation (TRM)
 
