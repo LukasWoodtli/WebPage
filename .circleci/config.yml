@@ -12,7 +12,30 @@ jobs:
       - run:
           name: Build Web Page
           command: ./generate_page.py
+    build_gatsby_page:
+      docker:
+        - image: cypress/browsers:node16.14.0-slim-chrome99-ff97
+          environment:
+            ## this enables colors in the output
+            TERM: xterm
+      working_directory: ~/project
+      steps:
+        - checkout
+        - run:
+            name: Install Dependencies
+            command: npm ci
+        - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
+        - run:
+            name: Build Gatsby Web Page
+            command: npm build
+        - run:
+            name: Run Gatsby Web Page Unit Tests
+            command: npm test
+        - run:
+            name: Run Gatsby Web Page e2e Tests
+            command: npm run e2e:ci
 workflows:
-  build-page:
+  build-both-pages:
     jobs:
       - build
+      - build_gatsby_page
