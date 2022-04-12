@@ -24,14 +24,14 @@ jobs:
       - run: apt update && apt install -y git && git --version
       - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
       - run:
-          name: Build Gatsby Web Page
-          command: npm run build
-      - run:
           name: Run Gatsby Web Page Unit Tests
           command: npm test
       - run:
           name: Run Gatsby Web Page e2e Tests
-          command: npm run e2e:ci
+          command: CYPRESS_defaultCommandTimeout=6000 npm run e2e:ci
+      - run:
+          name: Build Gatsby Web Page
+          command: npm run build
 workflows:
   build-both-pages:
     jobs:
