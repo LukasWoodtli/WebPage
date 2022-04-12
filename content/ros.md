@@ -21,7 +21,7 @@ source /opt/ros/melodic/setup.bash
 
 or Zsh:
 
-```zsh
+```shell
 source /opt/ros/melodic/setup.zsh
 ```
 

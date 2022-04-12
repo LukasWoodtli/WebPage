@@ -84,7 +84,7 @@ Some of my examples can be found [here](https://github.com/LukasWoodtli/Language
 
 *"The following rule yields a parser that does not terminate:*"
 
-```antlr-java
+```antlr4
 r : r X ;
 ```
 
@@ -196,7 +196,7 @@ while(<lookahead-predicts-an-alt-of-subrule>) {
 *"For example, we want to recognize input such as `[a, b=c, [d,e]]`"*
 
 
-```antlr-java
+```antlr4
 list : '[' elements ']' ;
 elements : element ( ',' element)* ;
 element : NAME '=' NAME
@@ -287,7 +287,7 @@ Unfortunately, some programming languages have context-sensitive phrases. To han
 *"For example, upon input `(3+4);`, a backtracking parser derived from the following rule invokes `expr` twice:"*
 
 
-```antlr-java
+```antlr4
 s : expr '!' // assume backtracking parser tries this alternative
   | expr ';' // and then this one
   ;
