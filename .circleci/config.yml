@@ -25,7 +25,7 @@ jobs:
       - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
       - run:
           name: Build Gatsby Web Page
-          command: npm build
+          command: npm run build
       - run:
           name: Run Gatsby Web Page Unit Tests
           command: npm test
