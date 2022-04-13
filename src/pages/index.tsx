@@ -54,7 +54,7 @@ function Index() {
                     >
                         <Card variant="outlined" sx={{border: 0}}>
                             <CardContent>
-                              <StaticImage src='./img/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg'
+                              <StaticImage src='../images/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg'
                                            alt="Electronic board (by Alexandre Debieve)"/>
                             </CardContent>
                         </Card>

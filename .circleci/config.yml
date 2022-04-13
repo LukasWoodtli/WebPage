@@ -14,24 +14,28 @@ jobs:
           command: ./generate_page.py
   build_gatsby_page:
     docker:
-      - image: cypress/browsers:node14.17.0-chrome91-ff89
+      - image: cypress/included:9.5.3
     working_directory: ~/project
     steps:
       - checkout
       - run:
           name: Install Dependencies
           command: npm ci
-      - run: apt update && apt install -y git && git --version
+      - run: apt update && apt install -y git procps && git --version
       - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
+      - run:
+          name: Build Gatsby Web Page
+          command: PREFIX_PATHS=true NODE_OPTIONS=--max_old_space_size=4096 GATSBY_CPU_COUNT=1 npm run build
       - run:
           name: Run Gatsby Web Page Unit Tests
           command: npm test
       - run:
           name: Run Gatsby Web Page e2e Tests
-          command: CYPRESS_defaultCommandTimeout=6000 npm run e2e:ci
+          command: NODE_OPTIONS=--max_old_space_size=4096 GATSBY_CPU_COUNT=1 npm run e2e:ci
       - run:
-          name: Build Gatsby Web Page
-          command: npm run build
+          name: Deploy to gh-pages
+          command: .circleci/deploy_gatsby_page.sh
+
 workflows:
   build-both-pages:
     jobs:

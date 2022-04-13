@@ -74,7 +74,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "test:e2e": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test develop http://localhost:8000 'npx cypress open'",
-    "e2e:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test 'gatsby develop -p 8000' http://localhost:8000 'npx cypress run'"
+    "test:e2e": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test 'gatsby develop -p 8000' http://localhost:8000 'npx cypress open'",
+    "pree2e:ci": "gatsby build",
+    "e2e:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test 'gatsby serve -p 8000' http://localhost:8000 'npx cypress run'"
   }
 }
