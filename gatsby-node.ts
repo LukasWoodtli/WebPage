@@ -43,7 +43,7 @@ function createStaticPages(allMarkdownFiles: any[], createPage: any) {
     "books",
     "contact",
     "courses",
-    "index",
+    //"index",
     "projects",
     "recruiters_headhunters",
     "resume",
