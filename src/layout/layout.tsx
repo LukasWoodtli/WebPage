@@ -2,6 +2,10 @@ import React from "react";
 import MenuBar from "./menu-bar";
 import Footer from "./footer";
 
+import '@fortawesome/fontawesome-svg-core/styles.css';
+// Prevent fontawesome from adding its CSS since we did it manually above:
+import { config } from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false; /* eslint-disable import/first */
 
 function Spacer() {
     return (<div style={{flex: "1 0 auto"}}/>);

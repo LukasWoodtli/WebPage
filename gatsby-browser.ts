@@ -17,6 +17,7 @@ import "@fontsource/roboto/700.css"
 
 import "@fontsource/material-icons"
 
+import "@fortawesome/fontawesome-svg-core/styles.css"
 import "@fortawesome/react-fontawesome"
 import "@fortawesome/free-brands-svg-icons"
 import "@fortawesome/free-solid-svg-icons"
