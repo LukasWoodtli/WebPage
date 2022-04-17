@@ -1,21 +1,21 @@
-import React from 'react';
-import {Card, CardContent, CardHeader, Grid, Typography} from '@mui/material';
-import ConstructionIcon from '@mui/icons-material/Construction';
-import GavelIcon from '@mui/icons-material/Gavel';
-import StraightenIcon from '@mui/icons-material/Straighten';
-import SchoolIcon from '@mui/icons-material/School';
-import CableIcon from '@mui/icons-material/Cable';
-import CloudQueueIcon from '@mui/icons-material/CloudQueue';
+import React from "react";
+import { Card, CardContent, CardHeader, Grid, Typography } from "@mui/material";
+import ConstructionIcon from "@mui/icons-material/Construction";
+import GavelIcon from "@mui/icons-material/Gavel";
+import StraightenIcon from "@mui/icons-material/Straighten";
+import SchoolIcon from "@mui/icons-material/School";
+import CableIcon from "@mui/icons-material/Cable";
+import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 //import SummarizeIcon from '@mui/icons-material/Summarize';
 
 const DashBoard = () => {
 
-    const cards = [
-        {
-            avatar: <CableIcon fontSize="large"/>,
-            title: 'Embedded Systems',
-            text: 'My experience with Embedded Systems range from small bare-metal ' +
-                'systems over RTOS to Embedded Linux devices. ' +
+  const cards = [
+    {
+      avatar: <CableIcon fontSize="large" />,
+      title: "Embedded Systems",
+      text: "My experience with Embedded Systems range from small bare-metal " +
+        "systems over RTOS to Embedded Linux devices. " +
                 'In combination with my knowledge in distributed cloud systems I design reliable IoT systems. ' +
                 'To improve and streamline the development process I develop simulations and SITL tools.'
         }, {
@@ -94,9 +94,9 @@ const DashBoard = () => {
                                     </Typography>
                                 }/>
                             <CardContent>
-                                <Typography variant="body1" align="left">
-                                    {card.text}
-                                </Typography>
+                              <Typography variant="body1" align="left" component={"div"}>
+                                {card.text}
+                              </Typography>
                             </CardContent>
                         </Card>
                     </Grid>))}
