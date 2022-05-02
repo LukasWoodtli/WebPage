@@ -16,8 +16,6 @@ function Index() {
             component="main"
             sx={{
                 flexGrow: 1,
-                px: 5,
-                py: 5
             }}
         >
             <Container maxWidth={false}>
