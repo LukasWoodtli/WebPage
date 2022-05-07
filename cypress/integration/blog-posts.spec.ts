@@ -1,7 +1,7 @@
 describe('BlogPosts', () => {
 
   before(() => {
-    cy.visit('/angular_velocity');
+    cy.visit('/blog/angular_velocity');
   });
 
 

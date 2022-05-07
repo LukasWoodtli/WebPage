@@ -153,7 +153,7 @@ exports.createPages = async ({ graphql, actions, reporter }: any) => {
 
   try {
     allMarkdownFiles = await collectMarkdownFiles(graphql);
-  } catch (e: any) {
+  } catch (e) {
     reporter.panicOnBuild(
       e.name,
       e.result
@@ -177,7 +177,8 @@ exports.onCreateNode = ({ node, actions, getNode }: any) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode, basePath: `pages` });
+    const value = "/blog" + createFilePath(
+      { node, getNode, basePath: `pages`, trailingSlash: false });
 
     createNodeField({
       name: `slug`,
