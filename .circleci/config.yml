@@ -25,7 +25,7 @@ jobs:
       - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
       - run:
           name: Build Gatsby Web Page
-          command: PREFIX_PATHS=true NODE_OPTIONS=--max_old_space_size=4096 GATSBY_CPU_COUNT=1 npm run build
+          command: NODE_OPTIONS=--max_old_space_size=4096 GATSBY_CPU_COUNT=1 npm run build
       - run:
           name: Run Gatsby Web Page Unit Tests
           command: npm test
