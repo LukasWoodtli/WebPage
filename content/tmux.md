@@ -16,11 +16,11 @@ By default the `PREFIX` is: `CTRL + b`
 
 | Key Binding              | Function                |
 |--------------------------|-------------------------|
-| `tmux new -s <name>`     | Create a named session  |
+| `tmux new -s [name]`     | Create a named session  |
 | `tmux ls`                | List current sessions   |
 | `tmux a`                 | Attach to last session  |
-| `tmux a -t <name>`       | Attach to named session |
-| `tmux kill-session -t <name>` | Kill named session |
+| `tmux a -t [name]`       | Attach to named session |
+| `tmux kill-session -t [name]` | Kill named session |
 | `PREFIX d`               | Detach from a running session |
 | `PREFIX :`               | Enter command mode            |
 | `PREFIX )`               | Change to next session        |
@@ -38,10 +38,10 @@ Commands:
 
 ## The Target Flag (`-t`)
 
- To specify the target session, window and pane for a command the flag `-t <session-name>:<window-id>.<pane-id>` is used.
+ To specify the target session, window and pane for a command the flag `-t [session-name]:[window-id].[pane-id]` is used.
 
-- `<session-name>`: The name of the session
-- `<window-id>` and `<pane-id>` (optional): id number of window or pane
+- `[session-name]`: The name of the session
+- `[window-id]` and `[pane-id]` (optional): id number of window or pane
 
 Examples:
 
@@ -79,7 +79,7 @@ The socket is created if needed.
 ## Additional Flags for `tmux new`
 
 - `-d`: Create in background (detached)
-- `-n <name>`: Name the first windows
+- `-n [name]`: Name the first windows
 
 
 # Windows
@@ -92,7 +92,7 @@ Like tabs in browser.
 | `PREFIX ,`     | Rename current window      |
 | `PREFIX n`     | Move to next window        |
 | `PREFIX p`     | Move to previous window    |
-| `PREFIX <num>` | Move to window by index    |
+| `PREFIX [num]` | Move to window by index    |
 | `PREFIX f`     | Find named window          |
 | `PREFIX w`     | Show menu with all windows |
 | `PREFIX &`     | Close current window       |
@@ -113,8 +113,8 @@ Commands:
 | `PREFIX %`                            | Split pane vertically         |
 | `PREFIX "`                            | Split pane horizontally       |
 | `PREFIX o`                            | Cycle through panes           |
-| `PREFIX <up/down/left/right>`         | Navigate around panes         |
-| `PREFIX ALT <up/down/left/right>`     | Resize panes                  |
+| `PREFIX [up/down/left/right]`         | Navigate around panes         |
+| `PREFIX ALT [up/down/left/right]`     | Resize panes                  |
 | `PREFIX x`                            | Close current pane            |
 | `PREFIX q`                            | Show number of each pane      |
 | `PREFIX z`                            | Maximize/resize pane (toggle) |
@@ -131,7 +131,7 @@ Commands:
 ## Pane Layouts
 
 
-Command: `select-layout -t <session> <layout-type>`
+Command: `select-layout -t [session] [layout-type]`
 
 There are following layout types:
 
@@ -147,8 +147,8 @@ Cycle through layouts: `PREFIX SPACEBAR`
 # Panes and Windows
 
 - Create new window form current pane: `PREFIX !`
-- Join a window (or pane) in other window (even from other session): `join-pane -s <session-name>:<window-id>.<pane-id>`
-    - Specify target: join-pane -s <session-name>:<window-id>.<pane-id> -t <session-name>:<window-id>.<pane-id>`
+- Join a window (or pane) in other window (even from other session): `join-pane -s [session-name]:[window-id].[pane-id]`
+    - Specify target: `join-pane -s [session-name]:[window-id].[pane-id] -t [session-name]:[window-id].[pane-id]`
 - Move windows between sessions: `PREFIX .`
 
 # Buffers
@@ -178,7 +178,7 @@ Commands:
 
 - Copy visible content of pane: `capture-pane`
 - Show the content of paste buffer: `show-buffer`
-- Store the content of paste buffer in a file: `save-buffer [-b buffer-index] <file-name>`
+- Store the content of paste buffer in a file: `save-buffer [-b buffer-index] [file-name]`
 - tmux maintains a stack of paste buffers:
     - Paste buffer 0: `PREFIX` `]`
     - Show all buffers in stack: `list-buffers`
@@ -190,12 +190,12 @@ Commands:
 
 Shell commands can be sent to tmux:
 
-`tmux send-keys -t <session-name>:<window-id>.<pane-id> '<command>' C-m`
+`tmux send-keys -t [session-name]:[window-id].[pane-id] '[command]' C-m`
 
 Arguments and Flags:
 
 - `-t`: Target
-- `<command>`: Can be any shell command
+- `[command]`: Can be any shell command
 - `C-m`: Carriage return (enter, `CTRL`-`M`)
 
 
@@ -203,10 +203,10 @@ Arguments and Flags:
 
 - Personal config file: `~/.tmux.conf`
 - A custom config file can be supplied when tmux is started
-    - `tmux -f <file-name>`
+    - `tmux -f [file-name]`
     - add `source-file ~/.tmux.conf` as first line to get settings from default file
-- Reload file: `source-file <file-name>`
-- Bind commands to keys: `bind [-nr] <key> <command0> \; <command1> ...`
+- Reload file: `source-file [file-name]`
+- Bind commands to keys: `bind [-nr] [key] [command0] \; [command1] ...`
     - `-n`: Don't use `PREFIX`
     - `-r`: Command may repeat (hold key)
     - Separate commands by `\;`

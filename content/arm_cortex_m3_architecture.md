@@ -560,23 +560,23 @@ For example `ADDS R0, R0, R1;` updates the flags.
 
 This suffixes can be used for branching instructions but also for conditional execution commands.
 
-| Suffix            | Meaning                             | Tested Flags           |
-|-------------------|-------------------------------------|------------------------|
-| `EQ`              | Equal                               | Z$=$1                  |
-| `NE`              | Not equal                           | Z$=$0                  |
-| `CS`or `HS`       | Unsigned higher or same (carry set) | C$=$1                  |
-| `CC`or `LO`       | Unsigned lower (or carry clear)     | C$=$0                  |
-| `MI`              | Negative (minus)                    | N$=$1                  |
-| `PL`              | Positive or zero (plus)             | N$=$0                  |
-| `VS`              | Signed overflow (V set)             | V$=$1                  |
-| `VC`              | No signed overflow (V clear)        | V$=$0                  |
-| `HI`              | Unsigned higher                     | (C$=$1) AND (Z$=$0)    |
-| `LS`              | Unsigned lower or same              | (C$=$0) OR (Z$=$1)     |
-| `GE`              | Signed greater than or equal        | N$=$V                  |
-| `LT`              | Signed less than                    | N$\neq$V               |
-| `GT`              | Signed greater than                 | (Z$=$0) AND (N$=$V)    |
-| `LE`              | Signed less than or equal           | (Z$=$1) OR (N$\neq$V)  |
-| `AL` (or omitted) | Always executed                     |  None                  |
+| Suffix            | Meaning                             | Tested Flags         |
+|-------------------|-------------------------------------|----------------------|
+| `EQ`              | Equal                               | `Z=1`                |
+| `NE`              | Not equal                           | `Z=0`                |
+| `CS`or `HS`       | Unsigned higher or same (carry set) | `C=1`                |
+| `CC`or `LO`       | Unsigned lower (or carry clear)     | `C=0`                |
+| `MI`              | Negative (minus)                    | `N=1`                |
+| `PL`              | Positive or zero (plus)             | `N=0`                |
+| `VS`              | Signed overflow (V set)             | `V=1`                |
+| `VC`              | No signed overflow (V clear)        | `V=0`                |
+| `HI`              | Unsigned higher                     | `(C=1) AND (Z=0)`    |
+| `LS`              | Unsigned lower or same              | `(C=0) OR (Z=1)`     |
+| `GE`              | Signed greater than or equal        | `N=V`                |
+| `LT`              | Signed less than                    | `N NOT V`            |
+| `GT`              | Signed greater than                 | `(Z=0) AND (N=V)`    |
+| `LE`              | Signed less than or equal           | `(Z=1) OR (N NOT V)` |
+| `AL` (or omitted) | Always executed                     | None                 |
 
 
 In the instruction examples `<c>` is used to indicate that one of the conditional
