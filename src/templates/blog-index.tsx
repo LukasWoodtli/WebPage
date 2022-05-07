@@ -34,7 +34,7 @@ const BlogIndex = (props: any) => {
                 <section>
                   <Typography
                     dangerouslySetInnerHTML={{
-                      __html: post.excerpt
+                      __html: post.excerpt.replace("[TOC]", "")
                     }}
                     itemProp="description"
                   />

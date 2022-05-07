@@ -2,7 +2,7 @@ import * as React from "react";
 import { GatsbySeo } from "gatsby-plugin-next-seo/src/meta/gatsby-seo";
 
 import parse, { attributesToProps, domToReact, Element, HTMLReactParserOptions } from "html-react-parser";
-import { Table, TableContainer, TableRow, Typography } from "@mui/material";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { Link } from "gatsby-theme-material-ui";
 
 
@@ -15,11 +15,40 @@ const headingsMapping: { [char: string]: string } = {
   "h6": "h6"
 };
 
+const replaceAsWorkaround = (element: string | JSX.Element | JSX.Element[]) => {
+  if (typeof element == "string") {
+    if (element.includes("[TOC]")) {
+      console.warn(`Removing [TOC] from blog post`);
+      return element.replace("[TOC]", "");
+    }
+  }
+
+  return element;
+}
+
+
+// Test with article: Linux System Calls
+const replaceHrefUrl = (href: string): string => {
+  const pelicanLinkPrefix = '%7Bfilename%7D/';
+  let url = href;
+  if(href.includes(pelicanLinkPrefix)) {
+    url = href.replace(pelicanLinkPrefix, '');
+    url = url.replace('.md', '');
+    console.warn(`Warning fixing link: ${href} to ${url}`);
+  }
+  return url;
+}
+
+const openInNewTab = (href: string): boolean => {
+  const absoluteUrlPattern = /^https?:\/\//i;
+  return absoluteUrlPattern.test(href);
+}
+
 const htmlReactParserOptions: HTMLReactParserOptions = {
   replace: domNode => {
     if (domNode instanceof Element) {
       if (domNode.type == "tag") {
-        const props = attributesToProps(domNode.attribs);
+        let props = attributesToProps(domNode.attribs);
         const children = domToReact(domNode.children, htmlReactParserOptions);
         if (domNode.name in headingsMapping) {
           const mappedHeading = headingsMapping[domNode.name];
@@ -28,10 +57,14 @@ const htmlReactParserOptions: HTMLReactParserOptions = {
             {children}
           </Typography>);
         } else if (domNode.name == "p") {
-          return (<Typography variant={"body2"} {...props}>
-            {children}
+          return (<Typography variant={"body1"} {...props}>
+            {replaceAsWorkaround(children)}
           </Typography>);
         } else if (domNode.name == "a") {
+          props.href = replaceHrefUrl(props.href);
+          if (openInNewTab(props.href)) {
+            props.target = "_blank";
+          }
           return (<Link {...props}>
             {children}
           </Link>);
@@ -42,10 +75,35 @@ const htmlReactParserOptions: HTMLReactParserOptions = {
                 {children}
               </Table>
             </TableContainer>);
+        } else if (domNode.name == "thead") {
+          return (<TableHead {...props}>
+            {children}
+          </TableHead>);
+        } else if (domNode.name == "tbody") {
+          return (<TableBody {...props}>
+            {children}
+          </TableBody>);
         } else if (domNode.name == "tr") {
           return (<TableRow {...props}>
             {children}
           </TableRow>);
+        }
+        else if (domNode.name == "td" || domNode.name == "th") {
+          return (<TableCell {...props}>
+            {children}
+          </TableCell>);
+        } else if (domNode.name == "ol" || domNode.name == "ul") {
+          return (<Typography variant={"body1"} {...props}>
+            <ul>
+              {children}
+            </ul>
+          </Typography>);
+        } else if (domNode.name == "ol") {
+          return (<Typography variant={"body1"} {...props}>
+            <ol>
+              {children}
+            </ol>
+          </Typography>);
         }
       }
     }
