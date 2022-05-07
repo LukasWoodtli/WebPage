@@ -48,7 +48,7 @@ const BlogPostTemplate = (props: any) => {
             direction="row"
             justifyContent="space-between"
             alignItems="flex-start"
-            spacing={0}>
+            spacing={2}>
         <Grid item md={2}>
           <TableOfContents toc={headings}></TableOfContents>
         </Grid>
