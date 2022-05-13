@@ -59,7 +59,7 @@ $$
 
 where:
 
-$[\omega_s]$ is a $3 \times 3$ [skew-symmetric matrix]({filename}/skew_symmetric_matrix.md) representation of  the angular velocity $\omega_s \in \mathbb{R}^3$ represented in the coordinate frame $\{s\}$.
+$[\omega_s]$ is a $3 \times 3$ [skew-symmetric matrix](/blog/skew_symmetric_matrix) representation of  the angular velocity $\omega_s \in \mathbb{R}^3$ represented in the coordinate frame $\{s\}$.
 
 
 ## General Relations

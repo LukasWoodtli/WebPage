@@ -16,7 +16,7 @@ describe('Links in markdown files', () => {
         cy.get(':nth-child(5) > .MuiTypography-root').contains("calling convention").then(($el) => {
           const message = $el.text();
           expect($el, message).to.not.have.attr("target");
-          expect($el, message).to.have.attr("href").to.eq("intel_calling_conventions");
+          expect($el, message).to.have.attr("href").to.eq("/blog/intel_calling_conventions");
         });
     });
 });

@@ -3,7 +3,7 @@ title: Skills
 ---
 [TOC]
 
-Please check also the page with [my projects]({filename}/pages/projects.md).
+Please check also the page with [my projects](/projects).
 
 # Programming Languages
 

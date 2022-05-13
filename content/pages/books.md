@@ -47,22 +47,22 @@ title: Books
 
 # Skills & Tools
 
-| Name                                              | Authors                                           | Publisher                                         |
-|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Mastering Regular Expressions                     | Jeffrey E.F. Friedl                               | O'Reilly                                          |
-| [Mastering Python Regular Expressions](https://github.com/LukasWoodtli/MasteringPythonRegularExpressions) | Félix López, Víctor Romero | Packt Publishing |
-| [Seven Concurrency Models [...]](https://github.com/LukasWoodtli/SevenConcurrencyModelsInSevenWeeks) | Paul Butcher | The Pragmatic Bookshelf             |
-| gRPC: Up and Running                              | Danesh Kuruppu, Kasun Indrasiri                   | O'Reilly                                          |
-| Mastering CMake                                   | Ken Martin, Bill Hofmann                          | Kitware                                           |
-| [Language Implementation Patterns](https://github.com/LukasWoodtli/LanguageImplementationPatterns) | Terence Parr | The Pragmatic Bookshelf               |
-| Learning GNU Emacs                                | Debra Cameron, et al.                             | O'Reilly                                          |
-| Programming Collective Intelligence               | Toby Segaran                                      | O'Reilly                                          |
-| UML 2.0                                           | Dan Pilone                                        | O'Reilly                                          |
-| [Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation) | Tom Stuart    | O'Reilly                                          |
-| [Structure and Interpretation of Computer Programs](https://github.com/LukasWoodtli/SchemeCourse) | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
-| [tmux (Productive Mouse-Free Development)]({filename}/tmux.md) | Brian P. Hogan    | The Pragmatic Bookshelf                                              |
-| Einstieg in XML                                   | Helmut Vonhoegen                                  | Galileo Computing                                 |
-| [Mastering Spring](https://github.com/LukasWoodtli/mastering-spring/) | Ranga Karanam                 | Packt Publishing                                  |
+| Name                                                                                                                                                        | Authors                                           | Publisher                                         |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Mastering Regular Expressions                                                                                                                               | Jeffrey E.F. Friedl                               | O'Reilly                                          |
+| [Mastering Python Regular Expressions](https://github.com/LukasWoodtli/MasteringPythonRegularExpressions)                                                   | Félix López, Víctor Romero | Packt Publishing |
+| [Seven Concurrency Models [...]](https://github.com/LukasWoodtli/SevenConcurrencyModelsInSevenWeeks)                                                        | Paul Butcher | The Pragmatic Bookshelf             |
+| gRPC: Up and Running                                                                                                                                        | Danesh Kuruppu, Kasun Indrasiri                   | O'Reilly                                          |
+| Mastering CMake                                                                                                                                             | Ken Martin, Bill Hofmann                          | Kitware                                           |
+| [Language Implementation Patterns](https://github.com/LukasWoodtli/LanguageImplementationPatterns)                                                          | Terence Parr | The Pragmatic Bookshelf               |
+| Learning GNU Emacs                                                                                                                                          | Debra Cameron, et al.                             | O'Reilly                                          |
+| Programming Collective Intelligence                                                                                                                         | Toby Segaran                                      | O'Reilly                                          |
+| UML 2.0                                                                                                                                                     | Dan Pilone                                        | O'Reilly                                          |
+| [Understanding Computation](https://github.com/LukasWoodtli/UnderstandingComputation)                                                                       | Tom Stuart    | O'Reilly                                          |
+| [Structure and Interpretation of Computer Programs](https://github.com/LukasWoodtli/SchemeCourse)                                                           | Hal Abelson, Jerry Sussman and Julie Sussman | MIT Press |
+| [tmux (Productive Mouse-Free Development)](/blog/tmux)                                                                                                      | Brian P. Hogan    | The Pragmatic Bookshelf                                              |
+| Einstieg in XML                                                                                                                                             | Helmut Vonhoegen                                  | Galileo Computing                                 |
+| [Mastering Spring](https://github.com/LukasWoodtli/mastering-spring/)                                                                                       | Ranga Karanam                 | Packt Publishing                                  |
 | [Full Stack Development with JHipster - Second Edition](https://www.packtpub.com/product/full-stack-development-with-jhipster-second-edition/9781838824983) | Deepu K Sasidharan, Sendil Kumar N  | Packt Publishing |
 
 
@@ -84,15 +84,15 @@ title: Books
 
 # Operating Systems and Networking
 
-| Name                                              | Authors                                           | Publisher                                         |
-|---------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
-| Moderne Betriebssysteme                           | Andrew S. Tanenbaum                               | Pearson                                           |
-| [Using the FreeRTOS Real Time Kernel](https://github.com/LukasWoodtli/FreeRtosExamples) | Richard Barry | Richard Barry                                   |
-| FreeRTOS Reference Manual                         | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
-| [Linux-UNIX-Programmierung](https://github.com/LukasWoodtli/LinuxUnixDevelopment) | Jürgen Wolf       | Rheinwerk                                         |
+| Name                                                                                       | Authors                                           | Publisher                                         |
+|--------------------------------------------------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
+| Moderne Betriebssysteme                                                                    | Andrew S. Tanenbaum                               | Pearson                                           |
+| [Using the FreeRTOS Real Time Kernel](https://github.com/LukasWoodtli/FreeRtosExamples)    | Richard Barry | Richard Barry                                   |
+| FreeRTOS Reference Manual                                                                  | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
+| [Linux-UNIX-Programmierung](https://github.com/LukasWoodtli/LinuxUnixDevelopment)          | Jürgen Wolf       | Rheinwerk                                         |
 | [Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/index.htm) | Jürgen Wolf | Rheinwerk                                      |
-| [What You Need to Know about Docker]({filename}/docker.md) | Scott Gallagher                           | Packt Publishing                                  |
-| TCP/IP für Dummies                                | Candace Leiden, Marshall Wilensky                 | Wiley-VCH Verlag GmbH                             |
+| [What You Need to Know about Docker](/blog/docker)                                         | Scott Gallagher                           | Packt Publishing                                  |
+| TCP/IP für Dummies                                                                         | Candace Leiden, Marshall Wilensky                 | Wiley-VCH Verlag GmbH                             |
 
 
 # Embedded Systems and Computer Architecture

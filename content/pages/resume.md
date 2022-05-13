@@ -34,7 +34,7 @@ Software Developer C++ on Linux at Profidata.
 
 
 # Courses
-See my page about the [courses](courses.html) I attended.
+See my page about the [courses](/courses) I attended.
 
 
 # Stays Abroad
@@ -60,7 +60,6 @@ See my page about the [courses](courses.html) I attended.
 
 - [Home page](http://lukaswoodtli.github.io/)
 - [GitHub](https://github.com/LukasWoodtli)
-- [stack overflow](https://careers.stackoverflow.com/lukaswoodtli)
 - [LinkedIn](https://www.linkedin.com/in/lukaswoodtli)
 - [XING](https://www.xing.com/profile/Lukas_Woodtli)
 
@@ -90,5 +89,5 @@ Available on request
 
 # Recruiters and Head Hunter
 
-If you are a recruiter (head hunter) then please read [this page]({filename}/pages/recruiters_headhunters.md) before contacting me.
+If you are a recruiter (head hunter) then please read [this page](/recruiters_headhunters) before contacting me.
 

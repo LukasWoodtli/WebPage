@@ -12,7 +12,7 @@ The syscalls are implemented by the [`syscall` function](http://man7.org/linux/m
 
 # Intel x86-64
 
-System calls use the default [calling convention]({filename}/intel_calling_conventions.md) (System V AMD64 ABI).
+System calls use the default [calling convention](/blog/intel_calling_conventions) (System V AMD64 ABI).
 
 Stack based arguments are not used. This limits the number
 of arguments to 6.

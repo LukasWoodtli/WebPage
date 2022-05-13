@@ -7,8 +7,6 @@ The best way to contact me is on [LinkedIn](https://www.linkedin.com/in/lukaswoo
 
 You can check out some of my work on [GitHub](https://github.com/LukasWoodtli).
 
-I also like [stack overflow](https://careers.stackoverflow.com/lukaswoodtli) for getting advice.
-
 Here is my [XING](https://www.xing.com/profile/Lukas_Woodtli) account.
 
 You can also write me an
@@ -37,4 +35,4 @@ document.write("<a href='mailto:"+link+"'>e-mail</a>.")
 //-->
 </script><noscript>Sorry, you need Javascript on to email me.</noscript>
 
-> If you are a recruiter (head hunter) then please read [this page]({filename}/pages/recruiters_headhunters.md) before contacting me.
+> If you are a recruiter (head hunter) then please read [this page](/recruiters_headhunters.md) before contacting me.

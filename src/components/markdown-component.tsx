@@ -2,7 +2,16 @@ import * as React from "react";
 import { GatsbySeo } from "gatsby-plugin-next-seo/src/meta/gatsby-seo";
 
 import parse, { attributesToProps, domToReact, Element, HTMLReactParserOptions } from "html-react-parser";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import {
+  ListItemText,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography
+} from "@mui/material";
 import { Link } from "gatsby-theme-material-ui";
 
 
@@ -27,14 +36,13 @@ const replaceAsWorkaround = (element: string | JSX.Element | JSX.Element[]) => {
 }
 
 
-// Test with article: Linux System Calls
 const replaceHrefUrl = (href: string): string => {
   const pelicanLinkPrefix = '%7Bfilename%7D/';
   let url = href;
   if(href.includes(pelicanLinkPrefix)) {
     url = href.replace(pelicanLinkPrefix, '');
     url = url.replace('.md', '');
-    console.warn(`Warning fixing link: ${href} to ${url}`);
+    console.error(`Error fixing link: ${href} to ${url}`);
   }
   return url;
 }
@@ -92,18 +100,20 @@ const htmlReactParserOptions: HTMLReactParserOptions = {
           return (<TableCell {...props}>
             {children}
           </TableCell>);
-        } else if (domNode.name == "ol" || domNode.name == "ul") {
-          return (<Typography variant={"body1"} {...props}>
+        } else if (domNode.name == "ul") {
+          /* ListItemText is a workaround (maybe better to use css styling) */
+          return (<ListItemText inset={true} {...props}>
             <ul>
               {children}
             </ul>
-          </Typography>);
+          </ListItemText>);
         } else if (domNode.name == "ol") {
-          return (<Typography variant={"body1"} {...props}>
+          /* ListItemText is a workaround (maybe better to use css styling) */
+          return (<ListItemText inset={true} {...props}>
             <ol>
               {children}
             </ol>
-          </Typography>);
+          </ListItemText>);
         }
       }
     }
