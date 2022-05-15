@@ -5,7 +5,7 @@ module.exports = {
       name: `Lukas Woodtli`,
       summary: `Personal Website and Blog.`
     },
-    siteUrl: `https://lukaswoodtli.github.io/gatsby-page`,
+    siteUrl: `https://lukaswoodtli.github.io/`,
   },
   trailingSlash: "never",
   plugins: [

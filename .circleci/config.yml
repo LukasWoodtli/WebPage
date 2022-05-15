@@ -39,5 +39,4 @@ jobs:
 workflows:
   build-both-pages:
     jobs:
-      - build
       - build_gatsby_page
