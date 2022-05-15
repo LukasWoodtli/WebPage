@@ -30,11 +30,11 @@ const TableOfContents = (props: TableOfContentsParams) => {
 
   return (
     <List>
-      <ListItemText key={"content"}>
+      {toc.length > 0 && <ListItemText key={"content"}>
         <Typography variant={"h5"} key={"content-typography"}>
           Content
         </Typography>
-      </ListItemText>
+      </ListItemText>}
       {toc.map((heading: MarkdownHeading, index: number) => (
         <Box sx={{ pl: heading.depth }} key={`${heading.value}-${index}-box`}>
           <ListItemButton component="a" href={headerNameToFragment(heading.value)}
