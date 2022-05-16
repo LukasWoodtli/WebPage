@@ -10,7 +10,7 @@ There are two major forms of linking: static and dynamic. But there are some sub
 
 This explanations are mainly for Linux. On other OS's the same concepts apply but with some minor differences.
 
-See also: [Executable Loader]({filename}/executable_loader.md)
+See also: [Executable Loader](/blog/executable_loader)
 
 
 # Static Linking

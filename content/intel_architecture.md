@@ -18,7 +18,6 @@ There is a good overview of the [x86 instructions](https://en.wikipedia.org/wiki
 I keep some examples on [GitHub](https://github.com/LukasWoodtli/LinuxAssemblyProgramming).
 
 
-[TOC]
 
 # General
 

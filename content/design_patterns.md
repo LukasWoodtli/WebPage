@@ -27,11 +27,10 @@ Overview of Design Patterns
 
 
 
-See also [here]({filename}/oop_design_principles.md) for a list of OO-Principles.
+See also [here](/blog/oop_design_principles) for a list of OO-Principles.
 
 And [Wikipedia:Software design pattern](https://en.wikipedia.org/wiki/Software_design_pattern) for a good overview.
 
 [^1]: [Design Patterns (GoF)](https://en.m.wikipedia.org/wiki/Design_Patterns_(book))
 [^2]: [Head First Design Patterns](http://www.headfirstlabs.com/books/hfdp/)
 
-///Footnotes Go Here///

@@ -5,7 +5,6 @@ tags: [Robotics]
 ---
 > This page is work in progress
 
-[TOC]
 
 # Rotation
 

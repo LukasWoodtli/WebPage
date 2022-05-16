@@ -3,7 +3,6 @@ title: vim
 category: Programming
 tags: [Tools, Cheat Sheet, Unix, Linux]
 ---
-[TOC]
 
 # Modes
 

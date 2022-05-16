@@ -9,7 +9,6 @@ This page contains some random notes for FreeRTOS.
 See also: [FreeRtosExamples](https://github.com/LukasWoodtli/FreeRtosExamples)
 and [FreeRtos](http://www.freertos.org/)
 
-[TOC]
 
 # Configuration
 

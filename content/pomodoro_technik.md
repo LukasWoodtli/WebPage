@@ -3,7 +3,6 @@ title: Pomodoro-Technik
 category: Misc
 tags: [German]
 ---
-[TOC]
 
 Die Pomodoro-Technik ist eine simple Methode für das persönliche Zeitmanagement.
 

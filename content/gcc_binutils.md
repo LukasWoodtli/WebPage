@@ -6,7 +6,6 @@ date: 2018-02-22
 ---
 > Work in Progress!
 
-[TOC]
 
 
 # ld

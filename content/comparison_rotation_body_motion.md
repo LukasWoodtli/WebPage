@@ -3,7 +3,6 @@ title: Comparison of Rotations and Rigid-Body Motions
 category: Mechanics
 tags: [Robotics]
 ---
-[TOC]
 
 # Analogies
 
@@ -175,7 +174,7 @@ $$
 | Rotations                                                 | Rigid-Body Motions                            |
 |-----------------------------------------------------------|-----------------------------------------------|
 | $R \in SO(3) \rightarrow [\hat\omega]\theta \in so(3)$    | $T \in SE(3) \rightarrow [S]\theta \in se(3)$ |
-| see [here]({filename}/rodrigues_formula.md) for algorithm | see [here]({filename}/exponential_coordinates_rigid_body.md) for algorithm |
+| see [here](/blog/rodrigues_formula) for algorithm | see [here](/blog/exponential_coordinates_rigid_body) for algorithm |
 
 
 # Change Coordinate frame for Moment and Wrench

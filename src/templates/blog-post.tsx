@@ -52,7 +52,7 @@ const BlogPostTemplate = (props: any) => {
         <Grid item md={2}>
           <TableOfContents toc={headings}></TableOfContents>
         </Grid>
-        <Grid item sm={12} md={8}>
+        <Grid item sm={12} md={8} data-test="blog-page-content">
           <BlogPostComponent title={title}
                              description={description}
                              html={html}

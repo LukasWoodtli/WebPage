@@ -1,7 +1,6 @@
 ---
 title: Projects
 ---
-[TOC]
 
 
 # Work Experience

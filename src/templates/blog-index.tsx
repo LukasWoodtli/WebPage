@@ -15,6 +15,9 @@ const BlogIndex = (props: any) => {
       <GatsbySeo title="All posts" />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post: any) => {
+          if (post.excerpt.includes("TOC")) {
+            console.error("Contains TOC string");
+          }
           const title = post.frontmatter.title;
 
           return (

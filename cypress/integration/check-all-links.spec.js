@@ -68,7 +68,7 @@ describe('Links on all pages are valid', () => {
       cy.log(el.text());
       const href = el.prop('href');
       if (href.includes("/blog/")) {
-        visitPageAndCheckLinks(href);
+        visitBlogPageAndCheckLinks(href);
       }
     });
   });*/

@@ -5,7 +5,6 @@ modified: 2018-06-05
 category: Misc
 tags: [Blender, Cheat Sheet]
 ---
-[TOC]
 
 Right-handed (Rechtshändiges) Cartesian coordinate system. Axes:
 

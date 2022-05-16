@@ -8,7 +8,6 @@ modified: 2016-01-03
 
 > My Notes for the *System Construction* Course at ETH
 
-[TOC]
 
 # Minos on Raspberry PI 2 (Case Study 1)
 

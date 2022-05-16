@@ -6,7 +6,6 @@ category: Programming
 tags: [Agile, Scrum, XP, Software Development Methodology]
 ---
 
-[TOC]
 
 This article is an overview of **Scrum** and **XP**.
 

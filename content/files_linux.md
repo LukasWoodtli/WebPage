@@ -76,5 +76,5 @@ There are 6 different file types in Linux:
 
 # Special Device Files
 
-See [here]({filename}/unix_device_files.md) for a description for device files.
+See [here](/blog/unix_device_files) for a description for device files.
 

@@ -4,7 +4,6 @@ category: Programming
 tags: [C, C++, Dynamic Analysis]
 date: 2018-03-05
 ---
-[TOC]
 
 # Sanitizers
 

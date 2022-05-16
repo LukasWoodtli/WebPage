@@ -5,7 +5,6 @@ modified: 2018-06-05
 category: Programming
 tags: [Tools, Cheat Sheet, Unix, Linux]
 ---
-[TOC]
 
 
 # Panels

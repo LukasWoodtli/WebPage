@@ -4,7 +4,6 @@ date: 2018-03-01
 category: Misc
 tags: [German]
 ---
-[TOC]
 
 # Allgemeines
 

@@ -5,7 +5,6 @@ tags: [Computer Science, ETH]
 date: 2016-02-29
 modified: 2016-04-21
 ---
-[TOC]
 
 # Boolean Circuits
 

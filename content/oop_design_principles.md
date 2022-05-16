@@ -5,7 +5,6 @@ modified: 2018-05-31
 category: Programming
 tags: [C++, Python, OOP]
 ---
-[TOC]
 
 
 # General
@@ -28,7 +27,7 @@ tags: [C++, Python, OOP]
 - *I*: Interface segregation principle
 - *D*: Dependency inversion principle (dependency injection can be used)
 
-See [SOLID](https://en.wikipedia.org/wiki/SOLID) and [SOLID Design Principles]({filename}/solid.md).
+See [SOLID](https://en.wikipedia.org/wiki/SOLID) and [SOLID Design Principles](/blog/solid).
 
 
 # Package Design
@@ -93,5 +92,5 @@ Classes that are reused together belong in the same package
 - [Cohesion](https://en.wikipedia.org/wiki/Cohesion_%28computer_science%29): Objects should only interact with 'friends' (objects in their neighborhood)
 - Ineracting Objects should aim for [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling)
 - [Tell don't ask](http://martinfowler.com/bliki/TellDontAsk.html): Tell Objects what to do with their data, don't ask for the data to operate on it
-- [List of Design Patterns]({filename}/design_patterns.md)
+- [List of Design Patterns](/blog/design_patterns)
 

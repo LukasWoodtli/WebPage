@@ -15,7 +15,7 @@ surface of a torus in a $(n + 1) dimensional space.
 
 > $S^1 \times S^1 \times S^1 \times \cdots \times S^1 = T^n$ for $n$ copies of $S^1$
 
-Some spaces ([c-spaces]({filename}/c-space_dof.md)) can be represented as Cartesian product of two or more lower dimensional spaces.
+Some spaces ([c-spaces](/blog/c-space_dof)) can be represented as Cartesian product of two or more lower dimensional spaces.
 
 | C-space             | Cartesian product        | Explanation                                            |
 |---------------------|--------------------------|--------------------------------------------------------|

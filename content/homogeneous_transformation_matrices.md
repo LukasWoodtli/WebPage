@@ -116,7 +116,7 @@ $T_{sa} = (R_{sa}, p_{sa})$ represents the configuration of frame $a$ relative t
 
 ## Changing the reference Frame of a Vector or Frame
 
-Changing the reference frame of a vector or a frame is analogous to [rotation matirces]({filename}/rotation_matrix.md) using the subscript cancellation rule:
+Changing the reference frame of a vector or a frame is analogous to [rotation matirces](/blog/rotation_matrix) using the subscript cancellation rule:
 
 $$
 T_{ab} T_{bc} = T_{a\not{b}} T_{\not{b}c} = T_{ac}

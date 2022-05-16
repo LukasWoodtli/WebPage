@@ -3,7 +3,6 @@ title: Lernen
 category: Misc
 tags: [German]
 ---
-[TOC]
 
 
 # Vorgang

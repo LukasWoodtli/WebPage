@@ -8,7 +8,6 @@ This page collects notes and citations from the book:
 
 [Understanding Computation by Tom Stuart](http://computationbook.com/)
 
-[TOC]
 
 # I. Programs and Machines
 

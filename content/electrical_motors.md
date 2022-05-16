@@ -5,7 +5,6 @@ category: Mechanics
 
 > This page is work in progress
 
-[TOC]
 
 # AC Motors
 

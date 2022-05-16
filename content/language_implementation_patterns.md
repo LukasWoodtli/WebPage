@@ -11,7 +11,6 @@ This page collects notes and citations from the book:
 Some of my examples can be found [here](https://github.com/LukasWoodtli/LanguageImplementationPatterns)
 
 
-[TOC]
 
 # Getting Started with Parsing
 

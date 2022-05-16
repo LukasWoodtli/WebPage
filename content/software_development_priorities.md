@@ -7,7 +7,6 @@ tags: [Software Development Methodology]
 
 > This page is still work in progress
 
-[TOC]
 
 When developping software the priorities are as following:
 

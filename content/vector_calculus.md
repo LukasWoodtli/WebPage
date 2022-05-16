@@ -7,7 +7,6 @@ tags: [Calculus]
 ---
 Some notes about Vector Calculus. Mainly Divergence, Gradient and Curl.
 
-[TOC]
 
 
 Nabla Operator ($\nabla$)

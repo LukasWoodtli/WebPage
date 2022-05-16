@@ -9,7 +9,6 @@ This page collects notes taken from
 
 Some of my examples are [here](https://github.com/LukasWoodtli/SevenConcurrencyModelsInSevenWeeks)
 
-[TOC]
 
 # Chapter 1 Introduction
 

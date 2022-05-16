@@ -3,7 +3,6 @@ title: Domain Driven Design
 category: Programming
 tags: [Agile, Scrum, XP, Software Development Methodology]
 ---
-[TOC]
 
 
 # Introduction

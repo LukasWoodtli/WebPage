@@ -11,9 +11,8 @@ Notes to the book
 
 [My Github repository with examples](https://github.com/LukasWoodtli/SchemeCourse)
 
-See also [Scheme (Lisp)]({filename}/scheme.md)
+See also [Scheme (Lisp)](/blog/scheme)
 
-[TOC]
 
 # 1 Building Abstractions with Procedures
 

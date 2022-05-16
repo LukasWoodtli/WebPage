@@ -5,7 +5,6 @@ tags: [C++, Python, OOP, ETH]
 date: 2015-07-27
 modified: 2015-07-27
 ---
-[TOC]
 
 # Core Requirements to OOP Languages
 

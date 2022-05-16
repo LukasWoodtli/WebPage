@@ -6,7 +6,6 @@ date: 2018-03-19
 ---
 See also: [Docker Documentation](https://docs.docker.com/reference/).
 
-[TOC]
 
 # Setup
 

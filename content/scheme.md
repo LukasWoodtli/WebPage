@@ -5,7 +5,6 @@ tags: [Lisp]
 ---
 This page collects notes about Scheme (an Lisp in general).
 
-[TOC]
 
 ## Sources
 

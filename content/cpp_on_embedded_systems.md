@@ -7,7 +7,6 @@ tags: [Embedded Systems, C++]
 
 > This page is still work in progress
 
-[TOC]
 
 
 - No Exceptions (-fno-exception)

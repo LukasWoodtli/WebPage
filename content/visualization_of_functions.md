@@ -6,7 +6,6 @@ tags: [Calculus]
 ---
 Some notes how to visualize mathematical functions.
 
-[TOC]
 
 
 ## Domain and Range

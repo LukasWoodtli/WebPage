@@ -15,7 +15,6 @@ Most information on this page is taken from the
 
 
 
-[TOC]
 
 
 # General

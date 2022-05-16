@@ -6,7 +6,6 @@ date: 2016-02-20
 modified: 2016-02-20
 ---
 
-[TOC]
 
 
 <!-- Lecture 1 Slides/Notes Start -->

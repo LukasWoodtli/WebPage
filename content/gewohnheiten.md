@@ -3,7 +3,6 @@ title: Gewohnheiten
 category: Misc
 tags: [German]
 ---
-[TOC]
 
 
 Diese Notizen sind grösstenteils inspiriert von:

@@ -6,7 +6,6 @@ tags: [Investment Management]
 ---
 # Contents
 
-[TOC]
 
 # Understanding Financial Markets
 

@@ -51,8 +51,8 @@ table is taken from the [FreeRTOS](http://www.freertos.org/) code.
 | Windows                                         | MSVC, MingW                  | downwards    |
 | POSIX                                           | GCC                          | downwards    |
 | DOS (16Bit)                                     | Open Watcom                  | downwards    |
-| [x86]({filename}/intel_architecture.md)         | any                          | downwards    |
-| [ARM]({filename}/arm_cortex_m3_architecture.md) | any                          | downwards    |
+| [x86](/blog/intel_architecture)                 | any                          | downwards    |
+| [ARM](/blog/arm_cortex_m3_architecture)         | any                          | downwards    |
 | Renesas 78K0R                                   | IAR                          | downwards    |
 | ARM7 (LPC2xxx, AT91SAM7S, AT91FR40008)          | GCC, RVDS, IAR               | downwards    |
 | ARM Cortex (A5, A9, M0, M4, M3, M7, R4)         | GCC, IAR, RVDS, CCS, Tasking | downwards    |

@@ -5,7 +5,6 @@ tags: [Cheat Sheet, Robotics]
 ---
 > Currently I'm using *Melodic Morenia*.
 
-[TOC]
 
 # `rosbash`
 

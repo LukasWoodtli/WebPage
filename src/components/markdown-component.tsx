@@ -27,7 +27,7 @@ const headingsMapping: { [char: string]: string } = {
 const replaceAsWorkaround = (element: string | JSX.Element | JSX.Element[]) => {
   if (typeof element == "string") {
     if (element.includes("[TOC]")) {
-      console.warn(`Removing [TOC] from blog post`);
+      console.error(`Removing [TOC] from blog post`);
       return element.replace("[TOC]", "");
     }
   }

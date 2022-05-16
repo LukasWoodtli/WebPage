@@ -5,7 +5,6 @@ modified: 2015-11-15
 category: Programming
 tags: [Computer Science, ETH]
 ---
-[TOC]
 
 # 0. Overview
 
