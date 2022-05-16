@@ -17,14 +17,14 @@ GITHUB_USERPAGE_CHECKOUT_DIR="${SCRIPT_DIR}/user-page-checkout"
 
 git clone ${GITHUB_USERPAGE_REPO} ${GITHUB_USERPAGE_CHECKOUT_DIR}
 
-GATSBY_PAGE_SUBDIR="${GITHUB_USERPAGE_CHECKOUT_DIR}/gatsby-page"
+rm -rf "${GITHUB_USERPAGE_CHECKOUT_DIR}"
 
-mkdir -p "${GATSBY_PAGE_SUBDIR}"
+mkdir -p "${GITHUB_USERPAGE_CHECKOUT_DIR}"
 
-cp -r "${SCRIPT_DIR}/../public/"* "${GATSBY_PAGE_SUBDIR}"
+cp -r "${SCRIPT_DIR}/../public/"* "${GITHUB_USERPAGE_CHECKOUT_DIR}"
 
 git config user.name "circle-ci (Lukas Woodtli)" &&  git config user.email lukas_woodtli@circle-ci.example.com
-cd "${GATSBY_PAGE_SUBDIR}/"
+cd "${GITHUB_USERPAGE_CHECKOUT_DIR}/"
 git add .
 git commit -m"Update Github gatsby page automated." || true
 git push origin
