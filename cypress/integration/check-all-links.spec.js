@@ -18,7 +18,13 @@ function testLinksOnPage(el, page) {
   } else if (!isInAllowList(href)) {
     cy.log(`On page: ${page}`);
     cy.log(`${text}: ${href}`);
-    cy.request("HEAD", href).its("status").should("equal", 200);
+    if (href.startsWith("/") || href.endsWith(".md")) {
+      cy.visit(href);
+      cy.go("back");
+    }
+    else {
+      cy.request("HEAD", href).its("status").should("equal", 200);
+    }
   }
 }
 
