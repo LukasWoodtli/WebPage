@@ -38,42 +38,41 @@ HideOnScroll.propTypes = {
 const MenuBar = () => {
 
     return (
-        <header>
-            <HideOnScroll>
-              <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-                <Container maxWidth="xl">
-                  <Toolbar disableGutters
-                           sx={{ justifyContent: "space-between" }}>
-                    <ThemeProvider theme={menuButtonTheme}>
-                      <Link to="/">
+      <header>
+        <HideOnScroll>
+          <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+            <Container maxWidth="xl">
+              <Toolbar disableGutters
+                       sx={{ justifyContent: "space-between" }}>
+                <ThemeProvider theme={menuButtonTheme}>
+                  <Link to="/">
+                    <Button
+                      key="Lukas Woodtli"
+                      sx={{ color: "white" }}>
+                      Lukas Woodtli
+                    </Button>
+                  </Link>
+                  <div />
+                  <Box>
+                    {pages.map((page) => (
+                      <Link to={"/" + page.toLowerCase()}
+                            key={page + "_link"}>
                         <Button
-                          key="Lukas Woodtli"
+                          key={page + "_button"}
                           sx={{ color: "white" }}
                         >
-                          Lukas Woodtli
-                                    </Button>
-                                </Link>
-                                <div/>
-                                <Box>
-                                    {pages.map((page) => (
-                                        <Link to={"/" + page.toLowerCase()}
-                                              key={page + "_link"}>
-                                            <Button
-                                                key={page + "_button"}
-                                                sx={{color: 'white'}}
-                                            >
-                                                {page}
-                                            </Button>
-                                        </Link>
-                                    ))}
-                                </Box>
-                            </ThemeProvider>
-                        </Toolbar>
-                    </Container>
-                </AppBar>
-            </HideOnScroll>
-            <Offset/>
-        </header>
+                          {page}
+                        </Button>
+                      </Link>
+                    ))}
+                  </Box>
+                </ThemeProvider>
+              </Toolbar>
+            </Container>
+          </AppBar>
+        </HideOnScroll>
+        <Offset />
+      </header>
     );
 };
 export default MenuBar;
