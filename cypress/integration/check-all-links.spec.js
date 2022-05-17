@@ -1,6 +1,6 @@
 
 function isInAllowList(href) {
-  const allowList = ["linkedin", "quora", "mailto"];
+  const allowList = ["linkedin", "quora", "mailto", "the-y-combinator"];
   for (let i = 0; i < allowList.length; i++) {
     if (href.includes(allowList[i])) {
       return true;
@@ -62,10 +62,20 @@ describe('Links on all pages are valid', () => {
     });
   });
 
-/*  it('checks a single blog page', () => {
-    visitBlogPageAndCheckLinks("/blog/linux_system_calls");
+  it('checks blog pages', () => {
+    const pages = [
+      "/blog/scheme",
+      "/blog/closure",
+      "/blog/intel_architecture",
+      "/blog/executable_loader",
+      "/blog/linking_and_loading",
+      "/blog/models_of_computation"];
+
+    pages.forEach(p => {
+      visitBlogPageAndCheckLinks(p);
+    });
   });
-*/
+
   /*it('checks every blog entry', () => {
     cy.visit("/blog");
 
