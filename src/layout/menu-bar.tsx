@@ -4,9 +4,12 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import { createTheme, Slide, styled, ThemeProvider, useScrollTrigger } from "@mui/material";
-import { Link } from "gatsby-theme-material-ui";
+import MenuItem from "@mui/material/MenuItem";
+import MenuIcon from "@mui/icons-material/Menu";
+import { createTheme, Menu, MenuList, Slide, styled, ThemeProvider, useScrollTrigger } from "@mui/material";
+import { IconButton, Link } from "gatsby-theme-material-ui";
 import PropTypes from "prop-types";
+
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
@@ -36,8 +39,19 @@ HideOnScroll.propTypes = {
 
 
 const MenuBar = () => {
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
 
-    return (
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  return (
       <header>
         <HideOnScroll>
           <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
@@ -53,7 +67,8 @@ const MenuBar = () => {
                     </Button>
                   </Link>
                   <div />
-                  <Box>
+                  {/* buttons */}
+                  <Box  sx={{ display: { xs: "none", md: "block" } }}>
                     {pages.map((page) => (
                       <Link to={"/" + page.toLowerCase()}
                             key={page + "_link"}>
@@ -66,6 +81,43 @@ const MenuBar = () => {
                       </Link>
                     ))}
                   </Box>
+                  {/* buttons end */}
+                  {/* menu */}
+                  <Box sx={{  display: { xs: "block", md: "none" } }}>
+                    <IconButton
+                      size="large"
+                      aria-haspopup="true"
+                      onClick={handleOpenNavMenu}
+                      color="inherit"
+                    >
+                      <MenuIcon />
+                    </IconButton>
+                    <Menu
+                      id="menu-appbar"
+                      anchorEl={anchorElNav}
+                      anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "left"
+                      }}
+                      open={Boolean(anchorElNav)}
+                      onClose={handleCloseNavMenu}
+                      sx={{
+                        display: { xs: "block", md: "none" }
+                      }}
+                    >
+                      {pages.map((page) => (
+                        <MenuItem key={page} onClick={handleCloseNavMenu}>
+                          <Link to={"/" + page.toLowerCase()}
+                                key={page + "menu_link"}
+                                color={"inherit"}
+                                underline={"none"}>
+                            {page}
+                          </Link>
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </Box>
+                  {/* menu end */}
                 </ThemeProvider>
               </Toolbar>
             </Container>
