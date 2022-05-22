@@ -60,7 +60,7 @@
     "prettier": "^2.5.1",
     "start-server-and-test": "^1.14.0"
   },
-  "homepage": "https://github.com/LukasWoodtli/WebPage",
+  "homepage": "https://woodtli.engineering",
   "keywords": [
     "gatsby",
     "personal web page"
@@ -68,7 +68,7 @@
   "license": "0BSD",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "https://github.com/LukasWoodtli/WebPage"
   },
   "scripts": {
     "generate-dates-file": "npx git-date-extractor --outputToFile=true --outputFileName utils/timestamps.json --onlyIn='[content]'",
@@ -81,6 +81,7 @@
     "test": "jest",
     "test:e2e": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test 'gatsby develop -p 8000' http://localhost:8000 'npx cypress open'",
     "pree2e:ci": "gatsby build",
-    "e2e:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test 'gatsby serve -p 8000' http://localhost:8000 'npx cypress run'"
+    "e2e:ci": "START_SERVER_AND_TEST_INSECURE=1 start-server-and-test 'gatsby serve -p 8000' http://localhost:8000 'npx cypress run'",
+    "e2e:deployed": "CYPRESS_BASE_URL=https://woodtli.engineering/ npx cypress run"
   }
 }

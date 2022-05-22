@@ -5,7 +5,7 @@ module.exports = {
       name: `Lukas Woodtli`,
       summary: `Personal Website and Blog.`
     },
-    siteUrl: `https://lukaswoodtli.github.io/`,
+    siteUrl: `https://woodtli.engineering`,
   },
   trailingSlash: "never",
   plugins: [
