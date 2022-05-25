@@ -12,10 +12,7 @@ function isInAllowList(href) {
 function testLinksOnPage(el, page) {
   const text = el.text();
   const href = el.prop('href')
-  if (href.endsWith(".zip")) {
-    cy.log("Zip Files not yet provided!!!");
-    console.warn("Zip files!!!");
-  } else if (!isInAllowList(href)) {
+  if (!isInAllowList(href)) {
     cy.log(`On page: ${page}`);
     cy.log(`${text}: ${href}`);
     if (href.startsWith("/") || href.endsWith(".md")) {
