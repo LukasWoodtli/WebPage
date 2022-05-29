@@ -72,6 +72,7 @@ const htmlReactParserOptions: HTMLReactParserOptions = {
           props.href = replaceHrefUrl(props.href);
           if (openInNewTab(props.href)) {
             props.target = "_blank";
+            props.rel = "noreferrer";
           }
           return (<Link {...props}>
             {children}
