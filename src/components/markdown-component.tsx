@@ -101,20 +101,15 @@ const htmlReactParserOptions: HTMLReactParserOptions = {
           return (<TableCell {...props}>
             {children}
           </TableCell>);
-        } else if (domNode.name == "ul") {
-          /* ListItemText is a workaround (maybe better to use css styling) */
-          return (<ListItemText inset={true} {...props}>
-            <ul>
+        } else if (domNode.name == "ul" || domNode.name == "ol") {
+          return (
+            <Typography component={domNode.name} variant={"body1"} {...props}
+                        style={{listStylePosition: "inside",
+                                paddingLeft: "2rem",
+                                marginBottom: "1rem"}}>
               {children}
-            </ul>
-          </ListItemText>);
-        } else if (domNode.name == "ol") {
-          /* ListItemText is a workaround (maybe better to use css styling) */
-          return (<ListItemText inset={true} {...props}>
-            <ol>
-              {children}
-            </ol>
-          </ListItemText>);
+            </Typography>
+            );
         }
       }
     }
