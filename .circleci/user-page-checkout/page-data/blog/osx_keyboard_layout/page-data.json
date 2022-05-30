@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-blog-post-tsx",
-    "path": "/blog/osx_keyboard_layout",
-    "result": {"data":{"site":{"siteMetadata":{"title":"My personal Website"}},"markdownRemark":{"id":"3ff66616-6c73-5085-8623-9cc9c847c603","excerpt":"Swiss German keyboard layout for OS X, useful for programming. Download the keymap from github","html":"<p>Swiss German keyboard layout for OS X, useful for programming.</p>\n<p>Download the keymap from <a href=\"https://github.com/LukasWoodtli/macOSKeymapSwissGerman\">github</a></p>","frontmatter":{"title":"OS X Keymap","tags":null,"category":"Programming"},"headings":[]}},"pageContext":{"id":"3ff66616-6c73-5085-8623-9cc9c847c603","previousPost":{"title":"Regular Expressions","slug":"/blog/regex"},"nextPost":{"title":"Closure","slug":"/blog/closure"},"dates":{"created":1476041217,"modified":1647509701}}},
-    "staticQueryHashes": []}
