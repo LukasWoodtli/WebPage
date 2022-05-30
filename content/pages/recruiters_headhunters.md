@@ -12,7 +12,7 @@ There are some requirements that a new position has to meet to catch my attentio
 # Musts:
 
 - Embedded Software: I prefer Firmware development over programming of PC or server applications. It doesn't have to be only Embedded Software development but it needs to be part of the job.
-- C/C++: I like C but C++ is even better. There must be at least some C++ development involved.
+- C/C++: I like C but C++ is even better. There must be at least some C++ development involved. Rust would be an alternative.
 - Working site in Zürich or near (max. 30 minutes by bike): I just don't like to lose too much time commuting.
 - Possibility to work part time (80%): This is an absolute must. I have a family that I need and want to take care of.
 - Possibility to work from home occasionally (home office): Sometimes it's just convenient to work from home.
