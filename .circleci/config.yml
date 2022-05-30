@@ -1,17 +1,6 @@
 version: 2.1
 
 jobs:
-  build:
-    docker:
-      - image: cimg/python:3.9.7
-    working_directory: ~/WebPage
-    steps:
-      - checkout
-      - run: pip install -r requirements.txt
-      - run: git config --global user.name "circleci (Lukas Woodtli)" &&  git config --global user.email lukas_woodtli@circleci.example.com
-      - run:
-          name: Build Web Page
-          command: ./generate_page.py
   build_gatsby_page:
     docker:
       - image: cypress/included:9.5.3
@@ -32,11 +21,8 @@ jobs:
       - run:
           name: Run Gatsby Web Page e2e Tests
           command: NODE_OPTIONS=--max_old_space_size=4096 GATSBY_CPU_COUNT=1 npm run e2e:ci
-      - run:
-          name: Deploy to gh-pages
-          command: .circleci/deploy_gatsby_page.sh
 
 workflows:
-  build-both-pages:
+  build-page:
     jobs:
       - build_gatsby_page
