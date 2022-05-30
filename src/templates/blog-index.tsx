@@ -12,7 +12,8 @@ const BlogIndex = (props: any) => {
 
   return (
     <Layout>
-      <GatsbySeo title="All posts" />
+      <GatsbySeo title="All blog posts"
+                 description={"List of all my personal engineering blog posts"}/>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post: any) => {
           if (post.excerpt.includes("TOC")) {

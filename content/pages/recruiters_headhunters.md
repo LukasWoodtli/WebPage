@@ -9,7 +9,7 @@ I'm currently *not* looking for a new job. But I'm always open for new interesti
 There are some requirements that a new position has to meet to catch my attention:
 
 
-## Musts:
+# Musts:
 
 - Embedded Software: I prefer Firmware development over programming of PC or server applications. It doesn't have to be only Embedded Software development but it needs to be part of the job.
 - C/C++: I like C but C++ is even better. There must be at least some C++ development involved.
@@ -18,14 +18,14 @@ There are some requirements that a new position has to meet to catch my attentio
 - Possibility to work from home occasionally (home office): Sometimes it's just convenient to work from home.
 
 
-## Mustn't:
+# Mustn't:
 
 <!-- - no .NET (C#, Visual Basic, F#): I just don't like it! I won't take any job that contains .NET development! -->
 <!-- - no Windows centric development: It's just not as nice and powerful as UNIX/Linux and it lacks a lot of important tools. -->
 - I'll never work for the weapons industry: I don't like wars!
 
 
-## Nice to have
+# Nice to have
 
 - Possibility to make sport (jogging in the neighbourhood, showers)
 - Team leading position

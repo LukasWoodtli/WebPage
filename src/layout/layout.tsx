@@ -5,6 +5,7 @@ import Footer from "./footer";
 import '@fortawesome/fontawesome-svg-core/styles.css';
 // Prevent fontawesome from adding its CSS since we did it manually above:
 import { config } from '@fortawesome/fontawesome-svg-core';
+import {Helmet} from "react-helmet";
 config.autoAddCss = false; /* eslint-disable import/first */
 
 function Spacer() {
@@ -14,6 +15,11 @@ function Spacer() {
 
 function Layout({children} :any) {
     return (
+      <>
+        <Helmet
+        htmlAttributes={{
+          lang: 'en',
+        }}/>
         <div className="document-wrapper"
              style={{
                  display: "flex",
@@ -29,6 +35,7 @@ function Layout({children} :any) {
 
             <Footer style={{display: "flex"}}/>
         </div>
+      </>
     );
 }
 

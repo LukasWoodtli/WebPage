@@ -23,8 +23,8 @@ function Footer(props: FooterProps) {
                          aria-label="social media links"
                          sx={{marginLeft: "auto", mr: 5}}>
                 {icons.map(icon => (
-                    <IconButton component="span" color="primary" key={icon.link}>
-                        <a href={icon.link} target="_blank" rel="noreferrer" data-testid={"footer-icon"}>
+                    <IconButton component="span" color="primary" key={icon.link} aria-label={icon.link}>
+                        <a href={icon.link} target="_blank" rel="noreferrer" data-testid={"footer-icon"} aria-label={icon.link}>
                             <FontAwesomeIcon icon={icon.icon}/>
                         </a>
                     </IconButton>))}

@@ -86,6 +86,7 @@ const MenuBar = () => {
                   <Box sx={{  display: { xs: "block", md: "none" } }}>
                     <IconButton
                       size="large"
+                      aria-label="menu"
                       aria-haspopup="true"
                       onClick={handleOpenNavMenu}
                       color="inherit"
