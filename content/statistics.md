@@ -1,40 +1,66 @@
 ---
 title: Introduction to Statistics
-date: 2015-05-22
-modified: 2015-06-01
 category: Mathematics
 tags: [Statistics]
 ---
 > This article is still work in progress!
 
-The notes on this page are from the Udacity course
-[Intro to Statistics](https://www.udacity.com/course/intro-to-statistics--st101 "Udacity").
+The notes on this page are taken from:
 
+Udacity: [Intro to Statistics](https://www.udacity.com/course/intro-to-statistics--st101).
 
+Packt: [Statistics for Data Science and Business Analysis](https://www.packtpub.com/product/statistics-for-data-science-and-business-analysis-video/9781789803259)
+.
 
+# Population and Sample
 
-Statistics and Probability
-==========================
+## Population
 
-![Statistics and Probability](/images/statistics_probability.svg)
+- all items of interest
+- properties of interest: *parameters*
+- mathematical symbol: $N$
 
+## Sample
 
-Independent Events
-==================
+- a subset of the population
+- properties of interest: *statistics*
+- mathematical symbol: $n$
+
+A sample needs to be random and representative for the population.
+
+# Data
+
+## Types of Data
+
+- Categorical
+- Numerical
+  - Discrete
+  - Continuous
+
+## Measurement Levels
+
+- Qualitative
+  - Nominal
+  - Ordinal
+- Quantitative
+  - Interval
+  - Ratio
+
+# Statistics and Probability
+
+![Statistics and Probability](images/statistics_probability.svg)
+
+## Independent Events
 
 - Probability of Event: $P$
 - Probability of opposite Event: $1-P$
 - Probability of composite Events: $P \cdot P \cdot ... \cdot P$
 
+## Dependent Events
 
-Dependent Events
-================
+$P(A\mid B)$: Probability of Event $A$ when $B$ already occurred.
 
-$P(A\mid B)$: Probability of Event $A$ when $B$ already occured.
-
-
-Bayes' Rule
-===========
+# Bayes' Rule
 
 See also [Wikipedia](http://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' theorem")
 
@@ -47,16 +73,14 @@ $$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
 Prior: $P(A)$
 
 Posterior: $$P(A \mid B) = P(A) \cdot P(B \mid A)\\
-    P(\lnot A\mid B) = P(\lnot A) \cdot P(B \mid \lnot A)$$
+P(\lnot A\mid B) = P(\lnot A) \cdot P(B \mid \lnot A)$$
 
 
 * $P(A)$: the prior, is the initial degree of belief in $A$.
 * $P(A \mid B)$: the posterior, is the degree of belief having accounted for $B$.
 * the quotient $\frac{P(B \mid A)}{P(B)}$ represents the support $B$ provides for $A$.
 
-
-Algorithm
----------
+## Algorithm
 
 Imagine there is a disease. The possibility to get this particular disease is $P(D)$.
 
@@ -72,10 +96,9 @@ The **Sensitivity** says how many get a **positive** test if they **have the dis
 
 The **Sensitivity** says how many get a **negative** test if they **don't have the disease**.
 
-
 Imagine someone get's a **positive** test result. How can we calculate the probability that this person has the disease?
 
-![Algorithm to calculate Bayes' rule](/images/bayes_algorithm.svg)
+![Algorithm to calculate Bayes' rule](images/bayes_algorithm.svg)
 
 1. Take the **Prior** and multiplicate it with $P(Pos \mid D)$ (Sensitivity) &rarr; $P(Pos, D)$.
 2. Take the **Prior** and multiplicate it with $P(Pos \mid \lnot D)$ &rarr; $P(Pos, \lnot D)$.
@@ -88,13 +111,11 @@ Note: $P(A, B) = P(B, A)$
 
 The calculation for a **negative** test result are analogous. Just replace $Pos$ with $Neg$.
 
-Probability Distributions
-=========================
+# Probability Distributions
 
 > In **Continuous Distributions** every outcome has the **Probability** $0$.
 
-Density
--------
+## Density
 
 PDF: Probability Density Function
 
@@ -107,9 +128,7 @@ Density:
 - Doesn't need to be smaller or equal than one
 - Integrates to one
 
-
-Estimation
-==========
+# Estimation
 
 Estimation problem is:
 
@@ -117,16 +136,13 @@ Data &rarr; P
 
 P &rarr; P(Data)
 
-Maximum Likelihood Estimator (MLE):
------------------------------------
+## Maximum Likelihood Estimator (MLE):
 
 $$\frac{1}{N} \cdot \sum_{i}^{} X_i$$
 
 The sum is always between $0$ and $1$.
 
-
-Laplace Estimator:
-------------------
+## Laplace Estimator:
 
 $$\frac{1}{N + k} \cdot \left(1 + \sum_{i}^{} X_i \right)$$
 
@@ -134,52 +150,86 @@ $k$: Number of Outcomes
 
 $N$: Number of Experiments
 
+# Averages
 
-Averages
-========
-
-Mean
-----
-
-$$\mu = \frac{1}{n} \sum_{i=1}^n{x_i}$$
+## Mean
 
 Sum up all elements and divide by the number of elements.
 
-Median
-------
+### Population
 
-Sort all elements and take the one in the middle.
+${\displaystyle {\mu}={\frac {1}{n}}\sum_{i=1}^{n}{x_{i}}}$
 
-Mode
-----
+### Sample
 
-The value of the elements that occur most in the data set.
+${\displaystyle {\bar {x}}={\frac {1}{n}}\sum_{i=1}^{n}{x_{i}}}$
 
-Variance
-========
+## Median
 
-The variance is a measure how disperse a data set is.
+Sort all elements and take the one in the middle (or the mean of the two elements in the middle).
+
+- if $n$ is odd: ${\displaystyle \mathrm {median} (x)=x_{(n+1)/2}}$
+- if $n$ is even: ${\displaystyle \mathrm {median} (x)={\frac {x_{(n/2)}+x_{(n/2)+1}}{2}}}$
+
+## Mode
+
+The value of the elements that appears most often in a data set.
+
+# Asymmetry
+
+## Sample Skewness
+
+$${\displaystyle g_{m}={\frac {{\tfrac {1}{n}}\sum_{i=1}^{n}(x_{i}-{\overline {x}})^{3}}{{\sqrt {{\tfrac {1}{n-1}}\sum_{i=1}^{n}(x_{i}-{\overline {x}})^{2}}}^{3}}}}$$
+
+# Variability
+
+## Variance
+
+The variance measures the dispersion of data points around their mean.
 
 Subtract the *mean* from every item. Then sum up the *squares* of the subtractions
-and devide the result by the number of data items.
+and divide the result by the number of data items.
 
-$$Var(X) = \sigma^2_X = \frac{1}{n} \sum_{i}(x_i - \mu)^2$$
+### Population
 
-Alternative Formula:
+$$\sigma^2 = {\displaystyle \operatorname {Var} (X)={\frac {1}{n}}\sum _{i=1}^{n}(x_{i}-\mu )^{2}}$$
 
-$$\sigma^2_X = \frac{\sum X_i^2}{N} - \frac{\left( \sum X_i  \right)^2}{N^2}$$
+### Sample
 
-Standard Deviation
-==================
+$${\displaystyle S^{2}={\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}$$
+
+## Standard Deviation
 
 The standard deviation is giving a sense how far away the items in a data set are from the mean.
-$$\sigma_X = \sqrt{Var(X)}$$
 
+It is the square root of its variance.
 
-Overwiev of Mean, Variance and Standard Deviation
-=================================================
+It's the most common measure of variability for a *single* data set.
 
-This notes are taken from [Khan Academy](https://www.khanacademy.org/math/probability/descriptive-statistics/variance_std_deviation/v/statistics-standard-deviation)
+### Population
+
+$$\sigma = \sqrt{\sigma^2}$$
+
+### Sample
+
+$$S = \sqrt{S^2}$$
+
+## Coefficient of Variation
+
+It is used to compare *multiple* data sets.
+
+### Population
+
+$$c_{v} = \frac{\sigma}{\mu}$$
+
+### Sample
+
+$$\hat{c_{v}} = \frac{S}{\overline {x}}$$
+
+# Overview of Mean, Variance and Standard Deviation
+
+These notes are taken
+from [Khan Academy](https://www.khanacademy.org/math/probability/descriptive-statistics/variance_std_deviation/v/statistics-standard-deviation)
 
 | Concept  | Population                                            | Samples                                                |
 |----------|-------------------------------------------------------|--------------------------------------------------------|
@@ -195,9 +245,7 @@ $n$: Number of items in sample set taken from the population
 
 $s = \sqrt{s^2}$: is not an unbiased estimator due to the non-linear nature of the square root.
 
-
-Binomial Coefficients
-=====================
+# Binomial Coefficients
 
 Choose $k$ elements from $n$ possible elements (without putting
 back elements and without caring about the order of the chosen
@@ -205,8 +253,7 @@ elements):
 
 $$\binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}$$
 
-Binomial Distribution
-=====================
+# Binomial Distribution
 
 i.e. Flip a loaded coin:
 
@@ -218,9 +265,7 @@ $P(\#heads = k)$: Expectation to get $k$ heads from all the flips.
 
 $$P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k} = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}$$
 
-
-The Normal Distribution
-=======================
+# The Normal Distribution
 
 $\mu$: Mean
 
@@ -231,8 +276,7 @@ $\sigma$: Standard Deviation
 
 $$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right)}$$
 
-Normaliser
-----------
+## Normaliser
 
 The expression $\frac{1}{\sqrt{2\pi\sigma^2}}$ is needed to normalise the area underneath curve given by the rest of
 the formula ($e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right)}$). Otherwise it would not add up to $1$.
