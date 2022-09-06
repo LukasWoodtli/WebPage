@@ -1,23 +1,23 @@
 {
   "content/agile_sw_development.md": {
     "created": 1432917755,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/angular_velocity.md": {
     "created": 1567714241,
-    "modified": 1647509701
+    "modified": 1652474879
   },
   "content/arm_cortex_m3_architecture.md": {
     "created": 1435923840,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/arm_stack_frame.md": {
     "created": 1442779935,
-    "modified": 1647509701
+    "modified": 1649450365
   },
   "content/arrays_c_cpp.md": {
     "created": 1436980543,
-    "modified": 1647509701
+    "modified": 1649490177
   },
   "content/artist_mode.md": {
     "created": 1430674717,
@@ -25,19 +25,19 @@
   },
   "content/blender_basics.md": {
     "created": 1523736728,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/c-space_dof.md": {
     "created": 1536956204,
-    "modified": 1647509701
+    "modified": 1649444650
   },
   "content/closure.md": {
     "created": 1476383626,
-    "modified": 1647509701
+    "modified": 1652814210
   },
   "content/comparison_rotation_body_motion.md": {
     "created": 1609863396,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/complexity.md": {
     "created": 1483909188,
@@ -45,7 +45,7 @@
   },
   "content/concepts_of_object_oriented_programming.md": {
     "created": 1438111438,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/cosine_distance.md": {
     "created": 1452269256,
@@ -53,15 +53,15 @@
   },
   "content/cpp_on_embedded_systems.md": {
     "created": 1490944029,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/cpp_smart_pointers.md": {
     "created": 1490044364,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/design_patterns.md": {
     "created": 1442526799,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/distance_functions.md": {
     "created": 1443269737,
@@ -69,7 +69,7 @@
   },
   "content/docker.md": {
     "created": 1521457955,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/documents/Application_Documents_Lukas_Woodtli.zip": {
     "created": 1452190353,
@@ -89,15 +89,15 @@
   },
   "content/domain_driven_design.md": {
     "created": 1578236249,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/eigenvectors.md": {
     "created": 1549728399,
-    "modified": 1647509701
+    "modified": 1649445046
   },
   "content/electrical_motors.md": {
     "created": 1546722418,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/endianness.md": {
     "created": 1434570573,
@@ -105,7 +105,7 @@
   },
   "content/enums.md": {
     "created": 1429200045,
-    "modified": 1647509701
+    "modified": 1649490325
   },
   "content/evaluation_strategy.md": {
     "created": 1611739045,
@@ -117,15 +117,15 @@
   },
   "content/exponential_coordinates_rigid_body.md": {
     "created": 1609621786,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/files_linux.md": {
     "created": 1464969399,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/finance_and_capital_markets.md": {
     "created": 1519641543,
-    "modified": 1647509701
+    "modified": 1649074423
   },
   "content/floating_point.md": {
     "created": 1638355956,
@@ -133,19 +133,19 @@
   },
   "content/free_rtos.md": {
     "created": 1501854983,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/gcc_binutils.md": {
     "created": 1519333430,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/gewohnheiten.md": {
     "created": 1615997552,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/git_detached_head.md": {
     "created": 1447881545,
-    "modified": 1647509701
+    "modified": 1649611305
   },
   "content/git_dotgit_dir.md": {
     "created": 1498835703,
@@ -153,7 +153,7 @@
   },
   "content/git_move_work_to_new_branch.md": {
     "created": 1432916275,
-    "modified": 1647509701
+    "modified": 1649445046
   },
   "content/git_reset.md": {
     "created": 1506598521,
@@ -161,15 +161,15 @@
   },
   "content/harmful_c_functions.md": {
     "created": 1429383800,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/homogeneous_transformation_matrices.md": {
     "created": 1607807797,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/hw_sw_codesign.md": {
     "created": 1447612371,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/images/arm_cortex_m3_modes_levels.dot": {
     "created": 1436017532,
@@ -521,19 +521,19 @@
   },
   "content/intel_architecture.md": {
     "created": 1435001312,
-    "modified": 1647509701
+    "modified": 1652814210
   },
   "content/intel_assembler.md": {
     "created": 1508257186,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/intel_calling_conventions.md": {
     "created": 1509911811,
-    "modified": 1647509701
+    "modified": 1649611649
   },
   "content/investment_management.md": {
     "created": 1501270765,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/l2_norm.md": {
     "created": 1452267734,
@@ -541,27 +541,27 @@
   },
   "content/language_implementation_patterns.md": {
     "created": 1514309672,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/lernen.md": {
     "created": 1613479968,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/linking_and_loading.md": {
     "created": 1511528760,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/linux_system_calls.md": {
     "created": 1510001138,
-    "modified": 1647509701
+    "modified": 1652474879
   },
   "content/macro_magic.md": {
     "created": 1431714260,
-    "modified": 1647509701
+    "modified": 1649618741
   },
   "content/make_paradigms.md": {
     "created": 1511943789,
-    "modified": 1647509701
+    "modified": 1649618741
   },
   "content/mechanical_constraints.md": {
     "created": 1538943773,
@@ -569,27 +569,27 @@
   },
   "content/memory_layout.md": {
     "created": 1433862480,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/midnight_commander.md": {
     "created": 1528210574,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/models_of_computation.md": {
     "created": 1456782516,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/modern_cpp_design.md": {
     "created": 1483448599,
-    "modified": 1647509701
+    "modified": 1649619546
   },
   "content/modern_os.md": {
     "created": 1427927264,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/object_databases.md": {
     "created": 1461155443,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/object_file_formats.md": {
     "created": 1438859480,
@@ -601,7 +601,7 @@
   },
   "content/oop_design_principles.md": {
     "created": 1527780526,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/open_source.md": {
     "created": 1453238812,
@@ -613,19 +613,19 @@
   },
   "content/pages/blog.md": {
     "created": 1434390685,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/pages/books.md": {
     "created": 1425945839,
-    "modified": 1647509701
+    "modified": 1652474879
   },
   "content/pages/contact.md": {
     "created": 1427561392,
-    "modified": 1647509701
+    "modified": 1652901377
   },
   "content/pages/courses.md": {
     "created": 1427657796,
-    "modified": 1647509701
+    "modified": 1652474879
   },
   "content/pages/index.md": {
     "created": 1427559881,
@@ -633,19 +633,19 @@
   },
   "content/pages/projects.md": {
     "created": 1425389231,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/pages/recruiters_headhunters.md": {
     "created": 1499370356,
-    "modified": 1647509701
+    "modified": 1653918011
   },
   "content/pages/resume.md": {
     "created": 1424728530,
-    "modified": 1647509701
+    "modified": 1653937205
   },
   "content/pages/skills.md": {
     "created": 1425943139,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/parsers_and_lexers.md": {
     "created": 1483908949,
@@ -657,15 +657,15 @@
   },
   "content/pomodoro_technik.md": {
     "created": 1615987283,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/pose_and_position.md": {
     "created": 1541846344,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/practical_cpp_metaprogramming.md": {
     "created": 1539787032,
-    "modified": 1647509701
+    "modified": 1649619546
   },
   "content/preprocessor_defines.md": {
     "created": 1439301854,
@@ -677,7 +677,7 @@
   },
   "content/regex.md": {
     "created": 1475875123,
-    "modified": 1647509701
+    "modified": 1649620115
   },
   "content/requirements_engineering.md": {
     "created": 1467024762,
@@ -689,27 +689,27 @@
   },
   "content/ros.md": {
     "created": 1555660355,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/rotation_matrix.md": {
     "created": 1539116797,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/rwm_operations.md": {
     "created": 1459980456,
-    "modified": 1647509701
+    "modified": 1649620115
   },
   "content/sanitizers.md": {
     "created": 1520280309,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/scheme.md": {
     "created": 1612193753,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/scheme_frequently_used_functions.md": {
     "created": 1476416644,
-    "modified": 1647509701
+    "modified": 1652814210
   },
   "content/screw_twist_wrench.md": {
     "created": 1545941210,
@@ -725,7 +725,7 @@
   },
   "content/seven_concurrency_models.md": {
     "created": 1589485004,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/si_units.md": {
     "created": 1638363100,
@@ -733,7 +733,7 @@
   },
   "content/sicp.md": {
     "created": 1478814818,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/skew_symmetric_matrix.md": {
     "created": 1567194469,
@@ -741,23 +741,23 @@
   },
   "content/software_development_priorities.md": {
     "created": 1490943716,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/solid.md": {
     "created": 1620677180,
-    "modified": 1647509701
+    "modified": 1649074423
   },
   "content/space_topology.md": {
     "created": 1537390006,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/spring.md": {
     "created": 1632986411,
-    "modified": 1647509701
+    "modified": 1649314666
   },
   "content/sql_introduction.md": {
     "created": 1428950217,
-    "modified": 1647509701
+    "modified": 1649621280
   },
   "content/statements_and_expressions.md": {
     "created": 1467635511,
@@ -765,7 +765,7 @@
   },
   "content/statistics.md": {
     "created": 1432324728,
-    "modified": 1647509701
+    "modified": 1658311876
   },
   "content/std_chrono.md": {
     "created": 1561983523,
@@ -773,7 +773,7 @@
   },
   "content/svn_undo_committed_changes.md": {
     "created": 1441117435,
-    "modified": 1647509701
+    "modified": 1649621280
   },
   "content/sw_development_priorities.md.tmp": {
     "created": 1428358160,
@@ -781,7 +781,7 @@
   },
   "content/system_construction.md": {
     "created": 1446931250,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/systemc.md": {
     "created": 1455574730,
@@ -793,11 +793,11 @@
   },
   "content/tmux.md": {
     "created": 1530634694,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/twists.md": {
     "created": 1609526950,
-    "modified": 1647509701
+    "modified": 1649447435
   },
   "content/tz_on_unix.md": {
     "created": 1561984349,
@@ -805,7 +805,7 @@
   },
   "content/understanding_computation.md": {
     "created": 1473709833,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/unix_device_files.md": {
     "created": 1488745173,
@@ -821,19 +821,19 @@
   },
   "content/vector_calculus.md": {
     "created": 1441810866,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/vim.md": {
     "created": 1554404267,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/visualization_of_functions.md": {
     "created": 1522784470,
-    "modified": 1647509701
+    "modified": 1652729722
   },
   "content/wrenches.md": {
     "created": 1609790035,
-    "modified": 1647509701
+    "modified": 1649447435
   },
   "content/x_macros_1.md.tmp": {
     "created": 1430288165,
@@ -841,6 +841,10 @@
   },
   "content/zeit_management.md": {
     "created": 1519941050,
-    "modified": 1647509701
+    "modified": 1652729722
+  },
+  "content/communication_protocols.md": {
+    "created": 1662406032,
+    "modified": 1662406032
   }
 }
