@@ -9,9 +9,11 @@ function getFileDatesImps(datesFromGit: any, markdownFileName: string) {
   const d: string | undefined = Object.keys(datesFromGit).find((fileName: string) => markdownFileName.endsWith(fileName));
 
   if (!d) {
+    const message = `No dates found for file '${markdownFileName}'. Please update file with dates: npm run generate-dates-file`;
+    console.error(message);
     throw {
       name: "File not found",
-      message: `No dates found for file '${markdownFileName}'. Please update file with dates.`
+      message: message
     };
   }
 
