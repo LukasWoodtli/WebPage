@@ -7,13 +7,13 @@ describe("Combine file information with dates", () => {
     const filePath = "/foo/bar/content/arm_stack_frame.md";
     const datesFromGit = getFileDates(filePath);
     expect(datesFromGit.created).toEqual(1442779935);
-    expect(datesFromGit.modified).toEqual(1647509701);
+    expect(datesFromGit.modified).toEqual(1649450365);
 
   });
   it("unsuccessful", () => {
     const file = "/foo/bar/baz";
     expect(() => getFileDates(file))
-      .toThrowError("No dates found for file '/foo/bar/baz'. Please update file with dates.");
+      .toThrowError("No dates found for file '/foo/bar/baz'. Please update file with dates: npm run generate-dates-file");
   });
 
   it("gets correct neighbors for first entry", () => {
@@ -31,6 +31,6 @@ describe("Combine file information with dates", () => {
   it("gets correct neighbors for last entry", () => {
     const neighbors = getNeighbors("content/odbc_postgres.md");
     expect(neighbors.previousPath).toEqual("content/si_units.md");
-    expect(neighbors.nextPath).toBeNull();
+    expect(neighbors.nextPath).toEqual("content/communication_protocols.md");
   });
 });
