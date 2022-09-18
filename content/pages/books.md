@@ -16,6 +16,13 @@ title: Books
 | [Boost C++ Application Development Cookbook](https://github.com/LukasWoodtli/BoostCookbook) | Antony Polukhin | Packt Publishing |
 
 
+# Rust
+
+| Name                                              | Authors                                               | Publisher                |
+|---------------------------------------------------|-------------------------------------------------------|--------------------------|
+| [The Rust Programming Language](https://doc.rust-lang.org/stable/book/) | Steve Klabnik and Carol Nichols | No Starch Press          |
+
+
 # Architecture, Design Patterns and Refactoring
 
 | Name                                              | Authors                                           | Publisher                       |
