@@ -14,7 +14,7 @@ Closures are (anonymous) functions with free variables that capture the context 
 
 # The Closure Property
 
-From [SICP: 2.2 Hierarchical Data and the Closure Property](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2):
+From SICP: *2.2 Hierarchical Data and the Closure Property*:
 
 *"The ability to create pairs whose elements are pairs is the essence of list structure's importance as a representational tool. We refer to this ability as **the closure property** of `cons`. In general, an operation for combining data objects satisfies the closure property if the results of combining things with that operation can themselves be combined using the same operation."*
 

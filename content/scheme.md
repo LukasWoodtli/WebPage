@@ -35,7 +35,7 @@ Programs](/blog/sicp)
 
 ## Linear Recursion and Iteration
 
-See [SICP section 1.2.1](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.1)
+See SICP *Section 1.2.1*
 and [stack overflow](http://stackoverflow.com/questions/17254240/sicp-recursive-process-vs-iterative-process-using-a-recursive-procedure-to-gene)
 
 It\'s confusing that both the recursive and the iterative implementation
@@ -112,7 +112,7 @@ encourage modular design by providing a library of standard components
 together with a conventional interface for connecting the components in
 flexible ways."*
 
-[SICP section 2.2.3 Sequences as Conventional Interfaces](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.3)
+SICP: *Section 2.2.3 Sequences as Conventional Interfaces*
 
 ## Lazy Evaluation
 
@@ -137,7 +137,7 @@ one plus two, but the word "three" is not the phrase "one plus two".
 Quotation is powerful because it gives us a way to build expressions
 that manipulate other expressions"*
 
-[SICP section 2.3.1 Quotation](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-16.html#%_sec_2.3.1)
+SICP: *Section 2.3.1 Quotation*
 
 ## Backquote
 
@@ -145,4 +145,4 @@ Preceding a list with a backquote symbol (`) is much like quoting it,
 except that anything in the list that is flagged with a comma is
 evaluated.
 
-[SICP section 5.5.2 Compiling Expressions](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-35.html#%_sec_5.5.2)
+SICP: *Section 5.5.2 Compiling Expressions*

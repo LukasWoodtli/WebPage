@@ -57,21 +57,21 @@ The `map` function can be applied on multiple lists:
         (list 4 5 6))
     >>> (9 12 15)
 
-[SICP:2.2.1  Representing Sequences:Mapping over lists](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.1)
+SICP: *2.2.1  Representing Sequences:Mapping over lists*
 
 - `(for-each fun lst)`: applies a function `fun` to each element in the list `lst` but doesn't create a new list. The return value of the function is ignored.
 
 
 *"The procedure `for-each` is similar to map. It takes as arguments a procedure and a list of elements. However, rather than forming a list of the results, `for-each` just applies the procedure to each of the elements in turn, from left to right. The values returned by applying the procedure to the elements are not used at all - `for-each` is used with procedures that perform an action, such as printing."*
 
-[SICP:2.2.1  Representing Sequences:Exercise 2.23](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.1)
+SICP: *2.2.1  Representing Sequences: Exercise 2.23*
 
 
 - `(flatten t)`: flattens a tree structure into a list
 
 - `(filter p lst)`: Creates a new list with the elements of `lst` for which the predicate `p` is satisfied
 
-- `(foldr f b lst)`: applies the function `f` to the next element of the list and the result of the previous element. `b` is the initial beginning value. The list is traversed from right to left. Also known as `acumulate` ([SICP:2.2.3](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-15.html#%_sec_2.2.3))
+- `(foldr f b lst)`: applies the function `f` to the next element of the list and the result of the previous element. `b` is the initial beginning value. The list is traversed from right to left. Also known as `acumulate` (SICP: *2.2.3*)
 
 - `(foldl f b lst)`: Same as `foldlr` but the list is traversed from left to right.
 

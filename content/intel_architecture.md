@@ -1316,7 +1316,7 @@ This code is called function epilogue.
 
 The x86 architecture contains some commands that can be executed on consecutive memory location (strings, arrays...).
 
-This commands are powerful but not so easy to understand. [Here](http://www.oocities.org/codeteacher/x86asm/asml1013.html) is a good explanation.
+This commands are powerful but not so easy to understand.
 
 ## Commands
 
