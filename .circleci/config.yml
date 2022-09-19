@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build_gatsby_page:
     docker:
-      - image: cypress/included:9.5.3
+      - image: cypress/included:10.8.0
     working_directory: ~/project
     steps:
       - checkout
