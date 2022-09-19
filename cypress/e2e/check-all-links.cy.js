@@ -65,8 +65,7 @@ describe('Links on all pages are valid', () => {
       "/blog/closure",
       "/blog/intel_architecture",
       "/blog/executable_loader",
-      "/blog/linking_and_loading",
-      "/blog/models_of_computation"];
+      "/blog/linking_and_loading",];
 
     pages.forEach(p => {
       visitBlogPageAndCheckLinks(p);
