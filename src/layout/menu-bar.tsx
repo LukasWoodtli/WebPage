@@ -9,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, Menu, MenuList, Slide, styled, ThemeProvider, useScrollTrigger } from "@mui/material";
 import { IconButton, Link } from "gatsby-theme-material-ui";
 import PropTypes from "prop-types";
+import { navigate } from "gatsby";
 
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
@@ -50,6 +51,10 @@ const MenuBar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  function handleNavigate(page: string) {
+    return navigate("/" + page.toLowerCase());
+  }
 
   return (
       <header>
@@ -107,7 +112,7 @@ const MenuBar = () => {
                       }}
                     >
                       {pages.map((page) => (
-                        <MenuItem key={page} onClick={handleCloseNavMenu}>
+                        <MenuItem key={page} onClick={() => handleNavigate(page)}>
                           <Link to={"/" + page.toLowerCase()}
                                 key={page + "menu_link"}
                                 color={"inherit"}
