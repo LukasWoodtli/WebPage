@@ -18,9 +18,9 @@ title: Books
 
 # Rust
 
-| Name                                              | Authors                                               | Publisher                |
-|---------------------------------------------------|-------------------------------------------------------|--------------------------|
-| [The Rust Programming Language](https://doc.rust-lang.org/stable/book/) | Steve Klabnik and Carol Nichols | No Starch Press          |
+| Name                                                                    | Authors                         | Publisher       |
+|-------------------------------------------------------------------------|---------------------------------|-----------------|
+| [The Rust Programming Language](https://doc.rust-lang.org/stable/book/) | Steve Klabnik and Carol Nichols | No Starch Press |
 
 
 # Architecture, Design Patterns and Refactoring
@@ -81,12 +81,14 @@ title: Books
 | Instant HTML5 Presentations How-to                | Davi Ferreira                                     | Packt Publishing                                  |
 
 
-# Agile Software Development and Scrum
+# Productivity, Creativity and Agile Software Development
 
-| Name                                                                                                            | Authors         | Publisher          |
-|-----------------------------------------------------------------------------------------------------------------|-----------------|--------------------|
-| [Scrum and XP from the Trenches (second edition)](https://www.infoq.com/minibooks/scrum-xp-from-the-trenches-2) |  Henrik Kniberg | InfoQ              |
-| [Co-Pilot](https://buchundnetz.com/werke/co-pilot/)  |  Till Bay, Benno Baumgartner, Matthias Hüni, Eva Jutzeler, Michela Pedroni | buch & netz        |
+| Name                                                                                                            | Authors                                                                   | Publisher                     |
+|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|-------------------------------|
+| The Medici Effect                                                                                               | Frans Johansson, Teresa Amabile                                           | Harvard Business Review Press | 
+| Pomodoro Technique Illustrated                                                                                  | Staffan Nöteberg                                                          | The Pragmatic Bookshelf       |
+| [Scrum and XP from the Trenches (second edition)](https://www.infoq.com/minibooks/scrum-xp-from-the-trenches-2) | Henrik Kniberg                                                            | InfoQ                         |
+| [Co-Pilot](https://buchundnetz.com/werke/co-pilot/)                                                             | Till Bay, Benno Baumgartner, Matthias Hüni, Eva Jutzeler, Michela Pedroni | buch & netz                   |
 
 
 # Operating Systems and Networking
