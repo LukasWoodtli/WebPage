@@ -850,5 +850,25 @@
   "content/testing_strategies.md": {
     "created": 1678547099,
     "modified": 1678547099
+  },
+  "content/complex_numbers.md": {
+    "created": 1684322500,
+    "modified": 1684322500
+  },
+  "content/images/IPv6.ditaa": {
+    "created": 1681198017,
+    "modified": 1681198822
+  },
+  "content/images/IPv6.png": {
+    "created": 1681198797,
+    "modified": 1681198797
+  },
+  "content/ipv6-ipv4.png": {
+    "created": 1681196590,
+    "modified": 1681196589
+  },
+  "content/ipv6.md": {
+    "created": 1681197716,
+    "modified": 1681197927
   }
 }
