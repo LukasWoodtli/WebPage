@@ -61,7 +61,7 @@ const htmlReactParserOptions: HTMLReactParserOptions = {
         if (domNode.name in headingsMapping) {
           const mappedHeading = headingsMapping[domNode.name];
           // @ts-ignore
-          return (<Typography variant={mappedHeading} {...props}>
+          return (<Typography variant={mappedHeading} sx={{ lineHeight: 2.4 }} {...props}>
             {children}
           </Typography>);
         } else if (domNode.name == "p") {
