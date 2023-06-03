@@ -152,7 +152,9 @@ See also [Wikipedia:Fractran](https://en.wikipedia.org/wiki/FRACTRAN)
 
 Example PRIMEGAME:
 
-$${\frac  {17}{91}},{\frac  {78}{85}},{\frac  {19}{51}},{\frac  {23}{38}},{\frac  {29}{33}},{\frac  {77}{29}},{\frac  {95}{23}},{\frac  {77}{19}},{\frac  {1}{17}},{\frac  {11}{13}},{\frac  {13}{11}},{\frac  {15}{2}},{\frac  {1}{7}},{\frac  {55}{1}}$$
+$$
+{\frac  {17}{91}},{\frac  {78}{85}},{\frac  {19}{51}},{\frac  {23}{38}},{\frac  {29}{33}},{\frac  {77}{29}},{\frac  {95}{23}},{\frac  {77}{19}},{\frac  {1}{17}},{\frac  {11}{13}},{\frac  {13}{11}},{\frac  {15}{2}},{\frac  {1}{7}},{\frac  {55}{1}}
+$$
 
 State/Memory: an Integer
 
@@ -249,11 +251,15 @@ See also [Wikipedia:Wang tile](https://en.wikipedia.org/wiki/Wang_tile)
 
 Traditional Syntax:
 
-$$f(x) = \frac{e^x - sin(x)}{x+3}$$
+$$
+f(x) = \frac{e^x - sin(x)}{x+3}
+$$
 
 Lambda Syntax:
 
-$$\lambda x.  \frac{e^x - sin(x)}{x+3}$$
+$$
+\lambda x.  \frac{e^x - sin(x)}{x+3}
+$$
 
 - Functions in lambda calculus don't have names
     - Just put the function completely, where it is used
@@ -264,7 +270,9 @@ $$\lambda x.  \frac{e^x - sin(x)}{x+3}$$
 
 For example:
 
-$$((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7$$
+$$
+((\lambda xy. 2x + y) 2 ) 3 = (\lambda y. 4 + y) 3 = 4 + 3 = 7
+$$
 
 - Can get rid of
     - function names

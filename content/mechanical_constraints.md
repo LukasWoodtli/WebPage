@@ -8,7 +8,9 @@ tags: [Robotics]
 
 A Pfaffian constraint is a set of $k$ ($k \leq n$) linearly independent constraints so that:
 
-$$A(q)\dot{q} = 0$$
+$$
+A(q)\dot{q} = 0
+$$
 
 Where:
 
@@ -34,7 +36,9 @@ Where:
 
 Holonomic constraints $g(q(t)) = 0$ can be differentiated with respect to $t$ to yield:
 
-$$\frac{\partial g}{\partial q}(q)\dot{q}=0$$
+$$
+\frac{\partial g}{\partial q}(q)\dot{q}=0
+$$
 
 
 ## Nonholonomic Constraints

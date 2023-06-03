@@ -8,7 +8,9 @@ Rotation of a body in space can be represented with a unit rotation vector
 
 The angular velocity $w$ can be defined as:
 
-$$w = \hat{w} \dot{\theta}$$
+$$
+w = \hat{w} \dot{\theta}
+$$
 
 Where:
 
@@ -26,9 +28,17 @@ frame needs to be chosen. For example the stationary frame $\{s\}$.
 $\omega_s \in \mathbb{R}^3$ is the angular velocity $w$ expressed in
 fixed frame $\{s\}$ coordinates.
 
-$$\dot{r}_x = \omega_s \times r_{\hat{x}}$$
-$$\dot{r}_y = \omega_s \times r_{\hat{y}}$$
-$$\dot{r}_z = \omega_s \times r_{\hat{z}}$$
+$$
+\dot{r}_x = \omega_s \times r_{\hat{x}}
+$$
+
+$$
+\dot{r}_y = \omega_s \times r_{\hat{y}}
+$$
+
+$$
+\dot{r}_z = \omega_s \times r_{\hat{z}}
+$$
 
 
 Where:
@@ -65,11 +75,15 @@ $[\omega_s]$ is a $3 \times 3$ [skew-symmetric matrix](/blog/skew_symmetric_matr
 ## General Relations
 
 
-$$[\omega_s] = \dot{R}_{sb}R_{sb}^{-1} = \dot{R}_{sb}R_{sb}^T$$
+$$
+[\omega_s] = \dot{R}_{sb}R_{sb}^{-1} = \dot{R}_{sb}R_{sb}^T
+$$
 
 and
 
-$$[\omega_b] = R_{sb}^{-1}\dot{R}_{sb}= R_{sb}^T\dot{R}_{sb}$$
+$$
+[\omega_b] = R_{sb}^{-1}\dot{R}_{sb}= R_{sb}^T\dot{R}_{sb}
+$$
 
 Where
 
@@ -82,9 +96,13 @@ An angular velocity $\omega$ expressed in an arbitrary frame $\{d\}$
 can be represented in another frame $\{c\}$ using the 
 subscript cancellation rule:
 
-$$\omega_c = R_{cd}\omega_d$$
+$$
+\omega_c = R_{cd}\omega_d
+$$
 
-$$\omega_d = R_{dc}\omega_c = R^{-1}_{cd}\omega_c = R^T_{cd}\omega_c$$
+$$
+\omega_d = R_{dc}\omega_c = R^{-1}_{cd}\omega_c = R^T_{cd}\omega_c
+$$
 
 # Literature
 

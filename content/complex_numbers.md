@@ -7,7 +7,9 @@ category: Mathematics
 
 The imaginary number $j$ is defined:
 
-$$j^2 = -1$$
+$$
+j^2 = -1
+$$
 
 - it is often named $i$ instead of $j$. But this can be confused with the electrical current.
 
@@ -15,7 +17,9 @@ $$j^2 = -1$$
 
 Extend the real number system $\mathbb {R}$ to the complex number system $\mathbb {C}$ by introducing complex numbers in the form:
 
-$$z = a + bj$$
+$$
+z = a + bj
+$$
 
 where:
 
@@ -28,18 +32,24 @@ The real numbers are a subset of the complex numbers: $\mathbb{R} \subset \mathb
 
 The set of all complex numbers is defined as:
 
-$$\mathbb{C} = \{z = a + bj | a,b \in \mathbb{R}\}$$
+$$
+\mathbb{C} = \{z = a + bj | a,b \in \mathbb{R}\}
+$$
 
 
 ## Matrix Representation
 
 ### Complex Number
 
-$$Z = \begin{pmatrix}a&-b\\b&\;\;a\end{pmatrix}$$
+$$
+Z = \begin{pmatrix}a&-b\\b&\;\;a\end{pmatrix}
+$$
 
 ### Imaginary Unit
 
-$$J = \begin{pmatrix}0&-1\\1&\;\;0\end{pmatrix}$$
+$$
+J = \begin{pmatrix}0&-1\\1&\;\;0\end{pmatrix}
+$$
 
 With
 
@@ -51,11 +61,15 @@ With
 
 ## Polar Form
 
-$$z=r\,(\cos \varphi + j \sin \varphi )$$
+$$
+z=r\,(\cos \varphi + j \sin \varphi )
+$$
 
 ### Euler's Form
 
-$$z=r\;e^{j \varphi}$$
+$$
+z=r\;e^{j \varphi}
+$$
 
 Relations:
 
@@ -83,7 +97,9 @@ Relations:
 
 With $z=r\,(\cos \varphi + j \sin \varphi )$
 
-$$Z = \begin{pmatrix}a&-b\\b&\;\;a\end{pmatrix} = \begin{pmatrix}r\;\cos \varphi&-r\;\sin \varphi\\r\;\sin \varphi&\;\;\;r\;\cos \varphi\end{pmatrix}= r\begin{pmatrix}\;\cos \varphi&-\sin \varphi\\\;\sin \varphi&\;\;\;\;\cos \varphi\end{pmatrix}$$
+$$
+Z = \begin{pmatrix}a&-b\\b&\;\;a\end{pmatrix} = \begin{pmatrix}r\;\cos \varphi&-r\;\sin \varphi\\r\;\sin \varphi&\;\;\;r\;\cos \varphi\end{pmatrix}= r\begin{pmatrix}\;\cos \varphi&-\sin \varphi\\\;\sin \varphi&\;\;\;\;\cos \varphi\end{pmatrix}
+$$
 
 
 # Operations
@@ -92,7 +108,9 @@ $$Z = \begin{pmatrix}a&-b\\b&\;\;a\end{pmatrix} = \begin{pmatrix}r\;\cos \varphi
 
 Also called modulus or magnitude.
 
-$$|z|=\sqrt {a^{2}+b^{2}}$$
+$$
+|z|=\sqrt {a^{2}+b^{2}}
+$$
 
 
 ## Complex Conjugate
@@ -101,7 +119,9 @@ Given:
 
 - $z=a+bj$
 
-$$\overline{z} = a -bj$$
+$$
+\overline{z} = a -bj
+$$
 
 
 Properties:
@@ -116,15 +136,21 @@ Properties:
 
 ### Complex Conjugate in Euler form
 
-$$\bar {z}=r\cdot \mathrm {e} ^{-j\varphi}$$
+$$
+\bar {z}=r\cdot \mathrm {e} ^{-j\varphi}
+$$
 
 ## Inverse
 
-$$z^{-1} = \frac{1}{|z|^2} \cdot \overline{z}, z \neq 0$$
+$$
+z^{-1} = \frac{1}{|z|^2} \cdot \overline{z}, z \neq 0
+$$
 
 ### Inverse in Polar form
 
-$$z^{-1} = \frac{1}{r} \cdot (cos(\varphi) - sin(\varphi)j)$$
+$$
+z^{-1} = \frac{1}{r} \cdot (cos(\varphi) - sin(\varphi)j)
+$$
 
 ## Addition and Subtraction
 
@@ -133,9 +159,13 @@ Given:
 - $z_1=a_1+b_1j$
 - $z_2=a_2+b_2j$
 
-$$z_1+z_2 = (a_1+a_2)+(b_1+b_2)j$$
+$$
+z_1+z_2 = (a_1+a_2)+(b_1+b_2)j
+$$
 
-$$z_1-z_2 = (a_1-a_2)+(b_1-b_2)j$$
+$$
+z_1-z_2 = (a_1-a_2)+(b_1-b_2)j
+$$
 
 Properties:
 
@@ -150,7 +180,9 @@ Properties:
 
 ## Multiplication
 
-$$z_1 \cdot z_2 = (a_1a_2-b_1b_2)\cdot(a_1b_2+a_2b_1)j$$
+$$
+z_1 \cdot z_2 = (a_1a_2-b_1b_2)\cdot(a_1b_2+a_2b_1)j
+$$
 
 
 Properties:
@@ -165,29 +197,39 @@ Properties:
 
 Multiplication with real scalar:
 
-$$ z\cdot x=rx\cdot \mathrm {e} ^{\mathrm {j} (\varphi )}$$
+$$
+ z\cdot x=rx\cdot \mathrm {e} ^{\mathrm {j} (\varphi )}
+$$
 
 Multipying two complex numbers:
 
-$$ z_{1}\cdot z_{2}=r_{1}r_{2}\cdot \mathrm {e} ^{\mathrm {j} (\varphi _{1}+\varphi _{2})}$$
+$$
+ z_{1}\cdot z_{2}=r_{1}r_{2}\cdot \mathrm {e} ^{\mathrm {j} (\varphi _{1}+\varphi _{2})}
+$$
 
 
 ## Division
 
 Division can be calculated with the inverse of a complex number.
 
-$$z = \frac{z_1}{z_2} = z_1 \cdot z_2^{-1} = \frac{1}{|z_2|^2} \overline{z_2} \cdot z_1$$
+$$
+z = \frac{z_1}{z_2} = z_1 \cdot z_2^{-1} = \frac{1}{|z_2|^2} \overline{z_2} \cdot z_1
+$$
 
 if $z_2 \neq 0$
 
 ### Division in Polar Form
 
-$$z = \frac{z_1}{z_2} = z_1 \cdot z_2^{-1} = \frac{r_1}{r_2} (cos(\varphi_1 -\varphi_2) + sin(\varphi_1 -\varphi_2)j)$$
+$$
+z = \frac{z_1}{z_2} = z_1 \cdot z_2^{-1} = \frac{r_1}{r_2} (cos(\varphi_1 -\varphi_2) + sin(\varphi_1 -\varphi_2)j)
+$$
 
 
 ## n-th Root
 
-$$z^{1/n}={\sqrt[{n}]{r}}\left(\cos \left({\frac {\varphi +2k\pi }{n}}\right)+\sin \left({\frac {\varphi +2k\pi }{n}}\right)j\right)$$
+$$
+z^{1/n}={\sqrt[{n}]{r}}\left(\cos \left({\frac {\varphi +2k\pi }{n}}\right)+\sin \left({\frac {\varphi +2k\pi }{n}}\right)j\right)
+$$
 
 for $ 0 \leq k \leq n-1$
 
@@ -197,7 +239,9 @@ The the $n$ th root is a $n$-valued function of z (multiple solutions).
 
 With: $z = a + bj$
 
-$$e^z = e^{a + bj} = e^a \cdot e^{bj} = e^a \cdot (cos(b) + sin(b)j)$$
+$$
+e^z = e^{a + bj} = e^a \cdot e^{bj} = e^a \cdot (cos(b) + sin(b)j)
+$$
 
 Properties:
 
@@ -211,7 +255,9 @@ Properties:
 
 With: $z = a + bj$
 
-$$ln(z) = ln(|z|) + j \cdot arctan(\frac{b}{a})$$
+$$
+ln(z) = ln(|z|) + j \cdot arctan(\frac{b}{a})
+$$
 
 for $z \neq 0$ and $-\pi \leq arctan(\frac{b}{a}) \lt \pi$ 
 
@@ -219,14 +265,18 @@ for $z \neq 0$ and $-\pi \leq arctan(\frac{b}{a}) \lt \pi$
 
 A real-valued sinusoid ($A\cos(\omega t+\theta )$) with constant amplitude $A$ can be representes in complex (phasor) form:
 
-$$A\cos(\omega t+\theta )+i\cdot A\sin(\omega t+\theta )=Ae^{i(\omega t+\theta )}=Ae^{i\theta }\cdot e^{i\omega t}$$
+$$
+A\cos(\omega t+\theta )+i\cdot A\sin(\omega t+\theta )=Ae^{i(\omega t+\theta )}=Ae^{i\theta }\cdot e^{i\omega t}
+$$
 
 This can be written as: 
 
 - Magintude: $A$
 - Angle: $\theta$
 
-$$A\angle \theta$$
+$$
+A\angle \theta
+$$
 
 Phasors simplify linear operations of snusoid funcions.
 

@@ -122,7 +122,9 @@ tags: [Computer Science, ETH]
 
 - Events, Conditions, Actions
 
-$$\underrightarrow{event [condtition] / action}$$
+$$
+\underrightarrow{event [condtition] / action}
+$$
 
 - No storage of events (only available for next step)
 - Events are global
@@ -1601,7 +1603,7 @@ Reference to variable **s** in loop body (max $n$ iterations):
 - **Infimum**
     - The infimum of a subset (of some set) is the greatest element (not necessary in the subset)
       that is less than or equal to all other elements of the subset
-    - $$\begin{matrix}S_1 \subseteq S \\  inf(S_1) = \underset{i}{max}\{i \in S : i \leq s\; \forall s \in S_1\}\end{matrix}$$
+    - $\begin{matrix}S_1 \subseteq S \\  inf(S_1) = \underset{i}{max}\{i \in S : i \leq s\; \forall s \in S_1\}\end{matrix}$
     - Examples:
         - $inf\{[3,4]\}=3$ and $min\{[3,4]\}=3$
         - $inf\{(3,4]\}=3$ but $min\{(3,4]\} \text{not defined}$

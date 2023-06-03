@@ -10,7 +10,9 @@ L2-Norm
 
 A vector $\vec a$ has the $L_2$-Norm: 
 
-$$\left \| \vec a \right \|_{2} = \sqrt{\sum_{k=1}^n|a_k|^2}$$
+$$
+\left \| \vec a \right \|_{2} = \sqrt{\sum_{k=1}^n|a_k|^2}
+$$
 
 
 $n$: Dimensions
@@ -22,4 +24,6 @@ L2-Distance
 
 The $L_2$-Distance between two vectors $\vec a$ and $\vec b$ is:
 
-$$d \left ( \vec a, \vec b  \right ) = \sqrt{\sum_{k=1}^n|a_k - b_k|^2}$$
+$$
+d \left ( \vec a, \vec b  \right ) = \sqrt{\sum_{k=1}^n|a_k - b_k|^2}
+$$

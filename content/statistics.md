@@ -65,15 +65,25 @@ $P(A\mid B)$: Probability of Event $A$ when $B$ already occurred.
 See also [Wikipedia](http://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' theorem")
 
 
-$$P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}$$
+$$
+P(A\mid B) \; = \; \frac {P(B\mid A) \cdot P(A)} {P(B)}
+$$
 
 
 > Prior Probability  & Test Evidence -> Posterior Probability
 
-Prior: $P(A)$
+Prior:
 
-Posterior: $$P(A \mid B) = P(A) \cdot P(B \mid A)\\
-P(\lnot A\mid B) = P(\lnot A) \cdot P(B \mid \lnot A)$$
+$$
+P(A)
+$$
+
+Posterior:
+
+$$
+P(A \mid B) = P(A) \cdot P(B \mid A)\\
+P(\lnot A\mid B) = P(\lnot A) \cdot P(B \mid \lnot A)
+$$
 
 
 * $P(A)$: the prior, is the initial degree of belief in $A$.
@@ -138,13 +148,17 @@ P &rarr; P(Data)
 
 ## Maximum Likelihood Estimator (MLE):
 
-$$\frac{1}{N} \cdot \sum_{i}^{} X_i$$
+$$
+\frac{1}{N} \cdot \sum_{i}^{} X_i
+$$
 
 The sum is always between $0$ and $1$.
 
 ## Laplace Estimator:
 
-$$\frac{1}{N + k} \cdot \left(1 + \sum_{i}^{} X_i \right)$$
+$$
+\frac{1}{N + k} \cdot \left(1 + \sum_{i}^{} X_i \right)
+$$
 
 $k$: Number of Outcomes
 
@@ -179,7 +193,9 @@ The value of the elements that appears most often in a data set.
 
 ## Sample Skewness
 
-$${\displaystyle g_{m}={\frac {{\tfrac {1}{n}}\sum_{i=1}^{n}(x_{i}-{\overline {x}})^{3}}{{\sqrt {{\tfrac {1}{n-1}}\sum_{i=1}^{n}(x_{i}-{\overline {x}})^{2}}}^{3}}}}$$
+$$
+{\displaystyle g_{m}={\frac {{\tfrac {1}{n}}\sum_{i=1}^{n}(x_{i}-{\overline {x}})^{3}}{{\sqrt {{\tfrac {1}{n-1}}\sum_{i=1}^{n}(x_{i}-{\overline {x}})^{2}}}^{3}}}}
+$$
 
 # Variability
 
@@ -192,11 +208,15 @@ and divide the result by the number of data items.
 
 ### Population
 
-$$\sigma^2 = {\displaystyle \operatorname {Var} (X)={\frac {1}{n}}\sum _{i=1}^{n}(x_{i}-\mu )^{2}}$$
+$$
+\sigma^2 = {\displaystyle \operatorname {Var} (X)={\frac {1}{n}}\sum _{i=1}^{n}(x_{i}-\mu )^{2}}
+$$
 
 ### Sample
 
-$${\displaystyle S^{2}={\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}$$
+$$
+{\displaystyle S^{2}={\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\overline {x}}\right)^{2}}
+$$
 
 ## Standard Deviation
 
@@ -208,11 +228,15 @@ It's the most common measure of variability for a *single* data set.
 
 ### Population
 
-$$\sigma = \sqrt{\sigma^2}$$
+$$
+\sigma = \sqrt{\sigma^2}
+$$
 
 ### Sample
 
-$$S = \sqrt{S^2}$$
+$$
+S = \sqrt{S^2}
+$$
 
 ## Coefficient of Variation
 
@@ -220,11 +244,15 @@ It is used to compare *multiple* data sets.
 
 ### Population
 
-$$c_{v} = \frac{\sigma}{\mu}$$
+$$
+c_{v} = \frac{\sigma}{\mu}
+$$
 
 ### Sample
 
-$$\hat{c_{v}} = \frac{S}{\overline {x}}$$
+$$
+\hat{c_{v}} = \frac{S}{\overline {x}}
+$$
 
 # Overview of Mean, Variance and Standard Deviation
 
@@ -251,7 +279,9 @@ Choose $k$ elements from $n$ possible elements (without putting
 back elements and without caring about the order of the chosen
 elements):
 
-$$\binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}$$
+$$
+\binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}
+$$
 
 # Binomial Distribution
 
@@ -263,7 +293,9 @@ Flip coin $n$ times.
 
 $P(\#heads = k)$: Expectation to get $k$ heads from all the flips.
 
-$$P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k} = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}$$
+$$
+P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k} = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}
+$$
 
 # The Normal Distribution
 
@@ -274,7 +306,9 @@ $\sigma^2$: Variance
 $\sigma$: Standard Deviation
 
 
-$$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right)}$$
+$$
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right)}
+$$
 
 ## Normaliser
 

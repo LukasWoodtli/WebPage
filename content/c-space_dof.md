@@ -48,7 +48,9 @@ Degrees of freedom: smallest number of *real-valued* coordinates needed to repre
 It's the dimension of the C-space or minimum number of real-valued numbers needed to represent the configuration.
 
 
-$$dof = (sum\ of\ freedoms\ of\ the\ bodies) - (number\ of\ independent\ constraints)$$
+$$
+dof = (sum\ of\ freedoms\ of\ the\ bodies) - (number\ of\ independent\ constraints)
+$$
 
 Degree of freedom depends on:
 

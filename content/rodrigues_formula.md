@@ -7,7 +7,9 @@ tags: [Robotics]
 
 An alternative representation to rotation matrices is the **axis-angle** representation in the form:
 
-$$\hat{\omega}\theta \in \mathbb{R}^3$$
+$$
+\hat{\omega}\theta \in \mathbb{R}^3
+$$
 
 Where:
 
@@ -22,7 +24,9 @@ If a frame (initially coincident with the identity matrix $I$) rotates about $\h
 
 From the **axis-angle**  $[\hat{\omega}]\theta =[\hat{\omega}\theta] \in so(3)$ representation the matrix exponential (rotation matrix) can be calculated:
 
-$$Rot(\hat{\omega}, \theta) = e^{[\hat{\omega}]\theta} =I+\sin(\theta)[\hat{\omega}]+(1-\cos(\theta))[\hat{\omega}]^{2}$$
+$$
+Rot(\hat{\omega}, \theta) = e^{[\hat{\omega}]\theta} =I+\sin(\theta)[\hat{\omega}]+(1-\cos(\theta))[\hat{\omega}]^{2}
+$$
 
 With:
 
@@ -60,9 +64,9 @@ The matrix logarithm is an algorithm that inverts Rodrigues' formula:
 
 1. if $R = I$ then $\theta = 0$ and $\hat{\omega}$ is undefined
 2. else if $tr R = -1$ then $\theta = \pi$ and $\hat{\omega}$ is one of the following (choose a feasible solution):
-    - $$\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{33})}}\begin{bmatrix} r_{13}\\r_{23}\\ 1 + r_{33}\end{bmatrix}$$
-    - $$\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{22})}}\begin{bmatrix} r_{12}\\1+r_{22}\\ r_{32}\end{bmatrix}$$
-    - $$\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{11})}}\begin{bmatrix} 1+ r_{11}\\r_{21}\\ r_{31}\end{bmatrix}$$
+    - $\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{33})}}\begin{bmatrix} r_{13}\\r_{23}\\ 1 + r_{33}\end{bmatrix}$
+    - $\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{22})}}\begin{bmatrix} r_{12}\\1+r_{22}\\ r_{32}\end{bmatrix}$
+    - $\hat{\omega} = \frac{1}{\sqrt{2(1 + r_{11})}}\begin{bmatrix} 1+ r_{11}\\r_{21}\\ r_{31}\end{bmatrix}$
     - Note: f $\hat{\omega}$ is a solution so is $-\hat{\omega}$ as well
 3. otherwise $\theta = cos^{-1}(\frac{1}{2}(tr R - 1)) \in [0, \pi)$ and $[\hat{\omega}] = \frac{1}{2 sin \theta}(R - R^T)$
 

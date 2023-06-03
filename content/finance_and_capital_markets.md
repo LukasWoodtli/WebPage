@@ -9,7 +9,9 @@ Present Value (Barwert): value of expected income stream as of the valuation dat
 
 Most common applied model uses compound interest:
 
-$$PV = \frac{C}{(1+i)^n}$$
+$$
+PV = \frac{C}{(1+i)^n}
+$$
 
 
 - $C$: Future amount of money
@@ -17,7 +19,9 @@ $$PV = \frac{C}{(1+i)^n}$$
 - $i$: Interest rate
 
 
-$$Assets = Liabilities + Equity$$
+$$
+Assets = Liabilities + Equity
+$$
 
 - Assets: Aktiva ("Vermögen") , left side of balance sheet
 - Liabilities: Passiva ("Schulden"), right side of balance sheet

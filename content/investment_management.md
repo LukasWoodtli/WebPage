@@ -80,7 +80,9 @@ across borders and across time, in an uncertain environment" - Merton & Bodie (1
 
 - Return (rate of return):
 
-$$r={\frac {V_{f}-V_{i}}{V_{i}}}$$
+$$
+r={\frac {V_{f}-V_{i}}{V_{i}}}
+$$
 
 - where
 

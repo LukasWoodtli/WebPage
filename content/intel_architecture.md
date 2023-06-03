@@ -266,7 +266,9 @@ They are called xmm0-xmm15.
 
 To allow access to 20-bit addresses with 16-bit registers the 8086 uses segmentation.
 
-$$physical\_ address = segment\_ register \times 10_{hex} + offset$$
+$$
+physical\_ address = segment\_ register \times 10_{hex} + offset
+$$
 
 
 - $\times 10_{hex}$ means a 4-bit shift to left
@@ -324,7 +326,9 @@ i.e:
 
 To calculate an address in processors with segmentation the following scheme is used:
 
-$$Offset := \begin{Bmatrix}-\\CS:\\DS:\\SS:\\ES:\end{Bmatrix}\begin{Bmatrix}-\\BX\\BP\end{Bmatrix} +\begin{Bmatrix}-\\SI\\DI\end{Bmatrix} + \begin{Bmatrix}-\\displacement_8\\displacement_{16}\end{Bmatrix}$$
+$$
+Offset := \begin{Bmatrix}-\\CS:\\DS:\\SS:\\ES:\end{Bmatrix}\begin{Bmatrix}-\\BX\\BP\end{Bmatrix} +\begin{Bmatrix}-\\SI\\DI\end{Bmatrix} + \begin{Bmatrix}-\\displacement_8\\displacement_{16}\end{Bmatrix}
+$$
 
 $-$ means that this element is not used.
 
@@ -349,7 +353,9 @@ Default for most registers is DS. But for BP the default is SS.
 
 The general for calculating a memory address is:
 
-$$[baseAddress + (indexRegister \cdot scaleValue) + displacement]$$
+$$
+[baseAddress + (indexRegister \cdot scaleValue) + displacement]
+$$
 
 Where:
 
@@ -740,7 +746,9 @@ For three operands:
 
 There are different division operations for unsigned (`DIV`) and signed (`IDIV`) numbers.
 
-$$quotient = \frac{dividend}{divisor}$$
+$$
+quotient = \frac{dividend}{divisor}
+$$
 
 The explicit operand (given directly after the command) defines 
 the size of the operands.

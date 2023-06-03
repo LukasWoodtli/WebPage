@@ -75,8 +75,8 @@ Algorithm:
 1. if $R=I$ then $\omega=0$, $v = p / \left\| p \right\|$ and $\theta = \left\| p \right\|$
 2. otherwise:
      - calculate $\omega = \hat{\omega}$ and $\theta$ for $R$ (see [matrix log on SO(3)](/blog/rodrigues_formula))
-     - then: $v$ is calculated as $$v = G^{-1}(\theta)p$$
-     - with: $$G^{-1}(\theta) = \frac{1}{\theta}I - \frac{1}{2}[\omega] + \left( \frac{1}{\theta} - \frac{1}{2} \cot \frac{\theta}{2} \right) [\omega]^2$$
+     - then: $v$ is calculated as $v = G^{-1}(\theta)p$
+     - with: $G^{-1}(\theta) = \frac{1}{\theta}I - \frac{1}{2}[\omega] + \left( \frac{1}{\theta} - \frac{1}{2} \cot \frac{\theta}{2} \right) [\omega]^2$
 
 Log: $T \in SE(3) \rightarrow [S]\theta \in se(3)$
 

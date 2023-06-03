@@ -80,7 +80,8 @@ tags: [Robotics]
 
 Screw axis $\{q, \hat s, h\}$ with finite $h$:
 
-$$S =
+$$
+S =
 \begin{bmatrix}
 \omega \\ v  
 \end{bmatrix} =
@@ -120,7 +121,8 @@ With $\omega, x \in \mathbb{R}^3$ and $R \in SO(3)$:
 
 With a Homogeneous Translation Matrix $$T = \begin{bmatrix}R & p \\ 0 & 1 \end{bmatrix}$$ where $R \in SO(3)$, $p \in \mathbb{R}^3$ the *adjoint representation* is:
 
-$$[Ad_T] =
+$$
+[Ad_T] =
 \begin{bmatrix}
 R & 0 \\ 
 [p]R & R
