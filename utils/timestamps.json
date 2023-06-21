@@ -5,7 +5,7 @@
   },
   "content/angular_velocity.md": {
     "created": 1567714241,
-    "modified": 1652474879
+    "modified": 1685819332
   },
   "content/arm_cortex_m3_architecture.md": {
     "created": 1435923840,
@@ -29,7 +29,7 @@
   },
   "content/c-space_dof.md": {
     "created": 1536956204,
-    "modified": 1649444650
+    "modified": 1685819332
   },
   "content/closure.md": {
     "created": 1476383626,
@@ -37,7 +37,7 @@
   },
   "content/comparison_rotation_body_motion.md": {
     "created": 1609863396,
-    "modified": 1652729722
+    "modified": 1685819332
   },
   "content/complexity.md": {
     "created": 1483909188,
@@ -49,7 +49,7 @@
   },
   "content/cosine_distance.md": {
     "created": 1452269256,
-    "modified": 1647509701
+    "modified": 1685819332
   },
   "content/cpp_on_embedded_systems.md": {
     "created": 1490944029,
@@ -117,7 +117,7 @@
   },
   "content/exponential_coordinates_rigid_body.md": {
     "created": 1609621786,
-    "modified": 1652729722
+    "modified": 1685819332
   },
   "content/files_linux.md": {
     "created": 1464969399,
@@ -125,7 +125,7 @@
   },
   "content/finance_and_capital_markets.md": {
     "created": 1519641543,
-    "modified": 1649074423
+    "modified": 1685819332
   },
   "content/floating_point.md": {
     "created": 1638355956,
@@ -165,11 +165,11 @@
   },
   "content/homogeneous_transformation_matrices.md": {
     "created": 1607807797,
-    "modified": 1652729722
+    "modified": 1685819332
   },
   "content/hw_sw_codesign.md": {
     "created": 1447612371,
-    "modified": 1652729722
+    "modified": 1685819332
   },
   "content/images/arm_cortex_m3_modes_levels.dot": {
     "created": 1436017532,
@@ -521,7 +521,7 @@
   },
   "content/intel_architecture.md": {
     "created": 1435001312,
-    "modified": 1663531339
+    "modified": 1685819332
   },
   "content/intel_assembler.md": {
     "created": 1508257186,
@@ -533,11 +533,11 @@
   },
   "content/investment_management.md": {
     "created": 1501270765,
-    "modified": 1652729722
+    "modified": 1685819332
   },
   "content/l2_norm.md": {
     "created": 1452267734,
-    "modified": 1647509701
+    "modified": 1685819332
   },
   "content/language_implementation_patterns.md": {
     "created": 1514309672,
@@ -565,7 +565,7 @@
   },
   "content/mechanical_constraints.md": {
     "created": 1538943773,
-    "modified": 1647509701
+    "modified": 1685819332
   },
   "content/memory_layout.md": {
     "created": 1433862480,
@@ -577,7 +577,7 @@
   },
   "content/models_of_computation.md": {
     "created": 1456782516,
-    "modified": 1652729722
+    "modified": 1685819332
   },
   "content/modern_cpp_design.md": {
     "created": 1483448599,
@@ -685,7 +685,7 @@
   },
   "content/rodrigues_formula.md": {
     "created": 1570565294,
-    "modified": 1647509701
+    "modified": 1685819332
   },
   "content/ros.md": {
     "created": 1555660355,
@@ -737,7 +737,7 @@
   },
   "content/skew_symmetric_matrix.md": {
     "created": 1567194469,
-    "modified": 1647509701
+    "modified": 1685819332
   },
   "content/software_development_priorities.md": {
     "created": 1490943716,
@@ -761,11 +761,11 @@
   },
   "content/statements_and_expressions.md": {
     "created": 1467635511,
-    "modified": 1647509701
+    "modified": 1685819332
   },
   "content/statistics.md": {
     "created": 1432324728,
-    "modified": 1658311876
+    "modified": 1685819332
   },
   "content/std_chrono.md": {
     "created": 1561983523,
@@ -821,7 +821,7 @@
   },
   "content/vector_calculus.md": {
     "created": 1441810866,
-    "modified": 1652729722
+    "modified": 1685819332
   },
   "content/vim.md": {
     "created": 1554404267,
@@ -853,7 +853,7 @@
   },
   "content/complex_numbers.md": {
     "created": 1684322500,
-    "modified": 1684322500
+    "modified": 1685819332
   },
   "content/images/IPv6.ditaa": {
     "created": 1681198017,
@@ -870,5 +870,9 @@
   "content/ipv6.md": {
     "created": 1681197716,
     "modified": 1681197927
+  },
+  "content/boot_loader.md": {
+    "created": 1687361411,
+    "modified": 1687361411
   }
 }
