@@ -1,6 +1,6 @@
 
 function isInAllowList(href) {
-  const allowList = ["linkedin", "quora", "mailto", "the-y-combinator", "buchundnetz"];
+  const allowList = ["linkedin", "quora", "mailto", "the-y-combinator", "buchundnetz", "intel"];
   for (let i = 0; i < allowList.length; i++) {
     if (href.includes(allowList[i])) {
       return true;
