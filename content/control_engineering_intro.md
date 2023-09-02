@@ -51,6 +51,23 @@ $$
 
 The vector differential equation $\dot{x}(t) = A\;x(t)$ has the solution: $x(t) = e^{At}\;x(0)$
 
+## Error Response
+
+Unit error response:
+
+-  response $\theta_e(t), t \gt 0$ of the controlled system
+-  for the initial conditions:
+   -  $\theta_e(t) = 1$ and
+   - $\dot{\theta}_e(0) = \ddot{\theta}_e(0) = \cdots = 0$
+
+
+Error response can be described by:
+
+- Steady-state response
+  - steady-state error: $e_{ss}$: asymptotic error $\theta_e(t)$ as $t  \rightarrow \infty$
+- Transient response
+  - overshoot (if error response initially overshoots final steady state error): $\left|\frac{\theta_{e,min}-e_{ss}}{\theta(0)-e_{ss}}\right| \times 100 \%$
+  - (2%) settling time: the first time $T$ such that $\left| \theta_e(t) - e_{ss} \right| \leq 0.02 (\theta_e(0)-e_{ss})$ for all $t \ge T$
 
 ## Stability
 
