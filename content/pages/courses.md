@@ -43,7 +43,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 | How to Use Git and GitHub       | [Udacity](https://www.udacity.com)                                                                                                                                                |
 | Advanced Operating Systems      | [Udacity](https://www.udacity.com)                                                                                                                                                |
 | Clojure                         | [Clojure for the Brave and True](http://www.braveclojure.com/)                                                                                                                    |
-| Programming Languages           | [Udacity](https://www.udacity.com/course/cs262)                                                                                                                                   |
+| Programming Languages           | [Udacity](https://www.udacity.com)                                                   |
 | iOS Development                 | iTunes U                                                                                                                                                                          |
 | Scheme (Lisp) | [MIT OpenCourseWare](https://ocw.mit.edu/courses/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video_galleries/video-lectures/)  |
 | UX Design for Mobile Developers | [Udacity](https://www.udacity.com/course/ud849)                                                                                                                                   |
