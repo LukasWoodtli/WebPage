@@ -96,7 +96,7 @@ title: Books
 | Name                                                                                       | Authors                                           | Publisher                                         |
 |--------------------------------------------------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
 | Moderne Betriebssysteme                                                                    | Andrew S. Tanenbaum                               | Pearson                                           |
-| [Using the FreeRTOS Real Time Kernel](https://github.com/LukasWoodtli/FreeRtosExamples)    | Richard Barry | Richard Barry                                   |
+| Using the FreeRTOS Real Time Kernel                                                        | Richard Barry | Richard Barry                                   |
 | FreeRTOS Reference Manual                                                                  | Real Time Engineers ltd.                          | Real Time Engineers ltd.                          |
 | [Linux-UNIX-Programmierung](https://github.com/LukasWoodtli/LinuxUnixDevelopment)          | Jürgen Wolf       | Rheinwerk                                         |
 | [Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/index.htm) | Jürgen Wolf | Rheinwerk                                      |
