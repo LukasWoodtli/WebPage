@@ -25,3 +25,16 @@ jobs:
       run: npm run build
     - name: Unit Tests
       run: npm test
+
+  cypress-run:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install node packages
+        run: npm ci
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          node-version: 14
+          command: npm run e2e:ci
