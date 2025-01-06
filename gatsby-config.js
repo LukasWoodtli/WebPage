@@ -67,6 +67,5 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-theme-material-ui`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-react-helmet`,
   ],
 }
