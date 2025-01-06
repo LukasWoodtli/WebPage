@@ -1,5 +1,4 @@
 import * as React from "react";
-import { GatsbySeo } from "gatsby-plugin-next-seo/src/meta/gatsby-seo";
 
 import parse, { attributesToProps, domToReact, Element, HTMLReactParserOptions } from "html-react-parser";
 import {
@@ -120,10 +119,6 @@ const htmlReactParserOptions: HTMLReactParserOptions = {
 export default function MarkdownPost(props: any) {
   return (
     <>
-      <GatsbySeo
-        title={props.title}
-        description={props.description}
-      />
       <article
         className="blog-post"
         itemScope

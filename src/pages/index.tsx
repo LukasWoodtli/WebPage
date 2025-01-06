@@ -3,8 +3,6 @@ import {Box, Card, CardContent, CardHeader, Container, Grid, Typography} from "@
 import DashBoard from "../dashboard/dash-board";
 import Layout from "../layout/layout";
 import { StaticImage } from "gatsby-plugin-image";
-import {GatsbySeo} from "gatsby-plugin-next-seo/src/meta/gatsby-seo";
-
 
 function Index() {
     const indexText = 'I am a passionate Firmware and Software Engineer with a special focus on quality. ' +
@@ -13,9 +11,6 @@ function Index() {
         'problem-solving engineering mindset that helps me to find exceptional solutions for a big range of projects.'
     return <>
       <Layout>
-        <GatsbySeo
-          title="Woodtli Engineering"
-          description="Firmware and Software enthusiast" />
         <Box
             component="main"
             sx={{

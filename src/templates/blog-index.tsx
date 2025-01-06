@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link } from "gatsby-theme-material-ui";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
 
 import Layout from "../layout/layout";
 import { Typography } from "@mui/material";
@@ -12,8 +11,6 @@ const BlogIndex = (props: any) => {
 
   return (
     <Layout>
-      <GatsbySeo title="All blog posts"
-                 description={"List of all my personal engineering blog posts"}/>
       <ol style={{ listStyle: `none` }}>
         {posts.map((post: any) => {
           if (post.excerpt.includes("TOC")) {
