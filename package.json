@@ -15,7 +15,6 @@
     "@parcel/transformer-react-refresh-wrap": "^2.13.3",
     "dayjs": "^1.11.13",
     "gatsby": "^4.23.0",
-    "gatsby-plugin-feed": "^4.10.0",
     "gatsby-plugin-gatsby-cloud": "^4.10.0",
     "gatsby-plugin-google-analytics": "^4.10.0",
     "gatsby-plugin-image": "^2.11.1",
