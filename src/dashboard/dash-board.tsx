@@ -6,7 +6,6 @@ import StraightenIcon from "@mui/icons-material/Straighten";
 import SchoolIcon from "@mui/icons-material/School";
 import CableIcon from "@mui/icons-material/Cable";
 import CloudQueueIcon from "@mui/icons-material/CloudQueue";
-import { Helmet } from "react-helmet";
 //import SummarizeIcon from '@mui/icons-material/Summarize';
 
 const DashBoard = () => {
@@ -86,9 +85,6 @@ const DashBoard = () => {
                         display="flex"
                         key={card.title}
                     >
-                      <Helmet>
-                        <meta name={card.title} content={card.text.toString()} />
-                      </Helmet>
                         <Card>
                             <CardHeader
                                 avatar={card.avatar}
