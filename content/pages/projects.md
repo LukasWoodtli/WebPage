@@ -5,11 +5,22 @@ title: Projects
 
 # Work Experience
 
+## Gardena Digital Hub
+
+I'm working with the IoT platform team on connected Embedded devices. They include a Gateway that runs a custom Linux distribution and edge devices running firmware written in C using the Zephyr OS.
+
+My main tasks include the maintenance of our custom Linux distribution, development of services running on the Gateway and providing platform functionality on the Zephyr end devices.
+
+Moreover, I ensure product quality with automated software and hardware tests, code analysis and continuous integration.
+
+The used programming languages include C, Rust and Python. We use Yocto and Zephyr as our Operating Systems. The communication protocols include CoAP, MQTT and LwM2M.
+
+[www.gardena.com](https://www.gardena.com/)
 
 ## Profidata AG
 
 
-Currently I am working as a senior software developer at Profidata. My current task there is to ensure software quality of the highly scalable and parallelized server application Xentis. 
+At Profidata I was working as a senior software developer. My tasks there ware to ensure software quality of the highly scalable and parallelized server application Xentis. 
 I implemented system tests to check our REST API's as well as integration tests and unit tests. To test a big legacy application I found that characterization tests help to increase code quality and capture current behavior. With my experience in quality
 software design and testing techniques I support other developer's with testing and refactoring the huge legacy codebase.
 
@@ -82,23 +93,4 @@ My task was to develop the firmware and create the controlling algorithm for the
 
 The bachelor thesis was rewarded with a grade of **5.5** (of 6).
 
-More information on the project can be found on the homepage: [www.reely.ethz.ch](http://www.reely.ethz.ch)
-
-
-# Private Projects
-
-## Robot
-
-Recently I started to build a robot based on ROS. It is still in a very early stage. As I will make more progress, I am going to write about it in more detail.
-
-## Web Page
-
-Currently I'm building a new Web Page using Angular and Typescript. This way I learn a lot
-about front-end development and design. I also do some unit- and e2e-testing using Jasmin,
-Karma and Cypress.
-
-
-## PX4 Firmware for Drones
-
-From time to time I'm contributing to the [PX4](https://px4.io/) project. It provides an open source auto pilot firmware for drones. The framework is used in several
-commercial and industrial applications.
+  More information on the project can be found on the homepage: [www.reely.ethz.ch](http://www.reely.ethz.ch)
