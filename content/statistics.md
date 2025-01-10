@@ -110,8 +110,8 @@ Imagine someone get's a **positive** test result. How can we calculate the proba
 
 ![Algorithm to calculate Bayes' rule](images/bayes_algorithm.svg)
 
-1. Take the **Prior** and multiplicate it with $P(Pos \mid D)$ (Sensitivity) &rarr; $P(Pos, D)$.
-2. Take the **Prior** and multiplicate it with $P(Pos \mid \lnot D)$ &rarr; $P(Pos, \lnot D)$.
+1. Take the **Prior** and multiply it with $P(Pos \mid D)$ (Sensitivity) &rarr; $P(Pos, D)$.
+2. Take the **Prior** and multiply it with $P(Pos \mid \lnot D)$ &rarr; $P(Pos, \lnot D)$.
 3. Add the results of 1. and 2. up &rarr; $P(Pos)$.
 4. Divide the result from 1. $P(Pos, D)$ by the result of 3. $P(Pos)$ &rarr; $P(D \mid Pos)$.
 5. Divide the result from 2. $P(Pos, \lnot D)$ by the result of 3. $P(Pos)$ &rarr; $P(\lnot D \mid Pos)$.
@@ -190,6 +190,13 @@ Sort all elements and take the one in the middle (or the mean of the two element
 The value of the elements that appears most often in a data set.
 
 # Asymmetry
+
+## Skewness
+
+- Positive skew: $mean > median$
+- Zero skew: $mean = median = mode$
+- Negative skew: $mean < median$
+
 
 ## Sample Skewness
 
