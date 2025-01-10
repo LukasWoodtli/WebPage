@@ -15,13 +15,14 @@ Software Developer C++ on Linux at Profidata.
 
 # Work Experience
 
-| Time             | Occupation
-|------------------|---------------------------------------------------
-| 2016 - present   | Senior Software Engineer C++ on Linux, Profidata AG
-| 2010 - 2015      | Senior Firmware/Software Engineer, Kaba AG, Wetzikon
-| 2010 (4 months)  | Software Engineer, Codecheck Zürich
-| 2010 (6 months)  | Internship as Software Engineer, Schiller AG Baar
-| 2002 (6 months)  | Mechanic, AIM Horgen
+| Time            | Occupation
+|-----------------|---------------------------------------------------
+| 2022 - present  | IoT Embedded Developer, GARDENA digital hub Zürich
+| 2016 - 2022     | Senior Software Engineer C++ on Linux, Profidata AG
+| 2010 - 2015     | Senior Firmware/Software Engineer, Kaba AG, Wetzikon
+| 2010 (4 months) | Software Engineer, Codecheck Zürich
+| 2010 (6 months) | Internship as Software Engineer, Schiller AG Baar
+| 2002 (6 months) | Mechanic, AIM Horgen
 
 
 # Education
