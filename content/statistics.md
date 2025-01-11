@@ -280,6 +280,47 @@ $n$: Number of items in sample set taken from the population
 
 $s = \sqrt{s^2}$: is not an unbiased estimator due to the non-linear nature of the square root.
 
+# Relationship between Variables
+
+Correlation: variables are statically related.
+
+## Covariance
+
+Main statistic to measure correlation.
+
+Population:
+
+$$
+\sigma_{xy} =\operatorname {cov}(x, y) = {\frac {1}{N}}\sum_{i=1}^{N}(x_{i}-\mu_x ) \cdot (y_{i}-\mu_y )
+$$
+
+Sample:
+
+$$
+S_{xy} =\operatorname {cov}(x, y) = {\frac {1}{n -1}}\sum_{i=1}^{n}(x_{i}-\overline x ) \cdot (y{i}- \overline y )
+$$
+
+## Correlation Coefficient
+
+Adjust covariance to be easy to interpret.
+
+$\operatorname {corr}(xy)={\frac {\operatorname {cov} (x,y)}{\operatorname{stdev}(x) \cdot \operatorname{stdev}(y)}}$
+
+The correlation coefficient is between $-1$ and $1$.
+
+
+Population:
+
+$$
+\rho_{xy} =\frac{\sigma_{xy}}{\sigma_{x} \cdot \sigma_{y}}
+$$
+
+Sample:
+
+$$
+r_{xy} =\frac{S_{xy}}{S_{x} \cdot S_{y}}
+$$
+
 # Binomial Coefficients
 
 Choose $k$ elements from $n$ possible elements (without putting
