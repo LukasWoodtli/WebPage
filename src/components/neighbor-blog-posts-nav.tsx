@@ -1,4 +1,4 @@
-import { Link } from "gatsby-theme-material-ui";
+import Link from "../components/link";
 import * as React from "react";
 
 export interface NeighborData {

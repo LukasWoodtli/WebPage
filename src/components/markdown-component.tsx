@@ -11,7 +11,7 @@ import {
   TableRow,
   Typography
 } from "@mui/material";
-import { Link } from "gatsby-theme-material-ui";
+import Link from "./link";
 
 
 const headingsMapping: { [char: string]: string } = {

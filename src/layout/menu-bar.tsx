@@ -6,8 +6,9 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from '@mui/material/IconButton';
 import { createTheme, Menu, MenuList, Slide, styled, ThemeProvider, useScrollTrigger } from "@mui/material";
-import { IconButton, Link } from "gatsby-theme-material-ui";
+import Link from "../components/link";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 
