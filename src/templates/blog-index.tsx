@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "gatsby-theme-material-ui";
+import Link from "../components/link";
 
 import Layout from "../layout/layout";
 import { Typography } from "@mui/material";

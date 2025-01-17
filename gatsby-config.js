@@ -65,7 +65,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-theme-material-ui`,
     `gatsby-plugin-sitemap`,
   ],
 }
