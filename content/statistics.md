@@ -344,8 +344,34 @@ Where:
 - $\mu$: Mean
 - $\sigma$: Standard Deviation
 
+## Central Limit Theorem (CLT)
 
+Given a normalized sample mean. That is the mean of a number of samples from a population.
+That sample mean converges to a standard normal distribution as the number of samples increase.
 
+1. take a sample from the population
+2. calculate the mean of that sample (sample mean)
+3. repeat until enough samples were processed
+
+All the sample means together form the *Sampling Distribution* of the mean.
+
+> The *Sampling Distribution* of the mean will approximate a normal distribution no matter of what kind the population distribution is (binomial, exponential, ...).
+
+### Sampling distribution:
+
+The sampling distribution has the same mean as the original (population) distribution. It's variance is the population variance divided by the sampling size:
+
+$$
+N(\mu, \frac{\sigma^2}{n})
+$$
+
+Where:
+
+- $\mu$: mean of the population distribution
+- $\sigma^2$: variance of the population distribution
+- $n$: number of samples
+
+Typically, at least around 30 samples are needed for the CLT to apply. 
 
 ## Normaliser
 
