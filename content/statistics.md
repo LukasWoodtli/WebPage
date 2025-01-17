@@ -373,6 +373,22 @@ Where:
 
 Typically, at least around 30 samples are needed for the CLT to apply. 
 
+### Standard Error
+
+The standard deviation of the sampling distribution.
+
+That is standard deviation of the distribution formed by the sampling mean.
+
+It shows the variability of the means of the samples. 
+
+Variance of the sampling distribution: $\frac{\sigma^2}{n}$
+
+Standard error:
+
+$$
+\frac{\sigma}{\sqrt{n}}
+$$
+
 ## Normaliser
 
 The expression $\frac{1}{\sqrt{2\pi\sigma^2}}$ is needed to normalise the area underneath curve given by the rest of
