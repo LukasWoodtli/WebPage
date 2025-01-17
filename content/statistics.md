@@ -260,7 +260,7 @@ $$
 r_{xy} =\frac{S_{xy}}{S_{x} \cdot S_{y}}
 $$
 
-# Binomial Coefficients
+## Binomial Coefficients
 
 Choose $k$ elements from $n$ possible elements (without putting
 back elements and without caring about the order of the chosen
@@ -270,7 +270,17 @@ $$
 \binom{n}{k} = \frac{n!}{k! \cdot (n - k)!}
 $$
 
-# Binomial Distribution
+# Inferential Statistics
+
+Use *Probability Theory* and *Distributions* with sample data, to predict population values.
+
+## Distributions
+
+A distribution is a function that shows how often each value of a variable occurs.
+
+### Binomial Distribution
+
+Binomial Distribution is a discrete distribution.
 
 i.e. Flip a loaded coin:
 
@@ -284,18 +294,58 @@ $$
 P(\#heads = k) = \frac{n!}{k! \cdot (n - k)!} \cdot p^k \cdot (1-p)^{n-k} = \binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}
 $$
 
-# The Normal Distribution
+### The Normal Distribution
 
-$\mu$: Mean
+Also called *Gaussian Distribution* or Bell Curve.
 
-$\sigma^2$: Variance
+Notation:
 
-$\sigma$: Standard Deviation
+$$
+N \sim (\mu, \sigma^2)
+$$
 
+Where:
+
+
+- $N \sim$: Normal Distribution
+- $\mu$: Mean
+- $\sigma^2$: Variance
+- $\sigma$: Standard Deviation
+
+Definition:
 
 $$
 f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\cdot e^{\left(-\frac{1}{2}\cdot\frac{\left(x-\mu\right)^2}{\sigma^2}\right)}
 $$
+
+Properties:
+
+- mean $=$ median $=$ mode
+- no skew
+
+#### Standard Normal Distribution
+
+Standardizing the Normal distribution to have a mean $\mu = 0$ and standard deviation $\sigma^2 = 1$.
+
+$$
+\sim (\mu, \sigma^2) \ \Rightarrow \ \sim (0, 1)
+$$
+
+Formula:
+
+$$
+z = \frac{x - \mu}{ \sigma }
+$$
+
+Where:
+
+- $z \sim N(0, 1)$
+- $z$: Standard Normal Distribution ($z$-Score)
+- $\mu$: Mean
+- $\sigma$: Standard Deviation
+
+
+
 
 ## Normaliser
 
