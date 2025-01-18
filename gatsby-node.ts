@@ -7,23 +7,21 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 async function collectMarkdownFiles(graphql: any) {
   // Get all markdown files
   const result = await graphql(
-    `
-      {
-        allMarkdownRemark(sort: {fields: fileAbsolutePath, order: ASC}) {
-          nodes {
-            id
-            fields {
-              slug
-            }
-            fileAbsolutePath
-            frontmatter {
-              title
-            }
-            excerpt
-          }
-        }
+    `{
+  allMarkdownRemark(sort: {fileAbsolutePath: ASC}) {
+    nodes {
+      id
+      fields {
+        slug
       }
-    `
+      fileAbsolutePath
+      frontmatter {
+        title
+      }
+      excerpt
+    }
+  }
+}`
   );
 
   if (result.errors) {
