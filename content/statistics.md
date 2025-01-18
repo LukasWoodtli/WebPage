@@ -394,6 +394,35 @@ $$
 \frac{\sigma}{\sqrt{n}}
 $$
 
+## Estimators
+
+Approximation of a population parameter. Depending on sample information only.
+
+An estimator is a type of (sample) statistic.
+
+A value of an estimator is called estimate. There are:
+
+- point estimates
+- confidence interval estimates
+
+The point interval is located in the middle of the confidence interval.
+
+Some basic estimates:
+
+- Sample mean $\bar {x}$ is a point estimate of the population mean $\mu$.
+- Sample variance $s^2$ is a point estimate of the population mean $\sigma^2$.
+
+### Properties of Estimators
+
+- Efficiency
+- Bias
+
+Prefer most efficient, unbiased estimator.
+
+Unbiased estimator: expected value equal to population parameter.
+
+Most efficient estimator: unbiased with the smallest variance
+
 # Bayes' Rule
 
 See also [Wikipedia](http://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' theorem")
