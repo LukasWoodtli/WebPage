@@ -267,3 +267,10 @@ They should be generic and do not contain any specialties. Ideally they could be
 #### Supporting Subdomains
 
 They are part of the specific domain of the application. But they don't contain core functionality.
+
+# References
+
+- [domainlanguage.com](https://www.domainlanguage.com/ddd/reference/)
+- [Getting Started with DDD when surrounded by Legacy Systems](https://www.domainlanguage.com/wp-content/uploads/2016/04/GettingStartedWithDDDWhenSurroundedByLegacySystemsV1.pdf)
+- [Bounded Context](https://www.martinfowler.com/bliki/BoundedContext.html)
+- [The Value at the Intersection of TDD, DDD, and BDD](https://medium.datadriveninvestor.com/the-value-at-the-intersection-of-tdd-ddd-and-bdd-da58ea1f3ac8)
