@@ -7,7 +7,7 @@ on:
       - 'master'
       - 'main'
   pull_request:
-    branches: 
+    branches:
      - '**'
 
 jobs:
@@ -36,5 +36,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          node-version: 14
+          node-version: 18
           command: npm run e2e:ci
