@@ -48,7 +48,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "npm-check": "^6.0.1",
     "prettier": "^3.4.2",
-    "start-server-and-test": "^2.0.9"
+    "start-server-and-test": "^2.0.10"
   },
   "homepage": "https://woodtli.engineering",
   "keywords": [
