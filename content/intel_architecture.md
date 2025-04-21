@@ -11,7 +11,7 @@ Part of the notes here are for Intel 80186. But some sections are extend with in
 
 Some information (especially about x86-64) is taken from [x86-64 Assembly Language Programming with Ubuntu](http://www.egr.unlv.edu/~ed/x86.html) by Ed Jorgensen.
 
-I'm trying to keep all code examples in [NASM](http://www.nasm.us) syntax.
+I'm trying to keep all code examples in NASM (Netwide Assembler) syntax.
 
 There is a good overview of the [x86 instructions](https://en.wikipedia.org/wiki/X86_instruction_listings) on Wikipedia.
 
