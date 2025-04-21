@@ -11,7 +11,7 @@ Here is a list of the most important courses I attended in the last few years.
 
 
 | Topic                       | Course                                    |
-| --------------------------- | ----------------------------------------- |
+|-----------------------------|-------------------------------------------|
 | Legic Identification (RFID) | [Legic Wetzikon](http://www.legic.com/)   |
 | SMD Soldering               | [Meili Data](http://www.meili-data.ch/)   |
 | C++ for Embedded Systems    | [HSR Rapperswil](http://www.hsr.ch/)      |
@@ -24,7 +24,7 @@ I also like to attend online courses. It's a flexible way to learn new things.
 
 | Topic                                                     | Course                                                                                                                                                |
 |-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Statistics for Data Science and Business Analysis         | [365 Careers](https://365careers.com/2020/06/11/statistics-for-data-science-and-business-analysis/)                                       |
+| Statistics for Data Science and Business Analysis         | [365 Careers](https://365careers.com/2020/06/11/statistics-for-data-science-and-business-analysis/)                                                   |
 | Agile Testing Essentials                                  | [informit](https://www.informit.com/store/agile-testing-essentials-livelessons-video-training-9780134683263)                                          |
 | Introduction to IPv6                                      | [O'Reilly](https://www.oreilly.com/library/view/introduction-to-ipv6/9781771375269/)                                                                  |
 | Software Architecture Fundamentals                        | [O'Reilly](https://www.oreilly.com/)                                                                                                                  |
