@@ -89,7 +89,7 @@
   },
   "content/domain_driven_design.md": {
     "created": 1578236249,
-    "modified": 1652729722
+    "modified": 1737201519
   },
   "content/eigenvectors.md": {
     "created": 1549728399,
@@ -521,7 +521,7 @@
   },
   "content/intel_architecture.md": {
     "created": 1435001312,
-    "modified": 1685819332
+    "modified": 1745266116
   },
   "content/intel_assembler.md": {
     "created": 1508257186,
@@ -617,7 +617,7 @@
   },
   "content/pages/books.md": {
     "created": 1425945839,
-    "modified": 1736101576
+    "modified": 1745265924
   },
   "content/pages/contact.md": {
     "created": 1427561392,
@@ -625,7 +625,7 @@
   },
   "content/pages/courses.md": {
     "created": 1427657796,
-    "modified": 1736101730
+    "modified": 1745265924
   },
   "content/pages/index.md": {
     "created": 1427559881,
@@ -633,19 +633,19 @@
   },
   "content/pages/projects.md": {
     "created": 1425389231,
-    "modified": 1652729722
+    "modified": 1736539559
   },
   "content/pages/recruiters_headhunters.md": {
     "created": 1499370356,
-    "modified": 1653918011
+    "modified": 1736539559
   },
   "content/pages/resume.md": {
     "created": 1424728530,
-    "modified": 1653937205
+    "modified": 1736539559
   },
   "content/pages/skills.md": {
     "created": 1425943139,
-    "modified": 1652729722
+    "modified": 1736539559
   },
   "content/parsers_and_lexers.md": {
     "created": 1483908949,
@@ -765,7 +765,7 @@
   },
   "content/statistics.md": {
     "created": 1432324728,
-    "modified": 1685819332
+    "modified": 1737200243
   },
   "content/std_chrono.md": {
     "created": 1561983523,
@@ -882,5 +882,17 @@
   "content/tool_chains.md": {
     "created": 1693685533,
     "modified": 1693685533
+  },
+  "content/bsd_socket_api.md": {
+    "created": 1649449125,
+    "modified": 1747071633
+  },
+  "content/images/bsd_socket_api/bsd_socket_api.plantuml": {
+    "created": 1746970951,
+    "modified": 1747066657
+  },
+  "content/images/bsd_socket_api/bsd_socket_api.png": {
+    "created": 1747066763,
+    "modified": 1747066762
   }
 }

@@ -31,6 +31,6 @@ describe("Combine file information with dates", () => {
   it("gets correct neighbors for last entry", () => {
     const neighbors = getNeighbors("content/odbc_postgres.md");
     expect(neighbors.previousPath).toEqual("content/si_units.md");
-    expect(neighbors.nextPath).toEqual("content/communication_protocols.md");
+    expect(neighbors.nextPath).toEqual("content/bsd_socket_api.md");
   });
 });
