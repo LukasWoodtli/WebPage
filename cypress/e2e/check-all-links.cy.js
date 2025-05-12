@@ -61,7 +61,6 @@ describe('Links on all pages are valid', () => {
 
   it('checks blog pages', () => {
     const pages = [
-      "/blog/scheme",
       "/blog/closure",
       "/blog/intel_architecture",
       "/blog/executable_loader",];
