@@ -48,6 +48,8 @@ These key can also be used for navigation.
 
 # Navigation
 
+## By Line or Character
+
 | Key | Movement |
 |-----|----------|
 | `h` | left     |
@@ -56,6 +58,29 @@ These key can also be used for navigation.
 | `l` | right    |
 
 > Hint: `j` looks like an arrow pointing down
+
+## By Word
+
+| Keys | Movement                           |
+|------|------------------------------------|
+| `w`  | next word                          |
+| `W`  | next word, don't stop at comma     |
+| `b`  | previous word                      |
+| `B`  | previous word, don't stop at comma |
+
+## By Page
+
+| Keys      | Movement  |
+|-----------|-----------|
+| `ctl`-`f` | page down |
+| `ctl`-`b` | page up   |
+
+## Begin and End of Document
+
+| Keys | Movement   |
+|------|------------|
+| `gg` | first line |
+| `G`  | last line  |
 
 # Editing
 
