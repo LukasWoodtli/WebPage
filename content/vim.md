@@ -57,16 +57,18 @@ These key can also be used for navigation.
 | `k` | up       |
 | `l` | right    |
 
+![move by line or char](/images/vim/move_by_line_or_char.png)
+
 > Hint: `j` looks like an arrow pointing down
 
 ## By Word
 
-| Keys | Movement                           |
-|------|------------------------------------|
-| `w`  | next word                          |
-| `W`  | next word, don't stop at comma     |
-| `b`  | previous word                      |
-| `B`  | previous word, don't stop at comma |
+| Keys | Movement                                 |
+|------|------------------------------------------|
+| `w`  | next word                                |
+| `W`  | next word, don't stop at punctuation     |
+| `b`  | previous word                            |
+| `B`  | previous word, don't stop at punctuation |
 
 ## By Page
 
