@@ -57,7 +57,7 @@ These key can also be used for navigation.
 | `k` | up       |
 | `l` | right    |
 
-![move by line or char](/images/vim/move_by_line_or_char.png)
+![move by line or char](images/vim/move_by_line_or_char.png)
 
 > Hint: `j` looks like an arrow pointing down
 
@@ -79,10 +79,17 @@ These key can also be used for navigation.
 
 ## Begin and End of Document
 
-| Keys | Movement   |
-|------|------------|
-| `gg` | first line |
-| `G`  | last line  |
+| Keys         | Movement   |
+|--------------|------------|
+| `gg` or `:1` | first line |
+| `G`  or `:$` | last line  |
+
+## Go to Line
+
+| Keys                                        | Movement   |
+|---------------------------------------------|------------|
+| `<line-no>gg`, `<line-no>G` or `:<line-no>` | go to line |
+
 
 # Editing
 
