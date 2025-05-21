@@ -50,12 +50,14 @@ These key can also be used for navigation.
 
 ## By Line or Character
 
-| Key | Movement |
-|-----|----------|
-| `h` | left     |
-| `j` | down     |
-| `k` | up       |
-| `l` | right    |
+| Key        | Movement          |
+|------------|-------------------|
+| `h`        | left              |
+| `j`        | down              |
+| `k`        | up                |
+| `l`        | right             |
+| `^` or `0` | beginning of line |
+| `$`        | end of line       |
 
 ![move by line or char](images/vim/move_by_line_or_char.png)
 
@@ -93,11 +95,14 @@ These key can also be used for navigation.
 
 # Editing
 
-| Key  | Action                         |
-|------|--------------------------------|
-| `x`  | Delete (cut) char under cursor |
-| `dd` | Delete (cut) current line      |
-| `p`  | Paste                          |
+| Key         | Action                          |
+|-------------|---------------------------------|
+| `x` or `dl` | Delete (cut) char at cursor     |
+| `X` or `dh` | Delete (cut) char before cursor |
+| `dw`        | Delete (cut) word at cursor     |
+| `db`        | Delete (cut) word before cursor |
+| `dd`        | Delete (cut) current line       |
+| `p`         | Paste                           |
 
 
 # Help
