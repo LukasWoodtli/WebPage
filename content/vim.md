@@ -81,8 +81,8 @@ These key can also be used for navigation.
 
 | Keys      | Movement  |
 |-----------|-----------|
-| `ctl`-`f` | page down |
 | `ctl`-`b` | page up   |
+| `ctl`-`f` | page down |
 
 ## Begin and End of Document
 
@@ -100,26 +100,34 @@ These key can also be used for navigation.
 
 # Editing
 
-| Key         | Action                          |
-|-------------|---------------------------------|
-| `x` or `dl` | Delete (cut) char at cursor     |
-| `X` or `dh` | Delete (cut) char before cursor |
-| `dw`        | Delete (cut) word at cursor     |
-| `db`        | Delete (cut) word before cursor |
-| `dd`        | Delete (cut) current line       |
-| `p`         | Paste                           |
+| Key         | Action                            |
+|-------------|-----------------------------------|
+| `x` or `dl` | Delete (cut) char at cursor       |
+| `X` or `dh` | Delete (cut) char before cursor   |
+| `dw`        | Delete (cut) word at cursor       |
+| `db`        | Delete (cut) word before cursor   |
+| `dd`        | Delete (cut) current line         |
+| `D` or `d$` | Delete (cut) to end of line       |
+| `d0`        | Delete (cut) to beginning of line |
+| `p`         | Paste                             |
 
 # Various
 
-| Key   | Action                                 |
-|-------|----------------------------------------|
-| `.`   | Repeat previous command                |
-| `zz`  | Shift current line to middle of screen |
+| Key                   | Action                                 |
+|-----------------------|----------------------------------------|
+| `.`                   | Repeat previous command                |
+| `zz`                  | Shift current line to middle of screen |
+| `<tab>` or `<ctrl>-d` | Autocompletion for commands            |
 
 
-# Help
+# Help and Documentation
 
-- `:help [command]`: Get help (without command: general help)
+| Command               | Action                                   |
+|-----------------------|------------------------------------------|
+| `:h [command]`        | Get help (without command: general help) |
+| `:h {subject}`        | Get help for a subject                   |
+| `<ctrl>-]`            | Follow link                              |
+| `<ctrl>-w <ctrl>-w`   | Switch between help and editor window    |
 
 # See Also
 
