@@ -11,38 +11,43 @@ tags: [Tools, Cheat Sheet, Unix, Linux]
 | `i`   | Insert |
 | `ESC` | Normal |
 
+# Vim as a Language
 
-# Verbs
+```
+[count]operation[modifier|count]{motion}
+```
 
-| Command | Meaning |
-|-----|-------------|
-| `d` | delete      |
-| `c` | change      |
-| `y` | yank (copy) |
-| `v` | visually select (`V` for line) |
+## Operation (Verbs)
+
+| Command | Meaning                        |
+|---------|--------------------------------|
+| `d`     | delete                         |
+| `c`     | change                         |
+| `y`     | yank (copy)                    |
+| `v`     | visually select (`V` for line) |
 
 
-# Modifiers
+## Modifiers
 
-| Modifier | Meaning     |
-|----------|-------------|
-| `i`      | inside      |
-| `a`      | around      |
+| Modifier | Meaning                 |
+|----------|-------------------------|
+| `i`      | inside                  |
+| `a`      | around                  |
 | *number* | e.g.: `1`, `2`, `10`    |
 | `t`      | search (stop before it) |
 | `f`      | search (stop on it)     |
 | `/`      | find regex              |
 
 
-# Nouns
+## Motion (Nouns)
 
-| Noun        | Meaning   |
-|-------------|-----------|
-| `w`         | word      |
-| `s` or  `)` | sentence  |
-| `p` or `}`  | paragraph |
-| `t` | tag (HTML/XML)    |
-| `b` | block (programming) |
+| Noun        | Meaning             |
+|-------------|---------------------|
+| `w`         | word                |
+| `s` or  `)` | sentence            |
+| `p` or `}`  | paragraph           |
+| `t`         | tag (HTML/XML)      |
+| `b`         | block (programming) |
 
 These key can also be used for navigation.
 
@@ -103,6 +108,13 @@ These key can also be used for navigation.
 | `db`        | Delete (cut) word before cursor |
 | `dd`        | Delete (cut) current line       |
 | `p`         | Paste                           |
+
+# Various
+
+| Key   | Action                                 |
+|-------|----------------------------------------|
+| `.`   | Repeat previous command                |
+| `zz`  | Shift current line to middle of screen |
 
 
 # Help
