@@ -100,6 +100,8 @@ These key can also be used for navigation.
 
 # Editing
 
+## Cut / Delete
+
 | Key         | Action                            |
 |-------------|-----------------------------------|
 | `x` or `dl` | Delete (cut) char at cursor       |
@@ -109,7 +111,22 @@ These key can also be used for navigation.
 | `dd`        | Delete (cut) current line         |
 | `D` or `d$` | Delete (cut) to end of line       |
 | `d0`        | Delete (cut) to beginning of line |
-| `p`         | Paste                             |
+
+## Copy / Yank
+
+| Key  | Action                          |
+|------|---------------------------------|
+| `yw` | Yank (copy) word at cursor      |
+| `yb` | Yank (copy)  word before cursor |
+| `yy` | Copy line                       |
+
+## Paste / Put
+
+
+| Key | Action              |
+|-----|---------------------|
+| `p` | Paste after cursor  |
+| `P` | Paste before cursor |
 
 # Various
 
