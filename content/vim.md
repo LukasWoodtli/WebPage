@@ -122,7 +122,6 @@ These key can also be used for navigation.
 
 ## Paste / Put
 
-
 | Key | Action              |
 |-----|---------------------|
 | `p` | Paste after cursor  |
@@ -135,6 +134,8 @@ These key can also be used for navigation.
 | `.`                   | Repeat previous command                |
 | `zz`                  | Shift current line to middle of screen |
 | `<tab>` or `<ctrl>-d` | Autocompletion for commands            |
+| `u`                   | Undo last command                      |
+| `<ctrl>-r`            | Redo last command                      |
 
 
 # Help and Documentation
