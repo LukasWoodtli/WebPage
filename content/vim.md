@@ -127,6 +127,35 @@ These key can also be used for navigation.
 | `p` | Paste after cursor  |
 | `P` | Paste before cursor |
 
+## Registers
+
+- Unnamed (default): `""`
+  - holds text from last `d`, `c`, `s`, `x` and `y` 
+- Numbered: `"0` - `"9`
+  - `"0` holds last yanked (`y`) text
+  - `"1` holds last cut (`d`) or changed (`c`) text
+  - `"1` shifts with each `d` and `c`
+- Named: `"a` - `"z`
+  - ...
+  - User upper-case (`"A` - `"Z` to append to the content of the register)
+- Black-hole: `"_`
+  - doesn't store removed text in a register
+
+```
+[count][register]operation
+```
+
+or
+
+```
+[register][count]operation
+```
+
+
+| Key                  | Action                                                             |
+|----------------------|--------------------------------------------------------------------|
+| `:reg [register(s)]` | Show content of listed registers. Show all if no register provided |
+
 # Various
 
 | Key                   | Action                                 |
