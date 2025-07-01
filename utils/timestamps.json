@@ -617,7 +617,7 @@
   },
   "content/pages/books.md": {
     "created": 1425945839,
-    "modified": 1745265924
+    "modified": 1748339731
   },
   "content/pages/contact.md": {
     "created": 1427561392,
@@ -825,7 +825,7 @@
   },
   "content/vim.md": {
     "created": 1554404267,
-    "modified": 1652729722
+    "modified": 1748429512
   },
   "content/visualization_of_functions.md": {
     "created": 1522784470,
@@ -845,7 +845,7 @@
   },
   "content/communication_protocols.md": {
     "created": 1662406032,
-    "modified": 1662406032
+    "modified": 1747126258
   },
   "content/testing_strategies.md": {
     "created": 1678547099,
@@ -885,14 +885,30 @@
   },
   "content/bsd_socket_api.md": {
     "created": 1649449125,
-    "modified": 1747071633
+    "modified": 1747075880
   },
   "content/images/bsd_socket_api/bsd_socket_api.plantuml": {
     "created": 1746970951,
-    "modified": 1747066657
+    "modified": 1747075880
   },
   "content/images/bsd_socket_api/bsd_socket_api.png": {
     "created": 1747066763,
-    "modified": 1747066762
+    "modified": 1747075880
+  },
+  "content/control_engineering_basic_concepts.md": {
+    "created": 1751365693,
+    "modified": 1751365693
+  },
+  "content/images/bsd_socket_api/bsd_socket_api.pdf": {
+    "created": 1747162434,
+    "modified": 1747162434
+  },
+  "content/images/vim/move_by_line_or_char.plantuml": {
+    "created": 1747297257,
+    "modified": 1747297257
+  },
+  "content/images/vim/move_by_line_or_char.png": {
+    "created": 1747297257,
+    "modified": 1747297257
   }
 }
