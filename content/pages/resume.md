@@ -15,23 +15,22 @@ Software Developer C++ on Linux at Profidata.
 
 # Work Experience
 
-| Time            | Occupation
-|-----------------|---------------------------------------------------
-| 2022 - present  | IoT Embedded Developer, GARDENA digital hub Zürich
-| 2016 - 2022     | Senior Software Engineer C++ on Linux, Profidata AG
-| 2010 - 2015     | Senior Firmware/Software Engineer, Kaba AG, Wetzikon
-| 2010 (4 months) | Software Engineer, Codecheck Zürich
-| 2010 (6 months) | Internship as Software Engineer, Schiller AG Baar
-| 2002 (6 months) | Mechanic, AIM Horgen
-
+| Time            | Occupation                                           |
+|-----------------|------------------------------------------------------|
+| 2022 - present  | IoT Embedded Developer, GARDENA digital hub Zürich   |
+| 2016 - 2022     | Senior Software Engineer C++ on Linux, Profidata AG  |
+| 2010 - 2015     | Senior Firmware/Software Engineer, Kaba AG, Wetzikon |
+| 2010 (4 months) | Software Engineer, Codecheck Zürich                  |
+| 2010 (6 months) | Internship as Software Engineer, Schiller AG Baar    |
+| 2002 (6 months) | Mechanic, AIM Horgen                                 |
 
 # Education
-| Years:         |                                                                                          |
-|----------------|------------------------------------------------------------------------------------------|
-| 2015 - 2016    | [Certificate Program in Computer Science (CAS-INFK)](https://www.inf.ethz.ch/continuing-education/certificate-program.html) |
-| 2004 - 2009    | Bachelor of Science in Electrical Engineering, [University of Applied Science Zürich (ZHAW)](http://www.zhaw.ch) |
-| 2003 - 2004    | Teacher Training College, PH Zürich                                                      |
-| 1997 - 2001    | Apprenticeship as Mechanic, MSW Winterthur                                               |
+| Years:      |                                                                                                                             |
+|-------------|-----------------------------------------------------------------------------------------------------------------------------|
+| 2015 - 2016 | [Certificate Program in Computer Science (CAS-INFK)](https://www.inf.ethz.ch/continuing-education/certificate-program.html) |
+| 2004 - 2009 | Bachelor of Science in Electrical Engineering, [University of Applied Science Zürich (ZHAW)](http://www.zhaw.ch)            |
+| 2003 - 2004 | Teacher Training College, PH Zürich                                                                                         |
+| 1997 - 2001 | Apprenticeship as Mechanic, MSW Winterthur                                                                                  |
 
 
 # Courses
@@ -39,11 +38,10 @@ See my page about the [courses](/courses) I attended.
 
 
 # Stays Abroad
-| When      | Where
-|-----------|----------------------------------------
-| 1984      | Ten months in Ann Arbor, Michigan (USA)
-| 2002-2003 | Six months in New Zealand
-
+| When      | Where                                   |
+|-----------|-----------------------------------------|
+| 1984      | Ten months in Ann Arbor, Michigan (USA) |
+| 2002-2003 | Six months in New Zealand               |
 
 # Language Skills
 
@@ -68,10 +66,10 @@ See my page about the [courses](/courses) I attended.
 # Hobbies
 
 * Sports:
-    * Mountain Climbing
-    * Running
-    * Sailing
-    * Kung Fu and Eskrima
+  * Martial Arts
+  * Running
+  * Mountain Climbing
+  * Sailing
 * Cooking
 * Reading books
 
@@ -81,8 +79,8 @@ Available on request
 
 # Application Documents
 
-|         | Documents                 |
-|---------|---------------------------|
+|         | Documents                                                                               |
+|---------|-----------------------------------------------------------------------------------------|
 | Compact | [Application Documents (compact)](/documents/Application_Documents_Lukas_Woodtli.zip)   |
 | Full    | [Application Documents (full)](/documents/Application_Documents_full_Lukas_Woodtli.zip) |
 

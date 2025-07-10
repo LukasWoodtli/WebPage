@@ -24,7 +24,6 @@ Please check also the page with [my projects](/projects).
 | JavaScript / Typescript               | basic     |
 | VHDL                                  | basic     |
 
-
 # Build Tools
 
 | Tool                | Knowledge                                |
@@ -36,7 +35,6 @@ Please check also the page with [my projects](/projects).
 | Gradle              | good                                     |
 | Jenkins (pipelines) | very good                                |
 | GitLab              | good                                     |
-
 
 # Unit Tests and Quality Engineering
 
@@ -54,7 +52,6 @@ Please check also the page with [my projects](/projects).
 | Cucumber                                  | good                                     |
 | REST-assured                              | good                                     |
 
-
 # Static Analysis
 
 | Analysis Tool                            | Knowledge                                |
@@ -62,7 +59,6 @@ Please check also the page with [my projects](/projects).
 | Clang static analyzer, clang tidy        | good                                     |
 | CppCheck                                 | good                                     |
 | Pylint                                   | good                                     |
-
 
 # Dynamic Analysis
 
@@ -73,7 +69,6 @@ Please check also the page with [my projects](/projects).
 | system tap                               | basic                                    |
 | Perf                                     | basic                                    |
 
-
 # OS's
 
 | OS                                       | Knowledge                                |
@@ -81,7 +76,6 @@ Please check also the page with [my projects](/projects).
 | OS X                                     | very good                                |
 | Linux (RHEL, Fedora, Ubuntu)             | very good                                |
 | Windows                                  | good                                     |
-
 
 # Skills
 
@@ -102,7 +96,6 @@ Please check also the page with [my projects](/projects).
 | SQL                                              | basic                                      |
 | UX/UI Design                                     | basic                                      |
 
-
 # Documentation
 
 | Tool                   | Knowledge                                |
@@ -112,7 +105,6 @@ Please check also the page with [my projects](/projects).
 | MediaWiki / Confluence | good                                     |
 | Markdown               | very good                                |
 | LaTeX                  | good                                     |
-
 
 # IDE's
 
@@ -133,17 +125,6 @@ Please check also the page with [my projects](/projects).
 | RFID                                    | good      |
 | Digital Signal Processing               | basic     |
 | Hardware Development (Analog & Digital) | basic     |
-
-
-# Processor Architectures
-
-- Intel/AMD x86 & x64
-- ARM Cortex-M3 (Silicon Labs, STMicroelectronics)
-- ARM Cortex-A7/A8 (Raspberry Pi 2, BeagleBone Black)
-- Atmel Atmega
-- Freescale ColdFire
-- Nordic NRF
-
 
 # Mechanics
 

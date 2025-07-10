@@ -4,14 +4,14 @@ title: Books
 
 # Embedded Systems and Computer Architecture
 
-| Name                                                                                                         | Authors          | Publisher        |
-|--------------------------------------------------------------------------------------------------------------|------------------|------------------|
-| Zephyr RTOS Embedded C Programming                                                         | Andrew Eliasz                     | Apress                   |
-| Using the FreeRTOS Real Time Kernel                                                        | Richard Barry                     | Richard Barry            |
-| FreeRTOS Reference Manual                                                                  | Real Time Engineers ltd.          | Real Time Engineers ltd. |
-| [Mastering Embedded Linux Programming](https://github.com/LukasWoodtli/MasteringEmbeddedLinuxProgramming)    | Chris Simmonds   | Packt Publishing |
-| Vom Gatter zu VHDL                                                                                           | M. Künzli        | vdf Lehrbuch     |
-| Technische Informatik I+II                                                                                   | T. Müller et al. | vdf Lehrbuch     |
+| Name                                                                                                      | Authors                  | Publisher                |
+|-----------------------------------------------------------------------------------------------------------|--------------------------|--------------------------|
+| Zephyr RTOS Embedded C Programming                                                                        | Andrew Eliasz            | Apress                   |
+| Using the FreeRTOS Real Time Kernel                                                                       | Richard Barry            | Richard Barry            |
+| FreeRTOS Reference Manual                                                                                 | Real Time Engineers ltd. | Real Time Engineers ltd. |
+| [Mastering Embedded Linux Programming](https://github.com/LukasWoodtli/MasteringEmbeddedLinuxProgramming) | Chris Simmonds           | Packt Publishing         |
+| Vom Gatter zu VHDL                                                                                        | M. Künzli                | vdf Lehrbuch             |
+| Technische Informatik I+II                                                                                | T. Müller et al.         | vdf Lehrbuch             |
 
 # C and C++
 
@@ -37,14 +37,14 @@ title: Books
 
 # Operating Systems and Networking
 
-| Name                                                                                       | Authors                           | Publisher                |
-|--------------------------------------------------------------------------------------------|-----------------------------------|--------------------------|
-| [Linux-UNIX-Programmierung](https://github.com/LukasWoodtli/LinuxUnixDevelopment)          | Jürgen Wolf                       | Rheinwerk                |
-| [x86-64 Assembly Language Programming with Ubuntu](https://github.com/LukasWoodtli/LinuxAssemblyProgramming) | Ed Jorgensen     | Ed Jorgensen     |
-| Moderne Betriebssysteme                                                                    | Andrew S. Tanenbaum               | Pearson                  |
-| [Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/index.htm) | Jürgen Wolf                       | Rheinwerk                |
-| [What You Need to Know about Docker](/blog/docker)                                         | Scott Gallagher                   | Packt Publishing         |
-| TCP/IP für Dummies                                                                         | Candace Leiden, Marshall Wilensky | Wiley-VCH Verlag GmbH    |
+| Name                                                                                                         | Authors                           | Publisher             |
+|--------------------------------------------------------------------------------------------------------------|-----------------------------------|-----------------------|
+| [Linux-UNIX-Programmierung](https://github.com/LukasWoodtli/LinuxUnixDevelopment)                            | Jürgen Wolf                       | Rheinwerk             |
+| [x86-64 Assembly Language Programming with Ubuntu](https://github.com/LukasWoodtli/LinuxAssemblyProgramming) | Ed Jorgensen                      | Ed Jorgensen          |
+| Moderne Betriebssysteme                                                                                      | Andrew S. Tanenbaum               | Pearson               |
+| [Shell-Programmierung](http://openbook.rheinwerk-verlag.de/shell_programmierung/index.htm)                   | Jürgen Wolf                       | Rheinwerk             |
+| [What You Need to Know about Docker](/blog/docker)                                                           | Scott Gallagher                   | Packt Publishing      |
+| TCP/IP für Dummies                                                                                           | Candace Leiden, Marshall Wilensky | Wiley-VCH Verlag GmbH |
 
 # Architecture, Design Patterns and Refactoring
 
