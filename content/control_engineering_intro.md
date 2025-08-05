@@ -1,7 +1,7 @@
 ---
 title: Control Engineering Introduction
-category: Mechanics
-tags: [Robotics]
+category: Robotics
+tags: [Control Systems, Robotics]
 ---
 
 # Ordinary Differential Equation
