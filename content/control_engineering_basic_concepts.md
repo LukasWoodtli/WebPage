@@ -1,7 +1,7 @@
 ---
 title: Control Engineering Basic Concepts
-category: Mechanics
-tags: [Robotics]
+category: Robotics
+tags: [Control Systems, Robotics]
 ---
 
 # Transfer Function (Übertragungsfunktion)

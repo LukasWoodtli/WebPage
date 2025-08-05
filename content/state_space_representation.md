@@ -1,7 +1,7 @@
 ---
 title: State Space Representation
-category: Control Engineering
-tags: [Robotics]
+category: Robotics
+tags: [Control Systems, Robotics]
 ---
 
 ## Differential Equation of a Dynamic System

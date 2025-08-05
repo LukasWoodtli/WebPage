@@ -617,7 +617,7 @@
   },
   "content/pages/books.md": {
     "created": 1425945839,
-    "modified": 1748339731
+    "modified": 1752126534
   },
   "content/pages/contact.md": {
     "created": 1427561392,
@@ -637,15 +637,15 @@
   },
   "content/pages/recruiters_headhunters.md": {
     "created": 1499370356,
-    "modified": 1736539559
+    "modified": 1752126534
   },
   "content/pages/resume.md": {
     "created": 1424728530,
-    "modified": 1736539559
+    "modified": 1752126534
   },
   "content/pages/skills.md": {
     "created": 1425943139,
-    "modified": 1736539559
+    "modified": 1752126534
   },
   "content/parsers_and_lexers.md": {
     "created": 1483908949,
@@ -877,7 +877,7 @@
   },
   "content/control_engineering_intro.md": {
     "created": 1693510870,
-    "modified": 1693685584
+    "modified": 1754389299
   },
   "content/tool_chains.md": {
     "created": 1693685533,
@@ -897,7 +897,7 @@
   },
   "content/control_engineering_basic_concepts.md": {
     "created": 1751365693,
-    "modified": 1751365693
+    "modified": 1754389299
   },
   "content/images/bsd_socket_api/bsd_socket_api.pdf": {
     "created": 1747162434,
@@ -913,6 +913,10 @@
   },
   "content/state_space_representation.md": {
     "created": 1752007579,
-    "modified": 1752007579
+    "modified": 1754389299
+  },
+  "content/dynamic_modeling.md": {
+    "created": 1751365693,
+    "modified": 1754389299
   }
 }
