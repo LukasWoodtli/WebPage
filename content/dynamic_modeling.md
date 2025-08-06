@@ -19,17 +19,18 @@ Creating a dynamic model of a system involves multiple steps.
 5. Write dynamic balances for conserved quantities 
    - energy
    - mass
-   - momentum
-   - species
+   - momentum (Impuls)
+   - electric charge
+   - species (chemistry)
 6. Add other relations
    - geometry
    - thermodynamics
    - reactions
    - ...
-7. Degrees of freedom: number of equations $==$ number of unknown variables?
+7. Degrees of freedom: number of equations = number of unknown variables?
 8. Classify inputs as 
    - Fixed constants
-   - Disturbances
+   - Disturbances (cannot be controlled, might or might not be measurable)
    - Manipulated variables (manually or by solver/controller)
 9. Classify predicted variables (e.g. outputs)
    - States
