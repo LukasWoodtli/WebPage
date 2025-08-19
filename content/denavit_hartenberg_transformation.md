@@ -14,29 +14,35 @@ tags: [Control Systems, Robotics]
 - Every link connects 2 joints
   - except the first and last link
 - Every joint connects 2 links
+- Each joint is described simply by 4 parameters
+  - Two constraints
+    - $x_j$ axis intersects $z_{j-1}$ axis
+    - $x_j$ axis is perpendicular to $z_{j-1}$ axis
+- Describe the pose of a link frame with respect to the link frame of the previous joint
 
 ## Numbering Links and Joints
 
 - $N+1$ Links ($0 \dots n$)
   - First link: (link $0$) base
   - Last link $n$: end effector
-- $N$ Joints ($0 \dots n$)
+- $N$ Joints ($1 \dots n$)
 
 ## Coordinate Frames
 
 - Start at base
-- - Attach a coordinate frame to the end of every link
+- Attach a coordinate frame to the end of every link
 - Enumerate joints and links
-  - Base: $0$
-  - Joint $j$ connects joint $j$ with joint $j-1$
+  - Base link: $0$
+  - Joint $j$ connects link $j$ with link $j-1$
 - Base frame $\{0\}$:
   - $z_0$ aligns with axis of first link
 - Generally: $z_j$ axis aligns with $j+1$ joint axis
 - $x_j$ axis:
   - Along normal between $z_{j-1}$ and $z_j$ axis
-  - Point from joint $j$ to joint $j+1$
+  - Points (positive direction) from joint $j$ to joint $j+1$
+- Choose $y_j$ axis to form a right-handed coordinate system
 
-> The link frame is not necessarily located on the link
+> The link frame is not necessarily located on the physical link
 
 ## Parameters
 
@@ -61,3 +67,16 @@ tags: [Control Systems, Robotics]
 | Link Offset | $d_j$      | Distance from origin of frame $\{j\}$ to $x_{j+1}$ axis along $z_j$ axis                                           | Constant or prismatic joint variable |
 | Joint Angle | $\theta_j$ | Angle between $x_j$ and $x_{j+1}$ about $z_{j-1}$ axis                                                             | Revolute joint variable or constant  |
 | Joint Type  | $\sigma_j$ | $\sigma_j = R$ for revolute, $\sigma_j = P$ for prismatic                                                          | Constant: $R=0$, $P=1$               |
+
+
+## Link Transformation
+
+The link transform is represented by a homogeneous transformation matrix $A$.
+
+It comprises four elementary transformations:
+
+- A rotation around the $Z$ axis
+- A translation along the $Z$ axis
+- A translation along the $X$ axis
+- A rotation around the $X$ axis
+
