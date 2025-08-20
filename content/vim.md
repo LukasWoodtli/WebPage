@@ -6,10 +6,17 @@ tags: [Tools, Cheat Sheet, Unix, Linux]
 
 # Modes
 
-| Key   | Mode   |
-|-------|--------|
-| `i`   | Insert |
-| `ESC` | Normal |
+| Key   | Mode                                      |
+|-------|-------------------------------------------|
+| `i`   | Insert at current cursor position         |
+| `I`   | Insert at beginning of line               |
+| `a`   | Insert after current cursor position      |
+| `A`   | Insert at end of line                     |
+| `o`   | Insert at new line after cursor position  |
+| `O`   | Insert at new line before cursor position |
+| `r`   | Replace char at current cursor position   |
+| `R`   | Replace (overwrite) mode                  |
+| `ESC` | Normal                                    |
 
 # Vim as a Language
 
@@ -126,6 +133,34 @@ These key can also be used for navigation.
 |-----|---------------------|
 | `p` | Paste after cursor  |
 | `P` | Paste before cursor |
+
+
+## Change Text
+
+| Key         | Action                        |
+|-------------|-------------------------------|
+| `c<motion>` | Change text                   |
+| `C`         | Change text until end of line |
+| `cc`        | Change entire line            |
+
+
+## Join Lines
+
+| Key  | Action                               |
+|------|--------------------------------------|
+| `J`  | Join lines with spaces added         |
+| `gJ` | Join lines without additional spaces |
+
+
+## Change Case
+
+| Key          | Action                             |
+|--------------|------------------------------------|
+| `gU<motion>` | To upper case                      |
+| `gu<motion>` | To lower case                      |
+| `g~<motion>` | Toggle case                        |
+| `~`          | Toggle case of character at cursor |
+
 
 ## Registers
 
