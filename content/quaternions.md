@@ -14,6 +14,19 @@ $$
 
 where $1$, $i$, $j$ and $k$ are the basis vectors (or basis elements).
 
+## Vector Representation
+
+$$
+q = (s, v) = s \langle v_1, v_2, v_3 \rangle
+$$
+
+where:
+
+- $s = x_0$
+- $v = (v_1, v_2, v_3) = (x_1, x_2, x_3)$
+
+
+
 ## Matrix Representation
 
 ### Complex Matrices
@@ -39,6 +52,8 @@ i & 0 \\
 \end{align*}
 $$
 
+#### As Complex $2 \times 2$ Matrix
+
 Quaternion $x_0 + x_1 i + x_2 j + x_3 k$ as complex $\mathbb{C}^{2 \times 2}$ matrix:
 
 $$
@@ -47,6 +62,8 @@ x_0 + x_1 i & x_2 + x_3 i \\
 -x_2 + x_3 i & x_0 - x_1 i
 \end{bmatrix}
 $$
+
+#### As Real $4 \times 4$ Matrix
 
 Quaternion $x_0 + x_1 i + x_2 j + x_3 k$ as real $\mathbb{R}^{4 \times 4}$ matrix:
 
@@ -81,13 +98,19 @@ $$
 \end{align*}
 $$
 
-### Two Quaternions
+### Quaternion Multiplication (Hamilton Product)
 
 $$
-\begin{align*}x\;y&=(x_{0}y_{0}-x_{1}y_{1}-x_{2}y_{2}-x_{3}y_{3})&\quad &\\&+(x_{0}y_{1}+x_{1}y_{0}{\;+\;x_{2}y_{3}}{\;-\;x_{3}y_{2}})\mathrm {i} &&\\& +(x_{0}y_{2}{\;-\;x_{1}y_{3}}+x_{2}y_{0}{\;+\;x_{3}y_{1}})\mathrm {j} &&\\& +(x_{0}y_{3}{\;+\;x_{1}y_{2}}{\;-\;x_{2}y_{1}}+x_{3}y_{0})\mathrm {k} &&\end{align*}
+q_1 \circ q_2 = s_1s_2 - v_1 \cdot v_2 \langle s_1 v_2 + s_2 v_1 + v_1 \times v_2 \rangle
 $$
 
 Multiplication is associative but *not* commutative ($xy \neq yx$).
+
+### Inner Product
+
+$$
+q_1 \cdot q_2 = s_1 s_2 + v_{x1} v_{x2} + v_{y1} v_{y2} + v_{z1} v_{z2} \in \mathbb{H}
+$$
 
 ## Conjugation
 
@@ -103,8 +126,18 @@ $$
 
 ## Unit Quaternion
 
-A unit Quaternion has the length (norm) of $1$:
+A unit Quaternion has the length (norm) of $1$. It's also called versor.
 
 $$
-U_q = \frac{q}{\lVert q\rVert}
+U_q = \frac{q}{\lVert q\rVert} = 1
 $$
+
+## Rotation
+
+Unit quaternions can be used to represent rotations of an angle $\Theta$ around a unit vector $\hat{v}$.
+
+$$
+U_q = \cos \frac{\Theta}{2} \langle \hat{v} \sin \frac{\Theta}{2} \rangle \in S^3
+$$
+
+Note: $U_q$ amd $-U_q$ represent the same rotation.
