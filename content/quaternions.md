@@ -141,3 +141,44 @@ U_q = \cos \frac{\Theta}{2} \langle \hat{v} \sin \frac{\Theta}{2} \rangle \in S^
 $$
 
 Note: $U_q$ amd $-U_q$ represent the same rotation.
+
+### Rotation Matrix
+
+$$
+q = \begin{pmatrix}q_0\\q_1\\q_2\\q_3\end{pmatrix} = \begin{pmatrix} \cos \frac{\theta}{2} \\ \hat{\omega} \sin \frac{\theta}{2}\end{pmatrix} \in {\mathbb{R}}^4
+$$
+
+with:
+
+- $\lVert q\rVert = 1$: Unit Quaternion (therefore only 3 degrees of freedom)
+
+Note:
+
+- $q_0$ corresponds to $\cos \frac{\theta}{2}$
+- $\begin{pmatrix}q_1\\q_2\\q_3\end{pmatrix}$ corresponds to $\hat{\omega} \sin \frac{\theta}{2}$
+
+#### From Rotation Matrix to Quaternion
+
+Given the rotation matrix:
+
+$$
+R = \begin{pmatrix}r_{11} & r_{12} & r_{13}\\r_{21} & r_{22} & r_{23} \\r_{31} & r_{32} & r_{33}\end{pmatrix}
+$$
+
+Calculate the Quaternion:
+
+$$
+q_{0} = \cos \frac{\theta}{2} = \frac{1}{2} \sqrt {1+r_{11}+r_{22}+r_{33}}
+$$
+
+and
+
+$$
+\begin{pmatrix}q_1\\q_2\\q_3\end{pmatrix} = \hat{\omega} \sin \frac{\theta}{2} = \frac{1}{4 q_0} \begin{pmatrix}r_{32}-r_{23}\\r_{13}-r_{31}\\r_{21}-r_{12}\end{pmatrix}
+$$
+
+#### From Quaternion to Rotation Matrix
+
+$$
+R = \begin{pmatrix}{q_{0}}^2 + {q_{1}}^2 - {q_{2}}^2 - {q_{3}}^2 & 2(q_{1}q_{2}-q_{0}q_{3}) & 2(q_{0}q_{2}+q_{1}q_{3})\\2(q_{0}q_{3}+q_{1}q_{2}) & {q_{0}}^2 - {q_{1}}^2 + {q_{2}}^2 - {q_{3}}^2 & 2(q_{2}q_{3}-q_{0}q_{1})\\2(q_{1}q_{3}-q_{0}q_{2}) & 2(q_{0}q_{1}+q_{2}q_{3}) & {q_{0}}^2 - {q_{1}}^2 - {q_{2}}^2 + {q_{3}}^2\end{pmatrix}
+$$
