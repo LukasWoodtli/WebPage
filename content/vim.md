@@ -193,12 +193,17 @@ or
 
 # Search and Replace
 
-| Key       | Action                                |
-|-----------|---------------------------------------|
-| `f<char>` | Search forward on line                |
-| `F<char>` | Search backwards on line              |
-| `;`       | Continue search in original direction |
-| `,`       | Continue search in opposite direction |
+| Key       | Action                                    |
+|-----------|-------------------------------------------|
+| `f<char>` | Search forward on line                    |
+| `F<char>` | Search backwards on line                  |
+| `t<char>` | Go forward to <char> stopping before char |
+| `T<char>` | Go backward to <char> stopping after char |
+| `;`       | Continue search in original direction     |
+| `,`       | Continue search in opposite direction     |
+
+> These commands are considered as motions and can be used
+> with operations like `d`, `c` and `y`.
 
 # Various
 
