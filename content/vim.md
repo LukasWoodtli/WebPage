@@ -191,6 +191,15 @@ or
 |----------------------|--------------------------------------------------------------------|
 | `:reg [register(s)]` | Show content of listed registers. Show all if no register provided |
 
+# Search and Replace
+
+| Key       | Action                                |
+|-----------|---------------------------------------|
+| `f<char>` | Search forward on line                |
+| `F<char>` | Search backwards on line              |
+| `;`       | Continue search in original direction |
+| `,`       | Continue search in opposite direction |
+
 # Various
 
 | Key                   | Action                                 |
