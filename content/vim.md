@@ -193,6 +193,8 @@ or
 
 # Search and Replace
 
+## Search on Line
+
 | Key       | Action                                    |
 |-----------|-------------------------------------------|
 | `f<char>` | Search forward on line                    |
@@ -204,6 +206,38 @@ or
 
 > These commands are considered as motions and can be used
 > with operations like `d`, `c` and `y`.
+
+## Search in Document
+
+| Key       | Action                                        |
+|-----------|-----------------------------------------------|
+| `/<word>` | Search forwards for word                      |
+| `?<word>` | Search backward for word                      |
+| `*`       | Search forward for word under cursor          |
+| `#`       | Search backward for word under cursor         |
+| `n`       | Go to next occurrence in search direction     |
+| `N`       | Go to previous occurrence in search direction |
+
+
+## Replace
+
+General command syntax:
+
+```
+:[range]/<old>/<new>/[flags]
+```
+
+Range:
+- `<number>`: line with number
+- `<number-1>,<number-2>`: from line `number-1` to `number-2`
+- `.`: current line
+- `$`: last line
+- `%` or `1,$`: entire file
+
+Flags:
+- `g`: global (all occurrences in line)
+- `c`: confirm each replacement
+- `i`: ignore case
 
 # Various
 
