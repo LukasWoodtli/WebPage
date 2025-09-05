@@ -227,12 +227,17 @@ General command syntax:
 :[range]/<old>/<new>/[flags]
 ```
 
+> The separator `/` can be replaced by another symbol (e.g. `#` or `|`)
+
 Range:
 - `<number>`: line with number
 - `<number-1>,<number-2>`: from line `number-1` to `number-2`
+- `/<pattern-1>/,/<pattern-2>/`: from match of `pattern-1` to `pattern-2`
 - `.`: current line
 - `$`: last line
 - `%` or `1,$`: entire file
+
+> Range variants can be combined
 
 Flags:
 - `g`: global (all occurrences in line)
