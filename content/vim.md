@@ -263,6 +263,31 @@ Examples:
 - `daw`: Delete A Word
 - `ciw`: Change Inner Word (without delimiter)
 
+# Macros
+
+| Key           | Action                                    |
+|---------------|-------------------------------------------|
+| `q<register>` | Record macro and save it in the register  |
+| `q`           | Stop recording macro (in normal mode)     |
+| `@<register>` | Apply macro in the register               |
+| `@`           | Apply last executed macro                 |
+
+
+> Macros can be appended by using capital register names
+
+## Apply Macro on Range of Lines
+
+Use ranges as in the substitute command and provide the register with the macro to apply:
+
+```
+:<range-start>,<range-end>normal @<reg-name>`
+```
+
+## Considerations for Macros
+
+1. Start always at same position (i.e. beginning of line `0`)
+2. Record operations
+3. Position cursor at sensible position (i.e. next line `j`)
 
 # Various
 
