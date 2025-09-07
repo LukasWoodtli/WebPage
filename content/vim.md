@@ -244,6 +244,26 @@ Flags:
 - `c`: confirm each replacement
 - `i`: ignore case
 
+# Text Objects
+
+- Word: `w` (or `W` with punctuation)
+- Sentence: `s`
+- Paragraph: `p`
+- Block: `b`
+- Tag: `t`
+- Various delimiters: `{`, `]`, `)`, `<`, `"`,...
+
+## Include or exclude delimiter
+
+- Apply operator to object including separators: `<operator>a<object>`
+- Apply operator to object without separators: `<operator>i<object>`
+
+Examples:
+
+- `daw`: Delete A Word
+- `ciw`: Change Inner Word (without delimiter)
+
+
 # Various
 
 | Key                   | Action                                 |
