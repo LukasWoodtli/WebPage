@@ -263,6 +263,17 @@ Examples:
 - `daw`: Delete A Word
 - `ciw`: Change Inner Word (without delimiter)
 
+# Visual Mode
+
+| Key     | Action                                                                      |
+|---------|-----------------------------------------------------------------------------|
+| `v`     | Characterwise visual mode                                                   |
+| `V`     | Linewise visual mode                                                        |
+| `ctl-v` | Blockwise visual mode                                                       |
+| `gv`    | Switch to visual mode with last selection                                   |
+| `o`     | Switch to opposite side of selection                                        |
+| `O`     | Switch to opposite side of selection on same line (in block selection mode) |
+
 # Macros
 
 | Key           | Action                                    |
