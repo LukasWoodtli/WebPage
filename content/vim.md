@@ -274,6 +274,63 @@ Examples:
 | `o`     | Switch to opposite side of selection                                        |
 | `O`     | Switch to opposite side of selection on same line (in block selection mode) |
 
+# Buffers
+
+| Key                            | Action                           |
+|--------------------------------|----------------------------------|
+| `:buffers`, `:b` or `:ls`      | List open buffers                |
+| `:b <number>` or `:b <name>`   | Show buffer in current window    |
+| `:bn`                          | Show next buffer                 |
+| `:bp`                          | Show previous buffer             |
+| `:bf`                          | Show first buffer                |
+| `:bl`                          | Show last buffer                 |
+| `:badd <name>`                 | Create new buffer                |
+| `:bd <number>` or `:bd <name>` | Close buffer                     |
+| `:wall`                        | Save all buffers                 |
+| `:qall!`                       | Close all buffers without saving |
+| `:bufdo <cmd>`                 | Run command on each open buffer  |
+
+# Windows
+
+| Key                           | Action                               |
+|-------------------------------|--------------------------------------|
+| `:sp [file]` or `<ctl>-w s`   | Split window horizontally            |
+| `:vs [file]` or `<ctl>-w v`   | Split window vertically              |
+| `<ctl>-w <ctl>-w`             | Change to next window                |
+| `:q` or `<ctl>-w q`           | Close window                         |
+| `:only`, `:on` or `<ctl>-w o` | Close all other windows              |
+| `:ba` or `:ball`              | Open all buffers in separate windows |
+| `:windo <cmd>`                | Run command on each windows          |
+
+## Navigate between Windows
+
+| Key                           | Action                            |
+|-------------------------------|-----------------------------------|
+| `<ctl>-w h`                   | Navigate left to window           |
+| `<ctl>-w j`                   | Navigate down to window           |
+| `<ctl>-w k`                   | Navigate up to window             |
+| `<ctl>-w l`                   | Navigate right to window          |
+
+## Move Windows
+
+| Key         | Action               |
+|-------------|----------------------|
+| `<ctl>-w H` | Move window to left  |
+| `<ctl>-w J` | Move window down     |
+| `<ctl>-w K` | Move window up       |
+| `<ctl>-w L` | Move window to right |
+
+## Resize Windows
+
+- `<ctl>-w +`: Increase window size vertically
+- `<ctl>-w -`: Increase window size vertically
+- `<ctl>-w -`: Decrease window size vertically
+- `<ctl>-w <`: Increase window size horizontally
+- `<ctl>-w >`: Decrease window size horizontally
+- `<ctl>-w _`: Maximize height of window
+- `<ctl>-w |`: Maximize width of window
+- `<ctl>-w =`: Make all windows the same size
+
 # Macros
 
 | Key           | Action                                    |
