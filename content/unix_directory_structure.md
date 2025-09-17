@@ -8,28 +8,37 @@ modified: 2016-09-30
 
 # Linux
 
-| Directory    | Content                                                       |
-|--------------|---------------------------------------------------------------|
-| `/bin/`      | Essential commands and programs                               |
-| `/sbin/`     | System binaries: mainly system administration programs        |
-| `/boot/`     | Files for bootloader                                          |
-| `/dev/`      | Device files                                                  |
-| `/usr/`      | System utilities (Unix System Resources)                      |
-| `/opt/`      | Optional software: mainly for users                           |
-| `/etc/`      | System configuration files                                    |
-| `/home/`     | User home directories                                         |
-| `/root/`     | Root home directory                                           |
-| `/tmp/`      | Temporary files, deleted at reboot                            |
-| `/kernel/`   | The operating system                                          |
-| `/srv/`      | Data for services                                             |
-| `/var/`      | Variable files (logs)                                         |
-| `/usr/lib/`  | Precompiled libraries (shared objects)                        |
-| `/lib/`      | Precompiled libraries (shared objects)                        |
-| `/media/`    | Removable devices are mounted here                            |
-| `/mnt/`      | Temporary filesystems are mounted here                        |
-| `/proc/`     | Virtual file system with live kernel information              |
+See also the [Filesystem Hierarchy Standard](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html).
 
-Any directory ending with `bin/` contains binary executable files (or links to them)
+| Directory   | Content                                                     |
+|-------------|-------------------------------------------------------------|
+| `/bin/`     | Essential commands and programs for all users               |
+| `/sbin/`    | System binaries: mainly system administration programs      |
+| `/boot/`    | Files for bootloader                                        |
+| `/dev/`     | Device files and other special files                        |
+| `/usr/`     | System utilities (Unix System Resources)                    |
+| `/opt/`     | Optional software: mainly for users                         |
+| `/etc/`     | System configuration files                                  |
+| `/home/`    | User home directories                                       |
+| `/root/`    | Root home directory                                         |
+| `/tmp/`     | Temporary files, deleted regurarly (e.g. at reboot)         |
+| `/kernel/`  | The operating system                                        |
+| `/srv/`     | Data for services                                           |
+| `/var/`     | Variable files: logs, configs, settings                     |
+| `/usr/lib/` | Precompiled libraries (shared objects)                      |
+| `/lib/`     | Precompiled libraries (shared objects)                      |
+| `/media/`   | Removable devices are mounted here                          |
+| `/mnt/`     | Temporary filesystems are mounted here                      |
+| `/proc/`    | Virtual file system with live kernel information (`procfs`) |
+| `/sys/`     | Virtual file system with live system information (`sysfs`)  |
+
+Any directory ending with `bin/` contains binary executable files (or links to them).
+
+The `/usr` directory contains additional executables, libraries, and utilities for the system
+administrator. It contains the directories `/usr/bin`, `/usr/lib` and `/usr/sbin`.
+
+`/usr` does not need to be on the root filesystem, therefore it cannot contain anything 
+that is required for booting the system.
 
 # Procfs
 
