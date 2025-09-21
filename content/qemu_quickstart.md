@@ -43,3 +43,14 @@ For configuring the network interface the command `tunctl` is used:
 This creates a network interface named `tap0` which is connected to the network controller in the emulated QEMU machine.
 
 The `tunctl` command is available from the *User Mode Linux (UML)* project (uml-utilites).
+
+# Loading an image from Ramdisk
+
+Use the option `-initrd` to load `initramfs` into memory:
+
+```bash
+QEMU_AUDIO_DRV=none \
+qemu-system-arm -m 256M -nographic -M versatilepb \
+-kernel zImage -append "console=ttyAMA0 rdinit=/bin/sh" \
+-dtb versatile-pb.dtb -initrd initramfs.cpio.gz
+```
