@@ -78,20 +78,36 @@ Each running process has a subfolder in `/proc` which is named after its PID.
 - Information about filesystems are found under `/proc/filesystems` and `/proc/mounts`
 
 
-## Hardware
+## Processes and Hardware
 
-| Directory          | Content                                                              |
-|--------------------|----------------------------------------------------------------------|
-| `/proc/devices`    | List devices (character- and block-devices), HD's, SSD's, ports ...  |
-| `/proc/dma`        | List of used DMA channesl and the driver that uses it.               |
-| `/proc/interrupts` | List of used interrupts, type of IRQ, using modules and number of occureces |
-| `/proc/ioports`    | List of all used I/O port (HD's, ethernet, USB ...).                 |
-| `/proc/iomem`      | Mapped hardware memory regions.                                      |
-| `/proc/stat`       | General informations about processorS states (s.a. `procinfo`)       |
-| `/proc/uptime`     | Number of seconds that the system is running and idle time of CPU's. |
-| `/proc/scsi/`      | Directory with informations about SCSI devices                       |
-| `/proc/scsi/scsi`  | List of all SCSI devices.                                            |
-| `/proc/net/`       | Directory with information to networks                               |
+### procfs
+
+| Directory          | Content                                                                                                   |
+|--------------------|-----------------------------------------------------------------------------------------------------------|
+| `/proc/devices`    | List devices (character- and block-devices), HD's, SSD's, ports ...                                       |
+| `/proc/dma`        | List of used DMA channesl and the driver that uses it.                                                    |
+| `/proc/interrupts` | List of used interrupts, type of IRQ, using modules and number of occureces                               |
+| `/proc/ioports`    | List of all used I/O port (HD's, ethernet, USB ...).                                                      |
+| `/proc/iomem`      | Mapped hardware memory regions.                                                                           |
+| `/proc/stat`       | General informations about processorS states (s.a. `procinfo`)                                            |
+| `/proc/uptime`     | Number of seconds that the system is running and idle time of CPU's.                                      |
+| `/proc/scsi/`      | Directory with informations about SCSI devices                                                            |
+| `/proc/scsi/scsi`  | List of all SCSI devices.                                                                                 |
+| `/proc/net/`       | Directory with information to networks                                                                    |
 | `/proc/loadavg`    | Average workload (1 minute, 5 minutes, 15 minutes, active processes / number of processes, last used PID) |
-| `/proc/meminfo`    | Information about memory.                                            |
-| `/proc/cpuinfo`    | Information about CPU's.                                             |
+| `/proc/meminfo`    | Information about memory.                                                                                 |
+| `/proc/cpuinfo`    | Information about CPU's.                                                                                  |
+
+### sysfs
+
+| Directory                                         | Content                                     |
+|---------------------------------------------------|---------------------------------------------|
+| `/sys/block`                                      | Block devices                               |
+| `/sys/class/leds`                                 | Control LED's                               |
+| `/sys/class/gpio`                                 | GPIO's                                      |
+| `/sys/devices/system/cpu/<cpuN>/cpuidle/<stateN>` | CPU frequency states                        |
+| `/sys/device/<device>/power/wakeup`               | Wakeup events                               |
+| `/sys/devices/system/`                            | CPU's, clocks, ...                          |
+| `/sys/devices/virtual/`                           | This contains devices that are memory-based |
+| `/sys/devices/platform/`                          | Devices that are not connected over a bus   |
+| `/sys/power/state`                                | Read/set power state                        |
