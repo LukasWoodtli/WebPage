@@ -7,6 +7,4 @@ The best way to contact me is on [LinkedIn](https://www.linkedin.com/in/lukaswoo
 
 You can check out some of my work on [GitHub](https://github.com/LukasWoodtli).
 
-Here is my [XING](https://www.xing.com/profile/Lukas_Woodtli) account.
-
 > If you are a recruiter (head hunter) then please read [this page](/recruiters_headhunters) before contacting me.
