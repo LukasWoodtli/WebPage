@@ -1,14 +1,13 @@
 import React from "react";
 import {ButtonGroup, IconButton} from "@mui/material";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub, faLinkedin, faXing} from '@fortawesome/free-brands-svg-icons';
+import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 
 const icons = [
     {icon: faLinkedin, link: 'https://www.linkedin.com/in/lukaswoodtli'},
     {icon: faGithub, link: 'https://github.com/LukasWoodtli'},
-    {icon: faXing, link: 'https://www.xing.com/profile/Lukas_Woodtli'},
     {icon: faEnvelope, link: 'mailto:woodtli.lukas@gmail.com'}
 ];
 

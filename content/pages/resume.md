@@ -60,8 +60,6 @@ See my page about the [courses](/courses) I attended.
 - [Home page](https://woodtli.engineering/)
 - [GitHub](https://github.com/LukasWoodtli)
 - [LinkedIn](https://www.linkedin.com/in/lukaswoodtli)
-- [XING](https://www.xing.com/profile/Lukas_Woodtli)
-
 
 # Hobbies
 
