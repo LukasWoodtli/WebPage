@@ -621,7 +621,7 @@
   },
   "content/pages/contact.md": {
     "created": 1427561392,
-    "modified": 1652901377
+    "modified": 1759257131
   },
   "content/pages/courses.md": {
     "created": 1427657796,
@@ -641,7 +641,7 @@
   },
   "content/pages/resume.md": {
     "created": 1424728530,
-    "modified": 1752126534
+    "modified": 1759257131
   },
   "content/pages/skills.md": {
     "created": 1425943139,
@@ -813,7 +813,7 @@
   },
   "content/unix_directory_structure.md": {
     "created": 1475252190,
-    "modified": 1758140049
+    "modified": 1759250718
   },
   "content/unix_system_files.md": {
     "created": 1488833895,
@@ -933,7 +933,7 @@
   },
   "content/first_order_plus_dead_time.md": {
     "created": 1756376763,
-    "modified": 1756376763
+    "modified": 1758659406
   },
   "content/unix_file_permissions.md": {
     "created": 1649449125,
@@ -942,5 +942,9 @@
   "content/flash_technologies.md": {
     "created": 1758469056,
     "modified": 1758469056
+  },
+  "content/software_compliance_and_standards.md": {
+    "created": 1759401202,
+    "modified": 1759402643
   }
 }
