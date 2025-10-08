@@ -57,3 +57,19 @@ with: $\tau_I = \tau_p$
 - Disturbance rejection (regulatory control):
   - $K_c = \frac{0.859}{K_p}\left(\frac{\theta_p}{\tau_p}\right)^{-0.977}$
   - $\tau_I = \frac{\tau_p}{0.674}\left(\frac{\theta_p}{\tau_p}\right)^{0.680}$
+
+# PID-Control
+
+$$u(t) = K_P \cdot e(t) + K_I\cdot \int_0^t e(t)\;dt + K_D \frac{d\,e(t)}{dt}$$
+
+## Internal Model Control
+
+$$K_c = \frac{1}{K_p}\frac{\tau_p}{\left( \theta_p + \tau_c \right)}$$
+
+$$\tau_I = \tau_p + 0.5\theta_p$$
+
+$$\tau_D = \frac{\tau_p\theta_p}{2\tau_p + \theta_p}$$
+
+- Aggressive tuning: $ \tau_c = \max \left( 0.1 \tau_p, 0.8 \theta_p \right)$
+- Moderate tuning: $ \tau_c = \max \left( 1.0 \tau_p, 8.0 \theta_p \right)$
+- Conservative tuning: $ \tau_c = \max \left( 10.0 \tau_p, 80.0 \theta_p \right)$
