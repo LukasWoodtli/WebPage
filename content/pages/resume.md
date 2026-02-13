@@ -10,8 +10,8 @@ Zürich
 # Nationality
 Swiss, Czech
 
-# Actual Job
-Software Developer C++ on Linux at Profidata.
+# Current Job
+IoT Embedded Developer at GARDENA digital hub Zürich.
 
 # Work Experience
 

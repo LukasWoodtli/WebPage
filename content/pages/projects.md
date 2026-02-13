@@ -7,13 +7,11 @@ title: Projects
 
 ## Gardena Digital Hub
 
-I'm working with the IoT platform team on connected Embedded devices. They include a Gateway that runs a custom Linux distribution and edge devices running firmware written in C using the Zephyr OS.
+I'm working with the IoT platform team on connected Embedded devices. This includes the development and maintenance of services that run on a gateway as well as the implementation of a custom Linux distribution for that gateway. Moreover we implement basic functionality for the firmware running on the edge devices.
 
-My main tasks include the maintenance of our custom Linux distribution, development of services running on the Gateway and providing platform functionality on the Zephyr end devices.
+I also ensure product quality with automated software and hardware tests, code analysis and continuous integration.
 
-Moreover, I ensure product quality with automated software and hardware tests, code analysis and continuous integration.
-
-The used programming languages include C, Rust and Python. We use Yocto and Zephyr as our Operating Systems. The communication protocols include CoAP, MQTT and LwM2M.
+The used programming languages include C, Rust and Python. We use Yocto and Zephyr as our Operating Systems. And the communication protocols include CoAP, MQTT and LwM2M.
 
 [www.gardena.com](https://www.gardena.com/)
 
