@@ -69,6 +69,78 @@ Closing the plugin:
 - Plugin needs to work even when there is no editor.
 - No audio related code in editor!
 
+# Real-Time Audio Processing
+
+## Audio Thread
+
+### Don'ts
+
+- Memory allocation and deallocation 
+  - Be cautious about hidden allocations, e.g. in `std::string`, `std::vector`, `push_back()`, ...
+  - Copy assignment and copy construction of objects
+  - Make allocations in `prepareToPlay()` and deallocations in `releaseResources()`
+- Also other system calls must be avoided (unbounded execution time)
+- Don't take a lock
+  - use `std::atomic<T>` and assure that it's lock-free with `static_assert(std::atomic<T>::is_always_lock_free)`
+  - or other lock-free data structures
+- No multithreading
+- No file and network I/O
+- Don't log
+- No algorithms with unpredictable (or bad) worst case execution time
+- Be careful with 3rd-party code
+
+
+# Audio Buffer
+
+The `juce::AudioBuffer` class is a thin wrapper around arrays of samples. It has a template argument for the underlying type for samples (e.g. `float`).
+
+Member functions:
+
+- `getNumSamples()`: number of samples per channel in the buffer (number of frames)
+- `getNumChannels()`: number of channels in the buffer
+. `getSample(..)` and `setSample(..)`: for getting or setting a specific sample
+- `getWritePointer(int channelNumber)` and `getArrayOfWritePointers()`: for working with pointers to the arrays
+- ...
+
+## Channel- vs. Frame-wise Processing
+
+### Channel-wise iteration
+
+```cpp
+// generate time/position dependant state
+for(const auto channel: iota(0, buffer.getNumChannels())) {
+  for(const auto frame: iota(0, buffer.getNumSamples())) {
+    // use generated state without modifying
+    // process(channel, frame)
+  }
+}
+```
+
+Pros:
+
+- Possible compiler optimizations
+- SIMD compatible
+
+Cons:
+
+- potential duplicated state: additional memory usage
+
+### Frame-wise iteration
+
+```cpp
+for(const auto frame: iota(0, buffer.getNumSamples())) {
+  // state dependant on sample position (time)
+  for(const auto channel: iota(0, buffer.getNumChannels())) {
+    // process(channel, frame)
+  }
+}
+```
+
+Pros:
+
+- easier to understand
+
+
 # Resources
 
 [WolfSound: JUCE Audio Plugin Development Course](https://www.wolfsoundacademy.com/juce)
