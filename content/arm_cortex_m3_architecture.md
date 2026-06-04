@@ -9,12 +9,7 @@ This page collects my notes about the Cortex-M3 architecture.
 In particular I use the *EFM32TG840F32* processor on a STK3300 starter kit by
 [Silicon Labs](https://www.silabs.com/).
 
-Most information on this page is taken from the
-[documentation by ARM](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.subset.cortexm.m3/index.html).
-
-
-
-
+Most information on this page is taken from the documentation by ARM.
 
 
 # General
