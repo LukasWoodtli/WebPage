@@ -13,7 +13,7 @@ describe("Combine file information with dates", () => {
   it("unsuccessful", () => {
     const file = "/foo/bar/baz";
     expect(() => getFileDates(file))
-      .toThrowError("No dates found for file '/foo/bar/baz'. Please update file with dates: npm run generate-dates-file");
+      .toThrow("No dates found for file '/foo/bar/baz'. Please update file with dates: npm run generate-dates-file");
   });
 
   it("gets correct neighbors for first entry", () => {

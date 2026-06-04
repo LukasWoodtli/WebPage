@@ -18,7 +18,7 @@ const hasTags = (tags: string[] | null) => (tags && tags.length > 0);
 
 const MetaDataSideBar = (props: any) => {
   return (
-    <List data-test="metadata-sidebar">
+    <List>
       <Divider />
       <ListItem key="category-title">
         <ListItemText>
@@ -28,7 +28,7 @@ const MetaDataSideBar = (props: any) => {
       <ListItem key="category-content">
         <BadgesList elements={[props.category]} variant="outlined" />
       </ListItem>
-      {hasTags(props.tags) &&
+      {hasTags(props.tags) && (
         <>
           <Divider />
           <ListItem key="tags-title">
@@ -39,14 +39,15 @@ const MetaDataSideBar = (props: any) => {
           <ListItem key="tags-content">
             <BadgesList elements={props.tags} variant="filled" />
           </ListItem>
-        </>}
+        </>
+      )}
       <Divider />
       <ListItem key="created-date-title">
         <ListItemText>
           <Typography>Created</Typography>
         </ListItemText>
       </ListItem>
-      <ListItem key="created-date-content" data-test="created-date">
+      <ListItem key="created-date-content">
         <FormatDate dateTimeStamp={props.dates.created} />
       </ListItem>
       <Divider />
@@ -55,11 +56,12 @@ const MetaDataSideBar = (props: any) => {
           <Typography>Modified</Typography>
         </ListItemText>
       </ListItem>
-      <ListItem key="modified-date-content" data-test="modified-date">
+      <ListItem key="modified-date-content" data-testid="modified-date">
         <FormatDate dateTimeStamp={props.dates.modified} />
       </ListItem>
       <Divider />
-    </List>);
+    </List>
+  )
 };
 
 export default MetaDataSideBar;

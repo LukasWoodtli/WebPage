@@ -32,7 +32,7 @@ I am also learning a lot about financial markets, investment and FinTech.
 
 Another responsibility of mine is the maintenance of our build environment and continuous integration infrastructure (CMake, Jenkins pipeline, Gerrit), integration of static and dynamic analysis tools (Sanitizers, Clang Static Analyzer), as well as regression- and unit-tests. I also became an expert in development on Linux.
 
-[www.profidatagroup.com](https://www.profidatagroup.com/)
+[www.profidata.com](https://www.profidata.com/)
 
 ## Kaba:
 
@@ -51,7 +51,7 @@ All these devices contained different peripherals, such as NFC readers, EEPROM, 
 Besides programming, I defined functional requirements, specifications and maintained documentation. Moreover, I was the project manager in charge of developing a customer specific device.
 
 
-[www.dormakaba.com](https://www.dormakaba.com/ch-de/produkte-loesungen/produkte/zutritt-und-zeit/zutrittsleser-peripherie/zutrittsleser---peripherie-301956)
+[www.dormakaba.com](https://www.dormakaba.com)
 
 
 ## CodeCheck AG
@@ -90,5 +90,3 @@ We were an interdisciplinary team of electrical and mechanical engineers.
 My task was to develop the firmware and create the controlling algorithm for the embedded hardware. The hardware, based on two micro controllers, had many different peripheral devices, such as gyroscopes, a compass, pressure-, ultrasonic- and acceleration-sensors, as well as the motors to drive the propellers. Different interfaces were used for communication with the peripheral devices, such as UART, SPI, I2C, ADC and ZigBee.
 
 The bachelor thesis was rewarded with a grade of **5.5** (of 6).
-
-  More information on the project can be found on the homepage: [www.reely.ethz.ch](http://www.reely.ethz.ch)
