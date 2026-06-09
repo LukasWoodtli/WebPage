@@ -21,23 +21,25 @@ function Index() {
                 <Grid
                     container
                     spacing={3}
-                    item
-                    direction="row"
-                    justifyContent="flex-start"
-                    alignItems="stretch"
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'flex-start',
+                        alignItems: 'stretch',
+                    }}
+                    size={{xs: 12}}
                 >
                     <Grid
-                        item
-                        lg={6}
-                        alignItems="stretch"
+                        size={{xs: 12, lg: 6}}
+                        sx={{display: 'flex'}}
                     >
-                        <Card variant="outlined" sx={{border: 0}}>
+                        <Card variant="outlined" sx={{border: 0, width: '100%', display: 'flex', flexDirection: 'column'}}>
                             <CardHeader title={
                                 <Typography variant="h4" align="left">
                                     Welcome to my Page
                                 </Typography>}
                             />
-                            <CardContent>
+                            <CardContent sx={{ flex: 1 }}>
                                 <Typography align="left">
                                     {indexText}
                                 </Typography>
@@ -45,12 +47,11 @@ function Index() {
                         </Card>
                     </Grid>
                     <Grid
-                        item
-                        lg={6}
-                        alignItems="stretch"
+                        size={{xs: 12, lg: 6}}
+                        sx={{display: 'flex'}}
                     >
-                        <Card variant="outlined" sx={{border: 0}}>
-                            <CardContent>
+                        <Card variant="outlined" sx={{border: 0, width: '100%', display: 'flex', flexDirection: 'column'}}>
+                            <CardContent sx={{ flex: 1 }}>
                               <StaticImage src='../images/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg'
                                            alt="Electronic board (by Alexandre Debieve)"/>
                             </CardContent>
