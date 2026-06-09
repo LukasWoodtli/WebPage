@@ -58,50 +58,46 @@ const DashBoard = () => {
 
     ];
     return (
-        <>
+      <>
+        <Grid
+          container
+          spacing={3}
+          direction="row"
+          component="main"
+          size="grow"
+          sx={{
+            justifyContent: "space-around",
+            alignItems: "stretch",
+            flexGrow: 1,
+            px: 5,
+            py: 5,
+          }}
+        >
+          {cards.map(card => (
             <Grid
-                container
-                spacing={3}
-                item
-                direction="row"
-                flexDirection="row"
-                justifyContent="flex-start"
-                alignItems="stretch"
-                component="main"
-                sx={{
-                    flexGrow: 1,
-                    px: 5,
-                    py: 5
-                }}
+              component={"section"}
+              size={{ xs: 12, sm: 6, md: 4, lg: 4, xl: 4 }}
+              key={card.title}
             >
-                {cards.map(card => (
-                    <Grid
-                        item
-                        xs={12}
-                        sm={6}
-                        md={4}
-                        lg={4}
-                        xl={4}
-                        display="flex"
-                        key={card.title}
-                    >
-                        <Card>
-                            <CardHeader
-                                avatar={card.avatar}
-                                title={
-                                    <Typography variant="h5" align="left">
-                                        {card.title}
-                                    </Typography>
-                                }/>
-                            <CardContent>
-                              <Typography variant="body1" align="left" component={"div"}>
-                                {card.text}
-                              </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>))}
+              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <CardHeader
+                  avatar={card.avatar}
+                  title={
+                    <Typography variant="h5" align="left">
+                      {card.title}
+                    </Typography>
+                  }
+                />
+                <CardContent sx={{ flex: 1 }}>
+                  <Typography variant="body1" align="left" component={"div"}>
+                    {card.text}
+                  </Typography>
+                </CardContent>
+              </Card>
             </Grid>
-        </>
+          ))}
+        </Grid>
+      </>
     )
 };
 
