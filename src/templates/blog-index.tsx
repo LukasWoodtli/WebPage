@@ -11,7 +11,14 @@ const BlogIndex = (props: any) => {
 
   return (
     <Layout>
-      <ol style={{ listStyle: `none` }}>
+      <Typography variant={"h2"}>
+        Blog
+      </Typography>
+      <Typography paragraph>
+        This blog is primarily a personal note-taking space. Posts are written mainly for my own reference. They may be
+        useful to others, but are often not polished for an external audience.
+      </Typography>
+      <ol style={{ listStyle: `none` }} >
         {posts.map((post: any) => {
           if (post.excerpt.includes("TOC")) {
             console.error("Contains TOC string");
