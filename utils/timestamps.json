@@ -9,7 +9,7 @@
   },
   "content/arm_cortex_m3_architecture.md": {
     "created": 1435923840,
-    "modified": 1652729722
+    "modified": 1780582231
   },
   "content/arm_stack_frame.md": {
     "created": 1442779935,
@@ -633,7 +633,7 @@
   },
   "content/pages/projects.md": {
     "created": 1425389231,
-    "modified": 1771019630
+    "modified": 1780582231
   },
   "content/pages/recruiters_headhunters.md": {
     "created": 1499370356,
@@ -641,7 +641,7 @@
   },
   "content/pages/resume.md": {
     "created": 1424728530,
-    "modified": 1771019630
+    "modified": 1787778032
   },
   "content/pages/skills.md": {
     "created": 1425943139,
@@ -953,6 +953,10 @@
   },
   "content/juce_audio_plugin_development.md": {
     "created": 1775387845,
-    "modified": 1775389545
+    "modified": 1779870898
+  },
+  "content/linux_kernel_modules.md": {
+    "created": 1789565217,
+    "modified": 1789565973
   }
 }
