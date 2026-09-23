@@ -19,9 +19,13 @@ sudo apt-get install build-essential kmod
 
 To list modules that are currently loaded in th kernel use `lsmod` or `cat /proc/modules`.
 
+# Building Kernel Modules
+
+The kernel build system `kbuild` is used to build kernel modules. It supports also out-of-tree build of modules.
+
+See [documentation](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/kbuild/modules.rst).
+
 # Useful Kernel Config Settings
-
-
 
 `CONFIG_DEBUG_INFO`: Add debug symbols (for `gdb`, `addr2line`, and `objdump`).
 `CONFIG_KASAN`: Enable Kernel Address Sanitizer (detect out-of-bounds, use-after-free, and other memory errors).
@@ -29,6 +33,12 @@ To list modules that are currently loaded in th kernel use `lsmod` or `cat /proc
 `CONFIG_DEBUG_ATOMIC_SLEEP`: Flags attempts to sleep in atomic context (catches the most common spinlock misuse).
 `CONFIG_MODULE_FORCE_UNLOAD`: Allows `rmmod -f` as a last resort during development.
 
+# Dynamic Debug Logs
+
+- Compile kernel with `CONFIG_DYNAMIC_DEBUG`: `pr_debug()` calls are compiled but disabled.
+- Enable logs: `echo "module <my-module> +p" > /sys/kernel/debug/dynamic_debug/control`.
+
+See [documentation](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/admin-guide/dynamic-debug-howto.rst).
 
 # Resources
 
