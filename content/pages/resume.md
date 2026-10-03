@@ -50,10 +50,11 @@ See my page about the [courses](/courses) I attended.
 - English: Good writing and speaking knowledge
 - French: Some basic knowledge
 
+# Roles and Memberships
 
-# Membership
-
-[Association for Computing Machinery (ACM)](https://www.acm.org/)
+- [Maintainer of the Rust compiler for MIPS](https://doc.rust-lang.org/rustc/platform-support/mipsel-unknown-linux-gnu.html)
+- [Former Project Lead for Eclipse Wakaama IoT](https://projects.eclipse.org/projects/iot.wakaama)
+- [Association for Computing Machinery (ACM)](https://www.acm.org/)
 
 # Online Profiles and Social Networks
 
