@@ -51,6 +51,23 @@
     "prettier": "^3.9.9",
     "start-server-and-test": "^3.0.12"
   },
+  "overrides": {
+    "@gatsbyjs/reach-router": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-server-dom-webpack": {
+      "react": "$react"
+    },
+    "@babel/plugin-proposal-class-properties": "npm:@babel/plugin-transform-class-properties@^7.29.7",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "npm:@babel/plugin-transform-nullish-coalescing-operator@^7.29.7",
+    "@babel/plugin-proposal-numeric-separator": "npm:@babel/plugin-transform-numeric-separator@^7.29.7",
+    "@babel/plugin-proposal-object-rest-spread": "npm:@babel/plugin-transform-object-rest-spread@^7.29.7",
+    "@babel/plugin-proposal-optional-chaining": "npm:@babel/plugin-transform-optional-chaining@^7.29.7",
+    "glob@10": "^13.0.6",
+    "rimraf@3": "^6.1.3",
+    "uuid@8": "^11.1.1"
+  },
   "homepage": "https://woodtli.engineering",
   "keywords": [
     "gatsby",
