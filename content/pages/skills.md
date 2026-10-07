@@ -10,8 +10,8 @@ Please check also the page with [my projects](/projects).
 |---------------------------------------|-----------|
 | C++                                   | very good |
 | C                                     | very good |
+| Rust                                  | very good |
 | Python                                | very good |
-| Rust                                  | good      |
 | Java                                  | good      |
 | Assembler (x86, ARM)                  | good      |
 | Shell scripting (bash, dash, sh, zsh) | good      |
@@ -28,13 +28,16 @@ Please check also the page with [my projects](/projects).
 
 | Tool                | Knowledge                                |
 |---------------------|------------------------------------------|
+| Cargo               | very good                                |
 | CMake               | very good                                |
+| BitBake (Yocto)     | very good                                |
+| Poetry              | very good                                |
+| GitHub Actions      | very good                                |
+| Azure DevOps (pipelines) | good                                |
+| Jenkins (pipelines) | good                                     |
+| West (Zephyr)       | good                                     |
 | Make                | good                                     |
-| Cargo               | good                                     |
-| Poetry              | good                                     |
 | Gradle              | good                                     |
-| Jenkins (pipelines) | very good                                |
-| GitLab              | good                                     |
 
 # Unit Tests and Quality Engineering
 
@@ -42,40 +45,22 @@ Please check also the page with [my projects](/projects).
 |-------------------------------------------|------------------------------------------|
 | Catch2                                    | very good                                |
 | Google Test                               | good                                     |
-| Boost Test                                | good                                     |
-| Qt Test                                   | good                                     |
-| Test Coverage (gcc, clang, Java)          | good                                     |
+| pytest                                    | very good                                |
+| Fuzz Testing                              | very good                                |
+| Test Coverage (gcc, clang, Rust, Python)  | good                                     |
 | boost::di (dependency injection)          | good                                     |
 | Mocking Frameworks (Trompeloeil, Mockito) | good                                     |
 | ApprovalTests                             | very good                                |
-| Serenity BDD                              | good                                     |
 | Cucumber                                  | good                                     |
-| REST-assured                              | good                                     |
-
-# Static Analysis
-
-| Analysis Tool                            | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| Clang static analyzer, clang tidy        | good                                     |
-| CppCheck                                 | good                                     |
-| Pylint                                   | good                                     |
 
 # Dynamic Analysis
 
 | Tool                                     | Knowledge                                |
 |------------------------------------------|------------------------------------------|
 | Sanitizers (gcc, clang)                  | very good                                |
-| Valgrind                                 | basic                                    |
+| Valgrind                                 | good                                     |
 | system tap                               | basic                                    |
 | Perf                                     | basic                                    |
-
-# OS's
-
-| OS                                       | Knowledge                                |
-|------------------------------------------|------------------------------------------|
-| OS X                                     | very good                                |
-| Linux (RHEL, Fedora, Ubuntu)             | very good                                |
-| Windows                                  | good                                     |
 
 # Skills
 
@@ -84,36 +69,31 @@ Please check also the page with [my projects](/projects).
 | OOP/OOD                                          | very good                                  |
 | Design/Architecture Patterns                     | very good                                  |
 | Clean Code, SOLID, TDD, ...                      | very good                                  |
-| Regexp                                           | very good                                  |
-| UML                                              | very good                                  |
 | Git                                              | very good                                  |
 | Project Management / Scrum / XP                  | very good                                  |
 | Legacy Code (refactoring, testing, improving...) | very good                                  |
 | JSON                                             | very good                                  |
-| Debugging (gdb, Visual Studio)                   | very good                                  |
+| Debugging (gdb, JetBrains IDE's)                 | very good                                  |
+| Yocto (OpenEmbedded, BitBake)                    | very good                                  |
 | Zephyr OS                                        | good                                       |
+| Regexp                                           | good                                       |
+| UML                                              | good                                       |
 | XML                                              | good                                       |
 | SQL                                              | basic                                      |
 | UX/UI Design                                     | basic                                      |
 
-# Documentation
+# Communication Protocols
 
-| Tool                   | Knowledge                                |
-|------------------------|------------------------------------------|
-| Doxygen                | very good                                |
-| Graphviz               | very good                                |
-| MediaWiki / Confluence | good                                     |
-| Markdown               | very good                                |
-| LaTeX                  | good                                     |
-
-# IDE's
-
-| IDE                                 | Knowledge                                |
-|-------------------------------------|------------------------------------------|
-| CLion, IntelliJ, PyCharm, RustRover | very good                                |
-| Qt Creator                          | very good                                |
-| Visual Studio & Visual Studio Code  | good                                     |
-| XCode                               | good                                     |
+| Protocol / Tool                         | Level     |
+|-----------------------------------------|-----------|
+| Low-level protocols (I2C, SPI ...)      | very good |
+| CoAP                                    | very good |
+| LwM2M                                   | very good |
+| MQTT.                                   | good      |
+| HTTP(S)                                 | very good |
+| IP, TCP, UDP                            | very good |
+| Domain Sockets                          | very good |
+| Wireshark (pcap)                        | very good |
 
 # Electronic and Control
 
