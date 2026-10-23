@@ -1,10 +1,10 @@
 ---
 title: Contact
 ---
-I'm always interested in new challenges and open for new input. Feel free to contact me:
+I am always interested in new challenges and open to new ideas. Feel free to get in touch.
 
-The best way to contact me is on [LinkedIn](https://www.linkedin.com/in/lukaswoodtli).
+The best way to reach me is on [LinkedIn](https://www.linkedin.com/in/lukaswoodtli).
 
-You can check out some of my work on [GitHub](https://github.com/LukasWoodtli).
+You can find some of my work on [GitHub](https://github.com/LukasWoodtli).
 
-> If you are a recruiter (head hunter) then please read [this page](/recruiters_headhunters) before contacting me.
+> If you are a recruiter (headhunter), please read [this page](/recruiters_headhunters) before you contact me.
