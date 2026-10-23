@@ -7,86 +7,86 @@ title: Projects
 
 ## Gardena Digital Hub
 
-I'm working with the IoT platform team on connected Embedded devices. This includes the development and maintenance of services that run on a gateway as well as the implementation of a custom Linux distribution for that gateway. Moreover we implement basic functionality for the firmware running on the edge devices.
+I work in the IoT platform team on connected embedded devices. This includes the development and maintenance of services that run on a gateway, as well as a custom Linux distribution for that gateway. We also implement basic functionality for the firmware that runs on the edge devices.
 
-I also ensure product quality with automated software and hardware tests, code analysis and continuous integration.
+I also help to ensure product quality with automated software and hardware tests, code analysis and continuous integration.
 
-The used programming languages include C, Rust and Python. We use Yocto and Zephyr as our Operating Systems. And the communication protocols include CoAP, MQTT and LwM2M.
+We program in C, Rust and Python. Our operating systems are based on Yocto and Zephyr, and our communication protocols include CoAP, MQTT and LwM2M.
 
 [www.gardena.com](https://www.gardena.com/)
 
 ## Profidata AG
 
 
-At Profidata I was working as a senior software developer. My tasks there ware to ensure software quality of the highly scalable and parallelized server application Xentis. 
-I implemented system tests to check our REST API's as well as integration tests and unit tests. To test a big legacy application I found that characterization tests help to increase code quality and capture current behavior. With my experience in quality
-software design and testing techniques I support other developer's with testing and refactoring the huge legacy codebase.
+At Profidata I worked as a senior software developer. My main task was to ensure the software quality of Xentis, a highly scalable and parallelized server application.
+I implemented system tests for our REST APIs, as well as integration tests and unit tests. For a large legacy application, I found that characterization tests help to capture the current behavior and to improve code quality. With my experience in software design and testing techniques,
+I supported other developers with testing and refactoring the huge legacy codebase.
 
-Previous tasks included the extension of the Xentis server application with REST services. This enables other systems to
+Earlier tasks included extending the Xentis server application with REST services. These services let other systems
 use the functionality of Xentis outside of the core application.
-I also worked on the implementation of different functional modules such as investment performance and price services. 
+I also implemented different functional modules, such as investment performance and price services.
 
-The development is done with modern and generic C++ on Linux and with Java. Part of the testing infrastructure is written in Python.
+Development was done in modern, generic C++ on Linux and in Java. Part of the test infrastructure was written in Python.
 
-I am also learning a lot about financial markets, investment and FinTech.
+I also learned a lot about financial markets, investment and FinTech.
 
-Another responsibility of mine is the maintenance of our build environment and continuous integration infrastructure (CMake, Jenkins pipeline, Gerrit), integration of static and dynamic analysis tools (Sanitizers, Clang Static Analyzer), as well as regression- and unit-tests. I also became an expert in development on Linux.
+I was also responsible for the maintenance of our build environment and continuous integration infrastructure (CMake, Jenkins pipeline, Gerrit), the integration of static and dynamic analysis tools (sanitizers, Clang Static Analyzer), and regression and unit tests. I also became an expert in development on Linux.
 
 [www.profidata.com](https://www.profidata.com/)
 
-## Kaba:
+## Kaba
 
 ### Portable Programming Device
-At first I was responsible for the development of the firmware for a programming device. The programmer consists of a lot of peripheral devices including a LCD display, a keypad, NFC, USB, RS-232 and SD card. It runs on an ARM controller. The firmware was developed in C.
+First, I was responsible for the firmware of a programming device. The device has many peripherals, including an LCD display, a keypad, NFC, USB, RS-232 and an SD card. It runs on an ARM controller. The firmware was written in C.
 
 ### Electronic Locks
 
-Later I was involved in the embedded software development of electronic locks that were based on different micro controller architectures, such as ARM Cortex, ATmega and Coldfire. I extended and maintained the firmware that was written in C. Later it was decided to rewrite the embedded software using C++ for it.
+Later, I worked on the embedded software for electronic locks based on different microcontroller architectures, such as ARM Cortex, ATmega and ColdFire. I extended and maintained the firmware, which was written in C. Later, the team decided to rewrite the embedded software in C++.
 
-Beside my role as a programmer, I acted as the main software architect on this project, driving the development of a modular, object oriented design. It was designed for usability, testability, extensibility and reuse. To enforce quality and security, system- and unit-tests were implemented with a Test Driven Development approach. I also mentored and supported my colleagues on how to use C++ in an embedded, battery driven environment with with low resources.
+Besides my role as a programmer, I was the main software architect on this project and drove the development of a modular, object-oriented design. It was designed for usability, testability, extensibility and reuse. To enforce quality and security, we implemented system and unit tests with a test-driven development approach. I also mentored and supported my colleagues in using C++ in an embedded, battery-powered environment with limited resources.
 
-All these devices contained different peripherals, such as NFC readers, EEPROM, ZigBee, USB and motors, which were connected by common digital communication interfaces. My team also extended and maintained PC simulations for all devices (firmware and hardware) to simplify development, testing and bug fixing.
+All these devices contained different peripherals, such as NFC readers, EEPROM, ZigBee, USB and motors, which were connected through common digital communication interfaces. My team also extended and maintained PC simulations of all devices (firmware and hardware) to simplify development, testing and bug fixing.
 
 ### Other Tasks
-Besides programming, I defined functional requirements, specifications and maintained documentation. Moreover, I was the project manager in charge of developing a customer specific device.
+Besides programming, I defined functional requirements and specifications and maintained the documentation. I was also the project manager for the development of a customer-specific device.
 
 
 [www.dormakaba.com](https://www.dormakaba.com)
 
 
 ## CodeCheck AG
-As a small project at CodeCheck I developed a
-complete mobile app for Symbian with Qt and C++. Learned a lot about development for mobile platforms and REST services. Improved my C++ and Qt skills. In the process of developing the app I also ported a barcode scanner from Objective-C to C++.
+In a small project at CodeCheck, I developed a complete mobile app for Symbian with Qt and C++.
+I learned a lot about development for mobile platforms and about REST services, and I improved my C++ and Qt skills. As part of the app, I also ported a barcode scanner from Objective-C to C++.
 
 
 ## Schiller AG
-After my studies as electronic engineer I worked as an intern at Schiller.
-There I created an application for the configuration and combination of filters for electrocardiograph devices (ECG). 
+After my studies in electrical engineering, I worked as an intern at Schiller.
+There I created an application to configure and combine filters for electrocardiograph (ECG) devices.
 
-The software reads the configuration from a XML file and shows it graphically as connected boxes which represent the filters. The configuration can be stored again in a XML file. For creating and editing configurations the filters are placed on a workspace via drag and drop and they can be connected with mouse clicks.
+The software reads the configuration from an XML file and shows it graphically as connected boxes that represent the filters. The configuration can be saved back to an XML file. To create and edit configurations, you place the filters on a workspace with drag and drop and connect them with mouse clicks.
 
 The application was developed in C++ with Qt, Boost and Xerces for Windows and Linux.
-Beside improving my C++ skills I also learned a lot of general programming tools and techniques as Design Patterns, OOA/OOD, UML, XML (SAX/DOM), Doxygen.
-I not only learned a lot of technical stuff but also about medical engineering.
-As side projects I set up automated integration testing for the GUI of an ECG application and evaluated installer tools for Windows and Linux.
+Besides improving my C++ skills, I learned many general programming tools and techniques, such as design patterns, OOA/OOD, UML, XML (SAX/DOM) and Doxygen.
+I learned not only a lot of technical things but also a lot about medical engineering.
+As side projects, I set up automated integration tests for the GUI of an ECG application and evaluated installer tools for Windows and Linux.
 
 
 ## AIM Industrielle Montage
 
-After my apprenticeship I worked at AIM as mechanical engineer.
-There I assembled mechanical devices and fabricated small series and individual mechanical parts. I also made some improvements on existing parts.
-An other task was to manage the warehouse of mechanical parts and devices (logistics).
+After my apprenticeship, I worked at AIM as a mechanic.
+There I assembled mechanical devices and made small series and single mechanical parts. I also made some improvements to existing parts.
+Another task was to manage the warehouse for mechanical parts and devices (logistics).
 
 
 # Educational Projects
 
 ## Bachelor Thesis
 
-The task of my Bachelor thesis was to develop and build a quad copter in the shape of a film reel to entertain visitors at Disneyland.
+The task of my Bachelor's thesis was to develop and build a quadcopter in the shape of a film reel to entertain visitors at Disneyland.
 
 The project was a cooperation between the Autonomous Systems Lab at the ETH and the ZHAW, where I obtained my degree in Electrical Engineering.
 We were an interdisciplinary team of electrical and mechanical engineers.
 
-My task was to develop the firmware and create the controlling algorithm for the embedded hardware. The hardware, based on two micro controllers, had many different peripheral devices, such as gyroscopes, a compass, pressure-, ultrasonic- and acceleration-sensors, as well as the motors to drive the propellers. Different interfaces were used for communication with the peripheral devices, such as UART, SPI, I2C, ADC and ZigBee.
+My task was to develop the firmware and the control algorithm for the embedded hardware. The hardware was based on two microcontrollers and had many different peripherals, such as gyroscopes, a compass, pressure, ultrasonic and acceleration sensors, and the motors that drive the propellers. The peripherals communicated through different interfaces, such as UART, SPI, I2C, ADC and ZigBee.
 
-The bachelor thesis was rewarded with a grade of **5.5** (of 6).
+The Bachelor's thesis received a grade of **5.5** (out of 6).

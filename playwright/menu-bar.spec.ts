@@ -4,7 +4,7 @@ import { Page } from 'playwright'
 test.describe('MenuBar', () => {
 
   const initial_page_text =
-    'My experience range from small electromechanical devices to large scale enterprise applications.'
+    'My experience ranges from small electromechanical devices to large-scale enterprise applications.'
 
   const menu_items = [
     { menu_item: 'Lukas Woodtli', expected_text: initial_page_text },
@@ -13,7 +13,7 @@ test.describe('MenuBar', () => {
     { menu_item: 'Books', expected_text: 'Operating Systems and Networking' },
     { menu_item: 'Courses', expected_text: 'Effective Modern C++ live!', },
     { menu_item: 'Projects', expected_text: 'Work Experience' },
-    { menu_item: 'Contact', expected_text: 'Feel free to contact me' },
+    { menu_item: 'Contact', expected_text: 'Feel free to get in touch' },
   ]
 
   test.beforeEach(async ({ page }) => {

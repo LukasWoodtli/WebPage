@@ -21,16 +21,16 @@ IoT Embedded Developer at GARDENA digital hub Zürich.
 | 2016 - 2022     | Senior Software Engineer C++ on Linux, Profidata AG       |
 | 2010 - 2015     | Senior Firmware/Software Engineer, Kaba AG, Wetzikon      |
 | 2010 (4 months) | Software Engineer, Codecheck Zürich                       |
-| 2010 (6 months) | Internship as Software Engineer, Schiller AG Baar         |
+| 2010 (6 months) | Software Engineering Intern, Schiller AG Baar             |
 | 2002 (6 months) | Mechanic, AIM Horgen                                      |
 
 # Education
 | Years:      |                                                                                                                             |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------|
 | 2015 - 2016 | [Certificate Program in Computer Science (CAS-INFK)](https://www.inf.ethz.ch/continuing-education/certificate-program.html) |
-| 2004 - 2009 | Bachelor of Science in Electrical Engineering, [University of Applied Science Zürich (ZHAW)](http://www.zhaw.ch)            |
+| 2004 - 2009 | Bachelor of Science in Electrical Engineering, [University of Applied Sciences Zürich (ZHAW)](http://www.zhaw.ch)           |
 | 2003 - 2004 | Teacher Training College, PH Zürich                                                                                         |
-| 1997 - 2001 | Apprenticeship as Mechanic, MSW Winterthur                                                                                  |
+| 1997 - 2001 | Apprenticeship as a Mechanic, MSW Winterthur                                                                                |
 
 
 # Courses
@@ -45,10 +45,10 @@ See my page about the [courses](/courses) I attended.
 
 # Language Skills
 
-- German (Mother tongue): Very good writing and speaking knowledge
-- Czech (Mother tongue): Very good speaking and basic writing knowledge
-- English: Good writing and speaking knowledge
-- French: Some basic knowledge
+- German (native): Very good written and spoken
+- Czech (native): Very good spoken, basic written
+- English: Good written and spoken
+- French: Basic knowledge
 
 # Roles and Memberships
 
@@ -70,7 +70,7 @@ See my page about the [courses](/courses) I attended.
   * Mountain Climbing
   * Sailing
 * Cooking
-* Reading books
+* Reading
 
 # References
 Available on request
@@ -85,7 +85,7 @@ Available on request
 
 
 
-# Recruiters and Head Hunter
+# Recruiters and Headhunters
 
-If you are a recruiter (head hunter) then please read [this page](/recruiters_headhunters) before contacting me.
+If you are a recruiter (headhunter), please read [this page](/recruiters_headhunters) before you contact me.
 
