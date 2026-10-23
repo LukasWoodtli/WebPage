@@ -2,7 +2,7 @@
 title: Skills
 ---
 
-Please check also the page with [my projects](/projects).
+Please also see the page about [my projects](/projects).
 
 # Programming Languages
 
@@ -19,9 +19,9 @@ Please check also the page with [my projects](/projects).
 | Lisp (Scheme, Clojure)                | basic     |
 | Scala                                 | basic     |
 | Ruby                                  | basic     |
-| Objective C                           | basic     |
+| Objective-C                           | basic     |
 | Oberon                                | basic     |
-| JavaScript / Typescript               | basic     |
+| JavaScript / TypeScript               | basic     |
 | VHDL                                  | basic     |
 
 # Build Tools
@@ -59,7 +59,7 @@ Please check also the page with [my projects](/projects).
 |------------------------------------------|------------------------------------------|
 | Sanitizers (gcc, clang)                  | very good                                |
 | Valgrind                                 | good                                     |
-| system tap                               | basic                                    |
+| SystemTap                                | basic                                    |
 | Perf                                     | basic                                    |
 
 # Skills
@@ -73,7 +73,7 @@ Please check also the page with [my projects](/projects).
 | Project Management / Scrum / XP                  | very good                                  |
 | Legacy Code (refactoring, testing, improving...) | very good                                  |
 | JSON                                             | very good                                  |
-| Debugging (gdb, JetBrains IDE's)                 | very good                                  |
+| Debugging (gdb, JetBrains IDEs)                  | very good                                  |
 | Yocto (OpenEmbedded, BitBake)                    | very good                                  |
 | Zephyr OS                                        | good                                       |
 | Regexp                                           | good                                       |
@@ -86,20 +86,20 @@ Please check also the page with [my projects](/projects).
 
 | Protocol / Tool                         | Level     |
 |-----------------------------------------|-----------|
-| Low-level protocols (I2C, SPI ...)      | very good |
+| Low-level protocols (I2C, SPI, ...)     | very good |
 | CoAP                                    | very good |
 | LwM2M                                   | very good |
-| MQTT.                                   | good      |
+| MQTT                                    | good      |
 | HTTP(S)                                 | very good |
 | IP, TCP, UDP                            | very good |
 | Domain Sockets                          | very good |
 | Wireshark (pcap)                        | very good |
 
-# Electronic and Control
+# Electronics and Control
 
 | Skill                                   | Level     |
 |-----------------------------------------|-----------|
-| Embedded Systems and Micro Controllers  | very good |
+| Embedded Systems and Microcontrollers   | very good |
 | Control Systems Engineering             | good      |
 | Signals and Systems                     | good      |
 | RFID                                    | good      |

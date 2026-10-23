@@ -1,9 +1,9 @@
 ---
 title: Courses
 ---
-It's very important to stay up to date about technological progress and to improve own skills. One of the best way to keep the pace on this fast changig topcs is to attend to courses.
+It is very important to keep up with technological progress and to improve my own skills. One of the best ways to keep pace with these fast-changing topics is to attend courses.
 
-Another one is to read [books](/books) about the topics.
+Another way is to read [books](/books) about them.
 
 # Robotics, Embedded Systems and Signal Processing
 
