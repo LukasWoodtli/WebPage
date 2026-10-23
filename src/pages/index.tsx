@@ -5,10 +5,10 @@ import Layout from "../layout/layout";
 import { StaticImage } from "gatsby-plugin-image";
 
 function Index() {
-    const indexText = 'I am a passionate Firmware and Software Engineer with a special focus on quality. ' +
-        'My experience range from small electromechanical devices to large scale enterprise applications. ' +
-        'With a background as mechanic as well as electronic and software engineering I developed a ' +
-        'problem-solving engineering mindset that helps me to find exceptional solutions for a big range of projects.'
+    const indexText = 'I am a passionate firmware and software engineer with a strong focus on quality. ' +
+        'My experience ranges from small electromechanical devices to large-scale enterprise applications. ' +
+        'With a background in mechanics, electronics and software engineering, I have developed a ' +
+        'problem-solving mindset that helps me find excellent solutions for a wide range of projects.'
     return <>
       <Layout>
         <Box
