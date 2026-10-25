@@ -14,19 +14,19 @@ We program in C, Rust and Python. Our operating systems are based on Yocto and Z
 
 # Profidata AG
 
-At Profidata I worked as a senior software developer. My main task was to ensure the software quality of Xentis, a highly scalable and parallelized server application.
-I implemented system tests for our REST APIs, as well as integration tests and unit tests. For a large legacy application, I found that characterization tests help to capture the current behavior and to improve code quality. With my experience in software design and testing techniques,
-I supported other developers with testing and refactoring the huge legacy codebase.
+At Profidata I worked as a senior software developer on Xentis, a highly scalable and parallelized server application.
+My main task was to extend Xentis with REST services. These services let other systems use the functionality of Xentis outside of the core application.
+I also implemented functional modules, such as investment performance and price services.
 
-Earlier tasks included extending the Xentis server application with REST services. These services let other systems
-use the functionality of Xentis outside of the core application.
-I also implemented different functional modules, such as investment performance and price services.
+Another task was to ensure the software quality of Xentis.
+I implemented system tests for our REST APIs, as well as integration tests and unit tests.
+In the large legacy codebase, characterization tests helped to capture the current behavior and to improve the code quality step by step.
+With my experience in software design and testing techniques, I supported other developers with testing and refactoring.
 
-Development was done in modern, generic C++ on Linux and in Java. Part of the test infrastructure was written in Python.
+Development was done in modern, generic C++ and Java on Linux. Part of the test infrastructure was written in Python.
 
-I also learned a lot about financial markets, investment and FinTech.
-
-I was also responsible for the maintenance of our build environment and continuous integration infrastructure (CMake, Jenkins pipeline, Gerrit), the integration of static and dynamic analysis tools (sanitizers, Clang Static Analyzer), and regression and unit tests. I also became an expert in development on Linux.
+I was also responsible for the maintenance of our build environment and continuous integration infrastructure (CMake, Jenkins pipeline, Gerrit), and for the integration of static and dynamic analysis tools (sanitizers, Clang Static Analyzer) and of regression and unit tests.
+I also became an expert in development on Linux.
 
 [www.profidata.com](https://www.profidata.com/)
 
