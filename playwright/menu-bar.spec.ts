@@ -12,7 +12,7 @@ test.describe('MenuBar', () => {
     { menu_item: 'Skills', expected_text: 'Programming Languages' },
     { menu_item: 'Books', expected_text: 'Operating Systems and Networking' },
     { menu_item: 'Courses', expected_text: 'Effective Modern C++ live!', },
-    { menu_item: 'Projects', expected_text: 'Work Experience' },
+    { menu_item: 'Projects', expected_text: 'This page describes selected projects from my work as a software engineer' },
     { menu_item: 'Contact', expected_text: 'Feel free to get in touch' },
   ]
 
