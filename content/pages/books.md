@@ -67,6 +67,7 @@ title: Books
 | More Agile Testing: Learning Journeys for the Whole Team     | Lisa Crispin, Janet Gregory                                  | Addison-Wesley          |
 | The Art of Unit Testing, 2nd Edition                         | Roy Osherove                                                 | Manning Publications    | 
 | Test Driven Development for Embedded C                       | James W. Grenning                                            | The Pragmatic Bookshelf |
+| Distributed Systems Observability                            | Cindy Sridharan                                              | O'Reilly                |
 | Using Node.js for UI Testing                                 | Pedro Teixeira                                               | Packt Publishing        |
 | Hacking mit Python                                           | Justin Seitz                                                 | dpunkt.verlag           |
 | Aus dem Tagebuch eines Bughunters                            | Tobias Klein                                                 | dpunkt.verlag           |
