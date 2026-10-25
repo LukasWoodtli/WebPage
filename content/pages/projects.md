@@ -2,6 +2,8 @@
 title: Projects
 ---
 
+This page describes selected projects from my work as a software engineer.
+
 # Gardena Digital Hub
 
 I work in the IoT platform team of the GARDENA smart system.
