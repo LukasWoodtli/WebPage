@@ -24,6 +24,16 @@ Recently, I adopted an agentic workflow for design, development and troubleshoot
 
 [www.gardena.com](https://www.gardena.com/)
 
+# Zephyr OS - EFM32TG-STK3300 Board Support
+
+I added support for the Silicon Labs EFM32TG-STK3300 starter kit to the Zephyr open-source real-time operating system (RTOS).
+The board contains an EFM32TG microcontroller, from a chip family that Zephyr did not yet support.
+So I added SoC-level support for the EFM32TG first. The SoC is an ARM Cortex-M3 microcontroller with low-power modes for battery-powered designs.
+With that in place, I added the board itself: its devicetree description, Kconfig options, and documentation.
+These changes were accepted into the main Zephyr tree.
+
+[EFM32 Tiny Gecko (EFM32TG-STK3300)](https://docs.zephyrproject.org/latest/boards/silabs/starter_kits/efm32tg_stk3300/doc/index.html)
+
 # Profidata AG
 
 At Profidata I worked as a senior software developer on Xentis, a highly scalable and parallelized server application.
