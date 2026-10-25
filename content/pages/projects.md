@@ -4,11 +4,23 @@ title: Projects
 
 # Gardena Digital Hub
 
-I work in the IoT platform team on connected embedded devices. This includes the development and maintenance of services that run on a gateway, as well as a custom Linux distribution for that gateway. We also implement basic functionality for the firmware that runs on the edge devices.
+I work in the IoT platform team of the GARDENA smart system.
+The system controls connected irrigation devices and robotic lawn mowers.
 
-I also help to ensure product quality with automated software and hardware tests, code analysis and continuous integration.
+I write services in Rust, C and Python on the GARDENA smart Gateway.
+The gateway runs a custom embedded Linux distribution based on Yocto, which I also maintain and extend.
+I also write embedded firmware in C for the edge devices, which run on Zephyr RTOS.
 
-We program in C, Rust and Python. Our operating systems are based on Yocto and Zephyr, and our communication protocols include CoAP, MQTT and LwM2M.
+I implement and maintain the IoT communication protocols CoAP, LwM2M and MQTT on the devices and on the gateway.
+These protocols are the basis for the communication between the devices and the AWS IoT cloud.
+
+To find and fix issues, I use distributed observability (remote logging and metrics), protocol and signal analyzers, and debuggers.
+
+To keep the product quality high, I build and extend the test automation.
+This includes unit tests, integration tests and hardware jig tests for the IoT platform.
+In addition, I maintain and improve the continuous integration that automates our builds and tests.
+
+Recently, I adopted an agentic workflow for design, development and troubleshooting.
 
 [www.gardena.com](https://www.gardena.com/)
 
