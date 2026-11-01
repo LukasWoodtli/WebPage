@@ -40,6 +40,11 @@ See [documentation](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux
 
 See [documentation](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/Documentation/admin-guide/dynamic-debug-howto.rst).
 
+# Kernel Symbols
+
+`/proc/kallsyms` lists all symbols that have been exported by the kernel.
+
+
 # Resources
 
 [The Linux Kernel Module Programming Guide](https://sysprog21.github.io/lkmpg/)
